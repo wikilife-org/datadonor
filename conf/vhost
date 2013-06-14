@@ -1,0 +1,44 @@
+<VirtualHost *:80>
+    ServerName datadonor.wikilife.org
+
+#    Alias /html "/var/www"
+#    Alias /static_media "/home/ubuntu/wikilife_meditacion/media"
+    Alias /media "/home/ubuntu/virtualenvs/meditacion/lib/python2.7/site-packages/django/contrib/admin/media"
+
+    <Directory "/">
+        Options FollowSymLinks
+        Order Allow,Deny
+        Allow from all
+    </Directory>
+
+   <Files "^/(robots.txt|favicon.ico)">
+        SetHandler None
+   </Files>
+
+    <Location "/html">
+        SetHandler None
+    </Location>
+
+    <Location "/static_media">
+        SetHandler None
+    </Location>
+
+    <Location "/media">
+        SetHandler None
+    </Location>
+
+
+    <Directory "/">
+        Options FollowSymLinks
+        Order Allow,Deny
+        Allow from all
+    </Directory>
+
+    CustomLog /var/log/apache2/datadonor-access.log combined
+
+    LogLevel warn
+    WSGIScriptAlias / /home/datadonor/wsgi.py
+    WSGIDaemonProcess meditacion processes=10 threads=25 maximum-requests=50 inactivity-timeout=60 deadlock-timeout=60 python-path=/home/ubuntu/virtualenvs/meditacion/lib/python2.7/site-packages
+    WSGIProcessGroup datadonor
+
+</VirtualHost>
