@@ -20,6 +20,7 @@ urlpatterns = patterns('',
                        )
 
 dev_patterns = patterns('connect.facebook_views',
+                        url(r'^/', 'home', name='home'),
                         url(
                             r'^lazy_decorator_example/$', 'lazy_decorator_example',
                         name='facebook_lazy_decorator_example'),

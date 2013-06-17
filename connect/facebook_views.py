@@ -7,7 +7,7 @@ from django_facebook.api import get_persistent_graph, require_persistent_graph
 from django_facebook.decorators import facebook_required_lazy, facebook_required
 from django_facebook.utils import next_redirect, parse_signed_request
 
-def example(request):
+def home(request):
     context = RequestContext(request)
     return render_to_response('home.html', context)
 
