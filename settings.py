@@ -4,10 +4,10 @@ import django
 django_version = django.VERSION
 # some complications related to our travis testing setup
 DJANGO = os.environ.get('DJANGO', '1.5.1')
-MODE = os.environ.get('MODE', 'django_registration')
+MODE = os.environ.get('MODE', 'userena')
 
 
-CUSTOM_USER_MODEL = bool(int(os.environ.get('CUSTOM_USER_MODEL', '0')))
+CUSTOM_USER_MODEL = bool(int(os.environ.get('CUSTOM_USER_MODEL', '1')))
 AUTH_PROFILE_MODULE = 'member.UserProfile'
 
 if DJANGO != '1.5.1':
