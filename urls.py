@@ -10,6 +10,8 @@ from django.views.generic.base import TemplateView, RedirectView
 admin.autodiscover()
 
 urlpatterns = patterns('',
+                       ('^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATICFILES_ROOT, 'show_indexes': True}),
+
                        # facebook and registration urls
                        (r'^facebook/', include('django_facebook.urls')),
                        #(r'^accounts/', include('django_facebook.auth_urls')),
