@@ -4,7 +4,7 @@ import django
 django_version = django.VERSION
 # some complications related to our travis testing setup
 DJANGO = os.environ.get('DJANGO', '1.5.1')
-MODE = os.environ.get('MODE', 'standalone')
+MODE = os.environ.get('MODE', 'django_registration')
 
 
 CUSTOM_USER_MODEL = bool(int(os.environ.get('CUSTOM_USER_MODEL', '0')))
@@ -228,7 +228,7 @@ CACHES = {
 ANONYMOUS_USER_ID = 1
 
 if MODE == 'django_registration':
-    FACEBOOK_REGISTRATION_BACKEND = 'facebook_example.registration_backends.DjangoRegistrationDefaultBackend'
+    FACEBOOK_REGISTRATION_BACKEND = 'connect.registration_backends.DjangoRegistrationDefaultBackend'
     INSTALLED_APPS += (
         'registration',
     )
