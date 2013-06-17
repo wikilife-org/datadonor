@@ -208,7 +208,7 @@
         <div id="header_bar">
         
         {% if user.is_authenticated %}
-            <h1>Welcome {{ user }}</h1><a href="{% url 'userena_signout' %}?next={{ request.path|urlencode }}">logout</a><br />
+            <h1>Welcome {{ user }}</h1><a href="{% url 'auth_logout' %}?next={{ request.path|urlencode }}">logout</a><br />
             
             <p>
             Thank you for logging in with Facebook.
@@ -256,7 +256,6 @@
                     <td>Likes:</td>
                     <td>
                         <ul>
-                        {{user.profile}}
                         {% for like in user.profile_or_self.likes|slice:":5" %}
                             <li>{{ like.name }}</li>
                         {% endfor %}
@@ -320,7 +319,6 @@
             <form action="{% url 'facebook_wall_post' %}" method="get">
                 {% csrf_token %}
                 <input type="hidden" value="{{ request.path }}" name="next" />
-
                 <textarea name="message" rows="3" cols="35">Check out datadonor.org, loving it :)</textarea>
                 <br />
                 <input type="submit" value="Post to your wall" />
