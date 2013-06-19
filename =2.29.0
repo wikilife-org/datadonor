@@ -1,0 +1,8 @@
+Downloading/unpacking selenium
+  Running setup.py egg_info for package selenium
+    
+Installing collected packages: selenium
+  Running setup.py install for selenium
+    
+Successfully installed selenium
+Cleaning up...

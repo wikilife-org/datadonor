@@ -1,55 +1,18 @@
-# Django settings for facebook_example project.
-import os
-import django
-django_version = django.VERSION
-# some complications related to our travis testing setup
-DJANGO = os.environ.get('DJANGO', '1.5.1')
-MODE = os.environ.get('MODE', 'userena')
+from os.path import abspath, dirname, basename, join
 
 
-CUSTOM_USER_MODEL = bool(int(os.environ.get('CUSTOM_USER_MODEL', '1')))
-AUTH_PROFILE_MODULE = 'member.UserProfile'
-
-if DJANGO != '1.5.1':
-    CUSTOM_USER_MODEL = False
-
-FACEBOOK_APP_ID = "167345460113739"
-FACEBOOK_APP_SECRET = "56fe36cce6798c4655fdb55827551b36"
-
-TEMPLATE_CONTEXT_PROCESSORS = [
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.request',
-    'django.contrib.messages.context_processors.messages',
-    'django_facebook.context_processors.facebook',
-]
-
-if django_version >= (1, 4, 0):
-    TEMPLATE_CONTEXT_PROCESSORS.append('django.core.context_processors.tz')
-    
-AUTHENTICATION_BACKENDS = (
-    'django_facebook.auth_backends.FacebookBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-if CUSTOM_USER_MODEL:
-    AUTH_USER_MODEL = 'member.CustomFacebookUser'
-else:
-    AUTH_USER_MODEL = 'auth.User'
-    AUTH_PROFILE_MODULE = 'member.UserProfile'
-
-BASE_ROOT = os.path.abspath(
-    os.path.join(os.path.split(__file__)[0]))
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_ROOT, 'media/')
-STATICFILES_ROOT = os.path.join(BASE_ROOT, 'static/')
+try:
+    import social_auth
+except ImportError:
+    import sys
+    sys.path.insert(0, '..')
 
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+ROOT_PATH = abspath(dirname(__file__))
+PROJECT_NAME = basename(ROOT_PATH)
 
 ADMINS = (
      ('Joaquin Quintas', 'joako84@gmail.com'),
@@ -69,57 +32,31 @@ DATABASES = {
     }
 }
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
-
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# In a Windows environment this must be set to your system time zone.
 TIME_ZONE = 'America/Chicago'
-
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
-
 SITE_ID = 1
-
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
 USE_I18N = True
-
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
 USE_L10N = True
-
-# If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
-
-
-# URL prefix for static files.
-# Example: "http://example.com/static/", "http://static.example.com/"
+MEDIA_ROOT = ''
+MEDIA_URL = ''
+STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
-# Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
 
-# List of finder classes that know how to find static files in
-# various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '1r#u)ta4&+!1al0+defnyol*jg6=n+dlz*#be!2-kf_x@&1-wh'
+SECRET_KEY = '_u6ym67ywnj0ugi2=6f-a_361i6o5elx91hftz$+klw)(*pqjw'
 
-# List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -138,14 +75,10 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-# Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATE_DIRS = (
-                  os.path.join(BASE_ROOT, 'templates/')
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    join(ROOT_PATH, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -155,100 +88,106 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
-    'django_facebook',
-    'member',
+    'django.contrib.admin',
     'south',
-    'open_facebook',
-    'connect',
+    'social_auth',
+    'social',
 )
-
-
-
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
-FILTERS = {
-    'require_debug_false': {
-        '()': 'django.utils.log.RequireDebugFalse'
-    }
-}
-
-MAIL_ADMINS = {
-    'level': 'ERROR',
-    'class': 'django.utils.log.AdminEmailHandler'
-}
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
     'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
     },
     'loggers': {
-        'open_facebook': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django_facebook': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
         'django.request': {
-            'handlers': ['console'],
+            'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
         },
     }
 }
-LOGGING['handlers']['mail_admins'] = MAIL_ADMINS
 
-if django_version > (1, 4, 0):
-    LOGGING['filters'] = FILTERS
-    MAIL_ADMINS['filters'] = ['require_debug_false']
-    LOGGING['handlers']['mail_admins'] = MAIL_ADMINS
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuthBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.yahoo.YahooBackend',
+    'social_auth.backends.stripe.StripeBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.skyrock.SkyrockBackend',
+    'social_auth.backends.contrib.flickr.FlickrBackend',
+    'social_auth.backends.contrib.instagram.InstagramBackend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'social_auth.backends.contrib.yandex.YandexBackend',
+    'social_auth.backends.contrib.disqus.DisqusBackend',
+    'social_auth.backends.contrib.yahoo.YahooOAuthBackend',
+    'social_auth.backends.contrib.fitbit.FitbitBackend',
+    'social_auth.backends.contrib.foursquare.FoursquareBackend',
+    'social_auth.backends.OpenIDBackend',
+    'social_auth.backends.contrib.live.LiveBackend',
+    'social_auth.backends.contrib.livejournal.LiveJournalBackend',
+    'social_auth.backends.contrib.douban.DoubanBackend',
+    'social_auth.backends.browserid.BrowserIDBackend',
+    'social_auth.backends.contrib.vk.VKOpenAPIBackend',
+    'social_auth.backends.contrib.yandex.YandexOAuth2Backend',
+    'social_auth.backends.contrib.yandex.YaruBackend',
+    'social_auth.backends.contrib.odnoklassniki.OdnoklassnikiBackend',
+    'social_auth.backends.contrib.odnoklassniki.OdnoklassnikiAppBackend',
+    'social_auth.backends.contrib.vk.VKOAuth2Backend',
+    'social_auth.backends.contrib.mailru.MailruBackend',
+    'social_auth.backends.contrib.dailymotion.DailymotionBackend',
+    'social_auth.backends.contrib.shopify.ShopifyBackend',
+    'social_auth.backends.contrib.exacttarget.ExactTargetBackend',
+    'social_auth.backends.contrib.stocktwits.StocktwitsBackend',
+    'social_auth.backends.contrib.behance.BehanceBackend',
+    'social_auth.backends.contrib.readability.ReadabilityBackend',
+    'social_auth.backends.contrib.fedora.FedoraBackend',
+    'social_auth.backends.steam.SteamBackend',
+    'social_auth.backends.reddit.RedditBackend',
+    'social_auth.backends.amazon.AmazonBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
-}
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.contrib.messages.context_processors.messages',
+    'social_auth.context_processors.social_auth_by_type_backends',
+)
 
-ANONYMOUS_USER_ID = 1
+LOGIN_REDIRECT_URL = '/'
 
-if MODE == 'django_registration':
-    FACEBOOK_REGISTRATION_BACKEND = 'connect.registration_backends.DjangoRegistrationDefaultBackend'
-    INSTALLED_APPS += (
-        'registration',
-    )
-    ACCOUNT_ACTIVATION_DAYS = 10
-elif MODE == 'userena':
-    '''
-    Settings based on these docs
-    http://docs.django-userena.org/en/latest/installation.html#installing-django-userena
-    '''
-    FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBackend'
-    AUTHENTICATION_BACKENDS = (
-        'django_facebook.auth_backends.FacebookBackend',
-        'userena.backends.UserenaAuthenticationBackend',
-        'django.contrib.auth.backends.ModelBackend',
-    )
-    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-    LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
-    LOGIN_URL = '/accounts/signin/'
-    LOGOUT_URL = '/accounts/signout/'
-    INSTALLED_APPS += (
-        'userena',
-        'guardian',
-    )
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.misc.save_status_to_session',
+    'social.pipeline.redirect_to_form',
+    'social.pipeline.username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details',
+    'social_auth.backends.pipeline.misc.save_status_to_session',
+    'social.pipeline.redirect_to_form2',
+    'social.pipeline.first_name',
+)
+
+try:
+    from conf_settings import *
+except:
+    pass
