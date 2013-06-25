@@ -194,6 +194,11 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.first_name',
 )
 
+
+#FACEBOOK CONFIG
+
+FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes', ]
+
 try:
     from conf_settings import *
 except:
