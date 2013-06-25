@@ -30,6 +30,7 @@ def social_auth_by_type_backends(request):
             data['associated'],
             key=lambda assoc: assoc.provider
         )
+        print data
         return data
     return {'social_auth': LazyDict(context_value)}
 

@@ -930,6 +930,7 @@ def get_backend(name, *args, **kwargs):
     """
     try:
         # Cached backend which has previously been discovered.
+        print BACKENDSCACHE
         return BACKENDSCACHE[name](*args, **kwargs)
     except KeyError:
         # Force a reload of BACKENDS to ensure a missing
