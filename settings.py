@@ -193,6 +193,8 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
     'pipeline.facebook.load_data_new_user',
+    'pipeline.facebook.get_user_avatar',
+    
 )
 
 
