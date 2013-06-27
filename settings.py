@@ -192,6 +192,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.misc.save_status_to_session',
     'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
+    'pipeline.facebook.load_data_new_user',
 )
 
 
