@@ -17,7 +17,9 @@ def home(request):
         return render_to_response('index.html', {'version': version},
                                   RequestContext(request))
 
-
+def greg(request):
+    return render_to_response('google7d1bd3580ebd5b1b.html', {},
+                                  RequestContext(request))
 @login_required
 def done(request):
     """Login complete view, displays user data"""

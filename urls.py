@@ -12,6 +12,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', home, name='home'),
+    url(r'google7d1bd3580ebd5b1b.html$', greg, name='greg'),
     url(r'^done/$', done, name='done'),
     url(r'^error/$', error, name='error'),
     url(r'^logout/$', logout, name='logout'),
