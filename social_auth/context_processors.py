@@ -30,7 +30,6 @@ def social_auth_by_type_backends(request):
             data['associated'],
             key=lambda assoc: assoc.provider
         )
-        print data
         return data
     return {'social_auth': LazyDict(context_value)}
 
@@ -51,6 +50,7 @@ def social_auth_by_name_backends(request):
             accounts.update((assoc.provider.replace('-', '_'), assoc)
                     for assoc in UserSocialAuth.get_social_auth_for_user(user))
         return accounts
+        print accounts
     return {'social_auth': LazyDict(context_value)}
 
 
@@ -79,6 +79,7 @@ def backends_data(user):
                               set(assoc.provider for assoc in associated))
         values['associated'] = associated
         values['not_associated'] = not_associated
+    print values
     return values
 
 

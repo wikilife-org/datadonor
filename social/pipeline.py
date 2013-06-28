@@ -21,6 +21,7 @@ def redirect_to_form2(*args, **kwargs):
 
 
 def first_name(request, *args, **kwargs):
+    
     if 'saved_first_name' in request.session:
         user = kwargs['user']
         user.first_name = request.session.get('saved_first_name')

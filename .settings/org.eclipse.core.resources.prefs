@@ -1,8 +1,9 @@
-#Wed Jun 19 16:36:31 GMT-03:00 2013
+#Thu Jun 27 12:35:03 GMT-03:00 2013
 eclipse.preferences.version=1
 encoding//services/Django-facebook/django_facebook/middleware.py=UTF-8
 encoding//services/Django-facebook/django_facebook/migrations/0010_auto__add_field_facebookcustomuser_new_token_required__chg_field_faceb.py=utf-8
 encoding//services/Django-facebook/open_facebook/api.py=utf-8
+encoding//services/Django-facebook/open_facebook/tests.py=utf-8
 encoding//services/django-social-auth/example/app/odnoklassniki.py=utf-8
 encoding//services/django-social-auth/social_auth/middleware.py=utf-8
 encoding//services/django-social-auth/social_auth/migrations/0002_auto__add_unique_nonce_timestamp_salt_server_url__add_unique_associati.py=utf-8

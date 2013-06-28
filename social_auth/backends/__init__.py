@@ -71,7 +71,6 @@ PIPELINE = setting('SOCIAL_AUTH_PIPELINE', (
                 'social_auth.backends.pipeline.user.update_user_details',
            ))
 
-
 class SocialAuthBackend(object):
     """A django.contrib.auth backend that authenticates the user based on
     a authentication provider response"""
@@ -103,7 +102,7 @@ class SocialAuthBackend(object):
             kwargs['details'] = self.get_user_details(response)
             kwargs['uid'] = self.get_user_id(kwargs['details'], response)
             kwargs['is_new'] = False
-
+                
         out = self.pipeline(pipeline, *args, **kwargs)
         if not isinstance(out, dict):
             return out
@@ -930,7 +929,6 @@ def get_backend(name, *args, **kwargs):
     """
     try:
         # Cached backend which has previously been discovered.
-        print BACKENDSCACHE
         return BACKENDSCACHE[name](*args, **kwargs)
     except KeyError:
         # Force a reload of BACKENDS to ensure a missing

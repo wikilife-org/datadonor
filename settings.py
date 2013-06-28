@@ -18,6 +18,30 @@ ADMINS = (
      ('Joaquin Quintas', 'joako84@gmail.com'),
 )
 
+import os
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home/media/media.lawrence.com/media/"
+#MEDIA_ROOT = '/var/www/media/elearning/'
+MEDIA_ROOT = os.path.join(PROJECT_DIR, "media").replace('\\','/')
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = '/media/'
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/home/media/media.lawrence.com/static/"
+STATIC_ROOT = ""
+print STATIC_ROOT
+
+# URL prefix for static files.
+# Example: "http://media.lawrence.com/static/"
+STATIC_URL = '/static/'
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -38,12 +62,11 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-MEDIA_ROOT = ''
-MEDIA_URL = ''
-STATIC_ROOT = ''
-STATIC_URL = '/static/'
+
+
 
 STATICFILES_DIRS = (
+                   os.path.abspath(os.path.join(PROJECT_DIR, 'static')).replace('\\','/'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -121,7 +144,11 @@ LOGGING = {
 AUTHENTICATION_BACKENDS = (
      'social_auth.backends.facebook.FacebookBackend',
     'social_auth.backends.twitter.TwitterBackend',
-    'social_auth.backends.contrib.fitbit.FitbitBackend',
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.foursquare.FoursquareBackend',
+    'social_auth.backends.contrib.evernote.EvernoteBackend',
+    
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -174,7 +201,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.contrib.messages.context_processors.messages',
+    'social_auth.context_processors.social_auth_by_name_backends',
     'social_auth.context_processors.social_auth_by_type_backends',
+    'social_auth.context_processors.social_auth_backends',
 )
 
 LOGIN_REDIRECT_URL = '/'
@@ -183,17 +212,16 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
     'social_auth.backends.pipeline.associate.associate_by_email',
     'social_auth.backends.pipeline.misc.save_status_to_session',
-    'social.pipeline.redirect_to_form',
+    #'social.pipeline.redirect_to_form',
     'social.pipeline.username',
     'social_auth.backends.pipeline.user.create_user',
     'social_auth.backends.pipeline.social.associate_user',
     'social_auth.backends.pipeline.social.load_extra_data',
     'social_auth.backends.pipeline.user.update_user_details',
     'social_auth.backends.pipeline.misc.save_status_to_session',
-    'social.pipeline.redirect_to_form2',
+    #'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
-    'pipeline.facebook.load_data_new_user',
-    'pipeline.facebook.get_user_avatar',
+    'pipeline.twitter.twitter_info',
     
 )
 

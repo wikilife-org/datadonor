@@ -7,14 +7,23 @@ FACEBOOK_API_SECRET = "56fe36cce6798c4655fdb55827551b36"
 FITBIT_CONSUMER_KEY="bc768a08267e47eb918ab8abb43b9ade"
 FITBIT_CONSUMER_SECRET="d980c6b66b184eaebf3b4809c1392702"
 
-LINKEDIN_CONSUMER_KEY             = ''
-LINKEDIN_CONSUMER_SECRET          = ''
+LINKEDIN_CONSUMER_KEY             = '123'
+LINKEDIN_CONSUMER_SECRET          = '123'
+
+FOURSQUARE_CONSUMER_KEY           = '123'
+FOURSQUARE_CONSUMER_SECRET        = '123'
+
+GOOGLE_OAUTH2_CLIENT_ID           = '123'
+GOOGLE_OAUTH2_CLIENT_SECRET       = '123'
+
+EVERNOTE_CONSUMER_KEY = '123'
+EVERNOTE_CONSUMER_SECRET = '123'
+
 SKYROCK_CONSUMER_KEY              = ''
 SKYROCK_CONSUMER_SECRET           = ''
 ORKUT_CONSUMER_KEY                = ''
 ORKUT_CONSUMER_SECRET             = ''
-GOOGLE_OAUTH2_CLIENT_ID           = ''
-GOOGLE_OAUTH2_CLIENT_SECRET       = ''
+
 SOCIAL_AUTH_CREATE_USERS          = True
 SOCIAL_AUTH_FORCE_RANDOM_USERNAME = False
 SOCIAL_AUTH_DEFAULT_USERNAME      = 'socialauth_user'
@@ -36,8 +45,7 @@ MAILRU_OAUTH2_CLIENT_SECRET       = ''
 SOCIAL_AUTH_ERROR_KEY             = 'socialauth_error'
 GITHUB_APP_ID                     = ''
 GITHUB_API_SECRET                 = ''
-FOURSQUARE_CONSUMER_KEY           = ''
-FOURSQUARE_CONSUMER_SECRET        = ''
+
 DOUBAN_CONSUMER_KEY               = ''
 DOUBAN_CONSUMER_SECRET            = ''
 YANDEX_OAUTH2_CLIENT_KEY          = ''
@@ -61,15 +69,3 @@ VK_API_SECRET = VKONTAKTE_APP_SECRET
 # VKONTAKTE_APP_AUTH={'key':'iframe_app_secret_key', 'user_mode': 2, 'id':'iframe_app_id'}
 
 SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
-
-SOCIAL_AUTH_PIPELINE = (
-    'social_auth.backends.pipeline.social.social_auth_user',
-    'social_auth.backends.pipeline.associate.associate_by_email',
-    'social_auth.backends.pipeline.misc.save_status_to_session',
-    'social.pipeline.redirect_to_form',
-    'social.pipeline.username',
-    'social_auth.backends.pipeline.user.create_user',
-    'social_auth.backends.pipeline.social.associate_user',
-    'social_auth.backends.pipeline.social.load_extra_data',
-    'social_auth.backends.pipeline.user.update_user_details',
-)

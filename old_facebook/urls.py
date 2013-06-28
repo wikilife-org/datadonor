@@ -50,7 +50,6 @@ dev_patterns = patterns('connect.facebook_views',
 
 urlpatterns += dev_patterns
 
-print settings.MODE
 if settings.MODE == 'userena':
     urlpatterns += patterns('',
                             (r'^accounts/', include('userena.urls')),

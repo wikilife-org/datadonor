@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
+from django.conf import settings
 
 from social.views import home, done, logout, error, form, form2, close_login_popup
 from social.facebook import facebook_view
@@ -23,4 +24,6 @@ urlpatterns = patterns('',
     url(r'^ok/info/$', ok_app_info, name='ok_app_info'),
     url(r'^close_login_popup/$', close_login_popup, name='login_popup_close'),
     url(r'', include('social_auth.urls')),
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
