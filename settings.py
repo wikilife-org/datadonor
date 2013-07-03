@@ -148,7 +148,6 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.linkedin.LinkedinBackend',
     'social_auth.backends.contrib.foursquare.FoursquareBackend',
     'social_auth.backends.contrib.evernote.EvernoteBackend',
-    
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -222,7 +221,7 @@ SOCIAL_AUTH_PIPELINE = (
     #'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
     'pipeline.twitter.twitter_info',
-    'pipeline.facebook.facebook_info',
+    #'pipeline.facebook.facebook_info',
     
 )
 

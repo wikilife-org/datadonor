@@ -4,6 +4,8 @@ from django.conf import settings
 
 from social.views import home, done, logout, error, form, form2, close_login_popup, greg
 from social.facebook import facebook_view
+from social.vkontakte import vkontakte_view
+from social.odnoklassniki import ok_app, ok_app_info
 
 admin.autodiscover()
 
