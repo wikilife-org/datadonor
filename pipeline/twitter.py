@@ -153,7 +153,6 @@ def twitter_info(request, *args, **kwargs):
 def get_user_timeline(backend, access_token):
     url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
     request = build_consumer_oauth_request(backend,access_token, url)
-    print request.to_url()
     response = '\n'.join(dsa_urlopen(request.to_url()).readlines())
     response = simplejson.loads(response)
     return response

@@ -222,13 +222,14 @@ SOCIAL_AUTH_PIPELINE = (
     #'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
     'pipeline.twitter.twitter_info',
+    'pipeline.facebook.facebook_info',
     
 )
 
 
 #FACEBOOK CONFIG
 
-FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes', ]
+FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes', "read_stream"]
 
 try:
     from conf_settings import *
