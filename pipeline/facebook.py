@@ -47,7 +47,9 @@ def facebook_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
     social_user = kwargs.get('social_user')
     result = {}
+    
     if backend.name == "facebook":
+        
         data = kwargs.get('response')
         
         facebook_id = data["id"]
@@ -66,13 +68,18 @@ def facebook_info(request, *args, **kwargs):
         languages = data.get("languages", [])
         
         profile_img = load_profile_pic(facebook_id)
-        graph = GraphAPI(access_token)
-        total_friend = graph.fql("SELECT friend_count FROM user WHERE uid = me()")[0]["friend_count"]
-        albums = graph.get_connections("me", "albums")
-        total_photos = 0
-        for photos in albums:
-            total_photos += photos["count"]
         
+        graph = GraphAPI(access_token)
+        
+        total_friend = graph.fql("SELECT friend_count FROM user WHERE uid = me()")[0]["friend_count"]
+        
+        albums = graph.get_connections("me", "albums")
+
+        total_photos = 0
+        for photos in albums["data"]:
+            total_photos += photos["count"]
+
+       
         total_likes = graph.fql("SELECT user_id, object_id, post_id FROM like WHERE user_id=me()")
         #print graph.get_object("me")
         
