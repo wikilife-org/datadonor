@@ -40,7 +40,7 @@ GOOGLE_OATUH2_AUTHORIZATION_URL = 'https://accounts.google.com/o/oauth2/auth'
 # GOOGLE_OAUTH_EXTRA_SCOPE = ['https://www.google.com/m8/feeds/']
 GOOGLE_OAUTH_SCOPE = ['https://www.googleapis.com/auth/userinfo#email']
 GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email',
-                       'https://www.googleapis.com/auth/userinfo.profile']
+                       'https://www.googleapis.com/auth/userinfo.profile', 'https://www.google.com/calendar/feeds']
 GOOGLEAPIS_EMAIL = 'https://www.googleapis.com/userinfo/email'
 GOOGLEAPIS_PROFILE = 'https://www.googleapis.com/oauth2/v1/userinfo'
 GOOGLE_OPENID_URL = 'https://www.google.com/accounts/o8/id'

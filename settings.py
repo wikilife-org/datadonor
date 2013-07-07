@@ -145,7 +145,7 @@ AUTHENTICATION_BACKENDS = (
      'social_auth.backends.facebook.FacebookBackend',
     'social_auth.backends.twitter.TwitterBackend',
     'social_auth.backends.google.GoogleOAuth2Backend',
-    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinOAuth2Backend',
     'social_auth.backends.contrib.foursquare.FoursquareBackend',
     'social_auth.backends.contrib.evernote.EvernoteBackend',
     'django.contrib.auth.backends.ModelBackend',
@@ -222,6 +222,8 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.first_name',
     'pipeline.facebook.facebook_info',
     'pipeline.twitter.twitter_info',
+    'pipeline.linkedin.linkedin_info',
+    'pipeline.google.google_info',
 )
 
 SOCIAL_AUTH_PIPELINE_old = (
@@ -246,6 +248,10 @@ SOCIAL_AUTH_PIPELINE_old = (
 #FACEBOOK CONFIG
 
 FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes', "read_stream"]
+GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email',
+                       'https://www.googleapis.com/auth/userinfo.profile', 'https://www.google.com/calendar/feeds']
+
+LINKEDIN_SCOPE = ["r_fullprofile", "r_emailaddress", "r_network", "r_contactinfo", "r_basicprofile"]
 
 try:
     from conf_settings import *
