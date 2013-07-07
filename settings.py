@@ -220,10 +220,10 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.misc.save_status_to_session',
  #   'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
-    'pipeline.facebook.facebook_info',
+    #'pipeline.facebook.facebook_info',
     'pipeline.twitter.twitter_info',
-    'pipeline.linkedin.linkedin_info',
-    'pipeline.google.google_info',
+    #'pipeline.linkedin.linkedin_info',
+    #'pipeline.google.google_info',
 )
 
 SOCIAL_AUTH_PIPELINE_old = (
