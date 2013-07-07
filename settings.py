@@ -221,7 +221,7 @@ SOCIAL_AUTH_PIPELINE = (
  #   'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
     #'pipeline.facebook.facebook_info',
-    'pipeline.twitter.twitter_info',
+    #'pipeline.twitter.twitter_info',
     #'pipeline.linkedin.linkedin_info',
     #'pipeline.google.google_info',
 )
