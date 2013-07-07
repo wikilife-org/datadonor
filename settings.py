@@ -143,11 +143,11 @@ LOGGING = {
 
 AUTHENTICATION_BACKENDS = (
      'social_auth.backends.facebook.FacebookBackend',
-    #'social_auth.backends.twitter.TwitterBackend',
-    #'social_auth.backends.google.GoogleOAuth2Backend',
-    #'social_auth.backends.contrib.linkedin.LinkedinOAuth2Backend',
-    #'social_auth.backends.contrib.foursquare.FoursquareBackend',
-    #'social_auth.backends.contrib.evernote.EvernoteBackend',
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.contrib.linkedin.LinkedinOAuth2Backend',
+    'social_auth.backends.contrib.foursquare.FoursquareBackend',
+    'social_auth.backends.contrib.evernote.EvernoteBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -213,6 +213,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.misc.save_status_to_session',
 #    'social.pipeline.redirect_to_form',
     'social.pipeline.username',
+    'social_auth.backends.pipeline.user.get_username',
     'social_auth.backends.pipeline.user.create_user',
     'social_auth.backends.pipeline.social.associate_user',
     'social_auth.backends.pipeline.social.load_extra_data',
@@ -220,10 +221,10 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.misc.save_status_to_session',
  #   'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
-    #'pipeline.facebook.facebook_info',
-    #'pipeline.twitter.twitter_info',
-    #'pipeline.linkedin.linkedin_info',
-    #'pipeline.google.google_info',
+    'pipeline.facebook.facebook_info',
+    'pipeline.twitter.twitter_info',
+    'pipeline.linkedin.linkedin_info',
+    'pipeline.google.google_info',
 )
 
 SOCIAL_AUTH_PIPELINE_old = (
