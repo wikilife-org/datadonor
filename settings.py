@@ -142,8 +142,8 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-     #'social_auth.backends.facebook.FacebookBackend',
-    'social_auth.backends.twitter.TwitterBackend',
+     'social_auth.backends.facebook.FacebookBackend',
+    #'social_auth.backends.twitter.TwitterBackend',
     #'social_auth.backends.google.GoogleOAuth2Backend',
     #'social_auth.backends.contrib.linkedin.LinkedinOAuth2Backend',
     #'social_auth.backends.contrib.foursquare.FoursquareBackend',
@@ -239,7 +239,7 @@ SOCIAL_AUTH_PIPELINE_old = (
     'social_auth.backends.pipeline.misc.save_status_to_session',
     #'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
-    'pipeline.twitter.twitter_info',
+    #'pipeline.twitter.twitter_info',
     #'pipeline.facebook.facebook_info',
     
 )
