@@ -211,20 +211,19 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
     'social_auth.backends.pipeline.associate.associate_by_email',
     'social_auth.backends.pipeline.misc.save_status_to_session',
-#    'social.pipeline.redirect_to_form',
     'social.pipeline.username',
     'social_auth.backends.pipeline.user.get_username',
     'social_auth.backends.pipeline.user.create_user',
     'social_auth.backends.pipeline.social.associate_user',
     'social_auth.backends.pipeline.social.load_extra_data',
     'social_auth.backends.pipeline.user.update_user_details',
-    'social_auth.backends.pipeline.misc.save_status_to_session',
- #   'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
     'pipeline.facebook.facebook_info',
+    'pipeline.foursquare.foursquare_info',
     'pipeline.twitter.twitter_info',
     'pipeline.linkedin.linkedin_info',
     'pipeline.google.google_info',
+    'pipeline.evernote.evernote_info',
 )
 
 SOCIAL_AUTH_PIPELINE_old = (

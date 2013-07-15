@@ -417,16 +417,16 @@ from django.utils import simplejson
 from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
 
 
-def evernote_info(request, *args, **kwargs):
+def foursquare_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
     social_user = kwargs.get('social_user')
     result = {}
-    if backend.name == "evernote":
-        data = kwargs.get('response')
+    if backend.name == "foursquare":
+        data = kwargs.get('response')["response"]["user"]
 
         result.update(data)
-        print result
-        #social_user.extra_data.update(result)
-        #social_user.save()
+        result["profile_img"] = data["photo"]
+        social_user.extra_data.update(result)
+        social_user.save()
           
         return result
