@@ -13,7 +13,7 @@ from oauth2 import Token
 from django.utils import simplejson
 
 from social_auth.utils import setting, dsa_urlopen
-from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, BaseOAuth2
+from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, BaseOAuth2, SocialBackend
 from social_auth.exceptions import AuthCanceled, AuthUnknownError
 
 
@@ -30,7 +30,7 @@ LINKEDIN_CHECK_AUTH = 'https://api.%s/v1/people/~' % LINKEDIN_SERVER
 LINKEDIN_FIELD_SELECTORS = ['id', 'first-name', 'last-name']
 
 
-class LinkedinBackend(OAuthBackend):
+class LinkedinBackend(OAuthBackend, SocialBackend):
     """Linkedin OAuth authentication backend"""
     name = 'linkedin'
     EXTRA_DATA = [('id', 'id'),
@@ -48,7 +48,7 @@ class LinkedinBackend(OAuthBackend):
                 'email': email}
 
 
-class LinkedinOAuth2Backend(LinkedinBackend):
+class LinkedinOAuth2Backend(LinkedinBackend, SocialBackend):
     """Linkedin OAuth2 authentication backend"""
     name = 'linkedin-oauth2'
 
@@ -65,7 +65,7 @@ class LinkedinOAuth2Backend(LinkedinBackend):
                 'email': response.get('emailAddress', '')}
 
 
-class LinkedinAuth(ConsumerBasedOAuth):
+class LinkedinAuth(ConsumerBasedOAuth, SocialBackend):
     """Linkedin OAuth authentication mechanism"""
     AUTHORIZATION_URL = LINKEDIN_AUTHORIZATION_URL
     REQUEST_TOKEN_URL = LINKEDIN_REQUEST_TOKEN_URL
@@ -127,7 +127,7 @@ class LinkedinAuth(ConsumerBasedOAuth):
         return Token.from_string(response)
 
 
-class LinkedinOAuth2(BaseOAuth2):
+class LinkedinOAuth2(BaseOAuth2, SocialBackend):
     AUTH_BACKEND = LinkedinOAuth2Backend
     AUTHORIZATION_URL = 'https://www.linkedin.com/uas/oauth2/authorization'
     ACCESS_TOKEN_URL = 'https://www.linkedin.com/uas/oauth2/accessToken'

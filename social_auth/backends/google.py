@@ -22,7 +22,7 @@ from django.utils import simplejson
 
 from social_auth.utils import setting, dsa_urlopen
 from social_auth.backends import OpenIdAuth, ConsumerBasedOAuth, BaseOAuth2, \
-                                 OAuthBackend, OpenIDBackend
+                                 OAuthBackend, OpenIDBackend, SocialBackend
 from social_auth.exceptions import AuthFailed
 
 
@@ -66,7 +66,7 @@ class GoogleOAuthBackend(OAuthBackend):
                 'last_name': ''}
 
 
-class GoogleOAuth2Backend(GoogleOAuthBackend):
+class GoogleOAuth2Backend(GoogleOAuthBackend, SocialBackend):
     """Google OAuth2 authentication backend"""
     name = 'google-oauth2'
     EXTRA_DATA = [
@@ -186,7 +186,7 @@ _OAUTH2_KEY_NAME = setting('GOOGLE_OAUTH2_CLIENT_ID') and \
                    'GOOGLE_OAUTH2_CLIENT_KEY'
 
 
-class GoogleOAuth2(BaseOAuth2):
+class GoogleOAuth2(BaseOAuth2, SocialBackend):
     """Google OAuth2 support"""
     AUTH_BACKEND = GoogleOAuth2Backend
     AUTHORIZATION_URL = 'https://accounts.google.com/o/oauth2/auth'

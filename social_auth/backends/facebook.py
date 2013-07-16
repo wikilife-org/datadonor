@@ -24,7 +24,7 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from django.template import TemplateDoesNotExist, RequestContext, loader
 
-from social_auth.backends import BaseOAuth2, OAuthBackend
+from social_auth.backends import BaseOAuth2, OAuthBackend, SocialBackend
 from social_auth.utils import sanitize_log_data, backend_setting, setting,\
     log, dsa_urlopen
 from social_auth.exceptions import AuthException, AuthCanceled, AuthFailed,\
@@ -49,7 +49,7 @@ REDIRECT_HTML = """
 """
 
 
-class FacebookBackend(OAuthBackend):
+class FacebookBackend(OAuthBackend, SocialBackend):
     """Facebook OAuth2 authentication backend"""
     name = 'facebook'
     # Default extra data to store
@@ -67,7 +67,7 @@ class FacebookBackend(OAuthBackend):
                 'last_name': response.get('last_name', '')}
 
 
-class FacebookAuth(BaseOAuth2):
+class FacebookAuth(BaseOAuth2, SocialBackend):
     """Facebook OAuth2 support"""
     AUTH_BACKEND = FacebookBackend
     RESPONSE_TYPE = None

@@ -13,7 +13,7 @@ class for details on how to extend it.
 """
 from django.utils import simplejson
 
-from social_auth.backends import ConsumerBasedOAuth, OAuthBackend
+from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, SocialBackend
 from social_auth.exceptions import AuthCanceled
 
 
@@ -28,7 +28,7 @@ TWITTER_CHECK_AUTH = 'https://%s/1.1/account/verify_credentials.json' % \
                                     TWITTER_SERVER
 
 
-class TwitterBackend(OAuthBackend):
+class TwitterBackend(OAuthBackend, SocialBackend):
     """Twitter OAuth authentication backend"""
     name = 'twitter'
     EXTRA_DATA = [('id', 'id')]
@@ -61,7 +61,7 @@ class TwitterBackend(OAuthBackend):
         return token
 
 
-class TwitterAuth(ConsumerBasedOAuth):
+class TwitterAuth(ConsumerBasedOAuth, SocialBackend):
     """Twitter OAuth authentication mechanism"""
     AUTHORIZATION_URL = TWITTER_AUTHORIZATION_URL
     REQUEST_TOKEN_URL = TWITTER_REQUEST_TOKEN_URL

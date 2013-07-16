@@ -67,19 +67,35 @@ def backends_data(user):
     difference between the second and third lists.
     """
     available = get_backends().keys()
-    values = {'associated': [],
+    values = {"social": {'associated': [], 'not_associated':[]},
+              'associated': [],
               'not_associated': available,
               'backends': available}
-
+    # Beware of cyclical imports!
+    key=lambda x: x
+    from social_auth.backends import SocialBackend
     # user comes from request.user usually, on /admin/ it will be an instance
     # of auth.User and this code will fail if a custom User model was defined
     if hasattr(user, 'is_authenticated') and user.is_authenticated():
         associated = UserSocialAuth.get_social_auth_for_user(user)
         not_associated = list(set(available) -
                               set(assoc.provider for assoc in associated))
+        
+        
+        backends = get_backends()
+        
+        for item in associated:
+            backend = backends[key(item.provider)]
+            if issubclass(backend, SocialBackend):
+                values['social']["associated"].append(item.provider)
+        for item in not_associated:
+            backend = backends[key(item)]
+            if issubclass(backend, SocialBackend):
+                values['social']["not_associated"].append(item)
+                        
         values['associated'] = associated
         values['not_associated'] = not_associated
-    print values
+        print values
     return values
 
 

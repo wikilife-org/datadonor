@@ -13,7 +13,7 @@ except ImportError:
 
 from oauth2 import Token
 from social_auth.utils import setting
-from social_auth.backends import ConsumerBasedOAuth, OAuthBackend
+from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, SocialBackend
 from social_auth.exceptions import AuthCanceled
 
 
@@ -27,7 +27,7 @@ EVERNOTE_ACCESS_TOKEN_URL = 'https://%s/oauth' % EVERNOTE_SERVER
 EVERNOTE_AUTHORIZATION_URL = 'https://%s/OAuth.action' % EVERNOTE_SERVER
 
 
-class EvernoteBackend(OAuthBackend):
+class EvernoteBackend(OAuthBackend, SocialBackend):
     """
     Evernote OAuth authentication backend.
 
@@ -73,7 +73,7 @@ class EvernoteBackend(OAuthBackend):
         return response['edam_userId']
 
 
-class EvernoteAuth(ConsumerBasedOAuth):
+class EvernoteAuth(ConsumerBasedOAuth, SocialBackend):
     """Evernote OAuth authentication mechanism"""
     AUTHORIZATION_URL = EVERNOTE_AUTHORIZATION_URL
     REQUEST_TOKEN_URL = EVERNOTE_REQUEST_TOKEN_URL

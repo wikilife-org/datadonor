@@ -2,7 +2,7 @@ from urllib import urlencode
 
 from django.utils import simplejson
 
-from social_auth.backends import BaseOAuth2, OAuthBackend
+from social_auth.backends import BaseOAuth2, OAuthBackend, SocialBackend
 from social_auth.utils import dsa_urlopen
 
 
@@ -12,7 +12,7 @@ FOURSQUARE_ACCESS_TOKEN_URL = 'https://foursquare.com/oauth2/access_token'
 FOURSQUARE_CHECK_AUTH = 'https://api.foursquare.com/v2/users/self'
 
 
-class FoursquareBackend(OAuthBackend):
+class FoursquareBackend(OAuthBackend, SocialBackend):
     name = 'foursquare'
 
     def get_user_id(self, details, response):
@@ -29,7 +29,7 @@ class FoursquareBackend(OAuthBackend):
                 'email': email}
 
 
-class FoursquareAuth(BaseOAuth2):
+class FoursquareAuth(BaseOAuth2, SocialBackend):
     """Foursquare OAuth mechanism"""
     AUTHORIZATION_URL = FOURSQUARE_AUTHORIZATION_URL
     ACCESS_TOKEN_URL = FOURSQUARE_ACCESS_TOKEN_URL

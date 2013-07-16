@@ -189,6 +189,11 @@ class SocialAuthBackend(object):
         """
         return UserSocialAuth.get_user(user_id)
 
+class SocialBackend():
+    pass
+
+class PhysicalBackend():
+    pass
 
 class OAuthBackend(SocialAuthBackend):
     """OAuth authentication backend base class.
