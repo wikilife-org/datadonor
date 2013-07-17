@@ -67,7 +67,7 @@ def backends_data(user):
     difference between the second and third lists.
     """
     available = get_backends().keys()
-    values = {"social": {'associated': [], 'not_associated':[]},
+    values = {"social": {'associated': [], 'not_associated':available},
               'associated': [],
               'not_associated': available,
               'backends': available}
@@ -83,7 +83,7 @@ def backends_data(user):
         
         
         backends = get_backends()
-        
+        not_associated_s = []
         for item in associated:
             backend = backends[key(item.provider)]
             if issubclass(backend, SocialBackend):
@@ -91,11 +91,11 @@ def backends_data(user):
         for item in not_associated:
             backend = backends[key(item)]
             if issubclass(backend, SocialBackend):
-                values['social']["not_associated"].append(item)
-                        
+                not_associated_s.append(item)
+        
+        values['social']["not_associated"] = not_associated_s
         values['associated'] = associated
         values['not_associated'] = not_associated
-        print values
     return values
 
 
