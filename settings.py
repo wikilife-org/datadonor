@@ -36,7 +36,6 @@ MEDIA_URL = '/media/'
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = ""
-print STATIC_ROOT
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -148,6 +147,7 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.linkedin.LinkedinOAuth2Backend',
     'social_auth.backends.contrib.foursquare.FoursquareBackend',
     'social_auth.backends.contrib.evernote.EvernoteBackend',
+    'social_auth.backends.contrib.fitbit.FitbitBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -224,6 +224,7 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.linkedin.linkedin_info',
     'pipeline.google.google_info',
     'pipeline.evernote.evernote_info',
+    'pipeline.fitbit.fitbit_info',
 )
 
 SOCIAL_AUTH_PIPELINE_old = (

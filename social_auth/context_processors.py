@@ -68,12 +68,13 @@ def backends_data(user):
     """
     available = get_backends().keys()
     values = {"social": {'associated': [], 'not_associated':available},
+              "physical": {'associated': [], 'not_associated':available},
               'associated': [],
               'not_associated': available,
               'backends': available}
     # Beware of cyclical imports!
     key=lambda x: x
-    from social_auth.backends import SocialBackend
+    from social_auth.backends import SocialBackend, PhysicalBackend
     # user comes from request.user usually, on /admin/ it will be an instance
     # of auth.User and this code will fail if a custom User model was defined
     if hasattr(user, 'is_authenticated') and user.is_authenticated():
@@ -84,16 +85,22 @@ def backends_data(user):
         
         backends = get_backends()
         not_associated_s = []
+        not_associated_p = []
         for item in associated:
             backend = backends[key(item.provider)]
             if issubclass(backend, SocialBackend):
                 values['social']["associated"].append(item.provider)
+            if issubclass(backend, PhysicalBackend):
+                values["physical"]["associated"].append(item.provider)
         for item in not_associated:
             backend = backends[key(item)]
             if issubclass(backend, SocialBackend):
                 not_associated_s.append(item)
+            if issubclass(backend, PhysicalBackend):
+                not_associated_p.append(item)
         
         values['social']["not_associated"] = not_associated_s
+        values['physical']["not_associated"] = not_associated_p
         values['associated'] = associated
         values['not_associated'] = not_associated
     return values

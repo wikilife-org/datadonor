@@ -82,11 +82,11 @@ body.loading .modal {
  
  <div id="header">
      <div class="container">
-     {% for name in social_auth.social.not_associated%}
+     {% for name in social_auth.not_associated%}
      <a href="{% url "socialauth_begin" name %}"><img src="/static/images/devices/{{name}}.png" width="50" height="50" alt="{{ name|title }}"></a>
      {% endfor%}
-     {% for name in social_auth.social.associated%}
-     <a href="{% url "socialauth_begin" name %}"><img src="/static/images/devices/{{name}}_on.png" width="50" height="50" alt="{{ name|title }}"></a>
+     {% for name in social_auth.associated%}
+     <a href="{% url "socialauth_disconnect" name.provider %}"><img src="/static/images/devices/{{name.provider}}_on.png" width="50" height="50" alt="{{ name.provider|title }}"></a>
      {% endfor%}
 		
 
@@ -129,19 +129,7 @@ body.loading .modal {
  <div class="clear"></div>
  </div><!-- .container -->
  <div class="clear"></div>
- 
-  <div id="header">
-     <div class="container">
-     {% for name in social_auth.physical.not_associated%}
-     <a href="{% url "socialauth_begin" name %}"><img src="/static/images/devices/{{name}}.png" width="50" height="50" alt="{{ name|title }}"></a>
-     {% endfor%}
-     {% for name in social_auth.physical.associated%}
-     <a href="{% url "socialauth_begin" name.provider %}"><img src="/static/images/devices/{{name.provider}}_on.png" width="50" height="50" alt="{{ name.provider|title }}"></a>
-     {% endfor%}
-		
 
-     </div><!-- .container -->
- </div><!-- #header -->
 
  <div class="clear"></div>
  

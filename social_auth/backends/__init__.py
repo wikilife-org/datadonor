@@ -420,16 +420,16 @@ class BaseAuth(object):
         Override if extra operations are needed.
         """
         name = self.AUTH_BACKEND.name
-        if UserSocialAuth.allowed_to_disconnect(user, name, association_id):
-            if association_id:
-                UserSocialAuth.get_social_auth_for_user(user)\
-                                .get(id=association_id).delete()
-            else:
-                UserSocialAuth.get_social_auth_for_user(user)\
-                                .filter(provider=name)\
-                                .delete()
+        #if UserSocialAuth.allowed_to_disconnect(user, name, association_id):
+        if association_id:
+            UserSocialAuth.get_social_auth_for_user(user)\
+                            .get(id=association_id).delete()
         else:
-            raise NotAllowedToDisconnect()
+            UserSocialAuth.get_social_auth_for_user(user)\
+                            .filter(provider=name)\
+                            .delete()
+        #else:
+       #     raise NotAllowedToDisconnect()
 
     def build_absolute_uri(self, path=None):
         """Build absolute URI for given path. Replace http:// schema with

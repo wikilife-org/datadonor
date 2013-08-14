@@ -2,10 +2,8 @@ from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
 from django.conf import settings
 
-from social.views import home, done, logout, error, form, form2, close_login_popup, greg
+from social.views import home, done, logout, error, form, form2, close_login_popup, greg, comming
 from social.facebook import facebook_view
-from social.vkontakte import vkontakte_view
-from social.odnoklassniki import ok_app, ok_app_info
 
 admin.autodiscover()
 
@@ -20,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^form2/$', form2, name='form2'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^fb/', facebook_view, name='fb_app'),
+    url(r'^comming/', comming, name='comming'),
     url(r'^close_login_popup/$', close_login_popup, name='login_popup_close'),
     url(r'', include('social_auth.urls')),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),

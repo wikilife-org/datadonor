@@ -17,7 +17,7 @@ except ImportError:
 
 from oauth2 import Token
 
-from social_auth.backends import ConsumerBasedOAuth, OAuthBackend
+from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, PhysicalBackend
 
 
 # Fitbit configuration
@@ -50,7 +50,7 @@ class FitbitBackend(OAuthBackend):
                 'first_name': response.get('fullname')}
 
 
-class FitbitAuth(ConsumerBasedOAuth):
+class FitbitAuth(ConsumerBasedOAuth, PhysicalBackend):
     """Fitbit OAuth authentication mechanism"""
     AUTHORIZATION_URL = FITBIT_AUTHORIZATION_URL
     REQUEST_TOKEN_URL = FITBIT_REQUEST_TOKEN_URL

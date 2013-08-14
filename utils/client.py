@@ -48,11 +48,9 @@ def oauth_req(backend, token, url, http_method="GET", post_body=None,
     
     CONSUMER_KEY, CONSUMER_SECRET = get_keys(backend.name)
     
-    print CONSUMER_KEY, CONSUMER_SECRET
     
     consumer = OAuthConsumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
     token = Token.from_string(token)
-    print token
     client = Client(consumer, token)
     
     
@@ -70,8 +68,11 @@ def get_keys(service):
     CONSUMER_KEY = None
     CONSUMER_SECRET = None
     
-    if service == "twitter":
-        CONSUMER_KEY = settings.TWITTER_CONSUMER_KEY
-        CONSUMER_SECRET = settings.TWITTER_CONSUMER_SECRET
+    KEY = "%s_CONSUMER_KEY" %service.upper()
+    SECRET = "%s_CONSUMER_SECRET" %service.upper()
     
+    CONSUMER_KEY = getattr(settings, KEY)
+
+    CONSUMER_SECRET = getattr(settings, SECRET)
+
     return (CONSUMER_KEY, CONSUMER_SECRET)

@@ -8,6 +8,9 @@ from django.contrib.messages.api import get_messages
 from social_auth import __version__ as version
 from social_auth.utils import setting
 
+def comming(request):
+    return render_to_response('splash/index.html', {'version': version},
+                                  RequestContext(request))
 
 def home(request):
     """Home view, displays login mechanism"""

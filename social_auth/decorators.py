@@ -35,7 +35,6 @@ def disconnect_view(func):
     @wraps(func)
     def wrapper(request, *args, **kwargs):
         return func(request, *args, **kwargs)
-
     if setting('SOCIAL_AUTH_FORCE_POST_DISCONNECT'):
         wrapper = require_POST(csrf_protect(wrapper))
     return wrapper
