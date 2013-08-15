@@ -15,9 +15,14 @@ def comming(request):
 def home(request):
     """Home view, displays login mechanism"""
     if request.user.is_authenticated():
-        return HttpResponseRedirect('done')
+        ctx = {
+        'version': version,
+        'last_login': request.session.get('social_auth_last_login_backend')
+        }
     else:
-        return render_to_response('index.html', {'version': version},
+        ctx =  {'version': version}
+        
+    return render_to_response('index.html', {'version': version},
                                   RequestContext(request))
 
 def greg(request):

@@ -8,8 +8,8 @@ def social_auth_user(backend, uid, user=None, *args, **kwargs):
     """Return UserSocialAuth account for backend/uid pair or None if it
     doesn't exists.
 
-    Raise AuthAlreadyAssociated if UserSocialAuth entry belongs to another
-    user.
+    Merge accounts if its another login from the same user.
+    
     """
     social_user = UserSocialAuth.get_social_auth(backend.name, uid)
     if social_user:
@@ -17,15 +17,11 @@ def social_auth_user(backend, uid, user=None, *args, **kwargs):
             for su in user.social_auth.all():
                 su.user = social_user.user
                 su.save()
-            social_user.user = user
-            #msg = ugettext('This %(provider)s account is already in use.')
-            #raise AuthAlreadyAssociated(backend, msg % {
-            #    'provider': backend.name
-           # })
         elif not user:
             user = social_user.user
+            
     return {'social_user': social_user,
-            'user': user,
+            'user': social_user.user,
             'new_association': False}
 
 
