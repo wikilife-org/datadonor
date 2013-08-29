@@ -17,18 +17,19 @@ class Profile(models.Model):
 
 
 class SocialUserAggregatedData(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL)
-    facebook_friend_count = models.IntegerField()
-    facebook_post_count_last_seven_days = models.IntegerField()
-    facebook_likes_count_last_seven_days = models.IntegerField()
-    twitter_followers_count = models.IntegerField()
-    twitter_tweets_count_last_seven_days = models.IntegerField()
-    twitter_retweets_count_last_seven_days = models.IntegerField()
-    gmail_contacts_count = models.IntegerField()
-    linkedin_connections_count = models.IntegerField()
-    foursquare_connections_count = models.IntegerField()
-    education_level = models.IntegerField()
-    work_experience_years = models.IntegerField()
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='social_aggregated_data', blank=True, null=True)
+    facebook_friend_count = models.IntegerField(default=0)
+    facebook_post_count_last_seven_days = models.IntegerField(default=0)
+    facebook_likes_count_last_seven_days = models.IntegerField(default=0)
+    twitter_followers_count = models.IntegerField(default=0)
+    twitter_tweets_count_last_seven_days = models.IntegerField(default=0)
+    twitter_retweets_count_last_seven_days = models.IntegerField(default=0)
+    gmail_contacts_count = models.IntegerField(default=0)
+    linkedin_connections_count = models.IntegerField(default=0)
+    foursquare_friends_count = models.IntegerField(default=0)
+    education_level = models.IntegerField(default=2)
+    education_degree = models.CharField(max_length=250, blank=True, null=True)
+    work_experience_years = models.IntegerField(default=0)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
@@ -39,7 +40,7 @@ class GlobalEducationDistribution(models.Model):
     technichal_institute = models.IntegerField()
     undergraduated_programs = models.IntegerField()
     master = models.IntegerField()
-    phd_and_above = models.IntegerField()
+    phd = models.IntegerField()
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
@@ -57,3 +58,21 @@ class SocialGlobalAggregatedData(models.Model):
     avg_work_experience_years = models.IntegerField()
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
+
+class DegreeLevel(models.Model):
+    title = models.CharField(unique=True, max_length=250)
+    primary = models.IntegerField(default=0)
+    junior = models.IntegerField(default=0)
+    high = models.IntegerField(default=0)
+    tech = models.IntegerField(default=0)
+    under = models.IntegerField(default=0)
+    master = models.IntegerField(default=0)
+    phd = models.IntegerField(default=0)
+    
+    def education_level(self):
+        
+        values = sorted([(0, self.primary), (1, self.junior), (2, self.high), 
+                         (3, self.tech), (4, self.under), (5, self.master), 
+                         (6, self.phd)],key=lambda x: x[1])
+        
+        return values[6]

@@ -12,8 +12,13 @@ def comming(request):
     return render_to_response('splash/index.html', {'version': version},
                                   RequestContext(request))
 
+def receive_code(request):
+    print request
+                        
+
 def home(request):
     """Home view, displays login mechanism"""
+    print "HOME!"
     if request.user.is_authenticated():
         ctx = {
         'version': version,

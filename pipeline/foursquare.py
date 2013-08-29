@@ -415,6 +415,7 @@ u'response': {
 
 from django.utils import simplejson
 from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
+from utils.aggregated_data import complete_foursquare_info
 
 
 def foursquare_info(request, *args, **kwargs):
@@ -423,7 +424,7 @@ def foursquare_info(request, *args, **kwargs):
     result = {}
     if backend.name == "foursquare":
         data = kwargs.get('response')["response"]["user"]
-
+        complete_foursquare_info(social_user.user, data["friends"]["count"])
         result.update(data)
         result["profile_img"] = data["photo"]
         social_user.extra_data.update(result)

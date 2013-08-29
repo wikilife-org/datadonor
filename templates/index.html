@@ -88,6 +88,7 @@ body.loading .modal {
      {% for name in social_auth.associated%}
      <a href="{% url "socialauth_disconnect" name.provider %}"><img src="/static/images/devices/{{name.provider}}_on.png" width="50" height="50" alt="{{ name.provider|title }}"></a>
      {% endfor%}
+     <!-- a href="https://api.23andme.com/authorize/?redirect_uri=http://localhost:8080/receive_code/&response_type=code&client_id=36fe7db30c8de9fe66a49a0be37896e5&scope=basic analyses rs123 ancestry">Connect with 23andMe</a-->
 		
 
      </div><!-- .container -->
@@ -103,19 +104,16 @@ body.loading .modal {
 		{% for account in user.social_auth.all %}
 		<h3>{{account.provider|title}}</h3>
 		<div>
-		
-		
 		<img src="{{account.extra_data.profile_img}}"/>
 		
-		
-			{% for key, value in account.extra_data.items%}
+			{% for key, value in account.extra_data.items %}
 				 
 				 {% if key != "timeline"%}
 				 <h2>{{key|title}}</h2>{{value}}
 				 {% else%}
 				 <h2>{{key|title}}</h2>
 				 <ul>
-				 {% for status in account.extra_data.timeline%}
+				 {% for status in account.extra_data.timeline %}
 				 	<li>{{status.text}}</li>
 				 {%endfor%}
 				 </ul>

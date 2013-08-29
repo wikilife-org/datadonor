@@ -150,6 +150,7 @@ def backend_setting(backend, name, default=None):
     """
     backend_name = get_backend_name(backend)
     setting_name = '%s_%s' % (backend_name.upper().replace('-', '_'), name)
+
     if hasattr(settings, setting_name):
         return setting(setting_name)
     elif hasattr(settings, name):

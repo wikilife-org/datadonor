@@ -175,10 +175,12 @@
     }
 }
 """
+from datetime import date
 import requests
 from django.utils import simplejson
 import oauth2 as oauth
 from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
+from utils.aggregated_data import complete_linkedin_social_info, get_level_of_education_by_degree
 
 
 def linkedin_info(request, *args, **kwargs):
@@ -193,7 +195,47 @@ def linkedin_info(request, *args, **kwargs):
         result["profile_img"] = result["pictureUrl"]
         del result["pictureUrl"]
         
-        result.update(get_positions(access_token))
+        connections = get_connections(access_token)
+        positions = get_positions(access_token)
+        educations = get_educations(access_token)
+        
+        work_experience_years = 0
+        current_year = date.today().year
+        
+        try:
+            fist_job = positions["values"][0]
+            for pos in positions["values"]:
+                if fist_job["startDate"]["year"] > pos["startDate"]["year"]:
+                    fist_job = pos
+            
+            start_year=int(fist_job["startDate"]["year"])
+            work_experience_years = current_year - start_year
+        except IndexError:
+            pass
+        
+        education_level = 2
+        degree = None
+        try:
+            education_degree = educations["values"][0]
+            for edu in educations["values"]:
+                if education_degree["endDate"]["year"] < edu["endDate"]["year"]:
+                    education_degree = edu
+            
+            
+            if "degree" in education_degree:
+                degree = education_degree["degree"]
+                education_level = get_level_of_education_by_degree(degree)
+        except IndexError:
+            pass
+            
+        linkedin_connections_count = connections["_total"]
+        
+        complete_linkedin_social_info(social_user.user, linkedin_connections_count, work_experience_years, education_level, degree)
+
+        result.update(connections)
+        result.update(positions)
+        result.update(educations)
+        
         social_user.extra_data.update(result)
         social_user.save()
           
@@ -213,6 +255,20 @@ def get_profile( access_token,
 def get_positions(access_token, params=None, headers=None):
     POSITIONS_URL = "https://api.linkedin.com/v1/people/~/positions"
     response = make_request('GET', POSITIONS_URL, access_token, params=params, headers=headers)
+    response = response.json()
+
+    return response
+
+def get_educations(access_token, params=None, headers=None):
+    EDUCATION_URL = "https://api.linkedin.com/v1/people/~/educations"
+    response = make_request('GET', EDUCATION_URL, access_token, params=params, headers=headers)
+    response = response.json()
+
+    return response
+
+def get_connections(access_token, params=None, headers=None):
+    CONNECTIONS_URL = "https://api.linkedin.com/v1/people/~/connections"
+    response = make_request('GET', CONNECTIONS_URL, access_token, params=params, headers=headers)
     response = response.json()
 
     return response
