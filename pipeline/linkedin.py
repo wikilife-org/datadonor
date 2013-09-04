@@ -232,7 +232,9 @@ def linkedin_info(request, *args, **kwargs):
         
         complete_linkedin_social_info(social_user.user, linkedin_connections_count, work_experience_years, education_level, degree)
         
-        complete_profile(social_user.user, result["emailAddress"], None, None)
+        if "emailAddress" in result:
+            email = result["emailAddress"]
+        complete_profile(social_user.user, email, None, None)
         result.update(connections)
         result.update(positions)
         result.update(educations)

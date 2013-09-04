@@ -33,7 +33,7 @@ def google_info(request, *args, **kwargs):
         email = ""
         if "email" in data :
             email = data["email"]
-        complete_profile(social_user, email, None, gender)
+        complete_profile(social_user.user, email, None, gender)
         result.update(data)
         result.update(profile)
         result.update(gplus_profile)

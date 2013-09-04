@@ -100,15 +100,39 @@
 			<div class="social_choice">
 			
 				<h2>Click or tap to select</h2>
-				
 				<!--social-->
 				<ul id="nav_big_social">
+				
+					{% if "twitter" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "twitter" %}" class="twitter">twitter</a></li>
+					{% else %}
 					<li><a href="{% url "socialauth_begin" "twitter" %}" class="twitter">twitter</a></li>
+					{% endif%}
+					{% if "facebook" in social_auth.social.associated %}
+					<li class="active" ><a href="{% url "socialauth_disconnect" "facebook" %}" class="facebook">facebook</a></li>
+					{% else %}
 					<li><a href="{% url "socialauth_begin" "facebook" %}" class="facebook">facebook</a></li>
+					{% endif%}
+					{% if "linkedin-oauth2" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "linkedin-oauth2" %}" class="linkedin">linkedin</a></li>
+					{% else %}
 					<li><a href="{% url "socialauth_begin" "linkedin-oauth2" %}" class="linkedin">linkedin</a></li>
+					{% endif%}
+					{% if "google-oauth2" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "google-oauth2" %}" class="gmail">gmail</a></li>
+					{% else %}
 					<li><a href="{% url "socialauth_begin" "google-oauth2" %}" class="gmail">gmail</a></li>
+					{% endif%}
+					{% if "foursquare" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "foursquare" %}" class="foursquare">foursquare</a></li>
+					{% else %}
 					<li><a href="{% url "socialauth_begin" "foursquare" %}" class="foursquare">foursquare</a></li>
+					{% endif%}
+					{% if "evernote" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "evernote" %}" class="evernote">evernote</a></li>
+					{% else %}
 					<li><a href="{% url "socialauth_begin" "evernote" %}" class="evernote">evernote</a></li>
+					{% endif%}
 				</ul>
 				<!--/social-->
 				
