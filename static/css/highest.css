@@ -1,0 +1,111 @@
+@media only screen and (min-height: 900px)
+{	
+	.center-v
+	{
+		
+	}
+
+	#header-top h2
+	{
+		font-size: 106px;
+	}
+	.middle.right
+	{
+		height:430px;	
+	}
+	
+	/* what for */
+	#four h2
+	{
+		font-size:46px;	
+	}
+	#four .subtitle
+	{
+		font-size:18px;
+		margin-top: 240px;	
+	}
+	body #four .one .icon-sombra, #four .two .icon-sombra ,#four .four .icon-sombra ,#four .three .icon-sombra
+	{
+		height:131px;
+		width:192px;
+	}
+	body #four .one .icon-sombra
+	{
+		background:url(../img/iconos-1-big.jpg);
+		height:131px;
+		width:192px;
+	}
+	body #four .two .icon-sombra
+	{
+		background:url(../img/iconos-2-big.jpg);
+	}
+	body #four .four .icon-sombra
+	{
+		background:url(../img/iconos-3-big.jpg);
+	}
+	body #four .three .icon-sombra
+	{
+		background:url(../img/iconos-4-big.jpg);
+	}
+	#four .contenido h3
+	{
+		font-size: 27px;	
+		margin-top:-20px;
+	}
+	#four .contenido p
+	{
+		margin-top:30px;
+		line-height:1.2
+	}
+	/* donors */
+	#section-counter .heading-row h2
+	{
+		font-size:18px;
+		padding-top:2px;	
+		margin-top:60px
+	}
+	#howtoshare .flex-viewport .slides, #howtoshare .flexslider .slides .slide
+	{
+	
+	}
+	#section-counter h4
+	{
+		font-size:19px;	
+		margin-right:-10px;
+	}
+	#section-counter .data-shared h4
+	{
+		font-size:19px;
+		width:185px;
+	}
+	#howtoshare h2
+	{
+		margin-top:0;
+		font-size:21px;
+	}
+	#howtoshare h3
+	{
+		margin-bottom:40px;	
+		font-size:47px
+	}
+	.slide-2 .inner h5
+	{
+		font-size:19px;
+	}
+	#last h4
+	{
+		font-size:31px;	
+	}
+	.bottom-donate .half .box p
+	{
+	font-size:19px;	
+	}
+}
+@media only screen and (min-height: 900px)
+{
+	#four .contenido
+	{
+			width:350px	
+	}
+	
+}
