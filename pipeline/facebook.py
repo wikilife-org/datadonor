@@ -38,10 +38,12 @@
 }
 """
 import urllib2
-
+import math
 from django.utils import simplejson
 from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
-from utils.facebook import GraphAPI
+from utils.facebook import GraphAPI, GraphAPIError
+from datetime import date, timedelta, datetime
+from utils.aggregated_data import complete_facebook_info, complete_profile
 
 def facebook_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
@@ -52,36 +54,75 @@ def facebook_info(request, *args, **kwargs):
         
         data = kwargs.get('response')
         
-        facebook_id = data["id"]
-        time_zone = data["timezone"]
-        birthday = data["birthday"]
-        email = data["email"]
-        user_name = data["username"]
-        first_name = data["first_name"]
-        last_name = data["last_name"]
-        locale = data["locale"]
-        gender = data["gender"]
-        access_token = data["access_token"]
+        facebook_id = data.get("id", "")
+        time_zone = data.get("timezone", "")
+        birthday = data.get("birthday", "")
+        email = data.get("email", "")
+        user_name = data.get("username", "")
+        first_name = data.get("first_name", "")
+        last_name = data.get("last_name", "")
+        locale = data.get("locale", "")
+        gender = data.get("gender", "")
+        access_token = data.get("access_token", "")
         hometown = data.get("hometown", {})
         work = data.get("work", [])
         education  = data.get("education", [])
         languages = data.get("languages", [])
         
-        profile_img = load_profile_pic(facebook_id)
+        #profile_img = load_profile_pic(facebook_id)
         
         graph = GraphAPI(access_token)
-        
+
         total_friend = graph.fql("SELECT friend_count FROM user WHERE uid = me()")[0]["friend_count"]
         
+        """        
         albums = graph.get_connections("me", "albums")
 
         total_photos = 0
         for photos in albums["data"]:
             total_photos += photos["count"]
 
-       
-        total_likes = graph.fql("SELECT user_id, object_id, post_id FROM like WHERE user_id=me()")
-        #print graph.get_object("me")
+        """
+        today = date.today()
+
+        
+        total_likes_query = "SELECT object_id FROM like WHERE user_id=me() limit 5000"
+        total_likes = graph.fql(total_likes_query)
+        count_likes = len(total_likes)
+        index = count_likes - 1
+        avg_likes = 0
+        f_object = None
+        
+        while f_object is None and index >= 0:
+            try:
+                f_object = graph.get_object(total_likes[index]["object_id"])
+            except GraphAPIError:
+                index = index - 1
+        
+        if f_object:
+            update_date = datetime.strptime(f_object["created_time"][:10], "%Y-%m-%d").date()
+            weeks = ((today - update_date).days or 7) / 7
+            avg_likes = int(math.ceil((index + 1) / weeks))
+        
+        
+        posts = graph.request("me/posts", {"limit":1000})
+        index = len(posts["data"]) - 1
+        initial_date = datetime.strptime(posts["data"][index]["created_time"][:10], "%Y-%m-%d").date()
+        weeks = (today - initial_date).days / 7
+        avg_posts = int(math.ceil((index + 1) / weeks))
+        
+        complete_facebook_info(social_user.user, total_friend, avg_posts, avg_likes)
+        
+        if gender:
+            if gender =="male":
+                gender = "m"
+            elif gender == "female":
+                gender = "f"
+        
+        birthdate = None
+        if birthday:
+            birthdate = datetime.strptime(birthday, "%m/%d/%Y").date()
+        complete_profile(social_user.user, email, birthdate, gender)
         
         result["facebook_id"] = facebook_id
         result["time_zone"] = time_zone
@@ -97,10 +138,11 @@ def facebook_info(request, *args, **kwargs):
         result["work"] = work
         result["education"] = education
         result["languages"] = languages
-        result["profile_img"] = profile_img
+        #result["profile_img"] = profile_img
         result["total_friend"] = total_friend
-        result["total_photos"] = total_photos
-        result["total_likes"] = total_likes
+        #result["total_photos"] = total_photos
+        result["avg_likes_weekly"] = avg_likes
+        result["avg_post_weekly"] = avg_posts
         
         social_user.extra_data.update(result)
         social_user.save()

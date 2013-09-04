@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-
+from social.models import SocialGlobalAggregatedData
 
 def redirect_to_form(*args, **kwargs):
     if not kwargs['request'].session.get('saved_username') and \
@@ -26,5 +26,11 @@ def first_name(request, *args, **kwargs):
         user.first_name = request.session.get('saved_first_name')
         user.save()
 
+def social_aggretated_data(request, *args, **kwargs):
+    try:
+        social_global = SocialGlobalAggregatedData.objects.latest()
+    except:
+        social_global = SocialGlobalAggregatedData()
+        
+    return {'social_global': social_global}
 
-def registration_login():pass

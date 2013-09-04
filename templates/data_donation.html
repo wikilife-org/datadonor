@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	<title>DATADONORS</title>
+	
+	<!-- Metatags -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="#" />
+	<meta name="keywords" content="#" />
+	<meta name="author" content="#"/>
+	<meta name="robots" content="index,follow"/>
+	
+	<!-- Iconos -->
+	<link rel="shortcut icon" type="image/x-icon" href="image/#.ico"/>
+	
+	<!-- Styles -->
+	<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+	
+	<!-- Javascript -->
+	<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/static/js/raphael/raphael-min.js"></script>
+    <script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
+    <script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
+    <script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
+	<script type="text/javascript" src="/static/js/funciones.js"></script>
+    <script type="text/javascript" src="/static/js/main.js"></script>
+
+</head>
+
+
+<body data-spy="scroll" data-target=".nav_steps">
+
+<div id="container" class="scroll_fixed_trigger">
+
+	<!--header-->
+	<div class="full_container" id="header">
+		<div class="centered_container">
+			
+			<!--logo-->
+			<div class="logo">
+				<h1>
+					<a href="index.html">DATADONORS</a>
+				</h1>
+			</div>
+			<!--/logo-->
+			
+			<!--header_text-->
+			<div class="header_text">
+				<p>What if we could save lives with what we do every day?</p>
+			</div>
+			<!--/header_text-->
+	
+			<!--social_header-->
+			<div class="header_social">
+				<ul>
+					<li><a href="#" class="facebook">facebook</a></li>
+					<li><a href="http://twitter.com/DataDonors"  target="_blank" class="twitter">twitter</a></li>
+					<li><a href="#" class="email">email</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<!--/social_header-->
+			
+			<div class="clear"></div>
+			
+		</div>
+	</div>
+	<!--/header-->
+	
+	<!--presentation-->
+	<div class="full_container presentation">
+		<div class="centered_container">
+			
+			<h3>NOW THAT YOU’VE DECIDED TO SHARE</h3>
+			<h2>let´s get started</h2>
+			<p>We are used to share everything online. It´s what we do every day<br />But, is that sharing helping anyone?</p>
+			
+		</div>
+	</div>
+	<!--/presentation-->
+	
+	<!--social_nav-->
+	<div class="full_container big_social_login">
+		<div class="centered_container">
+			
+			<!--trigger_social_nav-->
+			<div class="trigger_social_choice">
+				<ul>
+					<li><a href="#">Click or tap to select</a></li>
+					<li><a class="ico_trigger" href="#">trigger</a></li>
+					<li><a href="#">your social networks</a></li>
+				</ul>
+			</div>
+			<!--/trigger_social_nav-->
+			
+			<!--social_choice-->
+			<div class="social_choice">
+			
+				<h2>Click or tap to select</h2>
+				
+				<!--social-->
+				<ul id="nav_big_social">
+					<li><a href="{% url "socialauth_begin" "twitter" %}" class="twitter">twitter</a></li>
+					<li><a href="{% url "socialauth_begin" "facebook" %}" class="facebook">facebook</a></li>
+					<li><a href="{% url "socialauth_begin" "linkedin-oauth2" %}" class="linkedin">linkedin</a></li>
+					<li><a href="{% url "socialauth_begin" "google-oauth2" %}" class="gmail">gmail</a></li>
+					<li><a href="{% url "socialauth_begin" "foursquare" %}" class="foursquare">foursquare</a></li>
+					<li><a href="{% url "socialauth_begin" "evernote" %}" class="evernote">evernote</a></li>
+				</ul>
+				<!--/social-->
+				
+				<!--close_social_nav-->
+				<div id="close_big_nav">
+					<a href="#">close nav</a>
+				</div>
+				<!--/close_social_nav-->
+				
+				<div class="clear"></div>
+			
+			</div>
+			<!--/social_choice-->
+			
+			<!--done-->
+			<div id="confirm_social">
+				<a href="#">done !</a>
+			</div>
+			<!--/done-->
+			
+			<!--arrow-->
+			<div class="arrow_bottom"></div>
+			<!--/arrow-->
+			
+		</div>
+	</div>
+	<!--/social_nav-->
+	
+	<!--step_one-->
+	<div class="full_container step_one" id="step_one">
+		<div class="centered_container">
+			
+			<!--fixed nav-->
+			<div class="nav_steps">
+				<ul class="nav">
+					<li class="vacio_top"><a href="#header" href="#">header</a></li>
+					<li><a href="#step_one" data-scroll="step_one" class="nav_one" href="#">home</a></li>
+					<li><a href="#step_two" data-scroll="step_two" class="nav_two" href="#">one</a></li>
+					<li><a href="#step_three" data-scroll="step_three" class="nav_three" href="#">two</a></li>
+					<li><a href="#step_four" data-scroll="step_four" class="nav_four" href="#">three</a></li>
+					<li><a href="#step_five" data-scroll="step_five" class="nav_five" href="#">four</a></li>
+					<li class="last_li"><a href="#footer" class="links" href="#">links</a></li>
+				</ul>
+			</div>
+			<!--/fixed nav-->
+			
+			<!--top-->
+			<div class="top">
+				<img src="/static/img/step_1/number_1.png" alt="1" />
+				<h2>Social influence<br />and reach</h2>
+				<p>Number of people you reach on social networks</p>
+			</div>
+			<!--/top-->
+			
+			<!--bottom-->
+			<div class="bottom">
+				
+				<!--left-->
+				<div class="bloque left" id="canvas_1_1"></div>
+				<!--left-->
+				
+				<!--right-->
+				<div class="bloque right" id="canvas_1_2"></div>
+				<!--right-->
+				
+				<div class="clear"></div>
+				
+			</div>
+			<!--bottom-->
+			
+		</div>
+	</div>
+	<!--/step_one-->
+	
+	<!--step_two-->
+	<div class="full_container step_two" id="step_two">
+		<div class="centered_container">
+			
+			<!--top-->
+			<div class="top">
+				<h2>Social Sharing numbers</h2>
+				<p>Let´s see how much you post, tweet and retweet per week.</p>
+			</div>
+			<!--/top-->
+			
+			<!--bottom-->
+			<div class="bottom">
+				
+				<!--left-->
+				<div class="block left">
+				
+					<!--title-->
+					<div class="title_graph">
+						<h2>Avg post per week</h2>
+					</div>
+					<!--title-->
+					
+					<!--graph_one-->
+					<div class="graph left">
+					
+						<!--img_top-->
+						<div class="img_top">
+							
+							<!--social_title-->
+							<div class="social_t_p">
+								<h2>Posts</h2>
+								<img src="/static/img/step_2/facebook.png" alt="facebook" />
+							</div>
+							<!--/social_title-->
+							
+              <div id="canvas_2_1"></div>
+							
+						</div>
+						<!--/img_top-->
+						
+						<!--data-->
+						<div class="text_graph" style="margin-left: 16px;">
+							<h2 class="color_one">134<br /><span>All</span></h2>
+							<h2 class="color_two">225<br /><span>You</span></h2>
+							<div class="clear"></div>
+						</div>
+						<!--data-->
+						
+					</div>
+					<!--/graph_one-->
+					
+					<!--graph_two-->
+					<div class="graph right">
+					
+						<div class="graph">
+						
+							<!--img_top-->
+							<div class="img_top">
+								
+								<!--social_title-->
+								<div class="social_t_p">
+									<h2>Tweets</h2>
+									<img src="/static/img/step_2/twitter.png" alt="twitter" />
+								</div>
+								<!--/social_title-->
+								
+                <div id="canvas_2_2"></div>
+								
+							</div>
+							<!--/img_top-->
+							
+							<!--data-->
+							<div class="text_graph">
+								<h2 class="color_one">99<br /><span>All</span></h2>
+								<h2 class="color_two">22<br /><span>You</span></h2>
+								<div class="clear"></div>
+							</div>
+							<!--data-->
+							
+						</div>
+					
+					</div>
+					<!--/graph_two-->
+					
+					<div class="clear"></div>
+					
+				</div>
+				<!--/left-->
+				
+				<!--right-->
+				<div class="block right">
+				
+					<!--title-->
+					<div class="title_graph">
+						<h2>Avg likes and retweets per week</h2>
+					</div>
+					<!--title-->
+					
+					<!--graph_three-->
+					<div class="graph left">
+					
+						<!--img_top-->
+						<div class="img_top">
+							
+							<!--social_title-->
+							<div class="social_t_p">
+								<h2>Likes</h2>
+								<img src="/static/img/step_2/facebook.png" alt="facebook" />
+							</div>
+							<!--/social_title-->
+							
+              <div id="canvas_2_3"></div>
+							
+						</div>
+						<!--/img_top-->
+						
+						<!--data-->
+						<div class="text_graph">
+							<h2 class="color_one">44<br /><span>All</span></h2>
+							<h2 class="color_two">80<br /><span>You</span></h2>
+							<div class="clear"></div>
+						</div>
+						<!--data-->
+						
+					</div>
+					<!--/graph_one-->
+					
+					<!--graph_four-->
+					<div class="graph right">
+					
+						<div class="graph">
+						
+							<!--img_top-->
+							<div class="img_top">
+								
+								<!--social_title-->
+								<div class="social_t_p">
+									<h2>Retweets</h2>
+									<img src="/static/img/step_2/twitter.png" alt="twitter" />
+								</div>
+								<!--/social_title-->
+								
+                <div id="canvas_2_4"></div>
+								
+							</div>
+							<!--/img_top-->
+							
+							<!--data-->
+							<div class="text_graph">
+								<h2 class="color_one">12<br /><span>All</span></h2>
+								<h2 class="color_two">11<br /><span>You</span></h2>
+								<div class="clear"></div>
+							</div>
+							<!--data-->
+							
+						</div>
+					
+					</div>
+					<!--/graph_two-->
+				
+				</div>
+				<!--/right-->
+				
+				<div class="clear"></div>
+				
+			</div>
+			<!--/bottom-->
+			
+		</div>
+	</div>
+	<!--/step_two-->
+	
+	<!--step_three-->
+	<div class="full_container step_three" id="step_three">
+		<div class="centered_container">
+			
+			<!--top-->
+			<div class="top">
+				<h2>Share your level<br />of education</h2>
+				<p>You only have to choose the highest level you´ve reached</p>
+			</div>
+			<!--/top-->
+			
+			<!--bottom-->
+			<div class="bottom">
+			
+				<!--graph-->
+				<div class="block left">
+          <div id="canvas_3_1"></div>
+					<div class="clear"></div>
+				</div>
+				<!--/graph-->
+				
+				<!--text-->
+				<div class="block right">
+					<ul>
+						<li><h2 class="color_one">8%</h2><p>Phd and above</p></li>
+						<li><h2 class="color_one">10%</h2><p>Master</p></li>
+						<li><h2 class="color_one">23%</h2><p>Undergraduate Programs</p></li>
+						<li><h2 class="color_two">5%</h2><p>Technical Insitute</p></li>
+						<li><h2 class="color_one">3%</h2><p>High School</p></li>
+						<li><h2 class="color_one">57%</h2><p>Junior Collage</p></li>
+						<li><h2 class="color_one">3%</h2><p>Primary School</p></li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+				<!--/text-->
+				
+				<!--icono_bottom-->
+				<div class="hat_bottom"></div>
+				<!--/icono_bottom-->
+			
+				<div class="clear"></div>
+				
+			</div>
+			<!--/bottom-->
+			
+		</div>
+	</div>
+	<!--/step_three-->
+	
+	<!--step_four-->
+	<div class="full_container step_four" id="step_four">
+		<div class="centered_container">
+			
+			<!--top-->
+			<div class="top">
+				<h2>Share your work<br />experience</h2>
+				<p>Let´s see how long have you been working for</p>
+			</div>
+			<!--/top-->
+			
+			<!--bottom-->
+			<div class="bottom">
+        		<div id="canvas_4_1"></div>
+			</div>
+			<!--/bottom-->
+			
+		</div>
+	</div>
+	<!--/step_four-->
+	
+	<!--step_five-->
+	<div class="full_container step_five" id="step_five">
+		<div class="centered_container">
+			<!--CONTAINER VACIO POR AHORA-->
+		</div>
+	</div>
+	<!--/step_five-->
+
+</div>
+
+</body>
+
+</html>

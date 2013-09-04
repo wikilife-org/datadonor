@@ -164,9 +164,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/donate/"
 
 SOCIAL_AUTH_PIPELINE = (
-    #'social_auth.backends.pipeline.social.social_auth_user',
+
     'social_auth.backends.pipeline.associate.associate_by_email',
     'social_auth.backends.pipeline.misc.save_status_to_session',
     'pipeline.auth.username',
@@ -176,8 +177,8 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.load_extra_data',
     'social_auth.backends.pipeline.user.update_user_details',
     'pipeline.auth.first_name',
-    
-    #'pipeline.auth.registration_login',
+    'pipeline.auth.social_aggretated_data',
+
     'pipeline.facebook.facebook_info',
     'pipeline.foursquare.foursquare_info',
     'pipeline.twitter.twitter_info',
@@ -210,7 +211,12 @@ SOCIAL_AUTH_PIPELINE_old = (
 
 FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes', "read_stream"]
 GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email',
-                       'https://www.googleapis.com/auth/userinfo.profile', 'https://www.google.com/calendar/feeds']
+                       'https://www.googleapis.com/auth/userinfo.profile', 
+                       'https://www.google.com/calendar/feeds',
+                       'https://www.googleapis.com/auth/plus.login',
+                       'https://www.googleapis.com/auth/plus.me'
+                       #'https://www.googleapis.com/auth/people.list',
+                       ]
 
 LINKEDIN_SCOPE = ["r_fullprofile", "r_emailaddress", "r_network", "r_contactinfo", "r_basicprofile"]
 

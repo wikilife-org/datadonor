@@ -194,7 +194,7 @@ class GoogleOAuth2(BaseOAuth2, SocialBackend):
     SETTINGS_KEY_NAME = _OAUTH2_KEY_NAME
     SETTINGS_SECRET_NAME = 'GOOGLE_OAUTH2_CLIENT_SECRET'
     SCOPE_VAR_NAME = 'GOOGLE_OAUTH_EXTRA_SCOPE'
-    DEFAULT_SCOPE = GOOGLE_OAUTH2_SCOPE
+    DEFAULT_SCOPE = setting("GOOGLE_OAUTH2_SCOPE")
     REDIRECT_STATE = False
 
     def user_data(self, access_token, *args, **kwargs):

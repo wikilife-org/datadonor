@@ -18,29 +18,22 @@ def receive_code(request):
 
 def home(request):
     """Home view, displays login mechanism"""
-    print "HOME!"
-    if request.user.is_authenticated():
-        ctx = {
-        'version': version,
-        'last_login': request.session.get('social_auth_last_login_backend')
-        }
-    else:
-        ctx =  {'version': version}
+
+    ctx =  {'version': version}
         
-    return render_to_response('index.html', {'version': version},
+    return render_to_response('landing.html', {'version': version},
                                   RequestContext(request))
 
 def greg(request):
     return render_to_response('google7d1bd3580ebd5b1b.html', {},
                                   RequestContext(request))
-@login_required
-def done(request):
+def donate(request):
     """Login complete view, displays user data"""
     ctx = {
         'version': version,
         'last_login': request.session.get('social_auth_last_login_backend')
     }
-    return render_to_response('index.html', ctx, RequestContext(request))
+    return render_to_response('data_donation.html', ctx, RequestContext(request))
 
 
 def error(request):

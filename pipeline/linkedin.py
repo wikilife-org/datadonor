@@ -180,7 +180,7 @@ import requests
 from django.utils import simplejson
 import oauth2 as oauth
 from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
-from utils.aggregated_data import complete_linkedin_social_info, get_level_of_education_by_degree
+from utils.aggregated_data import complete_linkedin_social_info, get_level_of_education_by_degree, complete_profile
 
 
 def linkedin_info(request, *args, **kwargs):
@@ -213,7 +213,7 @@ def linkedin_info(request, *args, **kwargs):
         except IndexError:
             pass
         
-        education_level = 2
+        education_level = 0
         degree = None
         try:
             education_degree = educations["values"][0]
@@ -231,7 +231,8 @@ def linkedin_info(request, *args, **kwargs):
         linkedin_connections_count = connections["_total"]
         
         complete_linkedin_social_info(social_user.user, linkedin_connections_count, work_experience_years, education_level, degree)
-
+        
+        complete_profile(social_user.user, result["emailAddress"], None, None)
         result.update(connections)
         result.update(positions)
         result.update(educations)
