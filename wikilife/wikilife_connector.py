@@ -1,9 +1,11 @@
 # coding=utf-8
 
-from social.models import Profile, SocialUserAggregatedData
+from social.models import Profile, SocialUserAggregatedData,\
+    GlobalEducationDistribution, GlobalWorkExperinceDistribution
 from wikilife.client.logs import Logs
 from wikilife.client.user import User
 from wikilife_utils.logs.log_creator import LogCreator
+from wikilife.client.stats import Stats
 
 
 class WikilifeConnectorException(Exception):
@@ -14,6 +16,7 @@ class WikilifeConnector(object):
 
     _user_client = None
     _log_client = None
+    _stat_client = None
     _log_creator = None
 
     """
@@ -25,6 +28,7 @@ class WikilifeConnector(object):
     def __init__(self, logger, wikilife_settings):
         self._user_client = User(logger, wikilife_settings)
         self._log_client = Logs(logger, wikilife_settings)
+        self._stat_client = Stats(logger, wikilife_settings)
         self._log_creator = LogCreator()
 
     def push(self):
@@ -123,8 +127,67 @@ class WikilifeConnector(object):
         write to datadonor
         """
         self._pull_education()
-        self._pull_social()
+        self._pull_work()
+        #self._pull_social()
+
+
+    _education_match_options = {
+        "elementary": "",
+        "high_school": "",
+        "junior_collage": "",
+        "tech": "",
+        "university": "",
+        "master": "",
+        "phd": ""
+    }
 
     def _pull_education(self):
+        m = self._education_match_options
+        r = self._stat_client.get_global_education_stats()
+        s = r["data"]
         
+        item = GlobalEducationDistribution(
+            elementary=s[m["elementary"]]["percent"], 
+            high_school=s[m["high_school"]]["percent"], 
+            junior_collage=s[m["junior_collage"]]["percent"], 
+            tech=s[m["tech"]]["percent"], 
+            university=s[m["university"]]["percent"], 
+            master=s[m["master"]]["percent"], 
+            phd=s[m["phd"]]["percent"] 
+        )
+        item.save()
+
+    def _pull_work(self):
+        r = self._stat_client.get_global_work_stats()
+        s = r["buckets"]
         
+        item = GlobalWorkExperinceDistribution(
+            range_15_25=s[0], 
+            range_25_35=s[1], 
+            range_36_45=s[2], 
+            range_46_55=s[3], 
+            range_56_65=s[4]
+        )
+        item.save() 
+    
+    """
+    def _pull_social(self):
+        m = self._education_match_options
+        r = self._stat_client.get_global_social_stats()
+        s = r["data"]
+
+        item = SocialGlobalAggregatedData(
+            avg_facebook_friend_count=, 
+            facebook_post_weekly_avg=, 
+            facebook_likes_weekly_avg=, 
+            avg_twitter_followers_count=, 
+            avg_twitter_tweets_count_last_seven_days=, 
+            avg_twitter_retweets_count_last_seven_days=, 
+            gplus_contacts_count=, 
+            avg_linkedin_connections_count=, 
+            avg_foursquare_connections_count=, 
+            education=, 
+            work_experience=
+        )
+        item.save()
+    """
