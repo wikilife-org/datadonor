@@ -4,9 +4,11 @@ from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.shortcuts import render_to_response, redirect
 from django.contrib.messages.api import get_messages
-
 from social_auth import __version__ as version
 from social_auth.utils import setting
+from wikilife.wikilife_connector import WikilifeConnector
+from django.http.response import HttpResponse
+
 
 def comming(request):
     return render_to_response('splash/index.html', {'version': version},
@@ -70,3 +72,14 @@ def form2(request):
 
 def close_login_popup(request):
     return render_to_response('close_popup.html', {}, RequestContext(request))
+
+
+#TODO add sec token
+def wikilife_push(request):
+    WikilifeConnector(logger=None, wikilife_settings={"HOST": "http://localhost:7080"}).push()
+    return HttpResponse("ok")
+
+#TODO add sec token
+def wikilife_pull(request):
+    WikilifeConnector(logger=None, wikilife_settings={"HOST": "http://localhost:7080"}).pull()
+    return HttpResponse("ok")

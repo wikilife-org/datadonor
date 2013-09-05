@@ -17,3 +17,7 @@ DATABASES = {
 #LOCAL
 GOOGLE_OAUTH2_CLIENT_ID= "998456856470.apps.googleusercontent.com"
 GOOGLE_OAUTH2_CLIENT_SECRET = "VytSb36-qpExvhaB13S_PweI"
+
+WIKILIFE = {
+    "HOST": "http://localhost:7080"
+}
