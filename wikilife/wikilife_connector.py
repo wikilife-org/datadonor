@@ -7,6 +7,7 @@ from wikilife.client.logs import Logs
 from wikilife.client.stats import Stats
 from wikilife.client.user import User
 from wikilife_utils.logs.log_creator import LogCreator
+from wikilife.client.stats import Stats
 
 
 class WikilifeConnectorException(Exception):

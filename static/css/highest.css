@@ -22,7 +22,7 @@
 	#four .subtitle
 	{
 		font-size:18px;
-		margin-top: 240px;	
+		margin-top: 265px;	
 	}
 	body #four .one .icon-sombra, #four .two .icon-sombra ,#four .four .icon-sombra ,#four .three .icon-sombra
 	{
@@ -99,6 +99,17 @@
 	.bottom-donate .half .box p
 	{
 	font-size:19px;	
+	}
+	#logos
+	{
+		bottom: 100px;
+	}
+	body #four h2 {
+	margin-top: 190px;
+	}
+	body #second h3 {
+
+	top: 186px;
 	}
 }
 @media only screen and (min-height: 900px)
