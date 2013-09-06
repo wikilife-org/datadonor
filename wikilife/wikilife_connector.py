@@ -4,7 +4,7 @@ from social.models import Profile, SocialUserAggregatedData,\
     GlobalEducationDistribution, GlobalWorkExperinceDistribution
 from wikilife.client.logs import Logs
 from wikilife.client.user import User
-from wikilife_utils.logs.log_creator import LogCreator
+#from wikilife_utils.logs.log_creator import LogCreator
 from wikilife.client.stats import Stats
 
 
