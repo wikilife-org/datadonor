@@ -23,11 +23,11 @@
     
     <link rel="stylesheet" type="text/css" href="/static/css/flexslider.css"/>
     
-    <link rel="stylesheet" media="screen and (max-height: 730px)" href="/static/css/min.css?546879" />
+    <link rel="stylesheet" media="screen and (max-height: 730px)" href="/static/css/min.css" />
     
-    <link rel="stylesheet" media="screen and (min-height: 800px)" href="/static/css/max.css?546879" />
+    <link rel="stylesheet" media="screen and (min-height: 800px)" href="/static/css/max.css" />
     
-    <link rel="stylesheet" media="screen and (min-height: 900px)" href="/static/css/highest.css?14532423456" />
+    <link rel="stylesheet" media="screen and (min-height: 900px)" href="/static/css/highest.css" />
     
 	<link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)" href="/static/css/ipad-h.css" />
     
@@ -70,11 +70,11 @@
                 <ul class="slides">
                 
 	                <li>
-                        <div class="capa"></div>
-                        <video width="640" id="video-back-0" class="vidback-0 videoback" preload="auto" muted loop autoplay>
+                                        	<div class="capa"></div>
+                        <!--  video width="640" id="video-back-0" class="vidback-0 videoback" preload="auto" muted loop autoplay>
                             <source src="/static/video/blur.webm" type="video/webm">
                             <source src="/static/video/blur.mp4" type="video/mp4">
-                            <source src="/static/video/blur.mp4" type="video/ogg">
+                            <source src="/static/video/blur.ogg" type="video/ogg">
                         </video>
                         
                                                                   
@@ -82,7 +82,7 @@
                             <source src="/static/video/DataDonors.webm" type="video/webm">
                             <source src="/static/video/DataDonors.mp4" type="video/mp4">
                             <source src="/static/video/DataDonors.ogg" type="video/ogg">
-                        </video>
+                        </video-->
                   
                    </li>     
 
@@ -135,7 +135,7 @@
                         
                     </div><!-- #preloader-copy-wrapper -->
                     
-                	<a href="/donate/" title="Start sharing" id="start-sharing" >Start Sharing</a>
+                	<a href="#" title="Coming Soon" id="start-sharing" >Coming Soon</a>
                     
                 </div>
                 
@@ -171,7 +171,30 @@ DATADONORS?</h3>
             
             </div>
             
-            <div id="logos" ></div>
+            <div id="logos" >
+            	<div id="slider-logos">
+            	        <img src="/static/img/fitbit.jpg" title="fitbit" alt="fitbit" />
+            	        <img src="/static/img/myfitness.jpg" title="myfitness" alt="myfitness" />
+                        <img src="/static/img/bodymedia.jpg" title="bodymedia" alt="bodymedia" />
+                        <img src="/static/img/dailymile.jpg" title="dailymile" alt="dailymile" />
+                        <img src="/static/img/runkeeper.jpg" title="runkeeper" alt="runkeeper" />
+                        <img src="/static/img/nike+.jpg" title="nike+" alt="nike+" />
+                        <img src="/static/img/fatsecret.jpg" title="fatsecret" alt="fatsecret" />
+                        <img src="/static/img/wikilife.jpg" title="wikilife" alt="wikilife" />
+                        <img src="/static/img/whithings.jpg" title="whithings" alt="whithings" />
+                        <img src="/static/img/23andme.jpg" title="23andme" alt="23andme" />
+                        <img src="/static/img/jawbone.jpg" title="jawbone" alt="jawbone" />
+                      
+                        <img src="/static/img/moodpanda.jpg" title="moodpanda" alt="moodpanda" />
+                        <img src="/static/img/ihealth.jpg"  title="ihealth" alt="ihealth" />
+                        <img src="/static/img/twitter.jpg" title="twitter" alt="twitter" />
+                        <img src="/static/img/facebook.jpg"  title="facebook" alt="facebook" />
+                        <img src="/static/img/linkedin.jpg"  title="linkedin" alt="linkedin" />
+                        <img src="/static/img/gmail.jpg"  title="gmail" alt="gmail" />
+                        <img src="/static/img/foursquare.jpg"  title="foursquare" alt="foursquare" />
+
+            	</div><!-- #slider-logos -->
+            </div><!-- #logos -->
             
         </section><!-- #second -->
 </section>
@@ -657,7 +680,7 @@ IT WON’T TAKE LONG</h3>
                 
                 <div class="half">
                 
-                    <a href="/donate/" title="donate" id="donate">Donate!</a>
+                    <a href="#" title="donate" id="donate">Coming Soon!</a>
                 
                 </div><!-- .half -->
             
@@ -897,7 +920,7 @@ IT WON’T TAKE LONG</h3>
 	
 <script type="text/javascript" src="/static/js/script.js" ></script>
 
-<!-- <script src="../build/static/js/jquery.scrollSections-0.4.1.min.js"></script> -->
+<!-- <script src="../build/js/jquery.scrollSections-0.4.1.min.js"></script> -->
 
 <script>
 
@@ -1019,7 +1042,7 @@ var interval =0;
 			$( '.close-video' ).hide();
 			$( '.video-1,.box-scroll, #header-top .capa' ).show();
 			$( '#video-top, #video-top2' ).hide();
-			
+			myVideo1.currentTime = 0;
 			$('.slides > li > video').each( function(i) {
 						//$(this).get(0).pause();
 
@@ -1130,6 +1153,8 @@ var interval =0;
 
         $( document ).ready ( function( ) 
 		{
+			//$('#slider-logos .flexslider').flexslider({ animation: "slide", animationLoop: true, slideshow: false, controlNav: false , pauseOnHover: false ,  directionNav: true,  animationSpeed: 600, itemWidth: 96, itemMargin: 0, minItems: 1 , maxItems: 6, move: 6 });
+   
 			
 			$( '#header-top .flexslider' ).flexslider
 			({
@@ -1248,15 +1273,15 @@ CAMBIAR EL GOOGLE ANALYTICS
  
 <script type="text/javascript">
 
- var _gaq = _gaq || [];
- _gaq.push(['_setAccount', 'UA-8889668-4']);
- _gaq.push(['_trackPageview']);
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-8889668-4']);
+ _gaq.push(['_trackPageview']);
 
- (function() {
-   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
- })();
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
 
 </script>
 -->
