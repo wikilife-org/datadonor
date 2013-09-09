@@ -605,6 +605,7 @@ z-index:120
 }
 #second .middle 
 {
+	margin-top: 40px;
 	
 }
 #second .middle img
@@ -651,6 +652,18 @@ vertical-align: middle;
 	float:left;
 	width:50%;
 }
+
+.middle p
+{
+	font-size: 18px;
+	margin-left: 10px;
+	margin-right: 150px;
+	text-align: left;
+	font-family: 'gotham-bold';
+	margin-top: 80px;
+	line-height: 120%;
+}
+
 .conver
 {
 	height: 766px;
