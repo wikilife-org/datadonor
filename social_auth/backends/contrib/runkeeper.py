@@ -20,13 +20,16 @@ from oauth2 import Token
 from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, PhysicalBackend
 
 
-# Fitbit configuration
-RUNKEEPER_SERVER = 'https://api.fitbit.com'
-RUNKEEPER_REQUEST_TOKEN_URL = '%s/oauth/request_token' % FITBIT_SERVER
-RUNKEEPER_AUTHORIZATION_URL = '%s/oauth/authorize' % FITBIT_SERVER
-RUNKEEPER_ACCESS_TOKEN_URL = '%s/oauth/access_token' % FITBIT_SERVER
-RUNKEEPER_USERINFO = 'http://api.fitbit.com/1/user/-/profile.json'
+import requests
+import urllib
 
+# Runkeeper configuration
+RUNKEEPER_SERVER = 'https://api.runkeeper.com'
+RUNKEEPER_REQUEST_TOKEN_URL = '%s/oauth/request_token' % RUNKEEPER_SERVER
+RUNKEEPER_AUTHORIZATION_URL = '%s/apps/authorize' % RUNKEEPER_SERVER
+RUNKEEPER_ACCESS_TOKEN_URL = '%s/apps/token' % RUNKEEPER_SERVER
+RUNKEEPER_USERINFO = 'http://api.runkeeper.com/1/user/-/profile.json'
+RUNKEEPER_REDIRECT_URL = 'http://127.0.0.1:8000/rk'
 
 class RunkeeperBackend(OAuthBackend):
     """Runkeeper OAuth authentication backend"""
@@ -51,28 +54,32 @@ class RunkeeperBackend(OAuthBackend):
 
 
 class RunkeeperAuth(ConsumerBasedOAuth, PhysicalBackend):
-    """Fitbit OAuth authentication mechanism"""
-    AUTHORIZATION_URL = FITBIT_AUTHORIZATION_URL
-    REQUEST_TOKEN_URL = FITBIT_REQUEST_TOKEN_URL
-    ACCESS_TOKEN_URL = FITBIT_ACCESS_TOKEN_URL
-    AUTH_BACKEND = FitbitBackend
-    SETTINGS_KEY_NAME = 'FITBIT_CONSUMER_KEY'
-    SETTINGS_SECRET_NAME = 'FITBIT_CONSUMER_SECRET'
+    """Runkeeper OAuth authentication mechanism"""
+    AUTHORIZATION_URL = RUNKEEPER_AUTHORIZATION_URL
+    REQUEST_TOKEN_URL = RUNKEEPER_REQUEST_TOKEN_URL
+    ACCESS_TOKEN_URL = RUNKEEPER_ACCESS_TOKEN_URL
+    AUTH_BACKEND = RunkeeperBackend
+    SETTINGS_KEY_NAME = 'RUNKEEPER_CONSUMER_KEY'
+    SETTINGS_SECRET_NAME = 'RUNKEEPER_CONSUMER_SECRET'
+
 
     def access_token(self, token):
-        """Return request for access token value"""
-        # Fitbit is a bit different - it passes user information along with
-        # the access token, so temporarily store it to vie the user_data
-        # method easy access later in the flow!
-        request = self.oauth_request(token, self.ACCESS_TOKEN_URL)
-        response = self.fetch_response(request)
-        token = Token.from_string(response)
-        params = parse_qs(response)
+        """Returns Access Token retrieved from the Health Graph API Token
+        Endpoint following the login to RunKeeper.
 
-        token.encoded_user_id = params.get('encoded_user_id', [None])[0]
-        token.fullname = params.get('fullname', [None])[0]
-        token.username = params.get('username', [None])[0]
-        return token
+        @param code: Code returned by Health Graph API at the Authorization or
+                     RunKeeper Login phase.
+        @return:     Access Token for querying the Health Graph API.
+
+        """
+        payload = {'grant_type': 'authorization_code',
+                   'code': code,
+                   'client_id': SETTINGS_KEY_NAME,
+                   'client_secret': SETTINGS_SECRET_NAME,
+                   'redirect_uri': RUNKEEPER_REDIRECT_URL,}
+        req = requests.post(ACCESS_TOKEN_URL, data=payload)
+        data = req.json()
+        return data.get('access_token')
 
     def user_data(self, access_token, *args, **kwargs):
         """Loads user data from service"""

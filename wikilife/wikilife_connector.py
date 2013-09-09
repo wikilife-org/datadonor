@@ -1,10 +1,12 @@
 # coding=utf-8
 
-from social.models import Profile, SocialUserAggregatedData,\
-    GlobalEducationDistribution, GlobalWorkExperinceDistribution
+from social.models import Profile, SocialUserAggregatedData, \
+    GlobalEducationDistribution, GlobalWorkExperinceDistribution, \
+    SocialGlobalAggregatedData
 from wikilife.client.logs import Logs
+from wikilife.client.stats import Stats
 from wikilife.client.user import User
-#from wikilife_utils.logs.log_creator import LogCreator
+from wikilife_utils.logs.log_creator import LogCreator
 from wikilife.client.stats import Stats
 
 
@@ -19,12 +21,6 @@ class WikilifeConnector(object):
     _stat_client = None
     _log_creator = None
 
-    """
-    def __init__(self, user_client, log_client, log_creator):
-        self._user_client = user_client
-        self._log_client = log_client
-        self._log_creator = log_creator
-    """
     def __init__(self, logger, wikilife_settings):
         self._user_client = User(logger, wikilife_settings)
         self._log_client = Logs(logger, wikilife_settings)
@@ -128,7 +124,7 @@ class WikilifeConnector(object):
         """
         self._pull_education()
         self._pull_work()
-        #self._pull_social()
+        self._pull_social()
 
 
     _education_match_options = {
@@ -169,25 +165,37 @@ class WikilifeConnector(object):
             range_56_65=s[4]
         )
         item.save() 
-    
-    """
+
+    _social_match_lvs = {
+        "avg_facebook_friend_count": "Facebook.Friends", 
+        "facebook_post_weekly_avg": "Facebook.Posts", 
+        "facebook_likes_weekly_avg": "Facebook.Likes given",
+        "avg_twitter_followers_count": "Twitter.Followers",
+        "avg_twitter_tweets_count_last_seven_days": "Twitter.Tweets", 
+        "avg_twitter_retweets_count_last_seven_days": "Twitter.Retweets",
+        "gplus_contacts_count": "Gmail.Contacts",
+        "avg_linkedin_connections_count": "", #linked in not in https://docs.google.com/a/wikilife.org/spreadsheet/ccc?key=0AoWhJXaOXeJXdGJ3MGJsWVh3NFFoYVhnbWpwSG9jbHc#gid=0
+        "avg_foursquare_connections_count": "Foursquare.Friends",
+        "education": "", # ???
+        "work_experience": "" # ???
+    }
+
     def _pull_social(self):
-        m = self._education_match_options
+        m = self._social_match_lvs
         r = self._stat_client.get_global_social_stats()
         s = r["data"]
 
         item = SocialGlobalAggregatedData(
-            avg_facebook_friend_count=, 
-            facebook_post_weekly_avg=, 
-            facebook_likes_weekly_avg=, 
-            avg_twitter_followers_count=, 
-            avg_twitter_tweets_count_last_seven_days=, 
-            avg_twitter_retweets_count_last_seven_days=, 
-            gplus_contacts_count=, 
-            avg_linkedin_connections_count=, 
-            avg_foursquare_connections_count=, 
-            education=, 
-            work_experience=
+            avg_facebook_friend_count=s[m["avg_facebook_friend_count"]]["avg"], 
+            facebook_post_weekly_avg=s[m["facebook_post_weekly_avg"]]["avg"], 
+            facebook_likes_weekly_avg=s[m["facebook_likes_weekly_avg"]]["avg"], 
+            avg_twitter_followers_count=s[m["avg_twitter_followers_count"]]["avg"],
+            avg_twitter_tweets_count_last_seven_days=s[m["avg_twitter_tweets_count_last_seven_days"]]["avg"],
+            avg_twitter_retweets_count_last_seven_days=s[m["avg_twitter_retweets_count_last_seven_days"]]["avg"], 
+            gplus_contacts_count=s[m["gplus_contacts_count"]]["avg"],
+            avg_linkedin_connections_count=s[m["avg_linkedin_connections_count"]]["avg"],
+            avg_foursquare_connections_count=s[m["avg_foursquare_connections_count"]]["avg"], 
+            education=s[m["education"]]["avg"],
+            work_experience=s[m["work_experience"]]["avg"],
         )
         item.save()
-    """

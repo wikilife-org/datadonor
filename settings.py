@@ -148,6 +148,8 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.foursquare.FoursquareBackend',
     'social_auth.backends.contrib.evernote.EvernoteBackend',
     'social_auth.backends.contrib.fitbit.FitbitBackend',
+    'social_auth.backends.contrib.runkeeper.RunkeeperBackend',
+    'social_auth.backends.contrib.dailymile.DailyMileBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -186,6 +188,8 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.google.google_info',
     'pipeline.evernote.evernote_info',
     'pipeline.fitbit.fitbit_info',
+    'pipeline.runkeeper.runkeeper_info',
+    'pipeline.dailymile.dailymile_info',
 )
 
 SOCIAL_AUTH_PIPELINE_old = (
@@ -203,7 +207,7 @@ SOCIAL_AUTH_PIPELINE_old = (
     'social.pipeline.first_name',
     #'pipeline.twitter.twitter_info',
     #'pipeline.facebook.facebook_info',
-    
+
 )
 
 
@@ -211,7 +215,7 @@ SOCIAL_AUTH_PIPELINE_old = (
 
 FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes', "read_stream"]
 GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email',
-                       'https://www.googleapis.com/auth/userinfo.profile', 
+                       'https://www.googleapis.com/auth/userinfo.profile',
                        'https://www.google.com/calendar/feeds',
                        'https://www.googleapis.com/auth/plus.login',
                        'https://www.googleapis.com/auth/plus.me'
