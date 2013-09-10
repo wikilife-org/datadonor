@@ -659,9 +659,10 @@ vertical-align: middle;
 	margin-left: 10px;
 	margin-right: 150px;
 	text-align: left;
-	font-family: 'gotham-bold';
+	font-family: 'Omnes-Semibold';
 	margin-top: 80px;
 	line-height: 120%;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .conver
