@@ -34,11 +34,25 @@
     <link rel="stylesheet" href="/static/css/reveal.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
-		
+	<script type="text/javascript" src="/static/js/jquery.jplayer.min.js"></script>	
 	<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>	
         
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+<!-- 	<script type="text/javascript">
+	 $(document).ready(function(){
+	  $("#video").jPlayer({
+	   ready: function () {
+	    $(this).jPlayer("setMedia", {
+	     m4a: "http://static.wikilife.org/DataDonors.mp4",
+	     oga: "http://static.wikilife.org/DataDonors.ogv",
+	     webma: "http://static.wikilife.org/DataDonors.webm",
+	    });
+	   },
+	   swfPath: "/static/js/",
+	   supplied: "m4a, oga", "webma"
+	  });
+	 });
+	</script> -->
 </head>

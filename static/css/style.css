@@ -120,6 +120,12 @@ header, nav, section, article, aside, footer{ display:block;}
 	opacity:0.2;
 }
 
+.gototop 
+{
+	top:-300px;
+	opacity:0.2;
+}
+
 #header-top h2
 {
 	color:#e46565;
