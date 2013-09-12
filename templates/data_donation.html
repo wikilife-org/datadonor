@@ -22,11 +22,12 @@
 	<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/raphael/raphael-min.js"></script>
-    <script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
-    <script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
-    <script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
+        <script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
+        <script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
+        <script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="/static/js/funciones.js"></script>
-    <script type="text/javascript" src="/static/js/main.js"></script>
+        <script type="text/javascript" src="/static/js/main.js"></script>
 
 </head>
 
@@ -81,9 +82,13 @@
 		</div>
 	</div>
 	<!--/presentation-->
+        
+        
+        
+        <!-- SOCIAL NETWORKS -->
 	
 	<!--social_nav-->
-	<div class="full_container big_social_login">
+	<div class="full_container big_social_login" id="social_nav_one">
 		<div class="centered_container">
 			
 			<!--trigger_social_nav-->
@@ -101,7 +106,7 @@
 			
 				<h2>Click or tap to select</h2>
 				<!--social-->
-				<ul id="nav_big_social">
+				<ul class="nav_big_social">
 				
 					{% if "twitter" in social_auth.social.associated %}
 					<li class="active"><a href="{% url "socialauth_disconnect" "twitter" %}" class="twitter">twitter</a></li>
@@ -137,7 +142,7 @@
 				<!--/social-->
 				
 				<!--close_social_nav-->
-				<div id="close_big_nav">
+				<div class="close_big_nav">
 					<a href="#">close nav</a>
 				</div>
 				<!--/close_social_nav-->
@@ -148,7 +153,7 @@
 			<!--/social_choice-->
 			
 			<!--done-->
-			<div id="confirm_social">
+			<div class="confirm_social">
 				<a href="#">done !</a>
 			</div>
 			<!--/done-->
@@ -165,17 +170,27 @@
 	<div class="full_container step_one" id="step_one">
 		<div class="centered_container">
 			
-			<!--fixed nav-->
+			<!--/fixed nav-->
 			<div class="nav_steps">
 				<ul class="nav">
-					<li class="vacio_top"><a href="#header" href="#">header</a></li>
-					<li><a href="#step_one" data-scroll="step_one" class="nav_one" href="#">home</a></li>
-					<li><a href="#step_two" data-scroll="step_two" class="nav_two" href="#">one</a></li>
-					<li><a href="#step_three" data-scroll="step_three" class="nav_three" href="#">two</a></li>
-					<li><a href="#step_four" data-scroll="step_four" class="nav_four" href="#">three</a></li>
-					<li><a href="#step_five" data-scroll="step_five" class="nav_five" href="#">four</a></li>
-					<li class="last_li"><a href="#footer" class="links" href="#">links</a></li>
+					<li><a href="#header" class="nav_one">one</a></li>
+					<li><a href="#" class="nav_two">two</a></li>
+					<li><a href="#" class="nav_three">three</a></li>
+					<li><a href="#" class="nav_four">four</a></li>
+					<li><a href="#" class="nav_five">five</a></li>
 				</ul>
+				
+				<!--trigger_share-->
+				<div class="trigger_social" id="trigger_social">
+					<ul>
+						<li><a href="#">social share</a></li>
+						<li><a href="#" class="facebook">facebook</a></li>
+						<li><a href="#" class="twitter">twitter</a></li>
+						<li class="last"><a href="#" class="email">mail</a></li>
+					</ul>
+				</div>
+				<!--trigger_share-->
+				
 			</div>
 			<!--/fixed nav-->
 			
@@ -249,10 +264,11 @@
 						<!--/img_top-->
 						
 						<!--data-->
-						<div class="text_graph" style="margin-left: 16px;">
-							<h2 class="color_one">134<br /><span>All</span></h2>
-							<h2 class="color_two">225<br /><span>You</span></h2>
-							<div class="clear"></div>
+						<div class="text_graph">
+							<ul>
+                                                            <li><h2 class="color_one">134<br /><span>All</span></h2></li>
+                                                            <li><h2 class="color_two">225<br /><span>You</span></h2></li>
+							</ul>
 						</div>
 						<!--data-->
 						
@@ -281,9 +297,10 @@
 							
 							<!--data-->
 							<div class="text_graph">
-								<h2 class="color_one">99<br /><span>All</span></h2>
-								<h2 class="color_two">22<br /><span>You</span></h2>
-								<div class="clear"></div>
+								<ul>
+                                                                    <li><h2 class="color_one">99<br /><span>All</span></h2></li>
+                                                                    <li><h2 class="color_two">22<br /><span>You</span></h2></li>
+								</ul>
 							</div>
 							<!--data-->
 							
@@ -326,9 +343,10 @@
 						
 						<!--data-->
 						<div class="text_graph">
-							<h2 class="color_one">44<br /><span>All</span></h2>
-							<h2 class="color_two">80<br /><span>You</span></h2>
-							<div class="clear"></div>
+							<ul>
+                                                            <li><h2 class="color_one">44<br /><span>All</span></h2></li>
+                                                            <li><h2 class="color_two">80<br /><span>You</span></h2></li>
+							</ul>
 						</div>
 						<!--data-->
 						
@@ -357,9 +375,10 @@
 							
 							<!--data-->
 							<div class="text_graph">
-								<h2 class="color_one">12<br /><span>All</span></h2>
-								<h2 class="color_two">11<br /><span>You</span></h2>
-								<div class="clear"></div>
+								<ul>
+                                                                    <li><h2 class="color_one">12<br /><span>All</span></h2></li>
+                                                                    <li><h2 class="color_two">11<br /><span>You</span></h2></li>
+								</ul>
 							</div>
 							<!--data-->
 							
@@ -403,14 +422,70 @@
 				
 				<!--text-->
 				<div class="block right">
-					<ul>
-						<li><h2 class="color_one">8%</h2><p>Phd and above</p></li>
-						<li><h2 class="color_one">10%</h2><p>Master</p></li>
-						<li><h2 class="color_one">23%</h2><p>Undergraduate Programs</p></li>
-						<li><h2 class="color_two">5%</h2><p>Technical Insitute</p></li>
-						<li><h2 class="color_one">3%</h2><p>High School</p></li>
-						<li><h2 class="color_one">57%</h2><p>Junior Collage</p></li>
-						<li><h2 class="color_one">3%</h2><p>Primary School</p></li>
+					<ul id="your_lvl_c">
+						<li>
+							<h2 class="color_one">8<span>%</span></h2>
+							<a href="#" ref="0">
+								<span>PhD</span>
+								<div class="this_lvl">
+									<h2>This is your level</h2>
+								</div>
+							</a>
+						</li>
+						<li>
+							<h2 class="color_one">10<span>%</span></h2>
+							<a href="#" ref="1">
+								<span>Master</span>
+								<div class="this_lvl">
+									<h2>This is your level</h2>
+								</div>
+							</a>
+						</li>
+						<li>
+							<h2 class="color_one">23<span>%</span></h2>
+							<a href="#" ref="2">
+								<span>Undergraduate Programs</span>
+								<div class="this_lvl">
+									<h2>This is your level</h2>
+								</div>
+							</a>
+						</li>
+						<li>
+							<h2 class="color_one">5<span>%</span></h2>
+							<a href="#" ref="3">
+								<span>Technical Insitute</span>
+								<div class="this_lvl">
+									<h2>This is your level</h2>
+								</div>
+							</a>
+						</li>
+						<li>
+							<h2 class="color_one">3<span>%</span></h2>
+							<a href="#" ref="4">
+								<span>High School</span>
+								<div class="this_lvl">
+									<h2>This is your level</h2>
+								</div>
+							</a>
+						</li>
+						<li>
+							<h2 class="color_one">57<span>%</span></h2>
+							<a href="#" ref="5">
+								<span>Junior Collage</span>
+								<div class="this_lvl">
+									<h2>This is your level</h2>
+								</div>
+							</a>
+						</li>
+						<li>
+							<h2 class="color_one">3<span>%</span></h2>
+							<a href="#" ref="6">
+								<span>Primary School</span>
+								<div class="this_lvl">
+									<h2>This is your level</h2>
+								</div>
+							</a>
+						</li>
 					</ul>
 					<div class="clear"></div>
 				</div>
@@ -445,18 +520,61 @@
         		<div id="canvas_4_1"></div>
 			</div>
 			<!--/bottom-->
+                        
+                        <!--datos_bottom-->
+			<div class="datos_graph">
+			
+				<!--lista_edades-->
+				<ul id="age_input">
+					<li class="first">
+						<a href="#">15-25</a>
+					</li>
+					<li>
+						<a href="#">26-35</a>
+					</li>
+					<li>
+						<a href="#">36-45</a>
+					</li>
+					<li>
+						<a href="#">46-55</a>
+					</li>
+					<li class="last">
+						<a href="#">56-65</a>
+					</li>
+				</ul>
+				<!--lista_edades-->
+				
+				<!--input-->
+				<div class="age_input" id="age_select">
+				
+					<div class="age_centered">
+						<h2>total years working:</h2>
+			            <form id="age_select_form" action="#">
+			              <input type="text" id="age_select_value" name="age"/>
+			            </form>
+					</div>
+					
+					<div class="arrow_bottom_age"></div>
+					
+				</div>
+				<!--/input-->
+				
+				<div class="age_bottom">
+					<h2>age</h2>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+			<!--datos_bottom-->
 			
 		</div>
 	</div>
 	<!--/step_four-->
+        
+        
+        
+        <!-- FITNESS DEVICES -->
 	
-	<!--step_five-->
-	<div class="full_container step_five" id="step_five">
-		<div class="centered_container">
-			<!--CONTAINER VACIO POR AHORA-->
-		</div>
-	</div>
-	<!--/step_five-->
 
 </div>
 
