@@ -13,7 +13,15 @@ class Profile(models.Model):
         ('m', 'Male'), ('f', 'Female')), blank=True, null=True)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
-    wikilife_token = models.CharField(max_length=255, unique=True, null=True) #TODO funca unique except is null ?
+    height = models.FloatField(null=True)
+    weight = models.FloatField(null=True)
+    device_id = models.CharField(max_length=255, null=True)
+    timezone = models.CharField(max_length=255, null=True)
+    city = models.CharField(max_length=255, null=True)
+    region = models.CharField(max_length=255, null=True)
+    country = models.CharField(max_length=255, null=True)
+    wikilife_token = models.CharField(max_length=255, null=True)
+    wikilife_ready = models.BooleanField(default=False)
 
 
 class SocialUserAggregatedData(models.Model):
