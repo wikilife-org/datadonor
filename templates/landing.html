@@ -91,54 +91,40 @@ var interval =0;
 
 	<script> 
 
-		var myVideoback=document.getElementById("video-back-0"); 
-		var myVideoback2=document.getElementById("video-back-1"); 
-		var myVideo1=document.getElementById("video-top"); 
-		var myVideo2=document.getElementById("video-top2"); 
-		
-		//myVideo.load( $( '#video-back-1' ).fadeIn() );
-		
-		var video_slide = 0;
-		function playPause()
-		{ 
-			if (myVideo1.paused) 
-			{
-				//myVideo.play();
-				$( '.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa' ).hide();
-				$( '.pause' ).show();
-				 myVideo1.play();
-				  myVideo1.addEventListener('ended', function () {
-						$( '.pause' ).hide();
-						$( '.videoback, #header-top img').show();	
-						$( '.close-video' ).hide();
-						$( '.video-1,.box-scroll' ).show();
-						$( '#video-top, #video-top2' ).hide();
-					}, false);
-					//video.play(); 
-			}
-			else 
-			{
-			  myVideo1.pause();
-			  
-			  $( '.close-video' ).show();
-			}
-		} 
-		function playPause2()
-		{ 
-			if (myVideo2.paused) 
-			{
-				myVideo2.play();
-				$( '.video-1, .box-scroll, #header-top .flex-active-slide img' ).hide();
-				$( '.pause, #video-top2' ).show();
-				
-			}
-			else 
-			{
-			  myVideo2.pause();
-			  
-			  $( '.close-video' ).show();
-			}
-		} 
+	var myVideoback=document.getElementById("video-back-0"); 
+	var myVideoback2=document.getElementById("video-back-1"); 
+	var myVideo1=document.getElementById("video-top"); 
+	var myVideo2=document.getElementById("video-top2"); 
+	
+	//myVideo.load( $( '#video-back-1' ).fadeIn() );
+	
+	var video_slide = 0;
+	function playPause()
+	{ 
+		if (myVideo1.paused) 
+		{
+			//myVideo.play();
+			$( '.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa' ).hide();
+			$( '.pause' ).show();
+			$("#video-back-0").hide();
+			$( '#video-top, #video-top2' ).show();
+			 myVideo1.play();
+			  myVideo1.addEventListener('ended', function () {
+					$( '.pause' ).hide();
+					$( '.videoback, #header-top img').show();	
+					$( '.close-video' ).hide();
+					$( '.video-1,.box-scroll' ).show();
+					$( '#video-top, #video-top2' ).hide();
+				}, false);
+				//video.play(); 
+		}
+		else 
+		{
+		  myVideo1.pause();
+		  
+		  $( '.close-video' ).show();
+		}
+	} 
 		function close_video()
 		{
 			if( video_slide == 1  )
@@ -283,7 +269,7 @@ var interval =0;
 				animationLoop: true,
 				start: function(slider) {
 				//myVideoback.play();
-				 
+				 	console.log("Working?");
 					video_slide = slider.currentSlide;
 					 myVideo1.pause();
 
