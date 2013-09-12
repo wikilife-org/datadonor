@@ -2726,14 +2726,13 @@ left: 90px;
 #slider-logos
 {
 
-	margin-left: 10px;
-	margin-top: 35px;
+	margin: 180px 100px auto;
 }
 
 #slider-logos img
 {
 
-	width: 75px;
+	width: 5.8%;
 	margin-left: -9px;
 	
 }
@@ -3528,7 +3527,7 @@ background-image: url(/static/img/iconos-3.jpg);
 margin: 0 auto 20px auto;
 display: block;
 height: 110px;
-width: 160px;	
+width: 170px;	
 }
 #four .one .icon
 {
