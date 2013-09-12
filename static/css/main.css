@@ -1246,18 +1246,53 @@ a:hover {
 }
 .step_five .centered_container .three_graphs .graph {
 	width: 225px;
-	height: 335px;
+	min-height: 315px;
 	display: inline-table;
 	background-color: red;
-	margin: 0px 8px -3px 8px;
+	margin: 0px 8px 0px 8px;
 }
-.step_five .centered_container .three_graphs .graph . {
-	width: 225px;
-	height: 335px;
+.step_five .centered_container .three_graphs .graph .container_graph {
+	background-color: blue;
+	width: 100%;
+	margin: 0px 0px 5px 0px;
+}
+.step_five .centered_container .three_graphs .graph .text_container {
+	background-color: green;
+	width: 100%;
+	height: 20px;
+}
+.step_five .centered_container .three_graphs .graph .text_container > h2 {
+	color: #808080;
+	border-bottom: 1px solid #E0DDDA;
+	padding-bottom: 2px;
+	text-align: left;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul {
+	width: 100%;
+	text-align: center;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li {
 	display: inline-table;
-	background-color: red;
-	margin: 0px 8px -3px 8px;
+	margin-left: 6px;
 }
+.step_five .centered_container .three_graphs .graph .text_container ul li:first-child {
+	margin-left: 0px;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li h2 {
+	width: 45%;
+	font-family: 'Omnes-Semibold';
+	font-size: 58px;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li h2 span {
+	font-size: 18px;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one {
+	color: #7944C7;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li h2.color_two {
+	color: #DB6666;
+}
+
 
 /* -------- you cards */
 .step_five .centered_container .you_cards {
