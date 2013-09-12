@@ -76,10 +76,10 @@ def close_login_popup(request):
 
 #TODO add sec token
 def wikilife_push(request):
-    WikilifeConnector(logger=None, wikilife_settings={"HOST": "http://localhost:7080"}).push()
+    WikilifeConnector().push()
     return HttpResponse("ok")
 
 #TODO add sec token
 def wikilife_pull(request):
-    WikilifeConnector(logger=None, wikilife_settings={"HOST": "http://localhost:7080"}).pull()
+    WikilifeConnector().pull()
     return HttpResponse("ok")

@@ -1,5 +1,6 @@
 # coding=utf-8
 
+from django.conf import settings
 from social.models import Profile, SocialUserAggregatedData, \
     GlobalEducationDistribution, GlobalWorkExperinceDistribution, \
     SocialGlobalAggregatedData
@@ -7,7 +8,7 @@ from wikilife.client.logs import Logs
 from wikilife.client.stats import Stats
 from wikilife.client.user import User
 from wikilife_utils.logs.log_creator import LogCreator
-from wikilife.client.stats import Stats
+import logging
 
 
 class WikilifeConnectorException(Exception):
@@ -21,7 +22,9 @@ class WikilifeConnector(object):
     _stat_client = None
     _log_creator = None
 
-    def __init__(self, logger, wikilife_settings):
+    def __init__(self):
+        logger = logging.getLogger("WikilifeConnector")
+        wikilife_settings = settings.WIKILIFE
         self._user_client = User(logger, wikilife_settings)
         self._log_client = Logs(logger, wikilife_settings)
         self._stat_client = Stats(logger, wikilife_settings)
@@ -93,23 +96,23 @@ class WikilifeConnector(object):
 
         text = "Datadonor social"
         nodes = []
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.facebook_friend_count))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.facebook_post_count_last_seven_days))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.facebook_likes_count_last_seven_days))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.twitter_followers_count))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.twitter_tweets_count_last_seven_days))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.twitter_retweets_count_last_seven_days))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.gmail_contacts_count))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.linkedin_connections_count))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.foursquare_friends_count))
+        nodes.append(self._log_creator.create_log_node(node_id=216818, metric_id=216810, value=s.facebook_friend_count))
+        nodes.append(self._log_creator.create_log_node(node_id=216818, metric_id=216807, value=s.facebook_post_count_last_seven_days))
+        nodes.append(self._log_creator.create_log_node(node_id=216818, metric_id=216805, value=s.facebook_likes_count_last_seven_days))
+        nodes.append(self._log_creator.create_log_node(node_id=216819, metric_id=216798, value=s.twitter_followers_count))
+        nodes.append(self._log_creator.create_log_node(node_id=216819, metric_id=216811, value=s.twitter_tweets_count_last_seven_days))
+        nodes.append(self._log_creator.create_log_node(node_id=216819, metric_id=216802, value=s.twitter_retweets_count_last_seven_days))
+        nodes.append(self._log_creator.create_log_node(node_id=216820, metric_id=216801, value=s.gmail_contacts_count))
+        nodes.append(self._log_creator.create_log_node(node_id=216821, metric_id=216799, value=s.foursquare_friends_count))
+        #nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.linkedin_connections_count))
 
         log_social = self._log_creator.create_log(user_id, start, end, text, source, nodes)
 
         text = "Datadonor profile"
         nodes = []
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.education_level))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.education_degree))
-        nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.work_experience_years))
+        nodes.append(self._log_creator.create_log_node(node_id=2, metric_id=216809, value=s.education_level))
+        #nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.education_degree))
+        nodes.append(self._log_creator.create_log_node(node_id=216815, metric_id=216806, value=s.work_experience_years))
 
         log_profile = self._log_creator.create_log(user_id, start, end, text, source, nodes)
 
@@ -126,15 +129,14 @@ class WikilifeConnector(object):
         self._pull_work()
         self._pull_social()
 
-
     _education_match_options = {
-        "elementary": "",
-        "high_school": "",
-        "junior_collage": "",
-        "tech": "",
-        "university": "",
-        "master": "",
-        "phd": ""
+        "elementary": "Elementary School",
+        "high_school": "High School",
+        "junior_college": "Junior College",
+        "tech": "Technical Institute",
+        "university": "University",
+        "master": "Master's Degree",
+        "phd": "Ph.D"
     }
 
     def _pull_education(self):
@@ -145,7 +147,7 @@ class WikilifeConnector(object):
         item = GlobalEducationDistribution(
             elementary=s[m["elementary"]]["percent"], 
             high_school=s[m["high_school"]]["percent"], 
-            junior_collage=s[m["junior_collage"]]["percent"], 
+            junior_collage=s[m["junior_college"]]["percent"], 
             tech=s[m["tech"]]["percent"], 
             university=s[m["university"]]["percent"], 
             master=s[m["master"]]["percent"], 

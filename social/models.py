@@ -13,6 +13,7 @@ class Profile(models.Model):
         ('m', 'Male'), ('f', 'Female')), blank=True, null=True)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
+    wikilife_token = models.CharField(max_length=255, unique=True, null=True) #TODO funca unique except is null ?
 
 
 class SocialUserAggregatedData(models.Model):
@@ -31,6 +32,8 @@ class SocialUserAggregatedData(models.Model):
     work_experience_years = models.IntegerField(default=0)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
+    wikilife_ids = models.CharField(max_length=255, null=True)
+
 
 class GlobalEducationDistribution(models.Model):
     elementary = models.IntegerField(default=0)
@@ -42,6 +45,7 @@ class GlobalEducationDistribution(models.Model):
     phd = models.IntegerField(default=0)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
+
     
 class GlobalWorkExperinceDistribution(models.Model):
     range_15_25 = models.IntegerField(default=0)
@@ -70,7 +74,8 @@ class SocialGlobalAggregatedData(models.Model):
 
     class Meta:
         get_latest_by = 'update_time'
-        
+
+
 class DegreeLevel(models.Model):
     title = models.CharField(unique=True, max_length=250)
     elementary = models.IntegerField(default=0)
