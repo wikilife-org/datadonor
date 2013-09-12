@@ -15,7 +15,7 @@ window.onload = function () {
       x: 150,
       y: 130,
       image: {
-        path: 'img/iconos/1_face.png',
+        path: '/static/img/img/iconos/1_face.png',
         width: '26',
         height: '20',
         offsetx: '-13',
@@ -29,7 +29,7 @@ window.onload = function () {
       x: 150,
       y: 150,
       image: {
-        path: 'img/iconos/3_linke.png',
+        path: '/static/img/img/iconos/3_linke.png',
         width: '26',
         height: '20',
         offsetx: '-13',
@@ -43,7 +43,7 @@ window.onload = function () {
       x: 150,
       y: 170,
       image: {
-        path: 'img/iconos/4_mail.png',
+        path: '/static/img/img/iconos/4_mail.png',
         width: '26',
         height: '20',
         offsetx: '-13',
@@ -75,7 +75,7 @@ window.onload = function () {
       height: 84,
       x: 168,
       y: 160,
-      path: 'img/iconos/overall_avg.png'
+      path: '/static/img/img/iconos/overall_avg.png'
     }
   });
   animatedPie.draw();
@@ -88,7 +88,7 @@ window.onload = function () {
       x: 150,
       y: 130,
       image: {
-        path: 'img/iconos/1_face.png',
+        path: '/static/img/img/iconos/1_face.png',
         width: '26',
         height: '20',
         offsetx: '-13',
@@ -102,7 +102,7 @@ window.onload = function () {
       x: 150,
       y: 150,
       image: {
-        path: 'img/iconos/3_linke.png',
+        path: '/static/img/img/iconos/3_linke.png',
         width: '26',
         height: '20',
         offsetx: '-13',
@@ -116,7 +116,7 @@ window.onload = function () {
       x: 150,
       y: 170,
       image: {
-        path: 'img/iconos/4_mail.png',
+        path: '/static/img/img/iconos/4_mail.png',
         width: '26',
         height: '20',
         offsetx: '-13',
@@ -147,7 +147,7 @@ window.onload = function () {
       height: 74,
       x: 167,
       y: 160,
-      path: 'img/iconos/your_avg.png'
+      path: '/static/img/img/iconos/your_avg.png'
     }
   });
   animatedPie2.draw();
