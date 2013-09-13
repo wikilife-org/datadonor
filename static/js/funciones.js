@@ -17,8 +17,12 @@ $(document).ready(function () {
 			  var fixedNav = $('.step_one').offset().top;
 			  if( y > fixedNav ){
 				$('.nav_steps').addClass('fixed');
+				$('.step_one').addClass('padding_scroll');
+				$('.step_five').addClass('padding_scroll');
 			  } else {
 			  	$('.nav_steps').removeClass('fixed');
+			  	$('.step_one').removeClass('padding_scroll');
+			  	$('.step_five').removeClass('padding_scroll');
 			  }
 			  // LEFT NAV FIXED
 		  
@@ -33,6 +37,7 @@ $(document).ready(function () {
 		$(this).parent().parent().parent().parent().find('.social_choice').addClass('on');
 		$(this).parent().parent().parent().parent().find('.confirm_social').addClass('on');
 		$('.nav_steps').addClass('open_social');
+		$('.nav_steps').addClass('social_chose_open');
 	});
 	
 	$('.close_big_nav a').live('click', function (event) {
@@ -41,6 +46,7 @@ $(document).ready(function () {
 		$('.social_choice').removeClass('on');
 		$('.confirm_social').removeClass('on');
 		$('.nav_steps').removeClass('open_social');
+		$('.nav_steps').removeClass('social_chose_open');
 	});
 	
 	$('.confirm_social a').live('click', function (event) {
@@ -49,34 +55,39 @@ $(document).ready(function () {
 		$('.social_choice').removeClass('on');
 		$('.confirm_social').removeClass('on');
 		$('.nav_steps').removeClass('open_social');
+		$('.nav_steps').removeClass('social_chose_open');
 	});
 	
 	$('.nav_big_social li a').live('click', function (event) {
 		event.preventDefault();
 		$(this).parent().toggleClass('active');
 	});
-	// BIG SOCIAL NAV TRIGGER	
+	// BIG SOCIAL NAV TRIGGER
+	
+	var offsetOne = $('#step_one').offset().top - 117;
+	var offsetfive = $('#step_five').offset().top - 117;
 	
 	// SCROLL SOLO
-//	$('.nav_steps a').click(function (event) {
-//		event.preventDefault();
-//		
-//		var scrollTo = $(this).attr('data-scroll');
-//		
-		// scroll to
-//		$('html, body').stop(true,true)
-//		$('html, body').animate({
-//			scrollTop: $('#'+scrollTo).offset().top
-//		}, 1500);
-//		
-		// ie8 fix
-//		$(document).stop(true,true)
-//		$(document).animate({
-//			scrollTop: $('#'+scrollTo).offset().top
-//		}, 1500);
-//		
-//		
-//	});
+	$('.nav_steps a').click(function (event) {
+		event.preventDefault();
+		
+		var idClick = $('#step_five').attr('data-scroll');
+		
+		if ($(this).hasClass('nav_one')) {
+			$('body,html').animate({
+				scrollTop: offsetOne
+			}, 1000);
+			return false;
+		}
+		
+		if ($(this).hasClass('nav_two')) {
+			$('body,html').animate({
+				scrollTop: offsetfive
+			}, 1000);
+			return false;
+		}
+			
+	});
 	// SCROLL SOLO
 	
 	// 3 STEP EFECTOS NAV
