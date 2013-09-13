@@ -59,9 +59,14 @@ $(document).ready(function () {
 		$(this).parent().toggleClass('active');
 	});
 	// BIG SOCIAL NAV TRIGGER
-	
-	var offsetOne = $('#step_one').offset().top - 117;
-	var offsetfive = $('#step_five').offset().top - 117;
+        
+        
+        // SECTOR FIXED NAV
+	if ($('.maqueta_new').length) {
+		var offsetOne = $('#step_one').offset().top - 117;
+                var offsetfive = $('#step_five').offset().top - 117;
+	}
+	// SECTOR FIXED NAV
 	
 	// SCROLL SOLO
 	$('.nav_steps a').click(function (event) {
