@@ -17,12 +17,8 @@ $(document).ready(function () {
 			  var fixedNav = $('.step_one').offset().top;
 			  if( y > fixedNav ){
 				$('.nav_steps').addClass('fixed');
-				$('.step_one').addClass('padding_scroll');
-				$('.step_five').addClass('padding_scroll');
 			  } else {
 			  	$('.nav_steps').removeClass('fixed');
-			  	$('.step_one').removeClass('padding_scroll');
-			  	$('.step_five').removeClass('padding_scroll');
 			  }
 			  // LEFT NAV FIXED
 		  
