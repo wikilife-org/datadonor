@@ -64,7 +64,7 @@ class GlobalWorkExperinceDistribution(models.Model):
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
-   
+
 class SocialGlobalAggregatedData(models.Model):
     avg_facebook_friend_count = models.IntegerField(default=0)
     facebook_post_weekly_avg = models.IntegerField(default=0)

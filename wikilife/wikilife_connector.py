@@ -124,9 +124,9 @@ class WikilifeConnector(object):
         read from wikilife
         write to datadonor
         """
-        self._pull_education()
-        self._pull_work()
-        self._pull_social()
+        education_item = self._pull_education()
+        work_item = self._pull_work()
+        self._pull_social(education_item, work_item)
 
     _education_match_options = {
         "elementary": "Elementary School",
@@ -152,7 +152,8 @@ class WikilifeConnector(object):
             master=s[m["master"]]["percent"], 
             phd=s[m["phd"]]["percent"] 
         )
-        item.save()
+        #item.save()
+        return item
 
     def _pull_work(self):
         r = self._stat_client.get_global_work_stats()
@@ -166,7 +167,8 @@ class WikilifeConnector(object):
             range_46_55=s[3][VALUE_KEY], 
             range_56_65=s[4][VALUE_KEY]
         )
-        item.save() 
+        #item.save()
+        return item 
 
     _social_match_lvs = {
         "avg_facebook_friend_count": "Facebook.Friends", 
@@ -180,7 +182,7 @@ class WikilifeConnector(object):
         "avg_foursquare_connections_count": "Foursquare.Friends"
     }
 
-    def _pull_social(self):
+    def _pull_social(self, education_item, work_item):
         m = self._social_match_lvs
         r = self._stat_client.get_global_social_stats()
         s = r["data"]
@@ -194,6 +196,8 @@ class WikilifeConnector(object):
             avg_twitter_retweets_count_last_seven_days=s[m["avg_twitter_retweets_count_last_seven_days"]]["avg"], 
             gplus_contacts_count=s[m["gplus_contacts_count"]]["avg"],
             avg_linkedin_connections_count=s[m["avg_linkedin_connections_count"]]["avg"],
-            avg_foursquare_connections_count=s[m["avg_foursquare_connections_count"]]["avg"] 
+            avg_foursquare_connections_count=s[m["avg_foursquare_connections_count"]]["avg"],
+            education=education_item,
+            work_experience=work_item 
         )
         item.save()
