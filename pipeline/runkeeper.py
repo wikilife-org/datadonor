@@ -14,4 +14,3 @@ def runkeeper_info(request, *args, **kwargs):
     if backend.name == "runkeeper":
         data = kwargs.get('response')
         rk_id = data["id"]
-        print

@@ -1084,6 +1084,7 @@ margin-left: -55px;
 	left: 50%;
 	position: absolute;
 	width: 580px;
+	left: 88%;
 }
 #start-sharing
 {
@@ -2242,7 +2243,7 @@ nav .active a
 	display:block;
 	
 	opacity:0;
-	font-size:15px;	
+	font-size:17px;	
 	font-family: 'Omnes-Semibold';
 	font-weight:normal;
 	text-align:center;
@@ -3527,7 +3528,7 @@ background-image: url(/static/img/iconos-3.jpg);
 margin: 0 auto 20px auto;
 display: block;
 height: 110px;
-width: 170px;	
+width: 160px;	
 }
 #four .one .icon
 {
@@ -3913,8 +3914,14 @@ and (orientation : landscape) {
 .center-v
 {
 	position: relative;
-top: 50%;
+	top: 50%;
 
+}
+.center-v1
+{
+	position: relative;
+	top: 50%;
+	left: 12%;
 }
 .goto
 {
