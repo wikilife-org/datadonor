@@ -14,8 +14,10 @@ def comming(request):
     return render_to_response('splash/index.html', {'version': version},
                                   RequestContext(request))
 
-def receive_code(request):
-    print request
+def mock(request):
+    return render_to_response('maquetas/index.html', {'version': version},
+                                  RequestContext(request))
+
                         
 
 def home(request):

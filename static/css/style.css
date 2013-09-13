@@ -1084,6 +1084,7 @@ margin-left: -55px;
 	left: 50%;
 	position: absolute;
 	width: 580px;
+	left: 88%;
 }
 #start-sharing
 {
@@ -3913,8 +3914,14 @@ and (orientation : landscape) {
 .center-v
 {
 	position: relative;
-top: 50%;
+	top: 50%;
 
+}
+.center-v1
+{
+	position: relative;
+	top: 50%;
+	left: 12%;
 }
 .goto
 {

@@ -9,15 +9,15 @@ window.onload = function () {
   /*********** PIE CHARTS *******************/
   var elements = [
     {
-      percentage: 50,
+      percentage: 1,
       color: '#6845C7',
-      text: '50',
+      text: '1',
       x: 150,
       y: 130,
       image: {
         path: '/static/img/iconos/1_face.png',
-        width: '26',
-        height: '20',
+        width: '2',
+        height: '2',
         offsetx: '-13',
         offsety: '-20'
       }

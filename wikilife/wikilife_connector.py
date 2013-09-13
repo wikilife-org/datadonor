@@ -104,14 +104,13 @@ class WikilifeConnector(object):
         nodes.append(self._log_creator.create_log_node(node_id=216819, metric_id=216802, value=s.twitter_retweets_count_last_seven_days))
         nodes.append(self._log_creator.create_log_node(node_id=216820, metric_id=216801, value=s.gmail_contacts_count))
         nodes.append(self._log_creator.create_log_node(node_id=216821, metric_id=216799, value=s.foursquare_friends_count))
-        #nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.linkedin_connections_count))
+        nodes.append(self._log_creator.create_log_node(node_id=3176, metric_id=3171, value=s.linkedin_connections_count))
 
         log_social = self._log_creator.create_log(user_id, start, end, text, source, nodes)
 
         text = "Datadonor profile"
         nodes = []
-        nodes.append(self._log_creator.create_log_node(node_id=2, metric_id=216809, value=s.education_level))
-        #nodes.append(self._log_creator.create_log_node(node_id=0, metric_id=0, value=s.education_degree))
+        nodes.append(self._log_creator.create_log_node(node_id=2, metric_id=216809, value=s.education_degree))
         nodes.append(self._log_creator.create_log_node(node_id=216815, metric_id=216806, value=s.work_experience_years))
 
         log_profile = self._log_creator.create_log(user_id, start, end, text, source, nodes)
@@ -143,7 +142,7 @@ class WikilifeConnector(object):
         m = self._education_match_options
         r = self._stat_client.get_global_education_stats()
         s = r["data"]
-        
+
         item = GlobalEducationDistribution(
             elementary=s[m["elementary"]]["percent"], 
             high_school=s[m["high_school"]]["percent"], 
@@ -157,14 +156,15 @@ class WikilifeConnector(object):
 
     def _pull_work(self):
         r = self._stat_client.get_global_work_stats()
-        s = r["buckets"]
+        s = r["data"]["buckets"]
+        VALUE_KEY = "experienceAvg"
         
         item = GlobalWorkExperinceDistribution(
-            range_15_25=s[0], 
-            range_25_35=s[1], 
-            range_36_45=s[2], 
-            range_46_55=s[3], 
-            range_56_65=s[4]
+            range_15_25=s[0][VALUE_KEY], 
+            range_25_35=s[1][VALUE_KEY], 
+            range_36_45=s[2][VALUE_KEY], 
+            range_46_55=s[3][VALUE_KEY], 
+            range_56_65=s[4][VALUE_KEY]
         )
         item.save() 
 
@@ -176,10 +176,8 @@ class WikilifeConnector(object):
         "avg_twitter_tweets_count_last_seven_days": "Twitter.Tweets", 
         "avg_twitter_retweets_count_last_seven_days": "Twitter.Retweets",
         "gplus_contacts_count": "Gmail.Contacts",
-        "avg_linkedin_connections_count": "", #linked in not in https://docs.google.com/a/wikilife.org/spreadsheet/ccc?key=0AoWhJXaOXeJXdGJ3MGJsWVh3NFFoYVhnbWpwSG9jbHc#gid=0
-        "avg_foursquare_connections_count": "Foursquare.Friends",
-        "education": "", # ???
-        "work_experience": "" # ???
+        "avg_linkedin_connections_count": "LinkedIn.Connections",
+        "avg_foursquare_connections_count": "Foursquare.Friends"
     }
 
     def _pull_social(self):
@@ -196,8 +194,6 @@ class WikilifeConnector(object):
             avg_twitter_retweets_count_last_seven_days=s[m["avg_twitter_retweets_count_last_seven_days"]]["avg"], 
             gplus_contacts_count=s[m["gplus_contacts_count"]]["avg"],
             avg_linkedin_connections_count=s[m["avg_linkedin_connections_count"]]["avg"],
-            avg_foursquare_connections_count=s[m["avg_foursquare_connections_count"]]["avg"], 
-            education=s[m["education"]]["avg"],
-            work_experience=s[m["work_experience"]]["avg"],
+            avg_foursquare_connections_count=s[m["avg_foursquare_connections_count"]]["avg"] 
         )
         item.save()
