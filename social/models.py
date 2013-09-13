@@ -44,13 +44,13 @@ class SocialUserAggregatedData(models.Model):
 
 
 class GlobalEducationDistribution(models.Model):
-    elementary = models.IntegerField(default=0)
-    high_school = models.IntegerField(default=0)
-    junior_collage = models.IntegerField(default=0)
-    tech = models.IntegerField(default=0)
-    university = models.IntegerField(default=0)
-    master = models.IntegerField(default=0)
-    phd = models.IntegerField(default=0)
+    elementary = models.FloatField(default=0.0)
+    high_school = models.FloatField(default=0.0)
+    junior_collage = models.FloatField(default=0.0)
+    tech = models.FloatField(default=0.0)
+    university = models.FloatField(default=0.0)
+    master = models.FloatField(default=0.0)
+    phd = models.FloatField(default=0.0)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
