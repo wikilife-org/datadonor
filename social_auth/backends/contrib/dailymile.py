@@ -17,7 +17,7 @@ except ImportError:
 
 from oauth2 import Token
 
-from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, PhysicalBackend
+from social_auth.backends import BaseOAuth2, ConsumerBasedOAuth, OAuthBackend, PhysicalBackend
 
 
 # Dailymile configuration
@@ -50,7 +50,7 @@ class DailyMileBackend(OAuthBackend):
                 'first_name': response.get('fullname')}
 
 
-class DailyMileAuth(ConsumerBasedOAuth, PhysicalBackend):
+class DailyMileAuth(BaseOAuth2, PhysicalBackend):
     AUTHORIZATION_URL = DAILYMILE_AUTHORIZATION_URL
     REQUEST_TOKEN_URL = DAILYMILE_REQUEST_TOKEN_URL
     ACCESS_TOKEN_URL = DAILYMILE_ACCESS_TOKEN_URL
