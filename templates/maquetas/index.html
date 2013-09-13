@@ -22,18 +22,21 @@
 	<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/raphael/raphael-min.js"></script>
-        <script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
-        <script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
-        <script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
-        <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
+    <script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
+    <script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/static/js/ed.eventListeners.js"></script>
+    <script type="text/javascript" src="/static/js/ed.stickyHeader.js"></script>
 	<script type="text/javascript" src="/static/js/funciones.js"></script>
-        <script type="text/javascript" src="/static/js/main.js"></script>
+    <script type="text/javascript" src="/static/js/main.js"></script>
    
 </head>
 
-<body data-spy="scroll" data-target=".nav_steps">
+<!--<body data-spy="scroll" data-target=".nav_steps">-->
+<body>
 
-<div id="container" class="scroll_fixed_trigger">
+<div id="container" class="scroll_fixed_trigger maqueta_new">
 
 
 	<!--email_sharing-->
@@ -155,7 +158,7 @@
 	<!-- SOCIAL NETWORKS -->
 	
 	<!--social_nav-->
-	<div class="full_container big_social_login" id="social_nav_one">
+	<div class="full_container big_social_login sticky" data-step_nav="nav_one" id="social_nav_one">
 		<div class="centered_container">
 			
 			<!--trigger_social_nav-->
@@ -215,8 +218,8 @@
                         <!--/fixed nav-->
 			<div class="nav_steps">
 				<ul class="nav">
-					<li><a href="#social_nav_one" class="nav_one">one</a></li>
-					<li><a href="#social_nav_two" class="nav_two">two</a></li>
+					<li><a href="#" class="nav_one">one</a></li>
+					<li><a href="#" class="nav_two">two</a></li>
 					<li><a href="#" class="nav_three">three</a></li>
 					<li><a href="#" class="nav_four">four</a></li>
 					<li><a href="#" class="nav_five">five</a></li>
@@ -561,7 +564,7 @@
 			
 			<!--bottom-->
 			<div class="bottom">
-        		<div id="canvas_4_1"></div>
+				<div id="canvas_4_1"></div>
 			</div>
 			<!--/bottom-->
 			
@@ -619,7 +622,7 @@
 	<!-- FITNESS DEVICES -->
 	
 	<!--social_nav-->
-	<div class="full_container big_social_login" id="social_nav_two">
+	<div class="full_container big_social_login sticky" data-step_nav="nav_two" id="social_nav_two">
 		<div class="centered_container">
 			
 			<!--trigger_social_nav-->
