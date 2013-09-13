@@ -3914,6 +3914,12 @@ and (orientation : landscape) {
 {
 	position: relative;
 	top: 50%;
+
+}
+.center-v1
+{
+	position: relative;
+	top: 50%;
 	left: 12%;
 }
 .goto
