@@ -192,7 +192,6 @@ a:hover {
 .presentation {
 	background-color: #41d2cb;
 	padding: 65px 0px 65px 0px;
-	border-bottom: 3px solid #323C48;
 }
 .presentation .centered_container {
 	text-align: center;
@@ -227,12 +226,14 @@ a:hover {
 
 .big_social_login {
 	background-color: #3F4B5B;
-	position: relative;
+	z-index: 9999 !important;
+	border-top: 3px solid #323C48;
 }
 .big_social_login .centered_container {
 	text-align: center;
 	position: relative;
 	background-color: #3F4B5B;
+	-webkit-transition: background-color 2s;
 }
 .big_social_login .arrow_bottom {
 	position: absolute;
@@ -607,6 +608,7 @@ a:hover {
 	padding: 2%;
 	height: 100px;
 	outline: none;
+	color: #959595;
 }
 
 #email_container .email_container .bottom .form_center .estante input[type="submit"] {
@@ -662,15 +664,18 @@ a:hover {
 	width: 54px;
 	height: auto;
 	position: absolute;
-	top: 20px;
+	top: 140px;
 	left: 20px;
 	z-index: 9999;
-	-webkit-transition: left 1s;
-	-moz-transition: left 1s;
-	transition: left 1s;
+	-webkit-transition: left 1s,top 0.4s;
+	-moz-transition: left 1s,top 0.4s;
+	transition: left 1s,top 0.4s;
 }
 .step_one .centered_container .nav_steps.fixed {
 	position: fixed;
+}
+.step_one .centered_container .nav_steps.social_chose_open {
+	top: 285px;
 }
 
 
@@ -1218,6 +1223,7 @@ a:hover {
 /* --- bottom */
 .step_four .centered_container .bottom {
 	width: 100%;
+	height: 423px;
 }
 
 /* --- datos graph */
