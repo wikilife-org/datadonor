@@ -137,7 +137,18 @@ $(document).ready(function () {
 	  }
 	);
 	// SHARE SOCIAL
-
+	
+	// EMAIL SHARE POP-UP
+	$('#email_trigger').click(function (event) {
+		event.preventDefault();
+		$('#email_container').fadeIn();
+	});
+	$('#close_email').click(function (event) {
+		event.preventDefault();
+		$('#email_container').fadeOut();
+	});
+	// EMAIL SHARE POP-UP
+	
 	//DORESIZE
 	doResize();
 	$(window).resize(function() {
@@ -153,7 +164,7 @@ $(document).ready(function () {
 function doResize(){
 	
 	var windowWidth = $(window).width();
-	console.log(windowWidth);
+	var windowHeight = $(window).height();
 	
 	//  NAV LEFT FIXED LANDSCAPE	
 	if (windowWidth < 1280) {
@@ -165,7 +176,11 @@ function doResize(){
 		var margenFinal = distanciaNav - 100;
 		$('.nav_steps').css({left: margenFinal+"px"});
 	}
-	//  NAV LEFT FIXED LANDSCAPE	
+	//  NAV LEFT FIXED LANDSCAPE
+	
+	//  EMAIL SHARE
+	$('#email_container').height(windowHeight);
+	//  EMAIL SHARE	
 	
 }
 //DORESIZE
