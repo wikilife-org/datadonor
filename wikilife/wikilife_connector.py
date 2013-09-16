@@ -152,7 +152,6 @@ class WikilifeConnector(object):
             master=s[m["master"]]["percent"], 
             phd=s[m["phd"]]["percent"] 
         )
-        #item.save()
         return item
 
     def _pull_work(self):
@@ -167,7 +166,6 @@ class WikilifeConnector(object):
             range_46_55=s[3][VALUE_KEY], 
             range_56_65=s[4][VALUE_KEY]
         )
-        #item.save()
         return item 
 
     _social_match_lvs = {
@@ -186,6 +184,9 @@ class WikilifeConnector(object):
         m = self._social_match_lvs
         r = self._stat_client.get_global_social_stats()
         s = r["data"]
+        
+        education_item.save()
+        work_item.save()
 
         item = SocialGlobalAggregatedData(
             avg_facebook_friend_count=s[m["avg_facebook_friend_count"]]["avg"], 
