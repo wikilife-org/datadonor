@@ -161,7 +161,7 @@
 			function ( event )
 			{
 			
-				event.preventDefault ( );
+				//event.preventDefault ( );
 				
 //				$( this ).parent(  ).hasClass( 'active' );
 				if( $( this ).hasClass('checked') )
@@ -296,3 +296,16 @@
 		  // alert( this )
 		  //alert( $( this ).attr( 'id' ) )
 		}
+
+
+		$(document).ready(function(){
+		  $('#iagree').click(function (event) {
+			  console.log("post");
+              $.post('/iagree/', {"user_agree":true}, function(data, textStatus){
+
+              }, "json");
+		    
+		  });
+		  
+
+		});

@@ -102,9 +102,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
             </header><!-- #header -->
 				
 		</div><!-- .container-header -->
-        
         	{% include "wizard_inc/disclaimer.html" %}
-            
         </section>
         
         <section id="whatfor" class="scrollsections">
@@ -127,7 +125,13 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
         
          <script type="text/javascript" src="/static/js/wizard.js" ></script>
 		
-		
+		{% if  show_wizard %}
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#iagree").trigger("click");
+		});
+		</script>
+		{% endif %}
 </body>
 
 </html>

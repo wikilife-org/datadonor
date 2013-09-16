@@ -8,7 +8,8 @@ from social_auth import __version__ as version
 from social_auth.utils import setting
 from wikilife.wikilife_connector import WikilifeConnector
 from django.http.response import HttpResponse
-
+from django.utils import simplejson
+from django.views.decorators.csrf import csrf_exempt
 
 def comming(request):
     return render_to_response('splash/index.html', {'version': version},
@@ -21,7 +22,8 @@ def mock(request):
                         
 def wizard(request):
     agent = request.META['HTTP_USER_AGENT']
-    return render_to_response('wizard.html', {'version': version, 'agent':agent},
+    show_wizard =  request.user.is_authenticated() or request.session.get("user_agree", False)
+    return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
                                   RequestContext(request))
 
 def home(request):
@@ -59,27 +61,12 @@ def logout(request):
     auth_logout(request)
     return HttpResponseRedirect('/')
 
-
-def form(request):
-    if request.method == 'POST' and request.POST.get('username'):
-        name = setting('SOCIAL_AUTH_PARTIAL_PIPELINE_KEY', 'partial_pipeline')
-        request.session['saved_username'] = request.POST['username']
-        backend = request.session[name]['backend']
-        return redirect('socialauth_complete', backend=backend)
-    return render_to_response('form.html', {}, RequestContext(request))
-
-
-def form2(request):
-    if request.method == 'POST' and request.POST.get('first_name'):
-        request.session['saved_first_name'] = request.POST['first_name']
-        name = setting('SOCIAL_AUTH_PARTIAL_PIPELINE_KEY', 'partial_pipeline')
-        backend = request.session[name]['backend']
-        return redirect('socialauth_complete', backend=backend)
-    return render_to_response('form2.html', {}, RequestContext(request))
-
-
-def close_login_popup(request):
-    return render_to_response('close_popup.html', {}, RequestContext(request))
+@csrf_exempt
+def iagree(request):
+    if request.method == 'POST':
+        request.session["user_agree"] = True
+        return HttpResponse(simplejson.dumps({}), mimetype="application/json")
+    return HttpResponseRedirect('/wizard/')
 
 
 #TODO add sec token

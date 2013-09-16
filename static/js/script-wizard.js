@@ -66,7 +66,7 @@ function next_boton ( )
 			function ( event )
 			{
 			
-				event.preventDefault ( );
+				//event.preventDefault ( );
 				
 //				$( this ).parent(  ).hasClass( 'active' );
 				if( $( this ).hasClass('checked') )
