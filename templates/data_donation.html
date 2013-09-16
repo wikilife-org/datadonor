@@ -1,23 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-
-	<title>DATADONORS</title>
-	
+{% extends "base.html" %}
+	{% block meta%}
 	<!-- Metatags -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="description" content="#" />
 	<meta name="keywords" content="#" />
 	<meta name="author" content="#"/>
 	<meta name="robots" content="index,follow"/>
-	
+	{% endblock %}
 	<!-- Iconos -->
 	<link rel="shortcut icon" type="image/x-icon" href="image/#.ico"/>
-	
+	{% endblock%}
+	{% block styles %}
 	<!-- Styles -->
 	<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
-	
+	{% endblock %}
+	{% block script%}
 	<!-- Javascript -->
 	<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
@@ -78,9 +75,8 @@
     }
     </script>
 
-</head>
-
-
+{% enblock%}
+{% block content %}
 <body data-spy="scroll" data-target=".nav_steps">
 
 <div id="container" class="scroll_fixed_trigger">
@@ -99,7 +95,7 @@
 			
 			<!--header_text-->
 			<div class="header_text">
-				<p>What if we could save lives with what we do every day?{{user_social}}</p>
+				<p>What if we could save lives with what we do every day?</p>
 			</div>
 			<!--/header_text-->
 	
@@ -621,14 +617,7 @@
 		</div>
 	</div>
 	<!--/step_four-->
-        
-        
-        
-        <!-- FITNESS DEVICES -->
-	
-
 </div>
 
 </body>
-
-</html>
+{% endblock %}

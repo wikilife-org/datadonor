@@ -39,6 +39,8 @@ def greg(request):
                                   RequestContext(request))
 def donate(request):
     """Login complete view, displays user data"""
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/wizard/')
     ctx = {
         'user': request.user,
         'user_social':request.user.social_aggregated_data.social_reach(),
