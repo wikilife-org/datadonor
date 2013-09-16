@@ -434,6 +434,7 @@ window.onload = function () {
       "stroke-width": 2,
       color: '#F1F2F2',
       labelsType: 'custom_bubbles',
+      name: 'Day',
       labels: [
         {pos: 92, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
         {pos: 236, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
@@ -562,7 +563,7 @@ window.onload = function () {
       "stroke-width": 0,
       name: 'hs',
       labels: [
-        {pos: 60, text: '2 avg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3"},
+        {pos: 60, text: '2\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3"},
         {pos: 150, text: '4.3 avg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC"},
         {pos: 30, text: '1', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 120, text: '3', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},

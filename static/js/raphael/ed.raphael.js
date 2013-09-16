@@ -319,6 +319,9 @@ EdBarChart = function(r, options){
   
   this.drawLabels = function(){
     if(this.options.xAxis.labels.length){
+      if(typeof this.options.xAxis.name != 'undefined'){
+        this.r.text(this.options.centerx+this.options.canvasSize[0]-35, this.options.canvasSize[1]-10, this.options.xAxis.name).attr({"font-family": 'Omnes-Semibold', "font-size": '18', "fill": "#ADB6BF", 'text-anchor': 'end'});
+      }
       for(var i in this.options.xAxis.labels){
         label = this.options.xAxis.labels[i];
         xPos = this.options.centerx + label.pos;
@@ -334,11 +337,15 @@ EdBarChart = function(r, options){
     }
     
     if(this.options.yAxis.labels.length){
-      this.r.text(this.options.centerx+20, 25, this.options.yAxis.name).attr({"font-family": 'Omnes-Semibold', "font-size": '18', "fill": "#ADB6BF"});
+      this.r.text(this.options.centerx, 25, this.options.yAxis.name).attr({"font-family": 'Omnes-Semibold', "font-size": '18', "fill": "#ADB6BF", 'text-anchor': 'start'});
       for(var i in this.options.yAxis.labels){
         label = this.options.yAxis.labels[i];
         yPos = this.options.centery - label.pos;
-        this.r.text(this.options.centerx, yPos+15, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": '15', "fill": label['text-color'], 'text-anchor': 'start'});
+        var paddingTop = 0;
+        if(label.text.indexOf('\n') != '-1'){
+          paddingTop = 10; //Si hay salto de linea necesita mas espacio
+        }
+        this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": '15', "fill": label['text-color'], 'text-anchor': 'start'});
         if(label.type == 'dotted') this.drawDottedLine(label, 'y');
       }
     }
