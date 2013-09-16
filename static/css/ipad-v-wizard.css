@@ -1,0 +1,145 @@
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)
+{
+	body #whatfor .centrar-v
+	{
+	
+		margin-top: -250px;
+	}
+#disclaimer .centrar-h
+{
+	width:600px;
+}
+#mycustomscroll {
+	width:600px;
+}
+#disclaimer .centrar-v {
+margin-top: -300px;
+}
+#top h2
+{
+	font-size:20px;
+	margin-left:-175px;
+	margin-top:-8px;
+	width:350px;
+	left:50%;
+	position:absolute;
+}
+#slide-1 .bottom-slide
+{
+	margin-left:0
+}
+#slide-1 .bottom-slide h4
+{
+	font-size:16px;
+}
+#slide-1 .bottom-slide .left
+{
+	margin-left:25px;
+	margin-top: 30px;
+}
+
+#slide-1 .bottom-slide .right
+{
+	margin-right:30px;
+	width:120px
+}
+#slide-1, #slide-2 , #slide-3, #slide-4, #slide-5, #slide-6, #slide-7 , #slide-8
+{
+	
+	width:730px
+}
+
+#slide-2 h4
+{
+	position:absolute;
+	float:inherit;
+}
+#slide-2 .left-heading
+{
+	margin:340px 0 0 145px; 
+}
+#slide-2 .right-heading
+{
+	text-align:center;
+	margin:340px 0 0 405px; 
+}
+#slide-3 h4
+{
+	float:inherit;
+	margin:200px 0 0 0; 
+ 	position:absolute;
+	font-size:17px;
+	
+}
+#slide-3 .left-heading
+{
+	margin:300px 0 0 130px; 
+	width:200px
+}
+#slide-3 .right-heading
+{
+	margin:300px 0 0 430px; 
+	width:200px;
+	text-align:center
+}
+#slide-3 .circle
+{
+	height:220px;
+	width:220px;
+}
+body #slider #slide-4 .inner-redes, #slide-4 .inner-redes .cont-redes
+{
+	width: 430px;
+	margin: auto;
+}
+#slide-4 .inner-redes .cont-redes .gmail
+{
+	margin-left:75px;
+}
+#slide-4 .inner-redes .cont-redes .gmail, #slide-4 .inner-redes .cont-redes .foursquare
+{
+	margin-top:15px
+}
+body #slider #slide-5 .inner-redes
+{
+	height:280px;
+	margin: 00px auto 0 auto;
+	width: 460px;
+}
+#slide-5 .inner-redes .circle.dailymile, #slide-5 .inner-redes .circle.runkeeper, #slide-5 .inner-redes .circle.nike
+{
+	margin-top:10px;
+}
+body #slider .slide .inner-redes
+{
+	height:280px;
+	margin: 00px auto 0 auto;
+	width: 460px;
+}
+#slide-7 .inner-redes .circle.iHealth, #slide-7 .inner-redes .circle.withing, #slide-7 .inner-redes .circle.wikilfe
+{
+	margin-top:10px;
+}
+#slide-8 .inner-redes .circle.genomics-23andMe
+{
+	margin:0 0 0 170px; 
+}
+
+#timeline
+{
+	bottom:-100px;
+}
+
+#slide-4 #form-input input
+{
+	width:250px;
+}
+#slide-4 #form-input
+{
+	width:600px
+}
+body
+{
+	overflow:hidden;
+}
+}

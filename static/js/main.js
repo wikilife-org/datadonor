@@ -4,153 +4,116 @@ var doubleAxisBars;
 var animatedQuarterPie;
 var doubleAxisParams;
 
+function drawSocialGraph(elments1, elements2){
+	  var r_1_1 = Raphael('canvas_1_1', 410, 410);
+	  animatedPie = new EdAnimatedPie(r_1_1, elments1, {
+	    animationTime: 900,
+	    easing: '<',
+	    useAnimationDelay: false,
+	    lineWidth: 70,
+	    fontSize: 20,
+	    centerx: 200,
+	    centery: 200,
+	    radius: 100,
+	    borderColor: '#DCDDDD',
+	    drawReferences: true,
+	    drawCenterImage: true,
+	    bubbleColor: '#3F4B5B',
+	    text: {
+	      color: '#ADB6BF',
+	      size: '18'
+	    },
+	    centerImage: {
+	      width: 60,
+	      height: 84,
+	      x: 168,
+	      y: 160,
+	      path: '/static/img/iconos/overall_avg.png'
+	    }
+	  });
+	  animatedPie.draw();
+
+	  
+	  var r_1_2 = Raphael('canvas_1_2', 410, 410);
+	  animatedPie2 = new EdAnimatedPie(r_1_2, elements2, {
+	    animationTime: 900,
+	    easing: '<',
+	    useAnimationDelay: false,
+	    lineWidth: 70,
+	    fontSize: 20,
+	    centerx: 200,
+	    centery: 200,
+	    radius: 100,
+	    borderColor: '#DCDDDD',
+	    drawReferences: true,
+	    drawCenterImage: true,
+	    bubbleColor: '#E56666',
+	    text: {
+	      color: 'white',
+	      size: '18'
+	    },
+	    centerImage: {
+	      width: 67,
+	      height: 74,
+	      x: 167,
+	      y: 160,
+	      path: '/static/img/iconos/your_avg.png'
+	    }
+	  });
+	  animatedPie2.draw();
+	  
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
-  var elements = [
-    {
-      percentage: 1,
-      color: '#6845C7',
-      text: '1',
-      x: 150,
-      y: 130,
-      image: {
-        path: '/static/img/iconos/1_face.png',
-        width: '2',
-        height: '2',
-        offsetx: '-13',
-        offsety: '-20'
-      }
-    },
-    {
-      percentage: 40,
-      color: '#975EE3',
-      text: '30',
-      x: 150,
-      y: 150,
-      image: {
-        path: '/static/img/iconos/3_linke.png',
-        width: '26',
-        height: '20',
-        offsetx: '-13',
-        offsety: '-20'
-      }
-    },
-    {
-      percentage: 10,
-      color: '#CDBFE0',
-      text: '20',
-      x: 150,
-      y: 170,
-      image: {
-        path: '/static/img/iconos/4_mail.png',
-        width: '26',
-        height: '20',
-        offsetx: '-13',
-        offsety: '-20'
-      }
-    }
-  ];
+
   
-  var r_1_1 = Raphael('canvas_1_1', 410, 410);
-  animatedPie = new EdAnimatedPie(r_1_1, elements, {
-    animationTime: 900,
-    easing: '<',
-    useAnimationDelay: false,
-    lineWidth: 70,
-    fontSize: 20,
-    centerx: 200,
-    centery: 200,
-    radius: 100,
-    borderColor: '#DCDDDD',
-    drawReferences: true,
-    drawCenterImage: true,
-    bubbleColor: '#3F4B5B',
-    text: {
-      color: '#ADB6BF',
-      size: '18'
-    },
-    centerImage: {
-      width: 60,
-      height: 84,
-      x: 168,
-      y: 160,
-      path: '/static/img/iconos/overall_avg.png'
-    }
-  });
-  animatedPie.draw();
-  
-  var elements = [
-    {
-      percentage: 50,
-      color: '#D44B5F',
-      text: '50',
-      x: 150,
-      y: 130,
-      image: {
-        path: '/static/img/iconos/1_face.png',
-        width: '26',
-        height: '20',
-        offsetx: '-13',
-        offsety: '-20'
-      }
-    },
-    {
-      percentage: 30,
-      color: '#DC6666',
-      text: '30',
-      x: 150,
-      y: 150,
-      image: {
-        path: '/static/img/iconos/3_linke.png',
-        width: '26',
-        height: '20',
-        offsetx: '-13',
-        offsety: '-20'
-      }
-    },
-    {
-      percentage: 20,
-      color: '#FF836F',
-      text: '200',
-      x: 150,
-      y: 170,
-      image: {
-        path: '/static/img/iconos/4_mail.png',
-        width: '26',
-        height: '20',
-        offsetx: '-13',
-        offsety: '-20'
-      }
-    }
-  ];
-  var r_1_2 = Raphael('canvas_1_2', 410, 410);
-  animatedPie2 = new EdAnimatedPie(r_1_2, elements, {
-    animationTime: 900,
-    easing: '<',
-    useAnimationDelay: false,
-    lineWidth: 70,
-    fontSize: 20,
-    centerx: 200,
-    centery: 200,
-    radius: 100,
-    borderColor: '#DCDDDD',
-    drawReferences: true,
-    drawCenterImage: true,
-    bubbleColor: '#E56666',
-    text: {
-      color: 'white',
-      size: '18'
-    },
-    centerImage: {
-      width: 67,
-      height: 74,
-      x: 167,
-      y: 160,
-      path: '/static/img/iconos/your_avg.png'
-    }
-  });
-  animatedPie2.draw();
+	var user_reach = [
+     {
+       percentage: 50,
+       color: '#D44B5F',
+       text: '50',
+       x: 150,
+       y: 130,
+       image: {
+         path: '/static/img/iconos/1_face.png',
+         width: '26',
+         height: '20',
+         offsetx: '-13',
+         offsety: '-20'
+       }
+     },
+     {
+       percentage: 30,
+       color: '#DC6666',
+       text: '30',
+       x: 150,
+       y: 150,
+       image: {
+         path: '/static/img/iconos/3_linke.png',
+         width: '26',
+         height: '20',
+         offsetx: '-13',
+         offsety: '-20'
+       }
+     },
+     {
+       percentage: 20,
+       color: '#FF836F',
+       text: '200',
+       x: 150,
+       y: 170,
+       image: {
+         path: '/static/img/iconos/4_mail.png',
+         width: '26',
+         height: '20',
+         offsetx: '-13',
+         offsety: '-20'
+       }
+     }
+   ];
+
   
   /*********** DOT CHARTS *******************/
   var r_2_1 = Raphael('canvas_2_1', 210, 210);

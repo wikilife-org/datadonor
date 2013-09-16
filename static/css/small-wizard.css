@@ -1,0 +1,91 @@
+#disclaimer
+{
+	
+}
+#disclaimer .centrar-h
+{
+	height: 400px;
+	
+}
+
+body #slide-1 .bottom-slide
+{
+	margin-left: 150px;
+
+}
+
+body #disclaimer .centrar-v {
+margin-top: -155px;
+}
+body #disclaimer .title {
+font-size: 14px;
+}
+body #scrollsections-navigation li a
+{
+	padding: 15px 0;
+}
+body #scrollsections-navigation {
+margin: 0 auto 30px auto;
+}
+
+/*   */
+
+
+body #whatfor .centrar-v
+{
+	
+	height:400px;
+}
+body #whatfor .centrar-v {
+margin-top: -165px;
+}
+
+body #slider .slide h3 {
+font-size: 34px;
+}
+
+body #slide-1 .circle
+{
+	height: 175px;
+
+width: 175px;
+}
+#slider #slide-1 .bottom-slide .center ul  .icon
+{
+	background-size:75px;
+	height: 76px;
+	width: 76px;
+}
+#slider #slide-4 .inner-redes .circle
+{
+	
+	height:110px;
+	width:110px;
+}
+#slider #slide-4 .inner-redes .circle span
+{
+	font-size: 13px;
+}
+body #slide-4 .inner-redes
+{
+	height: 120px;
+	width: 630px;
+}
+body .cont-next .back
+{
+	padding: 13px 35px 13px 50px;
+}
+body .next, body .done
+{
+	padding:13px 51px 13px 35px;
+}
+body #whatfor #slider .slide .inner-redes {
+margin: 10px auto 15px auto;
+}
+body #whatfor  #slider .inner-redes {
+height: 120px;
+}
+body #whatfor #slide-5 h4
+{
+	margin-bottom: 20px;
+}

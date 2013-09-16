@@ -1,0 +1,34 @@
+
+#mycustomscroll {
+height: 130px;
+}
+
+#header-top h2
+{
+	font-size:70px;
+}
+#whatfor .centrar-v
+{
+	height:450px;
+		
+}
+#slide-1 .bottom-slide{
+	margin-top:-40px
+}
+#timeline{
+bottom:-10px;	
+}
+
+#whatfor .centrar-v
+{
+	margin-top: -195px;
+}
+
+#disclaimer .centrar-v
+{
+	margin-top: -175px;
+}
+#disclaimer .title
+{
+	font-size:15px;
+}

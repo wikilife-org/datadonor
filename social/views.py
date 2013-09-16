@@ -19,6 +19,10 @@ def mock(request):
                                   RequestContext(request))
 
                         
+def wizard(request):
+    agent = request.META['HTTP_USER_AGENT']
+    return render_to_response('wizard.html', {'version': version, 'agent':agent},
+                                  RequestContext(request))
 
 def home(request):
     """Home view, displays login mechanism"""
@@ -34,10 +38,12 @@ def greg(request):
 def donate(request):
     """Login complete view, displays user data"""
     ctx = {
+        'user': request.user,
+        'user_social':request.user.social_aggregated_data.social_reach(),
         'version': version,
         'last_login': request.session.get('social_auth_last_login_backend')
     }
-    return render_to_response('data_donation.html', ctx, RequestContext(request))
+    return render_to_response('data_donation.html', ctx, context_instance=RequestContext(request))
 
 
 def error(request):

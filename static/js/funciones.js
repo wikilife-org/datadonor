@@ -54,10 +54,10 @@ $(document).ready(function () {
 		$('.nav_steps').removeClass('social_chose_open');
 	});
 	
-	$('.nav_big_social li a').live('click', function (event) {
+/*	$('.nav_big_social li a').live('click', function (event) {
 		event.preventDefault();
 		$(this).parent().toggleClass('active');
-	});
+	});*/
 	// BIG SOCIAL NAV TRIGGER
         
         

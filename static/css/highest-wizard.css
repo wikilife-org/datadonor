@@ -1,0 +1,24 @@
+@media only screen and (min-height: 900px)
+{	
+	#whatfor .centrar-v
+	{
+		margin-top: -230px;
+	}
+	#disclaimer .centrar-v
+	{
+	margin-top:-250px;	
+	}
+	#mycustomscroll
+	{
+		height: 310px;
+	}
+	
+}
+@media only screen and (min-height: 900px)
+{
+	#four .contenido
+	{
+			width:350px	
+	}
+	
+}

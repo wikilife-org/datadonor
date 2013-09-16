@@ -1,0 +1,88 @@
+#mycustomscroll {
+height: 130px;
+}
+
+#header-top h2
+{
+	font-size:70px;
+}
+#whatfor .centrar-v
+{
+	height:450px;
+		
+}
+#slide-1 .bottom-slide{
+	margin-top:-40px
+}
+#timeline{
+bottom:-10px;	
+}
+
+#whatfor .centrar-v
+{
+	margin-top: -195px;
+}
+#disclaimer .centrar-v
+{
+	margin-top: -195px;
+}
+
+#slide-3 .circle, #slide-2 .grafic-2, #slide-2 .circle
+{
+	background-size:210px;
+	height: 210px;
+	width:210px;
+}
+
+#slide-2 .circle-cont
+{
+	height:215px;
+	width:450px;
+}
+#slide-2 .right-heading {
+margin: 80px 50px 0 0;
+}
+#slide-2 .left-heading {
+margin: 80px 0 0 30px;
+}
+
+#slide-2 h4 {
+
+font-size: 19px;
+}
+#slide-3 .circle-cont
+{
+height: 210px;
+width: 440px;	
+}
+#slide-3 h4
+{
+	font-size:19px;
+}
+#slide-3 .right-heading {
+margin: 90px 50px 0 0;
+}
+#slide-3 .left-heading {
+margin: 90px 0 0 70px;
+}
+
+#slider .slide h2
+{
+	font-size: 20px;
+text-align: center;
+margin-bottom: 10px;
+margin-top: 20px;
+}
+#slider .slide h3 {
+font-size: 40px;
+margin-bottom: 20px;
+}
+body #slider .slide .inner-redes
+{
+	margin:40px auto 0 auto;
+}
+
+body #timeline
+{
+	bottom: 0;
+}

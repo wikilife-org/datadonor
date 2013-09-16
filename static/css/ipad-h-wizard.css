@@ -1,0 +1,20 @@
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)
+{
+#whatfor .centrar-v
+{
+	margin-top: -200px;
+}
+#slider, body #slider .slide
+{
+	height:500px;
+	
+}
+body #slider .slide .inner-redes
+{
+	margin:40px auto 0 auto;
+}
+body .flexslider
+{
+	margin:0
+}
+}

@@ -1,7 +1,10 @@
 # Define a custom User class to work with django-social-auth
 from django.conf import settings
 from django.db import models
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 
+from utils.oper import percentage, social_reach_graph
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
@@ -42,6 +45,28 @@ class SocialUserAggregatedData(models.Model):
     update_time = models.DateTimeField("last updated on", auto_now=True)
     wikilife_ids = models.CharField(max_length=255, null=True)
 
+    def social_reach(self):
+        f_count = self.facebook_friend_count or 0
+        t_count = self.twitter_followers_count or 0
+        l_count = self.linkedin_connections_count or 0
+        g_count = self.gplus_contacts_count or 0
+        fq_count = self.foursquare_friends_count or 0
+        
+        total = f_count + t_count + l_count + g_count + fq_count
+        f_per = percentage(f_count, total)
+        l_per = percentage(l_count, total)
+        g_per = percentage(g_count, total)
+        t_per = percentage(t_count, total)
+        fq_per = percentage(fq_count, total)
+        
+        
+        
+        data = social_reach_graph(  (f_per, f_count), (t_per, t_count), 
+                                    (g_per, g_count), (l_per, l_count), 
+                                    (fq_per, fq_count))
+        return data
+
+    
 
 class GlobalEducationDistribution(models.Model):
     elementary = models.FloatField(default=0.0)
@@ -101,3 +126,17 @@ class DegreeLevel(models.Model):
                          (6, self.phd)],key=lambda x: x[1])
         
         return values[6]
+
+# method for updating
+def create_user_social(sender, instance, **kwargs):
+
+     profile  = Profile()
+     profile.user = instance
+     profile.save()
+     
+     social = SocialUserAggregatedData()
+     social.user = instance
+     social.save()
+     
+    
+post_save.connect(create_user_social, sender=User, dispatch_uid="create_user_social")

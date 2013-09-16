@@ -1,0 +1,106 @@
+/* Scroll Bar Master Styling Starts Here */
+/* All comments can be freely removed from the css */
+
+.scrollgeneric {line-height: 1px;font-size: 1px;position: absolute;top: 0; left: 0;}
+
+.vscrollerbase {
+width: 9px;
+background: #61D7DA url(../img/bg-scroll-single-noticia.png) 0px 0px repeat-y;
+}
+.vscrollerbar {
+width: 9px;
+background: #777;
+
+	-webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-webkit-border-bottom-left-radius: 5px;
+-moz-border-radius-bottomright: 5px;
+-moz-border-radius-bottomleft: 5px;
+border-bottom-right-radius: 5px;
+border-bottom-left-radius: 5px;
+}
+/*
+.hscrollerbase {
+height: 15px;
+background: #D7EBDF url(horizontalbarbody_cornerjog.png) 0px -15px repeat-x;
+}
+.hscrollerbar {
+height: 15px;
+background: #99CBCB url(horizontalbarbody_cornerjog.png) 0px -30px repeat-x;
+}
+*/
+.vscrollerbar, .hscrollerbar {
+padding: 10px;
+z-index: 2;
+}
+.vscrollerbarbeg {
+background: #777;
+width: 9px;
+height: 15px !important;
+-webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+
+}
+.vscrollerbarend {
+background: #777;
+width: 9px;
+height: 15px !important;
+-webkit-border-bottom-right-radius: 5px;
+-webkit-border-bottom-left-radius: 5px;
+-moz-border-radius-bottomright: 5px;
+-moz-border-radius-bottomleft: 5px;
+border-bottom-right-radius: 5px;
+border-bottom-left-radius: 5px;
+}
+.hscrollerbarbeg {
+
+height: 15px;
+width: 15px !important;
+}
+.hscrollerbarend {
+
+height: 15px;
+width: 15px;
+}
+/*
+.scrollerjogbox {
+width: 15px;
+height: 15px;
+top: auto; left: auto;
+bottom: 0px; right: 0px;
+background: #4E727C url(horizontalbarbody_cornerjog.png) 0px 0px;
+}
+*/
+.vscrollerbasebeg {
+background: url(../img/bg-scroll-single-noticia.png) center;
+width: 9px;
+height: 15px !important;
+}
+.vscrollerbaseend {
+background: url(../img/bg-scroll-single-noticia.png) center;
+height: 15px;
+width: 9px;
+}
+.hscrollerbasebeg {
+
+height: 15px;
+width: 15px !important;
+}
+.hscrollerbaseend {
+height: 15px;
+width: 15px;
+
+}
+.scrollerjogbox:hover {
+
+}
+/* Scroll Bar Master Styling Ends Here */

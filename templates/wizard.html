@@ -1,0 +1,133 @@
+{% comment %}
+<?php
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 8.0') !== FALSE){ header('Location: http://www.browsehappy.com/');}
+?>
+{% endcomment %}
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	
+    <meta charset="utf-8">
+
+<!-- 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+	<title>DataDonors</title>
+	
+    <meta name="description" content="">
+	
+    <meta name="author" content="">
+      
+   	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	
+    <link rel="stylesheet" type="text/css" href="/static/css/reset-wizard.css"/> 
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/scroll-wizard.css"/>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/style-wizard.css?6548321"/>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/flexslider-wizard.css"/>
+    
+    <link rel="stylesheet" media="screen and (max-height: 630px)" href="/static/css/small-wizard.css?546879" />
+    
+    <link rel="stylesheet" media="screen and (max-height: 680px)" href="/static/css/min-wizard.css?546879" />
+    
+    <link rel="stylesheet" media="screen and (max-height: 680px)" href="/static/css/normal-wizard.css?546879" />
+    
+    <link rel="stylesheet" media="screen and (min-height: 800px)" href="/static/css/max-wizard.css?546879" />
+    
+    <link rel="stylesheet" media="screen and (min-height: 900px)" href="/static/css/highest-wizard.css?14532423456" />
+    
+	<link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)" href="/static/css/ipad-h-wizard.css" />
+    
+ 
+	<link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)" href="/static/css/ipad-v-wizard.css" /> 
+	
+	
+    <link rel="stylesheet" href="/static/css/jquery.scrollSections-wizard.css">
+    
+		
+	<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>	
+        
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+        
+        <section id="disclaimer" class="scrollsections">
+        
+        	<div class="container-header">
+        	
+            <header id="header" >
+            
+                <div id="top">
+                    
+                    <div class="col-3 left" ></div>
+                    
+                    <div class="col-3 center" ></div>
+                    
+                    <div class="col-3 right" ></div>
+                    
+                    <h1>
+                    	
+                        <img src="/static/img/logo.png" width="145" height="49" alt="Logo DataDonors" title="Logo DataDonors" />
+                    
+                    </h1>
+                    
+                    <div id="center-nav">
+                    
+                        <h2>What if we could save lives with what we do every day?</h2>
+                        
+                    </div><!-- #center-nav -->                	
+                    
+                </div><!-- #top -->
+                
+                <ul class="redes">
+		             <li class="facebook"><a href="https://www.facebook.com/datadonors" title="facebook"></a></li>
+		
+					<li class="twitter"><a href="https://twitter.com/datadonors" title="twitter"></a></li>
+		
+					<li class="mail"><a href="mailto:info@datadonors.org" title="mail"></a></li>
+
+                
+                </ul><!-- .redes -->
+                
+                <div class="bottom"></div>
+                
+            </header><!-- #header -->
+				
+		</div><!-- .container-header -->
+        
+        	{% include "wizard_inc/disclaimer.html" %}
+            
+        </section>
+        
+        <section id="whatfor" class="scrollsections">
+        
+        	{% include 'wizard_inc/what-for.html' %}
+        
+        </section>
+        
+        <script src="/static/js/vendor/jquery-1.7.2.min.js"></script>
+       
+        <script src="/static/js/plugins.js"></script>
+        
+        <script src="/static/js/jquery.scrollSections.js"></script>
+      
+        <script type="text/javascript" src="/static/js/flexcroll.js" ></script>
+        
+        <script type="text/javascript" src="/static/js/flexslider.js" ></script>
+            
+        <script type="text/javascript" src="/static/js/script-wizard.js" ></script>
+        
+         <script type="text/javascript" src="/static/js/wizard.js" ></script>
+		
+		
+</body>
+
+</html>
