@@ -306,7 +306,7 @@ EdBarChart = function(r, options){
     this.r.path("M"+this.options.centerx+" "+this.options.centery+"L"+xTarget+" "+this.options.centery).attr({
       "stroke-width": this.options.xAxis["stroke-width"],
       "stroke": this.options.xAxis.color
-    });
+    }).toBack();
   }
   
   this.drawYAxis = function(){
@@ -323,7 +323,13 @@ EdBarChart = function(r, options){
         label = this.options.xAxis.labels[i];
         xPos = this.options.centerx + label.pos;
         //this.r.text(xPos, this.options.centery+10, label.text).attr({"font-size":label["font-size"], "font-family": label["font-family"]});
-        if(label.type == 'dotted') this.drawDottedLine(label, 'x');
+        if(label.type == 'dotted'){
+          this.drawDottedLine(label, 'x');
+        }else if(label.type == 'bubble'){
+          this.r.circle(xPos, this.options.centery, 20).attr({"fill": '#3F4A5A', "stroke-width": 0}).toFront();
+          this.r.text(xPos, this.options.centery, label['text']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20}).toFront();
+        }
+        
       }
     }
     
@@ -379,8 +385,17 @@ EdBarChart = function(r, options){
           height: item['value']
         }, 1000, 'bounce');
         
-        this.r.circle(xPos+(item['width']/2), this.options.centery - item['value'], 20).attr({"fill": '#3F4A5A', "stroke-width": 0});
-        this.r.text(xPos+(item['width']/2), this.options.centery - item['value'], item['label']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20});
+        if(typeof this.options.xAxis.labelsType == 'undefined' || this.options.xAxis.labelsType == 'automatic_bubble'){
+          this.r.circle(xPos+(item['width']/2), this.options.centery - item['value'], 20).attr({"fill": '#3F4A5A', "stroke-width": 0});
+          this.r.text(xPos+(item['width']/2), this.options.centery - item['value'], item['label']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20});
+        }
+        
+        if(typeof item.vlabel != 'undefined'){
+          this.r.text(xPos+(item['width']/2), this.options.centery - item['value']+20, item['label'])
+              .transform('r270')
+              .attr({"fill-opacity":0.5, "fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20, "text-anchor": 'end'})
+          ;
+        }
       }else{
         yPos = this.options.centery - item['pos'];
         this.r.rect(this.options.centerx, yPos, 0, item['width']).attr({
