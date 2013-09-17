@@ -2,7 +2,7 @@ from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
 from django.conf import settings
 
-from social.views import home, donate, logout, wizard, error, iagree, greg, comming, mock, end_wizard, wikilife_push, wikilife_pull
+from social.views import home, dashboard, logout, wizard, error, iagree, greg, comming, mock, end_wizard, wikilife_push, wikilife_pull
 from social.facebook import facebook_view
 
 admin.autodiscover()
@@ -11,7 +11,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', home, name='home'),
     url(r'google7d1bd3580ebd5b1b.html$', greg, name='greg'),
-    url(r'^donate/$', donate, name='donate'),
+    url(r'^dashboard/$', dashboard, name='dashboard'),
     url(r'^error/$', error, name='error'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^maqueta/$', mock, name='maqueta'),

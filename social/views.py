@@ -37,7 +37,7 @@ def home(request):
 def greg(request):
     return render_to_response('google7d1bd3580ebd5b1b.html', {},
                                   RequestContext(request))
-def donate(request):
+def dashboard(request):
     """Login complete view, displays user data"""
     if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
         return HttpResponseRedirect('/wizard/')
@@ -51,7 +51,7 @@ def donate(request):
 
 def end_wizard(request):
     request.session["wizard_mode"] = False
-    return HttpResponseRedirect('/donate/')
+    return HttpResponseRedirect('/dashboard/')
 
 def error(request):
     """Error view"""
