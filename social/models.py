@@ -3,7 +3,19 @@ from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
-
+try:
+    from django.utils.crypto import get_random_string as random_string
+except ImportError:  # django < 1.4
+    # Implementation borrowed from django 1.4
+    def random_string(length=6,
+                      allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):
+        if not using_sysrandom:
+            random.seed(hashlib.sha256('%s%s%s' % (random.getstate(),
+                                                   time.time(),
+                                                   settings.SECRET_KEY))
+                               .digest())
+        return ''.join([random.choice(allowed_chars) for i in range(length)])
+    
 from utils.oper import percentage, social_reach_graph
 
 class Profile(models.Model):
@@ -131,13 +143,36 @@ class DegreeLevel(models.Model):
 # method for updating
 def create_user_social(sender, instance, **kwargs):
 
-     """profile  = Profile()
-     profile.user = instance
-     profile.save()
-     """
-     social = SocialUserAggregatedData()
-     social.user = instance
-     social.save()
+     
+     profile, created  = Profile.objects.get_or_create(user=instance)
+     if created or profile.user != None:
+         profile.user = instance
+         profile.save()
+
+     if created or not profile.account_id:
+        generated_uid = random_string(length=6,
+                      allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+        
+        u_profile = None
+        try:
+            u_profile = Profile.objects.get(account_id=generated_uid)
+        except:
+            pass
+        while u_profile is not None:
+            generated_uid = random_string(length=6,
+                      allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+            try:
+                u_profile = Profile.objects.get(account_id=generated_uid)
+            except:
+                pass
+            
+        profile.account_id = generated_uid
+        profile.save()
+     
+     social, created = SocialUserAggregatedData.objects.get_or_create(user=instance)
+     if created or social.user != None:
+         social.user = instance
+         social.save()
      
     
 post_save.connect(create_user_social, sender=User, dispatch_uid="create_user_social")
