@@ -451,8 +451,8 @@ window.onload = function () {
       name: 'Steps',
       labels: [
         {pos: 90, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
-        {pos: 300, text: '150 avg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3"},
-        {pos: 150, text: '72 avg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC"},
+        {pos: 300, text: '150\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
+        {pos: 150, text: '72\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
         {pos: 180, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
         {pos: 270, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
         {pos: 360, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"}
@@ -507,8 +507,8 @@ window.onload = function () {
       "stroke-width": 0,
       name: 'years',
       labels: [
-        {pos: 300, text: '50 avg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3"},
-        {pos: 150, text: '27 avg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC"},
+        {pos: 300, text: '50\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
+        {pos: 150, text: '27\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
         {pos: 90, text: '10', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 180, text: '30', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 270, text: '40', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"}
@@ -563,8 +563,8 @@ window.onload = function () {
       "stroke-width": 0,
       name: 'hs',
       labels: [
-        {pos: 60, text: '2\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3"},
-        {pos: 150, text: '4.3 avg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC"},
+        {pos: 60, text: '2\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
+        {pos: 150, text: '4.3\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
         {pos: 30, text: '1', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 120, text: '3', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 220, text: '5', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},

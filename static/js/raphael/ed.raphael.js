@@ -330,7 +330,7 @@ EdBarChart = function(r, options){
           this.drawDottedLine(label, 'x');
         }else if(label.type == 'bubble'){
           this.r.circle(xPos, this.options.centery, 20).attr({"fill": '#3F4A5A', "stroke-width": 0}).toFront();
-          this.r.text(xPos, this.options.centery, label['text']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20}).toFront();
+          this.r.text(xPos, this.options.centery, label['text']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": label["font-size"]}).toFront();
         }
         
       }
@@ -345,7 +345,9 @@ EdBarChart = function(r, options){
         if(label.text.indexOf('\n') != '-1'){
           paddingTop = 10; //Si hay salto de linea necesita mas espacio
         }
-        this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": '15', "fill": label['text-color'], 'text-anchor': 'start'});
+        var fontSize = 15;
+        if(typeof label["font-size"] != 'undefined') fontSize = label["font-size"];
+        this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": fontSize, "fill": label['text-color'], 'text-anchor': 'start'});
         if(label.type == 'dotted') this.drawDottedLine(label, 'y');
       }
     }
