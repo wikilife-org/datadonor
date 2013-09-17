@@ -39,7 +39,7 @@ def greg(request):
                                   RequestContext(request))
 def donate(request):
     """Login complete view, displays user data"""
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
         return HttpResponseRedirect('/wizard/')
     ctx = {
         'user': request.user,
@@ -49,6 +49,9 @@ def donate(request):
     }
     return render_to_response('data_donation.html', ctx, context_instance=RequestContext(request))
 
+def end_wizard(request):
+    request.session["wizard_mode"] = False
+    return HttpResponseRedirect('/donate/')
 
 def error(request):
     """Error view"""
@@ -67,6 +70,7 @@ def logout(request):
 def iagree(request):
     if request.method == 'POST':
         request.session["user_agree"] = True
+        request.session["wizard_mode"] = True
         return HttpResponse(simplejson.dumps({}), mimetype="application/json")
     return HttpResponseRedirect('/wizard/')
 
