@@ -100,7 +100,10 @@ def facebook_info(request, *args, **kwargs):
                 index = index - 1
         
         if f_object:
-            update_date = datetime.strptime(f_object["created_time"][:10], "%Y-%m-%d").date()
+            try:
+                update_date = datetime.strptime(f_object["created_time"][:10], "%Y-%m-%d").date()
+            except:
+                update_date = datetime.strptime(f_object["updated_time"][:10], "%Y-%m-%d").date()
             weeks = ((today - update_date).days or 7) / 7
             avg_likes = int(math.ceil((index + 1) / weeks))
         
