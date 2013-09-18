@@ -1,8 +1,8 @@
 # coding=utf-8
 
 from wikilife.client.base_wikilife_client import BaseWikilifeClient
-#from wikilife_utils.formatters.date_formatter import DateFormatter
-#from wikilife_utils.parsers.json_parser import JSONParser
+from wikilife_utils.formatters.date_formatter import DateFormatter
+from wikilife_utils.parsers.json_parser import JSONParser
 
 
 class User(BaseWikilifeClient):
@@ -45,7 +45,7 @@ class User(BaseWikilifeClient):
           "userName": user_name,
           "pin": pin,
           "gender": gender,
-          "birthdate": DateFormatter.to_datetime(birthdate),
+          "birthdate": DateFormatter.to_datetime(birthdate) if birthdate else birthdate,
           "height": height,
           "weight": weight,
           "deviceId": device_id,

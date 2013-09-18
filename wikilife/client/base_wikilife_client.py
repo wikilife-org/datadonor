@@ -56,7 +56,7 @@ class BaseWikilifeClient(object):
         request.get_method = lambda: 'DELETE'
 
         return self._rest(request)
-    
+
     def _build_url(self, service_path, params):
         url = self._settings["HOST"] + service_path
         if params:

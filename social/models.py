@@ -23,9 +23,9 @@ class Profile(models.Model):
     city = models.CharField(max_length=255, null=True)
     region = models.CharField(max_length=255, null=True)
     country = models.CharField(max_length=255, null=True)
+    agree_tos = models.BooleanField(default=True)
     wikilife_token = models.CharField(max_length=255, null=True)
     wikilife_ready = models.BooleanField(default=False)
-    agree_tos = models.BooleanField(default=True)
 
 
 class SocialUserAggregatedData(models.Model):
@@ -131,13 +131,12 @@ class DegreeLevel(models.Model):
 # method for updating
 def create_user_social(sender, instance, **kwargs):
 
-     """profile  = Profile()
-     profile.user = instance
-     profile.save()
-     """
-     social = SocialUserAggregatedData()
-     social.user = instance
-     social.save()
-     
+    profile = Profile()
+    profile.user = instance
+    profile.save()
+    social = SocialUserAggregatedData()
+    social.user = instance
+    social.save()
+
     
 post_save.connect(create_user_social, sender=User, dispatch_uid="create_user_social")

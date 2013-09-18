@@ -50,7 +50,7 @@ class UserTests(BaseTest):
         assert oauth_token != None
 
     def test_get_account(self):
-        user_name = "TEST_qwerty323466"
+        user_name = "TEST_qwerty323468"
         pin = "1234"
         gender = "Male"
         birthdate = DateUtils.create_datetime(1980, 1, 1, 12, 30, 45)
