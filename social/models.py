@@ -1,23 +1,11 @@
 # Define a custom User class to work with django-social-auth
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
-from django.contrib.auth.models import User
-
-try:
-    from django.utils.crypto import get_random_string as random_string
-except ImportError:  # django < 1.4
-    # Implementation borrowed from django 1.4
-    def random_string(length=6,
-                      allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):
-        if not using_sysrandom:
-            random.seed(hashlib.sha256('%s%s%s' % (random.getstate(),
-                                                   time.time(),
-                                                   settings.SECRET_KEY))
-                               .digest())
-        return ''.join([random.choice(allowed_chars) for i in range(length)])
-    
+from django.utils.crypto import get_random_string as random_string
 from utils.oper import percentage, social_reach_graph
+
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
@@ -65,22 +53,19 @@ class SocialUserAggregatedData(models.Model):
         l_count = self.linkedin_connections_count or 0
         g_count = self.gplus_contacts_count or 0
         fq_count = self.foursquare_friends_count or 0
-        
+
         total = f_count + t_count + l_count + g_count + fq_count
         f_per = percentage(f_count, total)
         l_per = percentage(l_count, total)
         g_per = percentage(g_count, total)
         t_per = percentage(t_count, total)
         fq_per = percentage(fq_count, total)
-        
-        
-        
+
         data = social_reach_graph(  (f_per, f_count), (t_per, t_count), 
                                     (g_per, g_count), (l_per, l_count), 
                                     (fq_per, fq_count))
         return data
 
-    
 
 class GlobalEducationDistribution(models.Model):
     elementary = models.FloatField(default=0.0)
