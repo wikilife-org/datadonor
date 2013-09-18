@@ -1,55 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Django Social Auth</title>
-    <meta name="description" content="Django Social Auth is an easy to setup social authentication/registration mechanism for Django projects." />
-    <meta name="keywords" content="django, django login, django auth, django facebook, django twitter, django openid, django oauth, social auth, openid, oauth, twitter, facebook, google, yahoo, myopenid, python" />
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-    <style type="text/css">
-      body {background-color: #eee; padding: 10px 20px; font-family: sans-serif; color: #333;}
-      h1, h2, h3 {margin: 0; padding: 0;}
-      h1 {font-size: 1.8em; border-bottom: 1px solid #bbb; width: 95%;}
-      h2 {font-size: 1.3em; border-bottom: 1px solid #ddd; width: 85%;}
-      h3 {font-size: 1.2em;}
-      a, a:visited {color: #459FDA; text-decoration: none;}
-      a:hover {text-decoration: underline;}
-      a img {border: 0;}
-      input[type="text"] {border: 1px solid #ccc; padding: 3px; width: 300px;}
-      input[type="submit"] {padding: 2px 20px; margin-left: -5px;}
-      label {display: block;}
-      th {text-align: left; padding-right: 25px; font-weight: normal;}
-      th, td {padding: 5px 15px;}
-      tr.even {background-color: #ddd;}
-      #heading {margin-top: 2.3em;}
-      #content {padding: 0 20px;}
-      .helptext {font-size: 0.9em; color: #aaa; margin: 0; padding: 0;}
-      .description {font-size: 1.0em; color: #333;}
-      a.logout, span.disconnect a, .error {color: #c00;}
-      .error {padding-left: 30px;}
-      #forkme {position: absolute; top: 0; right: 0;}
-      pre {display: inline;}
-    </style>
+<head>
+{% block title%}<title>DataDonors</title>{% endblock%}
+{% block meta %}
+{% endblock %}
 
-    {% block script %}{% endblock %}
-  </head>
-  <body>
-    <h1>Datadonor</h1>
-    <p class="description">
-      Datadonor prototype:
-    </p>
+{% block script%}
+{% endblock %}
 
-    <h2 id="heading">{% block heading %}{% endblock %}</h2>
-    {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+{% block analytics %}
+<!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    <div id="content">
-      {% block content %}{% endblock %}
-    </div>
+  ga('create', 'UA-43212000-4', 'datadonors.org');
+  ga('send', 'pageview');
 
-  </body>
+</script> -->
+{% endblock %}
+
+{% block styles%}
+{% endblock%}
+</head>
+
+{% block content%}
+{% endblock %}
+</body>
 </html>

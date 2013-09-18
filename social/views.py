@@ -37,8 +37,10 @@ def home(request):
 def greg(request):
     return render_to_response('google7d1bd3580ebd5b1b.html', {},
                                   RequestContext(request))
-def donate(request):
+def dashboard(request):
     """Login complete view, displays user data"""
+    if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
+        return HttpResponseRedirect('/wizard/')
     ctx = {
         'user': request.user,
         'user_social':request.user.social_aggregated_data.social_reach(),
@@ -47,6 +49,9 @@ def donate(request):
     }
     return render_to_response('data_donation.html', ctx, context_instance=RequestContext(request))
 
+def end_wizard(request):
+    request.session["wizard_mode"] = False
+    return HttpResponseRedirect('/dashboard/')
 
 def error(request):
     """Error view"""
@@ -65,6 +70,7 @@ def logout(request):
 def iagree(request):
     if request.method == 'POST':
         request.session["user_agree"] = True
+        request.session["wizard_mode"] = True
         return HttpResponse(simplejson.dumps({}), mimetype="application/json")
     return HttpResponseRedirect('/wizard/')
 

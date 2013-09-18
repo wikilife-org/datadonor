@@ -1,15 +1,3 @@
-try:
-    from django.utils.crypto import get_random_string as random_string
-except ImportError:  # django < 1.4
-    # Implementation borrowed from django 1.4
-    def random_string(length=6,
-                      allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):
-        if not using_sysrandom:
-            random.seed(hashlib.sha256('%s%s%s' % (random.getstate(),
-                                                   time.time(),
-                                                   settings.SECRET_KEY))
-                               .digest())
-        return ''.join([random.choice(allowed_chars) for i in range(length)])
 
 from social.models import Profile, SocialUserAggregatedData, DegreeLevel
 
@@ -65,26 +53,8 @@ def get_level_of_education_by_degree(degree):
 
 
 def complete_profile(user, email, birthdate, gender):
-    profile, created = Profile.objects.get_or_create(user=user)
+    profile = Profile.objects.get(user=user)
     
-    if created or not profile.account_id:
-        generated_uid = random_string(length=6,
-                      allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-        
-        u_profile = None
-        try:
-            u_profile = Profile.objects.get(account_id=generated_uid)
-        except:
-            pass
-        while u_profile is not None:
-            generated_uid = random_string()
-            try:
-                u_profile = Profile.objects.get(account_id=generated_uid)
-            except:
-                pass
-            
-        profile.account_id = generated_uid
- 
     if email:
         profile.email = email
     if birthdate:

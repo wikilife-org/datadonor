@@ -306,7 +306,7 @@ EdBarChart = function(r, options){
     this.r.path("M"+this.options.centerx+" "+this.options.centery+"L"+xTarget+" "+this.options.centery).attr({
       "stroke-width": this.options.xAxis["stroke-width"],
       "stroke": this.options.xAxis.color
-    });
+    }).toBack();
   }
   
   this.drawYAxis = function(){
@@ -319,20 +319,35 @@ EdBarChart = function(r, options){
   
   this.drawLabels = function(){
     if(this.options.xAxis.labels.length){
+      if(typeof this.options.xAxis.name != 'undefined'){
+        this.r.text(this.options.centerx+this.options.canvasSize[0]-35, this.options.canvasSize[1]-10, this.options.xAxis.name).attr({"font-family": 'Omnes-Semibold', "font-size": '18', "fill": "#ADB6BF", 'text-anchor': 'end'});
+      }
       for(var i in this.options.xAxis.labels){
         label = this.options.xAxis.labels[i];
         xPos = this.options.centerx + label.pos;
         //this.r.text(xPos, this.options.centery+10, label.text).attr({"font-size":label["font-size"], "font-family": label["font-family"]});
-        if(label.type == 'dotted') this.drawDottedLine(label, 'x');
+        if(label.type == 'dotted'){
+          this.drawDottedLine(label, 'x');
+        }else if(label.type == 'bubble'){
+          this.r.circle(xPos, this.options.centery, 20).attr({"fill": '#3F4A5A', "stroke-width": 0}).toFront();
+          this.r.text(xPos, this.options.centery, label['text']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": label["font-size"]}).toFront();
+        }
+        
       }
     }
     
     if(this.options.yAxis.labels.length){
-      this.r.text(this.options.centerx+20, 25, this.options.yAxis.name).attr({"font-family": 'Omnes-Semibold', "font-size": '18', "fill": "#ADB6BF"});
+      this.r.text(this.options.centerx, 25, this.options.yAxis.name).attr({"font-family": 'Omnes-Semibold', "font-size": '18', "fill": "#ADB6BF", 'text-anchor': 'start'});
       for(var i in this.options.yAxis.labels){
         label = this.options.yAxis.labels[i];
         yPos = this.options.centery - label.pos;
-        this.r.text(this.options.centerx, yPos+15, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": '15', "fill": label['text-color'], 'text-anchor': 'start'});
+        var paddingTop = 0;
+        if(label.text.indexOf('\n') != '-1'){
+          paddingTop = 10; //Si hay salto de linea necesita mas espacio
+        }
+        var fontSize = 15;
+        if(typeof label["font-size"] != 'undefined') fontSize = label["font-size"];
+        this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": fontSize, "fill": label['text-color'], 'text-anchor': 'start'});
         if(label.type == 'dotted') this.drawDottedLine(label, 'y');
       }
     }
@@ -379,8 +394,17 @@ EdBarChart = function(r, options){
           height: item['value']
         }, 1000, 'bounce');
         
-        this.r.circle(xPos+(item['width']/2), this.options.centery - item['value'], 20).attr({"fill": '#3F4A5A', "stroke-width": 0});
-        this.r.text(xPos+(item['width']/2), this.options.centery - item['value'], item['label']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20});
+        if(typeof this.options.xAxis.labelsType == 'undefined' || this.options.xAxis.labelsType == 'automatic_bubble'){
+          this.r.circle(xPos+(item['width']/2), this.options.centery - item['value'], 20).attr({"fill": '#3F4A5A', "stroke-width": 0});
+          this.r.text(xPos+(item['width']/2), this.options.centery - item['value'], item['label']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20});
+        }
+        
+        if(typeof item.vlabel != 'undefined'){
+          this.r.text(xPos+(item['width']/2), this.options.centery - item['value']+20, item['label'])
+              .transform('r270')
+              .attr({"fill-opacity":0.5, "fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20, "text-anchor": 'end'})
+          ;
+        }
       }else{
         yPos = this.options.centery - item['pos'];
         this.r.rect(this.options.centerx, yPos, 0, item['width']).attr({
