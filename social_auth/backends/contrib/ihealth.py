@@ -1,6 +1,12 @@
 """
-Nike+ OAuth support.
-This contribution adds support for Nike+ OAuth service.
+DailyMile OAuth support.
+
+This contribution adds support for Fitbit OAuth service. The settings
+FITBIT_CONSUMER_KEY and FITBIT_CONSUMER_SECRET must be defined with the values
+given by Fitbit application registration process.
+
+By default account id, username and token expiration time are stored in
+extra_data field, check OAuthBackend class for details on how to extend it.
 """
 try:
     from urlparse import parse_qs
@@ -18,41 +24,34 @@ from django.utils import simplejson
 import requests
 import json
 
-# Dailymile configuration
-NIKE_SERVER = 'https://developer.nike.com'
-NIKE_USERINFO = 'https://developer.nike.com/me/sport'
+
+IHEALTH_SERVER = 'https://api.ihealthlabs.com'
+IHEALTH_REQUEST_TOKEN_URL = '%s:8443/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_AUTHORIZATION_URL = '%s:8443/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_ACCESS_TOKEN_URL = '%s:8443/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_USERINFO = 'https://api.dailymile.com/people/me.json'
 
 
-class NikeBackend(OAuthBackend):
-    """Nike OAuth authentication backend"""
-    name = 'nike'
-    # Default extra data to store
-    #EXTRA_DATA = [('id', 'id'),
-    #              ('username', 'username'),
-    #              ('expires', 'expires')]
-
-    #def get_user_id(self, details, response):
-    #    """
-    #    Fitbit doesn't provide user data, it must be requested to its API:
-    #        https://wiki.fitbit.com/display/API/API-Get-User-Info
-    #    """
-    #    return response['id']
+class IhealthBackend(OAuthBackend):
+    """ihealth OAuth authentication backend"""
+    name = 'ihealth'
+    
     
     def get_user_id(self, details, response):
         return response['id']
 
     def get_user_details(self, response):
-        """Return user details from Nike account"""
+        """Return user details from ihealth account"""
         return {'username': response['username']}
 
 
-class NikeAuth(BaseOAuth2, PhysicalBackend):
-    AUTHORIZATION_URL = DAILYMILE_AUTHORIZATION_URL
-    REQUEST_TOKEN_URL = DAILYMILE_REQUEST_TOKEN_URL
-    ACCESS_TOKEN_URL = DAILYMILE_ACCESS_TOKEN_URL
-    AUTH_BACKEND = DailyMileBackend
-    SETTINGS_KEY_NAME = 'DAILYMILE_CONSUMER_KEY'
-    SETTINGS_SECRET_NAME = 'DAILYMILE_CONSUMER_SECRET'
+class IhealthAuth(BaseOAuth2, PhysicalBackend):
+    AUTHORIZATION_URL = IHEALTH_AUTHORIZATION_URL
+    REQUEST_TOKEN_URL = IHEALTH_REQUEST_TOKEN_URL
+    ACCESS_TOKEN_URL = IHEALTH_ACCESS_TOKEN_URL
+    AUTH_BACKEND = IhealthBackend
+    SETTINGS_KEY_NAME = 'IHEALTH_CONSUMER_KEY'
+    SETTINGS_SECRET_NAME = 'IHEALTH_CONSUMER_SECRET'
     REDIRECT_STATE = False
 
 
@@ -90,3 +89,9 @@ class NikeAuth(BaseOAuth2, PhysicalBackend):
             query_string = ''
 
         return self.AUTHORIZATION_URL + '?' + urlencode(params) + query_string
+
+
+# Backend definition
+BACKENDS = {
+    'ihealth': IhealthAuth,
+}
