@@ -212,6 +212,9 @@ def linkedin_info(request, *args, **kwargs):
             work_experience_years = current_year - start_year
         except IndexError:
             pass
+        except KeyError:
+            #Que hacemos si no tiene startDate
+            pass
         
         education_level = 0
         degree = None
@@ -226,6 +229,9 @@ def linkedin_info(request, *args, **kwargs):
                 degree = education_degree["degree"]
                 education_level = get_level_of_education_by_degree(degree)
         except IndexError:
+            pass
+        except KeyError:
+            #Que hacemos si no tiene endDate
             pass
             
         linkedin_connections_count = connections["_total"]

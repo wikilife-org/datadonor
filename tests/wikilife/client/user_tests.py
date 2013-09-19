@@ -14,7 +14,7 @@ class UserTests(BaseTest):
         self.assertTrue(available)
 
     def NO_test_create_account(self):
-        user_name = "TEST_qwerty1238"
+        user_name = "TEST_qwerty2_1240"
         pin = "1234"
         gender = "Male"
         birthdate = DateUtils.create_datetime(1980, 1, 1, 12, 30, 45)
@@ -31,7 +31,7 @@ class UserTests(BaseTest):
         self.assertTrue(success)
 
     def NO_test_login(self):
-        user_name = "TEST_qwerty22353"
+        user_name = "TEST_qwerty2_22353"
         pin = "1234"
         gender = "Male"
         birthdate = DateUtils.create_datetime(1980, 1, 1, 12, 30, 45)
@@ -49,8 +49,8 @@ class UserTests(BaseTest):
         oauth_token = user_client.login(user_name, pin)
         assert oauth_token != None
 
-    def test_get_account(self):
-        user_name = "TEST_qwerty323466"
+    def NO_test_get_account(self):
+        user_name = "TEST_qwerty2_323468"
         pin = "1234"
         gender = "Male"
         birthdate = DateUtils.create_datetime(1980, 1, 1, 12, 30, 45)
@@ -83,8 +83,8 @@ class UserTests(BaseTest):
         user_account = user_client.get_account(oauth_token)
         self.assertDictEqual(user_account, expected)
 
-    def NO_test_delete_account(self, oauth_token):
-        user_name = "TEST_qwerty4234568"
+    def NO_test_delete_account(self):
+        user_name = "TEST_qwerty2_4234568"
         pin = "1234"
         gender = "Male"
         birthdate = DateUtils.create_datetime(1980, 1, 1, 12, 30, 45)
