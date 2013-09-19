@@ -1,22 +1,11 @@
 # Define a custom User class to work with django-social-auth
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
-from django.contrib.auth.models import User
-try:
-    from django.utils.crypto import get_random_string as random_string
-except ImportError:  # django < 1.4
-    # Implementation borrowed from django 1.4
-    def random_string(length=6,
-                      allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):
-        if not using_sysrandom:
-            random.seed(hashlib.sha256('%s%s%s' % (random.getstate(),
-                                                   time.time(),
-                                                   settings.SECRET_KEY))
-                               .digest())
-        return ''.join([random.choice(allowed_chars) for i in range(length)])
-    
+from django.utils.crypto import get_random_string as random_string
 from utils.oper import percentage, social_reach_graph
+
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
@@ -35,9 +24,9 @@ class Profile(models.Model):
     city = models.CharField(max_length=255, null=True)
     region = models.CharField(max_length=255, null=True)
     country = models.CharField(max_length=255, null=True)
+    agree_tos = models.BooleanField(default=True)
     wikilife_token = models.CharField(max_length=255, null=True)
     wikilife_ready = models.BooleanField(default=False)
-    agree_tos = models.BooleanField(default=True)
 
 
 class SocialUserAggregatedData(models.Model):
@@ -64,14 +53,13 @@ class SocialUserAggregatedData(models.Model):
         l_count = self.linkedin_connections_count or 0
         g_count = self.gplus_contacts_count or 0
         fq_count = self.foursquare_friends_count or 0
-        
+
         total = f_count + t_count + l_count + g_count + fq_count
         f_per = percentage(f_count, total)
         l_per = percentage(l_count, total)
         g_per = percentage(g_count, total)
         t_per = percentage(t_count, total)
         fq_per = percentage(fq_count, total)
-        
         
         
         #data = social_reach_graph(  (f_per, f_count), (t_per, t_count), 
@@ -81,9 +69,9 @@ class SocialUserAggregatedData(models.Model):
         data = {"facebook":{"count": f_count, "percentage":f_per}, "twitter":{"count": t_count, "percentage":t_per},
                 "gmail":{"count": g_count, "percentage":g_per}, "foursquare":{"count": fq_count, "percentage":fq_per},
                 "linkedin":{"count": l_count, "percentage":l_per}}
+
         return data
 
-    
 
 class GlobalEducationDistribution(models.Model):
     elementary = models.FloatField(default=0.0)
@@ -147,13 +135,19 @@ class DegreeLevel(models.Model):
 # method for updating
 def create_user_social(sender, instance, **kwargs):
 
-     
-     profile, created  = Profile.objects.get_or_create(user=instance)
-     if created or profile.user != None:
-         profile.user = instance
-         profile.save()
+    profile = Profile()
+    profile.user = instance
+    profile.save()
+    social = SocialUserAggregatedData()
+    social.user = instance
+    social.save()
 
-     if created or not profile.account_id:
+    profile, created  = Profile.objects.get_or_create(user=instance)
+    if created or profile.user != None:
+        profile.user = instance
+        profile.save()
+
+    if created or not profile.account_id:
         generated_uid = random_string(length=6,
                       allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
         
@@ -173,10 +167,10 @@ def create_user_social(sender, instance, **kwargs):
         profile.account_id = generated_uid
         profile.save()
      
-     social, created = SocialUserAggregatedData.objects.get_or_create(user=instance)
-     if created or social.user != None:
-         social.user = instance
-         social.save()
+    social, created = SocialUserAggregatedData.objects.get_or_create(user=instance)
+    if created or social.user != None:
+        social.user = instance
+        social.save()
      
     
 post_save.connect(create_user_social, sender=User, dispatch_uid="create_user_social")
