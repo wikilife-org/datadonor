@@ -41,6 +41,8 @@ STATIC_ROOT = ""
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
+LOGIN_URL = "/"
+
 MANAGERS = ADMINS
 
 DATABASES = {
