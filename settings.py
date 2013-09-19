@@ -150,6 +150,7 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.fitbit.FitbitBackend',
     'social_auth.backends.contrib.runkeeper.RunkeeperBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',
+    'social_auth.backends.contrib.nike.NikeBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -190,6 +191,7 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.fitbit.fitbit_info',
     'pipeline.runkeeper.runkeeper_info',
     'pipeline.dailymile.dailymile_info',
+    'pipeline.nike.nike_info',
 )
 
 SOCIAL_AUTH_PIPELINE_old = (
