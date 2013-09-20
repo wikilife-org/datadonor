@@ -9,7 +9,7 @@ from utils.oper import percentage, social_reach_graph
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
-    account_id = models.CharField(max_length=255, unique=True)
+    account_id = models.CharField(max_length=255, unique=True, null=False)
     email = models.CharField(max_length=255, blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)

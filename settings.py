@@ -148,7 +148,7 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.foursquare.FoursquareBackend',
     'social_auth.backends.contrib.evernote.EvernoteBackend',
     'social_auth.backends.contrib.fitbit.FitbitBackend',
-    'social_auth.backends.contrib.runkeeper.RunkeeperBackend',
+    'social_auth.backends.runkeeper.RunkeeperBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
