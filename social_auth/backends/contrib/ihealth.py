@@ -25,7 +25,7 @@ import requests
 import json
 
 
-IHEALTH_SERVER = 'https://api.ihealthlabs.com'
+IHEALTH_SERVER = 'https://api.ihealthlabs.com:8443'
 IHEALTH_REQUEST_TOKEN_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
 IHEALTH_AUTHORIZATION_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
 IHEALTH_ACCESS_TOKEN_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
@@ -53,6 +53,7 @@ class IhealthAuth(BaseOAuth2, PhysicalBackend):
     SETTINGS_KEY_NAME = 'IHEALTH_CONSUMER_KEY'
     SETTINGS_SECRET_NAME = 'IHEALTH_CONSUMER_SECRET'
     REDIRECT_STATE = False
+    STATE_PARAMETER = False
 
 
     def user_data(self, access_token, *args, **kwargs):
@@ -87,7 +88,8 @@ class IhealthAuth(BaseOAuth2, PhysicalBackend):
             query_string = '&' + self.request.META['QUERY_STRING']
         else:
             query_string = ''
-
+            
+        params['APINAME'] = 'OpenApiBP%20OpenApiWeight'
         return self.AUTHORIZATION_URL + '?' + urlencode(params) + query_string
 
 
