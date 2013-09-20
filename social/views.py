@@ -115,6 +115,93 @@ def social_work(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
+def physical_exercise(request):
+
+    data = [{"title": "Running", "key":"running", "global_times":4, "user_times":5 }, 
+     {"title": "Walking", "key":"walking", "global_times":3, "user_times":1 },
+     {"title": "Eliptical", "key":"Eliptical", "global_times":1, "user_times": 2}]
+    
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def physical_user_exercise(request):
+
+    data = [{"title": "Bike riding", "message":"every day"}, 
+     {"title": "Snowboard", "message":"1 time per week"},
+     {"title": "Downhill Skiing", "message":"1 times per year"},
+     {"title": "Weight lifting", "message":"4 per year"}]
+    
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def physical_steps_distribution(request):
+    data = {"days":{"sunday":{"user_steps": 4000, "global_steps":2000}, "monday":{"user_steps": 3000, "global_steps":1000},
+                    "tuesday":{"user_steps": 3000, "global_steps":1000}, "wednesday":{"user_steps": 3000, "global_steps":3000},
+                    "thursday":{"user_steps": 5000, "global_steps":3000}, "friday":{"user_steps": 3000, "global_steps":2000},
+                    "saturday":{"user_steps": 5000, "global_steps":3050}},
+            "global_avg_steps":3000,
+            "user_avg_steps": 2000}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def physical_miles_distribution(request):
+    data = {"days":{"sunday":{"user_miles": 300, "global_miles":300}, "monday":{"user_miles": 300, "global_miles":300},
+                    "tuesday":{"user_miles": 300, "global_miles":300}, "wednesday":{"user_miles": 300, "global_miles":300},
+                    "thursday":{"user_miles": 300, "global_miles":300}, "friday":{"user_miles": 300, "global_miles":300},
+                    "saturday":{"user_miles": 300, "global_miles":300}},
+            "global_avg_miles":300,
+            "user_avg_miles": 200}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def physical_hours_distribution(request):
+    data = {"days":{"sunday":{"user_hours": 300, "global_hours":300}, "monday":{"user_hours": 300, "global_hours":300},
+                    "tuesday":{"user_hours": 300, "global_hours":300}, "wednesday":{"user_hours": 300, "global_hours":300},
+                    "thursday":{"user_hours": 300, "global_hours":300}, "friday":{"user_hours": 300, "global_hours":300},
+                    "saturday":{"user_hours": 300, "global_hours":300}},
+            "global_avg_hours":300,
+            "user_avg_hours": 200}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+
+
+def health_nutrients(request):
+    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":30},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":30},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
+    
+    global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":20},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":15},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
+    data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def health_weight(request):
+    if request.method == 'POST':
+        unit = request.POST["unit"]
+        value = request.POST["value"]
+        data = {}
+    else:
+        user_data = {"value":112, "unit":"Lbs"}
+        global_data = {"men":{"value":120, "unit":"Lbs"}, "women":{"value":94, "unit":"Lbs"}}
+        data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def health_height(request):
+    if request.method == 'POST':
+        unit = request.POST["unit"]
+        value = request.POST["value"]
+        data = {}
+    else:
+        user_data = {"value":5.8, "unit":"Ft"}
+        global_data = {"men":{"value":7.2, "unit":"Ft"}, "women":{"value":4.3, "unit":"Ft"}}
+        data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def health_bmi(request):
+    user_data = {"value":22}
+    global_data = {"men":{"value":20}, "women":{"value":26}}
+    data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
 def logout(request):
     """Logs out user"""
     auth_logout(request)

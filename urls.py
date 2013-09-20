@@ -28,6 +28,16 @@ urlpatterns = patterns('',
     url(r'^social/education/', social_education, name='education'),
     url(r'^social/work/', social_work, name='work'),
 
+    url(r'^physical/exercise/top/', physical_exercise, name='physical_exercise'),
+    url(r'^physical/exercise/user/', physical_user_exercise, name='physical_user_exercise'),
+    url(r'^physical/exercise/steps/distribution', physical_steps_distribution, name='physical_steps_distribution'),
+    url(r'^physical/exercise/miles/distribution', physical_miles_distribution, name='physical_miles_distribution'),
+    url(r'^physical/exercise/hours/distribution', physical_hours_distribution, name='physical_hours_distribution'),
+
+    url(r'^health/nutrients/', health_nutrients, name='health_nutrients'),
+    url(r'^health/weight/', health_weight, name='health_weight'),
+    url(r'^health/height/', health_height, name='health_height'),
+    url(r'^health/bmi/', health_bmi, name='health_bmi'),
     
     url(r'^wikilife/push', wikilife_push, name='wikilife_push'),
     url(r'^wikilife/pull', wikilife_pull, name='wikilife_pull'),
