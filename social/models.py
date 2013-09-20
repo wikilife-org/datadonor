@@ -60,10 +60,16 @@ class SocialUserAggregatedData(models.Model):
         g_per = percentage(g_count, total)
         t_per = percentage(t_count, total)
         fq_per = percentage(fq_count, total)
+        
+        
+        #data = social_reach_graph(  (f_per, f_count), (t_per, t_count), 
+        #                            (g_per, g_count), (l_per, l_count), 
+        #                            (fq_per, fq_count))
+        
+        data = {"facebook":{"count": f_count, "percentage":f_per}, "twitter":{"count": t_count, "percentage":t_per},
+                "gmail":{"count": g_count, "percentage":g_per}, "foursquare":{"count": fq_count, "percentage":fq_per},
+                "linkedin":{"count": l_count, "percentage":l_per}}
 
-        data = social_reach_graph(  (f_per, f_count), (t_per, t_count), 
-                                    (g_per, g_count), (l_per, l_count), 
-                                    (fq_per, fq_count))
         return data
 
 

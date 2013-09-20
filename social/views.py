@@ -61,6 +61,60 @@ def error(request):
                               RequestContext(request))
 
 
+def social_reach(request):
+
+    user_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":20},
+                "gmail":{"count": 20, "percentage":20}, "foursquare":{"count": 20, "percentage":20},
+                "linkedin":{"count": 20, "percentage":20}}
+    
+    global_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":10},
+                "gmail":{"count": 20, "percentage":10}, "foursquare":{"count": 20, "percentage":40},
+                "linkedin":{"count": 20, "percentage":20}}
+    
+    data = {"user_data":user_data, "global_data":global_data}
+    
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def social_sharing(request):
+    
+    user_data = {"facebook":{"posts":225, "likes":80}, "twitter":{"tweets":22, "retweets":11}}
+    global_data = {"facebook":{"posts":134, "likes":44}, "twitter":{"tweets":99, "retweets":12}}
+    data = {"user_data":user_data, "global_data":global_data}
+    
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def social_education(request):
+    if request.method == "POST":
+        education_level = request.POST["education_level"]
+        data = {}
+        
+    else:
+        user_data = {"user_level": "under_program"}
+        global_data = {"phd":{"percentage":8, "key":"phd", "title": "PhD", "index":6},
+                       "master":{"percentage":10, "key":"master", "title": "Master", "index":5},
+                       "under_program":{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}, 
+                       "tech_inst":{"percentage":5, "key":"tech_inst", "title": "Technical Institute", "index":3},
+                       "high_school":{"percentage":3, "key":"high_school", "title": "High School", "index":2},
+                       "junior_college":{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
+                       "primary_school":{"percentage":3, "key":"primary_school", "title": "Primary School", "index":0}}
+        data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def social_work(request):
+    if request.method == 'POST':
+        working_experience = request.POST["working_experience"]
+        data = {}
+    else:
+        user_data = {"user_experience": {"key": "26-35", "value":40}}
+        global_data = {"15-25":{"key": "15-25", "value":20}, 
+                        "26-35":{"key": "26-35", "value":50}, 
+                        "36-45":{"key": "36-45", "value":60}, 
+                        "46-55":{"key": "46-55", "value":70}, 
+                        "56-65":{"key": "56-65", "value":80}}
+        data = {"user_data":user_data, "global_data":global_data, "avg":10}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+
 def logout(request):
     """Logs out user"""
     auth_logout(request)

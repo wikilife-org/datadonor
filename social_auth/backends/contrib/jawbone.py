@@ -49,6 +49,7 @@ class JawboneAuth(BaseOAuth2):
     # Look at http://developer.github.com/v3/oauth/
     SCOPE_VAR_NAME = 'JAWBONE_EXTENDED_PERMISSIONS'
     REDIRECT_STATE = False
+    STATE_PARAMETER = False #added by mf
 
     def user_data(self, access_token, *args, **kwargs):
         """Loads user data from service"""

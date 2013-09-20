@@ -1,12 +1,6 @@
 """
-DailyMile OAuth support.
-
-This contribution adds support for Fitbit OAuth service. The settings
-FITBIT_CONSUMER_KEY and FITBIT_CONSUMER_SECRET must be defined with the values
-given by Fitbit application registration process.
-
-By default account id, username and token expiration time are stored in
-extra_data field, check OAuthBackend class for details on how to extend it.
+Nike+ OAuth support.
+This contribution adds support for Nike+ OAuth service.
 """
 try:
     from urlparse import parse_qs
@@ -25,16 +19,13 @@ import requests
 import json
 
 # Dailymile configuration
-DAILYMILE_SERVER = 'https://api.dailymile.com'
-DAILYMILE_REQUEST_TOKEN_URL = '%s/oauth/token' % DAILYMILE_SERVER
-DAILYMILE_AUTHORIZATION_URL = '%s/oauth/authorize' % DAILYMILE_SERVER
-DAILYMILE_ACCESS_TOKEN_URL = '%s/oauth/token' % DAILYMILE_SERVER
-DAILYMILE_USERINFO = 'https://api.dailymile.com/people/me.json'
+NIKE_SERVER = 'https://developer.nike.com'
+NIKE_USERINFO = 'https://developer.nike.com/me/sport'
 
 
-class DailyMileBackend(OAuthBackend):
-    """DailyMile OAuth authentication backend"""
-    name = 'dailymile'
+class NikeBackend(OAuthBackend):
+    """Nike OAuth authentication backend"""
+    name = 'nike'
     # Default extra data to store
     #EXTRA_DATA = [('id', 'id'),
     #              ('username', 'username'),
@@ -51,11 +42,11 @@ class DailyMileBackend(OAuthBackend):
         return response['id']
 
     def get_user_details(self, response):
-        """Return user details from DailyMile account"""
+        """Return user details from Nike account"""
         return {'username': response['username']}
 
 
-class DailyMileAuth(BaseOAuth2, PhysicalBackend):
+class NikeAuth(BaseOAuth2, PhysicalBackend):
     AUTHORIZATION_URL = DAILYMILE_AUTHORIZATION_URL
     REQUEST_TOKEN_URL = DAILYMILE_REQUEST_TOKEN_URL
     ACCESS_TOKEN_URL = DAILYMILE_ACCESS_TOKEN_URL
@@ -99,9 +90,3 @@ class DailyMileAuth(BaseOAuth2, PhysicalBackend):
             query_string = ''
 
         return self.AUTHORIZATION_URL + '?' + urlencode(params) + query_string
-
-
-# Backend definition
-BACKENDS = {
-    'dailymile': DailyMileAuth,
-}

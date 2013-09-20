@@ -24,45 +24,36 @@ from django.utils import simplejson
 import requests
 import json
 
-# Dailymile configuration
-DAILYMILE_SERVER = 'https://api.dailymile.com'
-DAILYMILE_REQUEST_TOKEN_URL = '%s/oauth/token' % DAILYMILE_SERVER
-DAILYMILE_AUTHORIZATION_URL = '%s/oauth/authorize' % DAILYMILE_SERVER
-DAILYMILE_ACCESS_TOKEN_URL = '%s/oauth/token' % DAILYMILE_SERVER
-DAILYMILE_USERINFO = 'https://api.dailymile.com/people/me.json'
+
+IHEALTH_SERVER = 'https://api.ihealthlabs.com:8443'
+IHEALTH_REQUEST_TOKEN_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_AUTHORIZATION_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_ACCESS_TOKEN_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_USERINFO = 'https://api.dailymile.com/people/me.json'
 
 
-class DailyMileBackend(OAuthBackend):
-    """DailyMile OAuth authentication backend"""
-    name = 'dailymile'
-    # Default extra data to store
-    #EXTRA_DATA = [('id', 'id'),
-    #              ('username', 'username'),
-    #              ('expires', 'expires')]
-
-    #def get_user_id(self, details, response):
-    #    """
-    #    Fitbit doesn't provide user data, it must be requested to its API:
-    #        https://wiki.fitbit.com/display/API/API-Get-User-Info
-    #    """
-    #    return response['id']
+class IhealthBackend(OAuthBackend):
+    """ihealth OAuth authentication backend"""
+    name = 'ihealth'
+    
     
     def get_user_id(self, details, response):
         return response['id']
 
     def get_user_details(self, response):
-        """Return user details from DailyMile account"""
+        """Return user details from ihealth account"""
         return {'username': response['username']}
 
 
-class DailyMileAuth(BaseOAuth2, PhysicalBackend):
-    AUTHORIZATION_URL = DAILYMILE_AUTHORIZATION_URL
-    REQUEST_TOKEN_URL = DAILYMILE_REQUEST_TOKEN_URL
-    ACCESS_TOKEN_URL = DAILYMILE_ACCESS_TOKEN_URL
-    AUTH_BACKEND = DailyMileBackend
-    SETTINGS_KEY_NAME = 'DAILYMILE_CONSUMER_KEY'
-    SETTINGS_SECRET_NAME = 'DAILYMILE_CONSUMER_SECRET'
+class IhealthAuth(BaseOAuth2, PhysicalBackend):
+    AUTHORIZATION_URL = IHEALTH_AUTHORIZATION_URL
+    REQUEST_TOKEN_URL = IHEALTH_REQUEST_TOKEN_URL
+    ACCESS_TOKEN_URL = IHEALTH_ACCESS_TOKEN_URL
+    AUTH_BACKEND = IhealthBackend
+    SETTINGS_KEY_NAME = 'IHEALTH_CONSUMER_KEY'
+    SETTINGS_SECRET_NAME = 'IHEALTH_CONSUMER_SECRET'
     REDIRECT_STATE = False
+    STATE_PARAMETER = False
 
 
     def user_data(self, access_token, *args, **kwargs):
@@ -97,11 +88,12 @@ class DailyMileAuth(BaseOAuth2, PhysicalBackend):
             query_string = '&' + self.request.META['QUERY_STRING']
         else:
             query_string = ''
-
+            
+        params['APINAME'] = 'OpenApiBP%20OpenApiWeight'
         return self.AUTHORIZATION_URL + '?' + urlencode(params) + query_string
 
 
 # Backend definition
 BACKENDS = {
-    'dailymile': DailyMileAuth,
+    'ihealth': IhealthAuth,
 }
