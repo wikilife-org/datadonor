@@ -62,9 +62,15 @@ def error(request):
 
 
 def social_reach(request):
-    user_data = request.user.social_aggregated_data.social_reach()
+
+    user_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":20},
+                "gmail":{"count": 20, "percentage":20}, "foursquare":{"count": 20, "percentage":20},
+                "linkedin":{"count": 20, "percentage":20}}
     
-    global_data = None
+    global_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":10},
+                "gmail":{"count": 20, "percentage":10}, "foursquare":{"count": 20, "percentage":40},
+                "linkedin":{"count": 20, "percentage":20}}
+    
     data = {"user_data":user_data, "global_data":global_data}
     
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")

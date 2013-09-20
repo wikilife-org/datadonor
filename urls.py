@@ -23,10 +23,10 @@ urlpatterns = patterns('',
     url(r'^comming/', comming, name='comming'),
     url(r'', include('social_auth.urls')),
     
-    url(r'^social/reach/', comming, name='comming'),
-    url(r'^social/sharing/', comming, name='comming'),
-    url(r'^social/education/', comming, name='comming'),
-    url(r'^social/work/', comming, name='comming'),
+    url(r'^social/reach/', social_reach, name='reach'),
+    url(r'^social/sharing/', social_sharing, name='sharing'),
+    url(r'^social/education/', social_education, name='education'),
+    url(r'^social/work/', social_work, name='work'),
 
     
     url(r'^wikilife/push', wikilife_push, name='wikilife_push'),
