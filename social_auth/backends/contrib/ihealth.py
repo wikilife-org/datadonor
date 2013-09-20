@@ -26,9 +26,9 @@ import json
 
 
 IHEALTH_SERVER = 'https://api.ihealthlabs.com'
-IHEALTH_REQUEST_TOKEN_URL = '%s:8443/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
-IHEALTH_AUTHORIZATION_URL = '%s:8443/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
-IHEALTH_ACCESS_TOKEN_URL = '%s:8443/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_REQUEST_TOKEN_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_AUTHORIZATION_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
+IHEALTH_ACCESS_TOKEN_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
 IHEALTH_USERINFO = 'https://api.dailymile.com/people/me.json'
 
 

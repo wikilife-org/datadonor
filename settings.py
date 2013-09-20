@@ -153,6 +153,7 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.runkeeper.RunkeeperBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',
     'social_auth.backends.contrib.ihealth.IhealthBackend',
+    'social_auth.backends.contrib.jawbone.JawboneBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -194,6 +195,7 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.runkeeper.runkeeper_info',
     'pipeline.dailymile.dailymile_info',
     'pipeline.ihealth.ihealth_info',
+    'pipeline.jawbone.jawbone_info',
 )
 
 SOCIAL_AUTH_PIPELINE_old = (
