@@ -90,13 +90,13 @@ def social_education(request):
         
     else:
         user_data = {"user_level": "under_program"}
-        global_data = {{"phd":{"percentage":8, "key":"phd", "title": "PhD", "index":6}},
-                       {"master":{"percentage":10, "key":"master", "title": "Master", "index":5}},
-                       {"under_program":{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}}, 
-                       {"tech_inst":{"percentage":5, "key":"tech_inst", "title": "Technical Institute", "index":3}},
-                       {"high_school":{"percentage":3, "key":"high_school", "title": "High School", "index":2}},
-                       {"junior_college":{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1}},
-                       {"primary_school":{"percentage":3, "key":"primary_school", "title": "Primary School", "index":0}}}
+        global_data = {"phd":{"percentage":8, "key":"phd", "title": "PhD", "index":6},
+                       "master":{"percentage":10, "key":"master", "title": "Master", "index":5},
+                       "under_program":{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}, 
+                       "tech_inst":{"percentage":5, "key":"tech_inst", "title": "Technical Institute", "index":3},
+                       "high_school":{"percentage":3, "key":"high_school", "title": "High School", "index":2},
+                       "junior_college":{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
+                       "primary_school":{"percentage":3, "key":"primary_school", "title": "Primary School", "index":0}}
         data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
@@ -106,11 +106,11 @@ def social_work(request):
         data = {}
     else:
         user_data = {"user_experience": {"key": "26-35", "value":40}}
-        global_data = {{"15-25":{"key": "15-25", "value":20}, 
+        global_data = {"15-25":{"key": "15-25", "value":20}, 
                         "26-35":{"key": "26-35", "value":50}, 
                         "36-45":{"key": "36-45", "value":60}, 
                         "46-55":{"key": "46-55", "value":70}, 
-                        "56-65":{"key": "56-65", "value":80}}}
+                        "56-65":{"key": "56-65", "value":80}}
         data = {"user_data":user_data, "global_data":global_data, "avg":10}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
