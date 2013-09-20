@@ -142,21 +142,21 @@ def physical_steps_distribution(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def physical_miles_distribution(request):
-    data = {"days":{"sunday":{"user_miles": 300, "global_miles":300}, "monday":{"user_miles": 300, "global_miles":300},
-                    "tuesday":{"user_miles": 300, "global_miles":300}, "wednesday":{"user_miles": 300, "global_miles":300},
-                    "thursday":{"user_miles": 300, "global_miles":300}, "friday":{"user_miles": 300, "global_miles":300},
-                    "saturday":{"user_miles": 300, "global_miles":300}},
-            "global_avg_miles":300,
-            "user_avg_miles": 200}
+    data = {"days":{"sunday":{"user_miles": 30, "global_miles":50}, "monday":{"user_miles": 20, "global_miles":30},
+                    "tuesday":{"user_miles": 30, "global_miles":40}, "wednesday":{"user_miles": 12, "global_miles":20},
+                    "thursday":{"user_miles": 30, "global_miles":50}, "friday":{"user_miles": 15, "global_miles":10},
+                    "saturday":{"user_miles": 30, "global_miles":60}},
+            "global_avg_miles":30,
+            "user_avg_miles": 20}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def physical_hours_distribution(request):
-    data = {"days":{"sunday":{"user_hours": 300, "global_hours":300}, "monday":{"user_hours": 300, "global_hours":300},
-                    "tuesday":{"user_hours": 300, "global_hours":300}, "wednesday":{"user_hours": 300, "global_hours":300},
-                    "thursday":{"user_hours": 300, "global_hours":300}, "friday":{"user_hours": 300, "global_hours":300},
-                    "saturday":{"user_hours": 300, "global_hours":300}},
-            "global_avg_hours":300,
-            "user_avg_hours": 200}
+    data = {"days":{"sunday":{"user_hours": 7, "global_hours":7}, "monday":{"user_hours": 3, "global_hours":5},
+                    "tuesday":{"user_hours": 3, "global_hours":5}, "wednesday":{"user_hours": 4, "global_hours":6},
+                    "thursday":{"user_hours": 5, "global_hours":5}, "friday":{"user_hours": 4, "global_hours":4},
+                    "saturday":{"user_hours": 6, "global_hours":6}},
+            "global_avg_hours":4,
+            "user_avg_hours": 5}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
