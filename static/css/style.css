@@ -661,9 +661,9 @@ vertical-align: middle;
 
 .middle p
 {
-	font-size: 18px;
+	font-size: 16px;
 	margin-left: 10px;
-	margin-right: 150px;
+	margin-right: 238px;
 	text-align: left;
 	font-family: 'Omnes-Semibold';
 	margin-top: 80px;
@@ -1365,7 +1365,8 @@ z-index: 90;
 #four ul
 {
 	height:390px;
-	width:100%
+	width:80%;
+	margin: 0 20% auto;
 }
 #four ul li
 {
@@ -3929,7 +3930,7 @@ and (orientation : landscape) {
 	height:66px;
 	left:50%;
 	margin-left:-33px;
-	margin-top:-163px;
+	margin-top:-33px;
 	position:absolute;
 	width:66px;
 }
