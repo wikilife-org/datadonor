@@ -2721,22 +2721,24 @@ left: 90px;
 #logos
 {
 	
-	width:100%; 
-	height:70px; 
+	width:50%; 
+	height:50px; 
 	bottom:50px; 
 	position:absolute;
+	margin-left: 25%;
 }
+
 #slider-logos
 {
 
 	margin: 180px 100px auto;
 }
 
-#slider-logos img
+#logos img
 {
 
-	width: 5.8%;
-	margin-left: -9px;
+	margin-left: -20%;
+	width: 141%;
 	
 }
 
