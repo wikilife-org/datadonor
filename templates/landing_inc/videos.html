@@ -10,6 +10,7 @@
             
             <a href="#" class="pause" onClick="playPause()"></a>
           	<div class="flexslider">
+          	{% if not videos %}
                 <ul class="slides">
                 
 	                <li>
@@ -32,7 +33,7 @@
                    </li>     
 
 				</ul>
-                
+                {% endif %}
             </div>
         
         	<div class="box-scroll">

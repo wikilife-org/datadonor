@@ -1671,28 +1671,27 @@ height:500px;
 	color:#5b6d7f;
 	font-family: 'gothamultra';
 	font-weight:normal;
-	font-size:20px;
+	font-size:19px;
 	position:absolute;
-	margin-top:130px;
-	line-height:0.8;
-	width:100px;
+	margin-top:118px;
+	width:125px;
 }
 #howtoshare .slide-3 .title-left
 {
-	text-align:center;
+	text-align:right;
 }
 
 #howtoshare .slide-3 .titleright
 {
 	color:#5b6d7f;
-	font-size:20px;	
+	font-size:19px;	
 	font-family: 'gothamultra';
 	font-weight:normal;
 	position: absolute;
-margin-left: 680px;
-margin-top: 120px;
-width: 150px;
-text-align:center;
+	margin-left: 680px;
+	margin-top: 120px;
+	width: 170px;
+	text-align:left;
 }
 
 #howtoshare .slide-2  .inner  
@@ -1705,9 +1704,9 @@ text-align:center;
 	font-family: 'gothamultra';
 	font-size:19px;
 	font-weight:normal;
-	margin:110px 0 0 0;
+	margin:110px  0 0;
 	position:absolute;
-	width:180px;
+	width:170px;
 	text-align: right;
 }
 .slide-2 .inner h5
