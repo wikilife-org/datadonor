@@ -1530,10 +1530,11 @@ position: relative;
 .mascara-container
 {
 	position:absolute;
-	width:110px;
+	width:108px;
 	height:117px;
 	z-index:50;
 }
+
 .img-container
 {
 	position:absolute;
