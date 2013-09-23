@@ -1270,9 +1270,9 @@ border-bottom-left-radius: 255px;
 	opacity:0.2;
 	background-color:#a9a9a9;
 	float:left;
-	height:120px;
-	margin-left:28px;
-	width:120px;
+	height:99px;
+	margin-left:3px;
+	width:99px;
 	
 	-webkit-border-radius: 125px;
 	-moz-border-radius: 125px;
@@ -1287,9 +1287,9 @@ border-bottom-left-radius: 255px;
 {
 	color:#fff;
 	font-family: 'Omnes-Semibold';
-	font-size:15px;
+	font-size:13px;
 	float: left;
-	margin-top: 80px;
+	margin-top: 68px;
 	width: 100%;
 	text-align: center;
 }
@@ -1299,30 +1299,42 @@ border-bottom-left-radius: 255px;
 }
 #slide-5 .inner-redes .circle.fatsecret{
 	background-image:url(../img/nutrition-fatsecret.png) ;
-	background-position:center 25px;
+	background-position:center 22px;
 }
 #slide-5 .inner-redes .circle.myfitness{
 	background-image:url(../img/device-myfitness.png) ;
-	background-position:center 30px;
+	background-position:center 20px;
 }
 #slide-5 .inner-redes .circle.bodymedia{
 	background-image:url(../img/device-bodymedia.png) ;
-	background-position:center 26px;
+	background-position:center 19px;
 }
 #slide-5 .inner-redes .circle.dailymile{
 	background-image:url(../img/device-dailymile.png) ;
-		background-position:center 32px;
+		background-position:center 26px;
 }
 #slide-5 .inner-redes .circle.runkeeper{
 	background-image:url(../img/device-runkeeper.png) ;
-	background-position:center 23px;
+	background-position:center 15px;
 }
 #slide-5 .inner-redes .circle.nike{
 	background-image:url(../img/device-nike.png) ;
-	background-position:center 40px;
+	background-position:center 37px;
 }
 
+#slide-5 .inner-redes .circle.jawbone{
+	background-image:url(../img/health-jawbone.png) ;
+	background-position:center 32px;
+}
+#slide-5 .inner-redes .circle.iHealth{
+	background-image:url(../img/health-iHealth.png) ;
+	background-position:center 38px;
+}
 
+#slide-5 .inner-redes .circle.fitbit{
+	background-image:url(../img/health-fitbit.png) ;
+	background-position:center 25px;
+}
 /* SLIDE 6 */
 
 #slide-6
