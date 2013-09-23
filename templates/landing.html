@@ -25,15 +25,14 @@
 <link rel="stylesheet" href="/static/css/reveal.css">
 {% endblock %}
 
-{% block scripts %}
-<script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
-<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
+{% block script %}
+
 {% endblock %}
 
 
 {% block content %}
 <body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 {% include "landing_inc/videos.html" %}
 
 {% include "landing_inc/menu.html" %}
@@ -64,54 +63,7 @@
 
 <script>
 
-var firsttime=false;
-var first_sec = "home";
-var interval =0;
-	
-	$(function() {
-		//$('.goto').scrollSections();
-		//var interval = setInterval ( "move_slider()" , 8000 );
-		$('section.scrollsections').scrollSections({
-			createNavigation: false,
-			touch: false,
-			 
-			navigation: true,
-			before: function($currentSection, $nextSection){
-				//alert( $($currentSection).attr('id') )
-				
-				
-			},
-			after: function($currentSection, $previousSection)
-			{
-				if( $($currentSection).attr('id') == 'howtoshare' )
-				{
-					clearInterval ( interval );
-					interval = setInterval ( "move_slider()" , 8000 );
-					//alert( "si" )
-					$( '#progress' ).css ( { 'width' : 0   } );
-					$( '#progress' ).animate ( { 'width' : 500 } , 24000 ,"linear");					
-					$( "#controles #thumb-"+ slide_actual  ).addClass( 'active' );
-					firsttime =true;
-					
-				}
-				else
-				{
-					slide_actual = 0;
-					clearInterval ( interval );
-					var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
-					$( '#progress' ).stop( true ,true ).css ( { 'width' : 0   } );
-					// now you can access all the methods for example flexAnimate
-					exampleSlider.flexAnimate(slide_actual);
-				}
-				//var url_now =$( $currentSection ).attr( 'id' );
-				//window.location.replace( '#' + url_now );
-				//first_sec = $currentSection;
-				//document.location.href( );
-			}
-		});
-		
-		img_footer( );
-	});
+
 </script>
 
 
@@ -179,109 +131,185 @@ var interval =0;
 			
 		</script> 
         
-        <script type="text/javascript" >
-		
-		
-		
-		var slide_actual = 0;
-		
-		var press_enabled = true;
-		
-		
 
-		$( '#controles li a' ).click (
 		
-			function ( event )
-			{
-			
-				event.preventDefault ( );
-				
-				clearInterval ( interval );
-				
-				slide_actual = parseInt ( $( this ).attr ( 'data-link' ) ) ; 
+<script type="text/javascript" >
+var slide_actual = 0;
 
-				moves_slider ( );
+var press_enabled = true;
+
+
+function moves_slider ( )
+{	
+	var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+	// now you can access all the methods for example flexAnimate
+	exampleSlider.flexAnimate(slide_actual);
 	
-				interval = setInterval ( "move_slider()" , 8000 );
-			
-				$( '#progress' ).stop ( true , true ).animate ( { 'width' : slide_actual * 166 } , 0 , function ( ) { $( '#progress' ).animate ( { 'width' : 500 } , 24000 - slide_actual * 8000 ,"linear" ); } );
-			
-			}
-		
-		);
-		
-				
-		function moves_slider ( )
-		{
-			var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
-			// now you can access all the methods for example flexAnimate
-			exampleSlider.flexAnimate(slide_actual);
-			
-			$( '.nav-slider .active' ).removeClass ( 'active' );
-			$( '.nav-slider .thumb-' + ( slide_actual + 1 ) ).addClass ( 'active' );
-			
-			if( slide_actual == 1  )
-			{
-				$( '#thumb-2, #thumb-3' ).removeClass( 'active' )
-			}
-			else if( slide_actual == 2  )
-			{
-				$( '#thumb-3' ).removeClass( 'active' );
-				$( '#thumb-1, #thumb-2' ).addClass( 'active' )
-			}
-			else if( slide_actual == 3  )
-			{
-				$( '#thumb-1, #thumb-2 ,  #thumb-3' ).addClass( 'active' )
-			}
-		}
-		function move_slider( )
-		{
-			//alert( 'movel' )
-			slide_actual ++;
-			if( slide_actual == 3  )
-			{
-				slide_actual= 0;
-				var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
-				exampleSlider.flexAnimate(slide_actual);
-				$( '.nav-slider .active' ).removeClass ( 'active' );
-				$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
-				
-			}
-			else if( slide_actual == 1  )
-			{
-				var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
-				exampleSlider.flexAnimate(slide_actual);
-				$( '.nav-slider #thumb-2, .nav-slider #thumb-3' ).removeClass ( 'active' );
-				$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
-				
-			}
-			else if( slide_actual == 2  )
-			{
-				var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
-				exampleSlider.flexAnimate(slide_actual);
-				$( '.nav-slider #thumb-4' ).removeClass ( 'active' );
-				$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
-				
-			}
-			else if( slide_actual == 3  )
-			{
-				var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
-				exampleSlider.flexAnimate(slide_actual);
-				$( '#controles ul li' ).addClass ( 'active' );
-				
-			}
-		}
-		
-		
-		</script>
-		
-		<script type="text/javascript" >
+	$( '.nav-slider .active' ).removeClass ( 'active' );
+	$( '.nav-slider .thumb-' + ( slide_actual + 1 ) ).addClass ( 'active' );
+	
+	if( slide_actual == 1  )
+	{
+		$( '#thumb-2, #thumb-3' ).removeClass( 'active' )
+	}
+	else if( slide_actual == 2  )
+	{
+		$( '#thumb-3' ).removeClass( 'active' );
+		$( '#thumb-1, #thumb-2' ).addClass( 'active' )
+	}
+	else if( slide_actual == 3  )
+	{
+		$( '#thumb-1, #thumb-2 ,  #thumb-3' ).addClass( 'active' )
+	}
+}
+function move_slider( )
+{
 
-        $( document ).ready ( function( ) 
+	slide_actual ++;
+	if( slide_actual == 3  )
+	{
+		slide_actual= 0;
+		var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+		exampleSlider.flexAnimate(slide_actual);
+		$( '.nav-slider .active' ).removeClass ( 'active' );
+		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
+		
+	}
+	else if( slide_actual == 1  )
+	{
+		var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+		exampleSlider.flexAnimate(slide_actual);
+		$( '.nav-slider #thumb-2, .nav-slider #thumb-3' ).removeClass ( 'active' );
+		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
+		
+	}
+	else if( slide_actual == 2  )
+	{
+		var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+		exampleSlider.flexAnimate(slide_actual);
+		$( '.nav-slider #thumb-4' ).removeClass ( 'active' );
+		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
+		
+	}
+	else if( slide_actual == 3  )
+	{
+		var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+		exampleSlider.flexAnimate(slide_actual);
+		$( '#controles ul li' ).addClass ( 'active' );
+		
+	}
+}
+      $( document ).ready ( function( ) 
 		{
+        	
+    		
+
+
+    		$( '#controles li a' ).click (
+    		
+    			function ( event )
+    			{
+    			
+    				event.preventDefault ( );
+    				
+    				clearInterval ( interval );
+    				
+    				slide_actual = parseInt ( $( this ).attr ( 'data-link' ) ) ; 
+
+    				moves_slider ( );
+    	
+    				interval = setInterval ( "move_slider()" , 8000 );
+    			
+    				$( '#progress' ).stop ( true , true ).animate ( { 'width' : slide_actual * 166 } , 0 , function ( ) { $( '#progress' ).animate ( { 'width' : 500 } , 24000 - slide_actual * 8000 ,"linear" ); } );
+    			
+    			}
+    		
+    		);
+    		
+    				
+
+    		
+        	var firsttime=false;
+        	var first_sec = "home";
+        	var interval =0;
+        		
+        		$(function() {
+        			//$('.goto').scrollSections();
+        			//var interval = setInterval ( "move_slider()" , 8000 );
+        			$('section.scrollsections').scrollSections({
+        				createNavigation: false,
+        				touch: false,
+        				 
+        				navigation: true,
+        				before: function($currentSection, $nextSection){
+        					//alert( $($currentSection).attr('id') )
+        					
+        					
+        				},
+        				after: function($currentSection, $previousSection)
+        				{
+        					if( $($currentSection).attr('id') == 'howtoshare' )
+        					{
+        						clearInterval ( interval );
+        						interval = setInterval ( "move_slider()" , 8000 );
+        						//alert( "si" )
+        						$( '#progress' ).css ( { 'width' : 0   } );
+        						$( '#progress' ).animate ( { 'width' : 500 } , 24000 ,"linear");					
+        						$( "#controles #thumb-"+ slide_actual  ).addClass( 'active' );
+        						firsttime =true;
+        						
+        					}
+        					else
+        					{
+        						if( $($currentSection).attr('id') == 'donatedd' || $($currentSection).attr('id') == 'last' )
+            					{
+	        						slide_actual = 0;
+	        						clearInterval ( interval );
+	        						var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+	        						$( '#progress' ).stop( true ,true ).css ( { 'width' : 0   } );
+	        						// now you can access all the methods for example flexAnimate
+	        						exampleSlider.flexAnimate(slide_actual);
+	        						$('.link-counter').addClass("active-scrollsection");
+            						
+            					}else{
+	        						slide_actual = 0;
+	        						clearInterval ( interval );
+	        						var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+	        						$( '#progress' ).stop( true ,true ).css ( { 'width' : 0   } );
+	        						// now you can access all the methods for example flexAnimate
+	        						exampleSlider.flexAnimate(slide_actual);
+            					}
+        					}
+        					//var url_now =$( $currentSection ).attr( 'id' );
+        					//window.location.replace( '#' + url_now );
+        					//first_sec = $currentSection;
+        					//document.location.href( );
+        				}
+        			});
+        			
+        			img_footer( );
+        		});
 			//$('#slider-logos .flexslider').flexslider({ animation: "slide", animationLoop: true, slideshow: false, controlNav: false , pauseOnHover: false ,  directionNav: true,  animationSpeed: 600, itemWidth: 96, itemMargin: 0, minItems: 1 , maxItems: 6, move: 6 });
    
+			$( 'nav a, .goto' ).click(function( e )
+		{	
+			e.preventDefault();
 			
+			var este = $( this ).attr( 'data-scroll' ) ;
+			
+			topthis = $( '#'+este )
+	   		var scrollTop = $(window).scrollTop(),
+	        elementOffset = topthis.offset().top,
+	        distance1 = (elementOffset - scrollTop);
+	   		distance = (distance1 - 100);
+			
+	   		
+	        $('html, body').animate({
+	            scrollTop: $(window).scrollTop() + distance
+	         }, { duration: 500, queue: false });
+			
+		}
+	);
 			$( '#header-top .flexslider' ).flexslider
 			({
 				animation: "slide",
@@ -393,7 +421,8 @@ var interval =0;
 	
         </script>
 
-
+<script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
+<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
 </body>
 
 {% endblock %}

@@ -1708,6 +1708,7 @@ text-align:center;
 	margin:110px 0 0 0;
 	position:absolute;
 	width:180px;
+	text-align: right;
 }
 .slide-2 .inner h5
 {
@@ -1759,7 +1760,7 @@ text-align:center;
 	font-family: 'gothamultra';
 	font-size:44px;
 	font-weight:normal;
-	margin:auto;
+	margin:40px auto;
 	max-width:800px;
 	line-height:0.8;
 }
@@ -2192,6 +2193,7 @@ nav .active a
 	height:110px;
 	float:left;
 	width:510px;
+	margin-left: 84px;
 }
 .container-circulos li
 {
@@ -2295,7 +2297,7 @@ nav .active a
 	
 	height:200px;
 	float:left;
-	margin-top:30px;
+	margin-top:20px;
 	margin-left:285px;
 	width:200px;
 	
