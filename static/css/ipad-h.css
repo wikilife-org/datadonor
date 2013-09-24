@@ -1,4 +1,4 @@
-@media screen and (min-device-width: 481px) and (orientation:landscape){
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
 	#four ul {
 	height: 390px;
 	margin: auto !important;
