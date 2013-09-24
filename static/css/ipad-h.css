@@ -159,20 +159,20 @@ padding-top: 125px;
 	text-align: left;
 	text-shadow: rgba(0, 0, 0, 0.199219) 0px 2px 2px;
 }
-#four ul {
-height: 390px;
-margin: auto;
-margin-bottom: 10%;
-margin-left: 0%;
-margin-right: 10%;
-margin-top: auto;
-width: 80%;
-}
-
-#four ul li {
-background-color: #FF826E;
-float: left;
-height: 390px;
-width: 30%;
-}
+	#four ul {
+	height: 390px;
+	margin: auto !important;
+	margin-bottom: 10% !important;
+	margin-left: 0% !important;
+	margin-right: 10% !important;
+	margin-top: auto !important;
+	width: 80%;
+	}
+	
+	#four ul li {
+	background-color: #FF826E;
+	float: left;
+	height: 390px;
+	width: 30% !important;
+	}
 }
