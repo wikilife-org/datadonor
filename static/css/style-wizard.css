@@ -393,7 +393,7 @@ h1
 }
 #header .redes li a:hover
 {
-	background-color:#71dad5;
+	background-color:#F8F4EE;
 	
 }
 .redes li.facebook a
@@ -817,6 +817,7 @@ body section
 	float:left;
 	height:100px;
 	width:520px;
+	margin-left: 20%;
 }
 #slide-1 .bottom-slide .center ul li
 {
@@ -936,12 +937,14 @@ border-radius: 125px;
 #slide-2 .left-heading
 {
 	margin: 110px 0 0 15px;
+	text-align: right;
 }
 
 #slide-2 .right-heading
 {
 	margin: 110px 10px 0 0;
 	float: right;
+	text-align: left;
 }
 
 
@@ -1007,12 +1010,14 @@ border-radius: 125px;
 #slide-3 .left-heading
 {
 	margin: 110px 0 0 15px;
+	text-align: right;
 }
 
 #slide-3 .right-heading
 {
-	margin: 110px 15px 0 0px;
+	margin: 110px 35px 0 0px;
 	float: right;
+	text-align: left;
 }
 
 
