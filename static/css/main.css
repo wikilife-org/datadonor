@@ -1501,7 +1501,7 @@ a:hover {
 /* -------- three graphs */
 .step_five .centered_container .three_graphs {
 	width: 100%;
-	margin: 40px 0px 80px 0px;
+	margin: 40px 0px 70px 0px;
 	text-align: center;
         height:330px;
 }
@@ -1780,7 +1780,7 @@ a:hover {
 	text-align: left;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat h2 {
-	font-size: 120px;
+	font-size: 122px;
 	font-family: 'Omnes-Semibold';
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right {
