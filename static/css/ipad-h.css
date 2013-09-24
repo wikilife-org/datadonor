@@ -149,4 +149,14 @@ padding-top: 125px;
 	{
 		font-size: 75px;
 	}
+	.middle p {
+	font-family: Omnes-Semibold;
+	font-size: 16px;
+	line-height: 120%;
+	margin-left: 10px;
+	margin-right: 30%;
+	margin-top: 80px;
+	text-align: left;
+	text-shadow: rgba(0, 0, 0, 0.199219) 0px 2px 2px;
+}
 }
