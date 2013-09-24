@@ -1587,9 +1587,9 @@ a:hover {
 	margin-right: -10px;
 }
 .step_five .centered_container .you_cards ul li:first-child p {
-	position: relative;
-	top: 16px;
-	left: -3px;
+	position: absolute;
+	top: 41px;
+        left: 28px;
 	color: #FFFFFF;
 }
 .step_five .centered_container .you_cards ul li p {
