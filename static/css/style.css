@@ -3956,8 +3956,7 @@ and (orientation : landscape) {
 		z-index:60;
 		margin-top: -35px;
 	}
-<<<<<<< HEAD
-=======
+
 }
 
 @media only screen 
@@ -4482,5 +4481,4 @@ and (orientation:portrait)
 		width: 100%;
 		
 	}
->>>>>>> 03a85fa7da7c05c5bd5cd799d05a8a32b84853b2
 }

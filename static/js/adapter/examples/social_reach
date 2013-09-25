@@ -1,0 +1,46 @@
+{
+    "global_data": {
+        "twitter": {
+            "count": 20,
+            "percentage": 10
+        },
+        "foursquare": {
+            "count": 20,
+            "percentage": 40
+        },
+        "facebook": {
+            "count": 20,
+            "percentage": 20
+        },
+        "linkedin": {
+            "count": 20,
+            "percentage": 20
+        },
+        "gmail": {
+            "count": 20,
+            "percentage": 10
+        }
+    },
+    "user_data": {
+        "twitter": {
+            "count": 20,
+            "percentage": 20
+        },
+        "foursquare": {
+            "count": 20,
+            "percentage": 20
+        },
+        "facebook": {
+            "count": 20,
+            "percentage": 20
+        },
+        "linkedin": {
+            "count": 20,
+            "percentage": 20
+        },
+        "gmail": {
+            "count": 20,
+            "percentage": 20
+        }
+    }
+}

@@ -430,8 +430,8 @@ EdDotChart = function(r, elements, options){
   
   this.init = function(){
     this.elements.sort(function(a,b){
-      if(a.percentage < b.percentage) return 1;
-      if(a.percentage > b.percentage) return -1;
+      if(a.radius < b.radius) return 1;
+      if(a.radius > b.radius) return -1;
       return 0;
     });
   }
