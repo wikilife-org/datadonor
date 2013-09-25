@@ -3961,7 +3961,7 @@ and (orientation : landscape) {
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
-and (orientation : landscape) {
+and (orientation:landscape) {
 	#four ul {
 	height: 390px;
 	margin: auto !important;
@@ -4142,7 +4142,7 @@ padding-top: 125px;
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
-and (orientation : orientation:portrait)
+and (orientation:portrait)
 {
 	#second .middle img, #second .middle 
 	{
