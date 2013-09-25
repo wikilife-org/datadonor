@@ -15,7 +15,7 @@ SocialReachAdapter = function(){
         color: colors[colorCounter],
         text: json[prop].count,
         image: {
-          path: '/static/img/iconos/1_face.png',
+          path: this.getImagePath(prop),
           width: '26',
           height: '20',
           offsetx: '-13',
@@ -29,13 +29,22 @@ SocialReachAdapter = function(){
     return elements;
   }
   
+  this.getImagePath = function(key){
+    var path = '';
+    if(key == 'twitter') path = "/static/img/iconos/6_twitter.png";
+    if(key == 'foursquare') path = "/static/img/iconos/2_four.png";
+    if(key == 'facebook') path = "/static/img/iconos/1_face.png";
+    if(key == 'linkedin') path = "/static/img/iconos/3_linke.png";
+    if(key == 'gmail') path = "/static/img/iconos/4_mail.png";
+    return path;
+  }
+  
 }
 
 SocialShareAdapter = function(){
   
   this.getParameters = function(values, maxPerc, radius){
     var elements = [];
-    console.log('VALUES');
     console.log(values);
     var radius1 = this.getElementRadius(values[0], maxPerc, radius, values);
     var radius2 = this.getElementRadius(values[1], maxPerc, radius, values);
