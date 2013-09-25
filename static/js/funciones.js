@@ -64,7 +64,8 @@ $(document).ready(function () {
         // SECTOR FIXED NAV
 	if ($('.maqueta_new').length) {
 		var offsetOne = $('#step_one').offset().top - 117;
-                var offsetfive = $('#step_five').offset().top - 117;
+        var offsetfive = $('#step_five').offset().top - 117;
+        var offseteight = $('#step_eight').offset().top - 117;
 	}
 	// SECTOR FIXED NAV
 	
@@ -84,6 +85,13 @@ $(document).ready(function () {
 		if ($(this).hasClass('nav_two')) {
 			$('body,html').animate({
 				scrollTop: offsetfive
+			}, 1000);
+			return false;
+		}
+		
+		if ($(this).hasClass('nav_three')) {
+			$('body,html').animate({
+				scrollTop: offseteight
 			}, 1000);
 			return false;
 		}

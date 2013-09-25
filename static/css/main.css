@@ -1468,6 +1468,7 @@ a:hover {
 
 .step_five {
 	background-color: #F7F2ED;
+	height: 835px;
 }
 .step_five .centered_container {
 	width: 1000px;
@@ -1503,7 +1504,7 @@ a:hover {
 	width: 100%;
 	margin: 40px 0px 70px 0px;
 	text-align: center;
-        height:330px;
+    height:330px;
 }
 .step_five .centered_container .three_graphs .graph {
 	width: 225px;
@@ -1637,7 +1638,7 @@ a:hover {
 /* --- big_graph */
 .step_six .centered_container .big_graph {
 	width: 100%;
-	height: auto;
+	height: 423px;
 	margin: 40px 0px 50px 0px;
 }
 
@@ -1714,6 +1715,7 @@ a:hover {
 
 .step_seven {
 	background-color: #F7F2ED;
+	height: 898px;
 }
 .step_seven .centered_container {
 	width: 1100px;
@@ -1824,6 +1826,52 @@ a:hover {
 	color: #e56666;
 }
 
+
+/* @end */
+
+
+
+/* NUTRITION DEVICES
+------------------------------------------------------------
+------------------------------------------------------------ */
+
+
+
+/* @group STEP EIGHT
+--------------------------------------- */
+
+.step_eight {
+	background-color: #f7f2ee;
+	position: relative;
+}
+.step_eight .centered_container {
+	width: 930px;
+	min-height: 900px;
+}
+
+/* ------- top*/
+.step_eight .centered_container .top {
+	width: 100%;
+	padding: 40px 0px 40px 0px;
+	text-align: center;
+}
+.step_eight .centered_container .top img {
+	margin-bottom: 10px;
+}
+.step_eight .centered_container .top h2 {
+	font-family: 'Gotham-Ultra';
+	font-size: 36px;
+	line-height: 36px;
+	color: #5B6D7F;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+}
+.step_eight .centered_container .top p {
+	font-size: 18px;
+	color: #8A95A0;
+	font-family: 'Omnes-Semibold';
+	margin-top: 10px;
+}
 
 /* @end */
 
