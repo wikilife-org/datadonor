@@ -263,7 +263,8 @@ a:hover {
 	opacity: 0;
 }
 .trigger_social_choice ul {
-	width: 100%;
+	width: 90%;
+	margin: 0 auto;
 	display: inline-block;
 	-webkit-transition: opacity 0.4s;
 	-moz-transition: opacity 0.4s;
@@ -1841,12 +1842,11 @@ a:hover {
 --------------------------------------- */
 
 .step_eight {
-	background-color: #f7f2ee;
+	background-color: #fff;
 	position: relative;
 }
 .step_eight .centered_container {
 	width: 930px;
-	min-height: 900px;
 }
 
 /* ------- top*/
@@ -1875,5 +1875,202 @@ a:hover {
 
 /* @end */
 
+/* @group STEP NINE
+--------------------------------------- */
+
+.step_nine {
+	background-color: #F7F2ED;
+	height: 495px;
+}
+.step_nine .centered_container {
+	width: 1120px;
+	padding: 60px 0px 40px 0px;
+}
+
+/* --- top */
+.step_nine .centered_container .top {
+	width: 100%;
+	text-align: center;
+	border: 1px solid #333;
+}
+.step_nine .centered_container .top h2 {
+	font-family: 'Gotham-Ultra';
+	font-size: 30px;
+	line-height: 30px;
+	color: #5B6D7F;
+}
+.step_nine .centered_container .top p {
+	font-size: 18px;
+	color: #808080;
+	font-family: 'Omnes-Semibold';
+	margin-top: 8px;
+}
+
+/* --- bottom */
+.step_nine .centered_container .bottom {
+	width: 100%;
+	height: 260px;
+	border: 1px solid #333;
+	margin-top: 30px;
+}
+.step_nine .centered_container .bottom .graph {
+	width: 100%;
+	height: 115px;
+}
+.step_nine .centered_container .bottom .graph.one {
+	margin-bottom: 30px;
+}
+
+/* @end */
+
+/* @group STEP TEN
+--------------------------------------- */
+
+.step_ten {
+	background-color: #FFFFFF;
+}
+.step_ten .centered_container {
+	width: 100%;
+}
+.step_ten .centered_container .stats {
+	width: 1010px;
+	margin: 0 auto;
+	height: 180px;
+	background-color: red;
+	margin-top: 100px;
+}
+.step_ten .centered_container .stats .block {
+	height: 180px;
+	background-color: gray;
+	float: left;
+}
+
+/* --- description */
+.step_ten .centered_container .stats .block.one {
+	width: 240px;
+}
+.step_ten .centered_container .stats .block.one h2 {
+	color: #5B6D7F;
+	font-size: 30px;
+	font-family: "Gotham-Ultra";
+	margin-bottom: 5px;
+}
+.step_ten .centered_container .stats .block.one p {
+	color: #5b6d7f;
+	font-size: 18px;
+ 	font-family: 'Omnes-Semibold';
+}
+
+/* --- overall */
+.step_ten .centered_container .stats .block.two {
+	width: 330px;
+	margin-left: 10px;
+}
+.step_ten .centered_container .stats .block.two .top {
+	width: 100%;
+	border-bottom: 1px solid #CDCECF;
+	padding-bottom: 25px;
+}
+.step_ten .centered_container .stats .block.two .top ul {
+	width: 100%;
+}
+.step_ten .centered_container .stats .block.two .top ul li {
+	float: left;
+	height: 120px;
+	background-color: blue;
+	margin-left: 30px;
+	padding-left: 50px;
+	background-position: left bottom;
+	background-repeat: no-repeat;
+}
+.step_ten .centered_container .stats .block.two .top ul li.man {
+	background-image: url(../img/step_10/men_small.png);
+}
+.step_ten .centered_container .stats .block.two .top ul li.woman {
+	background-image: url(../img/step_10/women_small.png);
+}
+.step_ten .centered_container .stats .block.two .top ul li:first-child {
+	margin-left: 0px;
+}
+.step_ten .centered_container .stats .block.two .top ul li h2 {
+	font-family: 'Omnes-Semibold';
+	font-size: 60px;
+	color: #7737c7;
+	position: relative;
+	top: 13px;
+}
+.step_ten .centered_container .stats .block.two .top ul li h2 span {
+	font-family: 'Omnes-Semibold';
+	font-size: 16px;
+	position: relative;
+	top: -8px;
+}
+.step_ten .centered_container .stats .block.two .bottom h2 {
+	font-family: 'Omnes-Semibold';
+	font-size: 18px;
+	color: #5b6d7f;
+	padding-top: 8px;
+}
+
+/* --- your stats*/
+.step_ten .centered_container .stats .block.three {
+	width: 370px;
+	float: right;
+}
+
+/* ------ the results */
+.step_ten .centered_container .back_result {
+	width: 100%;
+	position: relative;
+	background-color: #ff836f;
+	padding: 60px 0px 60px 0px;
+	margin-top: 50px;
+}
+.step_ten .centered_container .back_result .arrow_result {
+	width: 17px;
+	height: 8px;
+	background-image: url(../img/step_10/arrow.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	left: 50%;
+	margin-left: -7px;
+	top: -8px;
+	position: absolute;
+}
+.step_ten .centered_container .back_result .stats {
+	margin-top: 0px;
+}
+
+/* ------ description */
+.step_ten .centered_container .back_result .stats .block.one h2 {
+	color: #3f4a5a;
+	font-size: 30px;
+	font-family: "Gotham-Ultra";
+	margin-bottom: 5px;
+}
+.step_ten .centered_container .back_result .stats .block.one p {
+	color: #3f4a5a;
+	font-size: 18px;
+ 	font-family: 'Omnes-Semibold';
+}
+
+/* ------ overall */
+.step_ten .centered_container .back_result .stats .block.two .top {
+	border-bottom: 1px solid #FF9E8B;
+}
+.step_ten .centered_container .back_result .stats .block.two .top ul li.man {
+	background-image: url(../img/step_10/men_small_w.png);
+}
+.step_ten .centered_container .back_result .stats .block.two .top ul li.woman {
+	background-image: url(../img/step_10/women_small_w.png);
+}
+.step_ten .centered_container .back_result .stats .block.two .top ul li h2 {
+	color: #ff836f;
+}
+.step_ten .centered_container .back_result .stats .block.two .bottom h2 {
+	color: #ff836f;
+}
+
+/* @end */
 
 
