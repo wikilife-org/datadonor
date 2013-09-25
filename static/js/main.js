@@ -147,13 +147,7 @@ function drawWorkGraph(data){
       length: 1093,
       "stroke-width": 2,
       color: '#F1F2F2',
-      labels: [
-        {pos: 110, text: '15-25', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 320, text: '25-35', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 540, text: '35-45', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 740, text: '45-55', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 950, text: '55-65', type: 'normal', "font-size": 20, "font-family": 'Verdana'}
-      ]
+      labels: []
     },
     yAxis: {
       length: 423,
@@ -200,12 +194,12 @@ window.onload = function () {
   dotChart = new EdDotChart(r_5_1, [
     {
       radius: 100,
-      color: '#E26667',
+      color: '#7737c7',
       label: '225'
     },
     {
       radius: 60,
-      color: '#704DA0',
+      color: '#e56666',
       label: '134'
     }
   ], {
@@ -226,12 +220,12 @@ window.onload = function () {
   dotChart = new EdDotChart(r_5_2, [
     {
       radius: 100,
-      color: '#E26667',
+      color: '#7737c7',
       label: '225'
     },
     {
       radius: 60,
-      color: '#704DA0',
+      color: '#e56666',
       label: '134'
     }
   ], {
@@ -252,12 +246,12 @@ window.onload = function () {
   dotChart = new EdDotChart(r_5_3, [
     {
       radius: 100,
-      color: '#E26667',
+      color: '#7737c7',
       label: '225'
     },
     {
       radius: 60,
-      color: '#704DA0',
+      color: '#e56666',
       label: '134'
     }
   ], {
@@ -287,20 +281,20 @@ window.onload = function () {
     drawAxis: true,
     drawLabels: true,
     elements: [
-      {pos: 30, width: 62, color: '#6C47A7', value: 250, label: "2000", vlabel: "20"},
-      {pos: 92, width: 62, color: '#E56666', value: 300, label: "4000", vlabel: "20"},
-      {pos: 174, width: 62, color: '#6C47A7', value: 80, label: "500", vlabel: "20"},
-      {pos: 236, width: 62, color: '#E56666', value: 140, label: "60"},
-      {pos: 318, width: 62, color: '#6C47A7', value: 200, label: "70"},
-      {pos: 380, width: 62, color: '#E56666', value: 100, label: "80"},
-      {pos: 462, width: 62, color: '#6C47A7', value: 200, label: "70"},
-      {pos: 524, width: 62, color: '#E56666', value: 100, label: "80"},
-      {pos: 606, width: 62, color: '#6C47A7', value: 200, label: "70"},
-      {pos: 668, width: 62, color: '#E56666', value: 100, label: "80"},
-      {pos: 750, width: 62, color: '#6C47A7', value: 200, label: "70"},
-      {pos: 812, width: 62, color: '#E56666', value: 100, label: "80"},
-      {pos: 894, width: 62, color: '#6C47A7', value: 200, label: "70"},
-      {pos: 956, width: 62, color: '#E56666', value: 100, label: "80"}
+      {pos: 30, width: 62, color: '#7737c7', value: 250, label: "2000", vlabel: "5000"},
+      {pos: 92, width: 62, color: '#e56666', value: 300, label: "4000", vlabel: "5000"},
+      {pos: 174, width: 62, color: '#7737c7', value: 80, label: "500", vlabel: "50"},
+      {pos: 236, width: 62, color: '#e56666', value: 140, label: "60", vlabel: "500"},
+      {pos: 318, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
+      {pos: 380, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"},
+      {pos: 462, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
+      {pos: 524, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"},
+      {pos: 606, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
+      {pos: 668, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"},
+      {pos: 750, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
+      {pos: 812, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"},
+      {pos: 894, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
+      {pos: 956, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"}
     ],
     xAxis: {
       length: 1093,
@@ -309,13 +303,13 @@ window.onload = function () {
       labelsType: 'custom_bubbles',
       name: 'Day',
       labels: [
-        {pos: 92, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 236, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 380, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 524, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 668, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 812, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 956, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Verdana'}
+        {pos: 92, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 236, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 380, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 524, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 668, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 812, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 956, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'}
       ]
     },
     yAxis: {
@@ -324,8 +318,8 @@ window.onload = function () {
       name: 'Steps',
       labels: [
         {pos: 90, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
-        {pos: 300, text: '150\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
-        {pos: 150, text: '72\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
+        {pos: 300, text: '150\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 16},
+        {pos: 150, text: '72\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 16},
         {pos: 180, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
         {pos: 270, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
         {pos: 360, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"}
@@ -345,19 +339,19 @@ window.onload = function () {
     drawAxis: true,
     drawLabels: true,
     elements: [
-      {pos: 30, width: 45, color: '#6C47A7', value: 250, label: "2000"},
-      {pos: 45, width: 45, color: '#E56666', value: 300, label: "4000"},
-      {pos: 100, width: 45, color: '#6C47A7', value: 80, label: "500"},
+      {pos: 30, width: 45, color: '#7737c7', value: 250, label: "2000"},
+      {pos: 45, width: 45, color: '#e56666', value: 300, label: "4000"},
+      {pos: 100, width: 45, color: '#7737c7', value: 80, label: "500"},
       {pos: 115, width: 45, color: '#E56666', value: 140, label: "60"},
-      {pos: 170, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 170, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 185, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 240, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 240, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 255, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 310, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 310, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 325, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 385, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 385, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 400, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 455, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 455, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 470, width: 45, color: '#E56666', value: 100, label: "80"}
     ],
     xAxis: {
@@ -366,13 +360,13 @@ window.onload = function () {
       color: '#E6E2DF',
       labelsType: 'custom_bubbles',
       labels: [
-        {pos: 60, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 130, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 200, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 270, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 340, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 415, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 485, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Verdana'}
+        {pos: 60, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 130, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 200, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 270, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 340, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 415, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 485, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'}
       ]
     },
     yAxis: {
@@ -380,8 +374,8 @@ window.onload = function () {
       "stroke-width": 0,
       name: 'years',
       labels: [
-        {pos: 300, text: '50\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
-        {pos: 150, text: '27\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
+        {pos: 300, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
+        {pos: 150, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
         {pos: 90, text: '10', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 180, text: '30', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 270, text: '40', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"}
@@ -401,19 +395,19 @@ window.onload = function () {
     drawAxis: true,
     drawLabels: true,
     elements: [
-      {pos: 30, width: 45, color: '#6C47A7', value: 250, label: "2000"},
+      {pos: 30, width: 45, color: '#7737c7', value: 250, label: "2000"},
       {pos: 45, width: 45, color: '#E56666', value: 300, label: "4000"},
-      {pos: 100, width: 45, color: '#6C47A7', value: 80, label: "500"},
+      {pos: 100, width: 45, color: '#7737c7', value: 80, label: "500"},
       {pos: 115, width: 45, color: '#E56666', value: 140, label: "60"},
-      {pos: 170, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 170, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 185, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 240, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 240, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 255, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 310, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 310, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 325, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 385, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 385, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 400, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 455, width: 45, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 455, width: 45, color: '#7737c7', value: 200, label: "70"},
       {pos: 470, width: 45, color: '#E56666', value: 100, label: "80"}
     ],
     xAxis: {
@@ -422,13 +416,13 @@ window.onload = function () {
       color: '#E6E2DF',
       labelsType: 'custom_bubbles',
       labels: [
-        {pos: 60, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 130, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 200, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 270, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 340, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 415, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 485, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Verdana'}
+        {pos: 60, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 130, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 200, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 270, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 340, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 415, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
+        {pos: 485, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'}
       ]
     },
     yAxis: {
@@ -436,8 +430,8 @@ window.onload = function () {
       "stroke-width": 0,
       name: 'hs',
       labels: [
-        {pos: 60, text: '2\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
-        {pos: 150, text: '4.3\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
+        {pos: 60, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
+        {pos: 150, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
         {pos: 30, text: '1', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 120, text: '3', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
         {pos: 220, text: '5', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
