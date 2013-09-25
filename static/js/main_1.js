@@ -63,7 +63,7 @@ function drawSocialGraph(elments1, elements2){
 	  animatedPie2.draw();
 }
 
-function drawShareGraphs(data){
+function drawShareGraphs(){
   var adapter = new SocialShareAdapter();
   var graphConfig = {
     centerx: 105,
@@ -79,7 +79,7 @@ function drawShareGraphs(data){
       color: '#ECEDED'
     }
   };
-  
+    
   var maxPercentage = 80;
   var elements1 = adapter.getParameters([data.global_data.facebook.posts, data.user_data.facebook.posts], maxPercentage, 100);
   var r_2_1 = Raphael('canvas_2_1', 210, 210);
@@ -95,78 +95,6 @@ function drawShareGraphs(data){
 
   dotChart2 = new EdDotChart(r_2_2, elements1, graphConfig);
   dotChart2.draw();
-  
-  var maxPercentage = 100;
-  var elements1 = adapter.getParameters([data.global_data.facebook.likes, data.user_data.facebook.likes], maxPercentage, 100);
-  var r_2_3 = Raphael('canvas_2_3', 210, 210);
-  if(maxPercentage < 100) graphConfig.perimeter.display = true;
-
-  dotChart3 = new EdDotChart(r_2_3, elements1, graphConfig);
-  dotChart3.draw();
-  
-  var maxPercentage = 100;
-  var elements1 = adapter.getParameters([data.global_data.twitter.retweets, data.user_data.twitter.retweets], maxPercentage, 100);
-  var r_2_4 = Raphael('canvas_2_4', 210, 210);
-  if(maxPercentage < 100) graphConfig.perimeter.display = true;
-
-  dotChart4 = new EdDotChart(r_2_4, elements1, graphConfig);
-  dotChart4.draw();
-}
-
-function drawEducationGraph(data){
-  var adapter = new EducationAdapter();
-  var elements = adapter.getParameters(data);
-  console.log('QUARTER PIE ADAPTER');
-  console.log(elements);
-  var r_3_1 = Raphael('canvas_3_1', 435, 428);
-  animatedQuarterPie = new EdQuarterAnimatedPie(r_3_1, elements, {
-    animationTime: 900,
-    easing: '<',
-    useAnimationDelay: false,
-    lineWidth: 45,
-    fontSize: 20,
-    centerx: 435,
-    centery: 430,
-    radius: 400,
-    drawReferences: false
-  });
-  animatedQuarterPie.draw();
-}
-
-function drawWorkGraph(data){
-  var adapter = new WorkAdapter();
-  var result = adapter.getParameters(data, 423, 80);
-  var r_4_1 = Raphael('canvas_4_1', 1093, 423);
-  doubleAxisParams = {
-    axis: 'both',
-    barsAxis: 'x',
-    drawAxis: true,
-    drawLabels: true,
-    elements: result.elements,
-    xAxis: {
-      length: 1093,
-      "stroke-width": 2,
-      color: '#F1F2F2',
-      labels: [
-        {pos: 110, text: '15-25', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 320, text: '25-35', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 540, text: '35-45', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 740, text: '45-55', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
-        {pos: 950, text: '55-65', type: 'normal', "font-size": 20, "font-family": 'Verdana'}
-      ]
-    },
-    yAxis: {
-      length: 423,
-      "stroke-width": 0,
-      name: 'years',
-      labels: result.yLabels
-    },
-    centerx: 30,
-    centery: 400,
-    canvasSize: [1093,425]
-  }
-  doubleAxisBars = new EdBarChart(r_4_1, doubleAxisParams);
-  doubleAxisBars.draw();
 }
 
 window.onload = function () {
@@ -185,16 +113,99 @@ window.onload = function () {
     drawShareGraphs(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/education", function( data ) {
-    drawEducationGraph(data);
-  });
-  
-  $.getJSON( "../../static/js/adapter/examples/work", function( data ) {
-    drawWorkGraph(data);
-  });
-  
   
   /*********** DOT CHARTS *******************/
+  
+  
+  var r_2_2 = Raphael('canvas_2_2', 210, 210);
+  dotChart = new EdDotChart(r_2_2, [
+//    {
+//      radius: 100,
+//      color: '#F6F6F6'
+//    },
+    {
+      radius: 80,
+      color: '#704DA0'
+    },
+    {
+      radius: 20,
+      color: '#E26667'
+    }
+  ], {
+    centerx: 105,
+    centery: 103,
+    useAnimationDelay: true,
+    animationTime: 900,
+    easing: 'bounce',
+    fontSize: '40',
+    drawLabels: false,
+    perimeter: {
+      display: true,
+      radius: 100,
+      color: '#ECEDED'
+    }
+  });
+  dotChart.draw();
+  
+  var r_2_3 = Raphael('canvas_2_3', 210, 210);
+  dotChart = new EdDotChart(r_2_3, [
+//    {
+//      radius: 100,
+//      color: '#F6F6F6'
+//    },
+    {
+      radius: 60,
+      color: '#E26667'
+    },
+    {
+      radius: 30,
+      color: '#704DA0'
+    }
+  ], {
+    centerx: 105,
+    centery: 103,
+    useAnimationDelay: true,
+    animationTime: 900,
+    easing: 'bounce',
+    fontSize: '40',
+    drawLabels: false,
+    perimeter: {
+      display: true,
+      radius: 100,
+      color: '#ECEDED'
+    }
+  });
+  dotChart.draw();
+  
+  var r_2_4 = Raphael('canvas_2_4', 210, 210);
+  dotChart = new EdDotChart(r_2_4, [
+//    {
+//      radius: 100,
+//      color: '#F6F6F6'
+//    },
+    {
+      radius: 40,
+      color: '#704DA0'
+    },
+    {
+      radius: 30,
+      color: '#E26667'
+    }
+  ], {
+    centerx: 105,
+    centery: 103,
+    useAnimationDelay: true,
+    animationTime: 900,
+    easing: 'bounce',
+    fontSize: '40',
+    drawLabels: false,
+    perimeter: {
+      display: true,
+      radius: 102,
+      color: '#ECEDED'
+    }
+  });
+  dotChart.draw();
   
   var r_5_1 = Raphael('canvas_5_1', 210, 210);
   dotChart = new EdDotChart(r_5_1, [
@@ -275,10 +286,102 @@ window.onload = function () {
   dotChart.draw();
   
   /*********** QUARTER PIE *******************/
+  var elements = [
+    {
+      percentage: 8,
+      color: '#6845C7',
+      text: 'Master'
+    },
+    {
+      percentage: 10,
+      color: '#6845C7',
+      text: 'Phd and above'
+    },
+    {
+      percentage: 23,
+      color: '#6845C7',
+      text: 'Under graduate programs'
+    },
+    {
+      percentage: 5,
+      color: '#6845C7',
+      text: 'Technical institute'
+    },
+    {
+      percentage: 3,
+      color: '#6845C7',
+      text: 'Highschool'
+    },
+    {
+      percentage: 57,
+      color: '#6845C7',
+      text: 'Junior College'
+    },
+    {
+      percentage: 3,
+      color: '#6845C7',
+      text: 'Primary School'
+    }
+  ];
   
+  var r_3_1 = Raphael('canvas_3_1', 435, 428);
+  animatedQuarterPie = new EdQuarterAnimatedPie(r_3_1, elements, {
+    animationTime: 900,
+    easing: '<',
+    useAnimationDelay: false,
+    lineWidth: 45,
+    fontSize: 20,
+    centerx: 435,
+    centery: 430,
+    radius: 400,
+    drawReferences: false
+  });
+  animatedQuarterPie.draw();
   
   /*********** BAR CHARTS *******************/
-  
+  var r_4_1 = Raphael('canvas_4_1', 1093, 423);
+  doubleAxisParams = {
+    axis: 'both',
+    barsAxis: 'x',
+    drawAxis: true,
+    drawLabels: true,
+    elements: [
+      {pos: 20, width: 200, color: '#6C47A7', value: 70, label: "20"},
+      {pos: 230, width: 100, color: '#E56666', value: 120, label: "40"},
+      {pos: 330, width: 100, color: '#6C47A7', value: 80, label: "50"},
+      {pos: 440, width: 200, color: '#6C47A7', value: 140, label: "60"},
+      {pos: 650, width: 200, color: '#6C47A7', value: 200, label: "70"},
+      {pos: 860, width: 200, color: '#6C47A7', value: 100, label: "80"},
+    ],
+    xAxis: {
+      length: 1093,
+      "stroke-width": 2,
+      color: '#F1F2F2',
+      labels: [
+        {pos: 110, text: '15-25', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
+        {pos: 320, text: '25-35', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
+        {pos: 540, text: '35-45', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
+        {pos: 740, text: '45-55', type: 'normal', "font-size": 20, "font-family": 'Verdana'},
+        {pos: 950, text: '55-65', type: 'normal', "font-size": 20, "font-family": 'Verdana'}
+      ]
+    },
+    yAxis: {
+      length: 423,
+      "stroke-width": 0,
+      name: 'years',
+      labels: [
+        {pos: 90, text: '01', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
+        {pos: 180, text: '10 years avg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3"},
+        {pos: 270, text: '20', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
+        {pos: 360, text: '30', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"}
+      ]
+    },
+    centerx: 30,
+    centery: 400,
+    canvasSize: [1093,425]
+  }
+  doubleAxisBars = new EdBarChart(r_4_1, doubleAxisParams);
+  doubleAxisBars.draw();
   
   var r_6_1 = Raphael('canvas_6_1', 1093, 423);
   doubleAxisParams2 = {

@@ -7,7 +7,7 @@ from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
 from utils.date_util import get_days_list
 import requests
 
-def dailymile_info(request, *args, **kwargs):
+def ihealth_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
     social_user = kwargs.get('social_user')
     result = {}

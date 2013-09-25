@@ -135,15 +135,9 @@ class DegreeLevel(models.Model):
 # method for updating
 def create_user_social(sender, instance, **kwargs):
 
-    profile = Profile()
-    profile.user = instance
-    profile.save()
-    social = SocialUserAggregatedData()
-    social.user = instance
-    social.save()
 
     profile, created  = Profile.objects.get_or_create(user=instance)
-    if created or profile.user != None:
+    if created or profile.user == None:
         profile.user = instance
         profile.save()
 
@@ -168,7 +162,7 @@ def create_user_social(sender, instance, **kwargs):
         profile.save()
      
     social, created = SocialUserAggregatedData.objects.get_or_create(user=instance)
-    if created or social.user != None:
+    if created or social.user == None:
         social.user = instance
         social.save()
      

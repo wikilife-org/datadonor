@@ -5,7 +5,6 @@ http://developer.runkeeper.com/healthgraph/overview
 
 from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
 import requests
-import math
 from wikilife_utils.date_utils import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
 
@@ -14,10 +13,19 @@ RUNKEEPER_API = ""
 
 
 def runkeeper_info(request, *args, **kwargs):
-    access_token = None 
-    backend = None
-    client = RunkeeperClient(RUNKEEPER_API, access_token, backend)
-    #TODO >> wikilife logs or local datadonor data ?
+    backend = kwargs.get('backend')
+    social_user = kwargs.get('social_user')
+    result = {}
+    if backend.name == "runkeeper":
+        data = kwargs.get('response')
+        print data
+        
+        """
+        access_token = None 
+        backend = None
+        client = RunkeeperClient(RUNKEEPER_API, access_token, backend)
+        #TODO >> wikilife logs or local datadonor data ?
+        """
 
 class RunkeeperClient(object):
     PAGE_SIZE = 25
@@ -118,3 +126,4 @@ class RunkeeperClient(object):
         request = build_consumer_oauth_request(self._backend, self._access_token, url)
         response = requests.request("GET", url, headers=request.to_header())
         return response.json()
+
