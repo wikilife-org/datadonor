@@ -102,7 +102,7 @@
 					
 					clearInterval ( interval );
 					
-					//interval = setInterval ( "move_slider()" , 8000 );
+					interval = setInterval ( "move_slider()" , 8000 );
 					//$( '#progress' )
 					
 					/*$( '#progress' ).stop ( true , true ).animate ( { 'width' : ira * 80 } , 0 , function ( ) 
