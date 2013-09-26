@@ -5,15 +5,15 @@ var animatedQuarterPie;
 var doubleAxisParams;
 
 function drawSocialGraph(elments1, elements2){
-	  var r_1_1 = Raphael('canvas_1_1', 410, 410);
+	  var r_1_1 = Raphael('canvas_1_1', 420, 420);
 	  animatedPie = new EdAnimatedPie(r_1_1, elments1, {
 	    animationTime: 900,
 	    easing: '<',
 	    useAnimationDelay: false,
 	    lineWidth: 70,
 	    fontSize: 20,
-	    centerx: 200,
-	    centery: 200,
+	    centerx: 210,
+	    centery: 210,
 	    radius: 100,
 	    borderColor: '#DCDDDD',
 	    drawReferences: true,
@@ -26,23 +26,23 @@ function drawSocialGraph(elments1, elements2){
 	    centerImage: {
 	      width: 60,
 	      height: 84,
-	      x: 168,
-	      y: 160,
+	      x: 180,
+	      y: 170,
 	      path: '/static/img/iconos/overall_avg.png'
 	    }
 	  });
 	  animatedPie.draw();
 
 	  
-	  var r_1_2 = Raphael('canvas_1_2', 410, 410);
+	  var r_1_2 = Raphael('canvas_1_2', 420, 420);
 	  animatedPie2 = new EdAnimatedPie(r_1_2, elements2, {
 	    animationTime: 900,
 	    easing: '<',
 	    useAnimationDelay: false,
 	    lineWidth: 70,
 	    fontSize: 20,
-	    centerx: 200,
-	    centery: 200,
+	    centerx: 210,
+	    centery: 210,
 	    radius: 100,
 	    borderColor: '#DCDDDD',
 	    drawReferences: true,
@@ -55,8 +55,8 @@ function drawSocialGraph(elments1, elements2){
 	    centerImage: {
 	      width: 67,
 	      height: 74,
-	      x: 167,
-	      y: 160,
+	      x: 177,
+	      y: 170,
 	      path: '/static/img/iconos/your_avg.png'
 	    }
 	  });
@@ -166,7 +166,7 @@ function drawWorkGraph(data){
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
-	$.getJSON( "http://localhost:8080/social/reach", function( data ) {
+	$.getJSON( "../../static/js/adapter/examples/social_reach", function( data ) {
     console.log(data);
     var adapter = new SocialReachAdapter();
     var elements1 = adapter.getParameters(data.global_data, ['#CDBFE0','#6845C7','#975EE3','#CDBFE0','#975EE3']);
