@@ -84,6 +84,8 @@ function drawShareGraphs(data){
   var elements1 = adapter.getParameters([data.global_data.facebook.posts, data.user_data.facebook.posts], maxPercentage, 100);
   var r_2_1 = Raphael('canvas_2_1', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
+  $('#data_2_1 .global_data').html(data.global_data.facebook.posts);
+  $('#data_2_1 .user_data').html(data.user_data.facebook.posts);
   
   dotChart = new EdDotChart(r_2_1, elements1, graphConfig);
   dotChart.draw();
@@ -92,6 +94,8 @@ function drawShareGraphs(data){
   var elements1 = adapter.getParameters([data.global_data.twitter.tweets, data.user_data.twitter.tweets], maxPercentage, 100);
   var r_2_2 = Raphael('canvas_2_2', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
+  $('#data_2_2 .global_data').html(data.global_data.twitter.tweets);
+  $('#data_2_2 .user_data').html(data.user_data.twitter.tweets);
 
   dotChart2 = new EdDotChart(r_2_2, elements1, graphConfig);
   dotChart2.draw();
@@ -100,6 +104,8 @@ function drawShareGraphs(data){
   var elements1 = adapter.getParameters([data.global_data.facebook.likes, data.user_data.facebook.likes], maxPercentage, 100);
   var r_2_3 = Raphael('canvas_2_3', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
+  $('#data_2_3 .global_data').html(data.global_data.facebook.likes);
+  $('#data_2_3 .user_data').html(data.user_data.facebook.likes);
 
   dotChart3 = new EdDotChart(r_2_3, elements1, graphConfig);
   dotChart3.draw();
@@ -108,6 +114,8 @@ function drawShareGraphs(data){
   var elements1 = adapter.getParameters([data.global_data.twitter.retweets, data.user_data.twitter.retweets], maxPercentage, 100);
   var r_2_4 = Raphael('canvas_2_4', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
+  $('#data_2_4 .global_data').html(data.global_data.twitter.retweets);
+  $('#data_2_4 .user_data').html(data.user_data.twitter.retweets);
 
   dotChart4 = new EdDotChart(r_2_4, elements1, graphConfig);
   dotChart4.draw();
@@ -131,6 +139,11 @@ function drawEducationGraph(data){
     drawReferences: false
   });
   animatedQuarterPie.draw();
+  
+  for(var i in elements){
+      //console.log($('li[ref='+i+']'));
+      $('li[ref='+i+'] span.perc_number').html(elements[i].percentage);
+  }
 }
 
 function drawWorkGraph(data){
@@ -447,7 +460,7 @@ window.onload = function () {
 };
 
 $(document).ready(function(){
-  $('#your_lvl_c li a').click(function (event) {
+  $('#your_lvl_c li').click(function (event) {
     var pos = $(this).attr('ref');
     //line = animatedQuarterPie.lines[pos];
     for(var i in animatedQuarterPie.lines){
@@ -455,7 +468,8 @@ $(document).ready(function(){
       if(pos == i){
         line.animate({"stroke": '#E56666'}, 500);
       }else{
-        line.animate({"stroke": animatedQuarterPie.colors[i]}, 500);
+        //line.animate({"stroke": animatedQuarterPie.colors[i]}, 500);
+        line.animate({"stroke": '#7737c7'}, 500);
       }
     }
   });
