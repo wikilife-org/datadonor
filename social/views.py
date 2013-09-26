@@ -44,7 +44,7 @@ def dashboard(request):
         return HttpResponseRedirect('/wizard/')
     ctx = {
         'user': request.user,
-        'user_social':request.user.social_aggregated_data.social_reach(),
+        #'user_social':request.user.social_aggregated_data.social_reach(),
         'version': version,
         'last_login': request.session.get('social_auth_last_login_backend')
     }
@@ -63,10 +63,12 @@ def error(request):
 
 
 def social_reach(request):
-
-    user_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":20},
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/wizard/')
+    user_data = request.user.social_aggregated_data.social_reach()
+    """user_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":20},
                 "gmail":{"count": 20, "percentage":20}, "foursquare":{"count": 20, "percentage":20},
-                "linkedin":{"count": 20, "percentage":20}}
+                "linkedin":{"count": 20, "percentage":20}}"""
     
     global_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":10},
                 "gmail":{"count": 20, "percentage":10}, "foursquare":{"count": 20, "percentage":40},
