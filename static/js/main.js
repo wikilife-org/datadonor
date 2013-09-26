@@ -166,7 +166,7 @@ function drawWorkGraph(data){
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
-	$.getJSON( "../../static/js/adapter/examples/social_reach", function( data ) {
+  $.getJSON( "../../static/js/adapter/examples/social_reach", function( data ) {
     console.log(data);
     var adapter = new SocialReachAdapter();
     var elements1 = adapter.getParameters(data.global_data, ['#CDBFE0','#6845C7','#975EE3','#CDBFE0','#975EE3']);
