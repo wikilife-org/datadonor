@@ -132,7 +132,7 @@ $(document).ready(function () {
 		} else {
 			$('#age_input li a').parent().removeClass('active');
 			$(this).parent().addClass('active');
-			var leftContainer = $(this).parent().position().left - 10;
+			var leftContainer = $(this).parent().position().left - 5;
 			$('#age_select').css({left: leftContainer+"px"});
 			$('#age_select').addClass('active');
 		}
