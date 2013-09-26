@@ -22,5 +22,10 @@
         }
     },
     "avg": 10,
-    "user_data": {}
+    "user_data": {
+        "user_experience": {
+            "value": 28,
+            "key": "26-35"
+        }
+    }
 }

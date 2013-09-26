@@ -141,8 +141,12 @@ function drawEducationGraph(data){
   animatedQuarterPie.draw();
   
   for(var i in elements){
-      //console.log($('li[ref='+i+']'));
       $('li[ref='+i+'] span.perc_number').html(elements[i].percentage);
+      $('li[ref='+i+'] a span').html(elements[i].text);
+      if(elements[i].selected){ 
+        $('li[ref='+i+']').addClass('active');
+        $('.hat_bottom').addClass('red');
+      }
   }
 }
 
@@ -472,16 +476,32 @@ $(document).ready(function(){
         line.animate({"stroke": '#7737c7'}, 500);
       }
     }
+    
+    $.ajax({
+      dataType: "json",
+      type: "POST",
+      url: "../../static/js/adapter/examples/education_post",
+      data: { education_level: animatedQuarterPie.elements[pos].server_key },
+      success: function(data){
+        drawEducationGraph(data);
+      }
+    });
+    
   });
   
   $('#age_select_form').submit(function(){
     console.log('form submitted!');
     var age = $('#age_select_value').val();
     $('#canvas_4_1').html('');
-    var r_4_1 = Raphael('canvas_4_1', 1093, 423);
-    doubleAxisParams.elements[1].value = 140;
-    doubleAxisBars = new EdBarChart(r_4_1, doubleAxisParams);
-    doubleAxisBars.draw();
+    $.ajax({
+      dataType: "json",
+      type: "POST",
+      url: "../../static/js/adapter/examples/work_post",
+      data: { working_experience: age },
+      success: function(data){
+        drawWorkGraph(data);
+      }
+    });
     return false;
   });
 });

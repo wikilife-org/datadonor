@@ -1,0 +1,49 @@
+{
+    "global_data": {
+        "under_program": {
+            "index": 4,
+            "percentage": 23,
+            "key": "under_program",
+            "title": "Undergraduate Programs"
+        },
+        "tech_inst": {
+            "index": 3,
+            "percentage": 5,
+            "key": "tech_inst",
+            "title": "Technical Institute"
+        },
+        "phd": {
+            "index": 6,
+            "percentage": 13,
+            "key": "phd",
+            "title": "PhD"
+        },
+        "primary_school": {
+            "index": 0,
+            "percentage": 3,
+            "key": "primary_school",
+            "title": "Primary School"
+        },
+        "master": {
+            "index": 5,
+            "percentage": 10,
+            "key": "master",
+            "title": "Master"
+        },
+        "junior_college": {
+            "index": 1,
+            "percentage": 50,
+            "key": "junior_college",
+            "title": "Junior College"
+        },
+        "high_school": {
+            "index": 2,
+            "percentage": 3,
+            "key": "high_school",
+            "title": "High School"
+        }
+    },
+    "user_data": {
+        "user_level": "phd"
+    }
+}

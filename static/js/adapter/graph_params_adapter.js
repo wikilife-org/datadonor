@@ -85,9 +85,14 @@ EducationAdapter = function(){
       var item = {
         percentage: json.global_data[prop]["percentage"],
         color: globalColor,
-        text: json.global_data[prop]["title"]
+        text: json.global_data[prop]["title"],
+        selected: false,
+        server_key: json.global_data[prop]["key"]
       }
-      if(json.global_data[prop]["key"] == userLevel) item.color = userColor;
+      if(json.global_data[prop]["key"] == userLevel){ 
+        item.color = userColor;
+        item.selected = true;
+      }
       elements.push(item);
     }
     
@@ -125,8 +130,10 @@ WorkAdapter = function(){
     var userItem = false;
     var globalColor = '#7737c7';
     var userColor = '#E56666';
-    var userXp = json.user_data.user_experience.key;
     var elements = [];
+    var userXp = '';
+    
+    if(typeof json.user_data.user_experience != 'undefined') userXp = json.user_data.user_experience.key;
     
     for(var prop in json.global_data){
       var item = {
