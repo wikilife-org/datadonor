@@ -23,24 +23,24 @@
     },
     "user_data": {
         "twitter": {
-            "count": 20,
-            "percentage": 20
+            "count": 21,
+            "percentage": 3.3707865168539324
         },
         "foursquare": {
-            "count": 20,
-            "percentage": 20
+            "count": 2,
+            "percentage": 0.32102728731942215
         },
         "facebook": {
-            "count": 20,
-            "percentage": 20
+            "count": 247,
+            "percentage": 39.64686998394863
         },
         "linkedin": {
-            "count": 20,
-            "percentage": 20
+            "count": 351,
+            "percentage": 56.340288924558585
         },
         "gmail": {
-            "count": 20,
-            "percentage": 20
+            "count": 2,
+            "percentage": 0.32102728731942215
         }
     }
 }
