@@ -16,6 +16,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="image/#.ico"/>
 	
 	<!-- Styles -->
+	<link href="/static/css/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
 	<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
 	
 	<!-- Javascript -->
@@ -29,6 +30,7 @@
     <script type="text/javascript" src="/static/js/ed.eventListeners.js"></script>
     <script type="text/javascript" src="/static/js/ed.stickyHeader.js"></script>
     <script type="text/javascript" src="/static/js/adapter/graph_params_adapter.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui-1.10.3.custom.js"></script>
 	<script type="text/javascript" src="/static/js/funciones.js"></script>
     <script type="text/javascript" src="/static/js/main.js"></script>
    
@@ -1010,10 +1012,10 @@
 				<h2>Click or tap to select</h2>
 				
 				<!--social-->
-				<ul class="nav_big_social physical_networks">
+				<ul class="nav_big_social nutrition_networks">
 					<li><a href="#" class="fatsecret">fatsecret</a></li>
-					<li><a href="#" class="fatsecret">wikilife</a></li>
-                    <li><a href="#" class="fatsecret">withings</a></li>
+					<li><a href="#" class="wikilife">wikilife</a></li>
+                    <li><a href="#" class="withings">withings</a></li>
 				</ul>
 				<!--/social-->
 				
@@ -1048,7 +1050,7 @@
 			
 			<!--top-->
 			<div class="top">
-				<img src="/static/img/step_1/number_1.png" alt="1" />
+				<img src="/static/img/step_8/number.png" alt="1" />
 				<h2>Share the way<br />you eat</h2>
 				<p>And tell us about your eating habits</p>
 			</div>
@@ -1073,11 +1075,15 @@
 			<div class="bottom">
 			
 				<!--graph_uno-->
-				<div class="graph one"></div>
+				<div class="graph one">
+					<img src="/static/img/step_9/graph_1.png" alt="1" />
+				</div>
 				<!--/graph_uno-->
 				
 				<!--graph_dos-->
-				<div class="graph two"></div>
+				<div class="graph two">
+					<img src="/static/img/step_9/graph_2.png" alt="2" />
+				</div>
 				<!--/graph_dos-->
 			
 			</div>
@@ -1093,8 +1099,10 @@
 		
 		<div class="centered_container">
 			
+			<!--varia la figura de sexo con las clases .man .woman -->
+			
 			<!--stats_weight-->
-			<div class="stats">
+			<div class="stats man">
 				
 				<!--description-->
 				<div class="block one">
@@ -1130,7 +1138,28 @@
 				<!--/overall-->
 				
 				<!--your_weight-->
-				<div class="block three"></div>
+				<div class="block three">
+				
+					<!--top-->
+					<div class="top">
+						<h2 id="weight_number">112</h2>
+						<p>Lbs</p>
+					</div>
+					<!--/top-->
+					
+					<!--slider_content-->
+					<div class="slider_container">
+						<div id="weight_slider"></div>
+					</div>
+					<!--/slider_content-->
+					
+					<!--bottom-->
+					<div class="bottom">
+						<h2>Indicate your weight</h2>
+					</div>
+					<!--/bottom-->
+				
+				</div>
 				<!--/your_weight-->
 				
 				<div class="clear"></div>
@@ -1138,12 +1167,12 @@
 			<!--/stats_weight-->
 			
 			<!--stats_height-->
-			<div class="stats">
+			<div class="stats man">
 				
 				<!--description-->
 				<div class="block one">
 					<h2>Height</h2>
-					<p>Share the inches<br />that stay<br />between your<br />hair and feet</p>
+					<p>Share the inches<br />that stay between your<br />hair and feet</p>
 				</div>
 				<!--/description-->
 				
@@ -1174,7 +1203,28 @@
 				<!--/overall-->
 				
 				<!--your_weight-->
-				<div class="block three"></div>
+				<div class="block three">
+				
+					<!--top-->
+					<div class="top">
+						<h2 id="height_number">0</h2>
+						<p>Ft</p>
+					</div>
+					<!--/top-->
+					
+					<!--slider_content-->
+					<div class="slider_container">
+						<div id="height_slider"></div>
+					</div>
+					<!--/slider_content-->
+					
+					<!--bottom-->
+					<div class="bottom">
+						<h2>Indicate your height</h2>
+					</div>
+					<!--/bottom-->
+				
+				</div>
 				<!--/your_weight-->
 				
 				<div class="clear"></div>
@@ -1187,9 +1237,11 @@
 				<!--arrow_result-->
 				<div class="arrow_result"></div>
 				<!--/arrow_result-->
+				
+				<!--varia la figura de sexo con las clases .man .woman -->
 			
 				<!--result-->
-				<div class="stats">
+				<div class="stats man">
 					
 					<!--description-->
 					<div class="block one">
@@ -1225,7 +1277,22 @@
 					<!--/overall-->
 					
 					<!--your_weight-->
-					<div class="block three"></div>
+					<div class="block three">
+					
+						<!--top-->
+						<div class="top">
+							<h2>22</h2>
+							<p>BMI</p>
+						</div>
+						<!--/top-->
+						
+						<!--bottom-->
+						<div class="bottom">
+							<h2>Your BMI</h2>
+						</div>
+						<!--/bottom-->
+					
+					</div>
 					<!--/your_weight-->
 					
 					<div class="clear"></div>

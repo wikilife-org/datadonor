@@ -263,7 +263,7 @@ a:hover {
 	opacity: 0;
 }
 .trigger_social_choice ul {
-	width: 90%;
+	width: 900px;
 	margin: 0 auto;
 	display: inline-block;
 	-webkit-transition: opacity 0.4s;
@@ -350,6 +350,29 @@ a:hover {
 	height: 124px;
 	display: inline-block;
 	background-repeat: no-repeat;
+}
+
+/* --- NUTRITION NETWORKS */
+.big_social_login .social_choice ul li a.wikilife {
+	background-image: url(../img/big_social_nav/nutrition_networks.png);
+	background-position: -142px bottom;
+}
+.big_social_login .social_choice ul li a.wikilife:hover {
+	background-position: -142px 2px;
+}
+.big_social_login .social_choice ul li.active a.wikilife {
+	background-position: -142px 2px;
+}
+
+.big_social_login .social_choice ul li a.withings {
+	background-image: url(../img/big_social_nav/nutrition_networks.png);
+	background-position: -286px bottom;
+}
+.big_social_login .social_choice ul li a.withings:hover {
+	background-position: -286px 2px;
+}
+.big_social_login .social_choice ul li.active a.withings {
+	background-position: -286px 2px;
 }
 
 /* --- PHYSICAL NETWORKS */
@@ -1341,19 +1364,20 @@ a:hover {
 	position: relative;
 }
 .step_four .centered_container .datos_graph ul {
-	width: 100%;
+	width: 940px;
+	margin: 0 auto;
 }
 .step_four .centered_container .datos_graph ul li {
-	width: 200px;
-	float: left;
-	margin-left: 9px;
+	width: 181px;
+	margin-left: 4px!important;
 	text-align: center;
+	display: inline-table;
 }
 .step_four .centered_container .datos_graph ul li.last {
-	float: right;
+	/*float: right;*/
 }
 .step_four .centered_container .datos_graph ul li:first-child {
-	margin-left: 0px;
+	margin-left: 0px!important;
 }
 .step_four .centered_container .datos_graph ul li a {
 	color: #5B6D7F;
@@ -1891,7 +1915,6 @@ a:hover {
 .step_nine .centered_container .top {
 	width: 100%;
 	text-align: center;
-	border: 1px solid #333;
 }
 .step_nine .centered_container .top h2 {
 	font-family: 'Gotham-Ultra';
@@ -1910,7 +1933,6 @@ a:hover {
 .step_nine .centered_container .bottom {
 	width: 100%;
 	height: 260px;
-	border: 1px solid #333;
 	margin-top: 30px;
 }
 .step_nine .centered_container .bottom .graph {
@@ -1928,6 +1950,7 @@ a:hover {
 
 .step_ten {
 	background-color: #FFFFFF;
+	overflow: hidden;
 }
 .step_ten .centered_container {
 	width: 100%;
@@ -1936,12 +1959,12 @@ a:hover {
 	width: 1010px;
 	margin: 0 auto;
 	height: 180px;
-	background-color: red;
 	margin-top: 100px;
+	/*position: relative;
+	left: -50px;*/
 }
 .step_ten .centered_container .stats .block {
 	height: 180px;
-	background-color: gray;
 	float: left;
 }
 
@@ -1954,9 +1977,10 @@ a:hover {
 	font-size: 30px;
 	font-family: "Gotham-Ultra";
 	margin-bottom: 5px;
+	margin-top: 3px;
 }
 .step_ten .centered_container .stats .block.one p {
-	color: #5b6d7f;
+	color: #8C99A6;
 	font-size: 18px;
  	font-family: 'Omnes-Semibold';
 }
@@ -1969,15 +1993,15 @@ a:hover {
 .step_ten .centered_container .stats .block.two .top {
 	width: 100%;
 	border-bottom: 1px solid #CDCECF;
-	padding-bottom: 25px;
+	height: 146px;
 }
 .step_ten .centered_container .stats .block.two .top ul {
 	width: 100%;
 }
 .step_ten .centered_container .stats .block.two .top ul li {
 	float: left;
+	width: 90px;
 	height: 120px;
-	background-color: blue;
 	margin-left: 30px;
 	padding-left: 50px;
 	background-position: left bottom;
@@ -2008,14 +2032,148 @@ a:hover {
 .step_ten .centered_container .stats .block.two .bottom h2 {
 	font-family: 'Omnes-Semibold';
 	font-size: 18px;
-	color: #5b6d7f;
-	padding-top: 8px;
+	color: #8C99A6;
+	padding-top: 12px;
 }
 
 /* --- your stats*/
 .step_ten .centered_container .stats .block.three {
 	width: 370px;
 	float: right;
+}
+.step_ten .centered_container .stats .block.three .top {
+	width: 100%;
+	width: 500px;
+	background-position: left 0px;
+	background-repeat: no-repeat;
+}
+.step_ten .centered_container .stats .block.three .top h2 {
+	font-family: 'Omnes-Semibold';
+	font-size: 180px;
+	height: 155px;
+	overflow: hidden;
+	display: inline-block !important;
+	color: #ff836f;
+	position: relative;
+	margin-top: -26px;
+	padding-left: 50px;
+}
+.step_ten .centered_container .stats .block.three .top p {
+	font-family: 'Omnes-Semibold';
+	font-size: 16px;
+	display: inline;
+	color: #ff836f;
+}
+.step_ten .centered_container .stats.woman .block.three .top {
+	background-image: url(../img/step_10/women_small_orange.png);;
+}
+.step_ten .centered_container .stats.man .block.three .top {
+	background-image: url(../img/step_10/men_small_orange.png);
+}
+
+.step_ten .centered_container .back_result .stats.woman .block.three .top {
+	background-image: url(../img/step_10/women_small_dark.png);;
+}
+.step_ten .centered_container .back_result .stats.man .block.three .top {
+	background-image: url(../img/step_10/men_small_dark.png);
+}
+
+/* ------- slider styles */
+.step_ten .centered_container .stats .block.three .slider_container {
+	width: 100%;
+	margin-top: 15px;
+}
+.step_ten .slider_container .ui-widget {
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size: 1.1em;
+}
+.step_ten .slider_container .ui-widget .ui-widget {
+	font-size: 1em;
+}
+.step_ten .slider_container .ui-widget input,
+.step_ten .slider_container .ui-widget select,
+.step_ten .slider_container .ui-widget textarea,
+.step_ten .slider_container .ui-widget button {
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size: 1em;
+}
+.step_ten .slider_container .ui-widget-content {
+	border: 0px none;
+	color: #333333;
+	background: #FAD1D0;
+	height: 3px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.step_ten .slider_container .ui-widget-content a {
+	color: #333333;
+}
+.step_ten .slider_container .ui-widget-header {
+	border: 0px none;
+	color: #ffffff;
+	font-weight: bold;
+	background: #FF866D;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.step_ten .slider_container .ui-widget-header a {
+	color: #ffffff;
+}
+.step_ten .slider_container .ui-state-default,
+.step_ten .slider_container .ui-widget-content .ui-state-default,
+.step_ten .slider_container .ui-widget-header .ui-state-default {
+	border: 0px none;
+	font-weight: bold;
+	color: #1c94c4;
+	outline: none;
+	background: transparent url(../img/step_10/dot_slider.png) no-repeat center center;
+	-webkit-transition: opacity 0.4s;
+	-moz-transition: opacity 0.4s;
+	transition: opacity 0.4s;
+	width: 16px;
+	height: 16px;
+	top: -7px;
+}
+.step_ten .slider_container .ui-state-default a,
+.step_ten .slider_container .ui-state-default a:link,
+.step_ten .slider_container .ui-state-default a:visited {
+	color: #1c94c4;
+}
+.step_ten .slider_container .ui-state-hover,
+.step_ten .slider_container .ui-widget-content .ui-state-hover,
+.step_ten .slider_container .ui-widget-header .ui-state-hover,
+.step_ten .slider_container .ui-state-focus,
+.step_ten .slider_container .ui-widget-content .ui-state-focus,
+.step_ten .slider_container .ui-widget-header .ui-state-focus {
+	opacity: 0.9;
+}
+.step_ten .slider_container .ui-state-hover a,
+.step_ten .slider_container .ui-state-hover a:hover,
+.step_ten .slider_container .ui-state-hover a:link,
+.step_ten .slider_container .ui-state-hover a:visited {
+	opacity: 1;
+}
+.step_ten .slider_container .ui-state-active,
+.step_ten .slider_container .ui-widget-content .ui-state-active,
+.step_ten .slider_container .ui-widget-header .ui-state-active {
+	opacity: 1;
+}
+.step_ten .slider_container .ui-state-active a,
+.step_ten .slider_container .ui-state-active a:link,
+.step_ten .slider_container .ui-state-active a:visited {
+	opacity: 1;
+}
+
+.step_ten .centered_container .stats .block.three .bottom {
+	width: 100%;
+}
+.step_ten .centered_container .stats .block.three .bottom h2 {
+	font-family: 'Omnes-Semibold';
+	font-size: 18px;
+	color: #8C99A6;
+	padding-top: 12px;
 }
 
 /* ------ the results */
@@ -2056,7 +2214,7 @@ a:hover {
 
 /* ------ overall */
 .step_ten .centered_container .back_result .stats .block.two .top {
-	border-bottom: 1px solid #FF9E8B;
+	border-bottom: 1px solid #ffc1b7;
 }
 .step_ten .centered_container .back_result .stats .block.two .top ul li.man {
 	background-image: url(../img/step_10/men_small_w.png);
@@ -2065,10 +2223,26 @@ a:hover {
 	background-image: url(../img/step_10/women_small_w.png);
 }
 .step_ten .centered_container .back_result .stats .block.two .top ul li h2 {
-	color: #ff836f;
+	color: #ffc1b7;
 }
 .step_ten .centered_container .back_result .stats .block.two .bottom h2 {
-	color: #ff836f;
+	color: #ffc1b7;
+}
+
+.step_ten .centered_container .back_result .stats .block.three .top {
+	height: 146px;
+}
+.step_ten .centered_container .back_result .stats .block.three .top h2 {
+	color: #3f4a5a;
+}
+.step_ten .centered_container .back_result .stats .block.three .top p {
+	color: #3f4a5a;
+}
+.step_ten .centered_container .back_result .stats .block.three .bottom {
+	border-top: 1px solid #3f4a5a;
+}
+.step_ten .centered_container .back_result .stats .block.three .bottom h2 {
+	color: #3f4a5a;
 }
 
 /* @end */
