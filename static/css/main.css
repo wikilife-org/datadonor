@@ -1212,6 +1212,9 @@ a:hover {
 .step_three .centered_container .bottom .block.right ul li h2.color_one {
 	color: #7737c7;
 }
+.step_three .centered_container .bottom .block.right ul li h2 span.perc_number {
+	font-size: 42px;
+}
 .step_three .centered_container .bottom .block.right ul li a {
 	position: relative;
 	line-height: 40px;
