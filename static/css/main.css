@@ -1120,10 +1120,12 @@ a:hover {
 .step_two .centered_container .bottom .block .graph .text_graph ul li:first-child {
 	margin-left: 0px;
 }
-.step_two .centered_container .bottom .block .graph .text_graph ul li h2 {
+.step_two .centered_container .bottom .block .graph .text_graph ul li h2,
+.step_two .centered_container .bottom .block .graph .text_graph ul li h2 .global_data,
+.step_two .centered_container .bottom .block .graph .text_graph ul li h2 .user_data{
 	width: 45%;
 	font-family: 'Omnes-Semibold';
-	font-size: 58px;
+	font-size: 58px !important;
 }
 .step_two .centered_container .bottom .block .graph .text_graph ul li h2 span {
 	font-size: 18px;
