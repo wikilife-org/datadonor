@@ -3,13 +3,15 @@ Runkeeper
 http://developer.runkeeper.com/healthgraph/overview
 """
 
-from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
-import requests
 from wikilife_utils.date_utils import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
+import requests
+from wikilife_utils.logs.log_creator import LogCreator
+from wikilife_utils.parsers.date_parser import DateParser
+from wikilife.client.logs import Logs
 
 
-RUNKEEPER_API = ""
+RUNKEEPER_API = "http://api.runkeeper.com"
 
 
 def runkeeper_info(request, *args, **kwargs):
@@ -18,14 +20,71 @@ def runkeeper_info(request, *args, **kwargs):
     result = {}
     if backend.name == "runkeeper":
         data = kwargs.get('response')
-        print data
+        client = RunkeeperClient(RUNKEEPER_API, data["access_token"], backend)
         
+        profile = client.get_user_profile()
+        fitness_activities = client.get_user_fitness_activities()
+        wikilife_token = None
+        log_fitness_activities(wikilife_token, fitness_activities["items"])
+        
+        print ""
         """
-        access_token = None 
-        backend = None
-        client = RunkeeperClient(RUNKEEPER_API, access_token, backend)
         #TODO >> wikilife logs or local datadonor data ?
+        
+        'nutrition': '/nutrition',
+        'weight': '/weight',
+        'settings': '/settings',
+        'userID': 24084903, 'strength_training_activities': '/strengthTrainingActivities',
+        'background_activities': '/backgroundActivities',
+        'change_log': '/changeLog',
+        'fitness_activities': '/fitnessActivities',
+        'sleep': '/sleep',
+        'records': '/records',
+        'team': '/team',
+        'general_measurements': '/generalMeasurements',
+        'diabetes': '/diabetes'
         """
+
+
+activity_type_node_id_map = {
+    "Running": 0, 
+    "Cycling": 0, 
+    "Mountain Biking": 0, 
+    "Walking": 0, 
+    "Hiking": 0, 
+    "Downhill Skiing": 0, 
+    "Cross-Country Skiing": 0, 
+    "Snowboarding": 0, 
+    "Skating": 0, 
+    "Swimming": 0, 
+    "Wheelchair": 0, 
+    "Rowing": 0, 
+    "Elliptical": 0, 
+    "Other": 0
+}
+
+wikilife_logs_client = Logs(logger, wikilife_settings)
+wikilife_logs_creator = LogCreator()
+
+def log_fitness_activities(wikilife_token, items):
+    for item in items:
+        start_time = DateParser.from_datetime(item["start_time"])
+        end_time = DateUtils.add_seconds(start_time, item["duration"])
+        start = DateFormatter.to_datetime(start_time)
+        end = DateFormatter.to_datetime(end_time)
+        node_id = activity_type_node_id_map[item["type"]]
+        distance_km = item["total_distance"] * 1000
+        calories = item["total_calories"]
+        text = "%s %s km, %s calories" %(item["type"], distance_km, calories)
+        source = "datadonor.runkeeper.%s" %item["source"]
+
+        nodes = []
+        nodes.append(wikilife_logs_creator.create_log_node(self, node_id, 0, distance_km))
+        nodes.append(wikilife_logs_creator.create_log_node(self, node_id, 0, calories))
+
+        log = wikilife_logs_creator.create_log(self, 0, start, end, text, source, nodes)
+        wikilife_logs_client.add_log(wikilife_token, log)
+
 
 class RunkeeperClient(object):
     PAGE_SIZE = 25
@@ -41,15 +100,9 @@ class RunkeeperClient(object):
         self._backend = backend
         self._user_info = self._get_user_info()
 
-    def get_user_info(self):
-        return self._user_info
-
     def get_user_profile(self):
-        url =  self._api_host + self._user_info["profile"]
-        request = build_consumer_oauth_request(self._backend, self._access_token, url)
-        response = requests.request("GET", url, headers=request.to_header())
-        return response.json()
-    
+        return self._get(self._user_info["profile"])
+
     def get_user_fitness_activities(self):
         return self._get_user_activity_last_7_days("fitness_activities")
 
@@ -83,8 +136,7 @@ class RunkeeperClient(object):
         result["date_from"] = date_from
         result["date_to"] = date_to
 
-        url =  self._api_host + self._user_info[activity_code]
-        request = build_consumer_oauth_request(self._backend, self._access_token, url)
+        uri =  self._user_info[activity_code] 
 
         params = {}
         params["page"] = 0 
@@ -92,14 +144,12 @@ class RunkeeperClient(object):
         params["noEarlierThan"] = DateFormatter.to_date(date_from)
         params["noLaterThan"] = DateFormatter.to_date(date_to)
 
-        raw_response = requests.request("GET", url, headers=request.to_header(), params=params)
-        response = raw_response.json()
+        response = self._get(uri, params=params)
         result["items"] = response["items"]
 
         while (params["page"]+1)*self.PAGE_SIZE < response["size"]:
             params["page"] += 1
-            raw_response = requests.request("GET", url, headers=request.to_header(), params=params)
-            response = raw_response.json()
+            response = self._get(uri, params=params)
             result["items"].extend(response["items"])
 
         return result
@@ -122,8 +172,14 @@ class RunkeeperClient(object):
         "team": "/team"
         }
         """
-        url =  self.RUNKEEPER_API + "/user"
-        request = build_consumer_oauth_request(self._backend, self._access_token, url)
-        response = requests.request("GET", url, headers=request.to_header())
-        return response.json()
+        return self._get("/user")
 
+    def _get(self, service_uri, params={}):
+        """
+        service_uri: String
+        params: Dict<String, String>
+        """
+        url =  self._api_host + service_uri
+        params["access_token"] = self._access_token
+        response = requests.request("GET", url, params=params)
+        return response.json()
