@@ -2,7 +2,7 @@
     "global_data": {
         "under_program": {
             "index": 4,
-            "percentage": 23,
+            "percentage": 40,
             "key": "under_program",
             "title": "Undergraduate Programs"
         },
@@ -38,7 +38,7 @@
         },
         "high_school": {
             "index": 2,
-            "percentage": 3,
+            "percentage": 38,
             "key": "high_school",
             "title": "High School"
         }

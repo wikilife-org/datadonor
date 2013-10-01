@@ -163,6 +163,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
+    'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'social_auth.context_processors.social_auth_by_name_backends',
     'social_auth.context_processors.social_auth_by_type_backends',
@@ -196,6 +197,8 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.dailymile.dailymile_info',
     'pipeline.ihealth.ihealth_info',
     'pipeline.jawbone.jawbone_info',
+    
+    'pipeline.meta_association.association_info'
 )
 
 SOCIAL_AUTH_PIPELINE_old = (
