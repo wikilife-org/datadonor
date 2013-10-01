@@ -259,6 +259,9 @@ function drawStepsGraph(data){
   }
   doubleAxisBars2 = new EdBarChart(r_6_1, doubleAxisParams2);
   doubleAxisBars2.draw();
+  
+  $('#data_6_1 .bloq.right .number_stat h2').html(data.global_avg);
+  $('#data_6_1 .bloq.left .number_stat h2').html(data.user_avg);
 }
 
 function drawMilesGraph(data){

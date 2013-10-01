@@ -7,33 +7,33 @@
         },
         { 
             "label": "M",
-            "global_data": 3000,
-            "user_data": 2000
+            "global_data": 8000,
+            "user_data": 12000
         },
         { 
             "label": "T",
-            "global_data": 3000,
-            "user_data": 2000
+            "global_data": 8000,
+            "user_data": 12000
         },
         { 
             "label": "W",
-            "global_data": 3000,
-            "user_data": 2000
+            "global_data": 8000,
+            "user_data": 12000
         },
         { 
             "label": "T",
-            "global_data": 3000,
-            "user_data": 2000
+            "global_data": 8000,
+            "user_data": 12000
         },
         { 
             "label": "F",
-            "global_data": 3000,
-            "user_data": 2000
+            "global_data": 8000,
+            "user_data": 12000
         },
         { 
             "label": "S",
-            "global_data": 3000,
-            "user_data": 2000
+            "global_data": 8000,
+            "user_data": 12000
         }
     ],
     "global_avg": 7000,
