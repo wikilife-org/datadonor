@@ -1,0 +1,41 @@
+{
+    "data": [
+        { 
+            "label": "S",
+            "global_data": 50,
+            "user_data": 38
+        },
+        { 
+            "label": "M",
+            "global_data": 50,
+            "user_data": 38
+        },
+        { 
+            "label": "T",
+            "global_data": 50,
+            "user_data": 38
+        },
+        { 
+            "label": "W",
+            "global_data": 50,
+            "user_data": 38
+        },
+        { 
+            "label": "T",
+            "global_data": 50,
+            "user_data": 38
+        },
+        { 
+            "label": "F",
+            "global_data": 50,
+            "user_data": 38
+        },
+        { 
+            "label": "S",
+            "global_data": 50,
+            "user_data": 38
+        }
+    ],
+    "global_avg": 35,
+    "user_avg": 25
+}

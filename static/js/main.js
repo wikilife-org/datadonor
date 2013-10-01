@@ -228,6 +228,107 @@ function drawExerciseGraphs(data){
   
 }
 
+function drawStepsGraph(data){
+  var adapter = new StepsAdapter();
+  var result = adapter.getParameters(data, 400, 20000);
+  //console.log(result);
+  var r_6_1 = Raphael('canvas_6_1', 1093, 423);
+  doubleAxisParams2 = {
+    axis: 'both',
+    barsAxis: 'x',
+    drawAxis: true,
+    drawLabels: true,
+    elements: result.elements,
+    xAxis: {
+      length: 1093,
+      "stroke-width": 2,
+      color: '#F1F2F2',
+      labelsType: 'custom_bubbles',
+      name: 'Day',
+      labels: result.xLabels
+    },
+    yAxis: {
+      length: 423,
+      "stroke-width": 0,
+      name: 'Steps',
+      labels: result.yLabels
+    },
+    centerx: 30,
+    centery: 400,
+    canvasSize: [1093,425]
+  }
+  doubleAxisBars2 = new EdBarChart(r_6_1, doubleAxisParams2);
+  doubleAxisBars2.draw();
+}
+
+function drawMilesGraph(data){
+  var adapter = new MilesAdapter();
+  var result = adapter.getParameters(data, 400, 60,[10,20,30,40]);
+  var r_7_1 = Raphael('canvas_7_1', 530, 400);
+  doubleAxisParams3 = {
+    axis: 'both',
+    barsAxis: 'x',
+    drawAxis: true,
+    drawLabels: true,
+    elements: result.elements,
+    xAxis: {
+      length: 1093,
+      "stroke-width": 2,
+      color: '#E6E2DF',
+      labelsType: 'custom_bubbles',
+      labels: result.xLabels
+    },
+    yAxis: {
+      length: 423,
+      "stroke-width": 0,
+      name: 'miles',
+      labels: result.yLabels
+    },
+    centerx: 10,
+    centery: 370,
+    canvasSize: [530,400]
+  }
+  doubleAxisBars3 = new EdBarChart(r_7_1, doubleAxisParams3);
+  doubleAxisBars3.draw();
+  
+  $('#data_7_1 .left .number_stat h2').html(data.global_avg);
+  $('#data_7_1 .right .number_stat h2').html(data.user_avg);
+}
+
+function drawHoursGraph(data){
+  var adapter = new MilesAdapter();
+  var result = adapter.getParameters(data, 400, 9,[1,3,4,7]);
+  var r_7_2 = Raphael('canvas_7_2', 530, 400);
+  doubleAxisParams4 = {
+    axis: 'both',
+    barsAxis: 'x',
+    drawAxis: true,
+    drawLabels: true,
+    elements: result.elements,
+    xAxis: {
+      length: 1093,
+      "stroke-width": 2,
+      color: '#E6E2DF',
+      labelsType: 'custom_bubbles',
+      labels: result.xLabels
+    },
+    yAxis: {
+      length: 423,
+      "stroke-width": 0,
+      name: 'hs',
+      labels: result.yLabels
+    },
+    centerx: 10,
+    centery: 370,
+    canvasSize: [530,400]
+  }
+  doubleAxisBars4 = new EdBarChart(r_7_2, doubleAxisParams4);
+  doubleAxisBars4.draw();
+  
+  $('#data_7_2 .left .number_stat h2').html(data.global_avg);
+  $('#data_7_2 .right .number_stat h2').html(data.user_avg);
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -254,267 +355,24 @@ window.onload = function () {
   });
   
   $.getJSON( "../../static/js/adapter/examples/exercise", function( data ) {
-    console.log('EXERCISE!');
     drawExerciseGraphs(data);
   });
   
+  $.getJSON( "../../static/js/adapter/examples/steps", function( data ) {
+    //console.log('STEPS!');
+    drawStepsGraph(data);
+  });
   
-  /*********** DOT CHARTS *******************/
+  $.getJSON( "../../static/js/adapter/examples/miles", function( data ) {
+    //console.log('MILES!');
+    drawMilesGraph(data);
+  });
   
-//  var r_5_1 = Raphael('canvas_5_1', 210, 210);
-//  dotChart = new EdDotChart(r_5_1, [
-//    {
-//      radius: 100,
-//      color: '#7737c7',
-//      label: '225'
-//    },
-//    {
-//      radius: 60,
-//      color: '#e56666',
-//      label: '134'
-//    }
-//  ], {
-//    centerx: 105,
-//    centery: 101,
-//    useAnimationDelay: true,
-//    animationTime: 900,
-//    easing: 'bounce',
-//    fontSize: '40',
-//    drawLabels: false,
-//    perimeter: {
-//      display: false
-//    }
-//  });
-//  dotChart.draw();
+  $.getJSON( "../../static/js/adapter/examples/hours", function( data ) {
+    console.log('HOURS!');
+    drawHoursGraph(data);
+  });
   
-//  var r_5_2 = Raphael('canvas_5_2', 210, 210);
-//  dotChart = new EdDotChart(r_5_2, [
-//    {
-//      radius: 100,
-//      color: '#7737c7',
-//      label: '225'
-//    },
-//    {
-//      radius: 60,
-//      color: '#e56666',
-//      label: '134'
-//    }
-//  ], {
-//    centerx: 105,
-//    centery: 101,
-//    useAnimationDelay: true,
-//    animationTime: 900,
-//    easing: 'bounce',
-//    fontSize: '40',
-//    drawLabels: false,
-//    perimeter: {
-//      display: false
-//    }
-//  });
-//  dotChart.draw();
-  
-//  var r_5_3 = Raphael('canvas_5_3', 210, 210);
-//  dotChart = new EdDotChart(r_5_3, [
-//    {
-//      radius: 100,
-//      color: '#7737c7',
-//      label: '225'
-//    },
-//    {
-//      radius: 60,
-//      color: '#e56666',
-//      label: '134'
-//    }
-//  ], {
-//    centerx: 105,
-//    centery: 101,
-//    useAnimationDelay: true,
-//    animationTime: 900,
-//    easing: 'bounce',
-//    fontSize: '40',
-//    drawLabels: false,
-//    perimeter: {
-//      display: false
-//    }
-//  });
-//  dotChart.draw();
-  
-  /*********** QUARTER PIE *******************/
-  
-  
-  /*********** BAR CHARTS *******************/
-  
-  
-  var r_6_1 = Raphael('canvas_6_1', 1093, 423);
-  doubleAxisParams2 = {
-    axis: 'both',
-    barsAxis: 'x',
-    drawAxis: true,
-    drawLabels: true,
-    elements: [
-      {pos: 30, width: 62, color: '#7737c7', value: 250, label: "2000", vlabel: "5000"},
-      {pos: 92, width: 62, color: '#e56666', value: 300, label: "4000", vlabel: "5000"},
-      {pos: 174, width: 62, color: '#7737c7', value: 80, label: "500", vlabel: "50"},
-      {pos: 236, width: 62, color: '#e56666', value: 140, label: "60", vlabel: "500"},
-      {pos: 318, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
-      {pos: 380, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"},
-      {pos: 462, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
-      {pos: 524, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"},
-      {pos: 606, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
-      {pos: 668, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"},
-      {pos: 750, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
-      {pos: 812, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"},
-      {pos: 894, width: 62, color: '#7737c7', value: 200, label: "70", vlabel: "5000"},
-      {pos: 956, width: 62, color: '#e56666', value: 100, label: "80", vlabel: "500"}
-    ],
-    xAxis: {
-      length: 1093,
-      "stroke-width": 2,
-      color: '#F1F2F2',
-      labelsType: 'custom_bubbles',
-      name: 'Day',
-      labels: [
-        {pos: 92, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 236, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 380, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 524, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 668, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 812, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 956, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'}
-      ]
-    },
-    yAxis: {
-      length: 423,
-      "stroke-width": 0,
-      name: 'Steps',
-      labels: [
-        {pos: 90, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
-        {pos: 300, text: '150\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 16},
-        {pos: 150, text: '72\navg', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 16},
-        {pos: 180, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
-        {pos: 270, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"},
-        {pos: 360, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F1F2F2', "text-color": "#ADB6BF"}
-      ]
-    },
-    centerx: 30,
-    centery: 400,
-    canvasSize: [1093,425]
-  }
-  doubleAxisBars2 = new EdBarChart(r_6_1, doubleAxisParams2);
-  doubleAxisBars2.draw();
-  
-  var r_7_1 = Raphael('canvas_7_1', 530, 400);
-  doubleAxisParams3 = {
-    axis: 'both',
-    barsAxis: 'x',
-    drawAxis: true,
-    drawLabels: true,
-    elements: [
-      {pos: 30, width: 45, color: '#7737c7', value: 250, label: "2000"},
-      {pos: 45, width: 45, color: '#e56666', value: 300, label: "4000"},
-      {pos: 100, width: 45, color: '#7737c7', value: 80, label: "500"},
-      {pos: 115, width: 45, color: '#E56666', value: 140, label: "60"},
-      {pos: 170, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 185, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 240, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 255, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 310, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 325, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 385, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 400, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 455, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 470, width: 45, color: '#E56666', value: 100, label: "80"}
-    ],
-    xAxis: {
-      length: 1093,
-      "stroke-width": 2,
-      color: '#E6E2DF',
-      labelsType: 'custom_bubbles',
-      labels: [
-        {pos: 60, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 130, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 200, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 270, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 340, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 415, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 485, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'}
-      ]
-    },
-    yAxis: {
-      length: 423,
-      "stroke-width": 0,
-      name: 'years',
-      labels: [
-        {pos: 300, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
-        {pos: 150, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
-        {pos: 90, text: '10', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
-        {pos: 180, text: '30', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
-        {pos: 270, text: '40', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"}
-      ]
-    },
-    centerx: 10,
-    centery: 370,
-    canvasSize: [530,400]
-  }
-  doubleAxisBars3 = new EdBarChart(r_7_1, doubleAxisParams3);
-  doubleAxisBars3.draw();
-  
-  var r_7_2 = Raphael('canvas_7_2', 530, 400);
-  doubleAxisParams4 = {
-    axis: 'both',
-    barsAxis: 'x',
-    drawAxis: true,
-    drawLabels: true,
-    elements: [
-      {pos: 30, width: 45, color: '#7737c7', value: 250, label: "2000"},
-      {pos: 45, width: 45, color: '#E56666', value: 300, label: "4000"},
-      {pos: 100, width: 45, color: '#7737c7', value: 80, label: "500"},
-      {pos: 115, width: 45, color: '#E56666', value: 140, label: "60"},
-      {pos: 170, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 185, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 240, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 255, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 310, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 325, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 385, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 400, width: 45, color: '#E56666', value: 100, label: "80"},
-      {pos: 455, width: 45, color: '#7737c7', value: 200, label: "70"},
-      {pos: 470, width: 45, color: '#E56666', value: 100, label: "80"}
-    ],
-    xAxis: {
-      length: 1093,
-      "stroke-width": 2,
-      color: '#E6E2DF',
-      labelsType: 'custom_bubbles',
-      labels: [
-        {pos: 60, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 130, text: 'M', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 200, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 270, text: 'W', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 340, text: 'T', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 415, text: 'F', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'},
-        {pos: 485, text: 'S', type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'}
-      ]
-    },
-    yAxis: {
-      length: 423,
-      "stroke-width": 0,
-      name: 'hs',
-      labels: [
-        {pos: 60, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#6C53C3', "text-color": "#6C53C3", "font-size": 13},
-        {pos: 150, text: '', width: 1090, type: 'dotted', "stroke-width": 3, color: '#F0ACAC', "text-color": "#F0ACAC", "font-size": 13},
-        {pos: 30, text: '1', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
-        {pos: 120, text: '3', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
-        {pos: 220, text: '5', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"},
-        {pos: 320, text: '7', width: 1090, type: 'dotted', "stroke-width": 3, color: '#E6E2DF', "text-color": "#ADB6BF"}
-      ]
-    },
-    centerx: 10,
-    centery: 370,
-    canvasSize: [530,400]
-  }
-  doubleAxisBars4 = new EdBarChart(r_7_2, doubleAxisParams4);
-  doubleAxisBars4.draw();
 };
 
 $(document).ready(function(){
