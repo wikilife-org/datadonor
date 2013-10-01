@@ -45,7 +45,7 @@ SocialShareAdapter = function(){
   
   this.getParameters = function(values, maxPerc, radius){
     var elements = [];
-    console.log(values);
+    //console.log(values);
     var radius1 = this.getElementRadius(values[0], maxPerc, radius, values);
     var radius2 = this.getElementRadius(values[1], maxPerc, radius, values);
     
@@ -200,4 +200,9 @@ WorkAdapter = function(){
   
 }
 
+ExcerciseAdapter = function(){
+  
+  
+  
+}
 

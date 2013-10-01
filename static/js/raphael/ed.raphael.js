@@ -41,7 +41,7 @@ EdPieChart = function(r, elements, options){
   
   this.drawReferences = function(elements){
     for(var i in elements){
-      console.log(elements[i]);
+      //console.log(elements[i]);
       this.r.text(elements[i]['x'], elements[i]['y'], elements[i]['text']).attr({
         fill: elements[i]['color'], 
         "font-size": this.options.fontSize}
@@ -110,10 +110,10 @@ EdAnimatedPie = function(r, elements, options){
   }
   
   this.drawLines = function(){
-    console.log('Drawing lines!');
+    //console.log('Drawing lines!');
     var total = 0;
     for(var i in elements){
-      console.log(elements[i]);
+      //console.log(elements[i]);
       var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
       var line = this.r.path().attr(param).attr({arc: [0, 100, this.R], stroke: elements[i]['color']}).toBack();
       if(this.options.useAnimationDelay){
@@ -124,7 +124,7 @@ EdAnimatedPie = function(r, elements, options){
       line.animate(Raphael.animation({arc: [total+elements[i]['percentage'], 100, this.R]}, this.options.animationTime, this.options.easing).delay(delay));
       total = total + elements[i]['percentage'];
     }
-    console.log(this.labelLocations);
+    //console.log(this.labelLocations);
   }
   
   this.drawReferences = function(){
@@ -228,7 +228,7 @@ EdQuarterAnimatedPie = function(r, elements, options){
   this.drawLines = function(){
     console.log('Drawing lines!');
     for(var i in elements){
-      console.log(elements[i]);
+      //console.log(elements[i]);
       var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
       var line = this.r.path().attr(param).attr({arc: [0, 100, this.R], stroke: elements[i]['color']}).toBack();
       var emptyline = this.r.path().attr(param).attr({arc: [100, 100, this.R], stroke: '#F0EAE6'}).toBack();
@@ -288,7 +288,7 @@ EdBarChart = function(r, options){
   }
   
   this.drawAxis = function(){
-    console.log(options);
+    //console.log(options);
     if(this.options.axis == 'both'){
       this.drawXAxis();
       this.drawYAxis();
@@ -369,7 +369,7 @@ EdBarChart = function(r, options){
   this.drawDottedLines = function(){
     console.log('Drawing dotted lines!');
     //paper.path("M 30 120 l 150 0 z").attr({"stroke-dasharray": '- '});
-    console.log(this.options.yAxis.labels);
+    //console.log(this.options.yAxis.labels);
     for(var i in this.options.yAxis.labels){
       var line = this.options.yAxis.labels[i];
       
@@ -382,7 +382,7 @@ EdBarChart = function(r, options){
   this.drawBars = function(){
     console.log('Drawing bars!');
     for(var i in this.elements){
-      console.log('drawing item...');
+      //console.log('drawing item...');
       var item = this.elements[i];
       if(this.options.barsAxis == 'x'){
         st = r.set();
@@ -529,14 +529,14 @@ EdSingleBarChart = function(r, elements, options){
   }
   
   this.drawBarParts = function(){
-    console.log('LENGTH: '+this.elements.length);
+    //console.log('LENGTH: '+this.elements.length);
     var xPos = this.options.x;
     var c = 0;
     
     for(var i in this.elements){
       var el = this.elements[i];
       var elWidth = (el.percentage*this.options.width)/100;
-      console.log('elWidth: '+elWidth);
+      //console.log('elWidth: '+elWidth);
       var radius = 0;
       var diff = 0;
       
@@ -653,7 +653,7 @@ EdAnimatedPieLegacy = function(r, elements, options){
     console.log('Drawing lines!');
     var total = 0;
     for(var i in elements){
-      console.log(elements[i]);
+      //console.log(elements[i]);
       var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
       var line = this.r.path().attr(param).attr({arc: [0, 100, this.R], stroke: elements[i]['color']}).toBack();
       if(this.options.useAnimationDelay){
@@ -664,13 +664,13 @@ EdAnimatedPieLegacy = function(r, elements, options){
       line.animate(Raphael.animation({arc: [total+elements[i]['percentage'], 100, this.R]}, this.options.animationTime, this.options.easing).delay(delay));
       total = total + elements[i]['percentage'];
     }
-    console.log(this.labelLocations);
+    //console.log(this.labelLocations);
   }
   
   this.drawReferences = function(){
     console.log('drawing references!');
     for(var i in this.elements){
-      console.log('element percentage: '+elements[i]['percentage']);
+      //console.log('element percentage: '+elements[i]['percentage']);
     }
   }
   

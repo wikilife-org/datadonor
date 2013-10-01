@@ -180,6 +180,54 @@ function drawWorkGraph(data){
   doubleAxisBars.draw();
 }
 
+function drawExerciseGraphs(data){
+  console.log(data);
+  var adapter = new SocialShareAdapter();
+  var graphConfig = {
+    centerx: 105,
+    centery: 101,
+    useAnimationDelay: true,
+    animationTime: 900,
+    easing: 'bounce',
+    fontSize: '40',
+    drawLabels: false,
+    perimeter: {
+      display: false,
+      radius: 100,
+      color: '#ECEDED'
+    }
+  };
+  
+  var maxPercentage = 100;
+  var elements1 = adapter.getParameters([parseInt(data.running.global_data), parseInt(data.running.user_data)], maxPercentage, 100);
+  var r_5_1 = Raphael('canvas_5_1', 210, 210);
+  if(maxPercentage < 100) graphConfig.perimeter.display = true;
+  $('#data_5_1 .global_data').html(data.running.global_data);
+  $('#data_5_1 .user_data').html(data.running.user_data); 
+  var dotChart = new EdDotChart(r_5_1, elements1, graphConfig);
+  dotChart.draw();
+  
+  var maxPercentage = 100;
+  var elements1 = adapter.getParameters([parseInt(data.walking.global_data), parseInt(data.walking.user_data)], maxPercentage, 100);
+  var r_5_2 = Raphael('canvas_5_2', 210, 210);
+  if(maxPercentage < 100) graphConfig.perimeter.display = true;
+  $('#data_5_2 .global_data').html(data.walking.global_data);
+  $('#data_5_2 .user_data').html(data.walking.user_data); 
+  var dotChart = new EdDotChart(r_5_2, elements1, graphConfig);
+  dotChart.draw();
+  
+  var maxPercentage = 100;
+  var elements1 = adapter.getParameters([parseInt(data.elliptical.global_data), parseInt(data.elliptical.user_data)], maxPercentage, 100);
+  var r_5_3 = Raphael('canvas_5_3', 210, 210);
+  if(maxPercentage < 100) graphConfig.perimeter.display = true;
+  $('#data_5_3 .global_data').html(data.elliptical.global_data);
+  $('#data_5_3 .user_data').html(data.elliptical.user_data); 
+  var dotChart = new EdDotChart(r_5_3, elements1, graphConfig);
+  dotChart.draw();
+  
+  
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -201,89 +249,95 @@ window.onload = function () {
   });
   
   $.getJSON( "../../static/js/adapter/examples/work", function( data ) {
+    console.log('WORK!!!!');
     drawWorkGraph(data);
+  });
+  
+  $.getJSON( "../../static/js/adapter/examples/exercise", function( data ) {
+    console.log('EXERCISE!');
+    drawExerciseGraphs(data);
   });
   
   
   /*********** DOT CHARTS *******************/
   
-  var r_5_1 = Raphael('canvas_5_1', 210, 210);
-  dotChart = new EdDotChart(r_5_1, [
-    {
-      radius: 100,
-      color: '#7737c7',
-      label: '225'
-    },
-    {
-      radius: 60,
-      color: '#e56666',
-      label: '134'
-    }
-  ], {
-    centerx: 105,
-    centery: 101,
-    useAnimationDelay: true,
-    animationTime: 900,
-    easing: 'bounce',
-    fontSize: '40',
-    drawLabels: false,
-    perimeter: {
-      display: false
-    }
-  });
-  dotChart.draw();
+//  var r_5_1 = Raphael('canvas_5_1', 210, 210);
+//  dotChart = new EdDotChart(r_5_1, [
+//    {
+//      radius: 100,
+//      color: '#7737c7',
+//      label: '225'
+//    },
+//    {
+//      radius: 60,
+//      color: '#e56666',
+//      label: '134'
+//    }
+//  ], {
+//    centerx: 105,
+//    centery: 101,
+//    useAnimationDelay: true,
+//    animationTime: 900,
+//    easing: 'bounce',
+//    fontSize: '40',
+//    drawLabels: false,
+//    perimeter: {
+//      display: false
+//    }
+//  });
+//  dotChart.draw();
   
-  var r_5_2 = Raphael('canvas_5_2', 210, 210);
-  dotChart = new EdDotChart(r_5_2, [
-    {
-      radius: 100,
-      color: '#7737c7',
-      label: '225'
-    },
-    {
-      radius: 60,
-      color: '#e56666',
-      label: '134'
-    }
-  ], {
-    centerx: 105,
-    centery: 101,
-    useAnimationDelay: true,
-    animationTime: 900,
-    easing: 'bounce',
-    fontSize: '40',
-    drawLabels: false,
-    perimeter: {
-      display: false
-    }
-  });
-  dotChart.draw();
+//  var r_5_2 = Raphael('canvas_5_2', 210, 210);
+//  dotChart = new EdDotChart(r_5_2, [
+//    {
+//      radius: 100,
+//      color: '#7737c7',
+//      label: '225'
+//    },
+//    {
+//      radius: 60,
+//      color: '#e56666',
+//      label: '134'
+//    }
+//  ], {
+//    centerx: 105,
+//    centery: 101,
+//    useAnimationDelay: true,
+//    animationTime: 900,
+//    easing: 'bounce',
+//    fontSize: '40',
+//    drawLabels: false,
+//    perimeter: {
+//      display: false
+//    }
+//  });
+//  dotChart.draw();
   
-  var r_5_3 = Raphael('canvas_5_3', 210, 210);
-  dotChart = new EdDotChart(r_5_3, [
-    {
-      radius: 100,
-      color: '#7737c7',
-      label: '225'
-    },
-    {
-      radius: 60,
-      color: '#e56666',
-      label: '134'
-    }
-  ], {
-    centerx: 105,
-    centery: 101,
-    useAnimationDelay: true,
-    animationTime: 900,
-    easing: 'bounce',
-    fontSize: '40',
-    drawLabels: false,
-    perimeter: {
-      display: false
-    }
-  });
-  dotChart.draw();
+//  var r_5_3 = Raphael('canvas_5_3', 210, 210);
+//  dotChart = new EdDotChart(r_5_3, [
+//    {
+//      radius: 100,
+//      color: '#7737c7',
+//      label: '225'
+//    },
+//    {
+//      radius: 60,
+//      color: '#e56666',
+//      label: '134'
+//    }
+//  ], {
+//    centerx: 105,
+//    centery: 101,
+//    useAnimationDelay: true,
+//    animationTime: 900,
+//    easing: 'bounce',
+//    fontSize: '40',
+//    drawLabels: false,
+//    perimeter: {
+//      display: false
+//    }
+//  });
+//  dotChart.draw();
   
   /*********** QUARTER PIE *******************/
   
