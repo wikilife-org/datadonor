@@ -1,5 +1,5 @@
 {% extends "base.html"%}
-
+{% debug %}
 {% comment %}
 <?php
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 8.0') !== FALSE){ header('Location: http://www.browsehappy.com/');}
@@ -66,8 +66,8 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
             
             <div id="center-nav">
             
-                <h2>What if we could save lives with what we do every day?</h2>
-                
+<!--                 <h2>What if we could save lives with what we do every day?</h2>
+ -->                
             </div><!-- #center-nav -->                	
             
         </div><!-- #top -->
@@ -110,12 +110,19 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
       
        <script type="text/javascript" src="/static/js/wizard.js" ></script>
 
-{% if  show_wizard %}
+
 <script type="text/javascript">
 $(document).ready(function(){
+{% if  show_wizard %}
 	$("#iagree").trigger("click");
+{% endif %}
+console.log("{{request.session.association.type}}");
+{% if request.session.association.type == "social" %}
+go_to_slide(3);
+{% endif %}
+
 });
 </script>
-{% endif %}
+
 </body>
 {% endblock %}

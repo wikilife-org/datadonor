@@ -16,7 +16,8 @@ from social_auth.exceptions import AuthCanceled
 from social_auth.utils import sanitize_redirect, setting, \
                               backend_setting, clean_partial_pipeline
 from social_auth.decorators import dsa_view, disconnect_view
-
+from social_auth.backends import SocialBackend, PhysicalBackend
+from pipeline.meta_association import Associantion
 
 DEFAULT_REDIRECT = setting('SOCIAL_AUTH_LOGIN_REDIRECT_URL',
                            setting('LOGIN_REDIRECT_URL'))
@@ -72,6 +73,9 @@ def associate_complete(request, backend, *args, **kwargs):
 def disconnect(request, backend, association_id=None):
     """Disconnects given backend from current logged in user."""
     backend.disconnect(request.user, association_id)
+    request.session["association"] = Associantion()
+    if isinstance(backend, SocialBackend):
+        request.session["association"].type = "social"
     url = request.REQUEST.get(REDIRECT_FIELD_NAME, '') or \
           backend_setting(backend, 'SOCIAL_AUTH_DISCONNECT_REDIRECT_URL') or \
           DEFAULT_REDIRECT

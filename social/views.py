@@ -86,6 +86,7 @@ def social_sharing(request):
     
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+@csrf_exempt
 def social_education(request):
     if request.method == "POST":
         education_level = request.POST["education_level"]
@@ -103,6 +104,7 @@ def social_education(request):
         data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+@csrf_exempt
 def social_work(request):
     if request.method == 'POST':
         working_experience = request.POST["working_experience"]
