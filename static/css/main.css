@@ -1573,7 +1573,9 @@ a:hover {
 .step_five .centered_container .three_graphs .graph .text_container ul li:first-child {
 	margin-left: 0px;
 }
-.step_five .centered_container .three_graphs .graph .text_container ul li h2 {
+.step_five .centered_container .three_graphs .graph .text_container ul li h2,
+.step_five .centered_container .three_graphs .graph .text_container li h2 .global_data,
+.step_five .centered_container .three_graphs .graph .text_container li h2 .user_data{
 	width: 45%;
 	font-family: 'Omnes-Semibold';
 	font-size: 58px;
@@ -1878,10 +1880,10 @@ a:hover {
 	width: 930px;
 }
 
-/* ------- top*/
+/* --- top */
 .step_eight .centered_container .top {
 	width: 100%;
-	padding: 40px 0px 40px 0px;
+	padding: 40px 0px 60px 0px;
 	text-align: center;
 }
 .step_eight .centered_container .top img {
@@ -1900,6 +1902,273 @@ a:hover {
 	color: #8A95A0;
 	font-family: 'Omnes-Semibold';
 	margin-top: 10px;
+}
+
+/* --- bottom */
+.step_eight .centered_container .bottom {
+	width: 588px;
+	height: 599px;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 50px;
+	background-image: url(../img/step_8/piramide.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-transition: background-image 0.4s;
+	-moz-transition: background-image 0.4s;
+	transition: background-image 0.4s;
+} 
+
+/* --- pre carga */
+.step_eight .centered_container .bottom .pre_back_purple {
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+	background-image: url(../img/step_8/piramide_morada.png);
+} 
+.step_eight .centered_container .bottom .pre_back {
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+	background-image: url(../img/step_8/piramide.png);
+} 
+
+/* --- shelfts */
+.step_eight .centered_container .bottom .shelf {
+	width: 100%;
+	position: relative;
+} 
+.step_eight .centered_container .bottom .shelf.one {
+	height: 142px;	
+} 
+.step_eight .centered_container .bottom .shelf.two {
+	height: 114px;	
+} 
+.step_eight .centered_container .bottom .shelf.three {
+	height: 114px;
+} 
+.step_eight .centered_container .bottom .shelf.four {
+	height: 114px;
+} 
+.step_eight .centered_container .bottom .shelf.five {
+	height: 114px;
+} 
+
+/* --- stasts food */
+
+.step_eight .centered_container .bottom .shelf .stat {
+	position: absolute;
+	top: 0px;
+	width: 140px;
+}
+.step_eight .centered_container .bottom .shelf .stat.left {
+	background-image: url(../img/step_8/arrrow_icon_left.png);
+	background-position: center right;
+	background-repeat: no-repeat;
+	padding-right: 70px;
+}
+.step_eight .centered_container .bottom .shelf .stat.right {
+	background-image: url(../img/step_8/arrrow_icon_right.png);
+	background-position: center left;
+	background-repeat: no-repeat;
+	padding-left: 70px;
+}
+
+/* --- icon stats */
+.step_eight .centered_container .bottom .shelf .stat .icon_stat {
+	width: 88px;
+	height: 80px;
+	position: absolute;
+	bottom: 15px;
+}
+
+/* --- numbers stats */
+.step_eight .centered_container .bottom .shelf .stat.left .numbers .block {
+	float: right;
+	margin-left: 8px;
+}
+.step_eight .centered_container .bottom .shelf .stat.right .numbers .block {
+	float: left;
+	margin-right: 8px;
+}
+.step_eight .centered_container .bottom .shelf .stat.left .numbers {
+	margin-right: -8px;
+}
+.step_eight .centered_container .bottom .shelf .stat.right .numbers {
+	margin-left: -8px;
+}
+.step_eight .centered_container .bottom .shelf .stat .numbers .block.one h2 {
+	font-size: 50px;
+	color: #e56666;
+	font-family: 'Omnes-Semibold';
+}
+.step_eight .centered_container .bottom .shelf .stat .numbers .block.one h2 span {
+	font-size: 18px;
+	position: relative;
+	top: -7px;
+}
+.step_eight .centered_container .bottom .shelf .stat .numbers .block.two {
+	position: relative;
+	top: 14px;
+}
+.step_eight .centered_container .bottom .shelf .stat .numbers .block.two h2 {
+	font-size: 32px;
+	color: #7737C7;
+	font-family: 'Omnes-Semibold';
+}
+.step_eight .centered_container .bottom .shelf .stat .numbers .block.two h2 span {
+	font-size: 12px;
+	position: relative;
+	top: 1px;
+}
+.step_eight .centered_container .bottom .shelf .stat .numbers .block.three h2 {
+	font-size: 50px;
+	color: #7737C7;
+	font-family: 'Omnes-Semibold';
+	display: none;
+}
+.step_eight .centered_container .bottom .shelf .stat .numbers .block.three h2 span {
+	font-size: 18px;
+	position: relative;
+	top: -7px;
+}
+
+/* --- diferents levels */
+
+/* --- one */
+.step_eight .centered_container .bottom .shelf.one .stat {
+	height: 142px;	
+	top: 10px;
+}
+.step_eight .centered_container .bottom .shelf.one .stat.left {
+	left: 60px;
+}
+.step_eight .centered_container .bottom .shelf.one .stat.right {
+	right: 60px;
+}
+.step_eight .centered_container .bottom .shelf.one .stat.left .icon_stat {
+	right: -67px;
+}
+.step_eight .centered_container .bottom .shelf.one .stat.right .icon_stat {
+	left: -67px;
+	bottom: 30px;
+}
+.step_eight .centered_container .bottom .shelf.one .stat .numbers {
+	margin-top: 40px;
+}
+
+/* --- two */
+.step_eight .centered_container .bottom .shelf.two .stat {
+	height: 114px;	
+}
+.step_eight .centered_container .bottom .shelf.two .stat.left {
+	left: 4px;
+}
+.step_eight .centered_container .bottom .shelf.two .stat.right {
+	right: 4px;
+}
+.step_eight .centered_container .bottom .shelf.two .stat.left .icon_stat {
+	right: -125px;
+}
+.step_eight .centered_container .bottom .shelf.two .stat.right .icon_stat {
+	left: -125px;
+}
+.step_eight .centered_container .bottom .shelf.two .stat .numbers {
+	margin-top: 28px;
+}
+
+/* --- three */
+.step_eight .centered_container .bottom .shelf.three .stat {
+	height: 114px;	
+}
+.step_eight .centered_container .bottom .shelf.three .stat.left {
+	left: -52px;
+}
+.step_eight .centered_container .bottom .shelf.three .stat.right {
+	right: -52px;
+}
+.step_eight .centered_container .bottom .shelf.three .stat.left .icon_stat {
+	right: -110px;
+}
+.step_eight .centered_container .bottom .shelf.three .stat.right .icon_stat {
+	left: -110px;
+}
+.step_eight .centered_container .bottom .shelf.three .stat .numbers {
+	margin-top: 28px;
+}
+
+/* --- four */
+.step_eight .centered_container .bottom .shelf.four .stat {
+	height: 114px;	
+}
+.step_eight .centered_container .bottom .shelf.four .stat.left {
+	left: -100px;
+}
+.step_eight .centered_container .bottom .shelf.four .stat.right {
+	right: -100px;
+}
+.step_eight .centered_container .bottom .shelf.four .stat.left .icon_stat {
+	right: -137px;
+}
+.step_eight .centered_container .bottom .shelf.four .stat.right .icon_stat {
+	left: -137px;
+}
+.step_eight .centered_container .bottom .shelf.four .stat .numbers {
+	margin-top: 28px;
+}
+
+/* --- five */
+.step_eight .centered_container .bottom .shelf.five .stat {
+	height: 114px;	
+}
+.step_eight .centered_container .bottom .shelf.five .stat.left {
+	left: -150px;
+}
+.step_eight .centered_container .bottom .shelf.five .stat.right {
+	right: -150px;
+}
+.step_eight .centered_container .bottom .shelf.five .stat.left .icon_stat {
+	right: -170px;
+}
+.step_eight .centered_container .bottom .shelf.five .stat.right .icon_stat {
+	left: -170px;
+}
+.step_eight .centered_container .bottom .shelf.five .stat .numbers {
+	margin-top: 28px;
+}
+
+/* ------ without user */
+.step_eight .centered_container .bottom.without_user {
+	background-image: url(../img/step_8/piramide_morada.png);
+} 
+.step_eight .centered_container .bottom.without_user .block.one,
+.step_eight .centered_container .bottom.without_user .block.two {
+	display: none;
+} 
+.step_eight .centered_container .bottom.without_user .block.three h2 {
+	display: block!important;
+} 
+
+#remove_class {
+	position: absolute;
+	top: 250px;
+	right: 50px;
+	background-color: #f4f4f4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 20px;
+} 
+#remove_class a {
+	font-size: 25px;
+	color: #7737C7;
+	font-family: 'Omnes-Semibold';
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+}
+#remove_class a:hover {
+	color: #482079;
 }
 
 /* @end */
