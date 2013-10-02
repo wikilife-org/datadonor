@@ -89,7 +89,7 @@ class IhealthAuth(BaseOAuth2, PhysicalBackend):
         else:
             query_string = ''
             
-        params['APINAME'] = 'OpenApiBP%20OpenApiWeight'
+        params['APINAME'] = 'datadonor'
         return self.AUTHORIZATION_URL + '?' + urlencode(params) + query_string
 
 

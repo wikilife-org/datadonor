@@ -11,8 +11,12 @@ except ImportError:
 
 from oauth2 import Token
 
-from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, PhysicalBackend
+from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, PhysicalBackend, BaseOAuth2
 
+
+from oauth2 import Request as OAuthRequest
+
+from conf_settings import BODYMEDIA_CONSUMER_KEY
 
 # Bodymedia configuration
 BODYMEDIA_SERVER = 'https://api.bodymedia.com'
@@ -45,6 +49,7 @@ class BodymediaBackend(OAuthBackend):
 
 
 class BodymediaAuth(ConsumerBasedOAuth, PhysicalBackend):
+#class BodymediaAuth(BaseOAuth2, PhysicalBackend):
     """Bodymedia OAuth authentication mechanism"""
     AUTHORIZATION_URL = BODYMEDIA_AUTHORIZATION_URL
     REQUEST_TOKEN_URL = BODYMEDIA_REQUEST_TOKEN_URL
@@ -75,6 +80,18 @@ class BodymediaAuth(ConsumerBasedOAuth, PhysicalBackend):
             'username': access_token.username,
             'fullname': access_token.fullname,
         }
+        
+    def oauth_authorization_request(self, token):
+        """Generate OAuth request to authorize token."""
+        params = self.auth_extra_arguments() or {}
+        params['api_key'] = BODYMEDIA_CONSUMER_KEY
+        params.update(self.get_scope_argument())
+        return OAuthRequest.from_token_and_callback(
+            token=token,
+            callback=self.redirect_uri,
+            http_url=self.AUTHORIZATION_URL,
+            parameters=params
+        )
 
 
 # Backend definition
