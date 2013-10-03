@@ -12,7 +12,7 @@ from django.contrib.auth import login, REDIRECT_FIELD_NAME
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
-from social_auth.exceptions import AuthCanceled
+from social_auth.exceptions import AuthCanceled, AuthFailed
 from social_auth.utils import sanitize_redirect, setting, \
                               backend_setting, clean_partial_pipeline
 from social_auth.decorators import dsa_view, disconnect_view
@@ -41,7 +41,10 @@ def complete(request, backend, *args, **kwargs):
             return associate_complete(request, backend, *args, **kwargs)
         else:
             return complete_process(request, backend, *args, **kwargs)
-    except AuthCanceled:
+    except (AuthCanceled, AuthFailed):
+        request.session["association"] = Associantion()
+        if isinstance(backend, SocialBackend):
+            request.session["association"].type = "social"
         if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
             return HttpResponseRedirect('/wizard/')
         else:
