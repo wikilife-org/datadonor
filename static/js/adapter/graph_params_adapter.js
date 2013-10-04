@@ -645,3 +645,28 @@ HoursAdapter = function(){
   }
 }
 
+NutrientsAdapter = function(){
+  
+  this.getParameters = function(json, colors){
+    var elements = [];
+    var colorsIndex = 0;
+    
+    for(var i in json){
+      var element = { 
+        percentage: json[i].percentage, 
+        color: colors[colorsIndex], 
+        label: json[i].title
+      }
+      elements.push(element);
+      
+      if(colorsIndex == (colors.length-1)){
+        colorsIndex = 0;
+      }else{
+        colorsIndex++;
+      }
+    }
+    
+    return elements;
+  }
+  
+}

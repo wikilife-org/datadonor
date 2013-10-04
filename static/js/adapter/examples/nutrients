@@ -1,0 +1,46 @@
+{
+    "global_data": {
+        "protein": {
+            "percentage": 30,
+            "key": "protein",
+            "title": "Protein"
+        },
+        "fiber": {
+            "percentage": 25,
+            "key": "fiber",
+            "title": "Fiber"
+        },
+        "carbs": {
+            "percentage": 15,
+            "key": "carbs",
+            "title": "Carbs"
+        },
+        "fat": {
+            "percentage": 20,
+            "key": "fat",
+            "title": "Fat"
+        }
+    },
+    "user_data": {
+        "protein": {
+            "percentage": 15,
+            "key": "protein",
+            "title": "Protein"
+        },
+        "fiber": {
+            "percentage": 25,
+            "key": "fiber",
+            "title": "Fiber"
+        },
+        "carbs": {
+            "percentage": 30,
+            "key": "carbs",
+            "title": "Carbs"
+        },
+        "fat": {
+            "percentage": 30,
+            "key": "fat",
+            "title": "Fat"
+        }
+    }
+}

@@ -3,6 +3,7 @@ var animatedPie;
 var doubleAxisBars;
 var animatedQuarterPie;
 var doubleAxisParams;
+var SingleBarChart;
 
 function drawSocialGraph(elments1, elements2){
 	  var r_1_1 = Raphael('canvas_1_1', 420, 420);
@@ -332,6 +333,40 @@ function drawHoursGraph(data){
   $('#data_7_2 .right .number_stat h2').html(data.user_avg_hours);
 }
 
+function drawNutrientProportionGraph(data){
+
+  var r_9_1 = Raphael('canvas_9_1', 1095, 300);
+  var adapter = new NutrientsAdapter();
+  var elems = adapter.getParameters(data.global_data,['#B48AEA','#8A45E5','#7737C7','#3E3EA5',]);
+  SingleBarChart = new EdSingleBarChart(r_9_1, elems, {
+    x: 20,
+    y: 150,
+    width: 1050,
+    height: 83,
+    fontSize: 47,
+    fontColor: '#ffffff',
+    first_icon: '/static/img/step_9/ico_1.png',
+    end_icon: '/static/img/step_9/porcentaje.png'
+  });
+  SingleBarChart.draw();
+  
+  var r_9_2 = Raphael('canvas_9_2', 1095, 300);
+  var adapter = new NutrientsAdapter();
+  var elems = adapter.getParameters(data.global_data,['#FF9C8C','#FF836F','#E56666','#D44B5F',]);
+  SingleBarChart = new EdSingleBarChart(r_9_2, elems, {
+    x: 20,
+    y: 150,
+    width: 1050,
+    height: 83,
+    fontSize: 47,
+    fontColor: '#ffffff',
+    first_icon: '/static/img/step_9/ico_2.png',
+    end_icon: '/static/img/step_9/porcentaje.png'
+  });
+  SingleBarChart.draw();
+
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -372,8 +407,13 @@ window.onload = function () {
   });
   
   $.getJSON( "../../static/js/adapter/examples/hours_2", function( data ) {
-    console.log('HOURS!');
+    //console.log('HOURS!');
     drawHoursGraph(data);
+  });
+  
+  $.getJSON( "../../static/js/adapter/examples/nutrients", function( data ) {
+    console.log('NUTRIENT PROPORTION!');
+    drawNutrientProportionGraph(data);
   });
   
 };

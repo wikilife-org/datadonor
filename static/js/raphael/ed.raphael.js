@@ -525,7 +525,9 @@ EdSingleBarChart = function(r, elements, options){
   
   this.draw = function(){
     this.drawBarParts();
-    this.drawLabels();
+    this.drawIcon();
+    //this.drawLabels();
+    //this.drawMainLabel();
   }
   
   this.drawBarParts = function(){
@@ -540,11 +542,11 @@ EdSingleBarChart = function(r, elements, options){
       var radius = 0;
       var diff = 0;
       
-      if(i == 0 || i >= (this.elements.length-1)) radius = 10;
+      if(i == 0 || i >= (this.elements.length-1)) radius = 45;
       if(i == 1){
-        diff = 10;
+        diff = 45;
       }else if(i == (this.elements.length-1)){
-        diff = 10;
+        diff = 45;
       }else{
         diff = 0;
       }
@@ -557,29 +559,54 @@ EdSingleBarChart = function(r, elements, options){
       }).toBack();
       if(i == 1) rect.toFront();
       
-      this.drawArrow(el, x, width, i);
-      this.drawLabel(el, x, width);
+      //this.drawArrow(el, x, width, i);
+      this.drawLabel(el, x, width, i);
       
       c = c + elWidth;
     }
   }
   
-  this.drawLabel = function(el, x, width){
-    var textX = x + width - 10;
-    this.r.text(textX, (this.options.y+this.options.height+20), el.percentage+" %").attr({
-      fill: this.options.fontColor, 
-      "font-size": this.options.fontSize
-    }).toFront();  
+  this.drawIcon = function(){
+    this.r.image(this.options.first_icon, this.options.x+40, this.options.y, 61, 80).toFront();
+  }
+  
+  this.drawLabel = function(el, x, width, elemNo){
+    var diff = 15;
+    var drawMainLabel = false;
+    if(elemNo == 0){ 
+      console.log('FIRST BAR ELEMENT!');
+      diff = 60;
+    }else if(elemNo == (this.elements.length-1)){
+      diff = 45;
+      drawMainLabel = true;
+    }
+    console.log('DIFFF: '+diff);
     
-    var textX = x + width - 10;
-    this.r.text(textX, (this.options.y+this.options.height+40), el.label).attr({
+    var textX = x + width - diff;
+    var textY = this.options.y+this.options.height/2;
+    this.r.text(textX, textY, el.percentage).attr({
       fill: this.options.fontColor, 
-      "font-size": this.options.fontSize
-    }).toFront();  
+      "font-size": this.options.fontSize,
+      "font-family": 'Omnes-semibold',
+      "text-anchor": 'end',
+      "opacity": 0.8
+    }).toFront(); 
+    
+    this.r.text(textX, textY+60, el.label).attr({
+      fill: '#5b6d7f', 
+      "font-size": 18,
+      "font-family": 'Omnes-semibold',
+      "text-anchor": 'end'
+    }).toFront(); 
+    
+    if(drawMainLabel){
+      this.drawMainLabel(x, width);
+    }
+    
   }
   
   this.drawArrow = function (el, x, width, i){
-    var pathX = x + width - 10;
+    var pathX = x + width - 45;
     if(i == 0 || i == (this.elements.length-1)) pathX = pathX - 10;
     var pathY = this.options.y + this.options.height;
     var path = this.r.path("M"+pathX+" "+pathY+"L"+(pathX+10)+" "+pathY+"L"+(pathX+5)+" "+(pathY+10)+"Z").attr({
@@ -587,9 +614,14 @@ EdSingleBarChart = function(r, elements, options){
       "fill": el.color
     });
   }
-  
-  this.drawLabels = function(){
-    
+   
+  this.drawMainLabel = function(x, width){
+    console.log('DRAWING MAIN LABEL!');
+    xPos = x + width;
+    yPos = this.options.y+this.options.height/2;
+    //this.r.circle(xPos, yPos, 30).attr({"fill": '#000000', "stroke-width": 0});
+    //this.r.text(xPos, yPos, '%').attr({"text-anchor": "middle","font-family": 'Omnes-Semibold', "font-size": 35, "fill": "#ffffff"});
+    this.r.image(this.options.end_icon, xPos-26, yPos-26, 53, 53).toFront();
   }
   
   this.init();
