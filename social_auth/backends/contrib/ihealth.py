@@ -25,11 +25,11 @@ import requests
 import json
 
 
-IHEALTH_SERVER = 'https://api.ihealthlabs.com:8443'
-IHEALTH_REQUEST_TOKEN_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
-IHEALTH_AUTHORIZATION_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
-IHEALTH_ACCESS_TOKEN_URL = '%s/api/OAuthv2/userauthorization.ashx' % IHEALTH_SERVER
-IHEALTH_USERINFO = 'https://api.dailymile.com/people/me.json'
+IHEALTH_SERVER = 'https://api.ihealthlabs.com:8443/OpenApiV2/OAuthv2'
+IHEALTH_REQUEST_TOKEN_URL = '%s/userauthorization' % IHEALTH_SERVER
+IHEALTH_AUTHORIZATION_URL = '%s/userauthorization' % IHEALTH_SERVER
+IHEALTH_ACCESS_TOKEN_URL = '%s/userauthorization' % IHEALTH_SERVER
+#IHEALTH_USERINFO = 'https://api.dailymile.com/people/me.json'
 
 
 class IhealthBackend(OAuthBackend):

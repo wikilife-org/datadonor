@@ -23,7 +23,7 @@ BODYMEDIA_SERVER = 'https://api.bodymedia.com'
 BODYMEDIA_REQUEST_TOKEN_URL = '%s/oauth/request_token' % BODYMEDIA_SERVER
 BODYMEDIA_AUTHORIZATION_URL = '%s/oauth/authorize' % BODYMEDIA_SERVER
 BODYMEDIA_ACCESS_TOKEN_URL = '%s/oauth/access_token' % BODYMEDIA_SERVER
-BODYMEDIA_USERINFO = 'http://api.bodymedia.com/1/user/-/profile.json'
+BODYMEDIA_USERINFO = '%s/v2/user/info'
 
 
 class BodymediaBackend(OAuthBackend):
