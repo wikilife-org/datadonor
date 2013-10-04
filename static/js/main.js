@@ -412,8 +412,29 @@ window.onload = function () {
   });
   
   $.getJSON( "../../static/js/adapter/examples/nutrients", function( data ) {
-    console.log('NUTRIENT PROPORTION!');
+    //console.log('NUTRIENT PROPORTION!');
     drawNutrientProportionGraph(data);
+  });
+  
+  $.getJSON( "../../static/js/adapter/examples/weight", function( data ) {
+    console.log('WEIGHT!');
+    $('.weight_values .man .value').html(data.global_data.men.value);
+    $('.weight_values .woman .value').html(data.global_data.women.value);
+    $('#weight_number').html(data.user_data.value);
+  });
+  
+  $.getJSON( "../../static/js/adapter/examples/height", function( data ) {
+    console.log('WEIGHT!');
+    $('.height_values .man .value').html(data.global_data.men.value);
+    $('.height_values .woman .value').html(data.global_data.women.value);
+    $('#height_number').html(data.user_data.value);
+  });
+  
+  $.getJSON( "../../static/js/adapter/examples/bmi", function( data ) {
+    console.log('WEIGHT!');
+    $('.bmi_values .man .value').html(data.global_data.men.value);
+    $('.bmi_values .woman .value').html(data.global_data.women.value);
+    $('.your_bmi h2').html(data.user_data.value);
   });
   
 };

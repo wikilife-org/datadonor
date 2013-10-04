@@ -1,0 +1,16 @@
+{
+    "global_data": {
+        "men": {
+            "unit": "Lbs",
+            "value": 120
+        },
+        "women": {
+            "unit": "Lbs",
+            "value": 94
+        }
+    },
+    "user_data": {
+        "unit": "Lbs",
+        "value": 115
+    }
+}

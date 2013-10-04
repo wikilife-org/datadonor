@@ -1,0 +1,13 @@
+{
+    "global_data": {
+        "men": {
+            "value": 20
+        },
+        "women": {
+            "value": 26
+        }
+    },
+    "user_data": {
+        "value": 22
+    }
+}
