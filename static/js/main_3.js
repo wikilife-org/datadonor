@@ -199,29 +199,29 @@ function drawExerciseGraphs(data){
   };
   
   var maxPercentage = 100;
-  var elements1 = adapter.getParameters([parseInt(data[0].global_times), parseInt(data[0].user_times)], maxPercentage, 100);
+  var elements1 = adapter.getParameters([parseInt(data.running.global_data), parseInt(data.running.user_data)], maxPercentage, 100);
   var r_5_1 = Raphael('canvas_5_1', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_5_1 .global_data').html(data[0].global_times);
-  $('#data_5_1 .user_data').html(data[0].user_times); 
+  $('#data_5_1 .global_data').html(data.running.global_data);
+  $('#data_5_1 .user_data').html(data.running.user_data); 
   var dotChart = new EdDotChart(r_5_1, elements1, graphConfig);
   dotChart.draw();
   
   var maxPercentage = 100;
-  var elements1 = adapter.getParameters([parseInt(data[1].global_times), parseInt(data[1].user_times)], maxPercentage, 100);
+  var elements1 = adapter.getParameters([parseInt(data.walking.global_data), parseInt(data.walking.user_data)], maxPercentage, 100);
   var r_5_2 = Raphael('canvas_5_2', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_5_2 .global_data').html(data[1].global_times);
-  $('#data_5_2 .user_data').html(data[1].user_times); 
+  $('#data_5_2 .global_data').html(data.walking.global_data);
+  $('#data_5_2 .user_data').html(data.walking.user_data); 
   var dotChart = new EdDotChart(r_5_2, elements1, graphConfig);
   dotChart.draw();
   
   var maxPercentage = 100;
-  var elements1 = adapter.getParameters([parseInt(data[2].global_times), parseInt(data[2].user_times)], maxPercentage, 100);
+  var elements1 = adapter.getParameters([parseInt(data.elliptical.global_data), parseInt(data.elliptical.user_data)], maxPercentage, 100);
   var r_5_3 = Raphael('canvas_5_3', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_5_3 .global_data').html(data[2].global_times);
-  $('#data_5_3 .user_data').html(data[2].user_times); 
+  $('#data_5_3 .global_data').html(data.elliptical.global_data);
+  $('#data_5_3 .user_data').html(data.elliptical.user_data); 
   var dotChart = new EdDotChart(r_5_3, elements1, graphConfig);
   dotChart.draw();
   
@@ -260,8 +260,8 @@ function drawStepsGraph(data){
   doubleAxisBars2 = new EdBarChart(r_6_1, doubleAxisParams2);
   doubleAxisBars2.draw();
   
-  $('#data_6_1 .bloq.right .number_stat h2').html(data.global_avg_steps);
-  $('#data_6_1 .bloq.left .number_stat h2').html(data.user_avg_steps);
+  $('#data_6_1 .bloq.right .number_stat h2').html(data.global_avg);
+  $('#data_6_1 .bloq.left .number_stat h2').html(data.user_avg);
 }
 
 function drawMilesGraph(data){
@@ -294,12 +294,12 @@ function drawMilesGraph(data){
   doubleAxisBars3 = new EdBarChart(r_7_1, doubleAxisParams3);
   doubleAxisBars3.draw();
   
-  $('#data_7_1 .left .number_stat h2').html(data.global_avg_miles);
-  $('#data_7_1 .right .number_stat h2').html(data.user_avg_miles);
+  $('#data_7_1 .left .number_stat h2').html(data.global_avg);
+  $('#data_7_1 .right .number_stat h2').html(data.user_avg);
 }
 
 function drawHoursGraph(data){
-  var adapter = new HoursAdapter();
+  var adapter = new MilesAdapter();
   var result = adapter.getParameters(data, 400, 9,[1,3,4,7]);
   var r_7_2 = Raphael('canvas_7_2', 530, 400);
   doubleAxisParams4 = {
@@ -328,8 +328,8 @@ function drawHoursGraph(data){
   doubleAxisBars4 = new EdBarChart(r_7_2, doubleAxisParams4);
   doubleAxisBars4.draw();
   
-  $('#data_7_2 .left .number_stat h2').html(data.global_avg_hours);
-  $('#data_7_2 .right .number_stat h2').html(data.user_avg_hours);
+  $('#data_7_2 .left .number_stat h2').html(data.global_avg);
+  $('#data_7_2 .right .number_stat h2').html(data.user_avg);
 }
 
 window.onload = function () {
@@ -357,21 +357,21 @@ window.onload = function () {
     drawWorkGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/exercise_top", function( data ) {
+  $.getJSON( "../../static/js/adapter/examples/exercise", function( data ) {
     drawExerciseGraphs(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/steps_2", function( data ) {
+  $.getJSON( "../../static/js/adapter/examples/steps", function( data ) {
     //console.log('STEPS!');
     drawStepsGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/miles_2", function( data ) {
+  $.getJSON( "../../static/js/adapter/examples/miles", function( data ) {
     //console.log('MILES!');
     drawMilesGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/hours_2", function( data ) {
+  $.getJSON( "../../static/js/adapter/examples/hours", function( data ) {
     console.log('HOURS!');
     drawHoursGraph(data);
   });

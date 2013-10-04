@@ -1,0 +1,34 @@
+{
+    "user_avg_miles": 20,
+    "global_avg_miles": 30,
+    "days": {
+        "monday": {
+            "user_miles": 20,
+            "global_miles": 30
+        },
+        "tuesday": {
+            "user_miles": 30,
+            "global_miles": 40
+        },
+        "friday": {
+            "user_miles": 15,
+            "global_miles": 10
+        },
+        "wednesday": {
+            "user_miles": 12,
+            "global_miles": 20
+        },
+        "thursday": {
+            "user_miles": 30,
+            "global_miles": 50
+        },
+        "sunday": {
+            "user_miles": 30,
+            "global_miles": 50
+        },
+        "saturday": {
+            "user_miles": 30,
+            "global_miles": 60
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "global_avg_steps": 3000,
+    "days": {
+        "monday": {
+            "global_steps": 1000,
+            "user_steps": 3000
+        },
+        "tuesday": {
+            "global_steps": 1000,
+            "user_steps": 3000
+        },
+        "friday": {
+            "global_steps": 2000,
+            "user_steps": 3000
+        },
+        "wednesday": {
+            "global_steps": 3000,
+            "user_steps": 3000
+        },
+        "thursday": {
+            "global_steps": 3000,
+            "user_steps": 5000
+        },
+        "sunday": {
+            "global_steps": 2000,
+            "user_steps": 4000
+        },
+        "saturday": {
+            "global_steps": 3050,
+            "user_steps": 5000
+        }
+    },
+    "user_avg_steps": 2000
+}

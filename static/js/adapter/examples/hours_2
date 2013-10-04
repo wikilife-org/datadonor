@@ -1,0 +1,34 @@
+{
+    "global_avg_hours": 4,
+    "days": {
+        "monday": {
+            "global_hours": 5,
+            "user_hours": 3
+        },
+        "tuesday": {
+            "global_hours": 5,
+            "user_hours": 3
+        },
+        "friday": {
+            "global_hours": 4,
+            "user_hours": 4
+        },
+        "wednesday": {
+            "global_hours": 6,
+            "user_hours": 4
+        },
+        "thursday": {
+            "global_hours": 5,
+            "user_hours": 5
+        },
+        "sunday": {
+            "global_hours": 7,
+            "user_hours": 7
+        },
+        "saturday": {
+            "global_hours": 6,
+            "user_hours": 6
+        }
+    },
+    "user_avg_hours": 5
+}
