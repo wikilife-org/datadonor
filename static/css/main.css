@@ -2206,7 +2206,6 @@ a:hover {
 /* --- bottom */
 .step_nine .centered_container .bottom {
 	width: 100%;
-	height: 260px;
 	margin-top: 30px;
 }
 .step_nine .centered_container .bottom .graph {
@@ -2290,18 +2289,19 @@ a:hover {
 .step_ten .centered_container .stats .block.two .top ul li:first-child {
 	margin-left: 0px;
 }
-.step_ten .centered_container .stats .block.two .top ul li h2 {
+.step_ten .centered_container .stats .block.two .top ul li h2,
+.step_ten .centered_container .stats .block.two .top ul li h2 .value {
 	font-family: 'Omnes-Semibold';
 	font-size: 60px;
-	color: #7737c7;
 	position: relative;
 	top: 13px;
+        color:#7737C7;
 }
 .step_ten .centered_container .stats .block.two .top ul li h2 span {
 	font-family: 'Omnes-Semibold';
 	font-size: 16px;
 	position: relative;
-	top: -8px;
+	top: 8px;
 }
 .step_ten .centered_container .stats .block.two .bottom h2 {
 	font-family: 'Omnes-Semibold';
@@ -2498,6 +2498,10 @@ a:hover {
 }
 .step_ten .centered_container .back_result .stats .block.two .top ul li h2 {
 	color: #ffc1b7;
+}
+.step_ten .centered_container .back_result .stats .block.two .top ul li h2,
+.step_ten .centered_container .back_result .stats .block.two .top ul li h2 .value {
+        color:#ffc1b7;
 }
 .step_ten .centered_container .back_result .stats .block.two .bottom h2 {
 	color: #ffc1b7;
