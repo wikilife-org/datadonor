@@ -335,12 +335,12 @@ function drawHoursGraph(data){
 
 function drawNutrientProportionGraph(data){
 
-  var r_9_1 = Raphael('canvas_9_1', 1095, 300);
+  var r_9_1 = Raphael('canvas_9_1', 1095, 115);
   var adapter = new NutrientsAdapter();
   var elems = adapter.getParameters(data.global_data,['#B48AEA','#8A45E5','#7737C7','#3E3EA5',]);
   SingleBarChart = new EdSingleBarChart(r_9_1, elems, {
     x: 20,
-    y: 150,
+    y: 5,
     width: 1050,
     height: 83,
     fontSize: 47,
@@ -350,12 +350,12 @@ function drawNutrientProportionGraph(data){
   });
   SingleBarChart.draw();
   
-  var r_9_2 = Raphael('canvas_9_2', 1095, 300);
+  var r_9_2 = Raphael('canvas_9_2', 1095, 115);
   var adapter = new NutrientsAdapter();
   var elems = adapter.getParameters(data.global_data,['#FF9C8C','#FF836F','#E56666','#D44B5F',]);
   SingleBarChart = new EdSingleBarChart(r_9_2, elems, {
     x: 20,
-    y: 150,
+    y: 5,
     width: 1050,
     height: 83,
     fontSize: 47,
