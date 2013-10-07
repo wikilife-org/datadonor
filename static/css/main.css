@@ -2209,8 +2209,9 @@ a:hover {
 	margin-top: 30px;
 }
 .step_nine .centered_container .bottom .graph {
-	width: 100%;
+	width: 1010px;
 	height: 115px;
+        margin: 0 auto;
 }
 .step_nine .centered_container .bottom .graph.one {
 	margin-bottom: 30px;
@@ -2337,6 +2338,8 @@ a:hover {
 	font-size: 16px;
 	display: inline;
 	color: #ff836f;
+        top: -10px;
+        position: relative;
 }
 .step_ten .centered_container .stats.woman .block.three .top {
 	background-image: url(../img/step_10/women_small_orange.png);;
