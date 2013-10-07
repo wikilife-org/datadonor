@@ -480,4 +480,28 @@ $(document).ready(function(){
     });
     return false;
   });
+  
+  $("#weight_slider").on("slidestop", function(event, ui) {
+    $.ajax({
+      dataType: "json",
+      type: "POST",
+      url: "../../static/js/adapter/examples/weight",
+      data: { unit: 'Lbs', value: $("#weight_slider").slider("value") },
+      success: function(data){
+        
+      }
+    });
+  });
+  
+  $("#height_slider").on("slidestop", function(event, ui) {
+    $.ajax({
+      dataType: "json",
+      type: "POST",
+      url: "../../static/js/adapter/examples/height",
+      data: { unit: 'Ft', value: $("#height_slider").slider("value") },
+      success: function(data){
+        
+      }
+    });
+  });
 });

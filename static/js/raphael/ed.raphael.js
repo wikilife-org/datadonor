@@ -396,7 +396,7 @@ EdBarChart = function(r, options){
         
         if(typeof this.options.xAxis.labelsType == 'undefined' || this.options.xAxis.labelsType == 'automatic_bubble'){
           this.r.circle(xPos+(item['width']/2), this.options.centery - item['value'], 20).attr({"fill": '#3F4A5A', "stroke-width": 0});
-          this.r.text(xPos+(item['width']/2), this.options.centery - item['value'], item['label']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20});
+          this.r.text(xPos+(item['width']/2), this.options.centery - item['value'], item['label']).attr({"fill": '#ffffff', "font-family": 'Gotham-Ultra', "font-size": 20});
         }
         
         if(typeof item.vlabel != 'undefined'){
