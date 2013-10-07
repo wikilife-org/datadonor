@@ -403,12 +403,13 @@ WorkAdapter = function(){
     
     var avgLabel = {
       pos: this.getValueHeight(json.avg, totalHeight, maxValue), 
-      text: json.avg.toString()+'\navg', 
+      text: 'years avg', 
       width: 1090, 
       type: 'dotted', 
       "stroke-width": 3, 
       color: '#7737c7', 
-      "text-color": "#7737c7"
+      "text-color": "#7737c7",
+      "font-size": 15
     }
     labels.push(avgLabel);
     
