@@ -445,6 +445,11 @@ window.onload = function () {
     $('.your_bmi h2').html(data.user_data.value);
   });
   
+  $.getJSON( "../../static/js/adapter/examples/user_exercise", function( data ) {
+    for(var i = 1; i <= data.length; i++){
+      $($('.you_cards ul li')[i]).html('<p><span>'+data[i-1].title+'</span><br />'+data[i-1].message+'</p>');
+    }
+  });
 };
 
 $(document).ready(function(){
