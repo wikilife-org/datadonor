@@ -387,12 +387,21 @@ EdBarChart = function(r, options){
       if(this.options.barsAxis == 'x'){
         st = r.set();
         xPos = this.options.centerx + item['pos'];
-        this.r.rect(xPos, this.options.centery, item['width'], 0).attr({
+        var bar = this.r.rect(xPos, this.options.centery, item['width'], 0).attr({
           fill: item['color'],
           "stroke-width": 0
         }).transform('r180').toBack().animate({
           height: item['value']
         }, 1000, 'bounce');
+        
+        if(typeof(this.elements[i].callback === 'function' && typeof this.elements[i].callback_args != 'undefined')){
+          bar.data('item-key', this.elements[i].key);
+          bar.click(function(){
+            console.log("CALLBACK!!!");
+            console.log(item.callback);
+            item.callback([this.data('item-key')]);
+          });
+        }
         
         if(typeof this.options.xAxis.labelsType == 'undefined' || this.options.xAxis.labelsType == 'automatic_bubble'){
           this.r.circle(xPos+(item['width']/2), this.options.centery - item['value'], 20).attr({"fill": '#3F4A5A', "stroke-width": 0});
@@ -574,13 +583,13 @@ EdSingleBarChart = function(r, elements, options){
     var diff = 15;
     var drawMainLabel = false;
     if(elemNo == 0){ 
-      console.log('FIRST BAR ELEMENT!');
+      //console.log('FIRST BAR ELEMENT!');
       diff = 60;
     }else if(elemNo == (this.elements.length-1)){
       diff = 45;
       drawMainLabel = true;
     }
-    console.log('DIFFF: '+diff);
+    //console.log('DIFFF: '+diff);
     
     var textX = x + width - diff;
     var textY = this.options.y+this.options.height/2;

@@ -101,104 +101,109 @@ EducationAdapter = function(){
   
 }
 
-WorkAdapter = function(){
-  
-  this.getParameters = function(json, totalHeight, maxValue){
-    
-    var elements = [];
-    var xLabels = [];
-    var yLabels = [];
-    result = {};
-    
-    elements = this.addElements(json, totalHeight, maxValue);
-    yLabels = this.getYLabels(json, totalHeight, maxValue);
-    
-    result.elements = elements;
-    result.yLabels = yLabels;
-    
-    return result;
-  }
-  
-  this.getValueHeight = function(value, totalHeight, maxValue){
-    var valuePercentage = (value*100)/maxValue;
-    var valueHeight = (valuePercentage*totalHeight)/100;
-    return valueHeight;
-  }
-  
-  this.addElements = function(json, totalHeight, maxValue){
-    var currentPos = 70;
-    var userItem = false;
-    var globalColor = '#7737c7';
-    var userColor = '#E56666';
-    var elements = [];
-    var userXp = '';
-    
-    if(typeof json.user_data.user_experience != 'undefined') userXp = json.user_data.user_experience.key;
-    
-    for(var prop in json.global_data){
-      var item = {
-        pos: currentPos,
-        color: globalColor,
-        label: json.global_data[prop]["value"],
-        value: this.getValueHeight(json.global_data[prop]["value"], totalHeight, maxValue)
-      }
-      if(json.global_data[prop]["key"] == userXp){
-        item.width = 90;
-        
-        var item2 = {
-          pos: currentPos+90,
-          width: 90,
-          color: userColor,
-          label: json.user_data.user_experience.value,
-          value: this.getValueHeight(json.user_data.user_experience.value, totalHeight, maxValue)
-        }
-        userItem = true;
-      }else{
-        item.width = 180;
-      }
-      
-      elements.push(item);
-      if(userItem) elements.push(item2);
-      userItem = false;
-      currentPos = currentPos + 190;
-    }
-    
-    return elements;
-  }
-  
-  this.getYLabels = function(json, totalHeight, maxValue){
-    var labels = [];
-    var currentY = 10;
-    
-    for(var i = 0; i < 6; i++){
-      var label = {
-        pos: this.getValueHeight(currentY, totalHeight, maxValue), 
-        text: currentY.toString(), 
-        width: 1090, 
-        type: 'dotted', 
-        "stroke-width": 3, 
-        color: '#F1F2F2', 
-        "text-color": "#ADB6BF"
-      }
-      labels.push(label);
-      currentY = currentY + 10;
-    }
-    
-    var avgLabel = {
-      pos: this.getValueHeight(json.avg, totalHeight, maxValue), 
-      text: json.avg.toString()+'\navg', 
-      width: 1090, 
-      type: 'dotted', 
-      "stroke-width": 3, 
-      color: '#7737c7', 
-      "text-color": "#7737c7"
-    }
-    labels.push(avgLabel);
-    
-    return labels;
-  }
-  
-}
+//WorkAdapter = function(){
+//  
+//  this.getParameters = function(json, totalHeight, maxValue, barsCallback){
+//    
+//    var elements = [];
+//    var xLabels = [];
+//    var yLabels = [];
+//    result = {};
+//    this.barsCallback = barsCallback;
+//    console.log('WORK ADAPTER PRAMS');
+//    console.log(this.barsCallback);
+//    
+//    elements = this.addElements(json, totalHeight, maxValue);
+//    yLabels = this.getYLabels(json, totalHeight, maxValue);
+//    
+//    result.elements = elements;
+//    result.yLabels = yLabels;
+//    
+//    return result;
+//  }
+//  
+//  this.getValueHeight = function(value, totalHeight, maxValue){
+//    var valuePercentage = (value*100)/maxValue;
+//    var valueHeight = (valuePercentage*totalHeight)/100;
+//    return valueHeight;
+//  }
+//  
+//  this.addElements = function(json, totalHeight, maxValue){
+//    var currentPos = 70;
+//    var userItem = false;
+//    var globalColor = '#7737c7';
+//    var userColor = '#E56666';
+//    var elements = [];
+//    var userXp = '';
+//    
+//    if(typeof json.user_data.user_experience != 'undefined') userXp = json.user_data.user_experience.key;
+//    
+//    for(var prop in json.global_data){
+//      var item = {
+//        pos: currentPos,
+//        color: globalColor,
+//        label: json.global_data[prop]["value"],
+//        value: this.getValueHeight(json.global_data[prop]["value"], totalHeight, maxValue),
+//        callback: this.barsCallback,
+//        callback_args: [json.global_data[prop]["key"]]
+//      }
+//      if(json.global_data[prop]["key"] == userXp){
+//        item.width = 90;
+//        
+//        var item2 = {
+//          pos: currentPos+90,
+//          width: 90,
+//          color: userColor,
+//          label: json.user_data.user_experience.value,
+//          value: this.getValueHeight(json.user_data.user_experience.value, totalHeight, maxValue)
+//        }
+//        userItem = true;
+//      }else{
+//        item.width = 180;
+//      }
+//      
+//      elements.push(item);
+//      if(userItem) elements.push(item2);
+//      userItem = false;
+//      currentPos = currentPos + 190;
+//    }
+//    
+//    return elements;
+//  }
+//  
+//  this.getYLabels = function(json, totalHeight, maxValue){
+//    var labels = [];
+//    var currentY = 10;
+//    
+//    for(var i = 0; i < 6; i++){
+//      var label = {
+//        pos: this.getValueHeight(currentY, totalHeight, maxValue), 
+//        text: currentY.toString(), 
+//        width: 1090, 
+//        type: 'dotted', 
+//        "stroke-width": 3, 
+//        color: '#F1F2F2', 
+//        "text-color": "#ADB6BF"
+//      }
+//      labels.push(label);
+//      currentY = currentY + 10;
+//    }
+//    
+//    var avgLabel = {
+//      pos: this.getValueHeight(json.avg, totalHeight, maxValue), 
+//      text: json.avg.toString()+'\navg', 
+//      width: 1090, 
+//      type: 'dotted', 
+//      "stroke-width": 3, 
+//      color: '#7737c7', 
+//      "text-color": "#7737c7"
+//    }
+//    labels.push(avgLabel);
+//    
+//    return labels;
+//  }
+//  
+//}
 
 StepsAdapter = function(){
   
@@ -320,12 +325,14 @@ StepsAdapter = function(){
 
 WorkAdapter = function(){
   
-  this.getParameters = function(json, totalHeight, maxValue){
+  this.getParameters = function(json, totalHeight, maxValue, barsCallback){
     
     var elements = [];
     var xLabels = [];
     var yLabels = [];
     result = {};
+    this.barsCallback = barsCallback;
+    console.log('WORK ADAPTER PRAMS');
     
     elements = this.addElements(json, totalHeight, maxValue);
     yLabels = this.getYLabels(json, totalHeight, maxValue);
@@ -353,11 +360,15 @@ WorkAdapter = function(){
     if(typeof json.user_data.user_experience != 'undefined') userXp = json.user_data.user_experience.key;
     
     for(var prop in json.global_data){
+      console.log(json.global_data[prop]["key"]);
       var item = {
         pos: currentPos,
         color: globalColor,
         label: json.global_data[prop]["value"],
-        value: this.getValueHeight(json.global_data[prop]["value"], totalHeight, maxValue)
+        value: this.getValueHeight(json.global_data[prop]["value"], totalHeight, maxValue),
+        key: json.global_data[prop]["key"],
+        callback: this.barsCallback,
+        callback_args: [prop]
       }
       if(json.global_data[prop]["key"] == userXp){
         item.width = 90;
@@ -476,7 +487,7 @@ MilesAdapter = function(){
   }
   
   this.getYLabels = function(json, totalHeight, maxValue, yLabels){
-    console.log(yLabels);
+    //console.log(yLabels);
     var labels = [];
     var currentY = 10;
     
@@ -590,7 +601,7 @@ HoursAdapter = function(){
   }
   
   this.getYLabels = function(json, totalHeight, maxValue, yLabels){
-    console.log(yLabels);
+    //console.log(yLabels);
     var labels = [];
     var currentY = 10;
     

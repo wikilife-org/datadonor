@@ -5,6 +5,12 @@ var animatedQuarterPie;
 var doubleAxisParams;
 var SingleBarChart;
 
+function workCallback(args){
+  //$('#age_input li a[data-key=15-25]');
+  console.log(args);
+  $('#age_input li a[data-key='+args[0]+']').click();
+}
+
 function drawSocialGraph(elments1, elements2){
 	  var r_1_1 = Raphael('canvas_1_1', 420, 420);
 	  animatedPie = new EdAnimatedPie(r_1_1, elments1, {
@@ -152,8 +158,10 @@ function drawEducationGraph(data){
 }
 
 function drawWorkGraph(data){
+  console.log('PRE PARAMS WORK');
   var adapter = new WorkAdapter();
-  var result = adapter.getParameters(data, 423, 80);
+  var result = adapter.getParameters(data, 423, 80, workCallback);
+  console.log('POST PARAMS WORK');
   var r_4_1 = Raphael('canvas_4_1', 1093, 423);
   doubleAxisParams = {
     axis: 'both',
