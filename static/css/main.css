@@ -758,8 +758,8 @@ a:hover {
 	position: relative;
 }
 .step_one .centered_container {
-	width: 930px;
-	min-height: 720px;
+	width: 1050px;
+	height: 745px;
 }
 
 /* --- nav steps fixed */
@@ -951,7 +951,7 @@ a:hover {
 /* ------- top*/
 .step_one .centered_container .top {
 	width: 100%;
-	padding: 40px 0px 40px 0px;
+	padding: 40px 0px 110px 0px;
 	text-align: center;
 }
 .step_one .centered_container .top img {
@@ -973,15 +973,102 @@ a:hover {
 }
 
 /* -------- bottom */
-.step_one .centered_container .bottom .bloque {
-	width: 400px;
-	min-height: 390px;
+.step_one .centered_container .bottom {
+	text-align: center;
 }
-.step_one .centered_container .bottom .bloque.left {
+.step_one .centered_container .bottom .block {
+	width: 260px;
+	height: 150px;
 	float: left;
+	margin-bottom: 30px;
+	margin-left: 70px;
 }
-.step_one .centered_container .bottom .bloque.right {
-	float: right;
+
+/* --- tittle */
+.step_one .centered_container .bottom .block .tittle {
+	width: 100%;
+	border-bottom: 1px solid #C9C8C7;
+	text-align: left;
+	padding-bottom: 5px;
+}
+.step_one .centered_container .bottom .block .tittle h2 {
+	color: #808080;
+	font-size: 18px;
+	font-family: 'Omnes-bold';
+}
+.step_one .centered_container .bottom .block .stats_graph {
+	width: 185px;
+	padding-left: 75px;
+	height: 100px;
+	background-position: left 16px;
+	background-repeat: no-repeat;
+	position: relative;
+	top: 10px;
+}
+.step_one .centered_container .bottom .block .stats_graph ul {
+	width: 250px;
+	text-align: left;
+	top: -5px;
+	position: relative;
+}
+.step_one .centered_container .bottom .block .stats_graph ul li {
+	display: inline-table;
+	margin-left: 5px;
+}
+.step_one .centered_container .bottom .block .stats_graph ul li:first-child {
+	margin-left: 0px;
+}
+.step_one .centered_container .bottom .block .stats_graph ul li h2,
+.step_one .centered_container .bottom .block .stats_graph ul li h2 .global_data,
+.step_one .centered_container .bottom .block .stats_graph ul li h2 .user_data{
+	width: 45%;
+	font-family: 'Omnes-Semibold';
+	font-size: 70px !important;
+}
+.step_one .centered_container .bottom .block .stats_graph ul li h2 span {
+	font-size: 18px;
+	font-family: 'Omnes-bold';
+}
+.step_one .centered_container .bottom .block .stats_graph ul li h2.color_one {
+	color: #7737c7;
+}
+.step_one .centered_container .bottom .block .stats_graph ul li h2.color_two {
+	color: #FF836F;
+}
+.step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
+	font-size: 53px !important;
+	top:0px;
+}
+.step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
+	position:relative;
+	top:7px;
+	font-size: 14px;
+}
+.Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
+	top:-8px;
+}
+.Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
+	top: 0px;
+}
+
+/* --- social networks icons */
+.step_one .centered_container .bottom .block.reference .stats_graph {
+	background-image: url(../img/step_1/reference.png);
+}
+.step_one .centered_container .bottom .block.twitter .stats_graph {
+	background-image: url(../img/step_1/twitter.png);
+}
+.step_one .centered_container .bottom .block.facebook .stats_graph {
+	background-image: url(../img/step_1/facebook.png);
+}
+.step_one .centered_container .bottom .block.google_plus .stats_graph {
+	background-image: url(../img/step_1/google_plus.png);
+}
+.step_one .centered_container .bottom .block.linkedin .stats_graph {
+	background-image: url(../img/step_1/linkedin.png);
+}
+.step_one .centered_container .bottom .block.foursquare .stats_graph {
+	background-image: url(../img/step_1/foursquare.png);
 }
 
 /* @end */
@@ -1118,6 +1205,12 @@ a:hover {
 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one span {
 	position:relative;
 	top:4px;
+}
+.Safari .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one .global_data {
+	top: -3px;
+}
+.Safari .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one span {
+	top: 1px;
 }
 
 /* @end */
@@ -1316,7 +1409,7 @@ a:hover {
 .step_four .centered_container {
 	width: 1093px;
 	padding-top: 60px;
-	padding-bottom: 100px;
+	padding-bottom: 60px;
 }
 
 /* --- top */
@@ -1466,6 +1559,75 @@ a:hover {
 	font-family: 'Omnes-Semibold'!important;
 	color: #AEB7C0;
 	font-size: 18px;
+}
+
+/* --- stats */
+.step_four .centered_container .stats_bottom {
+	width: 100%;
+	margin-top: 60px;
+}
+.step_four .centered_container .stats_bottom .bloq {
+	width: 337px;
+}
+.step_four .centered_container .stats_bottom .bloq > h2 {
+	width: 100%;
+	display: inline-block;
+	border-bottom: 1px solid #CDCECF;
+	padding-bottom: 11px;
+	font-size: 20px;
+	font-family: 'Omnes-Semibold';
+}
+.step_four .centered_container .stats_bottom .bloq .number_stat {
+	width: 100%;
+	height: auto;
+	padding: 20px 0px 20px 0px;
+	position: relative;
+	text-align: right;
+}
+.step_four .centered_container .stats_bottom .bloq .number_stat h2 {
+	font-size: 140px;
+	font-family: 'Omnes-Semibold';
+	letter-spacing: -2px;
+	margin-right: 120px;
+}
+.step_four .centered_container .stats_bottom .bloq .number_stat .ico_right {
+	width: 77px;
+	height: 74px;
+	position: absolute;
+	top: 50%;
+	margin-top: -40px;
+	right: 10px;
+	background-repeat: no-repeat;
+}
+
+/* ------ left */
+.step_four .centered_container .stats_bottom .bloq.left {
+	float: left;
+	margin-left: 150px;
+}
+.step_four .centered_container .stats_bottom .bloq.left .number_stat .ico_right {
+	background-image: url(../img/step_4/ico_big_1.png);
+}
+.step_four .centered_container .stats_bottom .bloq.left .number_stat h2 {
+	color: #7737c7;
+}
+.step_four .centered_container .stats_bottom .bloq.left > h2 {
+	color: #7737c7;
+}
+
+/* ------ right */
+.step_four .centered_container .stats_bottom .bloq.right {
+	float: right;
+	margin-right: 150px;
+}
+.step_four .centered_container .stats_bottom .bloq.right .number_stat .ico_right {
+	background-image: url(../img/step_4/ico_big_2.png);
+}
+.step_four .centered_container .stats_bottom .bloq.right .number_stat h2 {
+	color: #e56666;
+}
+.step_four .centered_container .stats_bottom .bloq.right > h2 {
+	color: #e56666;
 }
 
 /* @end */
