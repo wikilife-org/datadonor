@@ -3,19 +3,17 @@
 
 <head>
 
-	<title>DataDonors</title>
+	<title>DATADONORS</title>
 	
 	<!-- Metatags -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="description" content="#" />
-	<meta name="keywords" content="#" />
-	<meta name="author" content="#"/>
-	<meta name="robots" content="index,follow"/>
 	
 	<!-- Iconos -->
 	<link rel="shortcut icon" type="image/x-icon" href="image/#.ico"/>
 	
 	<!-- Styles -->
+	<link href="/static/css/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
 	<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
 	
 	<!-- Javascript -->
@@ -29,6 +27,7 @@
     <script type="text/javascript" src="/static/js/ed.eventListeners.js"></script>
     <script type="text/javascript" src="/static/js/ed.stickyHeader.js"></script>
     <script type="text/javascript" src="/static/js/adapter/graph_params_adapter.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui-1.10.3.custom.js"></script>
 	<script type="text/javascript" src="/static/js/funciones.js"></script>
     <script type="text/javascript" src="/static/js/main.js"></script>
    
@@ -114,27 +113,16 @@
 			<!--logo-->
 			<div class="logo">
 				<h1>
-					<a href="/">DATADONORS</a>
+					<a href="index.html">DATADONORS</a>
 				</h1>
 			</div>
 			<!--/logo-->
 			
-			<!--header_text-->
-			<div class="header_text">
-				<p>What if we could save lives with what we do every day?</p>
+			<!--logout-->
+			<div class="logout_boton">
+				<a href="#">logout</a>
 			</div>
-			<!--/header_text-->
-	
-			<!--social_header-->
-			<div class="header_social">
-				<ul>
-					<li><a href="https://www.facebook.com/datadonors" target="_blank" class="facebook">facebook</a></li>
-					<li><a href="http://twitter.com/DataDonors"  target="_blank" class="twitter">twitter</a></li>
-					<li><a href="mailto:info@datadonors.org" target="_blank" class="email">email</a></li>
-				</ul>
-				<div class="clear"></div>
-			</div>
-			<!--/social_header-->
+			<!--/logout-->
 			
 			<div class="clear"></div>
 			
@@ -142,98 +130,64 @@
 	</div>
 	<!--/header-->
 	
-	<!--presentation-->
-	<div class="full_container presentation">
-		<div class="centered_container">
-			
-			<h3>NOW THAT YOU'VE DECIDED TO SHARE</h3>
-			<h2>let's get started</h2>
-			<p>We are used to share everything online. It's what we do every day<br />But, is that sharing helping anyone?</p>
-			
-		</div>
-	</div>
-	<!--/presentation-->
-	
-	
 	<!-- SOCIAL NETWORKS -->
 	
 	<!--social_nav-->
 	<div class="full_container big_social_login sticky" data-step_nav="nav_one" id="social_nav_one">
 		<div class="centered_container">
 			
-			<!--trigger_social_nav-->
-			<div class="trigger_social_choice">
-				<ul>
-					<li><a href="#">Click or tap to select</a></li>
-					<li><a class="ico_trigger" href="#">trigger</a></li>
-					<li><a href="#">your social networks</a></li>
-				</ul>
-			</div>
-			<!--/trigger_social_nav-->
+
+			<!--sector_icon-->
+			<div class="sector_icon"></div>
+			<!--/sector_icon-->
 			
-			<!--social_choice-->
-			<div class="social_choice">
-			
-				<h2>Click or tap to select</h2>
-				
-				<!--social-->
-				<ul class="nav_big_social">
-				
-					{% if "twitter" in social_auth.social.associated %}
-					<li class="active"><a href="{% url "socialauth_disconnect" "twitter" %}" class="twitter">twitter</a></li>
-					{% else %}
-					<li><a href="{% url "socialauth_begin" "twitter" %}" class="twitter">twitter</a></li>
-					{% endif%}
-					{% if "facebook" in social_auth.social.associated %}
-					<li class="active" ><a href="{% url "socialauth_disconnect" "facebook" %}" class="facebook">facebook</a></li>
-					{% else %}
-					<li><a href="{% url "socialauth_begin" "facebook" %}" class="facebook">facebook</a></li>
-					{% endif%}
-					{% if "linkedin-oauth2" in social_auth.social.associated %}
-					<li class="active"><a href="{% url "socialauth_disconnect" "linkedin-oauth2" %}" class="linkedin">linkedin</a></li>
-					{% else %}
-					<li><a href="{% url "socialauth_begin" "linkedin-oauth2" %}" class="linkedin">linkedin</a></li>
-					{% endif%}
-					{% if "google-oauth2" in social_auth.social.associated %}
-					<li class="active"><a href="{% url "socialauth_disconnect" "google-oauth2" %}" class="gmail">gmail</a></li>
-					{% else %}
-					<li><a href="{% url "socialauth_begin" "google-oauth2" %}" class="gmail">gmail</a></li>
-					{% endif%}
-					{% if "foursquare" in social_auth.social.associated %}
-					<li class="active"><a href="{% url "socialauth_disconnect" "foursquare" %}" class="foursquare">foursquare</a></li>
-					{% else %}
-					<li><a href="{% url "socialauth_begin" "foursquare" %}" class="foursquare">foursquare</a></li>
-					{% endif%}
-					{% comment %}
-					{% if "evernote" in social_auth.social.associated %}
-					<li class="active"><a href="{% url "socialauth_disconnect" "evernote" %}" class="evernote">evernote</a></li>
-					{% else %}
-					<li><a href="{% url "socialauth_begin" "evernote" %}" class="evernote">evernote</a></li>
-					{% endif%}
-					{% endcomment %}
-				</ul>
-				<!--/social-->
-				
-				<!--close_social_nav-->
-				<div class="close_big_nav">
-					<a href="#">close nav</a>
+			<!--social-->
+			<div class="social_icons">
+				<div class="overflow_icons">
+					
+					<!--social_networks-->
+					<ul class="nav_big_social">
+					
+						{% if "twitter" in social_auth.social.associated %}
+						<li class="active"><a href="{% url "socialauth_disconnect" "twitter" %}" class="twitter">twitter</a></li>
+						{% else %}
+						<li><a href="{% url "socialauth_begin" "twitter" %}" class="twitter">twitter</a></li>
+						{% endif%}
+						{% if "facebook" in social_auth.social.associated %}
+						<li class="active" ><a href="{% url "socialauth_disconnect" "facebook" %}" class="facebook">facebook</a></li>
+						{% else %}
+						<li><a href="{% url "socialauth_begin" "facebook" %}" class="facebook">facebook</a></li>
+						{% endif%}
+						{% if "linkedin-oauth2" in social_auth.social.associated %}
+						<li class="active"><a href="{% url "socialauth_disconnect" "linkedin-oauth2" %}" class="linkedin">linkedin</a></li>
+						{% else %}
+						<li><a href="{% url "socialauth_begin" "linkedin-oauth2" %}" class="linkedin">linkedin</a></li>
+						{% endif%}
+						{% if "google-oauth2" in social_auth.social.associated %}
+						<li class="active"><a href="{% url "socialauth_disconnect" "google-oauth2" %}" class="gmail">gmail</a></li>
+						{% else %}
+						<li><a href="{% url "socialauth_begin" "google-oauth2" %}" class="gmail">gmail</a></li>
+						{% endif%}
+						{% if "foursquare" in social_auth.social.associated %}
+						<li class="active"><a href="{% url "socialauth_disconnect" "foursquare" %}" class="foursquare">foursquare</a></li>
+						{% else %}
+						<li><a href="{% url "socialauth_begin" "foursquare" %}" class="foursquare">foursquare</a></li>
+						{% endif%}
+						{% comment %}
+						{% if "evernote" in social_auth.social.associated %}
+						<li class="active"><a href="{% url "socialauth_disconnect" "evernote" %}" class="evernote">evernote</a></li>
+						{% else %}
+						<li><a href="{% url "socialauth_begin" "evernote" %}" class="evernote">evernote</a></li>
+						{% endif%}
+						{% endcomment %}
+					</ul>
+					<!--/social_networks-->
+					
 				</div>
-				<!--/close_social_nav-->
+			</div>
+			<!--/social-->
 				
-				<div class="clear"></div>
-			
-			</div>
-			<!--/social_choice-->
-			
-			<!--done-->
-			<div class="confirm_social">
-				<a href="#">done !</a>
-			</div>
-			<!--/done-->
-			
-			<!--arrow-->
-			<div class="arrow_bottom"></div>
-			<!--/arrow-->
+			<div class="clear"></div>
 			
 		</div>
 	</div>
@@ -653,55 +607,33 @@
 	<div class="full_container big_social_login sticky" data-step_nav="nav_two" id="social_nav_two">
 		<div class="centered_container">
 			
-			<!--trigger_social_nav-->
-			<div class="trigger_social_choice">
-				<ul>
-					<li><a href="#">Click or tap to select</a></li>
-					<li><a class="ico_trigger" href="#">trigger</a></li>
-					<li><a href="#">your fitness devices</a></li>
-				</ul>
-			</div>
-			<!--/trigger_social_nav-->
+			<!--sector_icon-->
+			<div class="sector_icon"></div>
+			<!--/sector_icon-->
 			
-			<!--social_choice-->
-			<div class="social_choice">
-			
-				<h2>Click or tap to select</h2>
-				
-				<!--social-->
-				<ul class="nav_big_social physical_networks">
-					<li><a href="#" class="fatsecret">fatsecret</a></li>
-					<li><a href="#" class="myfitness">myfitness</a></li>
-                                        <li><a href="#" class="bodymedia">bodymedia</a></li>
-                                        <li><a href="#" class="dailymile">dailymile</a></li>
-                                        <li><a href="#" class="runkeeper">runkeeper</a></li>
-                                        <li><a href="#" class="nike">nike</a></li>
-                                        <li><a href="#" class="fitbit">fitbit</a></li>
-                                        <li><a href="#" class="jewbone">jewbone</a></li>
-                                        <li><a href="#" class="ihealth">ihealth</a></li>
-				</ul>
-				<!--/social-->
-				
-				<!--close_social_nav-->
-				<div class="close_big_nav">
-					<a href="#">close nav</a>
+			<!--social-->
+			<div class="social_icons">
+				<div class="overflow_icons">
+					
+					<!--social_networks-->
+					<ul class="nav_big_social physical_networks">
+						<li class="active"><a href="#" class="fatsecret">fatsecret</a></li>
+						<li><a href="#" class="myfitness">myfitness</a></li>
+					    <li><a href="#" class="bodymedia">bodymedia</a></li>
+	                    <li><a href="#" class="dailymile">dailymile</a></li>
+	                    <li><a href="#" class="runkeeper">runkeeper</a></li>
+	                    <li><a href="#" class="nike">nike</a></li>
+	                    <li><a href="#" class="fitbit">fitbit</a></li>
+	                    <li><a href="#" class="jewbone">jewbone</a></li>
+	                    <li><a href="#" class="ihealth">ihealth</a></li>
+					</ul>
+					<!--/social_networks-->
+										
 				</div>
-				<!--/close_social_nav-->
-				
-				<div class="clear"></div>
-			
 			</div>
-			<!--/social_choice-->
+			<!--/social-->
 			
-			<!--done-->
-			<div class="confirm_social">
-				<a href="#">done !</a>
-			</div>
-			<!--/done-->
-			
-			<!--arrow-->
-			<div class="arrow_bottom"></div>
-			<!--/arrow-->
+			<div class="clear"></div>
 			
 		</div>
 	</div>
@@ -1022,49 +954,27 @@
 	<div class="full_container big_social_login sticky" data-step_nav="nav_three" id="social_nav_three">
 		<div class="centered_container">
 			
-			<!--trigger_social_nav-->
-			<div class="trigger_social_choice">
-				<ul>
-					<li><a href="#">Click or tap to select</a></li>
-					<li><a class="ico_trigger" href="#">trigger</a></li>
-					<li><a href="#">your nutrition devices</a></li>
-				</ul>
-			</div>
-			<!--/trigger_social_nav-->
+			<!--sector_icon-->
+			<div class="sector_icon"></div>
+			<!--/sector_icon-->
 			
-			<!--social_choice-->
-			<div class="social_choice">
-			
-				<h2>Click or tap to select</h2>
-				
-				<!--social-->
-				<ul class="nav_big_social physical_networks">
-					<li><a href="#" class="fatsecret">fatsecret</a></li>
-					<li><a href="#" class="fatsecret">wikilife</a></li>
-                    <li><a href="#" class="fatsecret">withings</a></li>
-				</ul>
-				<!--/social-->
-				
-				<!--close_social_nav-->
-				<div class="close_big_nav">
-					<a href="#">close nav</a>
+			<!--social-->
+			<div class="social_icons">
+				<div class="overflow_icons">
+					
+					<!--social_networks-->
+					<ul class="nav_big_social nutrition_networks">
+						<li class="active"><a href="#" class="fatsecret">fatsecret</a></li>
+						<li><a href="#" class="wikilife">wikilife</a></li>
+					    <li><a href="#" class="withings">withings</a></li>
+					</ul>
+					<!--/social_networks-->
+										
 				</div>
-				<!--/close_social_nav-->
-				
-				<div class="clear"></div>
-			
 			</div>
-			<!--/social_choice-->
+			<!--/social-->
 			
-			<!--done-->
-			<div class="confirm_social">
-				<a href="#">done !</a>
-			</div>
-			<!--/done-->
-			
-			<!--arrow-->
-			<div class="arrow_bottom"></div>
-			<!--/arrow-->
+			<div class="clear"></div>
 			
 		</div>
 	</div>
@@ -1073,18 +983,389 @@
 	<!--step_eight-->
 	<div class="full_container step_eight" id="step_eight">
 		<div class="centered_container">
+		
+		<!--top-->
+		<div class="top">
+			<img src="/static/img/step_8/number.png" alt="1" />
+			<h2>Food group consumption</h2>
+			<p>How many times of each<br />food group you consumed per week?</p>
+		</div>
+		<!--/top-->
+		
+		<!-- 
+		
+		INFORMACION GRAFICO: 
+		- agregando left/right sobre .stats el mismo se ubica del lado derecho o izquierdo
+		- Dentro de .icon_stats va la imagen que representa la porción de piramide
+		- Si .bottom tiene la class .without_user refleja datos sin estar logeado, al quitarsela se muestran los stast del usuario logeado
+			- los datos de usuario no logeado estan dentro de .block.three mientras que en .block.one/.block.two los datos del usuario logeado
 			
-			<!--top-->
-			<div class="top">
-				<img src="/static/img/step_1/number_1.png" alt="1" />
-				<h2>Share the way<br />you eat</h2>
-				<p>And tell us about your eating habits</p>
+		
+		-->
+		
+		<!--bottom-->
+		<div class="bottom without_user" id="container_pyramid">
+		
+			<!--shelf_one-->
+			<div class="shelf one">
+				
+				<!--stat_food-->
+				<div class="stat right">
+					
+					<!--numbers-->
+					<div class="numbers">
+						
+						<!--one-->
+						<div class="block one">
+							<h2>05<br /><span>You</span></h2>
+						</div>
+						<!--/one-->
+						
+						<!--two-->
+						<div class="block two">
+							<h2>04<br /><span>All</span></h2>
+						</div>
+						<!--/two-->
+						
+						<!--three_without_user-->
+						<div class="block three">
+							<h2>05<br /><span>All</span></h2>
+						</div>
+						<!--/three_without_user-->
+						
+						<div class="clear"></div>
+						
+					</div>
+					<!--/numbers-->
+					
+					<!--icon_stat-->
+					<div class="icon_stat">
+						<img src="/static/img/step_8/sweets.png" alt="sweet" />
+					</div>
+					<!--icon_stat-->
+					
+				</div>
+				<!--stat_food-->
+			
 			</div>
-			<!--/top-->
+			<!--/shelf_one-->
+			
+			<!--shelf_two-->
+			<div class="shelf two">
+			
+				<!--stat_food-->
+				<div class="stat left">
+				
+					<!--numbers-->
+					<div class="numbers">
+						
+						<!--one-->
+						<div class="block one">
+							<h2>12<br /><span>You</span></h2>
+						</div>
+						<!--/one-->
+						
+						<!--two-->
+						<div class="block two">
+							<h2>07<br /><span>All</span></h2>
+						</div>
+						<!--/two-->
+						
+						<!--three_without_user-->
+						<div class="block three">
+							<h2>12<br /><span>All</span></h2>
+						</div>
+						<!--/three_without_user-->
+						
+						<div class="clear"></div>
+						
+					</div>
+					<!--/numbers-->
+				
+					<!--icon_stat-->
+					<div class="icon_stat">
+						<img src="/static/img/step_8/fats.png" alt="fats" />
+					</div>
+					<!--icon_stat-->
+				
+				</div>
+				<!--stat_food-->
+			
+			</div>
+			<!--/shelf_two-->
+			
+			<!--shelf_three-->
+			<div class="shelf three">
+			
+				<!--stat_food-->
+				<div class="stat left">
+				
+					<!--numbers-->
+					<div class="numbers">
+						
+						<!--one-->
+						<div class="block one">
+							<h2>21<br /><span>You</span></h2>
+						</div>
+						<!--/one-->
+						
+						<!--two-->
+						<div class="block two">
+							<h2>23<br /><span>All</span></h2>
+						</div>
+						<!--/two-->
+						
+						<!--three_without_user-->
+						<div class="block three">
+							<h2>21<br /><span>All</span></h2>
+						</div>
+						<!--/three_without_user-->
+						
+						<div class="clear"></div>
+						
+					</div>
+					<!--/numbers-->
+				
+					<!--icon_stat-->
+					<div class="icon_stat">
+						<img src="/static/img/step_8/dairy.png" alt="dairy" />
+					</div>
+					<!--icon_stat-->
+				
+				</div>
+				<!--stat_food-->
+				
+				<!--stat_food-->
+				<div class="stat right">
+				
+					<!--numbers-->
+					<div class="numbers">
+						
+						<!--one-->
+						<div class="block one">
+							<h2>02<br /><span>You</span></h2>
+						</div>
+						<!--/one-->
+						
+						<!--two-->
+						<div class="block two">
+							<h2>03<br /><span>All</span></h2>
+						</div>
+						<!--/two-->
+						
+						<!--three_without_user-->
+						<div class="block three">
+							<h2>02<br /><span>All</span></h2>
+						</div>
+						<!--/three_without_user-->
+						
+						<div class="clear"></div>
+						
+					</div>
+					<!--/numbers-->
+				
+					<!--icon_stat-->
+					<div class="icon_stat">
+						<img src="/static/img/step_8/meat.png" alt="meat" />
+					</div>
+					<!--icon_stat-->
+				
+				</div>
+				<!--stat_food-->
+			
+			</div>
+			<!--/shelf_three-->
+			
+			<!--shelf_four-->
+			<div class="shelf four">
+			
+				<!--stat_food-->
+				<div class="stat left">
+				
+					<!--numbers-->
+					<div class="numbers">
+						
+						<!--one-->
+						<div class="block one">
+							<h2>23<br /><span>You</span></h2>
+						</div>
+						<!--/one-->
+						
+						<!--two-->
+						<div class="block two">
+							<h2>17<br /><span>All</span></h2>
+						</div>
+						<!--/two-->
+						
+						<!--three_without_user-->
+						<div class="block three">
+							<h2>23<br /><span>All</span></h2>
+						</div>
+						<!--/three_without_user-->
+						
+						<div class="clear"></div>
+						
+					</div>
+					<!--/numbers-->
+				
+					<!--icon_stat-->
+					<div class="icon_stat">
+						<img src="/static/img/step_8/fruit.png" alt="fruit" />
+					</div>
+					<!--icon_stat-->
+				
+				</div>
+				<!--stat_food-->
+				
+				<!--stat_food-->
+				<div class="stat right">
+				
+					<!--numbers-->
+					<div class="numbers">
+						
+						<!--one-->
+						<div class="block one">
+							<h2>14<br /><span>You</span></h2>
+						</div>
+						<!--/one-->
+						
+						<!--two-->
+						<div class="block two">
+							<h2>12<br /><span>All</span></h2>
+						</div>
+						<!--/two-->
+						
+						<!--three_without_user-->
+						<div class="block three">
+							<h2>14<br /><span>All</span></h2>
+						</div>
+						<!--/three_without_user-->
+						
+						<div class="clear"></div>
+						
+					</div>
+					<!--/numbers-->
+				
+					<!--icon_stat-->
+					<div class="icon_stat">
+						<img src="/static/img/step_8/vegetables.png" alt="vegetables" />
+					</div>
+					<!--icon_stat-->
+				
+				</div>
+				<!--stat_food-->
+			
+			</div>
+			<!--/shelf_four-->
+			
+			<!--shelf_five-->
+			<div class="shelf five">
+				
+				<!--stat_food-->
+				<div class="stat left">
+				
+					<!--numbers-->
+					<div class="numbers">
+						
+						<!--one-->
+						<div class="block one">
+							<h2>38<br /><span>You</span></h2>
+						</div>
+						<!--/one-->
+						
+						<!--two-->
+						<div class="block two">
+							<h2>36<br /><span>All</span></h2>
+						</div>
+						<!--/two-->
+						
+						<!--three_without_user-->
+						<div class="block three">
+							<h2>36<br /><span>All</span></h2>
+						</div>
+						<!--/three_without_user-->
+						
+						<div class="clear"></div>
+						
+					</div>
+					<!--/numbers-->
+				
+					<!--icon_stat-->
+					<div class="icon_stat">
+						<img src="/static/img/step_8/berverages.png" alt="berverages" />
+					</div>
+					<!--icon_stat-->
+				
+				</div>
+				<!--stat_food-->
+				
+				<!--stat_food-->
+				<div class="stat right">
+					
+					<!--numbers-->
+					<div class="numbers">
+						
+						<!--one-->
+						<div class="block one">
+							<h2>07<br /><span>You</span></h2>
+						</div>
+						<!--/one-->
+						
+						<!--two-->
+						<div class="block two">
+							<h2>03<br /><span>All</span></h2>
+						</div>
+						<!--/two-->
+						
+						<!--three_without_user-->
+						<div class="block three">
+							<h2>07<br /><span>All</span></h2>
+						</div>
+						<!--/three_without_user-->
+						
+						<div class="clear"></div>
+						
+					</div>
+					<!--/numbers-->
+					
+					<!--icon_stat-->
+					<div class="icon_stat">
+						<img src="/static/img/step_8/grains.png" alt="grains" />
+					</div>
+					<!--icon_stat-->
+				
+				</div>
+				<!--stat_food-->
+				
+			</div>
+			<!--/shelf_five-->
+			
+			<!--preload_pyramid_img-->
+			<div class="pre_back_purple"></div>
+			<div class="pre_back"></div>
+			<!--/preload_pyramid_img-->
+			
+			<!--BORRAR SOLO EJEMPLO DE MAQUETA-->
+			<div id="remove_class">
+				
+				<a href="#" id="remove_clas">Show user data logged</a>
+				
+				<script type="text/javascript">
+					$('#remove_clas').click(function (event) {
+						event.preventDefault();
+						$('#container_pyramid').toggleClass('without_user');
+					});
+				</script>
+				
+			</div>
+			<!--BORRAR SOLO EJEMPLO DE MAQUETA-->
 			
 		</div>
-	</div>
-	<!--/step_eight-->
+		<!--/bottom-->
+		
+	            </div>
+	    </div>
+	    <!--/step_eight-->
 	
 	<!--step_nine-->
 	<div class="full_container step_nine" id="step_nine">
@@ -1101,12 +1382,18 @@
 			<div class="bottom">
 			
 				<!--graph_uno-->
-				<div class="graph one"></div>
+				<div class="graph one">
+	      			<div id="canvas_9_1"></div>
+				</div>
 				<!--/graph_uno-->
 				
 				<!--graph_dos-->
-				<div class="graph two"></div>
+				<div class="graph two">
+	     			 <div id="canvas_9_2"></div>
+				</div>
 				<!--/graph_dos-->
+	      
+	    
 			
 			</div>
 			<!--bottom-->
@@ -1121,8 +1408,10 @@
 		
 		<div class="centered_container">
 			
+			<!--varia la figura de sexo con las clases .man .woman -->
+			
 			<!--stats_weight-->
-			<div class="stats">
+			<div class="stats man">
 				
 				<!--description-->
 				<div class="block one">
@@ -1135,13 +1424,13 @@
 				<div class="block two">
 					
 					<!--top-->
-					<div class="top">
+					<div class="top weight_values">
 						<ul>
 							<li class="man">
-								<h2>120<br /><span>lbs</span></h2>
+								<h2><span class="value">120</span><br /><span>Lbs</span></h2>
 							</li>
 							<li class="woman">
-								<h2>94<br /><span>lbs</span></h2>
+								<h2><span class="value">94</span><br /><span>Lbs</span></h2>
 							</li>
 						</ul>
 						<div class="clear"></div>
@@ -1158,7 +1447,28 @@
 				<!--/overall-->
 				
 				<!--your_weight-->
-				<div class="block three"></div>
+				<div class="block three">
+				
+					<!--top-->
+					<div class="top">
+						<h2 id="weight_number">112</h2>
+						<p>Lbs</p>
+					</div>
+					<!--/top-->
+					
+					<!--slider_content-->
+					<div class="slider_container">
+						<div id="weight_slider"></div>
+					</div>
+					<!--/slider_content-->
+					
+					<!--bottom-->
+					<div class="bottom">
+						<h2>Indicate your weight</h2>
+					</div>
+					<!--/bottom-->
+				
+				</div>
 				<!--/your_weight-->
 				
 				<div class="clear"></div>
@@ -1166,12 +1476,12 @@
 			<!--/stats_weight-->
 			
 			<!--stats_height-->
-			<div class="stats">
+			<div class="stats man">
 				
 				<!--description-->
 				<div class="block one">
 					<h2>Height</h2>
-					<p>Share the inches<br />that stay<br />between your<br />hair and feet</p>
+					<p>Share the inches<br />that stay between your<br />hair and feet</p>
 				</div>
 				<!--/description-->
 				
@@ -1179,13 +1489,13 @@
 				<div class="block two">
 					
 					<!--top-->
-					<div class="top">
+					<div class="top height_values">
 						<ul>
 							<li class="man">
-								<h2>7,2<br /><span>ft</span></h2>
+								<h2><span class="value">7,2</span><br /><span>Ft</span></h2>
 							</li>
 							<li class="woman">
-								<h2>4,3<br /><span>ft</span></h2>
+								<h2><span class="value">4,3</span><br /><span>Ft</span></h2>
 							</li>
 						</ul>
 						<div class="clear"></div>
@@ -1202,7 +1512,28 @@
 				<!--/overall-->
 				
 				<!--your_weight-->
-				<div class="block three"></div>
+				<div class="block three">
+				
+					<!--top-->
+					<div class="top">
+						<h2 id="height_number">0</h2>
+						<p>Ft</p>
+					</div>
+					<!--/top-->
+					
+					<!--slider_content-->
+					<div class="slider_container">
+						<div id="height_slider"></div>
+					</div>
+					<!--/slider_content-->
+					
+					<!--bottom-->
+					<div class="bottom">
+						<h2>Indicate your height</h2>
+					</div>
+					<!--/bottom-->
+				
+				</div>
 				<!--/your_weight-->
 				
 				<div class="clear"></div>
@@ -1215,9 +1546,11 @@
 				<!--arrow_result-->
 				<div class="arrow_result"></div>
 				<!--/arrow_result-->
+				
+				<!--varia la figura de sexo con las clases .man .woman -->
 			
 				<!--result-->
-				<div class="stats">
+				<div class="stats man">
 					
 					<!--description-->
 					<div class="block one">
@@ -1230,13 +1563,13 @@
 					<div class="block two">
 						
 						<!--top-->
-						<div class="top">
+						<div class="top bmi_values">
 							<ul>
 								<li class="man">
-									<h2>20<br /><span>BMI</span></h2>
+									<h2><span class="value">20</span><br /><span>BMI</span></h2>
 								</li>
 								<li class="woman">
-									<h2>26<br /><span>BMI</span></h2>
+									<h2><span class="value">26</span><br /><span>BMI</span></h2>
 								</li>
 							</ul>
 							<div class="clear"></div>
@@ -1253,7 +1586,22 @@
 					<!--/overall-->
 					
 					<!--your_weight-->
-					<div class="block three"></div>
+					<div class="block three">
+					
+						<!--top-->
+						<div class="top your_bmi">
+							<h2>22</h2>
+							<p>BMI</p>
+						</div>
+						<!--/top-->
+						
+						<!--bottom-->
+						<div class="bottom">
+							<h2>Your BMI</h2>
+						</div>
+						<!--/bottom-->
+					
+					</div>
 					<!--/your_weight-->
 					
 					<div class="clear"></div>
