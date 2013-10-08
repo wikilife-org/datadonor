@@ -102,10 +102,6 @@ a:hover {
 #header {
 	height: 136px;
 	background-color: white;
-	border-bottom: 3px solid #55AAAA;
-	background-image: url(../img/header/line_header.jpg);
-	background-position: top;
-	background-repeat: repeat-x;
 }
 
 /* --- logotipo */
@@ -113,7 +109,7 @@ a:hover {
 	width: 184px;
 	height: 65px;
 	float: left;
-	margin-top: 40px;
+	margin-top: 35px;
 }
 #header .logo h1 {
 	width: 184px;
@@ -132,35 +128,95 @@ a:hover {
 	text-indent: -9999px;
 }
 
+/* --- logout */
+#header .logout_boton {
+	float: right;
+	margin-top: 82px;
+}
+#header .logout_boton a {
+	color: #3F4A5A;
+	font-size: 19px;
+    font-family: 'Omnes-Semibold';
+    -webkit-transition: color 0.4s;
+    -moz-transition: color 0.4s;
+    transition: color 0.4s;
+}
+#header .logout_boton a:hover {
+	color: #7737c7;
+}
+
+/* @end */
+
+/* @group FOOTER
+--------------------------------------- */
+
+#footer {
+	height: 136px;
+	background-color: #3E4A5A;
+}
+
+/* --- logotipo */
+#footer .logo {
+	width: 184px;
+	height: 65px;
+	float: left;
+	margin-top: 40px;
+}
+#footer .logo h1 {
+	width: 184px;
+	height: 65px;
+	background-image: url(../img/header/footer_logo.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#footer .logo h1 a {
+	width: 184px;
+	height: 65px;
+	background-image: url(../img/header/footer_logo.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
 /* --- header text */
-#header .header_text {
+#footer .footer_text {
 	width: auto;
 	text-align: center;	
 	float: left;
 	margin-top: 62px;
-	margin-left: 190px;
+	margin-left: 220px;
 }
-#header .header_text p {
-	font-size: 19px;
-	color: #3F4B5B;
+#footer .footer_text p {
+	font-size: 14px;
+	color: #EFE8E4;
 	font-family: 'Omnes-Semibold';
 }
 
 /* --- social header */
-#header .header_social {
+#footer .footer_social {
 	float: right;
 	margin-top: 53px;
+	position: relative;
 }
-#header .header_social ul {
+#footer .footer_social h2 {
+	position: absolute;
+	left: -83px;
+	top: 10px;
+	color: #EFE8E4;
+	font-size: 14px;
+	font-family: 'Omnes-Semibold';
+}
+#footer .footer_social ul {
 	width: 100%;
 }
-#header .header_social ul li {
+#footer .footer_social ul li {
 	width: auto;
 	height: auto;
 	float: left;
 	margin-left: 10px;
 }
-#header .header_social ul li a {
+#footer .footer_social ul li a {
 	width: 35px;
 	height: 35px;
 	text-indent: -9999px;
@@ -171,16 +227,16 @@ a:hover {
 	-moz-transition: opacity 0.4s;
 	transition: opacity 0.4s;
 }
-#header .header_social ul li a:hover {
+#footer .footer_social ul li a:hover {
 	opacity: 0.7;
 }
-#header .header_social ul li a.twitter {
+#footer .footer_social ul li a.twitter {
 	background-image: url(../img/header/twitter.png);
 }
-#header .header_social ul li a.facebook {
+#footer .footer_social ul li a.facebook {
 	background-image: url(../img/header/facebook.png);
 }
-#header .header_social ul li a.email {
+#footer .footer_social ul li a.email {
 	background-image: url(../img/header/email.png);
 }
 
@@ -227,125 +283,44 @@ a:hover {
 .big_social_login {
 	background-color: #3F4B5B;
 	z-index: 9999 !important;
-	border-top: 3px solid #323C48;
 }
 .big_social_login .centered_container {
 	text-align: center;
 	position: relative;
 	background-color: #3F4B5B;
-	-webkit-transition: background-color 2s;
-}
-.big_social_login .arrow_bottom {
-	position: absolute;
-	width: 17px;
-	height: 8px;
-	bottom: -7px;
-	background-image: url(../img/big_social_nav/arrow.png);
-	background-position: center;
-	background-repeat: no-repeat;
-	left: 50%;
-	margin-left: -10px;
-	z-index: 10;
+	padding: 20px 0px 20px 0px;
 }
 
-/* trigger big nav*/
-.trigger_social_choice {
-	width: 100%;
-	overflow: hidden;
-	height: 115px;
-	-webkit-transition: all 0.4s;
-	-moz-transition: all 0.4s;
-	transition: all 0.4s;
-	opacity: 1;
-}
-.trigger_social_choice.off {
-	height: 0px;
-	opacity: 0;
-}
-.trigger_social_choice ul {
-	width: 900px;
-	margin: 0 auto;
-	display: inline-block;
-	-webkit-transition: opacity 0.4s;
-	-moz-transition: opacity 0.4s;
-	transition: opacity 0.4s;
-	margin: 10px 0px 10px 0px;
-}
-.trigger_social_choice ul:hover {
-	opacity: 0.7;
-}
-.trigger_social_choice ul:hover li a.ico_trigger {
-	opacity: 0.7;
-}
-.trigger_social_choice ul li {
-	display: inline-table;
-	overflow: hidden;
-}
-.trigger_social_choice ul li a {
-	line-height: 91px;
-	height: 91px;
-	display: inline-block;
-	font-family: 'Omnes-Semibold';
-	color: #fff;
-	font-size: 16px;
-}
-.trigger_social_choice ul li a.ico_trigger {
-	height: 91px;
-	width: 91px;
-	text-indent: -9999px;
-	display: inline-block;
-	background-image: url(../img/big_social_nav/trigger_social.png);
-	margin: 0px 10px 0px 10px;
-	-webkit-transition: opacity 0.4s;
-	-moz-transition: opacity 0.4s;
-	transition: opacity 0.4s;
+/* --- sector icon */
+.big_social_login .sector_icon {
+	float: left;
+	width: auto;
+	height: 127px;
+	width: 127px;
 }
 
-/* navegacion */
-.big_social_login .social_choice {
-	width: 100%;
-	height: 0px;
-	/*height: 251px;*/
-	padding: 0px 0px 0px 0px;
+/* --- social icons */
+.big_social_login .social_icons {
+	float: right;
+	width: 1010px;
+	height: 127px;
 	overflow: hidden;
-	-webkit-transition: all 0.4s;
-	-moz-transition: all 0.4s;
-	transition: all 0.4s;
-	background-color: #3F4B5B;
-	position: relative;
-	opacity: 0;
 }
-.big_social_login .social_choice.on {
-	height: 251px;
-	opacity: 1;
-}
-.big_social_login .social_choice h2 {
-	color: #FFFFFF;
-	font-size: 16px;
-	font-family: 'Omnes-Semibold';
-	margin-bottom: 25px;
-	margin-top: 33px;
-}
-
-/* --- social networks nav */
-.big_social_login .social_choice ul {
+.big_social_login .social_icons ul {
 	width: 100%;
-	text-align: center;
+	text-align: right;
 	background-color: #3F4B5B;
 	position: relative;
 	z-index: 20;
-        height:127px;
-        overflow: hidden;
+    height:127px;
+    overflow: hidden;
 }
-.big_social_login .social_choice ul.physical_networks li {
-        margin: 0px 2px 0px 2px;
-}
-.big_social_login .social_choice ul li {
+.big_social_login .social_icons ul li {
 	display: inline-table;
 	margin: 0px 8px 0px 8px;
 }
-.big_social_login .social_choice ul li a {
-	text-indent: -9999px;
+.big_social_login .social_icons ul li a {
+	text-indent: 9999px;
 	width: 124px;
 	height: 124px;
 	display: inline-block;
@@ -353,201 +328,201 @@ a:hover {
 }
 
 /* --- NUTRITION NETWORKS */
-.big_social_login .social_choice ul li a.wikilife {
+.big_social_login .social_icons ul li a.wikilife {
 	background-image: url(../img/big_social_nav/nutrition_networks.png);
 	background-position: -142px bottom;
 }
-.big_social_login .social_choice ul li a.wikilife:hover {
+.big_social_login .social_icons ul li a.wikilife:hover {
 	background-position: -142px 2px;
 }
-.big_social_login .social_choice ul li.active a.wikilife {
+.big_social_login .social_icons ul li.active a.wikilife {
 	background-position: -142px 2px;
 }
 
-.big_social_login .social_choice ul li a.withings {
+.big_social_login .social_icons ul li a.withings {
 	background-image: url(../img/big_social_nav/nutrition_networks.png);
 	background-position: -286px bottom;
 }
-.big_social_login .social_choice ul li a.withings:hover {
+.big_social_login .social_icons ul li a.withings:hover {
 	background-position: -286px 2px;
 }
-.big_social_login .social_choice ul li.active a.withings {
+.big_social_login .social_icons ul li.active a.withings {
 	background-position: -286px 2px;
 }
 
 /* --- PHYSICAL NETWORKS */
-.big_social_login .social_choice ul li a.fatsecret {
+.big_social_login .social_icons ul li a.fatsecret {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: left bottom;
 }
-.big_social_login .social_choice ul li a.fatsecret:hover {
+.big_social_login .social_icons ul li a.fatsecret:hover {
 	background-position: left 2px;
 }
-.big_social_login .social_choice ul li.active a.fatsecret {
+.big_social_login .social_icons ul li.active a.fatsecret {
 	background-position: left 2px;
 }
 
-.big_social_login .social_choice ul li a.myfitness {
+.big_social_login .social_icons ul li a.myfitness {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: -138px bottom;
 }
-.big_social_login .social_choice ul li a.myfitness:hover {
+.big_social_login .social_icons ul li a.myfitness:hover {
 	background-position: -138px 2px;
 }
-.big_social_login .social_choice ul li.active a.myfitness {
+.big_social_login .social_icons ul li.active a.myfitness {
 	background-position: -138px 2px;
 }
 
-.big_social_login .social_choice ul li a.bodymedia {
+.big_social_login .social_icons ul li a.bodymedia {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: -276px bottom;
 }
-.big_social_login .social_choice ul li a.bodymedia:hover {
+.big_social_login .social_icons ul li a.bodymedia:hover {
 	background-position: -276px 2px;
 }
-.big_social_login .social_choice ul li.active a.bodymedia {
+.big_social_login .social_icons ul li.active a.bodymedia {
 	background-position: -276px 2px;
 }
 
-.big_social_login .social_choice ul li a.dailymile {
+.big_social_login .social_icons ul li a.dailymile {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: -414px bottom;
 }
-.big_social_login .social_choice ul li a.dailymile:hover {
+.big_social_login .social_icons ul li a.dailymile:hover {
 	background-position: -414px 2px;
 }
-.big_social_login .social_choice ul li.active a.dailymile {
+.big_social_login .social_icons ul li.active a.dailymile {
 	background-position: -414px 2px;
 }
 
-.big_social_login .social_choice ul li a.runkeeper {
+.big_social_login .social_icons ul li a.runkeeper {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: -552px bottom;
 }
-.big_social_login .social_choice ul li a.runkeeper:hover {
+.big_social_login .social_icons ul li a.runkeeper:hover {
 	background-position: -552px 2px;
 }
-.big_social_login .social_choice ul li.active a.runkeeper {
+.big_social_login .social_icons ul li.active a.runkeeper {
 	background-position: -552px 2px;
 }
 
-.big_social_login .social_choice ul li a.nike {
+.big_social_login .social_icons ul li a.nike {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: -690px bottom;
 }
-.big_social_login .social_choice ul li a.nike:hover {
+.big_social_login .social_icons ul li a.nike:hover {
 	background-position: -690px 2px;
 }
-.big_social_login .social_choice ul li.active a.nike {
+.big_social_login .social_icons ul li.active a.nike {
 	background-position: -690px 2px;
 }
 
-.big_social_login .social_choice ul li a.fitbit {
+.big_social_login .social_icons ul li a.fitbit {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: -828px bottom;
 }
-.big_social_login .social_choice ul li a.fitbit:hover {
+.big_social_login .social_icons ul li a.fitbit:hover {
 	background-position: -828px 2px;
 }
-.big_social_login .social_choice ul li.active a.fitbit {
+.big_social_login .social_icons ul li.active a.fitbit {
 	background-position: -828px 2px;
 }
 
-.big_social_login .social_choice ul li a.jewbone {
+.big_social_login .social_icons ul li a.jewbone {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: -967px bottom;
 }
-.big_social_login .social_choice ul li a.jewbone:hover {
+.big_social_login .social_icons ul li a.jewbone:hover {
 	background-position: -967px 2px;
 }
-.big_social_login .social_choice ul li.active a.jewbone {
+.big_social_login .social_icons ul li.active a.jewbone {
 	background-position: -967px 2px;
 }
 
-.big_social_login .social_choice ul li a.ihealth {
+.big_social_login .social_icons ul li a.ihealth {
 	background-image: url(../img/big_social_nav/physical_networks.png);
 	background-position: -1105px bottom;
 }
-.big_social_login .social_choice ul li a.ihealth:hover {
+.big_social_login .social_icons ul li a.ihealth:hover {
 	background-position: -1105px 2px;
 }
-.big_social_login .social_choice ul li.active a.ihealth {
+.big_social_login .social_icons ul li.active a.ihealth {
 	background-position: -1105px 2px;
 }
 
 /* --- SOCIAL NETWORKS */
-.big_social_login .social_choice ul li a.twitter {
+.big_social_login .social_icons ul li a.twitter {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: left bottom;
 }
-.big_social_login .social_choice ul li a.twitter:hover {
+.big_social_login .social_icons ul li a.twitter:hover {
 	background-position: left 3px;
 }
-.big_social_login .social_choice ul li.active a.twitter {
+.big_social_login .social_icons ul li.active a.twitter {
 	background-position: left 3px;
 }
 
-.big_social_login .social_choice ul li a.facebook {
+.big_social_login .social_icons ul li a.facebook {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -140px bottom;
 }
-.big_social_login .social_choice ul li a.facebook:hover {
+.big_social_login .social_icons ul li a.facebook:hover {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -140px 3px;
 }
-.big_social_login .social_choice ul li.active a.facebook {
+.big_social_login .social_icons ul li.active a.facebook {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -140px 3px;
 }
 
-.big_social_login .social_choice ul li a.linkedin {
+.big_social_login .social_icons ul li a.linkedin {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -280px bottom;
 }
-.big_social_login .social_choice ul li a.linkedin:hover {
+.big_social_login .social_icons ul li a.linkedin:hover {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -280px 3px;
 }
-.big_social_login .social_choice ul li.active a.linkedin {
+.big_social_login .social_icons ul li.active a.linkedin {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -280px 3px;
 }
 
-.big_social_login .social_choice ul li a.gmail {
+.big_social_login .social_icons ul li a.gmail {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -420px bottom;
 }
-.big_social_login .social_choice ul li a.gmail:hover {
+.big_social_login .social_icons ul li a.gmail:hover {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -420px 3px;
 }
-.big_social_login .social_choice ul li.active a.gmail {
+.big_social_login .social_icons ul li.active a.gmail {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -420px 3px;
 }
 
-.big_social_login .social_choice ul li a.foursquare {
+.big_social_login .social_icons ul li a.foursquare {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -560px bottom;
 }
-.big_social_login .social_choice ul li a.foursquare:hover {
+.big_social_login .social_icons ul li a.foursquare:hover {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -560px 3px;
 }
-.big_social_login .social_choice ul li.active a.foursquare {
+.big_social_login .social_icons ul li.active a.foursquare {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -560px 3px;
 }
 
-.big_social_login .social_choice ul li a.evernote {
+.big_social_login .social_icons ul li a.evernote {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -700px bottom;
 }
-.big_social_login .social_choice ul li a.evernote:hover {
+.big_social_login .social_icons ul li a.evernote:hover {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -700px 3px;
 }
-.big_social_login .social_choice ul li.active a.evernote {
+.big_social_login .social_icons ul li.active a.evernote {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -700px 3px;
 }
@@ -591,7 +566,7 @@ a:hover {
 }
 
 /* --- close nav */
-.big_social_login .social_choice .close_big_nav {
+.big_social_login .social_icons .close_big_nav {
 	width: 58px;
 	height: 58px;
 	position: absolute;
@@ -599,7 +574,7 @@ a:hover {
 	top: 12px;
 	z-index: 21;
 }
-.big_social_login .social_choice .close_big_nav a {
+.big_social_login .social_icons .close_big_nav a {
 	width: 58px;
 	height: 58px;
 	display: inline-block;
@@ -611,7 +586,7 @@ a:hover {
 	transition: opacity 0.4s;
 	text-indent: -9999px;
 }
-.big_social_login .social_choice .close_big_nav a:hover {
+.big_social_login .social_icons .close_big_nav a:hover {
 	opacity: 0.7;
 }
 
@@ -794,7 +769,7 @@ a:hover {
 	width: 54px;
 	height: auto;
 	position: absolute;
-	top: 140px;
+	top: 195px;
 	left: 20px;
 	z-index: 9999;
 	-webkit-transition: left 1s,top 0.4s;
@@ -1135,6 +1110,14 @@ a:hover {
 }
 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_two {
 	color: #e56666;
+}
+.step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one .global_data {
+	font-size: 44px !important;
+	top:0px;
+}
+.step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one span {
+	position:relative;
+	top:4px;
 }
 
 /* @end */

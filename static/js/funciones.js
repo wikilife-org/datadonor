@@ -33,7 +33,6 @@ $(document).ready(function () {
 		$(this).parent().parent().parent().parent().find('.social_choice').addClass('on');
 		$(this).parent().parent().parent().parent().find('.confirm_social').addClass('on');
 		$('.nav_steps').addClass('open_social');
-		$('.nav_steps').addClass('social_chose_open');
 	});
 	
 	$('.close_big_nav a').live('click', function (event) {
@@ -42,7 +41,6 @@ $(document).ready(function () {
 		$('.social_choice').removeClass('on');
 		$('.confirm_social').removeClass('on');
 		$('.nav_steps').removeClass('open_social');
-		$('.nav_steps').removeClass('social_chose_open');
 	});
 	
 	$('.confirm_social a').live('click', function (event) {
@@ -51,7 +49,6 @@ $(document).ready(function () {
 		$('.social_choice').removeClass('on');
 		$('.confirm_social').removeClass('on');
 		$('.nav_steps').removeClass('open_social');
-		$('.nav_steps').removeClass('social_chose_open');
 	});
 	
 /*	$('.nav_big_social li a').live('click', function (event) {
