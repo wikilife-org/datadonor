@@ -11,63 +11,21 @@ function workCallback(args){
   $('#age_input li a[data-key='+args[0]+']').click();
 }
 
-function drawSocialGraph(elments1, elements2){
-	  var r_1_1 = Raphael('canvas_1_1', 420, 420);
-	  animatedPie = new EdAnimatedPie(r_1_1, elments1, {
-	    animationTime: 900,
-	    easing: '<',
-	    useAnimationDelay: false,
-	    lineWidth: 70,
-	    fontSize: 20,
-	    centerx: 210,
-	    centery: 210,
-	    radius: 100,
-	    borderColor: '#DCDDDD',
-	    drawReferences: true,
-	    drawCenterImage: true,
-	    bubbleColor: '#3F4B5B',
-	    text: {
-	      color: '#ADB6BF',
-	      size: '18'
-	    },
-	    centerImage: {
-	      width: 60,
-	      height: 84,
-	      x: 180,
-	      y: 170,
-	      path: '/static/img/iconos/overall_avg.png'
-	    }
-	  });
-	  animatedPie.draw();
-
-	  
-	  var r_1_2 = Raphael('canvas_1_2', 420, 420);
-	  animatedPie2 = new EdAnimatedPie(r_1_2, elements2, {
-	    animationTime: 900,
-	    easing: '<',
-	    useAnimationDelay: false,
-	    lineWidth: 70,
-	    fontSize: 20,
-	    centerx: 210,
-	    centery: 210,
-	    radius: 100,
-	    borderColor: '#DCDDDD',
-	    drawReferences: true,
-	    drawCenterImage: true,
-	    bubbleColor: '#E56666',
-	    text: {
-	      color: 'white',
-	      size: '18'
-	    },
-	    centerImage: {
-	      width: 67,
-	      height: 74,
-	      x: 177,
-	      y: 170,
-	      path: '/static/img/iconos/your_avg.png'
-	    }
-	  });
-	  animatedPie2.draw();
+function drawSocialGraph(json){
+  console.log(json);
+  var global_data = json.global_data;
+  $('.block.twitter ul li span.global_data').html(global_data.twitter.count);
+  $('.block.facebook ul li span.global_data').html(global_data.facebook.count);
+  $('.block.google_plus ul li span.global_data').html(global_data.gmail.count);
+  $('.block.linkedin ul li span.global_data').html(global_data.linkedin.count);
+  $('.block.foursquare ul li span.global_data').html(global_data.foursquare.count);
+  
+  var user_data = json.user_data;
+  $('.block.twitter ul li span.user_data').html(user_data.twitter.count);
+  $('.block.facebook ul li span.user_data').html(user_data.facebook.count);
+  $('.block.google_plus ul li span.user_data').html(user_data.gmail.count);
+  $('.block.linkedin ul li span.user_data').html(user_data.linkedin.count);
+  $('.block.foursquare ul li span.user_data').html(user_data.foursquare.count);
 }
 
 function drawShareGraphs(data){
@@ -379,12 +337,8 @@ window.onload = function () {
   
   /*********** PIE CHARTS *******************/
   $.getJSON( "../../static/js/adapter/examples/social_reach", function( data ) {
-    console.log(data);
-    var adapter = new SocialReachAdapter();
-    var elements1 = adapter.getParameters(data.global_data, ['#CDBFE0','#6845C7','#975EE3','#CDBFE0','#975EE3']);
-    var elements2 = adapter.getParameters(data.user_data, ['#D44B5F','#DC6666','#FF836F','#D44B5F','#DC6666']);
-    console.log(elements1); console.log(elements2);
-    drawSocialGraph(elements1, elements2)
+    //console.log(data);
+    drawSocialGraph(data);
   });
   
   $.getJSON( "../../static/js/adapter/examples/share", function( data ) {
@@ -396,7 +350,7 @@ window.onload = function () {
   });
   
   $.getJSON( "../../static/js/adapter/examples/work", function( data ) {
-    console.log('WORK!!!!');
+    //console.log('WORK!!!!');
     drawWorkGraph(data);
   });
   
