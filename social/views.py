@@ -26,12 +26,17 @@ def wizard(request):
     return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
                                   RequestContext(request))
 
+def terms(request):
+    show_wizard =  request.user.is_authenticated() or request.session.get("user_agree", False)
+    if show_wizard:
+        return HttpResponseRedirect('/wizard/')
+    return render_to_response('wizard-terms.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
+                                  RequestContext(request))
+
 def home(request):
     """Home view, displays login mechanism"""
     videos = request.GET.get('videos', None)
-    ctx =  {'version': version}
-    
-        
+    ctx =  {'version': version}   
     return render_to_response('landing.html', {'version': version, 'videos':videos},
                                   RequestContext(request))
 

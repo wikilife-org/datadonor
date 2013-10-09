@@ -1707,9 +1707,9 @@ border-bottom-left-radius: 255px;
 	height: 4px;
 	position: absolute;
 	overflow: hidden;
-	margin-left:5px;
+	margin-left:165px;
 	margin-top: 20px;
-	width: 560px;
+	width: 320px;
 	z-index: 6;
 }
 #progress {
@@ -1736,23 +1736,23 @@ z-index: 1000;
 }
 #timeline #controles li#thumb-3
 {
-	margin-left:246px;
+	margin-left:164px;
 }
 #timeline #controles li#thumb-4
 {
-	margin-left:328px;
+	margin-left:246px;
 }
 #timeline #controles li#thumb-5
 {
-	margin-left:410px;
+	margin-left:328px;
 }
 #timeline #controles li#thumb-6
 {
-	margin-left:492px;
+	margin-left:410px;
 }
 #timeline #controles li#thumb-7
 {
-	margin-left:574px;
+	margin-left:492px;
 }
 #timeline #controles li .icon
 {
