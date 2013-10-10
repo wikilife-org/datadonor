@@ -1,6 +1,10 @@
 {
     "global_avg_hours": 4,
     "days": {
+        "sunday": {
+            "global_hours": 7,
+            "user_hours": 7
+        },
         "monday": {
             "global_hours": 5,
             "user_hours": 3
@@ -20,10 +24,6 @@
         "thursday": {
             "global_hours": 5,
             "user_hours": 5
-        },
-        "sunday": {
-            "global_hours": 7,
-            "user_hours": 7
         },
         "saturday": {
             "global_hours": 6,

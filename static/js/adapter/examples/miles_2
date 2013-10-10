@@ -2,6 +2,10 @@
     "user_avg_miles": 20,
     "global_avg_miles": 30,
     "days": {
+        "sunday": {
+            "user_miles": 30,
+            "global_miles": 50
+        },
         "monday": {
             "user_miles": 20,
             "global_miles": 30
@@ -19,10 +23,6 @@
             "global_miles": 20
         },
         "thursday": {
-            "user_miles": 30,
-            "global_miles": 50
-        },
-        "sunday": {
             "user_miles": 30,
             "global_miles": 50
         },

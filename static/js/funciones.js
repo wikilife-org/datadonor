@@ -180,18 +180,136 @@ $(document).ready(function () {
 		 });	
 	}
 	if ($('#height_slider').length) {
+    var defheight = 5.8;
 		$('#height_slider').slider({
 		      range: 'min',
-		      value: 0,
+		      value: defheight.toFixed(1),
 		      min: 0,
-		      max: 200,
+		      max: 8.5,
+          step: 0.1,
 		      slide: function( event, ui ) {
-		        var value = ui.value;
-		        $('#height_number').html(value);
+		        var value = ui.value.toFixed(1);
+		        $('#height_number').html(value.replace('.', ','));
 		      }
 		 });	
 	}
 	// SLIDER NUTRITION
+	
+	
+	// CARROUSELS NETWORKS
+
+	// Activar navegacion
+	
+	$('.social_icons .boton.next').hide();
+	
+	var carOne = $('#carousel_one .overflow_icons ul').width();
+	var carTwo = $('#carousel_two .overflow_icons ul').width();
+	var carThree = $('#carousel_three .overflow_icons ul').width();
+	var carFour = $('#carousel_four .overflow_icons ul').width();
+	var carFive = $('#carousel_five .overflow_icons ul').width();
+	
+	if (carOne <= 930) {
+		$('#carousel_one a.boton').hide();
+	} 
+	if (carTwo <= 930) {
+		$('#carousel_two a.boton').hide();
+	} 
+	if (carThree <= 930) {
+		$('#carousel_three a.boton').hide();
+	} 
+	if (carFour <= 930) {
+		$('#carousel_four a.boton').hide();
+	} 
+	if (carFive <= 930) {
+		$('#carousel_five a.boton').hide();
+	} 
+	
+	// funciones que generan movimiento
+	
+	function $nextNetwork() {
+		
+		// Data slider
+		var nu_pos = $(this).parent().find('.overflow_icons').attr('data-position');
+		nu_pos--;
+		
+		// Overflow size
+		var visibleArea = $(this).parent().find('.overflow_icons').width();
+		var overflowWidth = $(this).parent().find('.overflow_icons').find('ul').width();
+		var hiddenOverflow = overflowWidth - visibleArea;
+		var leftMove = hiddenOverflow / 2;
+		
+		// Navegacion off
+		var $prevCarousel = $(this).parent().find('.boton.prev');
+		var $nextCarousel = $(this).parent().find('.boton.next');
+		
+		// Move element
+		$nuevaPosicion = $(this).parent().find('.overflow_icons').find('ul');
+		
+		if (overflowWidth < visibleArea) {
+			nu_pos = 0;
+		} else if (nu_pos <= 0 ) {
+			nu_pos = 0;
+			$(this).parent().find('.overflow_icons').attr('data-position',0);
+			$nuevaPosicion.stop(true,true);
+			$nuevaPosicion.animate({left:'0px'},400);
+			$nextCarousel.hide();
+		} else {
+			$nuevaPosicion.stop(true,true);
+			$nuevaPosicion.animate({left:'-='+leftMove+'px'},400);
+			$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
+			$prevCarousel.show();
+		}
+		
+	}
+	
+	function $prevNetwork() {
+	
+		// Data slider
+		var nu_pos = $(this).parent().find('.overflow_icons').attr('data-position');
+		nu_pos++;
+		
+		// Overflow size
+		var visibleArea = $(this).parent().find('.overflow_icons').width();
+		var overflowWidth = $(this).parent().find('.overflow_icons').find('ul').width();
+		var hiddenOverflow = overflowWidth - visibleArea;
+		var leftMove = hiddenOverflow / 2;
+		
+		// Navegacion off
+		var $prevCarousel = $(this).parent().find('.boton.prev');
+		var $nextCarousel = $(this).parent().find('.boton.next');
+		
+		// Move element
+		$nuevaPosicion = $(this).parent().find('.overflow_icons').find('ul');
+		
+		if (overflowWidth < visibleArea) {
+			nu_pos = 0;
+		} else if (nu_pos >= 2 ) {
+			nu_pos = 2;
+			$(this).parent().find('.overflow_icons').attr('data-position',2);
+			$nuevaPosicion.stop(true,true);
+			$nuevaPosicion.animate({left: hiddenOverflow+'px'},400);
+			$prevCarousel.hide();
+		} else {
+			$nuevaPosicion.stop(true,true);
+			$nuevaPosicion.animate({left:'+='+leftMove+'px'},400);
+			$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
+			$nextCarousel.show();
+		}
+		
+	}
+	
+	// MOVIMIENTO
+	
+	// EVENTO CLICK	
+	
+	$('.social_icons .boton').click(function (event) {event.preventDefault();})
+	$('.social_icons .boton.next').click($nextNetwork);
+	$('.social_icons .boton.prev').click($prevNetwork);
+	
+	// EVENTO CLICK
+	
+	// CARROUSELS NETWORKS
+	
 	
 	//DORESIZE
 	doResize();

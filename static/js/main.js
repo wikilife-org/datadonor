@@ -14,18 +14,18 @@ function workCallback(args){
 function drawSocialGraph(json){
   console.log(json);
   var global_data = json.global_data;
-  $('.block.twitter ul li span.global_data').html(global_data.twitter.count);
-  $('.block.facebook ul li span.global_data').html(global_data.facebook.count);
-  $('.block.google_plus ul li span.global_data').html(global_data.gmail.count);
-  $('.block.linkedin ul li span.global_data').html(global_data.linkedin.count);
-  $('.block.foursquare ul li span.global_data').html(global_data.foursquare.count);
+  $('.block.twitter ul li span.global_data').html(pad(global_data.twitter.count, 2));
+  $('.block.facebook ul li span.global_data').html(pad(global_data.facebook.count, 2));
+  $('.block.google_plus ul li span.global_data').html(pad(global_data.gmail.count, 2));
+  $('.block.linkedin ul li span.global_data').html(pad(global_data.linkedin.count, 2));
+  $('.block.foursquare ul li span.global_data').html(pad(global_data.foursquare.count, 2));
   
   var user_data = json.user_data;
-  $('.block.twitter ul li span.user_data').html(user_data.twitter.count);
-  $('.block.facebook ul li span.user_data').html(user_data.facebook.count);
-  $('.block.google_plus ul li span.user_data').html(user_data.gmail.count);
-  $('.block.linkedin ul li span.user_data').html(user_data.linkedin.count);
-  $('.block.foursquare ul li span.user_data').html(user_data.foursquare.count);
+  $('.block.twitter ul li span.user_data').html(pad(user_data.twitter.count, 2));
+  $('.block.facebook ul li span.user_data').html(pad(user_data.facebook.count, 2));
+  $('.block.google_plus ul li span.user_data').html(pad(user_data.gmail.count, 2));
+  $('.block.linkedin ul li span.user_data').html(pad(user_data.linkedin.count, 2));
+  $('.block.foursquare ul li span.user_data').html(pad(user_data.foursquare.count, 2));
 }
 
 function drawShareGraphs(data){
@@ -49,8 +49,8 @@ function drawShareGraphs(data){
   var elements1 = adapter.getParameters([data.global_data.facebook.posts, data.user_data.facebook.posts], maxPercentage, 100);
   var r_2_1 = Raphael('canvas_2_1', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_2_1 .global_data').html(data.global_data.facebook.posts);
-  $('#data_2_1 .user_data').html(data.user_data.facebook.posts);
+  $('#data_2_1 .global_data').html(pad(data.global_data.facebook.posts,2));
+  $('#data_2_1 .user_data').html(pad(data.user_data.facebook.posts,2));
   
   dotChart = new EdDotChart(r_2_1, elements1, graphConfig);
   dotChart.draw();
@@ -59,8 +59,8 @@ function drawShareGraphs(data){
   var elements1 = adapter.getParameters([data.global_data.twitter.tweets, data.user_data.twitter.tweets], maxPercentage, 100);
   var r_2_2 = Raphael('canvas_2_2', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_2_2 .global_data').html(data.global_data.twitter.tweets);
-  $('#data_2_2 .user_data').html(data.user_data.twitter.tweets);
+  $('#data_2_2 .global_data').html(pad(data.global_data.twitter.tweets,2));
+  $('#data_2_2 .user_data').html(pad(data.user_data.twitter.tweets,2));
 
   dotChart2 = new EdDotChart(r_2_2, elements1, graphConfig);
   dotChart2.draw();
@@ -69,8 +69,8 @@ function drawShareGraphs(data){
   var elements1 = adapter.getParameters([data.global_data.facebook.likes, data.user_data.facebook.likes], maxPercentage, 100);
   var r_2_3 = Raphael('canvas_2_3', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_2_3 .global_data').html(data.global_data.facebook.likes);
-  $('#data_2_3 .user_data').html(data.user_data.facebook.likes);
+  $('#data_2_3 .global_data').html(pad(data.global_data.facebook.likes,2));
+  $('#data_2_3 .user_data').html(pad(data.user_data.facebook.likes,2));
 
   dotChart3 = new EdDotChart(r_2_3, elements1, graphConfig);
   dotChart3.draw();
@@ -79,8 +79,8 @@ function drawShareGraphs(data){
   var elements1 = adapter.getParameters([data.global_data.twitter.retweets, data.user_data.twitter.retweets], maxPercentage, 100);
   var r_2_4 = Raphael('canvas_2_4', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_2_4 .global_data').html(data.global_data.twitter.retweets);
-  $('#data_2_4 .user_data').html(data.user_data.twitter.retweets);
+  $('#data_2_4 .global_data').html(pad(data.global_data.twitter.retweets,2));
+  $('#data_2_4 .user_data').html(pad(data.user_data.twitter.retweets,2));
 
   dotChart4 = new EdDotChart(r_2_4, elements1, graphConfig);
   dotChart4.draw();
@@ -159,9 +159,9 @@ function drawExerciseGraphs(data){
     fontSize: '40',
     drawLabels: false,
     perimeter: {
-      display: false,
+      display: true,
       radius: 100,
-      color: '#ECEDED'
+      color: '#B3B3B3'
     }
   };
   
@@ -169,8 +169,8 @@ function drawExerciseGraphs(data){
   var elements1 = adapter.getParameters([parseInt(data[0].global_times), parseInt(data[0].user_times)], maxPercentage, 100);
   var r_5_1 = Raphael('canvas_5_1', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_5_1 .global_data').html(data[0].global_times);
-  $('#data_5_1 .user_data').html(data[0].user_times); 
+  $('#data_5_1 .global_data').html(pad(data[0].global_times,2));
+  $('#data_5_1 .user_data').html(pad(data[0].user_times,2)); 
   var dotChart = new EdDotChart(r_5_1, elements1, graphConfig);
   dotChart.draw();
   
@@ -178,8 +178,8 @@ function drawExerciseGraphs(data){
   var elements1 = adapter.getParameters([parseInt(data[1].global_times), parseInt(data[1].user_times)], maxPercentage, 100);
   var r_5_2 = Raphael('canvas_5_2', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_5_2 .global_data').html(data[1].global_times);
-  $('#data_5_2 .user_data').html(data[1].user_times); 
+  $('#data_5_2 .global_data').html(pad(data[1].global_times,2));
+  $('#data_5_2 .user_data').html(pad(data[1].user_times,2)); 
   var dotChart = new EdDotChart(r_5_2, elements1, graphConfig);
   dotChart.draw();
   
@@ -187,8 +187,8 @@ function drawExerciseGraphs(data){
   var elements1 = adapter.getParameters([parseInt(data[2].global_times), parseInt(data[2].user_times)], maxPercentage, 100);
   var r_5_3 = Raphael('canvas_5_3', 210, 210);
   if(maxPercentage < 100) graphConfig.perimeter.display = true;
-  $('#data_5_3 .global_data').html(data[2].global_times);
-  $('#data_5_3 .user_data').html(data[2].user_times); 
+  $('#data_5_3 .global_data').html(pad(data[2].global_times,2));
+  $('#data_5_3 .user_data').html(pad(data[2].user_times,2)); 
   var dotChart = new EdDotChart(r_5_3, elements1, graphConfig);
   dotChart.draw();
   
@@ -227,8 +227,8 @@ function drawStepsGraph(data){
   doubleAxisBars2 = new EdBarChart(r_6_1, doubleAxisParams2);
   doubleAxisBars2.draw();
   
-  $('#data_6_1 .bloq.right .number_stat h2').html(data.global_avg_steps);
-  $('#data_6_1 .bloq.left .number_stat h2').html(data.user_avg_steps);
+  $('#data_6_1 .bloq.right .number_stat h2').html(pad(data.global_avg_steps,2));
+  $('#data_6_1 .bloq.left .number_stat h2').html(pad(data.user_avg_steps,2));
 }
 
 function drawMilesGraph(data){
@@ -261,8 +261,8 @@ function drawMilesGraph(data){
   doubleAxisBars3 = new EdBarChart(r_7_1, doubleAxisParams3);
   doubleAxisBars3.draw();
   
-  $('#data_7_1 .left .number_stat h2').html(data.global_avg_miles);
-  $('#data_7_1 .right .number_stat h2').html(data.user_avg_miles);
+  $('#data_7_1 .left .number_stat h2').html(pad(data.global_avg_miles));
+  $('#data_7_1 .right .number_stat h2').html(pad(data.user_avg_miles));
 }
 
 function drawHoursGraph(data){
@@ -295,8 +295,8 @@ function drawHoursGraph(data){
   doubleAxisBars4 = new EdBarChart(r_7_2, doubleAxisParams4);
   doubleAxisBars4.draw();
   
-  $('#data_7_2 .left .number_stat h2').html(data.global_avg_hours);
-  $('#data_7_2 .right .number_stat h2').html(data.user_avg_hours);
+  $('#data_7_2 .left .number_stat h2').html(pad(data.global_avg_hours,2));
+  $('#data_7_2 .right .number_stat h2').html(pad(data.user_avg_hours,2));
 }
 
 function drawNutrientProportionGraph(data){
@@ -331,6 +331,12 @@ function drawNutrientProportionGraph(data){
   });
   SingleBarChart.draw();
 
+}
+
+function pad(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
 }
 
 window.onload = function () {
@@ -389,6 +395,7 @@ window.onload = function () {
     console.log('WEIGHT!');
     $('.height_values .man .value').html(data.global_data.men.value);
     $('.height_values .woman .value').html(data.global_data.women.value);
+    console.log('HEIGHT USER: '+data.user_data.value);
     $('#height_number').html(data.user_data.value);
   });
   

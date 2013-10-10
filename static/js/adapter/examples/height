@@ -2,15 +2,15 @@
     "global_data": {
         "men": {
             "unit": "Ft",
-            "value": 7.2
+            "value": "7,2"
         },
         "women": {
             "unit": "Ft",
-            "value": 4.3
+            "value": "4,3"
         }
     },
     "user_data": {
         "unit": "Ft",
-        "value": 5.8
+        "value": "5,8"
     }
 }
