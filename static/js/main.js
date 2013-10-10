@@ -159,7 +159,7 @@ function drawExerciseGraphs(data){
     fontSize: '40',
     drawLabels: false,
     perimeter: {
-      display: false,
+      display: true,
       radius: 100,
       color: '#ECEDED'
     }
