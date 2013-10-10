@@ -941,7 +941,7 @@ a:hover {
 }
 .step_one .centered_container .top p {
 	font-size: 18px;
-	color: #8A95A0;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 10px;
 }
@@ -1101,7 +1101,7 @@ a:hover {
 	margin-bottom: 30px;
 }
 .step_two .centered_container .bottom .block .title_graph h2 {
-	color: #9099A5;
+	color: #8D99A6;
 	font-size: 18px;
 	font-family: 'Omnes-Semibold';
 }
@@ -1213,7 +1213,7 @@ a:hover {
 }
 .step_three .centered_container .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -1400,7 +1400,7 @@ a:hover {
 }
 .step_four .centered_container .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -1409,6 +1409,9 @@ a:hover {
 .step_four .centered_container .bottom {
 	width: 100%;
 	height: 423px;
+}
+#canvas_4_1 rect {
+	cursor:pointer;
 }
 
 /* --- datos graph */
@@ -1643,7 +1646,7 @@ a:hover {
 }
 .step_five .centered_container .top p {
 	font-size: 18px;
-	color: #8A95A0;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 10px;
 }
@@ -1707,6 +1710,20 @@ a:hover {
 }
 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_two {
 	color: #e56666;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one .global_data {
+	font-size: 44px !important;
+	top:0px;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one span {
+	position:relative;
+	top:4px;
+}
+.Safari .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one .global_data {
+	top: -3px;
+}
+.Safari .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one span {
+	top: 1px;
 }
 
 /* -------- you cards */
@@ -1781,7 +1798,7 @@ a:hover {
 }
 .step_six .centered_container .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -1895,7 +1912,7 @@ a:hover {
 }
 .step_seven .centered_container .bloq .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -2018,7 +2035,7 @@ a:hover {
 }
 .step_eight .centered_container .top p {
 	font-size: 18px;
-	color: #8A95A0;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 10px;
 }
@@ -2317,7 +2334,7 @@ a:hover {
 }
 .step_nine .centered_container .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -2373,7 +2390,7 @@ a:hover {
 	margin-top: 3px;
 }
 .step_ten .centered_container .stats .block.one p {
-	color: #8C99A6;
+	color: #8D99A6;
 	font-size: 18px;
  	font-family: 'Omnes-Semibold';
 }
@@ -2444,7 +2461,7 @@ a:hover {
 .step_ten .centered_container .stats .block.three .top h2 {
 	font-family: 'Omnes-Semibold';
 	font-size: 180px;
-	height: 155px;
+	height: 167px;
 	overflow: hidden;
 	display: inline-block !important;
 	color: #ff836f;
@@ -2477,7 +2494,7 @@ a:hover {
 /* ------- slider styles */
 .step_ten .centered_container .stats .block.three .slider_container {
 	width: 100%;
-	margin-top: 15px;
+	margin-top: 1px;
 }
 .step_ten .slider_container .ui-widget {
 	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
