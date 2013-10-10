@@ -299,6 +299,7 @@ a:hover {
 	-moz-transform: scale(1);
 	transform: scale(1);
 	opacity: 1;
+	top: 0px;
 }
 .big_social_login .centered_container {
 	text-align: center;
@@ -316,31 +317,34 @@ a:hover {
 	-moz-transform: scale(1);
 	transform: scale(1);
 	opacity: 1;
+	top: 0px;
 }
 
 /* --- sector icon */
 .big_social_login .sector_icon {
 	float: left;
 	height: 127px;
-	width: 139px;
-	background-position: center center;
+	width: 220px;
+	background-position: left center;
 	background-repeat: no-repeat;
-	-webkit-transform: scale(0.5);
-	-moz-transform: scale(0.5);
-	transform: scale(0.5);
+	-webkit-transform: scale(0.4);
+	-moz-transform: scale(0.4);
+	transform: scale(0.4);
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 	opacity: 0.7;
+	position: relative;
+	top: -150px;
 }
 #social_nav_one .sector_icon {
 	background-image: url(../img/big_social_nav/social_icon.png);
 }
 #social_nav_two .sector_icon {
-	background-image: url(../img/big_social_nav/social_icon.png);
+	background-image: url(../img/big_social_nav/physical_icon.png);
 }
 #social_nav_three .sector_icon {
-	background-image: url(../img/big_social_nav/social_icon.png);
+	background-image: url(../img/big_social_nav/nutrition_icon.png);
 }
 
 
@@ -380,15 +384,11 @@ a:hover {
 
 /* --- navegacion */
 .big_social_login .social_icons .boton {
-	width: 30px;
-	line-height: 30px;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
+	width: 26px;
+	line-height: 43px;
 	position: absolute;
 	top: 50%;
-	margin-top: -15px;
-	background-color: #485462;
+	margin-top: -21px;
 	text-align: center;
 	font-size: 15px;
 	color: #6B7480;
@@ -397,16 +397,21 @@ a:hover {
 	-moz-transition: all 0.4s;
 	transition: all 0.4s;
 	font-family: 'Omnes-Semibold';
+	background-image: url(../img/big_social_nav/arrow_networks.png);
+	background-repeat: no-repeat; 
+	text-indent: -9999px;
+	opacity: 1;
 }
 .big_social_login .social_icons .boton:hover {
-	background-color: #E26B66;
-	color: #fff;
+	opacity: 0.8;
 }
 .big_social_login .social_icons .boton.prev {
-	left: -40px;
+	left: -35px;
+	background-position: top left;
 }
 .big_social_login .social_icons .boton.next {
-	right: -40px;
+	right: -35px;
+	background-position: top right;
 }
 
 /* --- NUTRITION NETWORKS */
