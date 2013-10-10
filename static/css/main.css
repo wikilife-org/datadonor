@@ -294,10 +294,22 @@ a:hover {
 /* --- sector icon */
 .big_social_login .sector_icon {
 	float: left;
-	width: auto;
 	height: 127px;
-	width: 127px;
+	width: 139px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	
 }
+#social_nav_one .sector_icon {
+	background-image: url(../img/big_social_nav/social_icon.png);
+}
+#social_nav_two .sector_icon {
+	background-image: url(../img/big_social_nav/social_icon.png);
+}
+#social_nav_three .sector_icon {
+	background-image: url(../img/big_social_nav/social_icon.png);
+}
+
 
 /* --- social icons */
 .big_social_login .social_icons {
@@ -1922,11 +1934,20 @@ a:hover {
 }
 
 /* --- stats */
+.step_seven .centered_container .bloq.left .text_container  {
+	float: right;
+	margin-right: 0px;
+}
+.step_seven .centered_container .bloq.right .text_container  {
+	float: left;
+	margin-left: 10px;
+}
 .step_seven .centered_container .bloq .text_container {
-	width: 100%;
+	width: auto;
+	display: inline-block;
 }
 .step_seven .centered_container .bloq .text_container .stats {
-	width: 236px;
+	width: auto;
 }
 .step_seven .centered_container .bloq .text_container .stats.left {
 	float: left;
@@ -1943,7 +1964,6 @@ a:hover {
 	font-family: 'Omnes-Semibold';
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat {
-	width: 100%;
 	height: auto;
 	padding: 10px 0px 10px 0px;
 	position: relative;
@@ -1952,8 +1972,8 @@ a:hover {
 .step_seven .centered_container .bloq .text_container .stats .number_stat h2 {
 	font-size: 122px;
 	font-family: 'Omnes-Semibold';
-        width:155px;
-        text-align: right;
+    padding-right: 85px;
+    text-align: right;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right {
 	width: 67px;
