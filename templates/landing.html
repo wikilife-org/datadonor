@@ -1,10 +1,7 @@
 {% extends "base.html"%}
 
 {% block meta %}
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="author" content="Wikilife Foundation">
@@ -85,7 +82,7 @@
 			$( '.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa' ).hide();
 			$( '.pause' ).show();
 			$("#video-back-0").hide();
-			$( '#video-top, #video-top2' ).show();
+			$( '#video-top' ).show();
 			 myVideo1.play();
 			  myVideo1.addEventListener('ended', function () {
 					$( '.pause' ).hide();
@@ -111,10 +108,7 @@
 				$( '.vidback-1' ).show();
 			
 			}
-			else
-			{
-				
-			}
+
 			$( '.pause' ).hide();
 			$( '.videoback, #header-top img').show();	
 			$( '.close-video' ).hide();
