@@ -2,13 +2,13 @@
     
 	                            
         <div class="wrapper section-top" id="header-top">
-        	<a href="#" class="close-video" onClick="close_video()"></a>
+        	<a href="#" class="close-video" onClick="close_video(); return false;"></a>
             <div class="video-1">
                 <h2>WATCH HOW WE COULD ALL SAVE LIVES</h2>
-       			<a href="#" id="video-01" onClick="playPause()" class="watch-video" >Watch video</a>
+       			<a href="#" id="video-01" onClick="playPause(); return false;" class="watch-video" >Watch video</a>
             </div>
             
-            <a href="#" class="pause" onClick="playPause()"></a>
+            <a href="#" class="pause" onClick="playPause(); return false;"></a>
           	<div class="flexslider">
           	{% if not videos %}
                 <ul class="slides">
