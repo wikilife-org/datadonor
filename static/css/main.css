@@ -281,14 +281,41 @@ a:hover {
 --------------------------------------- */
 
 .big_social_login {
-	background-color: #3F4B5B;
+	background-color: #333d4a;
 	z-index: 9999 !important;
+	height: 0px;
+	overflow: hidden;
+	-webkit-transition: background-color 0.4s;
+	-moz-transition: background-color 0.4s;
+	transition: background-color 0.4s;
+	-webkit-backface-visibility: hidden;
+}
+.big_social_login.collapsed {
+	height: auto;
+	background-color: #3F4B5B;
+}
+.big_social_login.collapsed .sector_icon {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
 }
 .big_social_login .centered_container {
 	text-align: center;
 	position: relative;
-	background-color: #3F4B5B;
 	padding: 20px 0px 20px 0px;
+}
+
+/* --- nav one open always */
+#social_nav_one {
+	height: auto!important;
+	background-color: #3F4B5B;
+}
+#social_nav_one .sector_icon {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
 }
 
 /* --- sector icon */
@@ -298,7 +325,13 @@ a:hover {
 	width: 139px;
 	background-position: center center;
 	background-repeat: no-repeat;
-	
+	-webkit-transform: scale(0.5);
+	-moz-transform: scale(0.5);
+	transform: scale(0.5);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	opacity: 0.7;
 }
 #social_nav_one .sector_icon {
 	background-image: url(../img/big_social_nav/social_icon.png);
