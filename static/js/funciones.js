@@ -180,14 +180,16 @@ $(document).ready(function () {
 		 });	
 	}
 	if ($('#height_slider').length) {
+    var defheight = 5.8;
 		$('#height_slider').slider({
 		      range: 'min',
-		      value: 0,
+		      value: defheight.toFixed(1),
 		      min: 0,
-		      max: 200,
+		      max: 8.5,
+          step: 0.1,
 		      slide: function( event, ui ) {
-		        var value = ui.value;
-		        $('#height_number').html(value);
+		        var value = ui.value.toFixed(1);
+		        $('#height_number').html(value.replace('.', ','));
 		      }
 		 });	
 	}

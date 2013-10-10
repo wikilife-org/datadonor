@@ -1,6 +1,10 @@
 {
     "global_avg_steps": 3000,
     "days": {
+        "sunday": {
+            "global_steps": 2000,
+            "user_steps": 4000
+        },
         "monday": {
             "global_steps": 1000,
             "user_steps": 3000
@@ -20,10 +24,6 @@
         "thursday": {
             "global_steps": 3000,
             "user_steps": 5000
-        },
-        "sunday": {
-            "global_steps": 2000,
-            "user_steps": 4000
         },
         "saturday": {
             "global_steps": 3050,
