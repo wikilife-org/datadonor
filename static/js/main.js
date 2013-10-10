@@ -161,7 +161,7 @@ function drawExerciseGraphs(data){
     perimeter: {
       display: true,
       radius: 100,
-      color: '#ECEDED'
+      color: '#B3B3B3'
     }
   };
   
