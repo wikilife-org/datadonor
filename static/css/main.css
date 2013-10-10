@@ -302,29 +302,66 @@ a:hover {
 /* --- social icons */
 .big_social_login .social_icons {
 	float: right;
-	width: 1010px;
+	width: 930px;
 	height: 127px;
+	position: relative;
+}
+.big_social_login .social_icons .overflow_icons {
+	width: 100%;
+	height: 124px;
 	overflow: hidden;
 }
-.big_social_login .social_icons ul {
-	width: 100%;
+.big_social_login .social_icons .overflow_icons ul {
+	float: right;
 	text-align: right;
-	background-color: #3F4B5B;
+	width: auto!important;
+	white-space: nowrap;
 	position: relative;
-	z-index: 20;
-    height:127px;
-    overflow: hidden;
 }
-.big_social_login .social_icons ul li {
+.big_social_login .social_icons .overflow_icons ul li {
+	width: 124px;
+	line-height: 124px;
+	text-align: center;
 	display: inline-table;
-	margin: 0px 8px 0px 8px;
+	margin-left: 5px;
 }
-.big_social_login .social_icons ul li a {
+.big_social_login .social_icons .overflow_icons li a {
 	text-indent: 9999px;
 	width: 124px;
 	height: 124px;
 	display: inline-block;
 	background-repeat: no-repeat;
+}
+
+/* --- navegacion */
+.big_social_login .social_icons .boton {
+	width: 30px;
+	line-height: 30px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	margin-top: -15px;
+	background-color: #485462;
+	text-align: center;
+	font-size: 15px;
+	color: #6B7480;
+	font-weight: bold;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+	font-family: 'Omnes-Semibold';
+}
+.big_social_login .social_icons .boton:hover {
+	background-color: #E26B66;
+	color: #fff;
+}
+.big_social_login .social_icons .boton.prev {
+	left: -40px;
+}
+.big_social_login .social_icons .boton.next {
+	right: -40px;
 }
 
 /* --- NUTRITION NETWORKS */
@@ -525,69 +562,6 @@ a:hover {
 .big_social_login .social_icons ul li.active a.evernote {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -700px 3px;
-}
-
-/* --- confirm networks */
-.big_social_login .confirm_social {
-	position: absolute;
-	width: 167px;
-	height: 0px;
-	bottom: -31px;
-	left: 50%;
-	margin-left: -86px;
-	z-index: 12;
-	-webkit-transition: all 0.4s;
-	-moz-transition: all 0.4s;
-	transition: all 0.4s;
-	opacity: 0;
-	overflow: hidden;
-}
-.big_social_login .confirm_social a {
-	width: 134px;
-	height: 69px;
-	line-height: 71px;
-	padding-right: 33px;
-	text-align: right;
-	display: inline-block;
-	background-image: url(../img/big_social_nav/done.png);
-	background-position: center top;
-	background-repeat: no-repeat; 
-	color: #fff;
-	font-family: 'Omnes-Semibold';
-	font-size: 18px;
-}
-.big_social_login .confirm_social a:hover {
-	color: #424C5A;
-	background-position: center -68px;
-}
-.big_social_login .confirm_social.on {
-	height: 70px;
-	opacity: 1;
-}
-
-/* --- close nav */
-.big_social_login .social_icons .close_big_nav {
-	width: 58px;
-	height: 58px;
-	position: absolute;
-	right: 0px;
-	top: 12px;
-	z-index: 21;
-}
-.big_social_login .social_icons .close_big_nav a {
-	width: 58px;
-	height: 58px;
-	display: inline-block;
-	background-image: url(../img/big_social_nav/close.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	-webkit-transition: opacity 0.4s;
-	-moz-transition: opacity 0.4s;
-	transition: opacity 0.4s;
-	text-indent: -9999px;
-}
-.big_social_login .social_icons .close_big_nav a:hover {
-	opacity: 0.7;
 }
 
 /* @end */
