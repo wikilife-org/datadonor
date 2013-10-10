@@ -58,13 +58,7 @@
 
 <!-- <script src="../build/js/jquery.scrollSections-0.4.1.min.js"></script> -->
 
-<script>
-
-
-</script>
-
-
-	<script> 
+<script> 
 
 	var myVideoback=document.getElementById("video-back-0"); 
 	var myVideoback2=document.getElementById("video-back-1"); 
@@ -76,15 +70,14 @@
 	var video_slide = 0;
 	function playPause()
 	{ 
-		if (myVideo1.paused) 
-		{
-			//myVideo.play();
+		var myVideo1=document.getElementById("video-top");
+		if (myVideo1.paused) {
 			$( '.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa' ).hide();
 			$( '.pause' ).show();
-			$("#video-back-0").hide();
+			$("video").hide();
 			$( '#video-top' ).show();
-			 myVideo1.play();
-			  myVideo1.addEventListener('ended', function () {
+			myVideo1.play();
+			myVideo1.addEventListener('ended', function () {
 					$( '.pause' ).hide();
 					$( '.videoback, #header-top img').show();	
 					$( '.close-video' ).hide();
@@ -92,16 +85,14 @@
 					$( '#video-top, #video-top2' ).hide();
 				}, false);
 				//video.play(); 
-		}
-		else 
-		{
-		  myVideo1.pause();
-		  
-		  $( '.close-video' ).show();
+		} else {
+			myVideo1.pause();
+		  	$( '.close-video' ).show();
 		}
 	} 
 		function close_video()
 		{
+			var myVideo1=document.getElementById("video-top");
 			if( video_slide == 1  )
 			{ 
 			
@@ -115,11 +106,7 @@
 			$( '.video-1,.box-scroll, #header-top .capa' ).show();
 			$( '#video-top, #video-top2' ).hide();
 			myVideo1.currentTime = 0;
-			$('.slides > li > video').each( function(i) {
-						//$(this).get(0).pause();
 
-						// Note the get(0) part. That turns an array into a sinle element, which we need in order to call the pause() method.
-					});
 				
 		}
 			
