@@ -15,73 +15,65 @@ def jawbone_info(request, *args, **kwargs):
     result = {}
     if backend.name == "jawbone":
         data = kwargs.get('response')
-        jc = JawboneClient(backend, data['access_token'])
+        jc = JawboneClient(data['access_token'])
         extra_data = jc.get_user_profile()
-        jc.get_user_trends()
-        jc.get_move()
+        print jc.get_user_friends()
+        print jc.get_user_workouts()
         print data
         
     
 class JawboneClient():
     PAGE_SIZE = 25
 
-    def __init__(self, backend, access_token):
-        self.backend = backend
-        self.access_token = access_token
-        self.api_host = 'https://jawbone.com/nudge/api/v.1.0/users/@me'
+    def __init__(self, access_token):
+        self.api_host = 'https://jawbone.com/nudge/api/users/@me'
+        self.headers = {"Content-type": "application/json", "Authorization": "Bearer %s" % access_token}
+
+    
+    def make_api_call(self, url):
+        res = requests.get(url , headers=self.headers)
+        if res.status_code == 200:
+            data = json.loads(res.text)
+        else:
+            data = None        
+        return data
 
 
     def get_user_profile(self):
-        url =  self.api_host
-        headers = {"Content-type": "application/json", "Authorization": "Bearer %s" % self.access_token}
-        res = requests.get(url , headers=headers)
-        if res.status_code == 200:
-            data = json.loads(res.text)
-        else:
-            data = None        
-        return data
-    
+        url = self.api_host
+        return self.make_api_call(url)
+
+
     def get_user_friends(self):
-        url =  self.api_host + "/friends"
-        headers = {"Content-type": "application/json", "Authorization": "Bearer %s" % self.access_token}
-        res = requests.get(url , headers=headers)
-        if res.status_code == 200:
-            data = json.loads(res.text)
-        else:
-            data = None        
-        return data
-    
+        url =  self.api_host + "/friends"       
+        return self.make_api_call(url)
+
+
     def get_user_mood(self):
         url =  self.api_host + "/mood"
-        headers = {"Content-type": "application/json", "Authorization": "Bearer %s" % self.access_token}
-        res = requests.get(url , headers=headers)
-        if res.status_code == 200:
-            data = json.loads(res.text)
-        else:
-            data = None        
-        return data
-    
+        return self.make_api_call(url)
+
+
     def get_user_trends(self):
         url =  self.api_host + "/trends"
-        headers = {"Content-type": "application/json", "Authorization": "Bearer %s" % self.access_token}
-        res = requests.get(url , headers=headers)
-        print res.text
-        if res.status_code == 200:
-            data = json.loads(res.text)
-        else:
-            print res.status_code
-            data = None        
-        return data
+        return self.make_api_call(url)
     
 
-    def get_move(self, move_xid='BwiqMyh8M'):
-        url =  "https://jawbone.com/nudge/api/v.1.0/moves/%s" % move_xid
-        print url
-        headers = {"Content-type": "application/json", "Authorization": "Bearer %s" % self.access_token}
-        res = requests.get(url, headers=headers) # , headers=headers)
-        if res.status_code == 200:
-            data = json.loads(res.text)
-        else:
-            data = None
-            print res.status_code        
-        return data
+    def get_user_workouts(self):
+        url =  self.api_host + "/workout"
+        return self.make_api_call(url)
+    
+    
+    def get_user_body_events(self):
+        url =  self.api_host + "/body_events"
+        return self.make_api_call(url)
+    
+    
+    def get_user_cardiac_events(self):
+        url =  self.api_host + "/cardiac_events"
+        return self.make_api_call(url)
+    
+    
+    def get_user_meals(self):
+        url =  self.api_host + "/meals"
+        return self.make_api_call(url)
