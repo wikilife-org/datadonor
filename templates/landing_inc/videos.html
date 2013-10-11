@@ -2,13 +2,13 @@
     
 	                            
         <div class="wrapper section-top" id="header-top">
-        	<a href="#" class="close-video" onClick="close_video()"></a>
+        	<a href="#" class="close-video" onClick="close_video(); return false;"></a>
             <div class="video-1">
                 <h2>WATCH HOW WE COULD ALL SAVE LIVES</h2>
-       			<a href="#" id="video-01" onClick="playPause()" class="watch-video" >Watch video</a>
+       			<a href="#" id="video-01" onClick="playPause(); return false;" class="watch-video" >Watch video</a>
             </div>
             
-            <a href="#" class="pause" onClick="playPause()"></a>
+            <a href="#" class="pause" onClick="playPause(); return false;"></a>
           	<div class="flexslider">
           	{% if not videos %}
                 <ul class="slides">
@@ -17,17 +17,19 @@
                         <div class="capa"></div>
                         
                         <video width="640" id="video-back-0" class="vidback-0 videoback" preload="auto" muted loop autoplay>
-                            <source src="http://static.wikilife.org/blur.mp4" type="video/mp4">
-                            <source src="http://static.wikilife.org/blur.webm" type='video/webm;codecs="vp8, vorbis"'>
+                            <source src="http://static.wikilife.org/blur.webm" type='video/webm'>
                             <source src="http://static.wikilife.org/blur.ogv" type="video/ogg">
+                            <source src="http://static.wikilife.org/blur.mp4" type="video/mp4">
+ 
                         </video>
                         
                         
                                                                   
                         <video width="640" id="video-top" class="vid-0"  preload="none" >
-                            <source src="http://static.wikilife.org/DataDonors.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                            <source src="http://static.wikilife.org/DataDonors.webm" type='video/webm; codecs="vp8, vorbis"'>
+                            <source src="http://static.wikilife.org/DataDonors.webmhd.webm" type='video/webm; codecs="vp8.0, vorbis"'>
                             <source src="http://static.wikilife.org/DataDonors.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                           <source src="http://static.wikilife.org/DataDonors.mp4" type='video/mp4; codecs="avc1.7A001F, mp4a.40.2"'>
+          
                         </video>
 
                    </li>     

@@ -281,50 +281,137 @@ a:hover {
 --------------------------------------- */
 
 .big_social_login {
-	background-color: #3F4B5B;
+	background-color: #333d4a;
 	z-index: 9999 !important;
+	height: 0px;
+	overflow: hidden;
+	-webkit-transition: background-color 0.4s;
+	-moz-transition: background-color 0.4s;
+	transition: background-color 0.4s;
+	-webkit-backface-visibility: hidden;
+}
+.big_social_login.collapsed {
+	height: auto;
+	background-color: #3F4B5B;
+}
+.big_social_login.collapsed .sector_icon {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+	top: 0px;
 }
 .big_social_login .centered_container {
 	text-align: center;
 	position: relative;
-	background-color: #3F4B5B;
 	padding: 20px 0px 20px 0px;
+}
+
+/* --- nav one open always */
+#social_nav_one {
+	height: auto!important;
+	background-color: #3F4B5B;
+}
+#social_nav_one .sector_icon {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+	top: 0px;
 }
 
 /* --- sector icon */
 .big_social_login .sector_icon {
 	float: left;
-	width: auto;
 	height: 127px;
-	width: 127px;
+	width: 220px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	/*-webkit-transform: scale(0.4);
+	-moz-transform: scale(0.4);
+	transform: scale(0.4);*/
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	opacity: 0.7;
+	position: relative;
+	top: -150px;
 }
+#social_nav_one .sector_icon {
+	background-image: url(../img/big_social_nav/social_icon.png);
+}
+#social_nav_two .sector_icon {
+	background-image: url(../img/big_social_nav/physical_icon.png);
+}
+#social_nav_three .sector_icon {
+	background-image: url(../img/big_social_nav/nutrition_icon.png);
+}
+
 
 /* --- social icons */
 .big_social_login .social_icons {
 	float: right;
-	width: 1010px;
+	width: 930px;
 	height: 127px;
+	position: relative;
+}
+.big_social_login .social_icons .overflow_icons {
+	width: 100%;
+	height: 124px;
 	overflow: hidden;
 }
-.big_social_login .social_icons ul {
-	width: 100%;
+.big_social_login .social_icons .overflow_icons ul {
+	float: right;
 	text-align: right;
-	background-color: #3F4B5B;
+	width: auto!important;
+	white-space: nowrap;
 	position: relative;
-	z-index: 20;
-    height:127px;
-    overflow: hidden;
 }
-.big_social_login .social_icons ul li {
+.big_social_login .social_icons .overflow_icons ul li {
+	width: 124px;
+	line-height: 124px;
+	text-align: center;
 	display: inline-table;
-	margin: 0px 8px 0px 8px;
+	margin-left: 5px;
 }
-.big_social_login .social_icons ul li a {
+.big_social_login .social_icons .overflow_icons li a {
 	text-indent: 9999px;
 	width: 124px;
 	height: 124px;
 	display: inline-block;
 	background-repeat: no-repeat;
+}
+
+/* --- navegacion */
+.big_social_login .social_icons .boton {
+	width: 26px;
+	line-height: 43px;
+	position: absolute;
+	top: 50%;
+	margin-top: -21px;
+	text-align: center;
+	font-size: 15px;
+	color: #6B7480;
+	font-weight: bold;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+	font-family: 'Omnes-Semibold';
+	background-image: url(../img/big_social_nav/arrow_networks.png);
+	background-repeat: no-repeat; 
+	text-indent: -9999px;
+	opacity: 1;
+}
+.big_social_login .social_icons .boton:hover {
+	opacity: 0.8;
+}
+.big_social_login .social_icons .boton.prev {
+	left: -35px;
+	background-position: top left;
+}
+.big_social_login .social_icons .boton.next {
+	right: -35px;
+	background-position: top right;
 }
 
 /* --- NUTRITION NETWORKS */
@@ -525,69 +612,6 @@ a:hover {
 .big_social_login .social_icons ul li.active a.evernote {
 	background-image: url(../img/big_social_nav/social.png);
 	background-position: -700px 3px;
-}
-
-/* --- confirm networks */
-.big_social_login .confirm_social {
-	position: absolute;
-	width: 167px;
-	height: 0px;
-	bottom: -31px;
-	left: 50%;
-	margin-left: -86px;
-	z-index: 12;
-	-webkit-transition: all 0.4s;
-	-moz-transition: all 0.4s;
-	transition: all 0.4s;
-	opacity: 0;
-	overflow: hidden;
-}
-.big_social_login .confirm_social a {
-	width: 134px;
-	height: 69px;
-	line-height: 71px;
-	padding-right: 33px;
-	text-align: right;
-	display: inline-block;
-	background-image: url(../img/big_social_nav/done.png);
-	background-position: center top;
-	background-repeat: no-repeat; 
-	color: #fff;
-	font-family: 'Omnes-Semibold';
-	font-size: 18px;
-}
-.big_social_login .confirm_social a:hover {
-	color: #424C5A;
-	background-position: center -68px;
-}
-.big_social_login .confirm_social.on {
-	height: 70px;
-	opacity: 1;
-}
-
-/* --- close nav */
-.big_social_login .social_icons .close_big_nav {
-	width: 58px;
-	height: 58px;
-	position: absolute;
-	right: 0px;
-	top: 12px;
-	z-index: 21;
-}
-.big_social_login .social_icons .close_big_nav a {
-	width: 58px;
-	height: 58px;
-	display: inline-block;
-	background-image: url(../img/big_social_nav/close.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	-webkit-transition: opacity 0.4s;
-	-moz-transition: opacity 0.4s;
-	transition: opacity 0.4s;
-	text-indent: -9999px;
-}
-.big_social_login .social_icons .close_big_nav a:hover {
-	opacity: 0.7;
 }
 
 /* @end */
@@ -967,7 +991,7 @@ a:hover {
 }
 .step_one .centered_container .top p {
 	font-size: 18px;
-	color: #8A95A0;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 10px;
 }
@@ -1127,7 +1151,7 @@ a:hover {
 	margin-bottom: 30px;
 }
 .step_two .centered_container .bottom .block .title_graph h2 {
-	color: #9099A5;
+	color: #8D99A6;
 	font-size: 18px;
 	font-family: 'Omnes-Semibold';
 }
@@ -1239,7 +1263,7 @@ a:hover {
 }
 .step_three .centered_container .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -1426,7 +1450,7 @@ a:hover {
 }
 .step_four .centered_container .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -1435,6 +1459,9 @@ a:hover {
 .step_four .centered_container .bottom {
 	width: 100%;
 	height: 423px;
+}
+#canvas_4_1 rect {
+	cursor:pointer;
 }
 
 /* --- datos graph */
@@ -1580,24 +1607,25 @@ a:hover {
 .step_four .centered_container .stats_bottom .bloq .number_stat {
 	width: 100%;
 	height: auto;
-	padding: 20px 0px 20px 0px;
+	padding: 3px 0px 0px 0px;
 	position: relative;
 	text-align: right;
 }
 .step_four .centered_container .stats_bottom .bloq .number_stat h2 {
-	font-size: 140px;
+	font-size: 144px;
 	font-family: 'Omnes-Semibold';
 	letter-spacing: -2px;
-	margin-right: 120px;
+	margin-right: 100px;
 }
 .step_four .centered_container .stats_bottom .bloq .number_stat .ico_right {
 	width: 77px;
 	height: 74px;
 	position: absolute;
 	top: 50%;
-	margin-top: -40px;
+	margin-top: -26px;
 	right: 10px;
 	background-repeat: no-repeat;
+	background-position: bottom;
 }
 
 /* ------ left */
@@ -1669,7 +1697,7 @@ a:hover {
 }
 .step_five .centered_container .top p {
 	font-size: 18px;
-	color: #8A95A0;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 10px;
 }
@@ -1733,6 +1761,20 @@ a:hover {
 }
 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_two {
 	color: #e56666;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one .global_data {
+	font-size: 44px !important;
+	top:0px;
+}
+.step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one span {
+	position:relative;
+	top:4px;
+}
+.Safari .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one .global_data {
+	top: -3px;
+}
+.Safari .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one span {
+	top: 1px;
 }
 
 /* -------- you cards */
@@ -1807,7 +1849,7 @@ a:hover {
 }
 .step_six .centered_container .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -1921,7 +1963,7 @@ a:hover {
 }
 .step_seven .centered_container .bloq .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -1931,11 +1973,20 @@ a:hover {
 }
 
 /* --- stats */
+.step_seven .centered_container .bloq.left .text_container  {
+	float: right;
+	margin-right: 0px;
+}
+.step_seven .centered_container .bloq.right .text_container  {
+	float: left;
+	margin-left: 10px;
+}
 .step_seven .centered_container .bloq .text_container {
-	width: 100%;
+	width: auto;
+	display: inline-block;
 }
 .step_seven .centered_container .bloq .text_container .stats {
-	width: 236px;
+	width: auto;
 }
 .step_seven .centered_container .bloq .text_container .stats.left {
 	float: left;
@@ -1952,7 +2003,6 @@ a:hover {
 	font-family: 'Omnes-Semibold';
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat {
-	width: 100%;
 	height: auto;
 	padding: 10px 0px 10px 0px;
 	position: relative;
@@ -1961,8 +2011,8 @@ a:hover {
 .step_seven .centered_container .bloq .text_container .stats .number_stat h2 {
 	font-size: 122px;
 	font-family: 'Omnes-Semibold';
-        width:155px;
-        text-align: right;
+    padding-right: 85px;
+    text-align: right;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right {
 	width: 67px;
@@ -2044,7 +2094,7 @@ a:hover {
 }
 .step_eight .centered_container .top p {
 	font-size: 18px;
-	color: #8A95A0;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 10px;
 }
@@ -2343,7 +2393,7 @@ a:hover {
 }
 .step_nine .centered_container .top p {
 	font-size: 18px;
-	color: #808080;
+	color: #8D99A6;
 	font-family: 'Omnes-Semibold';
 	margin-top: 8px;
 }
@@ -2399,7 +2449,7 @@ a:hover {
 	margin-top: 3px;
 }
 .step_ten .centered_container .stats .block.one p {
-	color: #8C99A6;
+	color: #8D99A6;
 	font-size: 18px;
  	font-family: 'Omnes-Semibold';
 }
@@ -2470,7 +2520,7 @@ a:hover {
 .step_ten .centered_container .stats .block.three .top h2 {
 	font-family: 'Omnes-Semibold';
 	font-size: 180px;
-	height: 155px;
+	height: 167px;
 	overflow: hidden;
 	display: inline-block !important;
 	color: #ff836f;
@@ -2503,7 +2553,14 @@ a:hover {
 /* ------- slider styles */
 .step_ten .centered_container .stats .block.three .slider_container {
 	width: 100%;
-	margin-top: 15px;
+	margin-top: 1px;
+}
+.Safari .step_ten .centered_container .stats .block.three .slider_container {
+	width: 100%;
+	margin-top: 4px;
+}
+.Firefox .step_ten .centered_container .stats .block.three .slider_container {
+    margin-top: 0;
 }
 .step_ten .slider_container .ui-widget {
 	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
