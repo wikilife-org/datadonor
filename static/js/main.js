@@ -4,6 +4,7 @@ var doubleAxisBars;
 var animatedQuarterPie;
 var doubleAxisParams;
 var SingleBarChart;
+_api_env = 'hard';
 
 function workCallback(args){
   //$('#age_input li a[data-key=15-25]');
@@ -342,56 +343,56 @@ function pad(num, size) {
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
-  $.getJSON( "../../static/js/adapter/examples/social_reach", function( data ) {
+  $.getJSON( _api_urls[_api_env].social_reach, function( data ) {
     //console.log(data);
     drawSocialGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/share", function( data ) {
+  $.getJSON( _api_urls[_api_env].share, function( data ) {
     drawShareGraphs(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/education", function( data ) {
+  $.getJSON( _api_urls[_api_env].education, function( data ) {
     drawEducationGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/work", function( data ) {
+  $.getJSON( _api_urls[_api_env].work, function( data ) {
     //console.log('WORK!!!!');
     drawWorkGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/exercise_top", function( data ) {
+  $.getJSON( _api_urls[_api_env].exercise, function( data ) {
     drawExerciseGraphs(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/steps_2", function( data ) {
+  $.getJSON( _api_urls[_api_env].steps, function( data ) {
     //console.log('STEPS!');
     drawStepsGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/miles_2", function( data ) {
+  $.getJSON( _api_urls[_api_env].miles, function( data ) {
     //console.log('MILES!');
     drawMilesGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/hours_2", function( data ) {
+  $.getJSON( _api_urls[_api_env].hours, function( data ) {
     //console.log('HOURS!');
     drawHoursGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/nutrients", function( data ) {
+  $.getJSON( _api_urls[_api_env].nutrients, function( data ) {
     //console.log('NUTRIENT PROPORTION!');
     drawNutrientProportionGraph(data);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/weight", function( data ) {
+  $.getJSON( _api_urls[_api_env].weight, function( data ) {
     console.log('WEIGHT!');
     $('.weight_values .man .value').html(data.global_data.men.value);
     $('.weight_values .woman .value').html(data.global_data.women.value);
     $('#weight_number').html(data.user_data.value);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/height", function( data ) {
+  $.getJSON( _api_urls[_api_env].height, function( data ) {
     console.log('WEIGHT!');
     $('.height_values .man .value').html(data.global_data.men.value);
     $('.height_values .woman .value').html(data.global_data.women.value);
@@ -399,14 +400,14 @@ window.onload = function () {
     $('#height_number').html(data.user_data.value);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/bmi", function( data ) {
+  $.getJSON( _api_urls[_api_env].bmi, function( data ) {
     console.log('WEIGHT!');
     $('.bmi_values .man .value').html(data.global_data.men.value);
     $('.bmi_values .woman .value').html(data.global_data.women.value);
     $('.your_bmi h2').html(data.user_data.value);
   });
   
-  $.getJSON( "../../static/js/adapter/examples/user_exercise", function( data ) {
+  $.getJSON( _api_urls[_api_env].user_exercise, function( data ) {
     for(var i = 1; i <= data.length; i++){
       $($('.you_cards ul li')[i]).html('<p><span>'+data[i-1].title+'</span><br />'+data[i-1].message+'</p>');
     }
@@ -430,7 +431,7 @@ $(document).ready(function(){
     $.ajax({
       dataType: "json",
       type: "POST",
-      url: "../../static/js/adapter/examples/education_post",
+      url: _api_urls[_api_env].education_post,
       data: { education_level: animatedQuarterPie.elements[pos].server_key },
       success: function(data){
         drawEducationGraph(data);
@@ -446,7 +447,7 @@ $(document).ready(function(){
     $.ajax({
       dataType: "json",
       type: "POST",
-      url: "../../static/js/adapter/examples/work_post",
+      url: _api_urls[_api_env].work_post,
       data: { working_experience: age },
       success: function(data){
         drawWorkGraph(data);
@@ -459,7 +460,7 @@ $(document).ready(function(){
     $.ajax({
       dataType: "json",
       type: "POST",
-      url: "../../static/js/adapter/examples/weight",
+      url: _api_urls[_api_env].weight,
       data: { unit: 'Lbs', value: $("#weight_slider").slider("value") },
       success: function(data){
         
@@ -471,7 +472,7 @@ $(document).ready(function(){
     $.ajax({
       dataType: "json",
       type: "POST",
-      url: "../../static/js/adapter/examples/height",
+      url: _api_urls[_api_env].height,
       data: { unit: 'Ft', value: $("#height_slider").slider("value") },
       success: function(data){
         
