@@ -25,39 +25,7 @@ $(document).ready(function () {
 		 });
 	}
 	// SECTOR FIXED NAV
-
-	// BIG SOCIAL NAV TRIGGER
-	//	$('.trigger_social_choice a').click(function (event) {
-	//		event.preventDefault();
-	//		$(this).parent().parent().parent().addClass('off');
-	//		$(this).parent().parent().parent().parent().find('.social_choice').addClass('on');
-	//		$(this).parent().parent().parent().parent().find('.confirm_social').addClass('on');
-	//		$('.nav_steps').addClass('open_social');
-	//	});
-		
-	//	$('.close_big_nav a').live('click', function (event) {
-	//		event.preventDefault();
-	//		$('.trigger_social_choice').removeClass('off');
-	//		$('.social_choice').removeClass('on');
-	//		$('.confirm_social').removeClass('on');
-	//		$('.nav_steps').removeClass('open_social');
-	//	});
-		
-	//	$('.confirm_social a').live('click', function (event) {
-	//		event.preventDefault();
-	//		$('.trigger_social_choice').removeClass('off');
-	//		$('.social_choice').removeClass('on');
-	//		$('.confirm_social').removeClass('on');
-	//		$('.nav_steps').removeClass('open_social');
-	//	});
-	
-	/*$('.nav_big_social li a').live('click', function (event) {
-		event.preventDefault();
-		$(this).parent().toggleClass('active');
-	});*/
-	// BIG SOCIAL NAV TRIGGER
-        
-        
+    
     // SECTOR FIXED NAV
 	if ($('.maqueta_new').length) {
 		var offsetOne = $('#step_one').offset().top - 150;
@@ -156,7 +124,7 @@ $(document).ready(function () {
 	// SHARE SOCIAL
 	
 	// EMAIL SHARE POP-UP
-	$('#email_trigger').click(function (event) {
+	$('#email_trigger, .footer_social a.email').click(function (event) {
 		event.preventDefault();
 		$('#email_container').fadeIn();
 	});
