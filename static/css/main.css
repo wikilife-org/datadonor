@@ -327,9 +327,9 @@ a:hover {
 	width: 220px;
 	background-position: left center;
 	background-repeat: no-repeat;
-	-webkit-transform: scale(0.4);
+	/*-webkit-transform: scale(0.4);
 	-moz-transform: scale(0.4);
-	transform: scale(0.4);
+	transform: scale(0.4);*/
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
@@ -1607,24 +1607,25 @@ a:hover {
 .step_four .centered_container .stats_bottom .bloq .number_stat {
 	width: 100%;
 	height: auto;
-	padding: 20px 0px 20px 0px;
+	padding: 3px 0px 0px 0px;
 	position: relative;
 	text-align: right;
 }
 .step_four .centered_container .stats_bottom .bloq .number_stat h2 {
-	font-size: 140px;
+	font-size: 144px;
 	font-family: 'Omnes-Semibold';
 	letter-spacing: -2px;
-	margin-right: 120px;
+	margin-right: 100px;
 }
 .step_four .centered_container .stats_bottom .bloq .number_stat .ico_right {
 	width: 77px;
 	height: 74px;
 	position: absolute;
 	top: 50%;
-	margin-top: -40px;
+	margin-top: -26px;
 	right: 10px;
 	background-repeat: no-repeat;
+	background-position: bottom;
 }
 
 /* ------ left */
@@ -2553,6 +2554,13 @@ a:hover {
 .step_ten .centered_container .stats .block.three .slider_container {
 	width: 100%;
 	margin-top: 1px;
+}
+.Safari .step_ten .centered_container .stats .block.three .slider_container {
+	width: 100%;
+	margin-top: 4px;
+}
+.Firefox .step_ten .centered_container .stats .block.three .slider_container {
+    margin-top: 0;
 }
 .step_ten .slider_container .ui-widget {
 	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
