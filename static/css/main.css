@@ -100,28 +100,28 @@ a:hover {
 --------------------------------------- */
 
 #header {
-	height: 136px;
+	height: 160px;
 	background-color: white;
 }
 
 /* --- logotipo */
 #header .logo {
-	width: 184px;
-	height: 65px;
+	width: 361px;
+	height: 125px;
 	float: left;
-	margin-top: 35px;
+	margin-top: 19px;
 }
 #header .logo h1 {
-	width: 184px;
-	height: 65px;
-	background-image: url(../img/header/logo.jpg);
+	width: 361px;
+	height: 125px;
+	background-image: url(../img/header/logo.png);
 	background-position: center;
 	background-repeat: no-repeat;
 }
 #header .logo h1 a {
-	width: 184px;
-	height: 65px;
-	background-image: url(../img/header/logo.jpg);
+	width: 361px;
+	height: 125px;
+	background-image: url(../img/header/logo.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	display: inline-block;
@@ -131,7 +131,7 @@ a:hover {
 /* --- logout */
 #header .logout_boton {
 	float: right;
-	margin-top: 82px;
+	margin-top: 123px;
 }
 #header .logout_boton a {
 	color: #3F4A5A;
