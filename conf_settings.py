@@ -27,7 +27,8 @@ IHEALTH_CONSUMER_SECRET = 'bb71b06b8a9e49d19cd3430543b2b135'
 
 JAWBONE_CONSUMER_KEY = 'CU3cmqTl6S0'
 JAWBONE_CONSUMER_SECRET = 'fc1bf30245a0bbd30986a79874f8167aab5015b8'
-JAWBONE_EXTENDED_PERMISSIONS = ['basic_read', 'extended_read']
+JAWBONE_EXTENDED_PERMISSIONS = ['basic_read', 'extended_read', 'friends_read', 'mood_read', 'sleep_read', 
+                                'meal_read', 'weight_read', 'cardiac_read', 'generic_event_read']
 
 ANDME_CLIENT ="36fe7db30c8de9fe66a49a0be37896e5"
 ANDME_SECRET ="25009972bce773fb2ab0860773512885"
