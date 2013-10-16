@@ -1,4 +1,5 @@
 {% extends "base.html"%}
+{% debug %}
 {% comment %}
 <?php
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 8.0') !== FALSE){ header('Location: http://www.browsehappy.com/');}
@@ -43,7 +44,52 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 
 {% block content %}
 <body> 
+<section id="disclaimer" class="scrollsections">
 
+	<div class="container-header">
+	
+    <header id="header" >
+    
+        <div id="top">
+            
+            <div class="col-3 left" ></div>
+            
+            <div class="col-3 center" ></div>
+            
+            <div class="col-3 right" ></div>
+            
+            <h1>
+            	
+                <img src="/static/img/logo.png" width="145" height="49" alt="Logo DataDonors" title="Logo DataDonors" />
+            
+            </h1>
+            
+            <div id="center-nav">
+            
+<!--                 <h2>What if we could save lives with what we do every day?</h2>
+ -->                
+            </div><!-- #center-nav -->                	
+            
+        </div><!-- #top -->
+           
+           <!-- <ul class="redes">
+          <li class="facebook"><a href="https://www.facebook.com/datadonors" title="facebook"></a></li>
+
+<li class="twitter"><a href="https://twitter.com/datadonors" title="twitter"></a></li>
+
+<li class="mail"><a href="mailto:info@datadonors.org" title="mail"></a></li>
+
+           
+           </ul> -->
+           <!-- .redes -->
+        
+        <div class="bottom"></div>
+        
+    </header><!-- #header -->
+		
+</div><!-- .container-header -->
+      	{% include "wizard_inc/disclaimer.html" %}
+      </section>
       
       <section id="whatfor" class="scrollsections claro">
       
@@ -68,9 +114,12 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 
 <script type="text/javascript">
 $(document).ready(function(){
-
+{% if  show_wizard %}
+	$("#iagree").trigger("click");
+{% endif %}
+console.log("{{request.session.association.type}}");
 {% if request.session.association.type == "social" %}
-go_to_slide(0);
+go_to_slide(3);
 {% endif %}
 
 });
