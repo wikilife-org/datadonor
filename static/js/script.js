@@ -21,7 +21,7 @@ $( document ).ready (
 	{
 		var scrollTop = $( window ).scrollTop ( );
 		
-		$(".pause").live("hover mousemove", function(e) {
+		$(".pause").on("hover mousemove", function(e) {
 			$( '.pause' ).stop ( true , true ).animate ( { opacity: 1 } );
 			g = true;
 			t = setTimeout ( "lights_out ( )" , 1000 );
