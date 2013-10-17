@@ -10,6 +10,7 @@ from wikilife.wikilife_connector import WikilifeConnector
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
+from social.services import *
 
 def comming(request):
     return render_to_response('splash/index.html', {'version': version},
@@ -90,18 +91,22 @@ def social_sharing(request):
 def social_education(request):
     if request.method == "POST":
         education_level = request.POST["education_level"]
-        data = {}
-        
-    else:
-        user_data = {"user_level": "under_program"}
-        global_data = {"phd":{"percentage":8, "key":"phd", "title": "PhD", "index":6},
-                       "master":{"percentage":10, "key":"master", "title": "Master", "index":5},
-                       "under_program":{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}, 
-                       "tech_inst":{"percentage":5, "key":"tech_inst", "title": "Technical Institute", "index":3},
-                       "high_school":{"percentage":3, "key":"high_school", "title": "High School", "index":2},
-                       "junior_college":{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
-                       "primary_school":{"percentage":3, "key":"primary_school", "title": "Primary School", "index":0}}
-        data = {"user_data":user_data, "global_data":global_data}
+        #Validate value
+        if is_valid_education(education_level):
+        #save Value
+            request.user.social_aggregated_data.education_level = int(education_level)
+            request.user.social_aggregated_data.save()
+            update_degree(request.user.social_aggregated_data.education_degree, int(education_level))
+
+    user_data = {"user_level": request.user.social_aggregated_data.education_level}
+    global_data = {6:{"percentage":8, "key":"phd", "title": "PhD", "index":6},
+                   5:{"percentage":10, "key":"master", "title": "Master", "index":5},
+                   4:{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}, 
+                   3:{"percentage":5, "key":"tech_inst", "title": "Technical Institute", "index":3},
+                   2:{"percentage":3, "key":"high_school", "title": "High School", "index":2},
+                   1:{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
+                   0:{"percentage":3, "key":"primary_school", "title": "Primary School", "index":0}}
+    data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
