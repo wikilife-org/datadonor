@@ -250,7 +250,7 @@ def validate_whitelists(backend, email):
 
 # Backend definition
 BACKENDS = {
-    'google': GoogleAuth,
+    'google-auth': GoogleAuth,
     'google-oauth': GoogleOAuth,
-    'google-oauth2': GoogleOAuth2,
+    'google': GoogleOAuth2,
 }

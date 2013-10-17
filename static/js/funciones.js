@@ -25,47 +25,12 @@ $(document).ready(function () {
 		 });
 	}
 	// SECTOR FIXED NAV
-
-	// BIG SOCIAL NAV TRIGGER
-	$('.trigger_social_choice a').click(function (event) {
-		event.preventDefault();
-		$(this).parent().parent().parent().addClass('off');
-		$(this).parent().parent().parent().parent().find('.social_choice').addClass('on');
-		$(this).parent().parent().parent().parent().find('.confirm_social').addClass('on');
-		$('.nav_steps').addClass('open_social');
-		$('.nav_steps').addClass('social_chose_open');
-	});
-	
-	$('.close_big_nav a').live('click', function (event) {
-		event.preventDefault();
-		$('.trigger_social_choice').removeClass('off');
-		$('.social_choice').removeClass('on');
-		$('.confirm_social').removeClass('on');
-		$('.nav_steps').removeClass('open_social');
-		$('.nav_steps').removeClass('social_chose_open');
-	});
-	
-	$('.confirm_social a').live('click', function (event) {
-		event.preventDefault();
-		$('.trigger_social_choice').removeClass('off');
-		$('.social_choice').removeClass('on');
-		$('.confirm_social').removeClass('on');
-		$('.nav_steps').removeClass('open_social');
-		$('.nav_steps').removeClass('social_chose_open');
-	});
-	
-/*	$('.nav_big_social li a').live('click', function (event) {
-		event.preventDefault();
-		$(this).parent().toggleClass('active');
-	});*/
-	// BIG SOCIAL NAV TRIGGER
-        
-        
-        // SECTOR FIXED NAV
+    
+    // SECTOR FIXED NAV
 	if ($('.maqueta_new').length) {
-		var offsetOne = $('#step_one').offset().top - 117;
-        var offsetfive = $('#step_five').offset().top - 117;
-        var offseteight = $('#step_eight').offset().top - 117;
+		var offsetOne = $('#step_one').offset().top - 150;
+        var offsetfive = $('#step_five').offset().top - 150;
+        var offseteight = $('#step_eight').offset().top - 150;
 	}
 	// SECTOR FIXED NAV
 	
@@ -126,13 +91,13 @@ $(document).ready(function () {
 		} else if ($(this).parent().hasClass('first')) {
 			$('#age_input li a').parent().removeClass('active');
 			$(this).parent().addClass('active');
-			var leftContainer = $(this).parent().position().left;
+			var leftContainer = $(this).parent().position().left - 10;
 			$('#age_select').css({left: leftContainer+"px"});
 			$('#age_select').addClass('active');
 		} else {
 			$('#age_input li a').parent().removeClass('active');
 			$(this).parent().addClass('active');
-			var leftContainer = $(this).parent().position().left + 9;
+			var leftContainer = $(this).parent().position().left - 5;
 			$('#age_select').css({left: leftContainer+"px"});
 			$('#age_select').addClass('active');
 		}
@@ -159,7 +124,7 @@ $(document).ready(function () {
 	// SHARE SOCIAL
 	
 	// EMAIL SHARE POP-UP
-	$('#email_trigger').click(function (event) {
+	$('#email_trigger, .footer_social a.email').click(function (event) {
 		event.preventDefault();
 		$('#email_container').fadeIn();
 	});
@@ -168,6 +133,151 @@ $(document).ready(function () {
 		$('#email_container').fadeOut();
 	});
 	// EMAIL SHARE POP-UP
+	
+	// SLIDER NUTRITION
+	if ($('#weight_slider').length) {
+		$('#weight_slider').slider({
+		      range: 'min',
+		      value: 112,
+		      min: 0,
+		      max: 200,
+		      slide: function( event, ui ) {
+		        var value = ui.value;
+		        $('#weight_number').html(value);
+		      }
+		 });	
+	}
+	if ($('#height_slider').length) {
+    var defheight = 5.8;
+		$('#height_slider').slider({
+		      range: 'min',
+		      value: defheight.toFixed(1),
+		      min: 0,
+		      max: 8.5,
+          step: 0.1,
+		      slide: function( event, ui ) {
+		        var value = ui.value.toFixed(1);
+		        $('#height_number').html(value.replace('.', ','));
+		      }
+		 });	
+	}
+	// SLIDER NUTRITION
+	
+	
+	// CARROUSELS NETWORKS
+
+	// Activar navegacion
+	
+	$('.social_icons .boton.next').hide();
+	
+	var carOne = $('#carousel_one .overflow_icons ul').width();
+	var carTwo = $('#carousel_two .overflow_icons ul').width();
+	var carThree = $('#carousel_three .overflow_icons ul').width();
+	var carFour = $('#carousel_four .overflow_icons ul').width();
+	var carFive = $('#carousel_five .overflow_icons ul').width();
+	
+	if (carOne <= 930) {
+		$('#carousel_one a.boton').hide();
+	} 
+	if (carTwo <= 930) {
+		$('#carousel_two a.boton').hide();
+	} 
+	if (carThree <= 930) {
+		$('#carousel_three a.boton').hide();
+	} 
+	if (carFour <= 930) {
+		$('#carousel_four a.boton').hide();
+	} 
+	if (carFive <= 930) {
+		$('#carousel_five a.boton').hide();
+	} 
+	
+	// funciones que generan movimiento
+	
+	function $nextNetwork() {
+		
+		// Data slider
+		var nu_pos = $(this).parent().find('.overflow_icons').attr('data-position');
+		nu_pos--;
+		
+		// Overflow size
+		var visibleArea = $(this).parent().find('.overflow_icons').width();
+		var overflowWidth = $(this).parent().find('.overflow_icons').find('ul').width();
+		var hiddenOverflow = overflowWidth - visibleArea;
+		var leftMove = hiddenOverflow / 2;
+		
+		// Navegacion off
+		var $prevCarousel = $(this).parent().find('.boton.prev');
+		var $nextCarousel = $(this).parent().find('.boton.next');
+		
+		// Move element
+		$nuevaPosicion = $(this).parent().find('.overflow_icons').find('ul');
+		
+		if (overflowWidth < visibleArea) {
+			nu_pos = 0;
+		} else if (nu_pos <= 0 ) {
+			nu_pos = 0;
+			$(this).parent().find('.overflow_icons').attr('data-position',0);
+			$nuevaPosicion.stop(true,true);
+			$nuevaPosicion.animate({left:'0px'},400);
+			$nextCarousel.hide();
+		} else {
+			$nuevaPosicion.stop(true,true);
+			$nuevaPosicion.animate({left:'-='+leftMove+'px'},400);
+			$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
+			$prevCarousel.show();
+		}
+		
+	}
+	
+	function $prevNetwork() {
+	
+		// Data slider
+		var nu_pos = $(this).parent().find('.overflow_icons').attr('data-position');
+		nu_pos++;
+		
+		// Overflow size
+		var visibleArea = $(this).parent().find('.overflow_icons').width();
+		var overflowWidth = $(this).parent().find('.overflow_icons').find('ul').width();
+		var hiddenOverflow = overflowWidth - visibleArea;
+		var leftMove = hiddenOverflow / 2;
+		
+		// Navegacion off
+		var $prevCarousel = $(this).parent().find('.boton.prev');
+		var $nextCarousel = $(this).parent().find('.boton.next');
+		
+		// Move element
+		$nuevaPosicion = $(this).parent().find('.overflow_icons').find('ul');
+		
+		if (overflowWidth < visibleArea) {
+			nu_pos = 0;
+		} else if (nu_pos >= 2 ) {
+			nu_pos = 2;
+			$(this).parent().find('.overflow_icons').attr('data-position',2);
+			$nuevaPosicion.stop(true,true);
+			$nuevaPosicion.animate({left: hiddenOverflow+'px'},400);
+			$prevCarousel.hide();
+		} else {
+			$nuevaPosicion.stop(true,true);
+			$nuevaPosicion.animate({left:'+='+leftMove+'px'},400);
+			$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
+			$nextCarousel.show();
+		}
+		
+	}
+	
+	// MOVIMIENTO
+	
+	// EVENTO CLICK	
+	
+	$('.social_icons .boton').click(function (event) {event.preventDefault();})
+	$('.social_icons .boton.next').click($nextNetwork);
+	$('.social_icons .boton.prev').click($prevNetwork);
+	
+	// EVENTO CLICK
+	
+	// CARROUSELS NETWORKS
+	
 	
 	//DORESIZE
 	doResize();

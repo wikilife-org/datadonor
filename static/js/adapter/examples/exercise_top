@@ -1,0 +1,20 @@
+[
+    {
+        "user_times": 5,
+        "global_times": 4,
+        "key": "running",
+        "title": "Running"
+    },
+    {
+        "user_times": 1,
+        "global_times": 3,
+        "key": "walking",
+        "title": "Walking"
+    },
+    {
+        "user_times": 2,
+        "global_times": 1,
+        "key": "Eliptical",
+        "title": "Eliptical"
+    }
+]

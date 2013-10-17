@@ -26,12 +26,17 @@ def wizard(request):
     return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
                                   RequestContext(request))
 
+def terms(request):
+    show_wizard =  request.user.is_authenticated() or request.session.get("user_agree", False)
+    if show_wizard:
+        return HttpResponseRedirect('/wizard/')
+    return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
+                                  RequestContext(request))
+
 def home(request):
     """Home view, displays login mechanism"""
     videos = request.GET.get('videos', None)
-    ctx =  {'version': version}
-    
-        
+    ctx =  {'version': version}   
     return render_to_response('landing.html', {'version': version, 'videos':videos},
                                   RequestContext(request))
 
@@ -44,7 +49,7 @@ def dashboard(request):
         return HttpResponseRedirect('/wizard/')
     ctx = {
         'user': request.user,
-        'user_social':request.user.social_aggregated_data.social_reach(),
+        #'user_social':request.user.social_aggregated_data.social_reach(),
         'version': version,
         'last_login': request.session.get('social_auth_last_login_backend')
     }
@@ -61,29 +66,27 @@ def error(request):
                                              'messages': messages},
                               RequestContext(request))
 
+def user_account(request):
+
+    data = {"logged":request.user.is_authenticated(), 
+    "accounts": [a.provider for a in request.user.social_auth.all()]}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_reach(request):
 
-    user_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":20},
-                "gmail":{"count": 20, "percentage":20}, "foursquare":{"count": 20, "percentage":20},
-                "linkedin":{"count": 20, "percentage":20}}
-    
-    global_data = {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":10},
-                "gmail":{"count": 20, "percentage":10}, "foursquare":{"count": 20, "percentage":40},
-                "linkedin":{"count": 20, "percentage":20}}
-    
+    user_data = request.user.social_aggregated_data.social_reach()
+    global_data = global_social_reach()
     data = {"user_data":user_data, "global_data":global_data}
-    
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_sharing(request):
     
-    user_data = {"facebook":{"posts":225, "likes":80}, "twitter":{"tweets":22, "retweets":11}}
-    global_data = {"facebook":{"posts":134, "likes":44}, "twitter":{"tweets":99, "retweets":12}}
+    user_data = request.user.social_aggregated_data.social_sharing()
+    global_data = global_social_sharing()
     data = {"user_data":user_data, "global_data":global_data}
-    
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+@csrf_exempt
 def social_education(request):
     if request.method == "POST":
         education_level = request.POST["education_level"]
@@ -101,6 +104,7 @@ def social_education(request):
         data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+@csrf_exempt
 def social_work(request):
     if request.method == 'POST':
         working_experience = request.POST["working_experience"]
@@ -115,7 +119,11 @@ def social_work(request):
         data = {"user_data":user_data, "global_data":global_data, "avg":10}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def health_nutrients(request):
+
+#def health_nutrients(request):
+
+def nutrition_nutrients(request):
+
     user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
                  "fat":{"title":"Fat", "key":"fat", "percentage":30},
                  "carbs":{"title":"Carbs", "key":"carbs", "percentage":30},
@@ -128,7 +136,8 @@ def health_nutrients(request):
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def health_weight(request):
+@csrf_exempt
+def nutrition_weight(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
@@ -139,7 +148,8 @@ def health_weight(request):
         data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def health_height(request):
+@csrf_exempt
+def nutrition_height(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
@@ -150,8 +160,8 @@ def health_height(request):
         data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def health_bmi(request):
-    user_data = {"value":22}
+def nutrition_bmi(request):
+    user_data = {"value":20}
     global_data = {"men":{"value":20}, "women":{"value":26}}
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")

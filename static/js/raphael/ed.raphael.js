@@ -41,7 +41,7 @@ EdPieChart = function(r, elements, options){
   
   this.drawReferences = function(elements){
     for(var i in elements){
-      console.log(elements[i]);
+      //console.log(elements[i]);
       this.r.text(elements[i]['x'], elements[i]['y'], elements[i]['text']).attr({
         fill: elements[i]['color'], 
         "font-size": this.options.fontSize}
@@ -110,10 +110,10 @@ EdAnimatedPie = function(r, elements, options){
   }
   
   this.drawLines = function(){
-    console.log('Drawing lines!');
+    //console.log('Drawing lines!');
     var total = 0;
     for(var i in elements){
-      console.log(elements[i]);
+      //console.log(elements[i]);
       var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
       var line = this.r.path().attr(param).attr({arc: [0, 100, this.R], stroke: elements[i]['color']}).toBack();
       if(this.options.useAnimationDelay){
@@ -124,7 +124,7 @@ EdAnimatedPie = function(r, elements, options){
       line.animate(Raphael.animation({arc: [total+elements[i]['percentage'], 100, this.R]}, this.options.animationTime, this.options.easing).delay(delay));
       total = total + elements[i]['percentage'];
     }
-    console.log(this.labelLocations);
+    //console.log(this.labelLocations);
   }
   
   this.drawReferences = function(){
@@ -228,7 +228,7 @@ EdQuarterAnimatedPie = function(r, elements, options){
   this.drawLines = function(){
     console.log('Drawing lines!');
     for(var i in elements){
-      console.log(elements[i]);
+      //console.log(elements[i]);
       var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
       var line = this.r.path().attr(param).attr({arc: [0, 100, this.R], stroke: elements[i]['color']}).toBack();
       var emptyline = this.r.path().attr(param).attr({arc: [100, 100, this.R], stroke: '#F0EAE6'}).toBack();
@@ -288,7 +288,7 @@ EdBarChart = function(r, options){
   }
   
   this.drawAxis = function(){
-    console.log(options);
+    //console.log(options);
     if(this.options.axis == 'both'){
       this.drawXAxis();
       this.drawYAxis();
@@ -330,7 +330,7 @@ EdBarChart = function(r, options){
           this.drawDottedLine(label, 'x');
         }else if(label.type == 'bubble'){
           this.r.circle(xPos, this.options.centery, 20).attr({"fill": '#3F4A5A', "stroke-width": 0}).toFront();
-          this.r.text(xPos, this.options.centery, label['text']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": label["font-size"]}).toFront();
+          this.r.text(xPos, this.options.centery, label['text']).attr({"fill": '#ffffff', "font-family": label["font-family"], "font-size": label["font-size"]}).toFront();
         }
         
       }
@@ -345,7 +345,7 @@ EdBarChart = function(r, options){
         if(label.text.indexOf('\n') != '-1'){
           paddingTop = 10; //Si hay salto de linea necesita mas espacio
         }
-        var fontSize = 15;
+        var fontSize = '18px';
         if(typeof label["font-size"] != 'undefined') fontSize = label["font-size"];
         this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": fontSize, "fill": label['text-color'], 'text-anchor': 'start'});
         if(label.type == 'dotted') this.drawDottedLine(label, 'y');
@@ -369,7 +369,7 @@ EdBarChart = function(r, options){
   this.drawDottedLines = function(){
     console.log('Drawing dotted lines!');
     //paper.path("M 30 120 l 150 0 z").attr({"stroke-dasharray": '- '});
-    console.log(this.options.yAxis.labels);
+    //console.log(this.options.yAxis.labels);
     for(var i in this.options.yAxis.labels){
       var line = this.options.yAxis.labels[i];
       
@@ -382,27 +382,36 @@ EdBarChart = function(r, options){
   this.drawBars = function(){
     console.log('Drawing bars!');
     for(var i in this.elements){
-      console.log('drawing item...');
+      //console.log('drawing item...');
       var item = this.elements[i];
       if(this.options.barsAxis == 'x'){
         st = r.set();
         xPos = this.options.centerx + item['pos'];
-        this.r.rect(xPos, this.options.centery, item['width'], 0).attr({
+        var bar = this.r.rect(xPos, this.options.centery, item['width'], 0).attr({
           fill: item['color'],
           "stroke-width": 0
         }).transform('r180').toBack().animate({
           height: item['value']
         }, 1000, 'bounce');
         
+        if(typeof(this.elements[i].callback === 'function' && typeof this.elements[i].callback_args != 'undefined')){
+          bar.data('item-key', this.elements[i].key);
+          bar.click(function(){
+            console.log("CALLBACK!!!");
+            console.log(item.callback);
+            item.callback([this.data('item-key')]);
+          });
+        }
+        
         if(typeof this.options.xAxis.labelsType == 'undefined' || this.options.xAxis.labelsType == 'automatic_bubble'){
           this.r.circle(xPos+(item['width']/2), this.options.centery - item['value'], 20).attr({"fill": '#3F4A5A', "stroke-width": 0});
-          this.r.text(xPos+(item['width']/2), this.options.centery - item['value'], item['label']).attr({"fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20});
+          this.r.text(xPos+(item['width']/2), this.options.centery - item['value'], item['label']).attr({"fill": '#ffffff', "font-family": 'Gotham-Ultra', "font-size": 20});
         }
         
         if(typeof item.vlabel != 'undefined'){
-          this.r.text(xPos+(item['width']/2), this.options.centery - item['value']+20, item['label'])
+          this.r.text(xPos+(item['width']/2), this.options.centery - item['value']+20, item['vlabel'])
               .transform('r270')
-              .attr({"fill-opacity":0.5, "fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 20, "text-anchor": 'end'})
+              .attr({"fill-opacity":0.5, "fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 30, "text-anchor": 'end'})
           ;
         }
       }else{
@@ -525,26 +534,28 @@ EdSingleBarChart = function(r, elements, options){
   
   this.draw = function(){
     this.drawBarParts();
-    this.drawLabels();
+    this.drawIcon();
+    //this.drawLabels();
+    //this.drawMainLabel();
   }
   
   this.drawBarParts = function(){
-    console.log('LENGTH: '+this.elements.length);
+    //console.log('LENGTH: '+this.elements.length);
     var xPos = this.options.x;
     var c = 0;
     
     for(var i in this.elements){
       var el = this.elements[i];
       var elWidth = (el.percentage*this.options.width)/100;
-      console.log('elWidth: '+elWidth);
+      //console.log('elWidth: '+elWidth);
       var radius = 0;
       var diff = 0;
       
-      if(i == 0 || i >= (this.elements.length-1)) radius = 10;
+      if(i == 0 || i >= (this.elements.length-1)) radius = 45;
       if(i == 1){
-        diff = 10;
+        diff = 45;
       }else if(i == (this.elements.length-1)){
-        diff = 10;
+        diff = 45;
       }else{
         diff = 0;
       }
@@ -557,29 +568,54 @@ EdSingleBarChart = function(r, elements, options){
       }).toBack();
       if(i == 1) rect.toFront();
       
-      this.drawArrow(el, x, width, i);
-      this.drawLabel(el, x, width);
+      //this.drawArrow(el, x, width, i);
+      this.drawLabel(el, x, width, i);
       
       c = c + elWidth;
     }
   }
   
-  this.drawLabel = function(el, x, width){
-    var textX = x + width - 10;
-    this.r.text(textX, (this.options.y+this.options.height+20), el.percentage+" %").attr({
-      fill: this.options.fontColor, 
-      "font-size": this.options.fontSize
-    }).toFront();  
+  this.drawIcon = function(){
+    this.r.image(this.options.first_icon, this.options.x+40, this.options.y, 61, 80).toFront();
+  }
+  
+  this.drawLabel = function(el, x, width, elemNo){
+    var diff = 15;
+    var drawMainLabel = false;
+    if(elemNo == 0){ 
+      //console.log('FIRST BAR ELEMENT!');
+      diff = 60;
+    }else if(elemNo == (this.elements.length-1)){
+      diff = 45;
+      drawMainLabel = true;
+    }
+    //console.log('DIFFF: '+diff);
     
-    var textX = x + width - 10;
-    this.r.text(textX, (this.options.y+this.options.height+40), el.label).attr({
+    var textX = x + width - diff;
+    var textY = this.options.y+this.options.height/2;
+    this.r.text(textX, textY, el.percentage).attr({
       fill: this.options.fontColor, 
-      "font-size": this.options.fontSize
-    }).toFront();  
+      "font-size": this.options.fontSize,
+      "font-family": 'Omnes-semibold',
+      "text-anchor": 'end',
+      "opacity": 0.8
+    }).toFront(); 
+    
+    this.r.text(textX, textY+60, el.label).attr({
+      fill: '#5b6d7f', 
+      "font-size": 18,
+      "font-family": 'Omnes-semibold',
+      "text-anchor": 'end'
+    }).toFront(); 
+    
+    if(drawMainLabel){
+      this.drawMainLabel(x, width);
+    }
+    
   }
   
   this.drawArrow = function (el, x, width, i){
-    var pathX = x + width - 10;
+    var pathX = x + width - 45;
     if(i == 0 || i == (this.elements.length-1)) pathX = pathX - 10;
     var pathY = this.options.y + this.options.height;
     var path = this.r.path("M"+pathX+" "+pathY+"L"+(pathX+10)+" "+pathY+"L"+(pathX+5)+" "+(pathY+10)+"Z").attr({
@@ -587,9 +623,14 @@ EdSingleBarChart = function(r, elements, options){
       "fill": el.color
     });
   }
-  
-  this.drawLabels = function(){
-    
+   
+  this.drawMainLabel = function(x, width){
+    console.log('DRAWING MAIN LABEL!');
+    xPos = x + width;
+    yPos = this.options.y+this.options.height/2;
+    //this.r.circle(xPos, yPos, 30).attr({"fill": '#000000', "stroke-width": 0});
+    //this.r.text(xPos, yPos, '%').attr({"text-anchor": "middle","font-family": 'Omnes-Semibold', "font-size": 35, "fill": "#ffffff"});
+    this.r.image(this.options.end_icon, xPos-26, yPos-26, 53, 53).toFront();
   }
   
   this.init();
@@ -653,7 +694,7 @@ EdAnimatedPieLegacy = function(r, elements, options){
     console.log('Drawing lines!');
     var total = 0;
     for(var i in elements){
-      console.log(elements[i]);
+      //console.log(elements[i]);
       var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
       var line = this.r.path().attr(param).attr({arc: [0, 100, this.R], stroke: elements[i]['color']}).toBack();
       if(this.options.useAnimationDelay){
@@ -664,13 +705,13 @@ EdAnimatedPieLegacy = function(r, elements, options){
       line.animate(Raphael.animation({arc: [total+elements[i]['percentage'], 100, this.R]}, this.options.animationTime, this.options.easing).delay(delay));
       total = total + elements[i]['percentage'];
     }
-    console.log(this.labelLocations);
+    //console.log(this.labelLocations);
   }
   
   this.drawReferences = function(){
     console.log('drawing references!');
     for(var i in this.elements){
-      console.log('element percentage: '+elements[i]['percentage']);
+      //console.log('element percentage: '+elements[i]['percentage']);
     }
   }
   

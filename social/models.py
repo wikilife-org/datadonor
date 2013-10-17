@@ -61,16 +61,21 @@ class SocialUserAggregatedData(models.Model):
         t_per = percentage(t_count, total)
         fq_per = percentage(fq_count, total)
         
-        
-        #data = social_reach_graph(  (f_per, f_count), (t_per, t_count), 
-        #                            (g_per, g_count), (l_per, l_count), 
-        #                            (fq_per, fq_count))
-        
         data = {"facebook":{"count": f_count, "percentage":f_per}, "twitter":{"count": t_count, "percentage":t_per},
                 "gmail":{"count": g_count, "percentage":g_per}, "foursquare":{"count": fq_count, "percentage":fq_per},
                 "linkedin":{"count": l_count, "percentage":l_per}}
 
         return data
+    
+    def social_sharing(self):
+        return {"facebook":{"posts":self.facebook_post_weekly_avg, "likes":self.facebook_likes_weekly_avg},
+        "twitter":{"tweets":self.twitter_tweets_count_last_seven_days, "retweets":self.twitter_retweets_count_last_seven_days}}
+    
+    def social_education(self):
+        pass
+    
+    def social_work(self):
+        pass
 
 
 class GlobalEducationDistribution(models.Model):

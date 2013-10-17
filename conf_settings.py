@@ -27,7 +27,8 @@ IHEALTH_CONSUMER_SECRET = 'bb71b06b8a9e49d19cd3430543b2b135'
 
 JAWBONE_CONSUMER_KEY = 'CU3cmqTl6S0'
 JAWBONE_CONSUMER_SECRET = 'fc1bf30245a0bbd30986a79874f8167aab5015b8'
-JAWBONE_EXTENDED_PERMISSIONS = ['basic_read', 'extended_read']
+JAWBONE_EXTENDED_PERMISSIONS = ['basic_read', 'extended_read', 'friends_read', 'mood_read', 'sleep_read', 
+                                'meal_read', 'weight_read', 'cardiac_read', 'generic_event_read']
 
 ANDME_CLIENT ="36fe7db30c8de9fe66a49a0be37896e5"
 ANDME_SECRET ="25009972bce773fb2ab0860773512885"
@@ -36,9 +37,15 @@ ANDME_SECRET ="25009972bce773fb2ab0860773512885"
 FITBIT_CONSUMER_KEY="a342fda98477421eaa80ef845713d666"
 FITBIT_CONSUMER_SECRET="6917489fb2724bdbadc8d52b54cd809b"
 
+#jquintas keys
+#BODYMEDIA_CONSUMER_KEY='njb4mmpzrsjpqwaz3k7u6kg8hxjnzk9r'
+#BODYMEDIA_CONSUMER_SECRET='MgypmdPnqP25ahH98g52g3c9Z24KJbTQmmEEGAKQJuhcwPBs8wcT7yaKV69kb4Uf'
+#datadonors keys
+BODYMEDIA_CONSUMER_KEY = '3dh55bqrxns3pwwqdz59puynvyjvd376'
+BODYMEDIA_CONSUMER_SECRET = 'JeTCWwgn6h5mPzUa2JbHRTaGCFHVUNaVtbbjuHXwP9fFeus52ZtXC85VdxrRsgzm'
 
-BODYMEDIA_CONSUMER_KEY='njb4mmpzrsjpqwaz3k7u6kg8hxjnzk9r'
-BODYMEDIA_CONSUMER_SECRET='MgypmdPnqP25ahH98g52g3c9Z24KJbTQmmEEGAKQJuhcwPBs8wcT7yaKV69kb4Uf'
+
+
 
 SKYROCK_CONSUMER_KEY              = ''
 SKYROCK_CONSUMER_SECRET           = ''

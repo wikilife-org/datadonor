@@ -1,10 +1,14 @@
 <div id="slide-4" class="slide" >
 
-	<h2>How does it work?</h2>
-    
+<!-- <h2>How does it work?</h2> -->    
     <h3><br />LINK YOUR SOCIAL NETWORKS</h3>
     
-    <h4>Click or tap to select</h4>
+    <h4>
+    	We will only see your frequency of social activity and the number of contacts you have.<br />
+     	DataDonors will not monitor the content of your activity nor will we have access to your passwords.
+    </h4>
+    
+    <h4 class="wizard-tap">Click or tap to select</h4>
     
     <div class="inner-redes">
     
@@ -27,9 +31,9 @@
 					<a href="{% url "socialauth_begin" "linkedin-oauth2" %}" class="circle linkedin" title="linkedin"><span>Linkedin</span></a>
 					{% endif%}
 					{% if "google-oauth2" in social_auth.social.associated %}
-					<a href="{% url "socialauth_disconnect" "google-oauth2" %}" class="circle gmail checked" title="gmail" ><span>Gmail</span></a>
+					<a href="{% url "socialauth_disconnect" "google-oauth2" %}" class="circle gmail checked" title="google_+" ><span>Google +</span></a>
 					{% else %}
-					<a href="{% url "socialauth_begin" "google-oauth2" %}" class="circle gmail" title="gmail" ><span>Gmail</span></a>
+					<a href="{% url "socialauth_begin" "google-oauth2" %}" class="circle gmail" title="google_+" ><span>Google +</span></a>
 					{% endif%}
 					{% if "foursquare" in social_auth.social.associated %}
 					<a href="{% url "socialauth_disconnect" "foursquare" %}" class="circle foursquare checked" title="Foursquare" ><span>Foursquare</span></a>

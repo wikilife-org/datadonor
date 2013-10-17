@@ -1,0 +1,18 @@
+[
+    {
+        "message": "every day",
+        "title": "Bike riding"
+    },
+    {
+        "message": "1 time per week",
+        "title": "Snowboard"
+    },
+    {
+        "message": "1 times per year",
+        "title": "Downhill Skiing"
+    },
+    {
+        "message": "4 per year",
+        "title": "Weight lifting"
+    }
+]

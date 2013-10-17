@@ -12,11 +12,12 @@ from django.contrib.auth import login, REDIRECT_FIELD_NAME
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
-from social_auth.exceptions import AuthCanceled
+from social_auth.exceptions import AuthCanceled, AuthFailed
 from social_auth.utils import sanitize_redirect, setting, \
                               backend_setting, clean_partial_pipeline
 from social_auth.decorators import dsa_view, disconnect_view
-
+from social_auth.backends import SocialBackend, PhysicalBackend
+from pipeline.meta_association import Associantion
 
 DEFAULT_REDIRECT = setting('SOCIAL_AUTH_LOGIN_REDIRECT_URL',
                            setting('LOGIN_REDIRECT_URL'))
@@ -40,7 +41,10 @@ def complete(request, backend, *args, **kwargs):
             return associate_complete(request, backend, *args, **kwargs)
         else:
             return complete_process(request, backend, *args, **kwargs)
-    except AuthCanceled:
+    except (AuthCanceled, AuthFailed):
+        request.session["association"] = Associantion()
+        if isinstance(backend, SocialBackend):
+            request.session["association"].type = "social"
         if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
             return HttpResponseRedirect('/wizard/')
         else:
@@ -72,6 +76,9 @@ def associate_complete(request, backend, *args, **kwargs):
 def disconnect(request, backend, association_id=None):
     """Disconnects given backend from current logged in user."""
     backend.disconnect(request.user, association_id)
+    request.session["association"] = Associantion()
+    if isinstance(backend, SocialBackend):
+        request.session["association"].type = "social"
     url = request.REQUEST.get(REDIRECT_FIELD_NAME, '') or \
           backend_setting(backend, 'SOCIAL_AUTH_DISCONNECT_REDIRECT_URL') or \
           DEFAULT_REDIRECT

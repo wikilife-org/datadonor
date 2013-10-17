@@ -169,6 +169,6 @@ def to_dict(xml):
 
 # Backend definition
 BACKENDS = {
-    'linkedin': LinkedinAuth,
-    'linkedin-oauth2': LinkedinOAuth2,
+    'linkedin-oauth': LinkedinAuth,
+    'linkedin': LinkedinOAuth2,
 }

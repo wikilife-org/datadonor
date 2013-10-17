@@ -1,0 +1,17 @@
+{
+    "running": {
+        "label": "Running",
+        "global_data": "04",
+        "user_data": "06"
+    },
+    "walking": {
+        "label": "Walking",
+        "global_data": "03",
+        "user_data": "01"
+    },
+    "elliptical": {
+        "label": "Elliptical",
+        "global_data": "01",
+        "user_data": "02"
+    }
+}

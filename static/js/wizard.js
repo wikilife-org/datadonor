@@ -40,7 +40,8 @@
 			
 			var ira = 0;
 			
-			
+	   		var show_animation = true;
+
 			$( '#controles li a' ).click (
 		
 			function ( event )
@@ -52,13 +53,15 @@
 				
 				ira = parseFloat ( ira ) ;
 				
+				//$( '#whatfor' ).addClass( 'claro' );
+				
 				if( ira > 3  )
 				{
-					$( '#whatfor' ).addClass( 'claro' );
+					//$( '#whatfor' ).addClass( 'claro' );
 				}
 				else{
 					
-					$( '#whatfor' ).removeClass( 'claro' );	
+					//$( '#whatfor' ).removeClass( 'claro' );	
 					
 				}
 				
@@ -81,10 +84,87 @@
 			}
 			);
 			
+			$( '.slide_control' ).click (
+					
+					function ( event )
+					{
+					
+						event.preventDefault ( );
+						
+						ira = $( this ).attr ( 'data-link' );
+						
+						ira = parseFloat ( ira ) ;
+						
+						//$( '#whatfor' ).addClass( 'claro' );
+						
+						if( ira > 3  )
+						{
+							//$( '#whatfor' ).addClass( 'claro' );
+						}
+						else{
+							
+							//$( '#whatfor' ).removeClass( 'claro' );	
+							
+						}
+						
+						
+						
+						
+						if( $( this ).parent(  ).hasClass('active') )
+						{
+							$( this ).addClass( 'active' );
+						}
+						else
+						{
+							$( this ).parent(  ).addClass( 'active' );	
+						}
+						
+						
+						moves_slider ( );
+			
+						captions ( );
+					}
+					);
+
+			
+			function go_to_slide( ira_ )
+			{
+				
+				show_animation = false;
+				clearInterval ( interval );
+				ira = parseFloat ( ira_ ) ;
+				//$( '#whatfor' ).addClass( 'claro' );
+				if( ira > 3  )
+				{
+				//	$( '#whatfor' ).addClass( 'claro' );
+				}
+				else{
+					
+					//$( '#whatfor' ).removeClass( 'claro' );	
+					
+				}
+				
+				
+				
+				
+				if( $( this ).parent(  ).hasClass('active') )
+				{
+					$( this ).addClass( 'active' );
+				}
+				else
+				{
+					$( this ).parent(  ).addClass( 'active' );	
+				}
+				
+				
+				moves_slider ( );
+	
+				captions ( );
+			}
+			
 			function captions ( ) 
 			{
 				var progres_ancho = 80 *  ( ira )  ;
-				
 				
 				
 				$( '#controles #thumb-' + ira ).addClass( 'active' );
@@ -92,17 +172,17 @@
 				if( ira > 2  )
 				{
 					
-					$( '#whatfor' ).addClass( 'claro' );
+					//$( '#whatfor' ).addClass( 'claro' );
 					
-					clearInterval ( interval );					
+					//clearInterval ( interval );					
 				}
 				else{
 					
-					$( '#whatfor' ).removeClass( 'claro' );	
+					//$( '#whatfor' ).removeClass( 'claro' );	
 					
-					clearInterval ( interval );
+					//clearInterval ( interval );
 					
-					interval = setInterval ( "move_slider()" , 8000 );
+					//interval = setInterval ( "move_slider()" , 8000 );
 					//$( '#progress' )
 					
 					/*$( '#progress' ).stop ( true , true ).animate ( { 'width' : ira * 80 } , 0 , function ( ) 
@@ -111,16 +191,18 @@
 					} );*/
 				}
 				
+				$( '#progress' ).stop ( true , true ).css({ 'width':  progres_ancho } );
+				
 				if ( ira < 3 )
 				{
-					$( '#progress' ).stop ( true , true ).animate ( { 'width' : ira * 80 } , 0 , function ( ) 
-					{ 
-						$( '#progress' ).animate ( { 'width' : 240 } , 24000 - ira * 8000 ,"linear" ); 
-					} );
+					//$( '#progress' ).stop ( true , true ).animate ( { 'width' : ira * 80 } , 0 , function ( ) 
+					//{ 
+					//	$( '#progress' ).animate ( { 'width' : 240 } , 24000 - ira * 8000 ,"linear" ); 
+					//} );
 				}
 				else
 				{
-					$( '#progress' ).stop ( true , true ).css({ 'width':  progres_ancho } );	
+					//$( '#progress' ).stop ( true , true ).css({ 'width':  progres_ancho } );	
 				}
 				
 				
@@ -259,7 +341,6 @@
 					}
 									
 			}
-	   
 			$(function() {
 			
 				$('section.scrollsections').scrollSections({
@@ -277,9 +358,10 @@
 					
 					},
 					 after: function($currentSection, $previousSection){
-						 if ( $currentSection.attr( 'id' )  == 'whatfor' )
+						 if ( $currentSection.attr( 'id' )  == 'whatfor' && show_animation)
 						{
 							clearInterval ( interval );
+							console.log("quilombo");
 							interval = setInterval ( "move_slider()" , 8000 );
 							$( '#progress' ).stop ( true , true ).animate ( { 'width' : ira * 80 } , 0 , function ( ) 
 							{ 
