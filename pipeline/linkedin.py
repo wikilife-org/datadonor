@@ -187,7 +187,7 @@ def linkedin_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
     social_user = kwargs.get('social_user')
     result = {}
-    if backend.name == "linkedin-oauth2":
+    if backend.name == "linkedin":
         data = kwargs.get('response')
         access_token = data["access_token"]
         
