@@ -6,10 +6,7 @@ from social.facebook import facebook_view
 from physical.views import physical_exercise, physical_user_exercise,\
     physical_steps_distribution, physical_miles_distribution,\
     physical_hours_distribution
-from social.views import greg, dashboard, logout, mock, wizard, end_wizard,\
-    iagree, comming, social_reach, social_sharing, social_education, social_work,\
-    health_nutrients, health_weight, health_height, health_bmi, wikilife_push,\
-    wikilife_pull, home, error
+from social.views import *
 
 admin.autodiscover()
 
