@@ -115,53 +115,6 @@ def social_work(request):
         data = {"user_data":user_data, "global_data":global_data, "avg":10}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-
-def physical_exercise(request):
-
-    data = [{"title": "Running", "key":"running", "global_times":4, "user_times":5 }, 
-     {"title": "Walking", "key":"walking", "global_times":3, "user_times":1 },
-     {"title": "Eliptical", "key":"Eliptical", "global_times":1, "user_times": 2}]
-    
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def physical_user_exercise(request):
-
-    data = [{"title": "Bike riding", "message":"every day"}, 
-     {"title": "Snowboard", "message":"1 time per week"},
-     {"title": "Downhill Skiing", "message":"1 times per year"},
-     {"title": "Weight lifting", "message":"4 per year"}]
-    
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def physical_steps_distribution(request):
-    data = {"days":{"sunday":{"user_steps": 4000, "global_steps":2000}, "monday":{"user_steps": 3000, "global_steps":1000},
-                    "tuesday":{"user_steps": 3000, "global_steps":1000}, "wednesday":{"user_steps": 3000, "global_steps":3000},
-                    "thursday":{"user_steps": 5000, "global_steps":3000}, "friday":{"user_steps": 3000, "global_steps":2000},
-                    "saturday":{"user_steps": 5000, "global_steps":3050}},
-            "global_avg_steps":3000,
-            "user_avg_steps": 2000}
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def physical_miles_distribution(request):
-    data = {"days":{"sunday":{"user_miles": 30, "global_miles":50}, "monday":{"user_miles": 20, "global_miles":30},
-                    "tuesday":{"user_miles": 30, "global_miles":40}, "wednesday":{"user_miles": 12, "global_miles":20},
-                    "thursday":{"user_miles": 30, "global_miles":50}, "friday":{"user_miles": 15, "global_miles":10},
-                    "saturday":{"user_miles": 30, "global_miles":60}},
-            "global_avg_miles":30,
-            "user_avg_miles": 20}
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def physical_hours_distribution(request):
-    data = {"days":{"sunday":{"user_hours": 7, "global_hours":7}, "monday":{"user_hours": 3, "global_hours":5},
-                    "tuesday":{"user_hours": 3, "global_hours":5}, "wednesday":{"user_hours": 4, "global_hours":6},
-                    "thursday":{"user_hours": 5, "global_hours":5}, "friday":{"user_hours": 4, "global_hours":4},
-                    "saturday":{"user_hours": 6, "global_hours":6}},
-            "global_avg_hours":4,
-            "user_avg_hours": 5}
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-
-
 def health_nutrients(request):
     user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
                  "fat":{"title":"Fat", "key":"fat", "percentage":30},

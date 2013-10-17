@@ -150,7 +150,7 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.foursquare.FoursquareBackend',
     'social_auth.backends.contrib.evernote.EvernoteBackend',
     'social_auth.backends.contrib.fitbit.FitbitBackend',
-    'social_auth.backends.runkeeper.RunkeeperBackend',
+    'physical.auth_backends.runkeeper.RunkeeperBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',
     'social_auth.backends.contrib.ihealth.IhealthBackend',
     'social_auth.backends.contrib.jawbone.JawboneBackend',
@@ -172,6 +172,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/dashboard/"
 
+#TODO rename to AUTH_PIPELINE
 SOCIAL_AUTH_PIPELINE = (
 
     'social_auth.backends.pipeline.associate.associate_by_email',

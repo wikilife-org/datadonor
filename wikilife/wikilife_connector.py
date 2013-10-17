@@ -1,5 +1,18 @@
 # coding=utf-8
 
+"""
+authorize user
+ obtain minimal DD user data
+ 
+async
+ sync DD users to WL
+ sync global stats from WL
+ 
+ pull device data
+   send to WL via logs
+   
+"""
+
 from django.conf import settings
 from social.models import Profile, SocialUserAggregatedData, \
     GlobalEducationDistribution, GlobalWorkExperinceDistribution, \
@@ -29,7 +42,10 @@ class WikilifeConnector(object):
         self._log_client = Logs(logger, wikilife_settings)
         self._stat_client = Stats(logger, wikilife_settings)
         self._log_creator = LogCreator()
-
+    
+    def sync(self):
+        pass
+    
     def push(self):
         """
         send new user accounts
@@ -62,7 +78,7 @@ class WikilifeConnector(object):
             token = self._user_client.login(user_name, pin)
             profile.wikilife_token = token
             profile.save()
-    
+
     def _create_user_name(self, unique_id):
         base_user_name = "datadonor_"
         user_name = "%s%s" %(base_user_name, unique_id)
