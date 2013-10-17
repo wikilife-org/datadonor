@@ -2,8 +2,11 @@ from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
 from django.conf import settings
 
-from social.views import *
 from social.facebook import facebook_view
+from physical.views import physical_exercise, physical_user_exercise,\
+    physical_steps_distribution, physical_miles_distribution,\
+    physical_hours_distribution
+from social.views import *
 
 admin.autodiscover()
 

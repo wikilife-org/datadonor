@@ -3,7 +3,7 @@ Runkeeper OAuth 2.0 with "Authorization Code" flow
 http://developer.runkeeper.com/healthgraph/getting-started
 """
 
-from social_auth.backends import OAuthBackend, SocialBackend, BaseOAuth2
+from social_auth.backends import OAuthBackend, BaseOAuth2, PhysicalBackend
 
 
 RUNKEEPER_AUTHORIZATION_URL = "https://runkeeper.com/apps/authorize"
@@ -22,7 +22,7 @@ This is the URL at which your application can disconnect itself from the user's 
 """
 
 
-class RunkeeperBackend(OAuthBackend, SocialBackend):
+class RunkeeperBackend(OAuthBackend, PhysicalBackend):
     """Runkeeper OAuth2 authentication backend"""
     name = 'runkeeper'
 
@@ -44,7 +44,7 @@ class RunkeeperAuth(BaseOAuth2):
     AUTH_BACKEND = RunkeeperBackend
     SETTINGS_KEY_NAME = 'RUNKEEPER_CLIENT_ID'
     SETTINGS_SECRET_NAME = 'RUNKEEPER_CLIENT_SECRET'
-    
+
 
 # Backend definition
 BACKENDS = {

@@ -181,6 +181,7 @@ def physical_hours_distribution_mock(request):
 
 
 def nutrition_nutrients_mock(request):
+
     user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
                  "fat":{"title":"Fat", "key":"fat", "percentage":30},
                  "carbs":{"title":"Carbs", "key":"carbs", "percentage":30},
