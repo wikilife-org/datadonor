@@ -20,7 +20,7 @@ var _api_urls = {
     user_exercise: ""
   },
   dev: {
-    social_reach: "/social/reach/",
+    social_reach: "http://datadonors.org/social/reach/",
     share: "/social/sharing/",
     education: "/social/education/",
     education_post: "/social/education/",

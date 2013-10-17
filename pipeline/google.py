@@ -11,7 +11,7 @@ def google_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
     social_user = kwargs.get('social_user')
     result = {}
-    if backend.name == "google-oauth2":
+    if backend.name == "google":
         ##print kwargs
         data = kwargs.get('response')
         access_token = data["access_token"]
