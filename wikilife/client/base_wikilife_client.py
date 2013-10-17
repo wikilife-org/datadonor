@@ -7,11 +7,9 @@ import urllib2
 
 class BaseWikilifeClient(object):
 
-    _logger = None
     _settings = None
 
-    def __init__(self, logger, wikilife_settings):
-        self._logger = logger
+    def __init__(self, wikilife_settings):
         self._settings = wikilife_settings
 
     def rest_get(self, service_path, params=None, response_to_json=True):

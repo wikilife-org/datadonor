@@ -38,3 +38,17 @@ def update_degree(degree, level):
         degree.phd += 1
     
     degree.save()
+    
+    
+###### MOCK SECTION #############
+# Will be deleted after deployment
+#################################
+
+
+def get_social_reach_mock():
+    return {"user_data" : {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":20},
+                "gmail":{"count": 20, "percentage":20}, "foursquare":{"count": 20, "percentage":20},
+                "linkedin":{"count": 20, "percentage":20}},
+            "global_data":{"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":10},
+                "gmail":{"count": 20, "percentage":10}, "foursquare":{"count": 20, "percentage":40},
+                "linkedin":{"count": 20, "percentage":20}}}
