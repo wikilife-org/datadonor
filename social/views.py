@@ -73,8 +73,17 @@ def user_account(request):
     "accounts": [a.provider for a in request.user.social_auth.all()]}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def social_reach(request):
 
+def social_reach_mock(request):
+    data = get_social_reach_mock()
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def social_sharing_mock(request):
+    data = get_social_sharing_mock()
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+
+def social_reach(request):
     user_data = request.user.social_aggregated_data.social_reach()
     global_data = global_social_reach()
     data = {"user_data":user_data, "global_data":global_data}
@@ -110,7 +119,7 @@ def social_education(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
-def social_work(request):
+def social_work_mock(request):
     if request.method == 'POST':
         working_experience = request.POST["working_experience"]
         data = {}
@@ -125,7 +134,7 @@ def social_work(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
-def physical_exercise(request):
+def physical_exercise_mock(request):
 
     data = [{"title": "Running", "key":"running", "global_times":4, "user_times":5 }, 
      {"title": "Walking", "key":"walking", "global_times":3, "user_times":1 },
@@ -133,7 +142,7 @@ def physical_exercise(request):
     
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def physical_user_exercise(request):
+def physical_user_exercise_mock(request):
 
     data = [{"title": "Bike riding", "message":"every day"}, 
      {"title": "Snowboard", "message":"1 time per week"},
@@ -142,7 +151,7 @@ def physical_user_exercise(request):
     
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def physical_steps_distribution(request):
+def physical_steps_distribution_mock(request):
     data = {"days":{"sunday":{"user_steps": 4000, "global_steps":2000}, "monday":{"user_steps": 3000, "global_steps":1000},
                     "tuesday":{"user_steps": 3000, "global_steps":1000}, "wednesday":{"user_steps": 3000, "global_steps":3000},
                     "thursday":{"user_steps": 5000, "global_steps":3000}, "friday":{"user_steps": 3000, "global_steps":2000},
@@ -151,7 +160,7 @@ def physical_steps_distribution(request):
             "user_avg_steps": 2000}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def physical_miles_distribution(request):
+def physical_miles_distribution_mock(request):
     data = {"days":{"sunday":{"user_miles": 30, "global_miles":50}, "monday":{"user_miles": 20, "global_miles":30},
                     "tuesday":{"user_miles": 30, "global_miles":40}, "wednesday":{"user_miles": 12, "global_miles":20},
                     "thursday":{"user_miles": 30, "global_miles":50}, "friday":{"user_miles": 15, "global_miles":10},
@@ -160,7 +169,7 @@ def physical_miles_distribution(request):
             "user_avg_miles": 20}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def physical_hours_distribution(request):
+def physical_hours_distribution_mock(request):
     data = {"days":{"sunday":{"user_hours": 7, "global_hours":7}, "monday":{"user_hours": 3, "global_hours":5},
                     "tuesday":{"user_hours": 3, "global_hours":5}, "wednesday":{"user_hours": 4, "global_hours":6},
                     "thursday":{"user_hours": 5, "global_hours":5}, "friday":{"user_hours": 4, "global_hours":4},
@@ -171,7 +180,7 @@ def physical_hours_distribution(request):
 
 
 
-def nutrition_nutrients(request):
+def nutrition_nutrients_mock(request):
     user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
                  "fat":{"title":"Fat", "key":"fat", "percentage":30},
                  "carbs":{"title":"Carbs", "key":"carbs", "percentage":30},
@@ -185,7 +194,7 @@ def nutrition_nutrients(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
-def nutrition_weight(request):
+def nutrition_weight_mock(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
@@ -197,7 +206,7 @@ def nutrition_weight(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
-def nutrition_height(request):
+def nutrition_height_mock(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
@@ -208,7 +217,7 @@ def nutrition_height(request):
         data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def nutrition_bmi(request):
+def nutrition_bmi_mock(request):
     user_data = {"value":20}
     global_data = {"men":{"value":20}, "women":{"value":26}}
     data = {"user_data":user_data, "global_data":global_data}
