@@ -4,8 +4,8 @@ var doubleAxisBars;
 var animatedQuarterPie;
 var doubleAxisParams;
 var SingleBarChart;
-_api_env = 'hard';
-//_api_env = 'dev';
+//_api_env = 'hard';
+_api_env = 'dev';
 
 function workCallback(args){
   //$('#age_input li a[data-key=15-25]');
