@@ -293,6 +293,12 @@ $(document).ready(function () {
 		$('#graphs_conditions .condition').removeClass('active');
 		$(this).addClass('active');
 	});
+	
+	$('#graphs_conditions .done_condition').live('click',function (event) {
+		event.preventDefault();
+		$('#graphs_conditions .condition').removeClass('active');
+		console.log('hecho');
+	});
 	// CLICK GRAFICO 11
 	
 	
