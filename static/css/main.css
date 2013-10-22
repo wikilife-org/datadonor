@@ -3034,7 +3034,6 @@ a:hover {
 
 /* @end */
 
-
 /* @group STEP TWELVE
 --------------------------------------- */
 
@@ -3224,7 +3223,6 @@ a:hover {
 
 /* @end */
 
-
 /* @group STEP THIRTEEN
 --------------------------------------- */
 
@@ -3268,7 +3266,7 @@ a:hover {
 	width: 125px;
 	height: 225px;
 	display: inline-table;
-	margin: 0px 8px 16px 8px;
+	margin: 0px 4px 8px 4px;
 	position: relative;
 	cursor: pointer;
 }
@@ -3369,7 +3367,6 @@ a:hover {
 	background-repeat: no-repeat;
 }
 
-
 .step_thirteen .centered_container .bottom ul li .tittle_type {
 	width: 100%;
 	text-align: center;
@@ -3386,6 +3383,7 @@ a:hover {
 
 .step_thirteen .centered_container .bottom ul li.active .graph_type .porcent_div {
 	background-color: #E56666;	
+	opacity: 1!important;
 }
 .step_thirteen .centered_container .bottom ul li.active .graph_type .your_type {
 	opacity: 1;
@@ -3393,4 +3391,395 @@ a:hover {
 }
 
 /* @end */
+
+/* @group STEP FOURTEEN
+--------------------------------------- */
+
+.step_fourteen {
+	background-color: #FBF8F6;
+}
+.step_fourteen .centered_container {
+	width: 1103px;
+	padding: 60px 0px 60px 0px;
+}
+
+/* --- top */
+.step_fourteen .centered_container .top {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.step_fourteen .centered_container .top h2 {
+	font-family: 'Gotham-Ultra';
+	font-size: 30px;
+	line-height: 30px;
+	color: #5B6D7F;
+}
+.step_fourteen .centered_container .top p {
+	font-size: 18px;
+	color: #8D99A6;
+	font-family: 'Omnes-Semibold';
+	margin-top: 8px;
+}
+
+/* --- big_graph */
+.step_fourteen .centered_container .big_graph {
+	width: 100%;
+	height: 780px;
+	margin: 40px 0px 50px 0px;
+}
+
+/* --- stast_bottom */
+.step_fourteen .centered_container .stats_bottom {
+	width: 100%;
+}
+.step_fourteen .centered_container .stats_bottom .bloq {
+	width: 380px;
+}
+.step_fourteen .centered_container .stats_bottom .bloq > h2 {
+	width: 100%;
+	display: inline-block;
+	border-bottom: 2px solid #E3E1E1;
+	padding-bottom: 11px;
+	font-size: 20px;
+	font-family: 'Omnes-Semibold';
+}
+.step_fourteen .centered_container .stats_bottom .bloq .number_stat {
+	width: 100%;
+	height: auto;
+	padding: 0px;
+	position: relative;
+	text-align: left;
+}
+.step_fourteen .centered_container .stats_bottom .bloq .number_stat h2 {
+	font-size: 187px;
+	font-family: 'Omnes-Semibold';
+	letter-spacing: -2px;
+}
+.step_fourteen .centered_container .stats_bottom .bloq .number_stat .ico_right {
+	width: 89px;
+	height: 78px;
+	position: absolute;
+	top: 50%;
+	margin-top: -40px;
+	right: 10px;
+}
+
+/* ------ left */
+.step_fourteen .centered_container .stats_bottom .bloq.left {
+	float: left;
+	margin-left: 90px;
+}
+.step_fourteen .centered_container .stats_bottom .bloq.left .number_stat .ico_right {
+	background-image: url(../img/step_14/ico_2.png);
+}
+.step_fourteen .centered_container .stats_bottom .bloq.left .number_stat h2 {
+	color: #7737c7;
+}
+.step_fourteen .centered_container .stats_bottom .bloq.left > h2 {
+	color: #7737c7;
+}
+
+/* ------ right */
+.step_fourteen .centered_container .stats_bottom .bloq.right {
+	float: right;
+	margin-right: 90px;
+}
+.step_fourteen .centered_container .stats_bottom .bloq.right .number_stat .ico_right {
+	background-image: url(../img/step_14/ico_1.png);
+}
+.step_fourteen .centered_container .stats_bottom .bloq.right .number_stat h2 {
+	color: #e56666;
+}
+.step_fourteen .centered_container .stats_bottom .bloq.right > h2 {
+	color: #e56666;
+}
+
+/* @end */
+
+/* @group STEP FIFTEEN
+--------------------------------------- */
+
+
+.step_fifteen {
+	background-color: #FFFFFF;
+	position: relative;
+}
+.step_fifteen .centered_container {
+	width: 1000px;
+	padding: 40px 0px 0px 0px;
+}
+
+/* --- top */
+.step_fifteen .centered_container .top {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.step_fifteen .centered_container .top h2 {
+	font-family: 'Gotham-Ultra';
+	font-size: 30px;
+	line-height: 30px;
+	color: #5B6D7F;
+}
+.step_fifteen .centered_container .top p {
+	font-size: 18px;
+	color: #8D99A6;
+	font-family: 'Omnes-Semibold';
+	margin-top: 8px;
+}
+
+/* --- bottom */
+.step_fifteen .centered_container .bottom {
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+/* ------- graphs */
+.step_fifteen .centered_container .bottom .graphs {
+	width: 100%;
+	text-align: center;
+	padding-bottom: 40px;
+}
+.step_fifteen .centered_container .bottom .graphs .condition {
+	width: 310px;
+	height: 365px;
+	display: inline-table;
+	margin: 40px 9px 0px 9px;
+	-webkit-perspective: 620;
+	-moz-perspective: 620px;
+	perspective: 620;
+	position: relative;
+	overflow: hidden;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card {
+	width: 310px;
+	height: 365px;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .face {
+    width: 310px;
+    height: 365px;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    z-index: 2;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .front {
+    z-index: 1;
+    cursor: pointer;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    background-image: url(../img/step_11/done_graph.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    cursor: default;
+}
+
+/* --- front */
+.step_fifteen .centered_container .bottom .graphs .condition .card .face .graph_container {
+    width: 310px;
+    height: 305px;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .face .bubble_msj {
+	width: 100%;
+	height: 45px;
+	position: absolute;
+	bottom: 3px;
+	left: 0px;
+	text-align: center;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .face .bubble_msj h2 {
+	color: #fff;
+	background-color: #3E4A5A;
+	line-height: 38px;
+	height: 38px;
+	font-size: 20px;
+	padding: 0px 20px 0px 20px;
+	-webkit-border-radius: 55px;
+	-moz-border-radius: 55px;
+	border-radius: 55px;
+	display: inline-block;
+	font-family: 'Omnes-Semibold';
+	position: relative;
+	border-bottom: 3px solid #D9D9D9;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .face .bubble_msj p {
+	color: #E56666;
+	font-size: 18px;
+	font-family: 'Omnes-Semibold';
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .face .bubble_msj .arrow {
+	width: 10px;
+	height: 5px;
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	margin-left: -5px;
+	background-image: url(../img/step_11/arrow_off.png);
+	background-repeat: no-repeat;
+}
+
+/* --- back */
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container {
+    background-image: url(../img/step_11/done_graph.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: relative;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .bubble_msj h2 {
+	color: #fff;
+	background-color: #e56666;
+	line-height: 38px;
+	height: 38px;
+	font-size: 20px;
+	padding: 0px 20px 0px 20px;
+	-webkit-border-radius: 55px;
+	-moz-border-radius: 55px;
+	border-radius: 55px;
+	display: inline-block;
+	font-family: 'Omnes-Semibold';
+	position: relative;
+	border-bottom: 3px solid #D9D9D9;
+	cursor: pointer;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .bubble_msj .arrow {
+	width: 8px;
+	height: 5px;
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	margin-left: -4px;
+	background-image: url(../img/step_11/arrow_done.png);
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .container_data {
+	width: 225px;
+	height: 160px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -112px;
+	margin-top: -80px;
+	text-align: center;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .container_data p {
+	color: #8D99A6;
+	font-size: 18px;
+	font-family: 'Omnes-Semibold';
+	margin-bottom: 20px;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .container_data h2 {
+	color: #40D2CB;
+	font-size: 25px;
+	font-family: 'Omnes-Semibold';
+	margin-bottom: 25px;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .container_data .select_space {
+	width: 210px;
+	height: 40px;
+	background-color: #fff;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -105px;
+}
+
+/* --- active 3d effect */
+.step_fifteen .centered_container .bottom .graphs .condition.active .card {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+/* --- IE */
+.Explorer.v8 .step_fifteen .centered_container .bottom .graphs .condition .card .face.front,
+.Explorer.v9 .step_fifteen .centered_container .bottom .graphs .condition .card .face.front {
+    display: block!important;
+} 
+.Explorer.v8 .step_fifteen .centered_container .bottom .graphs .condition.active .card .face.front,
+.Explorer.v9 .step_fifteen .centered_container .bottom .graphs .condition.active .card .face.front {
+    display: none!important;
+} 
+.Explorer.v8 .step_fifteen .centered_container .bottom .graphs .condition .card .face.back,
+.Explorer.v9 .step_fifteen .centered_container .bottom .graphs .condition .card .face.back {
+    display: none!important;
+} 
+.Explorer.v8 .step_fifteen .centered_container .bottom .graphs .condition.active .card .face.back,
+.Explorer.v9 .step_fifteen .centered_container .bottom .graphs .condition.active .card .face.back {
+    display: block!important;
+} 
+
+
+/* ------- cards */
+.step_fifteen .centered_container .bottom .cards {
+	width: 100%;
+	text-align: center;
+}
+.step_fifteen .centered_container .bottom .cards .you_cards {
+	width: auto;
+	height: auto;
+	margin-left: 13px;
+	padding-top: 10px;
+}
+.step_fifteen .centered_container .bottom .cards .you_cards ul {
+	width: auto;
+	height: 70px;
+}
+.step_fifteen .centered_container .bottom .cards .you_cards ul li {
+	float: left;
+	border-left: 1px solid #F9F6F5;
+	height: 70px!important;
+	display: table;
+	width: 165px;
+	padding: 0px 30px 0px 30px;
+	text-align: left;
+	background-color: #F0E8E4;
+	margin-bottom: 10px;
+}
+.step_fifteen .centered_container .bottom .cards .you_cards ul li:first-child {
+	width: 92px;
+	padding: 0px;
+	text-align: center;
+	background-image: url(../img/step_5/cards_you.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	position: relative;
+	margin-right: -10px;
+	border: 0px;
+}
+.step_fifteen .centered_container .bottom .cards .you_cards ul li:first-child p {
+	position: absolute;
+	top: 41px;
+        left: 28px;
+	color: #FFFFFF;
+}
+.step_fifteen .centered_container .bottom .cards .you_cards ul li p {
+	display: table-cell;
+	vertical-align: middle;
+	color: #ACB6BF;
+	font-family: 'Omnes-Semibold';
+	font-size: 18px;
+}
+.step_fifteen .centered_container .bottom .cards .you_cards ul li p span {
+	color: #8C99A6;
+}
+
+/* @end */
+
+
+
+
+
+
+
 

@@ -321,6 +321,19 @@ $(document).ready(function () {
 	});
 	// CLICK GRAFICO 13
 	
+	// CLICK GRAFICO 15
+	$('#graphs_emotions .condition').click(function (event) {
+		event.preventDefault
+		$('#graphs_emotions .condition').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$('#graphs_emotions .done_condition').live('click',function (event) {
+		event.preventDefault();
+		$('#graphs_emotions .condition').removeClass('active');
+		console.log('hecho');
+	});
+	// CLICK GRAFICO 15
 	
 	//DORESIZE
 	doResize();
