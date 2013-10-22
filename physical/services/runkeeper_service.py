@@ -6,6 +6,7 @@ from wikilife_utils.date_utils import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
 from wikilife_utils.logs.log_creator import LogCreator
 from wikilife_utils.parsers.date_parser import DateParser
+from string import lower
 
 
 RUNKEEPER_API = "http://api.runkeeper.com"
@@ -28,19 +29,32 @@ ACTIVITY_TYPE_NODE_ID_MAP = {
 
 class RunkeeperService(BaseDeviceService):
 
-    def __init__(self, user_client, logs_client, stats_client):
-        BaseDeviceService.__init__(self, user_client, logs_client, stats_client)
+    _profile_source = "runkeeper"
 
-    def pull_user_info(self, user_auth):
+    def pull_user_info(self, user_id, user_auth):
         client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
         profile = client.get_user_profile()
+        profile_items = {}
 
-    def pull_user_activity(self, user_auth):
-        wikilife_token = None
+        if "gender" in profile:
+            profile_items["gender"] = lower(profile["gender"])
+
+        if "birthday" in profile:
+            profile_items["birthday"] = DateParser.from_datetime(profile["birthday"])
+
+        """
+        if "location" in profile:
+            profile_items["location"] = profile["location"]
+        """
+
+        self._update_profile(user_id, **profile_items)
+
+    def pull_user_activity(self, user_id, user_auth):
+        wikilife_token = self._get_wikilife_token(user_id)
         client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
         fitness_activities = client.get_user_fitness_activities()
         self._log_fitness_activities(wikilife_token, fitness_activities["items"])
-
+ 
     def _log_fitness_activities(self, wikilife_token, items):
         for item in items:
             start_time = DateParser.from_datetime(item["start_time"])

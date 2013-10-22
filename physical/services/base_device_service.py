@@ -2,6 +2,7 @@
 
 from abc import abstractmethod
 from django.conf import settings
+from social.models import Profile
 
 
 class BaseDeviceService(object):
@@ -20,8 +21,11 @@ class BaseDeviceService(object):
     def _is_priority_source(self, current_source, new_source):
         return current_source == None or settings.PROFILE_SOURCES_PRIORITY[current_source] > settings.PROFILE_SOURCES_PRIORITY[new_source]
 
-    def _update_profile(self, **kwargs):
-        profile = None
+    def _update_profile(self, user_id, **kwargs):
+        if len(kwargs) == 0:
+            return
+
+        profile = Profile.objects.get(user_id=user_id)
 
         for field_name in kwargs:
             field_value = kwargs[field_name]
@@ -33,12 +37,19 @@ class BaseDeviceService(object):
 
         profile.save()
 
+        def _get_wikilife_token(self, user_id):
+            profile = Profile.objects.get(user_id=user_id)
+            return profile.wikilife_token
+
     @abstractmethod
-    def pull_user_info(self, user_auth):
+    def pull_user_info(self, user_id, user_auth):
         """
         This method is called only once when the pipe is executed after the device authorization.
         Request using the device client
         Save local DD data
+
+        :param user_id: Datadonor User ID.
+        :type node: int
 
         :param user_auth: User Authenticantion info. Depends on device authentication type.
         :type node: dict
@@ -53,6 +64,9 @@ class BaseDeviceService(object):
         Request using the device client
         Save local DD data
         Send logs to WL
+
+        :param user_id: Datadonor User ID.
+        :type node: int
 
         :param user_auth: User Authenticantion info. Depends on device authentication type.
         :type node: dict
