@@ -10,7 +10,7 @@ from wikilife.wikilife_connector import WikilifeConnector
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
-from social.services import *
+from social.services.utils import *
 
 def comming(request):
     return render_to_response('splash/index.html', {'version': version},
@@ -74,15 +74,6 @@ def user_account(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
-def social_reach_mock(request):
-    data = get_social_reach_mock()
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def social_sharing_mock(request):
-    data = get_social_sharing_mock()
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-
 def social_reach(request):
     user_data = request.user.social_aggregated_data.social_reach()
     global_data = global_social_reach()
@@ -90,10 +81,23 @@ def social_reach(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_sharing(request):
-    
     user_data = request.user.social_aggregated_data.social_sharing()
     global_data = global_social_sharing()
     data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+@csrf_exempt
+def social_work(request):
+    if request.method == 'POST':
+        working_experience = request.POST["working_experience"]
+
+    user_data = {"user_experience": {"key": "26-35", "value":40}}
+    global_data = {"15-25":{"key": "15-25", "value":20}, 
+                    "26-35":{"key": "26-35", "value":50}, 
+                    "36-45":{"key": "36-45", "value":60}, 
+                    "46-55":{"key": "46-55", "value":70}, 
+                    "56-65":{"key": "56-65", "value":80}}
+    data = {"user_data":user_data, "global_data":global_data, "avg":10}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
@@ -118,64 +122,42 @@ def social_education(request):
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+def social_reach_mock(request):
+    data = get_social_reach_mock()
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def social_sharing_mock(request):
+    data = get_social_sharing_mock()
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
 @csrf_exempt
 def social_work_mock(request):
     if request.method == 'POST':
         working_experience = request.POST["working_experience"]
-        data = {}
-    else:
-        user_data = {"user_experience": {"key": "26-35", "value":40}}
-        global_data = {"15-25":{"key": "15-25", "value":20}, 
-                        "26-35":{"key": "26-35", "value":50}, 
-                        "36-45":{"key": "36-45", "value":60}, 
-                        "46-55":{"key": "46-55", "value":70}, 
-                        "56-65":{"key": "56-65", "value":80}}
-        data = {"user_data":user_data, "global_data":global_data, "avg":10}
+
+    user_data = {"user_experience": {"key": "26-35", "value":40}}
+    global_data = {"15-25":{"key": "15-25", "value":20}, 
+                    "26-35":{"key": "26-35", "value":50}, 
+                    "36-45":{"key": "36-45", "value":60}, 
+                    "46-55":{"key": "46-55", "value":70}, 
+                    "56-65":{"key": "56-65", "value":80}}
+    data = {"user_data":user_data, "global_data":global_data, "avg":10}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+@csrf_exempt
+def social_education_mock(request):
+    if request.method == "POST":
+        education_level = request.POST["education_level"]
 
-def physical_exercise_mock(request):
-
-    data = [{"title": "Running", "key":"running", "global_times":4, "user_times":5 }, 
-     {"title": "Walking", "key":"walking", "global_times":3, "user_times":1 },
-     {"title": "Eliptical", "key":"Eliptical", "global_times":1, "user_times": 2}]
-    
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def physical_user_exercise_mock(request):
-
-    data = [{"title": "Bike riding", "message":"every day"}, 
-     {"title": "Snowboard", "message":"1 time per week"},
-     {"title": "Downhill Skiing", "message":"1 times per year"},
-     {"title": "Weight lifting", "message":"4 per year"}]
-    
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def physical_steps_distribution_mock(request):
-    data = {"days":{"sunday":{"user_steps": 4000, "global_steps":2000}, "monday":{"user_steps": 3000, "global_steps":1000},
-                    "tuesday":{"user_steps": 3000, "global_steps":1000}, "wednesday":{"user_steps": 3000, "global_steps":3000},
-                    "thursday":{"user_steps": 5000, "global_steps":3000}, "friday":{"user_steps": 3000, "global_steps":2000},
-                    "saturday":{"user_steps": 5000, "global_steps":3050}},
-            "global_avg_steps":3000,
-            "user_avg_steps": 2000}
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def physical_miles_distribution_mock(request):
-    data = {"days":{"sunday":{"user_miles": 30, "global_miles":50}, "monday":{"user_miles": 20, "global_miles":30},
-                    "tuesday":{"user_miles": 30, "global_miles":40}, "wednesday":{"user_miles": 12, "global_miles":20},
-                    "thursday":{"user_miles": 30, "global_miles":50}, "friday":{"user_miles": 15, "global_miles":10},
-                    "saturday":{"user_miles": 30, "global_miles":60}},
-            "global_avg_miles":30,
-            "user_avg_miles": 20}
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def physical_hours_distribution_mock(request):
-    data = {"days":{"sunday":{"user_hours": 7, "global_hours":7}, "monday":{"user_hours": 3, "global_hours":5},
-                    "tuesday":{"user_hours": 3, "global_hours":5}, "wednesday":{"user_hours": 4, "global_hours":6},
-                    "thursday":{"user_hours": 5, "global_hours":5}, "friday":{"user_hours": 4, "global_hours":4},
-                    "saturday":{"user_hours": 6, "global_hours":6}},
-            "global_avg_hours":4,
-            "user_avg_hours": 5}
+    user_data = {"user_level": request.user.social_aggregated_data.education_level}
+    global_data = {6:{"percentage":8, "key":"phd", "title": "PhD", "index":6},
+                   5:{"percentage":10, "key":"master", "title": "Master", "index":5},
+                   4:{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}, 
+                   3:{"percentage":5, "key":"tech_inst", "title": "Technical Institute", "index":3},
+                   2:{"percentage":3, "key":"high_school", "title": "High School", "index":2},
+                   1:{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
+                   0:{"percentage":3, "key":"primary_school", "title": "Primary School", "index":0}}
+    data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
@@ -195,7 +177,7 @@ def nutrition_nutrients_mock(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
-def nutrition_weight_mock(request):
+def nutrition_weight(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
@@ -207,7 +189,7 @@ def nutrition_weight_mock(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
-def nutrition_height_mock(request):
+def nutrition_height(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
@@ -218,7 +200,52 @@ def nutrition_height_mock(request):
         data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def nutrition_bmi_mock(request):
+def nutrition_bmi(request):
+    user_data = {"value":20}
+    global_data = {"men":{"value":20}, "women":{"value":26}}
+    data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+
+def nutrition_nutrients(request):
+
+    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":30},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":30},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
+    
+    global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":20},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":15},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
+    data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+@csrf_exempt
+def nutrition_weight(request):
+    if request.method == 'POST':
+        unit = request.POST["unit"]
+        value = request.POST["value"]
+        data = {}
+    else:
+        user_data = {"value":112, "unit":"Lbs"}
+        global_data = {"men":{"value":120, "unit":"Lbs"}, "women":{"value":94, "unit":"Lbs"}}
+        data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+@csrf_exempt
+def nutrition_height(request):
+    if request.method == 'POST':
+        unit = request.POST["unit"]
+        value = request.POST["value"]
+        data = {}
+    else:
+        user_data = {"value":5.8, "unit":"Ft"}
+        global_data = {"men":{"value":7.2, "unit":"Ft"}, "women":{"value":4.3, "unit":"Ft"}}
+        data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def nutrition_bmi(request):
     user_data = {"value":20}
     global_data = {"men":{"value":20}, "women":{"value":26}}
     data = {"user_data":user_data, "global_data":global_data}
