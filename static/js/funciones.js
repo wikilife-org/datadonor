@@ -301,6 +301,39 @@ $(document).ready(function () {
 	});
 	// CLICK GRAFICO 11
 	
+	// CLICK GRAFICO 12
+	$('#select_complaints li').click(function (event) {
+		event.preventDefault();
+		$('#select_complaints li').removeClass('active');
+		$(this).addClass('active');
+	});
+	$('#select_complaints .done_stat').live('click',function (event) {
+		event.preventDefault();
+		$(this).parent().parent().removeClass('active')
+	});
+	// CLICK GRAFICO 12
+	
+	// CLICK GRAFICO 13
+	$('#chose_type li').click(function (event) {
+		event.preventDefault();
+		$('#chose_type li').removeClass('active');
+		$(this).addClass('active');
+	});
+	// CLICK GRAFICO 13
+	
+	// CLICK GRAFICO 15
+	$('#graphs_emotions .condition').click(function (event) {
+		event.preventDefault
+		$('#graphs_emotions .condition').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$('#graphs_emotions .done_condition').live('click',function (event) {
+		event.preventDefault();
+		$('#graphs_emotions .condition').removeClass('active');
+		console.log('hecho');
+	});
+	// CLICK GRAFICO 15
 	
 	//DORESIZE
 	doResize();
