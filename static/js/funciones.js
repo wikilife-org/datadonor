@@ -296,8 +296,17 @@ $(document).ready(function () {
 	
 	$('#graphs_conditions .done_condition').live('click',function (event) {
 		event.preventDefault();
-		$('#graphs_conditions .condition').removeClass('active');
-		console.log('hecho');
+		
+		if ($(this).hasClass('next_subsector')) {
+			$(this).removeClass('next_subsector');
+			$(this).parent().parent().find('.graph_container').addClass('second_active');
+			
+		} else {
+		  $('#graphs_conditions .condition').removeClass('active');
+		  $(this).addClass('next_subsector');
+		  $('.graph_container').removeClass('second_active');
+		}
+		
 	});
 	// CLICK GRAFICO 11
 	
@@ -330,8 +339,17 @@ $(document).ready(function () {
 	
 	$('#graphs_emotions .done_condition').live('click',function (event) {
 		event.preventDefault();
-		$('#graphs_emotions .condition').removeClass('active');
-		console.log('hecho');
+		
+		if ($(this).hasClass('next_subsector')) {
+			$(this).removeClass('next_subsector');
+			$(this).parent().parent().find('.graph_container').addClass('second_active');
+			
+		} else {
+		  $('#graphs_emotions .condition').removeClass('active');
+		  $(this).addClass('next_subsector');
+		  $('.graph_container').removeClass('second_active');
+		}
+		
 	});
 	// CLICK GRAFICO 15
 	

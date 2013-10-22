@@ -2926,6 +2926,9 @@ a:hover {
 	margin-left: -112px;
 	margin-top: -80px;
 	text-align: center;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
 }
 .step_eleven .centered_container .bottom .graphs .condition .card .back .graph_container .container_data p {
 	color: #8D99A6;
@@ -2950,6 +2953,22 @@ a:hover {
 	bottom: 10px;
 	left: 50%;
 	margin-left: -105px;
+}
+
+/* --- second select */
+.step_eleven .centered_container .bottom .graphs .condition .card .back .graph_container .second_condition {
+	left: 422px;
+	opacity: 1;
+	visibility: hidden;
+}
+.step_eleven .centered_container .bottom .graphs .condition .card .back .graph_container.second_active .second_condition  {
+	left: 50%!important;
+	opacity: 1!important;
+	visibility: visible!important;
+}
+.step_eleven .centered_container .bottom .graphs .condition .card .back .graph_container.second_active .container_data  {
+	visibility: hidden;
+	opacity: 0;
 }
 
 /* --- active 3d effect */
@@ -3500,7 +3519,6 @@ a:hover {
 /* @group STEP FIFTEEN
 --------------------------------------- */
 
-
 .step_fifteen {
 	background-color: #FFFFFF;
 	position: relative;
@@ -3668,6 +3686,9 @@ a:hover {
 	margin-left: -112px;
 	margin-top: -80px;
 	text-align: center;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
 }
 .step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .container_data p {
 	color: #8D99A6;
@@ -3692,6 +3713,22 @@ a:hover {
 	bottom: 10px;
 	left: 50%;
 	margin-left: -105px;
+}
+
+/* --- second select */
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .second_condition {
+	left: 422px;
+	opacity: 1;
+	visibility: hidden;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container.second_active .second_condition  {
+	left: 50%!important;
+	opacity: 1!important;
+	visibility: visible!important;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container.second_active .container_data  {
+	visibility: hidden;
+	opacity: 0;
 }
 
 /* --- active 3d effect */
@@ -3776,8 +3813,43 @@ a:hover {
 
 /* @end */
 
+/* @group STEP FIFTEEN
+--------------------------------------- */
 
+.step_sixteen {
+	background-color: #FBF8F6;
+	position: relative;
+}
+.step_sixteen .centered_container {
+	width: 1070px;
+	padding: 40px 0px 40px 0px;
+}
 
+/* --- top */
+.step_sixteen .centered_container .top {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 60px;
+}
+.step_sixteen .centered_container .top h2 {
+	font-family: 'Gotham-Ultra';
+	font-size: 30px;
+	line-height: 30px;
+	color: #5B6D7F;
+}
+.step_sixteen .centered_container .top p {
+	font-size: 18px;
+	color: #8D99A6;
+	font-family: 'Omnes-Semibold';
+	margin-top: 8px;
+}
+
+/* --- bottom */
+.step_sixteen .centered_container .bottom {
+	width: 100%;
+}
+
+/* @end */
 
 
 
