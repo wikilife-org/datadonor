@@ -24,7 +24,8 @@ urlpatterns = patterns('',
     url(r'^comming/', comming, name='comming'),
     url(r'', include('social_auth.urls')),
     
-    url(r'/social/', include('social.urls')),
+    url(r'^social/$', include('social.urls')),
+    url(r'^health/$', include('health.urls')),
     
     url(r'^physical/exercise/top/', physical_exercise, name='physical_exercise'),
     url(r'^physical/exercise/user/', physical_user_exercise, name='physical_user_exercise'),
