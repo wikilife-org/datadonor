@@ -2961,6 +2961,9 @@ a:hover {
 	opacity: 1;
 	visibility: hidden;
 }
+.step_eleven .centered_container .bottom .graphs .condition .card .back .graph_container .second_condition h2 {
+	color: #e56666;
+}
 .step_eleven .centered_container .bottom .graphs .condition .card .back .graph_container.second_active .second_condition  {
 	left: 155px!important;
 	opacity: 1!important;
@@ -3720,6 +3723,9 @@ a:hover {
 	left: 422px;
 	opacity: 1;
 	visibility: hidden;
+}
+.step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .second_condition h2 {
+	color: #e56666;
 }
 .step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container.second_active .second_condition  {
 	left: 155px!important;
