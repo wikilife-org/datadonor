@@ -31,6 +31,7 @@ $(document).ready(function () {
 		var offsetOne = $('#step_one').offset().top - 150;
         var offsetfive = $('#step_five').offset().top - 150;
         var offseteight = $('#step_eight').offset().top - 150;
+        var offseeleven = $('#step_eleven').offset().top - 150;
 	}
 	// SECTOR FIXED NAV
 	
@@ -57,6 +58,13 @@ $(document).ready(function () {
 		if ($(this).hasClass('nav_three')) {
 			$('body,html').animate({
 				scrollTop: offseteight
+			}, 1000);
+			return false;
+		}
+		
+		if ($(this).hasClass('nav_four')) {
+			$('body,html').animate({
+				scrollTop: offseeleven
 			}, 1000);
 			return false;
 		}
@@ -277,6 +285,21 @@ $(document).ready(function () {
 	// EVENTO CLICK
 	
 	// CARROUSELS NETWORKS
+	
+	
+	// CLICK GRAFICO 11
+	$('#graphs_conditions .condition').click(function (event) {
+		event.preventDefault
+		$('#graphs_conditions .condition').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$('#graphs_conditions .done_condition').live('click',function (event) {
+		event.preventDefault();
+		$('#graphs_conditions .condition').removeClass('active');
+		console.log('hecho');
+	});
+	// CLICK GRAFICO 11
 	
 	
 	//DORESIZE
