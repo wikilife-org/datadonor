@@ -31,6 +31,7 @@ $(document).ready(function () {
 		var offsetOne = $('#step_one').offset().top - 150;
         var offsetfive = $('#step_five').offset().top - 150;
         var offseteight = $('#step_eight').offset().top - 150;
+        var offseeleven = $('#step_eleven').offset().top - 150;
 	}
 	// SECTOR FIXED NAV
 	
@@ -57,6 +58,13 @@ $(document).ready(function () {
 		if ($(this).hasClass('nav_three')) {
 			$('body,html').animate({
 				scrollTop: offseteight
+			}, 1000);
+			return false;
+		}
+		
+		if ($(this).hasClass('nav_four')) {
+			$('body,html').animate({
+				scrollTop: offseeleven
 			}, 1000);
 			return false;
 		}
@@ -278,6 +286,100 @@ $(document).ready(function () {
 	
 	// CARROUSELS NETWORKS
 	
+	
+	// CLICK GRAFICO 11
+	$('#graphs_conditions .condition').click(function (event) {
+		event.preventDefault
+		$('#graphs_conditions .condition').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$('#graphs_conditions .done_condition').live('click',function (event) {
+		event.preventDefault();
+		
+		if ($(this).hasClass('next_subsector')) {
+			$(this).removeClass('next_subsector');
+			$(this).parent().parent().find('.graph_container').addClass('second_active');
+			$(this).find('span').hide().html('Done!').fadeIn(300);
+			console.log('if hecho');
+		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
+			$(this).addClass('next_subsector');
+			$('#graphs_conditions .condition').removeClass('active');
+			$('.graph_container').removeClass('second_active');
+			$(this).find('span').hide().html('Next').fadeIn(300);
+			console.log('else if hecho');
+		} else {
+		  $('#graphs_conditions .condition').removeClass('active');
+		  $('.graph_container').removeClass('second_active');
+		  $(this).find('span').hide().html('Next').fadeIn(300);
+		  console.log('else hecho');
+		}
+		
+	});
+	// CLICK GRAFICO 11
+	
+	// CLICK GRAFICO 12
+	$('#select_complaints li').click(function (event) {
+		event.preventDefault();
+		$('#select_complaints li').removeClass('active');
+		$(this).addClass('active');
+	});
+	$('#select_complaints .done_stat').live('click',function (event) {
+		event.preventDefault();
+		$(this).parent().parent().removeClass('active')
+	});
+	// CLICK GRAFICO 12
+	
+	// CLICK GRAFICO 13
+	$('#chose_type li').click(function (event) {
+		event.preventDefault();
+		$('#chose_type li').removeClass('active');
+		$(this).addClass('active');
+	});
+	// CLICK GRAFICO 13
+	
+	// CLICK GRAFICO 15
+	$('#graphs_emotions .condition').click(function (event) {
+		event.preventDefault
+		$('#graphs_emotions .condition').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$('#graphs_emotions .done_condition').live('click',function (event) {
+		event.preventDefault();
+		
+		if ($(this).hasClass('next_subsector')) {
+			$(this).removeClass('next_subsector');
+			$(this).parent().parent().find('.graph_container').addClass('second_active');
+			$(this).find('span').hide().html('Done!').fadeIn(300);
+			console.log('if hecho');
+		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
+			$(this).addClass('next_subsector');
+			$('#graphs_emotions .condition').removeClass('active');
+			$('.graph_container').removeClass('second_active');
+			$(this).find('span').hide().html('Next').fadeIn(300);
+			console.log('else if hecho');
+		} else {
+		  $('#graphs_emotions .condition').removeClass('active');
+		  $('.graph_container').removeClass('second_active');
+		  $(this).find('span').hide().html('Next').fadeIn(300);
+		  console.log('else hecho');
+		}
+	
+	});
+	// CLICK GRAFICO 15
+	
+	// AUTOCOMPLETES TRIGGER
+	$('.select_stats').combobox();
+	
+	$('ul.ui-autocomplete').hover(
+	  function() {
+	    $('input.select_stats').addClass('on_ul');
+	  }, function() {
+	    $('input.select_stats').removeClass('on_ul');
+	  }
+	);
+	// AUTOCOMPLETES TRIGGER
 	
 	//DORESIZE
 	doResize();

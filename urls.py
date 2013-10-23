@@ -3,9 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 
 from social.facebook import facebook_view
-from physical.views import physical_exercise, physical_user_exercise,\
-    physical_steps_distribution, physical_miles_distribution,\
-    physical_hours_distribution
+from physical.views import *
 from social.views import *
 
 admin.autodiscover()
@@ -26,16 +24,21 @@ urlpatterns = patterns('',
     url(r'^comming/', comming, name='comming'),
     url(r'', include('social_auth.urls')),
     
-    url(r'^social/reach/', social_reach, name='reach'),
-    url(r'^social/sharing/', social_sharing, name='sharing'),
-    url(r'^social/education/', social_education, name='education'),
-    url(r'^social/work/', social_work, name='work'),
-
+    url(r'^social/', include('social.urls')),
+    url(r'^health/', include('health.urls')),
+    
     url(r'^physical/exercise/top/', physical_exercise, name='physical_exercise'),
     url(r'^physical/exercise/user/', physical_user_exercise, name='physical_user_exercise'),
     url(r'^physical/exercise/steps/distribution', physical_steps_distribution, name='physical_steps_distribution'),
     url(r'^physical/exercise/miles/distribution', physical_miles_distribution, name='physical_miles_distribution'),
     url(r'^physical/exercise/hours/distribution', physical_hours_distribution, name='physical_hours_distribution'),
+
+    #Physical Mock
+    url(r'^physical/exercise/top/mock/', physical_exercise_mock, name='physical_exercise_mock'),
+    url(r'^physical/exercise/user/mock/', physical_user_exercise_mock, name='physical_user_exercise_mock'),
+    url(r'^physical/exercise/steps/distribution/mock/', physical_steps_distribution_mock, name='physical_steps_distribution_mock'),
+    url(r'^physical/exercise/miles/distribution/mock/', physical_miles_distribution_mock, name='physical_miles_distribution_mock'),
+    url(r'^physical/exercise/hours/distribution/mock/', physical_hours_distribution_mock, name='physical_hours_distribution_mock'),
 
     url(r'^nutrition/nutrients/', nutrition_nutrients, name='nutrition_nutrients'),
     url(r'^nutrition/weight/', nutrition_weight, name='nutrition_weight'),

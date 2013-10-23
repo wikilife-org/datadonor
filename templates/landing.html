@@ -1,7 +1,6 @@
 {% extends "base.html"%}
 
 {% block meta %}
-
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="author" content="Wikilife Foundation">
@@ -46,7 +45,7 @@
 
 {% include "landing_inc/slogan.html" %}
 
-<script src="/static/js/vendor/jquery-1.7.2.min.js"></script>
+<script src="/static/js/jquery-2.0.3.min.js"></script>
 
 <script src="/static/js/plugins.js"></script>
 
@@ -62,154 +61,114 @@
 
 	var myVideoback=document.getElementById("video-back-0"); 
 	var myVideoback2=document.getElementById("video-back-1"); 
-	var myVideo1=document.getElementById("video-top"); 
-	var myVideo2=document.getElementById("video-top2"); 
 	
-	//myVideo.load( $( '#video-back-1' ).fadeIn() );
+	function fgVideo() {
+		return $('#video-top').get(0);
+	}
 	
+	function bgVideo() {
+        return $('#video-back-0').get(0);
+    }
+
 	var video_slide = 0;
-	function playPause()
-	{ 
-		var myVideo1=document.getElementById("video-top");
-		if (myVideo1.paused) {
+	function playPause() {
+		if (fgVideo().paused) {
 			$( '.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa' ).hide();
 			$( '.pause' ).show();
 			$("video").hide();
 			$( '#video-top' ).show();
-			myVideo1.play();
-			myVideo1.addEventListener('ended', function () {
+			fgVideo().play();
+			fgVideo().addEventListener('ended', function () {
 					$( '.pause' ).hide();
 					$( '.videoback, #header-top img').show();	
 					$( '.close-video' ).hide();
 					$( '.video-1,.box-scroll' ).show();
 					$( '#video-top, #video-top2' ).hide();
 				}, false);
-				//video.play(); 
 		} else {
-			myVideo1.pause();
-		  	$( '.close-video' ).show();
+			fgVideo().pause();
+		  	$('.close-video' ).show();
 		}
-	} 
-		function close_video()
-		{
-			var myVideo1=document.getElementById("video-top");
-			if( video_slide == 1  )
-			{ 
-			
-				$( '.vidback-1' ).show();
-			
-			}
+	}
 
-			$( '.pause' ).hide();
-			$( '.videoback, #header-top img').show();	
-			$( '.close-video' ).hide();
-			$( '.video-1,.box-scroll, #header-top .capa' ).show();
-			$( '#video-top, #video-top2' ).hide();
-			myVideo1.currentTime = 0;
-
-				
+	function close_video() {
+		if( video_slide == 1  )
+		{ 
+		
+			$( '.vidback-1' ).show();
+		
 		}
-			
-		</script> 
+
+		$( '.pause' ).hide();
+		$( '.videoback, #header-top img').show();	
+		$( '.close-video' ).hide();
+		$( '.video-1,.box-scroll, #header-top .capa' ).show();
+		$( '#video-top, #video-top2' ).hide();
+		fgVideo().currentTime = 0;
+	}
+</script> 
         
 
 		
 <script type="text/javascript" >
 var slide_actual = 0;
-
 var press_enabled = true;
 
-
-function moves_slider ( )
-{	
+function moves_slider() {
 	var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
 	// now you can access all the methods for example flexAnimate
 	exampleSlider.flexAnimate(slide_actual);
-	
+
 	$( '.nav-slider .active' ).removeClass ( 'active' );
 	$( '.nav-slider .thumb-' + ( slide_actual + 1 ) ).addClass ( 'active' );
-	
-	if( slide_actual == 1  )
-	{
+
+	if( slide_actual == 1  ) {
 		$( '#thumb-2, #thumb-3' ).removeClass( 'active' )
-	}
-	else if( slide_actual == 2  )
-	{
+	} else if( slide_actual == 2  ) {
 		$( '#thumb-3' ).removeClass( 'active' );
 		$( '#thumb-1, #thumb-2' ).addClass( 'active' )
-	}
-	else if( slide_actual == 3  )
-	{
+	}else if( slide_actual == 3  ) {
 		$( '#thumb-1, #thumb-2 ,  #thumb-3' ).addClass( 'active' )
 	}
 }
-function move_slider( )
-{
-
+function move_slider() {
 	slide_actual ++;
-	if( slide_actual == 3  )
-	{
+	var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+
+	if( slide_actual == 3) {
 		slide_actual= 0;
-		var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
 		exampleSlider.flexAnimate(slide_actual);
 		$( '.nav-slider .active' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
 		
 	}
-	else if( slide_actual == 1  )
-	{
-		var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+	else if( slide_actual == 1) {
 		exampleSlider.flexAnimate(slide_actual);
 		$( '.nav-slider #thumb-2, .nav-slider #thumb-3' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
 		
 	}
-	else if( slide_actual == 2  )
-	{
-		var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
+	else if( slide_actual == 2) {
 		exampleSlider.flexAnimate(slide_actual);
 		$( '.nav-slider #thumb-4' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
 		
 	}
-	else if( slide_actual == 3  )
-	{
-		var exampleSlider = $('#howtoshare .flexslider').data('flexslider');
-		exampleSlider.flexAnimate(slide_actual);
-		$( '#controles ul li' ).addClass ( 'active' );
-		
-	}
 }
-      $( document ).ready ( function( ) 
+      $( document ).ready ( function() 
 		{
-        	
-    		
-
-
     		$( '#controles li a' ).click (
     		
-    			function ( event )
-    			{
-    			
+    			function ( event ) {
     				event.preventDefault ( );
-    				
     				clearInterval ( interval );
-    				
     				slide_actual = parseInt ( $( this ).attr ( 'data-link' ) ) ; 
-
     				moves_slider ( );
-    	
     				interval = setInterval ( "move_slider()" , 8000 );
-    			
     				$( '#progress' ).stop ( true , true ).animate ( { 'width' : slide_actual * 166 } , 0 , function ( ) { $( '#progress' ).animate ( { 'width' : 500 } , 24000 - slide_actual * 8000 ,"linear" ); } );
-    			
     			}
-    		
     		);
-    		
-    				
 
-    		
         	var firsttime=false;
         	var first_sec = "home";
         	var interval =0;
@@ -306,7 +265,7 @@ function move_slider( )
 				//myVideoback.play();
 				 	console.log("Working?");
 					video_slide = slider.currentSlide;
-					 myVideo1.pause();
+					 ///myVideo1.pause();
 
 						if( video_slide == 0 )
 						{
