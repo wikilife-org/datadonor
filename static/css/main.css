@@ -781,6 +781,123 @@ a:hover {
 
 /* @end */
 
+/* @group ALL AUTOCOMPLETES
+--------------------------------------- */
+
+
+/* --- container select */
+.container_select {
+	width: 216px;
+	margin: 0 auto;
+}
+.container_select input.select_stats {
+	border: 0px none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	width: 158px;
+	background-color: white;
+	outline: none;
+	margin: 0px;
+	height: 36px;
+	padding: 0px 10px 0px 10px;
+	float: left;
+	font-size: 15px;
+	color: #BDC5CC;
+	-webkit-transition: background-color 0.4s;
+	-moz-transition: background-color 0.4s;
+	transition: background-color 0.4s;
+	font-family: 'Omnes-Semibold';
+}
+.container_select:hover input.select_stats {
+	background-color: #40D2CB;
+	color: #fff;
+}
+.container_select > button {
+	width: 38px;
+	float: left;
+	height: 36px;
+	line-height: 36px;
+	border: 0px none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background-color: white;
+	padding: 0px;
+	margin: 0px;
+	outline: none;
+	cursor: pointer;
+	background-image: url(../img/step_11/select_view.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+}
+
+/* --- select active */
+.container_select.active input.select_stats {
+	background-color: #ff836f;
+	color: white;
+}
+.container_select.active > button {
+	background-position: bottom center;
+}
+.container_select input.select_stats.on_ul {
+	background-color: #40D2CB;
+	color: #fff;
+}
+
+/* --- container dropdown */
+ul.ui-autocomplete {
+	border: 0px none;
+	width: 215px;
+	background-color: rgba(255, 255, 255, 0.86);
+	padding: 0px;
+	margin: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	margin-left: -2px;
+	border-bottom: 3px solid rgba(0, 0, 0, 0.08);
+	-moz-border-radius-bottomleft: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+	-moz-border-radius-bottomright: 2px;
+	-webkit-border-bottom-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	overflow: hidden;
+}
+ul.ui-autocomplete .ui-menu-item {
+	border-top: 1px solid #EEEFF1;
+} 
+ul.ui-autocomplete .ui-menu-item:first-child {
+	border-top: 0px none;
+} 
+ul.ui-autocomplete .ui-menu-item a {
+	width: 196px;
+	font-size: 15px;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+	padding: 10px 10px 10px 10px;
+	margin: 0px;
+	cursor: pointer;
+	color: #8D99A6;
+	line-height: 17px;
+	font-family: 'Omnes-Semibold';
+	display: inline-block;
+} 
+ul.ui-autocomplete .ui-menu-item a strong {
+	color: #555555;
+} 
+ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background-color: #fff;
+	border: 0px none;
+	margin: 0px;
+}
+
+/* @end */
 
 
 /* SOCIAL NETWORKS
@@ -2944,7 +3061,7 @@ a:hover {
 }
 .step_eleven .centered_container .bottom .graphs .condition .card .back .graph_container .container_data .select_space {
 	width: 210px;
-	height: 40px;
+	height: auto;
 	background-color: #fff;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -3204,13 +3321,13 @@ a:hover {
 }
 .step_twelve .centered_container .bottom .block.right ul li .add_container .select_stat {
 	width: 210px;
-	height: 40px;
+	height: auto;
 	background-color: #fff;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	float: left;
-	margin-top: 16px;
+	margin-top: 19px;
 }
 .step_twelve .centered_container .bottom .block.right ul li .add_container .done_stat {
 	color: #fff;
@@ -3707,7 +3824,7 @@ a:hover {
 }
 .step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .container_data .select_space {
 	width: 210px;
-	height: 40px;
+	height: auto;
 	background-color: #fff;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;

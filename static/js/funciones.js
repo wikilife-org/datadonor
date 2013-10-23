@@ -365,11 +365,21 @@ $(document).ready(function () {
 		  $(this).find('span').hide().html('Next').fadeIn(300);
 		  console.log('else hecho');
 		}
-		
-		
-		
+	
 	});
 	// CLICK GRAFICO 15
+	
+	// AUTOCOMPLETES TRIGGER
+	$('.select_stats').combobox();
+	
+	$('ul.ui-autocomplete').hover(
+	  function() {
+	    $('input.select_stats').addClass('on_ul');
+	  }, function() {
+	    $('input.select_stats').removeClass('on_ul');
+	  }
+	);
+	// AUTOCOMPLETES TRIGGER
 	
 	//DORESIZE
 	doResize();
