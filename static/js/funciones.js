@@ -381,6 +381,47 @@ $(document).ready(function () {
 	);
 	// AUTOCOMPLETES TRIGGER
 	
+	// STEP 16
+	
+		// sliders your
+		$( "#mood_1" ).slider({
+		      range: 'min',
+		      value: 1,
+		      min: 0,
+		      max: 10,
+		      step:1,
+			      slide: function( event, ui ) {
+			        var value = ui.value;
+			        $('#mood_1 .ui-slider-handle').html('<span>'+value+'</span>');
+			      }
+		 });
+		 $('#mood_1 .ui-slider-handle').html('<span>1</span>');
+		 
+		 // sliders all
+		 $( "#mood_2" ).slider({
+		       range: 'min',
+		       value: 5,
+		       min: 0,
+		       max: 10,
+		       step:1,
+		 	      slide: function( event, ui ) {
+		 	        var value = ui.value;
+		 	        $('#mood_2 .ui-slider-handle').html('<span>'+value+'</span>');
+		 	      }
+		  });
+		  $('#mood_2 .ui-slider-handle').html('<span>5</span>');
+		  
+		   
+		   // Cambia de valor en el click
+		   $('#trigger_mood li a').click(function (event) {
+		   		event.preventDefault();
+		   		var positionSlider = $(this).attr('data-valor');
+		   		$( "#mood_1" ).slider({value: positionSlider});
+		   		$('#mood_1 .ui-slider-handle').html('<span>'+positionSlider+'</span>');
+		   });
+	   
+	   // STEP 16
+	
 	//DORESIZE
 	doResize();
 	$(window).resize(function() {

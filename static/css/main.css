@@ -904,7 +904,6 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 ------------------------------------------------------------
 ------------------------------------------------------------ */
 
-
 /* @group STEP ONE
 --------------------------------------- */
 
@@ -1792,10 +1791,10 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 /* @end */
 
 
+
 /* FITNESS DEVICES
 ------------------------------------------------------------
 ------------------------------------------------------------ */
-
 
 /* @group STEP FIVE
 --------------------------------------- */
@@ -2192,8 +2191,6 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 /* NUTRITION DEVICES
 ------------------------------------------------------------
 ------------------------------------------------------------ */
-
-
 
 /* @group STEP EIGHT
 --------------------------------------- */
@@ -2861,7 +2858,6 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 
 /* @end */
-
 
 
 
@@ -3936,7 +3932,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 /* @end */
 
-/* @group STEP FIFTEEN
+/* @group STEP SIXTEEN
 --------------------------------------- */
 
 .step_sixteen {
@@ -3970,7 +3966,235 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 /* --- bottom */
 .step_sixteen .centered_container .bottom {
 	width: 100%;
+	height: 190px;
 }
+
+.mood_container {
+	width: 1039px;
+	padding: 0px;
+	margin: 0 auto;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+}
+.mood_container.same_porcent {
+	margin-top: 110px;
+}
+.mood_container.same_porcent .your_stats_mood .ui-state-default,
+.mood_container.same_porcent .your_stats_mood .ui-widget-content .ui-state-default,
+.mood_container.same_porcent .your_stats_mood .ui-widget-header .ui-state-default{
+	background: transparent url(../img/step_16/icos_1_top.png) no-repeat center bottom;
+	top: -115px;
+}
+.mood_container.same_porcent .your_stats_mood .ui-slider-handle span  {
+	bottom: -58px;
+	top: auto;
+}
+.mood_container.same_porcent .all_stats_mood .ui-widget-header {
+	padding-right: 5px;
+}
+
+/* --- numeros bottom */
+.mood_container .container_slider_mood {
+	background-image: url(../img/step_16/graph_3.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	position: relative;
+}
+.mood_container .container_slider_mood .numbers_bottom {
+	width: 100%;
+}
+.mood_container .container_slider_mood .numbers_bottom ul {
+	width: 1039px;
+	height: 18px;
+	padding: 0px;
+	margin: 26px 0px 0px 0px;
+	position: relative;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li {
+	width: auto;
+	text-align: left;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	top: 0px;
+	list-style: none;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.one {
+	left: 101px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.two {
+	left: 205px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.three {
+	left: 306px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.four {
+	left: 411px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.five {
+	left: 515px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.six {
+	left: 619px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.seven {
+	left: 722px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.eight {
+	left: 828px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.nine {
+	left: 928px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li.ten {
+	right: 0px;
+}
+.mood_container .container_slider_mood .numbers_bottom ul li a {
+	text-decoration: none;
+	font-family: 'Omnes-Semibold';
+	font-size: 16px;
+	color: #CCCFD4;
+}
+
+/* YOUR MODE */
+.mood_container .your_stats_mood {
+	position: relative;
+	z-index: 10;
+}
+.mood_container .your_stats_mood .ui-state-default,
+.mood_container .your_stats_mood .ui-widget-content .ui-state-default,
+.mood_container .your_stats_mood .ui-widget-header .ui-state-default{
+	background: transparent url(../img/step_16/icos_1.png) no-repeat center top;
+}
+.mood_container .your_stats_mood .ui-widget-header {
+	background-image: url(../img/step_16/graph_1.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+/* ALL MODE */
+.mood_container .all_stats_mood {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 5;
+}
+.mood_container .all_stats_mood .ui-state-default,
+.mood_container .all_stats_mood .ui-widget-content .ui-state-default,
+.mood_container .all_stats_mood .ui-widget-header .ui-state-default{
+	background: transparent url(../img/step_16/icos_2.png) no-repeat center top;
+}
+.mood_container .all_stats_mood .ui-widget-header {
+	background-image: url(../img/step_16/graph_2.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+/* Component containers
+----------------------------------*/
+.mood_container .ui-widget {
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size: 1.1em;
+}
+.mood_container .ui-widget .ui-widget {
+	font-size: 1em;
+}
+.mood_container .ui-widget input,
+.mood_container .ui-widget select,
+.mood_container .ui-widget textarea,
+.mood_container .ui-widget button {
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size: 1em;
+}
+.mood_container .ui-widget-content {
+	border: 0px none;
+	color: #333333;
+	background: transparent;
+	height: 80px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+}
+.mood_container .ui-widget-content a {
+	color: #333333;
+}
+.mood_container .ui-widget-header {
+	border: 0px none;
+	color: #ffffff;
+	font-weight: bold;
+	background: transparent;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+.mood_container .ui-widget-header a {
+	color: #ffffff;
+}
+
+/* Interaction states
+----------------------------------*/
+.mood_container .ui-state-default,
+.mood_container .ui-widget-content .ui-state-default,
+.mood_container .ui-widget-header .ui-state-default {
+	border: 0px none;
+	font-weight: bold;
+	color: #1c94c4;
+	outline: none;
+	-webkit-transition: opacity 0.4s;
+	-moz-transition: opacity 0.4s;
+	transition: opacity 0.4s;
+	width: 75px;
+	height: 100px;
+	top: 90px;
+	margin-left: -38px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+.mood_container .ui-slider-handle span  {
+	position: relative;
+	top: 10px;
+	font-family: 'Omnes-Semibold';
+	color: #fff;
+	font-size: 31px;
+	left: 1px;
+}
+.mood_container .ui-state-default a,
+.mood_container .ui-state-default a:link,
+.mood_container .ui-state-default a:visited {
+	color: #1c94c4;
+}
+.mood_container .ui-state-hover,
+.mood_container .ui-widget-content .ui-state-hover,
+.mood_container .ui-widget-header .ui-state-hover,
+.mood_container .ui-state-focus,
+.mood_container .ui-widget-content .ui-state-focus,
+.mood_container .ui-widget-header .ui-state-focus {
+	opacity: 1;
+}
+.mood_container .ui-state-hover a,
+.mood_container .ui-state-hover a:hover,
+.mood_container .ui-state-hover a:link,
+.mood_container .ui-state-hover a:visited {
+	opacity: 1;
+}
+.mood_container .ui-state-active,
+.mood_container .ui-widget-content .ui-state-active,
+.mood_container .ui-widget-header .ui-state-active {
+	opacity: 1;
+}
+.mood_container .ui-state-active a,
+.mood_container .ui-state-active a:link,
+.mood_container .ui-state-active a:visited {
+	opacity: 1;
+}
+
+
 
 /* @end */
 
