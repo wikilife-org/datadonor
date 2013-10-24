@@ -127,7 +127,9 @@ def social_reach_mock(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_sharing_mock(request):
-    data = get_social_sharing_mock()
+    global_data = global_social_sharing_mock()
+    user_data = user_social_sharing_mock()
+    data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
@@ -149,7 +151,7 @@ def social_education_mock(request):
     if request.method == "POST":
         education_level = request.POST["education_level"]
 
-    user_data = {"user_level": request.user.social_aggregated_data.education_level}
+    user_data = {"user_level": 3}
     global_data = {6:{"percentage":8, "key":"phd", "title": "PhD", "index":6},
                    5:{"percentage":10, "key":"master", "title": "Master", "index":5},
                    4:{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}, 
