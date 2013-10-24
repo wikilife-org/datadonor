@@ -194,6 +194,60 @@ def sleep_distribution_by_user(request):
     data = []
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+
+#Emotions
+
+def emotions_ranking_global_mock(request):
+    data = [{"id":10, "name":"Disappointed", 
+             "percentage":57},
+            {"id":12, "name":"Stressed", 
+             "percentage":23},
+            {"id":23, "name":"Sad", 
+             "percentage":5},
+            {"id":3, "name":"Angry", 
+             "percentage":5},
+            {"id":4, "name":"Euphoric", 
+             "percentage":10},]
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+@csrf_exempt
+def emotions_by_user_mock(request):
+    if request.method == 'POST':
+        id_emotion = request.POST["id_emotion"]
+    
+    data = {"id_emotion": 10, "name":"Disappointed"}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def emotions_list_mock(request):
+    data = [{"id":10, "name":"Disappointed", 
+             "percentage":57},
+            {"id":12, "name":"Stressed", 
+             "percentage":23},
+            {"id":23, "name":"Sad", 
+             "percentage":5},
+            {"id":3, "name":"Angry", 
+             "percentage":5},
+            {"id":4, "name":"Euphoric", 
+             "percentage":10},
+            {"id":43, "name":"Happy", 
+             "percentage":10},]
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+
+
+def emotions_ranking_global(request):
+    data = []
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+@csrf_exempt
+def emotions_by_user(request):
+    data = []
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def emotions_list(request):
+    data = []
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
 #Mood
 
 def mood_avg_global_mock(request):

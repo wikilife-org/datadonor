@@ -8,6 +8,7 @@ def global_social_reach():
 def global_social_sharing():
     return {"facebook":{"posts":134, "likes":44}, "twitter":{"tweets":99, "retweets":12}}
 
+
 def is_valid_education(education_level):
     valid = False
     try:
@@ -46,9 +47,16 @@ def update_degree(degree, level):
 
 
 def get_social_reach_mock():
-    return {"user_data" : {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":20},
-                "gmail":{"count": 20, "percentage":20}, "foursquare":{"count": 20, "percentage":20},
+    return {"user_data" : {"facebook":{"count": 23, "percentage":20}, "twitter":{"count": 10, "percentage":20},
+                "gmail":{"count": 310, "percentage":20}, "foursquare":{"count": 20, "percentage":20},
                 "linkedin":{"count": 20, "percentage":20}},
-            "global_data":{"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":10},
-                "gmail":{"count": 20, "percentage":10}, "foursquare":{"count": 20, "percentage":40},
+            "global_data":{"facebook":{"count": 2, "percentage":20}, "twitter":{"count": 18, "percentage":10},
+                "gmail":{"count": 206, "percentage":10}, "foursquare":{"count": 50, "percentage":40},
                 "linkedin":{"count": 20, "percentage":20}}}
+    
+
+def global_social_sharing_mock():
+    return {"facebook":{"posts":134, "likes":44}, "twitter":{"tweets":99, "retweets":12}}
+
+def user_social_sharing_mock():
+    return {"facebook":{"posts":34, "likes":40}, "twitter":{"tweets":10, "retweets":10}}

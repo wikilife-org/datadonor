@@ -301,18 +301,14 @@ $(document).ready(function () {
 			$(this).removeClass('next_subsector');
 			$(this).parent().parent().find('.graph_container').addClass('second_active');
 			$(this).find('span').hide().html('Done!').fadeIn(300);
-			console.log('if hecho');
 		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
 			$(this).addClass('next_subsector');
 			$('#graphs_conditions .condition').removeClass('active');
 			$('.graph_container').removeClass('second_active');
 			$(this).find('span').hide().html('Next').fadeIn(300);
-			console.log('else if hecho');
 		} else {
 		  $('#graphs_conditions .condition').removeClass('active');
-		  $('.graph_container').removeClass('second_active');
 		  $(this).find('span').hide().html('Next').fadeIn(300);
-		  console.log('else hecho');
 		}
 		
 	});
@@ -352,18 +348,14 @@ $(document).ready(function () {
 			$(this).removeClass('next_subsector');
 			$(this).parent().parent().find('.graph_container').addClass('second_active');
 			$(this).find('span').hide().html('Done!').fadeIn(300);
-			console.log('if hecho');
 		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
 			$(this).addClass('next_subsector');
 			$('#graphs_emotions .condition').removeClass('active');
 			$('.graph_container').removeClass('second_active');
 			$(this).find('span').hide().html('Next').fadeIn(300);
-			console.log('else if hecho');
 		} else {
-		  $('#graphs_emotions .condition').removeClass('active');
-		  $('.graph_container').removeClass('second_active');
-		  $(this).find('span').hide().html('Next').fadeIn(300);
-		  console.log('else hecho');
+		    $('#graphs_emotions .condition').removeClass('active');
+		    $(this).find('span').hide().html('Next').fadeIn(300);
 		}
 	
 	});
@@ -380,6 +372,47 @@ $(document).ready(function () {
 	  }
 	);
 	// AUTOCOMPLETES TRIGGER
+	
+	// STEP 16
+	
+		// sliders your
+		$( "#mood_1" ).slider({
+		      range: 'min',
+		      value: 1,
+		      min: 0,
+		      max: 10,
+		      step:1,
+			      slide: function( event, ui ) {
+			        var value = ui.value;
+			        $('#mood_1 .ui-slider-handle').html('<span>'+value+'</span>');
+			      }
+		 });
+		 $('#mood_1 .ui-slider-handle').html('<span>1</span>');
+		 
+		 // sliders all
+		 $( "#mood_2" ).slider({
+		       range: 'min',
+		       value: 5,
+		       min: 0,
+		       max: 10,
+		       step:1,
+		 	      slide: function( event, ui ) {
+		 	        var value = ui.value;
+		 	        $('#mood_2 .ui-slider-handle').html('<span>'+value+'</span>');
+		 	      }
+		  });
+		  $('#mood_2 .ui-slider-handle').html('<span>5</span>');
+		  
+		   
+		   // Cambia de valor en el click
+		   $('#trigger_mood li a').click(function (event) {
+		   		event.preventDefault();
+		   		var positionSlider = $(this).attr('data-valor');
+		   		$( "#mood_1" ).slider({value: positionSlider});
+		   		$('#mood_1 .ui-slider-handle').html('<span>'+positionSlider+'</span>');
+		   });
+	   
+	   // STEP 16
 	
 	//DORESIZE
 	doResize();

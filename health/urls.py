@@ -45,7 +45,15 @@ urlpatterns = patterns('',
     url(r'^sleep/global/distribution/', sleep_distribution_global, name='sleep_distribution_global'),
     url(r'^sleep/user/distribution/', sleep_distribution_by_user, name='sleep_distribution_by_user'),
 
-
+    #Emotions
+    url(r'^emotions/global/top_5/mock/', emotions_ranking_global_mock, name='emotions_ranking_global_mock'),
+    url(r'^emotions/list/mock/', emotions_list_mock, name='emotions_list_mock'),
+    url(r'^emotions/user/mock/', emotions_by_user_mock, name='emotions_by_user_mock'),
+  
+    url(r'^emotions/global/top_5/', emotions_ranking_global, name='emotions_ranking_global'),
+    url(r'^emotions/list/', emotions_list, name='emotions_list'),
+    url(r'^emotions/user/', emotions_by_user, name='emotions_by_user'),
+      
     #Mood
     url(r'^mood/global/avg/mock/', mood_avg_global_mock, name='mood_avg_global_mock'),
     url(r'^mood/user/avg/mock/', mood_avg_by_user_mock, name='mood_avg_by_user_mock'),   
