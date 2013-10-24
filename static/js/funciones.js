@@ -301,18 +301,14 @@ $(document).ready(function () {
 			$(this).removeClass('next_subsector');
 			$(this).parent().parent().find('.graph_container').addClass('second_active');
 			$(this).find('span').hide().html('Done!').fadeIn(300);
-			console.log('if hecho');
 		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
 			$(this).addClass('next_subsector');
 			$('#graphs_conditions .condition').removeClass('active');
 			$('.graph_container').removeClass('second_active');
 			$(this).find('span').hide().html('Next').fadeIn(300);
-			console.log('else if hecho');
 		} else {
 		  $('#graphs_conditions .condition').removeClass('active');
-		  $('.graph_container').removeClass('second_active');
 		  $(this).find('span').hide().html('Next').fadeIn(300);
-		  console.log('else hecho');
 		}
 		
 	});
@@ -352,18 +348,14 @@ $(document).ready(function () {
 			$(this).removeClass('next_subsector');
 			$(this).parent().parent().find('.graph_container').addClass('second_active');
 			$(this).find('span').hide().html('Done!').fadeIn(300);
-			console.log('if hecho');
 		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
 			$(this).addClass('next_subsector');
 			$('#graphs_emotions .condition').removeClass('active');
 			$('.graph_container').removeClass('second_active');
 			$(this).find('span').hide().html('Next').fadeIn(300);
-			console.log('else if hecho');
 		} else {
-		  $('#graphs_emotions .condition').removeClass('active');
-		  $('.graph_container').removeClass('second_active');
-		  $(this).find('span').hide().html('Next').fadeIn(300);
-		  console.log('else hecho');
+		    $('#graphs_emotions .condition').removeClass('active');
+		    $(this).find('span').hide().html('Next').fadeIn(300);
 		}
 	
 	});
