@@ -123,7 +123,7 @@ def social_education(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_reach_mock(request):
-    data = social_reach_mock()
+    data = get_social_reach_mock()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_sharing_mock(request):
