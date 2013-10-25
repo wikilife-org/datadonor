@@ -1,6 +1,7 @@
 # coding=utf-8
 
 from physical.util.physical_service_builder import PhysicalServiceBuilder
+from wikilife.util.wikilife_service_builder import WikilifeServiceBuilder
 
 #TODO singletons sucks 
 
@@ -13,7 +14,7 @@ class PhysicalServiceLocator(object):
         if self.__instance != None:
             raise Exception("Singleton exception")
 
-        self._service_builder = PhysicalServiceBuilder()
+        self._service_builder = PhysicalServiceBuilder(WikilifeServiceBuilder())
 
     @classmethod
     def get_instane(cls):

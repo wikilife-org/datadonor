@@ -1,6 +1,6 @@
 # coding=utf-8
 
-from wikilife.client.base_wikilife_client import BaseWikilifeClient
+from wikilife.clients.base_wikilife_client import BaseWikilifeClient
 
 
 class Logs(BaseWikilifeClient):
