@@ -682,3 +682,21 @@ NutrientsAdapter = function(){
   }
   
 }
+
+CronicalConditionsAdapter = function(){
+  
+  this.getParameters = function(json, color){
+    
+    var elements = [];
+    
+    var item = {
+      percentage: json.percentage,
+      color: color,
+      text: json.percentage
+    };
+    elements.push(item);
+    
+    return elements;
+  }
+}
+
