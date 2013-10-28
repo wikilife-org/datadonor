@@ -38,7 +38,12 @@ var _api_urls = {
     bmi: "http://datadonors.org/nutrition/bmi/mock/",
     user_exercise: "http://datadonors.org/physical/exercise/user/mock/",
     cronical_conditions_top5: "http://datadonors.org/health/cronical_conditions/global/top_5/mock/",
-    cronical_conditions_post: "http://datadonors.org/health/cronical_conditions/user/mock/"
+    cronical_conditions_post: "http://datadonors.org/health/cronical_conditions/user/mock/",
+    cronical_conditions_list: "http://datadonors.org/health/cronical_conditions/list/mock/",
+    complains_top5: "http://datadonors.org/health/complaints/global/top_5/mock/",
+    complains_post: "http://datadonors.org/health/complaints/user/mock/",
+    complains_user: "http://datadonors.org/health/complaints/user/mock/",
+    complains_list: "http://datadonors.org/health/complaints/list/mock/"
   },
   hard: {
     social_reach: "../../static/js/adapter/examples/social_reach",

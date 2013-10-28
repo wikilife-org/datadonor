@@ -5,6 +5,8 @@ var animatedQuarterPie;
 var doubleAxisParams;
 var SingleBarChart;
 var cronicalGraphs = {};
+var cronicalsList = {};
+var complainsTop5 = {};
 //_api_env = 'hard';
 _api_env = 'dev';
 
@@ -384,12 +386,14 @@ function drawCronicalConditionsGraph(data, num){
       $(this).addClass('active');
     });
     
-    $($('.cronical_container')[np]).find('.done_condition').live('click', {id_condition: data.id, container: $($('.cronical_container')[np]), graph: animatedPie}, function (event) {
+    $($('.cronical_container')[np]).find('.done_condition').live('click', {id_condition: data.id, container: $($('.cronical_container')[np]), graph: animatedPie, json: data}, function (event) {
       if(!$(this).hasClass('sent')){
         var el = $(this);
         var typeId = event.data.container.find('.face.back select.select_stats').val();
+        var typeText = event.data.container.find('.face.back select.select_stats option:selected').text();
         console.log('TYPE ID: '+typeId);
         $.post( _api_urls[_api_env].cronical_conditions_post, { id_condition: event.data.id_condition, id_type: typeId } );
+        addCronicalCard(event.data.json.name, typeText, event.data.id_condition);
         setTimeout(function(){
           el.parent().parent().parent().parent().removeClass('active');
           console.log(el.parent().parent().parent().parent());
@@ -402,11 +406,12 @@ function drawCronicalConditionsGraph(data, num){
       }
     });
   }else{
-    $($('.cronical_container')[np]).click({id_condition: data.id, graph: animatedPie}, function (event) {
+    $($('.cronical_container')[np]).click({id_condition: data.id, graph: animatedPie, json: data}, function (event) {
       event.preventDefault
       if(!$(this).hasClass('sent')){
         //Send data... change color
         $.post( _api_urls[_api_env].cronical_conditions_post, { id_condition: event.data.id_condition } );
+        addCronicalCard(event.data.json.name, '', event.data.id_condition);
         event.data.graph.lines[0].animate({"stroke": '#E56666'}, 500);
         event.data.graph.texts[0].animate({"fill": '#E56666'}, 500);
         event.data.graph.texts[1].animate({"fill": '#E56666'}, 500);
@@ -422,6 +427,117 @@ function pad(num, size) {
     var s = num+"";
     while (s.length < size) s = "0" + s;
     return s;
+}
+
+function setupAddCronicals(data){
+  console.log('setupAddCronicals');
+  
+  var cronicals = '';
+  for(var i in data){
+    cronicals += '<option value="'+data[i].id+'">'+data[i].name+'</option>';
+  }
+
+  $('.select_stats.add_more_1').html(cronicals);
+  $('.select_stats.add_more_1').combobox();
+    
+	$('#graphs_conditions .condition.add_more').click(function (event) {
+    event.preventDefault
+    $('#graphs_conditions .condition').removeClass('active');
+    $(this).addClass('active');
+  });
+  
+	$('#graphs_conditions .done_condition').live('click',{cronicalsList: cronicalsList}, function (event) {
+		event.preventDefault();
+    
+		if ($(this).hasClass('next_subsector')) {
+      console.log('ENTRA EN EL 1ER IF');
+			$(this).removeClass('next_subsector');
+			$(this).parent().parent().find('.graph_container').addClass('second_active');
+      
+      //Completo el 2do combobox y lo inicializo
+      var currentCronical = $('.select_stats.add_more_1').val();
+      var cronicalTypes = '';
+      console.log(cronicalsList);
+      for(var i in cronicalsList){
+        if(cronicalsList[i].id == currentCronical){
+          for(var j in cronicalsList[i].types){
+            var cronicalEl = cronicalsList[i];
+            cronicalTypes += '<option value="'+cronicalEl.types[j].id+'">'+cronicalEl.types[j].name+'</option>';
+          }
+        }
+      }
+      $('.select_stats.add_more_2').html(cronicalTypes);
+      $('.select_stats.add_more_2').combobox();
+      
+			$(this).find('span').hide().html('Done!').fadeIn(300);
+		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
+      console.log('ENTRA EN EL 2DO IF');
+      
+      //Envio los datos por POST y agrego la CARD
+      $.post( _api_urls[_api_env].cronical_conditions_post, { id_condition: $('.select_stats.add_more_1').val(), id_type: $('.select_stats.add_more_2').val() } );
+      addCronicalCard($('.select_stats.add_more_1 option:selected').text(), $('.select_stats.add_more_2 option:selected').text(), $('.select_stats.add_more_1').val());
+      setTimeout(function(){
+        try{
+          $('.select_stats.add_more_2').combobox("destroy");
+        }catch(err){
+          //Do nothing...
+        }
+      }, 300);
+      
+			$(this).addClass('next_subsector');
+			$('#graphs_conditions .condition').removeClass('active');
+			$('.graph_container').removeClass('second_active');
+			$(this).find('span').hide().html('Next').fadeIn(300);
+		} else {
+      console.log('ENTRA EN EL ELSE'); //Nunca entra aca...
+		  $('#graphs_conditions .condition').removeClass('active');
+		  $(this).find('span').hide().html('Next').fadeIn(300);
+		}
+		
+	});
+}
+
+function addCronicalCard(label, typeLabel, id){
+  var el = $('.cronical_conditions_cards ul');
+  if(typeLabel){
+    el.html(el.html()+'<li id="cronical_id_'+id+'"><p><span>'+label+'</span><br />Type: '+typeLabel+'</p></li>');
+  }else{
+    el.html(el.html()+'<li id="cronical_id_'+id+'"><p><span>'+label+'</span><br /></p></li>');
+  }
+}
+
+function drawComplainsTop5Item(data, num){
+  var adapter = new CronicalConditionsAdapter();
+  var params = adapter.getParameters(data, '#7737c7');
+  var np = num-1;
+  
+  //Start graph
+  var radius = 43;
+  if(data.percentage >= 20) radius = 56;
+  var r_11_1 = Raphael('canvas_12_'+num, 130, 130);
+  var animatedPie = new EdAnimatedPie(r_11_1, params, {
+    animationTime: 900,
+    easing: '<',
+    useAnimationDelay: false,
+    lineWidth: 5,
+    fontSize: 20,
+    centerx: 65,
+    centery: 65,
+    radius: radius,
+    borderColor: '#F2EBE7',
+    borderMargin: 0,
+    drawReferences: false,
+    drawCenterImage: false,
+    drawCenterText: true,
+    bubbleColor: '#3F4B5B',
+    centerText: {
+      color: '#7737c7',
+      size: '55',
+      font: 'Omnes-Semibold',
+      text: params[0].percentage
+    }
+  });
+  animatedPie.draw();
 }
 
 window.onload = function () {
@@ -505,6 +621,19 @@ window.onload = function () {
       drawCronicalConditionsGraph(data[i], num);
     }
   });
+  
+  $.getJSON( _api_urls[_api_env].cronical_conditions_list, function( data ) {
+    cronicalsList = data;
+    setupAddCronicals(data);
+  });
+  
+  $.getJSON( _api_urls[_api_env].complains_top5, function( data ) {
+    for(var i in data){
+      var num = parseInt(i)+1;
+      drawComplainsTop5Item(data[i], num);
+    }
+  });
+  
 };
 
 $(document).ready(function(){
