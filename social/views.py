@@ -6,7 +6,6 @@ from django.shortcuts import render_to_response, redirect
 from django.contrib.messages.api import get_messages
 from social_auth import __version__ as version
 from social_auth.utils import setting
-from wikilife.wikilife_connector import WikilifeConnector
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
@@ -265,14 +264,3 @@ def iagree(request):
         request.session["wizard_mode"] = True
         return HttpResponse(simplejson.dumps({}), mimetype="application/json")
     return HttpResponseRedirect('/wizard/')
-
-
-#TODO add sec token
-def wikilife_push(request):
-    WikilifeConnector().push()
-    return HttpResponse("ok")
-
-#TODO add sec token
-def wikilife_pull(request):
-    WikilifeConnector().pull()
-    return HttpResponse("ok")

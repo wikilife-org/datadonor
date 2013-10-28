@@ -223,6 +223,12 @@ SOCIAL_AUTH_PIPELINE_old = (
 
 )
 
+PROFILE_SOURCES_PRIORITY = {
+    "runkeeper": 1, 
+    "fitbit": 2, 
+    "facebook": 3, 
+    "twitter": 4 
+}
 
 #FACEBOOK CONFIG
 

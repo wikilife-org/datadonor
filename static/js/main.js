@@ -4,6 +4,7 @@ var doubleAxisBars;
 var animatedQuarterPie;
 var doubleAxisParams;
 var SingleBarChart;
+var cronicalGraphs = {};
 //_api_env = 'hard';
 _api_env = 'dev';
 
@@ -335,6 +336,88 @@ function drawNutrientProportionGraph(data){
 
 }
 
+function drawCronicalConditionsGraph(data, num){
+  var adapter = new CronicalConditionsAdapter();
+  var params = adapter.getParameters(data, '#7737c7');
+  var np = num-1;
+  
+  //Start graph
+  var r_11_1 = Raphael('canvas_11_'+num, 310, 310);
+  var animatedPie = new EdAnimatedPie(r_11_1, params, {
+    animationTime: 900,
+    easing: '<',
+    useAnimationDelay: false,
+    lineWidth: 55,
+    fontSize: 20,
+    centerx: 155,
+    centery: 155,
+    radius: 122,
+    borderColor: '#F7F2ED',
+    borderMargin: 0,
+    drawReferences: false,
+    drawCenterImage: false,
+    drawCenterText: true,
+    bubbleColor: '#3F4B5B',
+    centerText: {
+      color: '#7737c7',
+      size: '60',
+      font: 'Omnes-Semibold',
+      text: params[0].percentage
+    }
+  });
+  animatedPie.draw();
+  cronicalGraphs[data.id] = animatedPie;
+//  line = animatedQuarterPie.lines[0];
+//  line.animate({"stroke": '#E56666'}, 500);
+
+  //Setup info
+  $($('.cronical_container')[np]).find('.face.front .bubble_msj h2').html(data.name);
+  $($('.cronical_container')[np]).find('.face.back .container_data h2').html(data.name);
+  var cronicalTypes = '';
+  if(data.types.length){
+    for(var i in data.types){
+      cronicalTypes += '<option value="'+data.types[i].id+'">'+data.types[i].name+'</option>';
+    }
+    $($('.cronical_container')[np]).click(function (event) {
+      event.preventDefault
+      $('#graphs_conditions .condition').removeClass('active');
+      $(this).addClass('active');
+    });
+    
+    $($('.cronical_container')[np]).find('.done_condition').live('click', {id_condition: data.id, container: $($('.cronical_container')[np]), graph: animatedPie}, function (event) {
+      if(!$(this).hasClass('sent')){
+        var el = $(this);
+        var typeId = event.data.container.find('.face.back select.select_stats').val();
+        console.log('TYPE ID: '+typeId);
+        $.post( _api_urls[_api_env].cronical_conditions_post, { id_condition: event.data.id_condition, id_type: typeId } );
+        setTimeout(function(){
+          el.parent().parent().parent().parent().removeClass('active');
+          console.log(el.parent().parent().parent().parent());
+        }, 50);
+        //Change color
+        event.data.graph.lines[0].animate({"stroke": '#E56666'}, 500);
+        event.data.graph.texts[0].animate({"fill": '#E56666'}, 500);
+        event.data.graph.texts[1].animate({"fill": '#E56666'}, 500);
+        $(this).addClass('sent');
+      }
+    });
+  }else{
+    $($('.cronical_container')[np]).click({id_condition: data.id, graph: animatedPie}, function (event) {
+      event.preventDefault
+      if(!$(this).hasClass('sent')){
+        //Send data... change color
+        $.post( _api_urls[_api_env].cronical_conditions_post, { id_condition: event.data.id_condition } );
+        event.data.graph.lines[0].animate({"stroke": '#E56666'}, 500);
+        event.data.graph.texts[0].animate({"fill": '#E56666'}, 500);
+        event.data.graph.texts[1].animate({"fill": '#E56666'}, 500);
+        $(this).addClass('sent');
+      }
+    });
+  }
+  $($('.cronical_container')[np]).find('.face.back .select_stats').html(cronicalTypes);
+  $($('.cronical_container')[np]).find('.face.back .select_stats').combobox();
+}
+
 function pad(num, size) {
     var s = num+"";
     while (s.length < size) s = "0" + s;
@@ -411,6 +494,15 @@ window.onload = function () {
   $.getJSON( _api_urls[_api_env].user_exercise, function( data ) {
     for(var i = 1; i <= data.length; i++){
       $($('.you_cards ul li')[i]).html('<p><span>'+data[i-1].title+'</span><br />'+data[i-1].message+'</p>');
+    }
+  });
+  
+  $.getJSON( _api_urls[_api_env].cronical_conditions_top5, function( data ) {
+    console.log(data);
+    for(var i in data){
+      console.log(i);
+      var num = parseInt(i)+1;
+      drawCronicalConditionsGraph(data[i], num);
     }
   });
 };
