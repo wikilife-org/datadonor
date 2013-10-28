@@ -4,29 +4,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.utils.crypto import get_random_string as random_string
-from utils.oper import percentage, social_reach_graph
-
-
-class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
-    account_id = models.CharField(max_length=255, unique=True, null=False)
-    email = models.CharField(max_length=255, blank=True, null=True)
-    age = models.IntegerField(blank=True, null=True)
-    date_of_birth = models.DateField(blank=True, null=True)
-    gender = models.CharField(max_length=1, choices=(
-        ('m', 'Male'), ('f', 'Female')), blank=True, null=True)
-    create_time = models.DateTimeField("created on", auto_now_add=True)
-    update_time = models.DateTimeField("last updated on", auto_now=True)
-    height = models.FloatField(null=True)
-    weight = models.FloatField(null=True)
-    device_id = models.CharField(max_length=255, null=True)
-    timezone = models.CharField(max_length=255, null=True)
-    city = models.CharField(max_length=255, null=True)
-    region = models.CharField(max_length=255, null=True)
-    country = models.CharField(max_length=255, null=True)
-    agree_tos = models.BooleanField(default=True)
-    wikilife_token = models.CharField(max_length=255, null=True)
-    wikilife_ready = models.BooleanField(default=False)
+from utils.oper import percentage
+from users.models import Profile
 
 
 class SocialUserAggregatedData(models.Model):

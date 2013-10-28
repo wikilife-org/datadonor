@@ -2,6 +2,5 @@
 
 from wikilife.services.base_source_service import BaseSourceService
 
-
-class BaseDeviceService(BaseSourceService):
+class BaseNetworkService(BaseSourceService):
     pass

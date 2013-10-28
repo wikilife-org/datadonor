@@ -1,9 +1,5 @@
 # coding=utf-8
 
-from django.conf import settings
-from wikilife.client.logs import Logs
-from wikilife.client.stats import Stats
-from wikilife.client.user import User
 
 SERVICES = {
     "runkeeper": "physical.services.runkeeper_service.RunkeeperService"
@@ -16,24 +12,15 @@ class PhysicalServiceBuilderException(Exception):
 
 class PhysicalServiceBuilder(object):
 
-    _wikilife_settings = None
+    _wl_srv_bldr = None
 
-    def __init__(self):
-        self._wikilife_settings = settings.WIKILIFE
-
-    def _build_wl_user_client(self):
-        return User(self._wikilife_settings)
-
-    def _build_wl_logs_client(self):
-        return Logs(self._wikilife_settings)
-
-    def _build_wl_stats_client(self):
-        return Stats(self._wikilife_settings)
+    def __init__(self, wl_srv_bldr):
+        self._wl_srv_bldr = wl_srv_bldr
 
     def build_service_by_name(self, service_name):
-        user_client = self._build_wl_user_client()
-        logs_client = self._build_wl_logs_client()
-        stats_client = self._build_wl_stats_client()
+        user_client = self._wl_srv_bldr.build_user_client()
+        logs_client = self._wl_srv_bldr.build_logs_client()
+        stats_client = self._wl_srv_bldr.build_stats_client()
 
         if not service_name in SERVICES:
             raise PhysicalServiceBuilderException("Unknow service name '%s'" %service_name)
