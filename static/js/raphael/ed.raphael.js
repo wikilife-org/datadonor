@@ -442,10 +442,17 @@ EdBarChart = function(r, options){
         }
         
         if(typeof item.vlabel != 'undefined'){
-          this.r.text(xPos+(item['width']/2), this.options.centery - item['value']+20, item['vlabel'])
-              .transform('r270')
+          var vtext = this.r.text(xPos+(item['width']/2), this.options.centery - item['value']+20, item['vlabel'])
+              
               .attr({"fill-opacity":0.5, "fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 30, "text-anchor": 'end'})
           ;
+          if(typeof(this.options.rotateBarLabels) != 'undefined'){
+            if(this.options.rotateBarLabels){
+              vtext.transform('r270');
+            }else{
+              vtext.attr({"text-anchor": 'middle'});
+            }
+          }
         }
       }else{
         yPos = this.options.centery - item['pos'];

@@ -661,6 +661,43 @@ function drawBloodDrops(data){
 	});
 }
 
+function drawSleepGraph(data, data_user){
+  var adapter = new SleepAdapter();
+  var result = adapter.getParameters(data, data_user, 684, 12);
+  //console.log(result);
+  var r_14_1 = Raphael('canvas_14_1', 1103, 767);
+  doubleAxisParams2 = {
+    axis: 'both',
+    barsAxis: 'x',
+    drawAxis: true,
+    drawLabels: true,
+    rotateBarLabels: false,
+    elements: result.elements,
+    xAxis: {
+      length: 1103,
+      "stroke-width": 2,
+      color: '#F1F2F2',
+      labelsType: 'custom_bubbles',
+      name: 'Day',
+      labels: result.xLabels
+    },
+    yAxis: {
+      length: 750,
+      "stroke-width": 0,
+      name: 'Hs',
+      labels: result.yLabels
+    },
+    centerx: 30,
+    centery: 743,
+    canvasSize: [1093,767]
+  }
+  doubleAxisBars2 = new EdBarChart(r_14_1, doubleAxisParams2);
+  doubleAxisBars2.draw();
+  
+  $('#step_fourteen .bloq.left .number_stat h2').html(pad(data.avg_hours,2));
+  $('#step_fourteen .bloq.right .number_stat h2').html(pad(data_user.avg_hours,2));
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -762,6 +799,13 @@ window.onload = function () {
   
   $.getJSON( _api_urls[_api_env].blood_list, function( data ) {
     drawBloodDrops(data);
+  });
+  
+  $.getJSON( _api_urls[_api_env].sleep_global, function( data ) {
+    $.getJSON( _api_urls[_api_env].sleep_user, function( data_user ) {
+      //console.log('STEPS!');
+      drawSleepGraph(data, data_user);
+    });
   });
   
 };
