@@ -98,9 +98,9 @@ def complaints_list_mock(request):
              "percentage":5},
             {"id":4, "name":"Abdominal Pain", 
              "percentage":10},
-            {"id":4, "name":"Neck Pain", 
+            {"id":40, "name":"Neck Pain", 
              "percentage":10},
-            {"id":4, "name":"Leg Pain", 
+            {"id":14, "name":"Leg Pain", 
              "percentage":10}]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
