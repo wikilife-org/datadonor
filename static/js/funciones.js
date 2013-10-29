@@ -324,11 +324,11 @@ $(document).ready(function () {
 	// CLICK GRAFICO 12
 	
 	// CLICK GRAFICO 13
-	$('#chose_type li').click(function (event) {
-		event.preventDefault();
-		$('#chose_type li').removeClass('active');
-		$(this).addClass('active');
-	});
+//	$('#chose_type li').click(function (event) {
+//		event.preventDefault();
+//		$('#chose_type li').removeClass('active');
+//		$(this).addClass('active');
+//	});
 	// CLICK GRAFICO 13
 	
 	// CLICK GRAFICO 15

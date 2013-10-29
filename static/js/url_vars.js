@@ -43,7 +43,9 @@ var _api_urls = {
     complains_top5: "http://datadonors.org/health/complaints/global/top_5/mock/",
     complains_post: "http://datadonors.org/health/complaints/user/mock/",
     complains_user: "http://datadonors.org/health/complaints/user/mock/",
-    complains_list: "http://datadonors.org/health/complaints/list/mock/"
+    complains_list: "http://datadonors.org/health/complaints/list/mock/",
+    blood_list: "http://datadonors.org/health/blood_type/global/distribution/mock/",
+    blood_post: "http://datadonors.org/health/blood_type/user/mock/"
   },
   hard: {
     social_reach: "../../static/js/adapter/examples/social_reach",

@@ -633,6 +633,34 @@ function addNewComplain(id, name, data){
   }
 }
 
+function drawBloodDrops(data){
+  console.log('drawing blood drops!');
+  //console.log(data);
+  var content, blood, height;
+  for(var i in data){
+    blood = data[i];
+    height = (blood.percentage*130)/100;
+    content = '';
+    content = $('#blood_template').html();
+    content = content.replace(/{{name}}/g, blood.name);
+    content = content.replace(/{{percentage}}/g, blood.percentage);
+    content = content.replace(/{{id}}/g, blood.id);
+    content = content.replace(/{{height}}/g, 0);
+    
+    $('#chose_type').append(content);
+    
+    $('#blood_type_'+blood.id+' .porcent_div').delay(300).animate({height: height+"px"}, 300);
+  }
+  
+  $('#chose_type li').click(function (event) {
+		event.preventDefault();
+		$('#chose_type li').removeClass('active');
+		$(this).addClass('active');
+    var typeId = $(this).attr('data-id');
+    $.post( _api_urls[_api_env].blood_post, { id_blood_type: typeId } );
+	});
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -730,6 +758,10 @@ window.onload = function () {
   $.getJSON( _api_urls[_api_env].complains_list, function( data ) {
     complainsList = data;
     createComplainsAutocompleter(data);
+  });
+  
+  $.getJSON( _api_urls[_api_env].blood_list, function( data ) {
+    drawBloodDrops(data);
   });
   
 };

@@ -2600,341 +2600,51 @@
 			
 			<!--top-->
 			<div class="bottom">
+        <!-- 
+					
+          IMPORTANTE:
+          - El alto maximo de la gota es de 130px, habria que dividir el porcentaje para hacer crecer el div .porcent_div
+
+        -->
+        <div id="blood_template" style="display:none">
+          <li id="blood_type_{{id}}" data-id="{{id}}">
+						<!--graph-->
+						<div class="graph_type">
+							
+							<!--mask-->
+							<div class="mask"></div>
+							<!--/mask-->
+							
+							<!--porcent_div-->
+							<div class="porcent_div" style="height: {{height}}px;"></div>
+							<!--/porcent_div-->
+							
+							<!--circle-->
+							<div class="circle_porcent">
+								<h2><span class="data_type">{{percentage}}</span><span class="min">%</span></h2>
+							</div>
+							<!--/circle-->
+							
+							<!--your_type-->
+							<div class="your_type">
+								<h2>Your type</h2>
+								<div class="arrow"></div>
+							</div>
+							<!--/your_type-->
+							
+						</div>
+						<!--graph-->
+					
+						<!--tittle_type-->
+						<div class="tittle_type">
+							<p>{{name}}</p>
+						</div>
+						<!--/tittle_type-->
+						
+					</li>
+        </div>
 				<ul id="chose_type">
 				
-					<!-- 
-					
-					IMPORTANTE:
-					- El alto maximo de la gota es de 130px, habria que dividir el porcentaje para hacer crecer el div .porcent_div
-					
-					-->
-				
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">35</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>I don't Know</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">20</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>A +</p>
-						</div>
-						<!--/tittle_type-->
-						
-						
-					</li>
-					<li>
-					
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">5</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>A -</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li class="active">
-					
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">10</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>B +</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">5</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>B -</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-					
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">5</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-						
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>AB +</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">10</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>AB -</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">2</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>0 +</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">5</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>0 -</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					
 				</ul>
 			</div>
 			<!--/top-->
