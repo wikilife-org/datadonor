@@ -332,30 +332,30 @@ $(document).ready(function () {
 	// CLICK GRAFICO 13
 	
 	// CLICK GRAFICO 15
-	$('#graphs_emotions .condition').click(function (event) {
-		event.preventDefault
-		$('#graphs_emotions .condition').removeClass('active');
-		$(this).addClass('active');
-	});
-	
-	$('#graphs_emotions .done_condition').live('click',function (event) {
-		event.preventDefault();
-		
-		if ($(this).hasClass('next_subsector')) {
-			$(this).removeClass('next_subsector');
-			$(this).parent().parent().find('.graph_container').addClass('second_active');
-			$(this).find('span').hide().html('Done!').fadeIn(300);
-		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
-			$(this).addClass('next_subsector');
-			$('#graphs_emotions .condition').removeClass('active');
-			$('.graph_container').removeClass('second_active');
-			$(this).find('span').hide().html('Next').fadeIn(300);
-		} else {
-		    $('#graphs_emotions .condition').removeClass('active');
-		    $(this).find('span').hide().html('Next').fadeIn(300);
-		}
-	
-	});
+//	$('#graphs_emotions .condition').click(function (event) {
+//		event.preventDefault
+//		$('#graphs_emotions .condition').removeClass('active');
+//		$(this).addClass('active');
+//	});
+//	
+//	$('#graphs_emotions .done_condition').live('click',function (event) {
+//		event.preventDefault();
+//		
+//		if ($(this).hasClass('next_subsector')) {
+//			$(this).removeClass('next_subsector');
+//			$(this).parent().parent().find('.graph_container').addClass('second_active');
+//			$(this).find('span').hide().html('Done!').fadeIn(300);
+//		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
+//			$(this).addClass('next_subsector');
+//			$('#graphs_emotions .condition').removeClass('active');
+//			$('.graph_container').removeClass('second_active');
+//			$(this).find('span').hide().html('Next').fadeIn(300);
+//		} else {
+//		    $('#graphs_emotions .condition').removeClass('active');
+//		    $(this).find('span').hide().html('Next').fadeIn(300);
+//		}
+//	
+//	});
 	// CLICK GRAFICO 15
 	
 	// AUTOCOMPLETES TRIGGER
