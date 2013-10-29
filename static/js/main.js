@@ -7,6 +7,8 @@ var SingleBarChart;
 var cronicalGraphs = {};
 var cronicalsList = {};
 var complainsTop5 = {};
+var complainsList = {};
+var addedComplains = [];
 //_api_env = 'hard';
 _api_env = 'dev';
 
@@ -525,12 +527,19 @@ function drawComplainsTop5Item(data, num){
   var adapter = new CronicalConditionsAdapter();
   var params = adapter.getParameters(data, '#7737c7');
   var np = num-1;
+  var preffix = 'canvas_12_';
   
   //Start graph
+  drawComplainGraph(params, num, preffix);
+}
+
+function drawComplainGraph(params, num, preffix){
   var radius = 43;
-  if(data.percentage >= 9) radius = 56;
-  var r_11_1 = Raphael('canvas_12_'+num, 130, 130);
-  var animatedPie = new EdAnimatedPie(r_11_1, params, {
+  if(params[0].percentage >= 9) radius = 56;
+  var raf = Raphael(preffix.toString()+num.toString(), 130, 130);
+  //console.log('draw complain params: ');
+  //console.log(params);
+  var animatedPie = new EdAnimatedPie(raf, params, {
     animationTime: 900,
     easing: '<',
     useAnimationDelay: false,
@@ -546,7 +555,7 @@ function drawComplainsTop5Item(data, num){
     drawCenterText: true,
     bubbleColor: '#3F4B5B',
     centerText: {
-      color: '#7737c7',
+      color: params[0].color,
       size: '52',
       font: 'Omnes-Semibold',
       text: params[0].percentage,
@@ -559,6 +568,69 @@ function drawComplainsTop5Item(data, num){
     }
   });
   animatedPie.draw();
+}
+
+function createComplainsAutocompleter(data){
+  var complainOptions = '';
+  for(var i in data){
+    complainOptions += '<option value="'+data[i].id+'">'+data[i].name+'</option>';
+  }
+  
+  var selectElem = $('#select_complaints .add_container.general_add select.select_stats');
+  selectElem.html(complainOptions);
+  selectElem.combobox();
+  
+  $('#select_complaints .done_stat').live('click',function (event) {
+		event.preventDefault();
+		$(this).parent().parent().removeClass('active');
+    var id = selectElem.val();
+    var name = $('#select_complaints .add_container.general_add select.select_stats option:selected').text();
+    addNewComplain(id, name, data);
+	});
+  
+}
+
+function addNewComplain(id, name, data){
+  //content = content.replace(/{{name}}/g, elem.attr('data-title'));
+  var repeated = false;
+  for(var i in addedComplains){
+    if(addedComplains[i].id == id){
+      repeated = true;
+      console.log('repeated!');
+    }
+  }
+  
+  if(!repeated){
+    console.log('adding complain');
+    var content = $('#complain_template').html();
+    content = content.replace(/{{name}}/g, name);
+    content = content.replace(/{{id}}/g, id);
+    //console.log(content);
+
+    var ulElem = $('#select_complaints ul');
+    ulElem.prepend(content);
+
+    var itemData = {};
+    for(var i in data){
+      if(data[i].id == id){
+        itemData = data[i];
+        addedComplains.push(data[i]);
+        break;
+      }
+    }
+    //console.log('ITEM DATA');
+    var adapter = new CronicalConditionsAdapter();
+    var params = adapter.getParameters(itemData, '#E56666');
+    var preffix = 'canvas_12_custom_';
+    console.log(params);
+
+    //Start graph
+    drawComplainGraph(params, id, preffix);
+
+    if(addedComplains.length == 5){
+      $('#complains_adder_container').hide();
+    }
+  }
 }
 
 window.onload = function () {
@@ -653,6 +725,11 @@ window.onload = function () {
       var num = parseInt(i)+1;
       drawComplainsTop5Item(data[i], num);
     }
+  });
+  
+  $.getJSON( _api_urls[_api_env].complains_list, function( data ) {
+    complainsList = data;
+    createComplainsAutocompleter(data);
   });
   
 };

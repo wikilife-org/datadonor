@@ -320,10 +320,7 @@ $(document).ready(function () {
 		$('#select_complaints li').removeClass('active');
 		$(this).addClass('active');
 	});
-	$('#select_complaints .done_stat').live('click',function (event) {
-		event.preventDefault();
-		$(this).parent().parent().removeClass('active')
-	});
+	
 	// CLICK GRAFICO 12
 	
 	// CLICK GRAFICO 13

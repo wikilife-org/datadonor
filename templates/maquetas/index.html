@@ -2481,23 +2481,21 @@
 					<!--sector_logo-->
 					<div class="logo_sector all"></div>
 					<!--/sector_logo-->
-					
-					<!--lista-->
-					<ul>
-					
-						<li>
+          
+          <div style="display:none" id="complain_template">
+            <li>
 						
 							<!--graph-->
 							<div class="stat left">
 								<div class="centered_graph">
-									<img src="/static/img/step_12/graf_nar.png" alt="1" />
+                  <div id="canvas_12_custom_{{id}}"></div>
 								</div>
 							</div>
 							<!--/graph-->
 							
 							<!--tittle-->
 							<div class="stat right">
-								<h2>Runny nose</h2>
+								<h2>{{name}}</h2>
 							</div>
 							<!--/tittle-->
 							
@@ -2508,13 +2506,7 @@
 									<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
 									<div class="container_select">
 									
-										<select class="select_stats">
-											<option value="Type">Type</option>
-											<option value="ActionScript">ActionScript</option>
-											<option value="AppleScript">AppleScript</option>
-											<option value="Asp">Asp</option>
-											<option value="C++">probando un texto extremadamente largo</option>
-										</select>
+										<select class="select_stats"></select>
 										
 										<div class="clear"></div>
 									
@@ -2529,8 +2521,13 @@
 							
 							<div class="clear"></div>
 							
-						</li>		
-						<li>
+						</li>
+          </div>
+					
+					<!--lista-->
+					<ul>
+            
+						<li id="complains_adder_container">
 						
 							<!--graph-->
 							<div class="stat left">
@@ -2547,7 +2544,7 @@
 							<!--/tittle-->
 							
 							<!--select_stat-->
-							<div class="add_container">
+							<div class="complains add_container general_add">
 								
 								<div class="select_stat">
 									<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
