@@ -364,7 +364,13 @@ function drawCronicalConditionsGraph(data, num){
       color: '#7737c7',
       size: '60',
       font: 'Omnes-Semibold',
-      text: params[0].percentage
+      text: params[0].percentage,
+      xOffset: [0,0],
+      unit: '%',
+      unitFont: 'Omnes-Semibold',
+      unitSize: 30,
+      unitOffset: [45,30],
+      unitOffsetTop: 5
     }
   });
   animatedPie.draw();
@@ -456,18 +462,27 @@ function setupAddCronicals(data){
       
       //Completo el 2do combobox y lo inicializo
       var currentCronical = $('.select_stats.add_more_1').val();
+      var currentCronicalName = $('.select_stats.add_more_1 option:selected').text();
       var cronicalTypes = '';
+      
+      $('#graphs_conditions .second_condition h2').html(currentCronicalName);
       console.log(cronicalsList);
       for(var i in cronicalsList){
         if(cronicalsList[i].id == currentCronical){
-          for(var j in cronicalsList[i].types){
-            var cronicalEl = cronicalsList[i];
-            cronicalTypes += '<option value="'+cronicalEl.types[j].id+'">'+cronicalEl.types[j].name+'</option>';
+          if(cronicalsList[i].types.length != 0){
+            $('.select_stats.add_more_2').parent().parent().show();
+            for(var j in cronicalsList[i].types){
+              var cronicalEl = cronicalsList[i];
+              cronicalTypes += '<option value="'+cronicalEl.types[j].id+'">'+cronicalEl.types[j].name+'</option>';
+            }
+          }else{
+            $('.select_stats.add_more_2').parent().parent().hide();
           }
+          $('.select_stats.add_more_2').html(cronicalTypes);
+          $('.select_stats.add_more_2').combobox();
         }
       }
-      $('.select_stats.add_more_2').html(cronicalTypes);
-      $('.select_stats.add_more_2').combobox();
+      
       
 			$(this).find('span').hide().html('Done!').fadeIn(300);
 		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
@@ -513,7 +528,7 @@ function drawComplainsTop5Item(data, num){
   
   //Start graph
   var radius = 43;
-  if(data.percentage >= 20) radius = 56;
+  if(data.percentage >= 9) radius = 56;
   var r_11_1 = Raphael('canvas_12_'+num, 130, 130);
   var animatedPie = new EdAnimatedPie(r_11_1, params, {
     animationTime: 900,
@@ -532,9 +547,15 @@ function drawComplainsTop5Item(data, num){
     bubbleColor: '#3F4B5B',
     centerText: {
       color: '#7737c7',
-      size: '55',
+      size: '52',
       font: 'Omnes-Semibold',
-      text: params[0].percentage
+      text: params[0].percentage,
+      xOffset: [-10,-4],
+      unit: '%',
+      unitFont: 'Omnes-bold',
+      unitSize: 31,
+      unitOffset: [35,25],
+      unitOffsetTop: 5
     }
   });
   animatedPie.draw();

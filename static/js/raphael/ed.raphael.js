@@ -180,21 +180,24 @@ EdAnimatedPie = function(r, elements, options){
   this.drawCenterText = function(){
     var offset = 0;
     if(this.options.centerText.text > 9){
-      offset = 45;
+      offset = this.options.centerText.unitOffset[0];
+      xOffset = this.options.centerText.xOffset[0];
     }else{
-      offset = 30;
+      offset = this.options.centerText.unitOffset[1];
+      xOffset = this.options.centerText.xOffset[1];
     }
-    var txt1 = this.r.text(this.options.centerx, this.options.centery, this.options.centerText.text).attr(
+    
+    var txt1 = this.r.text(this.options.centerx+xOffset, this.options.centery, this.options.centerText.text).attr(
             {
             "font-family": this.options.centerText.font, 
             "font-size": this.options.centerText.size, 
             "fill": this.options.centerText.color, 
             'text-anchor': 'middle'}
     ).toFront();
-    var txt2 = this.r.text(this.options.centerx+offset, this.options.centery+5, '%').attr(
+    var txt2 = this.r.text(this.options.centerx+offset, this.options.centery+this.options.centerText.unitOffsetTop, this.options.centerText.unit).attr(
           {
-          "font-family": this.options.centerText.font, 
-          "font-size": 30, 
+          "font-family": this.options.centerText.unitFont,
+          "font-size": this.options.centerText.unitSize, 
           "fill": this.options.centerText.color, 
           'text-anchor': 'middle'}
     ).toFront();
