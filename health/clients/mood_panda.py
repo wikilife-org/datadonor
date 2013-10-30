@@ -19,40 +19,13 @@ class MoodPandaClient(BaseDeviceClient):
     _api_key = None
     _user_email = None
     _user_info = None
+    _user_id = None
 
     def __init__(self, api_host, api_key, user_email):
         self._api_host = api_host
         self._api_key = api_key
-        self._user_info = self._get_user_info()
-
-    def get_user_profile(self):
-        return self._get(self._user_info["profile"])
-
-    def get_user_fitness_activities(self):
-        return self._get_user_activity_last_7_days("fitness_activities")
-
-    def get_user_strength_training_activities(self):
-        return self._get_user_activity_last_7_days("strength_training_activities")
-
-    def get_user_background_activities(self):
-        return self._get_user_activity_last_7_days("background_activities")
-
-    def get_user_sleep(self):
-        return self._get_user_activity_last_7_days("sleep")
-
-    def get_user_nutrition(self):
-        return self._get_user_activity_last_7_days("nutrition")
-
-    def get_user_weight(self):
-        return self._get_user_activity_last_7_days("weight")
-
-    def get_user_general_measurements(self):
-        return self._get_user_activity_last_7_days("general_measurements")
-
-    def _get_user_activity_last_7_days(self, activity_code):
-        date_to = DateUtils.get_date_utc()
-        date_from = DateUtils.add_days(date_to, -7)
-        return self._get_user_activity(activity_code, date_from, date_to)
+        self._user_email = user_email
+        self._user_id = self._get_user_id()
 
     def _get_user_activity(self, activity_code, date_from, date_to):
         result = {}
@@ -79,32 +52,32 @@ class MoodPandaClient(BaseDeviceClient):
 
         return result
 
-    def _get_user_info(self):
-        """
-        {
-        "userID": 1234567890,
-        "profile": "/profile",
-        "settings": "/settings",
-        "fitness_activities": "/fitnessActivities",
-        "strength_training_activities": "/strengthTrainingActivities",
-        "background_activities": "/backgroundActivities",
-        "sleep": "/sleep",
-        "nutrition": "/nutrition",
-        "weight": "/weight",
-        "general_measurements": "/generalMeasurements",
-        "diabetes": "/diabetes",
-        "records": "/records",
-        "team": "/team"
-        }
-        """
-        return self._get("/user")
+    def get_user_profile(self):
 
+        """
+        http://moodpanda.com/api/user/data.ashx?userid=4&format=xml&key=abc
+        """
+        
+        params = {}
+        params["userid"] = self._user_id
+        return self._get("/user/data.ashx", params)
+
+    def _get_user_id(self):
+        """
+        http://moodpanda.com/api/user/getid/data.ashx?email=email@email.com&format=xml&key=abc
+        """
+        params = {}
+        params["email"] = self._user_email
+ 
+        return self._get("/user/getid/data.ashx", params)
+    
     def _get(self, service_uri, params={}):
         """
         service_uri: String
         params: Dict<String, String>
         """
         url =  self._api_host + service_uri
-        params["access_token"] = self._access_token
+        params["key"] = self._api_key
+        params["format"] = "xml"
         response = requests.request("GET", url, params=params)
         return response.json()
