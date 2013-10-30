@@ -1154,16 +1154,21 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	background-position: left 16px;
 	background-repeat: no-repeat;
 	position: relative;
-	top: 10px;
+	top: 7px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul {
-	width: 240px;
+	width: 220px;
 	float: right;
 	text-align: right;
 	position: relative;
+	top: 13px;
+}
+.Safari .step_one .centered_container .bottom .block .stats_graph ul {
+	width: 203px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li {
 	display: inline-table;
+	margin-top: 0px;
 	margin-left: 5px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li:first-child {
@@ -1175,7 +1180,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	/*width: 45%;*/
 	text-align: left;
 	font-family: 'Omnes-Semibold';
-	font-size: 58px !important;
+	font-size: 55px !important;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2 span {
 	font-size: 18px;
@@ -1189,11 +1194,26 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	position: relative;
 	top: 8px;
 }
+.step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .more_n {
+	top: 0px!important;
+	font-size: 23px!important;
+	font-weight: 400;
+	font-family: 'Omnes-Semibold'!important;
+}
+.Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .more_n {
+	top: -8px!important;
+}
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_two {
-	color: #FF836F;
+	color: #E46666;
+}
+.step_one .centered_container .bottom .block .stats_graph ul li h2.color_two .more_n {
+	top: 0px!important;
+	font-size: 35px!important;
+	font-weight: 400;
+	font-family: 'Omnes-Semibold'!important;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
-	font-size: 44px !important;
+	font-size: 33px !important;
 	top:0px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
@@ -1221,6 +1241,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container .bottom .block.google_plus .stats_graph {
 	background-image: url(../img/step_1/google_plus.png);
+	background-position: left 21px;
 }
 .step_one .centered_container .bottom .block.linkedin .stats_graph {
 	background-image: url(../img/step_1/linkedin.png);
