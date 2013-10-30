@@ -930,6 +930,17 @@ window.onload = function () {
     setupAddEmotions(data);
   });
   
+  console.log('MOODS FROM SERVER');
+  $.getJSON( _api_urls[_api_env].mood_global, function( data ) {
+    $.getJSON( _api_urls[_api_env].mood_user, function( data_user ) {
+      $('#mood_2 .ui-slider-handle').html('<span>'+data.mood_avg+'</span>');
+      $('#mood_1 .ui-slider-handle').html('<span>'+data_user.mood_avg+'</span>');
+      $( "#mood_1" ).slider( "option", "value", data_user.mood_avg );
+      $( "#mood_2" ).slider( "option", "value", data.mood_avg );
+      
+    });
+  });
+  
 };
 
 $(document).ready(function(){
@@ -992,6 +1003,18 @@ $(document).ready(function(){
       type: "POST",
       url: _api_urls[_api_env].height,
       data: { unit: 'Ft', value: $("#height_slider").slider("value") },
+      success: function(data){
+        
+      }
+    });
+  });
+  
+  $("#mood_1").on("slidestop", function(event, ui) {
+    $.ajax({
+      dataType: "json",
+      type: "POST",
+      url: _api_urls[_api_env].mood_post,
+      data: { mood_avg: $("#mood_1").slider("value") },
       success: function(data){
         
       }

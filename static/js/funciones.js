@@ -382,9 +382,15 @@ $(document).ready(function () {
 			      slide: function( event, ui ) {
 			        var value = ui.value;
 			        $('#mood_1 .ui-slider-handle').html('<span>'+value+'</span>');
+              
+              if($('#mood_2').slider( "option", "value" ) == value){
+                $('.mood_container').addClass('same_porcent');
+              }else{
+                $('.mood_container').removeClass('same_porcent')
+              }
 			      }
 		 });
-		 $('#mood_1 .ui-slider-handle').html('<span>1</span>');
+		 //$('#mood_1 .ui-slider-handle').html('<span>1</span>');
 		 
 		 // sliders all
 		 $( "#mood_2" ).slider({
@@ -393,12 +399,13 @@ $(document).ready(function () {
 		       min: 0,
 		       max: 10,
 		       step:1,
-		 	      slide: function( event, ui ) {
-		 	        var value = ui.value;
-		 	        $('#mood_2 .ui-slider-handle').html('<span>'+value+'</span>');
-		 	      }
+           //disabled: true
+           slide: function( event, ui ) {
+              var value = ui.value;
+              $('#mood_2 .ui-slider-handle').html('<span>'+value+'</span>');
+            }
 		  });
-		  $('#mood_2 .ui-slider-handle').html('<span>5</span>');
+		  //$('#mood_2 .ui-slider-handle').html('<span>5</span>');
 		  
 		   
 		   // Cambia de valor en el click

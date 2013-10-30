@@ -50,7 +50,10 @@ var _api_urls = {
     sleep_user: "http://datadonors.org/health/sleep/user/distribution/mock/",
     emotions_top5: "http://datadonors.org/health/emotions/global/top_5/mock/",
     emotions_post: "http://datadonors.org/health/emotions/user/mock/",
-    emotions_list: "http://datadonors.org/health/emotions/list/mock/"
+    emotions_list: "http://datadonors.org/health/emotions/list/mock/",
+    mood_global: "http://datadonors.org/health/mood/global/avg/mock/",
+    mood_user: "http://datadonors.org/health/mood/user/avg/mock/",
+    mood_post: "http://datadonors.org/health/mood/user/avg/mock/"
   },
   hard: {
     social_reach: "../../static/js/adapter/examples/social_reach",
