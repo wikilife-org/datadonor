@@ -114,9 +114,6 @@ a:hover {
 #header .logo h1 {
 	width: 361px;
 	height: 125px;
-	background-image: url(../img/header/logo.png);
-	background-position: center;
-	background-repeat: no-repeat;
 }
 #header .logo h1 a {
 	width: 361px;
@@ -1160,9 +1157,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	top: 10px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul {
-	width: 250px;
-	text-align: left;
-	top: -5px;
+	width: 240px;
+	float: right;
+	text-align: right;
 	position: relative;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li {
@@ -1175,9 +1172,10 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_one .centered_container .bottom .block .stats_graph ul li h2,
 .step_one .centered_container .bottom .block .stats_graph ul li h2 .global_data,
 .step_one .centered_container .bottom .block .stats_graph ul li h2 .user_data{
-	width: 45%;
+	/*width: 45%;*/
+	text-align: left;
 	font-family: 'Omnes-Semibold';
-	font-size: 70px !important;
+	font-size: 58px !important;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2 span {
 	font-size: 18px;
@@ -1186,23 +1184,29 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one {
 	color: #7737c7;
 }
+.Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one {
+	color: #7737c7;
+	position: relative;
+	top: 8px;
+}
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_two {
 	color: #FF836F;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
-	font-size: 53px !important;
+	font-size: 44px !important;
 	top:0px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
 	position:relative;
-	top:7px;
-	font-size: 14px;
+	top:4px;
+	font-size: 18px;
 }
 .Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
 	top:-8px;
 }
 .Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
-	top: 0px;
+	top: -4px;
+	font-size: 18px;
 }
 
 /* --- social networks icons */
@@ -1348,6 +1352,10 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one {
 	color: #7737c7;
+}
+.Safari .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one {
+	position: relative;
+	top: 3px;
 }
 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_two {
 	color: #e56666;
@@ -1888,6 +1896,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one {
 	color: #7737c7;
+}
+.Safari .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one {
+	position: relative;top: 3px;
 }
 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_two {
 	color: #e56666;
