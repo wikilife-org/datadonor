@@ -910,7 +910,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container {
 	width: 1050px;
-	height: 745px;
+	height: 845px;
 }
 
 /* --- nav steps fixed */
@@ -1129,9 +1129,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container .bottom .block {
 	width: 260px;
-	height: 150px;
+	height: 190px;
 	float: left;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 	margin-left: 70px;
 }
 
@@ -1150,26 +1150,25 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_one .centered_container .bottom .block .stats_graph {
 	width: 185px;
 	padding-left: 75px;
-	height: 100px;
+	height: 150px;
 	background-position: left 16px;
 	background-repeat: no-repeat;
 	position: relative;
 	top: 7px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul {
-	width: 220px;
+	width: 160px;
+	height: 134px;
 	float: right;
-	text-align: right;
+	text-align: left;
 	position: relative;
-	top: 13px;
-}
-.Safari .step_one .centered_container .bottom .block .stats_graph ul {
-	width: 203px;
+	top: 11px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li {
 	display: inline-table;
 	margin-top: 0px;
-	margin-left: 5px;
+	width: 200px;
+	margin-bottom: 10px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li:first-child {
 	margin-left: 0px;
@@ -1181,10 +1180,13 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	text-align: left;
 	font-family: 'Omnes-Semibold';
 	font-size: 55px !important;
+	top: 0px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2 span {
 	font-size: 18px;
 	font-family: 'Omnes-bold';
+	position: relative;
+	top: -3px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one {
 	color: #7737c7;
@@ -1194,35 +1196,20 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	position: relative;
 	top: 8px;
 }
-.step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .more_n {
-	top: 0px!important;
-	font-size: 23px!important;
-	font-weight: 400;
-	font-family: 'Omnes-Semibold'!important;
-}
-.Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .more_n {
-	top: -8px!important;
-}
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_two {
-	color: #E46666;
-}
-.step_one .centered_container .bottom .block .stats_graph ul li h2.color_two .more_n {
-	top: 0px!important;
-	font-size: 35px!important;
-	font-weight: 400;
-	font-family: 'Omnes-Semibold'!important;
+	color: #E56666;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
-	font-size: 33px !important;
+	font-size: 35px !important;
 	top:0px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
 	position:relative;
-	top:4px;
+	top:0px;
 	font-size: 18px;
 }
 .Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
-	top:-8px;
+	top:-4px;
 }
 .Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
 	top: -4px;
