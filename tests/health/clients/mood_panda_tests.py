@@ -30,7 +30,12 @@ class MoodPandaClientTest(unittest.TestCase):
     def test_get_user_mood_last_30_days(self):
         mood_panda_client = MoodPandaClient(self._api_host, self._api_key, self._user_email)
         moods = mood_panda_client._get_user_mood_last_30_days()
-        print moods
+        assert moods != None
+    
+    def test_get_avg_mood_last_30_days(self):
+        mood_panda_client = MoodPandaClient(self._api_host, self._api_key, self._user_email)
+        avg = mood_panda_client._get_avg_mood_last_30_days()
+        assert avg == 8
     
 if __name__ == '__main__':
     unittest.main()

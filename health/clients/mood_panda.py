@@ -45,15 +45,29 @@ class MoodPandaClient(BaseDeviceClient):
         params["from"] = date_from
         params["to"] = date_to
         params["userid"] = self._user_id
-        response = self._get(uri, params=params)
-        
+        result = self._get(uri, params=params)
         return result
 
     def _get_user_mood_last_30_days(self):
         date_to = DateUtils.get_date_utc()
         date_from = DateUtils.add_days(date_to, -30)
         return self._get_user_mood(date_from, date_to)
-
+    
+    def _get_avg_mood_last_30_days(self):
+        result = self._get_user_mood_last_30_days()
+        sum_mood = 0
+        count_mood = 0
+        avg = 0
+        for mood in result:
+            
+            sum_mood += int(mood[1].text)
+            count_mood = count_mood + 1
+        
+        if count_mood:
+            avg = int(sum_mood/count_mood)
+            
+        return avg
+            
     def _get_user_profile(self):
 
         """
