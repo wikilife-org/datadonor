@@ -210,10 +210,10 @@ def nutrition_bmi(request):
 
 def nutrition_nutrients(request):
 
-    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
-                 "fat":{"title":"Fat", "key":"fat", "percentage":30},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":30},
-                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
+    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":90}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":1},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":2},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":7}}
     
     global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
                  "fat":{"title":"Fat", "key":"fat", "percentage":20},
