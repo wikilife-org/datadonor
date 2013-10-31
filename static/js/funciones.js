@@ -425,9 +425,9 @@ $(document).ready(function () {
 		   // Cambia de valor en el click
 		   $('#trigger_mood li a').click(function (event) {
 		   		event.preventDefault();
-		   		var positionSlider = $(this).attr('data-valor');
-		   		$( "#mood_1" ).slider({value: positionSlider});
-		   		$('#mood_1 .ui-slider-handle').html('<span>'+positionSlider+'</span>');
+//		   		var positionSlider = $(this).attr('data-valor');
+//		   		$( "#mood_1" ).slider({value: positionSlider});
+//		   		$('#mood_1 .ui-slider-handle').html('<span>'+positionSlider+'</span>');
 		   });
 	   
 	   // STEP 16

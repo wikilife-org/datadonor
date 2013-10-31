@@ -4140,6 +4140,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	font-family: 'Omnes-Semibold';
 	font-size: 16px;
 	color: #CCCFD4;
+	cursor: default;
 }
 
 /* YOUR MODE */
