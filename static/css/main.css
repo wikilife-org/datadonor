@@ -4251,6 +4251,13 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	font-size: 31px;
 	left: 1px;
 }
+#mood_2 .ui-slider-handle {
+	cursor: default;
+}
+.Firefox .mood_container .ui-slider-handle span  {
+	left: 0px;
+	top: 11px;
+}
 .mood_container .ui-state-default a,
 .mood_container .ui-state-default a:link,
 .mood_container .ui-state-default a:visited {
