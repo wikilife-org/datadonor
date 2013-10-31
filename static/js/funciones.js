@@ -25,6 +25,10 @@ $(document).ready(function () {
 		 });
 	}
 	// SECTOR FIXED NAV
+	
+	// NAVEGACION
+	$('.nav_big_social a').live('click',function (event) {event.preventDefault();});
+	// NAVEGACION
     
     // SECTOR FIXED NAV
 	if ($('.maqueta_new').length) {
@@ -372,6 +376,9 @@ $(document).ready(function () {
 	
 	// STEP 16
 	
+		$( "#mood_1 a" ).live('click',function (event) {event.preventDefault();});
+		$( "#mood_2 a" ).live('click',function (event) {event.preventDefault();});
+	
 		// sliders your
 		$( "#mood_1" ).slider({
 		      range: 'min',
@@ -388,6 +395,13 @@ $(document).ready(function () {
               }else{
                 $('.mood_container').removeClass('same_porcent')
               }
+              
+              if($('#mood_2').slider( "option", "value" ) < value){
+               $('.mood_container .your_stats_mood ').css('z-index','1');
+              }else{
+                $('.mood_container .your_stats_mood ').css('z-index','2');
+              }
+              
 			      }
 		 });
 		 //$('#mood_1 .ui-slider-handle').html('<span>1</span>');

@@ -4145,7 +4145,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 /* YOUR MODE */
 .mood_container .your_stats_mood {
 	position: relative;
-	z-index: 10;
+	z-index: 2;
 }
 .mood_container .your_stats_mood .ui-state-default,
 .mood_container .your_stats_mood .ui-widget-content .ui-state-default,
@@ -4164,7 +4164,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	z-index: 5;
+	z-index: 1;
 }
 .mood_container .all_stats_mood .ui-state-default,
 .mood_container .all_stats_mood .ui-widget-content .ui-state-default,
