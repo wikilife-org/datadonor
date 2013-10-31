@@ -806,6 +806,10 @@ a:hover {
 	transition: background-color 0.4s;
 	font-family: 'Omnes-Semibold';
 }
+.Explorer.v8 .container_select input.select_stats {
+	height: 16px;
+	padding: 0px 10px 10px 10px;
+}
 .container_select:hover input.select_stats {
 	background-color: #40D2CB;
 	color: #fff;
@@ -4089,6 +4093,10 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .mood_container .container_slider_mood .numbers_bottom {
 	width: 100%;
 }
+.Explorer.v8 .mood_container .container_slider_mood .numbers_bottom {
+	position: relative;
+	top: -108px;
+}
 .mood_container .container_slider_mood .numbers_bottom ul {
 	width: 1039px;
 	height: 18px;
@@ -4203,6 +4211,12 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	-moz-border-radius: 50px;
 	border-radius: 50px;
 	opacity: 1!important;
+	-moz-opacity: 1!important;
+	opacity:1!important;
+	filter: alpha(opacity=100)!important;
+}
+.Explorer.v8 .mood_container .ui-widget-content {
+	height: 190px;
 }
 .mood_container .ui-widget-content a {
 	color: #333333;
@@ -4250,6 +4264,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	color: #fff;
 	font-size: 31px;
 	left: 1px;
+}
+.Explorer.v8 .mood_container .ui-slider-handle span  {
+	left: -1px;
 }
 #mood_2 .ui-slider-handle {
 	cursor: default;
