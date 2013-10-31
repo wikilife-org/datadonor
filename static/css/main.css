@@ -1216,6 +1216,23 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	font-size: 18px;
 }
 
+.step_one .centered_container .bottom .block.reference .stats_graph p.stats {
+	font-size: 18px;
+	font-family: 'Omnes-bold';
+	position: absolute;
+	left: 0px;
+	top: 75px;
+}
+.step_one .centered_container .bottom .block.reference .stats_graph p.stats.you {
+	color: #E56666;
+	left: 116px;
+}
+.step_one .centered_container .bottom .block.reference .stats_graph p.stats.all {
+	color: #7737c7;
+	left: 30px;
+}
+
+
 /* --- social networks icons */
 .step_one .centered_container .bottom .block.reference .stats_graph {
 	background-image: url(../img/step_1/reference.png);
@@ -1765,13 +1782,20 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_four .centered_container .stats_bottom .bloq .number_stat .ico_right {
 	width: 77px;
-	height: 74px;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	margin-top: -26px;
 	right: 10px;
 	background-repeat: no-repeat;
-	background-position: bottom;
+	background-position: top;
+	padding-top: 45px;
+}
+.step_four .centered_container .stats_bottom .bloq .number_stat .ico_right p {
+	font-family: 'Omnes-bold';
+	font-size: 15px;
+	color: #BCC5CC;
+	font-weight: bold;
 }
 
 /* ------ left */
@@ -2038,12 +2062,22 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	letter-spacing: -2px;
 }
 .step_six .centered_container .stats_bottom .bloq .number_stat .ico_right {
-	width: 89px;
-	height: 78px;
+	width: 95px;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	margin-top: -40px;
 	right: 10px;
+	text-align: center;
+	padding-top: 57px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.step_six .centered_container .stats_bottom .bloq .number_stat .ico_right p {
+	font-family: 'Omnes-bold';
+	font-size: 20px;
+	color: #CDD3D8;
+	font-weight: bold;
 }
 
 /* ------ left */
@@ -2164,14 +2198,22 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
     text-align: right;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right {
-	width: 67px;
-	height: 69px;
+	width: 71px;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	margin-top: -36px;
 	right: 5px;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center top;
+	text-align: center;
+	padding-top: 50px;
+}
+.step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right p {
+	font-family: 'Omnes-bold';
+	font-size: 18px;
+	color: #CDD2D9;
+	font-weight: bold;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right.one {
 	background-image: url(../img/step_7/ico_1.png);
@@ -2323,6 +2365,16 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	height: 80px;
 	position: absolute;
 	bottom: 15px;
+}
+.step_eight .centered_container .bottom .shelf .stat .icon_stat p {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+	font-family: 'Omnes-bold';
+	font-size: 18px;
+	color: #B2B7BD;
+	font-weight: bold;
 }
 
 /* --- numbers stats */
@@ -3246,6 +3298,15 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	background-position: center;
 	background-repeat: no-repeat;
 }
+.step_twelve .centered_container .bottom .block .logo_sector p {
+	position: absolute;
+	width: 100%;
+	color: #fff;
+	top: 46px;
+	text-align: center;
+	font-family: 'Omnes-bold';
+	font-size: 16px;
+}
 .step_twelve .centered_container .bottom .block.left .logo_sector {
 	background-image: url(../img/step_12/all_logo.png);
 }
@@ -3611,12 +3672,22 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	letter-spacing: -2px;
 }
 .step_fourteen .centered_container .stats_bottom .bloq .number_stat .ico_right {
-	width: 89px;
-	height: 78px;
+	width: 90px;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	margin-top: -40px;
+	background-position: center top;
+	background-repeat: no-repeat;
 	right: 10px;
+	padding-top: 58px;
+	text-align: center;
+}
+.step_fourteen .centered_container .stats_bottom .bloq .number_stat .ico_right p {
+	font-family: 'Omnes-bold';
+	font-size: 20px;
+	color: #BDC5CC;
+	font-weight: bold;
 }
 
 /* ------ left */
@@ -4135,6 +4206,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	border-radius: 50px;
+	opacity: 1!important;
 }
 .mood_container .ui-widget-content a {
 	color: #333333;
