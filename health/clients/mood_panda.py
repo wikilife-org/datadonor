@@ -72,7 +72,10 @@ class MoodPandaClient(BaseDeviceClient):
         params["email"] = self._user_email
  
         data = self._get("/user/getid/data.ashx", params)
-        return data[0][0].text
+        try:
+            return data[0][0].text
+        except:
+            return ""
     
     def _get(self, service_uri, params={}):
         """
