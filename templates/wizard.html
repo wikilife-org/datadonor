@@ -97,19 +97,14 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
       
       </section>
       
-      <script src="/static/js/vendor/jquery-1.7.2.min.js"></script>
-     
+      <script src="/static/js/jquery-2.0.3.min.js"></script>
+      <script src="/static/js/jquery.jcarousel.min.js" ></script>
       <script src="/static/js/plugins.js"></script>
-      
       <script src="/static/js/jquery.scrollSections.js"></script>
-    
-      <script type="text/javascript" src="/static/js/flexcroll.js" ></script>
-      
-      <script type="text/javascript" src="/static/js/flexslider.js" ></script>
-          
-      <script type="text/javascript" src="/static/js/script-wizard.js" ></script>
-      
-       <script type="text/javascript" src="/static/js/wizard.js" ></script>
+      <script src="/static/js/flexcroll.js" ></script>
+      <script src="/static/js/flexslider.js" ></script>
+      <script src="/static/js/script-wizard.js" ></script>
+      <script src="/static/js/wizard.js" ></script>
 
 
 <script type="text/javascript">
@@ -119,7 +114,7 @@ $(document).ready(function(){
 {% endif %}
 console.log("{{request.session.association.type}}");
 {% if request.session.association.type == "social" %}
-go_to_slide(3);
+go_to_slide(0);
 {% endif %}
 
 });
