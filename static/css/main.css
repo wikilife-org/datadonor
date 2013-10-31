@@ -1184,7 +1184,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2 span {
 	font-size: 18px;
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
 	position: relative;
 	top: -3px;
 }
@@ -1218,7 +1218,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 .step_one .centered_container .bottom .block.reference .stats_graph p.stats {
 	font-size: 18px;
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
 	position: absolute;
 	left: 0px;
 	top: 75px;
@@ -1792,10 +1792,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	padding-top: 45px;
 }
 .step_four .centered_container .stats_bottom .bloq .number_stat .ico_right p {
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
 	font-size: 15px;
 	color: #BCC5CC;
-	font-weight: bold;
 }
 
 /* ------ left */
@@ -2074,10 +2073,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	background-position: center;
 }
 .step_six .centered_container .stats_bottom .bloq .number_stat .ico_right p {
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
 	font-size: 20px;
 	color: #CDD3D8;
-	font-weight: bold;
 }
 
 /* ------ left */
@@ -2210,10 +2208,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	padding-top: 50px;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right p {
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
 	font-size: 18px;
 	color: #CDD2D9;
-	font-weight: bold;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right.one {
 	background-image: url(../img/step_7/ico_1.png);
@@ -2371,10 +2368,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	bottom: 0px;
 	width: 100%;
 	text-align: center;
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
 	font-size: 18px;
 	color: #B2B7BD;
-	font-weight: bold;
 }
 
 /* --- numbers stats */
@@ -3684,10 +3680,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	text-align: center;
 }
 .step_fourteen .centered_container .stats_bottom .bloq .number_stat .ico_right p {
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
 	font-size: 20px;
 	color: #BDC5CC;
-	font-weight: bold;
 }
 
 /* ------ left */
