@@ -399,11 +399,11 @@ $(document).ready(function () {
 		       min: 0,
 		       max: 10,
 		       step:1,
-           //disabled: true
-           slide: function( event, ui ) {
-              var value = ui.value;
-              $('#mood_2 .ui-slider-handle').html('<span>'+value+'</span>');
-            }
+		       disabled:true,
+		 	      slide: function( event, ui ) {
+		 	        var value = ui.value;
+		 	        $('#mood_2 .ui-slider-handle').html('<span>'+value+'</span>');
+		 	      }
 		  });
 		  //$('#mood_2 .ui-slider-handle').html('<span>5</span>');
 		  
