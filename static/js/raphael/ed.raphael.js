@@ -59,6 +59,7 @@ EdAnimatedPie = function(r, elements, options){
   this.percentages = new Array();
   this.colors = new Array();
   this.lines = new Array();
+  this.texts = new Array();
   this.labelLocations = new Array();
   this.elements = elements;
   this.lastX = 0;
@@ -107,6 +108,7 @@ EdAnimatedPie = function(r, elements, options){
     if(this.options.drawReferences) this.drawReferences();
     if(this.options.drawCenterImage) this.drawCenterImage();
     this.drawBorder();
+    if(this.options.drawCenterText) this.drawCenterText();
   }
   
   this.drawLines = function(){
@@ -123,6 +125,7 @@ EdAnimatedPie = function(r, elements, options){
       }
       line.animate(Raphael.animation({arc: [total+elements[i]['percentage'], 100, this.R]}, this.options.animationTime, this.options.easing).delay(delay));
       total = total + elements[i]['percentage'];
+      this.lines.push(line);
     }
     //console.log(this.labelLocations);
   }
@@ -138,7 +141,9 @@ EdAnimatedPie = function(r, elements, options){
       //console.log(coords);
       this.r.circle(coords[0], coords[1], 32).attr({"fill": this.options.bubbleColor, "stroke-width": 0});
       this.r.text(coords[0], coords[1]+10, el.text).attr({"font-family": 'Omnes-Semibold', "font-size": this.options.text.size, "fill": this.options.text.color});
-      this.r.image(el.image.path, (coords[0]+parseInt(el.image.offsetx)), (coords[1]+parseInt(el.image.offsety)), el.image.width, el.image.height).toFront();
+      if(isDefined(el.image)){
+        this.r.image(el.image.path, (coords[0]+parseInt(el.image.offsetx)), (coords[1]+parseInt(el.image.offsety)), el.image.width, el.image.height).toFront();
+      }
       
       c = c+el["percentage"];
     }
@@ -168,8 +173,36 @@ EdAnimatedPie = function(r, elements, options){
   }
   
   this.drawBorder = function(){
-    var param = {stroke: this.options.borderColor, "stroke-width": this.options.lineWidth+8};
+    var param = {stroke: this.options.borderColor, "stroke-width": this.options.lineWidth+this.options.borderMargin};
     var line = this.r.path().attr(param).attr({arc: [100, 100, this.R], stroke: this.options.borderColor}).toBack();
+  }
+  
+  this.drawCenterText = function(){
+    var offset = 0;
+    if(this.options.centerText.text > 9){
+      offset = this.options.centerText.unitOffset[0];
+      xOffset = this.options.centerText.xOffset[0];
+    }else{
+      offset = this.options.centerText.unitOffset[1];
+      xOffset = this.options.centerText.xOffset[1];
+    }
+    
+    var txt1 = this.r.text(this.options.centerx+xOffset, this.options.centery, this.options.centerText.text).attr(
+            {
+            "font-family": this.options.centerText.font, 
+            "font-size": this.options.centerText.size, 
+            "fill": this.options.centerText.color, 
+            'text-anchor': 'middle'}
+    ).toFront();
+    var txt2 = this.r.text(this.options.centerx+offset, this.options.centery+this.options.centerText.unitOffsetTop, this.options.centerText.unit).attr(
+          {
+          "font-family": this.options.centerText.unitFont,
+          "font-size": this.options.centerText.unitSize, 
+          "fill": this.options.centerText.color, 
+          'text-anchor': 'middle'}
+    ).toFront();
+    this.texts.push(txt1);
+    this.texts.push(txt2);
   }
   
   this.init();
@@ -409,10 +442,17 @@ EdBarChart = function(r, options){
         }
         
         if(typeof item.vlabel != 'undefined'){
-          this.r.text(xPos+(item['width']/2), this.options.centery - item['value']+20, item['vlabel'])
-              .transform('r270')
+          var vtext = this.r.text(xPos+(item['width']/2), this.options.centery - item['value']+20, item['vlabel'])
+              
               .attr({"fill-opacity":0.5, "fill": '#ffffff', "font-family": 'Omnes-Semibold', "font-size": 30, "text-anchor": 'end'})
           ;
+          if(typeof(this.options.rotateBarLabels) != 'undefined'){
+            if(this.options.rotateBarLabels){
+              vtext.transform('r270');
+            }else{
+              vtext.attr({"text-anchor": 'middle'});
+            }
+          }
         }
       }else{
         yPos = this.options.centery - item['pos'];
@@ -716,4 +756,9 @@ EdAnimatedPieLegacy = function(r, elements, options){
   }
   
   this.init();
+}
+
+function isDefined(variable){
+  if(typeof variable != 'undefined') return true;
+  return false;
 }

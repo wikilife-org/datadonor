@@ -36,7 +36,24 @@ var _api_urls = {
     height: "http://datadonors.org/nutrition/height/mock/",
     height_post: "http://datadonors.org/nutrition/height/mock/",
     bmi: "http://datadonors.org/nutrition/bmi/mock/",
-    user_exercise: "http://datadonors.org/physical/exercise/user/mock/"
+    user_exercise: "http://datadonors.org/physical/exercise/user/mock/",
+    cronical_conditions_top5: "http://datadonors.org/health/cronical_conditions/global/top_5/mock/",
+    cronical_conditions_post: "http://datadonors.org/health/cronical_conditions/user/mock/",
+    cronical_conditions_list: "http://datadonors.org/health/cronical_conditions/list/mock/",
+    complains_top5: "http://datadonors.org/health/complaints/global/top_5/mock/",
+    complains_post: "http://datadonors.org/health/complaints/user/mock/",
+    complains_user: "http://datadonors.org/health/complaints/user/mock/",
+    complains_list: "http://datadonors.org/health/complaints/list/mock/",
+    blood_list: "http://datadonors.org/health/blood_type/global/distribution/mock/",
+    blood_post: "http://datadonors.org/health/blood_type/user/mock/",
+    sleep_global: "http://datadonors.org/health/sleep/global/distribution/mock/",
+    sleep_user: "http://datadonors.org/health/sleep/user/distribution/mock/",
+    emotions_top5: "http://datadonors.org/health/emotions/global/top_5/mock/",
+    emotions_post: "http://datadonors.org/health/emotions/user/mock/",
+    emotions_list: "http://datadonors.org/health/emotions/list/mock/",
+    mood_global: "http://datadonors.org/health/mood/global/avg/mock/",
+    mood_user: "http://datadonors.org/health/mood/user/avg/mock/",
+    mood_post: "http://datadonors.org/health/mood/user/avg/mock/"
   },
   hard: {
     social_reach: "../../static/js/adapter/examples/social_reach",
@@ -55,6 +72,7 @@ var _api_urls = {
     height: "../../static/js/adapter/examples/height",
     height_post: "../../static/js/adapter/examples/height",
     bmi: "../../static/js/adapter/examples/bmi",
-    user_exercise: "../../static/js/adapter/examples/user_exercise"
+    user_exercise: "../../static/js/adapter/examples/user_exercise",
+    cronical_conditions_top5: "../../static/js/adapter/examples/health/cronical_conditions_top5"
   }
 }

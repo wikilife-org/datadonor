@@ -98,9 +98,9 @@ def complaints_list_mock(request):
              "percentage":5},
             {"id":4, "name":"Abdominal Pain", 
              "percentage":10},
-            {"id":4, "name":"Neck Pain", 
+            {"id":40, "name":"Neck Pain", 
              "percentage":10},
-            {"id":4, "name":"Leg Pain", 
+            {"id":14, "name":"Leg Pain", 
              "percentage":10}]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
@@ -134,6 +134,16 @@ def complaints_by_user(request):
 
 #Blood Type
 
+BLOOD_TYPE = {0:{"name": "I don't Know", "id":0, "percentage":35},
+            1:{"name": "A+", "id":1, "percentage":20},
+            2:{"name": "A-", "id":2, "percentage":5},
+            3:{"name": "B+", "id":3, "percentage":10},
+            4:{"name": "B-", "id":4, "percentage":5},
+            5:{"name": "AB+", "id":5, "percentage":5},
+            6:{"name": "AB-", "id":6, "percentage":10},
+            7:{"name": "0+", "id":7,"percentage":3},
+            8:{"name": "0-", "id":8, "percentage":2}}
+
 def bood_type_distribution_global_mock(request):
     data = [{"name": "I don't Know", "id":0, "percentage":35},
             {"name": "A+", "id":1, "percentage":20},
@@ -149,8 +159,10 @@ def bood_type_distribution_global_mock(request):
 @csrf_exempt
 def bood_type_by_user_mock(request):
     if request.method == 'POST':
-        id_blood_type = request.POST["id_blood_type"]
-    data = {"name": "B+", "id":3, "percentage":10}
+        id_blood_type = int(request.POST["id_blood_type"])
+        data = BLOOD_TYPE[id_blood_type]
+    else:
+        data = {"name": "B+", "id":3, "percentage":10}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 

@@ -60,7 +60,7 @@ class SocialUserAggregatedData(models.Model):
 class GlobalEducationDistribution(models.Model):
     elementary = models.FloatField(default=0.0)
     high_school = models.FloatField(default=0.0)
-    junior_collage = models.FloatField(default=0.0)
+    junior_college = models.FloatField(default=0.0)
     tech = models.FloatField(default=0.0)
     university = models.FloatField(default=0.0)
     master = models.FloatField(default=0.0)

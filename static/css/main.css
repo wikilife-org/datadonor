@@ -114,9 +114,6 @@ a:hover {
 #header .logo h1 {
 	width: 361px;
 	height: 125px;
-	background-image: url(../img/header/logo.png);
-	background-position: center;
-	background-repeat: no-repeat;
 }
 #header .logo h1 a {
 	width: 361px;
@@ -288,7 +285,6 @@ a:hover {
 	-webkit-transition: background-color 0.4s;
 	-moz-transition: background-color 0.4s;
 	transition: background-color 0.4s;
-	-webkit-backface-visibility: hidden;
 }
 .big_social_login.collapsed {
 	height: auto;
@@ -809,6 +805,10 @@ a:hover {
 	transition: background-color 0.4s;
 	font-family: 'Omnes-Semibold';
 }
+.Explorer.v8 .container_select input.select_stats {
+	height: 16px;
+	padding: 0px 10px 10px 10px;
+}
 .container_select:hover input.select_stats {
 	background-color: #40D2CB;
 	color: #fff;
@@ -913,7 +913,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container {
 	width: 1050px;
-	height: 745px;
+	height: 845px;
 }
 
 /* --- nav steps fixed */
@@ -1132,9 +1132,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container .bottom .block {
 	width: 260px;
-	height: 150px;
+	height: 190px;
 	float: left;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 	margin-left: 70px;
 }
 
@@ -1153,21 +1153,25 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_one .centered_container .bottom .block .stats_graph {
 	width: 185px;
 	padding-left: 75px;
-	height: 100px;
+	height: 150px;
 	background-position: left 16px;
 	background-repeat: no-repeat;
 	position: relative;
-	top: 10px;
+	top: 7px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul {
-	width: 250px;
+	width: 160px;
+	height: 134px;
+	float: right;
 	text-align: left;
-	top: -5px;
 	position: relative;
+	top: 11px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li {
 	display: inline-table;
-	margin-left: 5px;
+	margin-top: 0px;
+	width: 200px;
+	margin-bottom: 10px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li:first-child {
 	margin-left: 0px;
@@ -1175,35 +1179,62 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_one .centered_container .bottom .block .stats_graph ul li h2,
 .step_one .centered_container .bottom .block .stats_graph ul li h2 .global_data,
 .step_one .centered_container .bottom .block .stats_graph ul li h2 .user_data{
-	width: 45%;
+	/*width: 45%;*/
+	text-align: left;
 	font-family: 'Omnes-Semibold';
-	font-size: 70px !important;
+	font-size: 55px !important;
+	top: 0px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2 span {
 	font-size: 18px;
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
+	position: relative;
+	top: -3px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one {
 	color: #7737c7;
 }
+.Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one {
+	color: #7737c7;
+	position: relative;
+	top: 8px;
+}
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_two {
-	color: #FF836F;
+	color: #E56666;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
-	font-size: 53px !important;
+	font-size: 35px !important;
 	top:0px;
 }
 .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
 	position:relative;
-	top:7px;
-	font-size: 14px;
+	top:0px;
+	font-size: 18px;
 }
 .Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one .global_data {
-	top:-8px;
+	top:-4px;
 }
 .Safari .step_one .centered_container .bottom .block .stats_graph ul li h2.color_one span {
-	top: 0px;
+	top: -4px;
+	font-size: 18px;
 }
+
+.step_one .centered_container .bottom .block.reference .stats_graph p.stats {
+	font-size: 18px;
+	font-family: 'Omnes-Semibold';
+	position: absolute;
+	left: 0px;
+	top: 75px;
+}
+.step_one .centered_container .bottom .block.reference .stats_graph p.stats.you {
+	color: #E56666;
+	left: 116px;
+}
+.step_one .centered_container .bottom .block.reference .stats_graph p.stats.all {
+	color: #7737c7;
+	left: 30px;
+}
+
 
 /* --- social networks icons */
 .step_one .centered_container .bottom .block.reference .stats_graph {
@@ -1217,6 +1248,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container .bottom .block.google_plus .stats_graph {
 	background-image: url(../img/step_1/google_plus.png);
+	background-position: left 21px;
 }
 .step_one .centered_container .bottom .block.linkedin .stats_graph {
 	background-image: url(../img/step_1/linkedin.png);
@@ -1348,6 +1380,13 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one {
 	color: #7737c7;
+}
+.Safari .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one {
+	position: relative;
+	top: 3px;
+}
+.Safari.v6 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one {
+	top: 0px!important;
 }
 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_two {
 	color: #e56666;
@@ -1749,13 +1788,19 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_four .centered_container .stats_bottom .bloq .number_stat .ico_right {
 	width: 77px;
-	height: 74px;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	margin-top: -26px;
 	right: 10px;
 	background-repeat: no-repeat;
-	background-position: bottom;
+	background-position: top;
+	padding-top: 45px;
+}
+.step_four .centered_container .stats_bottom .bloq .number_stat .ico_right p {
+	font-family: 'Omnes-Semibold';
+	font-size: 15px;
+	color: #BCC5CC;
 }
 
 /* ------ left */
@@ -1889,6 +1934,12 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one {
 	color: #7737c7;
 }
+.Safari .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one {
+	position: relative;top: 3px;
+}
+.Safari.v6 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one {
+        top: 0px !important;
+}
 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_two {
 	color: #e56666;
 }
@@ -2019,12 +2070,21 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	letter-spacing: -2px;
 }
 .step_six .centered_container .stats_bottom .bloq .number_stat .ico_right {
-	width: 89px;
-	height: 78px;
+	width: 95px;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	margin-top: -40px;
 	right: 10px;
+	text-align: center;
+	padding-top: 57px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.step_six .centered_container .stats_bottom .bloq .number_stat .ico_right p {
+	font-family: 'Omnes-Semibold';
+	font-size: 20px;
+	color: #CDD3D8;
 }
 
 /* ------ left */
@@ -2145,14 +2205,21 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
     text-align: right;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right {
-	width: 67px;
-	height: 69px;
+	width: 71px;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	margin-top: -36px;
 	right: 5px;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center top;
+	text-align: center;
+	padding-top: 50px;
+}
+.step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right p {
+	font-family: 'Omnes-Semibold';
+	font-size: 18px;
+	color: #CDD2D9;
 }
 .step_seven .centered_container .bloq .text_container .stats .number_stat .ico_right.one {
 	background-image: url(../img/step_7/ico_1.png);
@@ -2304,6 +2371,15 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	height: 80px;
 	position: absolute;
 	bottom: 15px;
+}
+.step_eight .centered_container .bottom .shelf .stat .icon_stat p {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+	font-family: 'Omnes-Semibold';
+	font-size: 18px;
+	color: #B2B7BD;
 }
 
 /* --- numbers stats */
@@ -3227,6 +3303,15 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	background-position: center;
 	background-repeat: no-repeat;
 }
+.step_twelve .centered_container .bottom .block .logo_sector p {
+	position: absolute;
+	width: 100%;
+	color: #fff;
+	top: 46px;
+	text-align: center;
+	font-family: 'Omnes-bold';
+	font-size: 16px;
+}
 .step_twelve .centered_container .bottom .block.left .logo_sector {
 	background-image: url(../img/step_12/all_logo.png);
 }
@@ -3592,12 +3677,21 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	letter-spacing: -2px;
 }
 .step_fourteen .centered_container .stats_bottom .bloq .number_stat .ico_right {
-	width: 89px;
-	height: 78px;
+	width: 90px;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	margin-top: -40px;
+	background-position: center top;
+	background-repeat: no-repeat;
 	right: 10px;
+	padding-top: 58px;
+	text-align: center;
+}
+.step_fourteen .centered_container .stats_bottom .bloq .number_stat .ico_right p {
+	font-family: 'Omnes-Semibold';
+	font-size: 20px;
+	color: #BDC5CC;
 }
 
 /* ------ left */
@@ -3817,6 +3911,8 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	font-size: 25px;
 	font-family: 'Omnes-Semibold';
 	margin-bottom: 25px;
+	position: relative;
+	top: 45px;
 }
 .step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .container_data .select_space {
 	width: 210px;
@@ -4004,6 +4100,10 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .mood_container .container_slider_mood .numbers_bottom {
 	width: 100%;
 }
+.Explorer.v8 .mood_container .container_slider_mood .numbers_bottom {
+	position: relative;
+	top: -108px;
+}
 .mood_container .container_slider_mood .numbers_bottom ul {
 	width: 1039px;
 	height: 18px;
@@ -4055,12 +4155,13 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	font-family: 'Omnes-Semibold';
 	font-size: 16px;
 	color: #CCCFD4;
+	cursor: default;
 }
 
 /* YOUR MODE */
 .mood_container .your_stats_mood {
 	position: relative;
-	z-index: 10;
+	z-index: 2;
 }
 .mood_container .your_stats_mood .ui-state-default,
 .mood_container .your_stats_mood .ui-widget-content .ui-state-default,
@@ -4079,7 +4180,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	z-index: 5;
+	z-index: 1;
 }
 .mood_container .all_stats_mood .ui-state-default,
 .mood_container .all_stats_mood .ui-widget-content .ui-state-default,
@@ -4116,6 +4217,13 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	border-radius: 50px;
+	opacity: 1!important;
+	-moz-opacity: 1!important;
+	opacity:1!important;
+	filter: alpha(opacity=100)!important;
+}
+.Explorer.v8 .mood_container .ui-widget-content {
+	height: 190px;
 }
 .mood_container .ui-widget-content a {
 	color: #333333;
@@ -4163,6 +4271,16 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	color: #fff;
 	font-size: 31px;
 	left: 1px;
+}
+.Explorer.v8 .mood_container .ui-slider-handle span  {
+	left: -1px;
+}
+#mood_2 .ui-slider-handle {
+	cursor: default;
+}
+.Firefox .mood_container .ui-slider-handle span  {
+	left: 0px;
+	top: 11px;
 }
 .mood_container .ui-state-default a,
 .mood_container .ui-state-default a:link,

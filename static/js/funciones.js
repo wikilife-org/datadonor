@@ -25,6 +25,10 @@ $(document).ready(function () {
 		 });
 	}
 	// SECTOR FIXED NAV
+	
+	// NAVEGACION
+	$('.nav_big_social a').live('click',function (event) {event.preventDefault();});
+	// NAVEGACION
     
     // SECTOR FIXED NAV
 	if ($('.maqueta_new').length) {
@@ -288,30 +292,30 @@ $(document).ready(function () {
 	
 	
 	// CLICK GRAFICO 11
-	$('#graphs_conditions .condition').click(function (event) {
-		event.preventDefault
-		$('#graphs_conditions .condition').removeClass('active');
-		$(this).addClass('active');
-	});
+//	$('#graphs_conditions .condition').click(function (event) {
+//		event.preventDefault
+//		$('#graphs_conditions .condition').removeClass('active');
+//		$(this).addClass('active');
+//	});
 	
-	$('#graphs_conditions .done_condition').live('click',function (event) {
-		event.preventDefault();
-		
-		if ($(this).hasClass('next_subsector')) {
-			$(this).removeClass('next_subsector');
-			$(this).parent().parent().find('.graph_container').addClass('second_active');
-			$(this).find('span').hide().html('Done!').fadeIn(300);
-		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
-			$(this).addClass('next_subsector');
-			$('#graphs_conditions .condition').removeClass('active');
-			$('.graph_container').removeClass('second_active');
-			$(this).find('span').hide().html('Next').fadeIn(300);
-		} else {
-		  $('#graphs_conditions .condition').removeClass('active');
-		  $(this).find('span').hide().html('Next').fadeIn(300);
-		}
-		
-	});
+//	$('#graphs_conditions .done_condition').live('click',function (event) {
+//		event.preventDefault();
+//		
+//		if ($(this).hasClass('next_subsector')) {
+//			$(this).removeClass('next_subsector');
+//			$(this).parent().parent().find('.graph_container').addClass('second_active');
+//			$(this).find('span').hide().html('Done!').fadeIn(300);
+//		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
+//			$(this).addClass('next_subsector');
+//			$('#graphs_conditions .condition').removeClass('active');
+//			$('.graph_container').removeClass('second_active');
+//			$(this).find('span').hide().html('Next').fadeIn(300);
+//		} else {
+//		  $('#graphs_conditions .condition').removeClass('active');
+//		  $(this).find('span').hide().html('Next').fadeIn(300);
+//		}
+//		
+//	});
 	// CLICK GRAFICO 11
 	
 	// CLICK GRAFICO 12
@@ -320,49 +324,46 @@ $(document).ready(function () {
 		$('#select_complaints li').removeClass('active');
 		$(this).addClass('active');
 	});
-	$('#select_complaints .done_stat').live('click',function (event) {
-		event.preventDefault();
-		$(this).parent().parent().removeClass('active')
-	});
+	
 	// CLICK GRAFICO 12
 	
 	// CLICK GRAFICO 13
-	$('#chose_type li').click(function (event) {
-		event.preventDefault();
-		$('#chose_type li').removeClass('active');
-		$(this).addClass('active');
-	});
+//	$('#chose_type li').click(function (event) {
+//		event.preventDefault();
+//		$('#chose_type li').removeClass('active');
+//		$(this).addClass('active');
+//	});
 	// CLICK GRAFICO 13
 	
 	// CLICK GRAFICO 15
-	$('#graphs_emotions .condition').click(function (event) {
-		event.preventDefault
-		$('#graphs_emotions .condition').removeClass('active');
-		$(this).addClass('active');
-	});
-	
-	$('#graphs_emotions .done_condition').live('click',function (event) {
-		event.preventDefault();
-		
-		if ($(this).hasClass('next_subsector')) {
-			$(this).removeClass('next_subsector');
-			$(this).parent().parent().find('.graph_container').addClass('second_active');
-			$(this).find('span').hide().html('Done!').fadeIn(300);
-		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
-			$(this).addClass('next_subsector');
-			$('#graphs_emotions .condition').removeClass('active');
-			$('.graph_container').removeClass('second_active');
-			$(this).find('span').hide().html('Next').fadeIn(300);
-		} else {
-		    $('#graphs_emotions .condition').removeClass('active');
-		    $(this).find('span').hide().html('Next').fadeIn(300);
-		}
-	
-	});
+//	$('#graphs_emotions .condition').click(function (event) {
+//		event.preventDefault
+//		$('#graphs_emotions .condition').removeClass('active');
+//		$(this).addClass('active');
+//	});
+//	
+//	$('#graphs_emotions .done_condition').live('click',function (event) {
+//		event.preventDefault();
+//		
+//		if ($(this).hasClass('next_subsector')) {
+//			$(this).removeClass('next_subsector');
+//			$(this).parent().parent().find('.graph_container').addClass('second_active');
+//			$(this).find('span').hide().html('Done!').fadeIn(300);
+//		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
+//			$(this).addClass('next_subsector');
+//			$('#graphs_emotions .condition').removeClass('active');
+//			$('.graph_container').removeClass('second_active');
+//			$(this).find('span').hide().html('Next').fadeIn(300);
+//		} else {
+//		    $('#graphs_emotions .condition').removeClass('active');
+//		    $(this).find('span').hide().html('Next').fadeIn(300);
+//		}
+//	
+//	});
 	// CLICK GRAFICO 15
 	
 	// AUTOCOMPLETES TRIGGER
-	$('.select_stats').combobox();
+	//$('.select_stats').combobox();
 	
 	$('ul.ui-autocomplete').hover(
 	  function() {
@@ -375,6 +376,9 @@ $(document).ready(function () {
 	
 	// STEP 16
 	
+		$( "#mood_1 a" ).live('click',function (event) {event.preventDefault();});
+		$( "#mood_2 a" ).live('click',function (event) {event.preventDefault();});
+	
 		// sliders your
 		$( "#mood_1" ).slider({
 		      range: 'min',
@@ -385,9 +389,22 @@ $(document).ready(function () {
 			      slide: function( event, ui ) {
 			        var value = ui.value;
 			        $('#mood_1 .ui-slider-handle').html('<span>'+value+'</span>');
+              
+              if($('#mood_2').slider( "option", "value" ) == value){
+                $('.mood_container').addClass('same_porcent');
+              }else{
+                $('.mood_container').removeClass('same_porcent')
+              }
+              
+              if($('#mood_2').slider( "option", "value" ) < value){
+               $('.mood_container .your_stats_mood ').css('z-index','1');
+              }else{
+                $('.mood_container .your_stats_mood ').css('z-index','2');
+              }
+              
 			      }
 		 });
-		 $('#mood_1 .ui-slider-handle').html('<span>1</span>');
+		 //$('#mood_1 .ui-slider-handle').html('<span>1</span>');
 		 
 		 // sliders all
 		 $( "#mood_2" ).slider({
@@ -396,20 +413,21 @@ $(document).ready(function () {
 		       min: 0,
 		       max: 10,
 		       step:1,
+		       disabled:true,
 		 	      slide: function( event, ui ) {
 		 	        var value = ui.value;
 		 	        $('#mood_2 .ui-slider-handle').html('<span>'+value+'</span>');
 		 	      }
 		  });
-		  $('#mood_2 .ui-slider-handle').html('<span>5</span>');
+		  //$('#mood_2 .ui-slider-handle').html('<span>5</span>');
 		  
 		   
 		   // Cambia de valor en el click
 		   $('#trigger_mood li a').click(function (event) {
 		   		event.preventDefault();
-		   		var positionSlider = $(this).attr('data-valor');
-		   		$( "#mood_1" ).slider({value: positionSlider});
-		   		$('#mood_1 .ui-slider-handle').html('<span>'+positionSlider+'</span>');
+//		   		var positionSlider = $(this).attr('data-valor');
+//		   		$( "#mood_1" ).slider({value: positionSlider});
+//		   		$('#mood_1 .ui-slider-handle').html('<span>'+positionSlider+'</span>');
 		   });
 	   
 	   // STEP 16

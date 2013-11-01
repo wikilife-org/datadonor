@@ -113,11 +113,11 @@ def social_education(request):
     user_data = {"user_level": request.user.social_aggregated_data.education_level}
     global_data = {6:{"percentage":8, "key":"phd", "title": "PhD", "index":6},
                    5:{"percentage":10, "key":"master", "title": "Master", "index":5},
-                   4:{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}, 
-                   3:{"percentage":5, "key":"tech_inst", "title": "Technical Institute", "index":3},
+                   4:{"percentage":23, "key":"university", "title": "University", "index":4}, 
+                   3:{"percentage":5, "key":"tech_institute", "title": "Technical Institute", "index":3},
                    2:{"percentage":3, "key":"high_school", "title": "High School", "index":2},
                    1:{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
-                   0:{"percentage":3, "key":"primary_school", "title": "Primary School", "index":0}}
+                   0:{"percentage":3, "key":"elemtary_school", "title": "Elementary School", "index":0}}
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
@@ -153,11 +153,11 @@ def social_education_mock(request):
     user_data = {"user_level": 3}
     global_data = {6:{"percentage":8, "key":"phd", "title": "PhD", "index":6},
                    5:{"percentage":10, "key":"master", "title": "Master", "index":5},
-                   4:{"percentage":23, "key":"under_program", "title": "Undergraduate Programs", "index":4}, 
-                   3:{"percentage":5, "key":"tech_inst", "title": "Technical Institute", "index":3},
+                   4:{"percentage":23, "key":"university", "title": "University", "index":4}, 
+                   3:{"percentage":5, "key":"tech_institute", "title": "Technical Institute", "index":3},
                    2:{"percentage":3, "key":"high_school", "title": "High School", "index":2},
                    1:{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
-                   0:{"percentage":3, "key":"primary_school", "title": "Primary School", "index":0}}
+                   0:{"percentage":3, "key":"elemtary_school", "title": "Elementary School", "index":0}}
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
@@ -165,10 +165,10 @@ def social_education_mock(request):
 
 def nutrition_nutrients_mock(request):
 
-    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
-                 "fat":{"title":"Fat", "key":"fat", "percentage":30},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":30},
-                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
+    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":90}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":2},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":1},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":7}}
     
     global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
                  "fat":{"title":"Fat", "key":"fat", "percentage":20},
@@ -210,10 +210,10 @@ def nutrition_bmi(request):
 
 def nutrition_nutrients(request):
 
-    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":15}, 
-                 "fat":{"title":"Fat", "key":"fat", "percentage":30},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":30},
-                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
+    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":90}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":1},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":2},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":7}}
     
     global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
                  "fat":{"title":"Fat", "key":"fat", "percentage":20},

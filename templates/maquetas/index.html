@@ -3,7 +3,7 @@
 
 <head>
 
-	<title>DATADONORS</title>
+	<title>Datadonors | Demo </title>
 	
 	<!-- Metatags -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -220,7 +220,10 @@
 					<!--top-->
 					
 					<!--bottom-->
-					<div class="stats_graph"></div>
+					<div class="stats_graph">
+						<p class="stats all">All</p>
+						<p class="stats you">You</p>
+					</div>
 					<!--bottom-->
 					
 				</div>
@@ -238,8 +241,8 @@
 					<!--bottom-->
 					<div class="stats_graph">
 						<ul>
-							<li><h2 class="color_one"><span class="global_data">55</span><br /><span>All</span></h2></li>
 							<li><h2 class="color_two"><span class="user_data">98</span><br /><span>You</span></h2></li>
+							<li><h2 class="color_one"><span class="global_data">55</span><br /><span>All</span></h2></li>
 						</ul>
 					</div>
 					<!--bottom-->
@@ -259,8 +262,8 @@
 					<!--bottom-->
 					<div class="stats_graph">
 						<ul>
-							<li><h2 class="color_one"><span class="global_data">650</span><br /><span>All</span></h2></li>
 							<li><h2 class="color_two"><span class="user_data">342</span><br /><span>You</span></h2></li>
+							<li><h2 class="color_one"><span class="global_data">650</span><br /><span>All</span></h2></li>
 						</ul>
 					</div>
 					<!--bottom-->
@@ -280,8 +283,8 @@
 					<!--bottom-->
 					<div class="stats_graph">
 						<ul>
-							<li><h2 class="color_one"><span class="global_data">15</span><br /><span>All</span></h2></li>
 							<li><h2 class="color_two"><span class="user_data">05</span><br /><span>You</span></h2></li>
+							<li><h2 class="color_one"><span class="global_data">15</span><br /><span>All</span></h2></li>
 						</ul>
 					</div>
 					<!--bottom-->
@@ -301,8 +304,8 @@
 					<!--bottom-->
 					<div class="stats_graph">
 						<ul>
-							<li><h2 class="color_one"><span class="global_data">20</span><br /><span>All</span></h2></li>
 							<li><h2 class="color_two"><span class="user_data">20</span><br /><span>You</span></h2></li>
+							<li><h2 class="color_one"><span class="global_data">20</span><br /><span>All</span></h2></li>
 						</ul>
 					</div>
 					<!--bottom-->
@@ -322,8 +325,8 @@
 					<!--bottom-->
 					<div class="stats_graph">
 						<ul>
-							<li><h2 class="color_one"><span class="global_data">05</span><br /><span>All</span></h2></li>
 							<li><h2 class="color_two"><span class="user_data">00</span><br /><span>You</span></h2></li>
+							<li><h2 class="color_one"><span class="global_data">05</span><br /><span>All</span></h2></li>
 						</ul>
 					</div>
 					<!--bottom-->
@@ -702,7 +705,9 @@
 						<h2>10</h2>
 					
 						<!--ico_right-->
-						<div class="ico_right"></div>
+						<div class="ico_right">
+							<p>years of<br />experience</p>
+						</div>
 						<!--/ico_right-->
 					</div>
 					<!--/stat-->
@@ -721,7 +726,9 @@
 						<h2>24</h2>
 					
 						<!--ico_right-->
-						<div class="ico_right"></div>
+						<div class="ico_right">
+							<p>years of<br />experience</p>
+						</div>
 						<!--/ico_right-->
 					</div>
 					<!--/stat-->
@@ -916,7 +923,9 @@
 						<h2>15032</h2>
 					
 						<!--ico_right-->
-						<div class="ico_right"></div>
+						<div class="ico_right">
+							<p>steps/day</p>
+						</div>
 						<!--/ico_right-->
 					</div>
 					<!--/stat-->
@@ -935,7 +944,9 @@
 						<h2>22013</h2>
 					
 						<!--ico_right-->
-						<div class="ico_right"></div>
+						<div class="ico_right">
+							<p>steps/day</p>
+						</div>
 						<!--/ico_right-->
 					</div>
 					<!--/stat-->
@@ -986,7 +997,9 @@
 							<h2>40</h2>
 						
 							<!--ico_right-->
-							<div class="ico_right one"></div>
+							<div class="ico_right one">
+								<p>Mi/week</p>
+							</div>
 							<!--/ico_right-->
 						</div>
 						<!--/stat-->
@@ -1005,7 +1018,9 @@
 							<h2>12</h2>
 						
 							<!--ico_right-->
-							<div class="ico_right two"></div>
+							<div class="ico_right two">
+								<p>Mi/week</p>
+							</div>
 							<!--/ico_right-->
 						</div>
 						<!--/stat-->
@@ -1051,7 +1066,9 @@
 							<h2>02</h2>
 						
 							<!--ico_right-->
-							<div class="ico_right three"></div>
+							<div class="ico_right three">
+								<p>h/week</p>
+							</div>
 							<!--/ico_right-->
 						</div>
 						<!--/stat-->
@@ -1070,7 +1087,9 @@
 							<h2>11</h2>
 						
 							<!--ico_right-->
-							<div class="ico_right four"></div>
+							<div class="ico_right four">
+								<p>h/week</p>
+							</div>
 							<!--/ico_right-->
 						</div>
 						<!--/stat-->
@@ -1148,7 +1167,7 @@
 		- agregando left/right sobre .stats el mismo se ubica del lado derecho o izquierdo
 		- Dentro de .icon_stats va la imagen que representa la porción de piramide
 		- Si .bottom tiene la class .without_user refleja datos sin estar logeado, al quitarsela se muestran los stast del usuario logeado
-			- los datos de usuario no logeado estan dentro de .block.three mientras que en .block.one/.block.two los datos del usuario logeado
+		- los datos de usuario no logeado estan dentro de .block.three mientras que en .block.one/.block.two los datos del usuario logeado
 			
 		
 		-->
@@ -1191,6 +1210,7 @@
 					<!--icon_stat-->
 					<div class="icon_stat">
 						<img src="/static/img/step_8/sweets.png" alt="sweet" />
+						<p>Sweet</p>
 					</div>
 					<!--icon_stat-->
 					
@@ -1235,6 +1255,7 @@
 					<!--icon_stat-->
 					<div class="icon_stat">
 						<img src="/static/img/step_8/fats.png" alt="fats" />
+						<p>Fats</p>
 					</div>
 					<!--icon_stat-->
 				
@@ -1279,6 +1300,7 @@
 					<!--icon_stat-->
 					<div class="icon_stat">
 						<img src="/static/img/step_8/dairy.png" alt="dairy" />
+						<p>Dairy</p>
 					</div>
 					<!--icon_stat-->
 				
@@ -1317,6 +1339,7 @@
 					<!--icon_stat-->
 					<div class="icon_stat">
 						<img src="/static/img/step_8/meat.png" alt="meat" />
+						<p>Meat</p>
 					</div>
 					<!--icon_stat-->
 				
@@ -1361,6 +1384,7 @@
 					<!--icon_stat-->
 					<div class="icon_stat">
 						<img src="/static/img/step_8/fruit.png" alt="fruit" />
+						<p>Fruit</p>
 					</div>
 					<!--icon_stat-->
 				
@@ -1399,6 +1423,7 @@
 					<!--icon_stat-->
 					<div class="icon_stat">
 						<img src="/static/img/step_8/vegetables.png" alt="vegetables" />
+						<p>Vegetables</p>
 					</div>
 					<!--icon_stat-->
 				
@@ -1443,6 +1468,7 @@
 					<!--icon_stat-->
 					<div class="icon_stat">
 						<img src="/static/img/step_8/berverages.png" alt="berverages" />
+						<p>Berverages</p>
 					</div>
 					<!--icon_stat-->
 				
@@ -1481,6 +1507,7 @@
 					<!--icon_stat-->
 					<div class="icon_stat">
 						<img src="/static/img/step_8/grains.png" alt="grains" />
+						<p>Grains</p>
 					</div>
 					<!--icon_stat-->
 				
@@ -1818,8 +1845,8 @@
 			<!--top-->
 			<div class="top">
 				<img src="/static/img/step_11/number_4.png" alt="4" />
-				<h2>Your profile picture doesn't<br />show your health &amp; body conditions</h2>
-				<p>Click or tap to select your chronic conditions</p>
+				<h2>HEALTH &amp; BODY CONDITIONS</h2>
+				<p>Select your chronic conditions or add more</p>
 			</div>
 			<!--/top-->
 			
@@ -1830,7 +1857,7 @@
 				<div class="graphs" id="graphs_conditions">
 					
 					<!--conditions-->
-					<div class="condition">
+					<div class="condition cronical_container">
 						
 						<div class="card">
 							
@@ -1839,13 +1866,14 @@
 						       
 						       <!--graf-->
 						       <div class="graph_container">
-						       		<img src="/static/img/step_11/graf_1.png" alt="grafico" />
+                     <div id="canvas_11_1"></div>
+						       	 <!--<img src="/static/img/step_11/graf_1.png" alt="grafico" />-->
 						       </div>
 						       <!--/graf-->
 						       
 						       <!--message-->
 						       <div class="bubble_msj">
-						       		<h2>Cancer</h2>
+						       		<h2></h2>
 						       		<div class="arrow"></div>
 						       </div>
 						       <!--/message-->
@@ -1863,7 +1891,7 @@
 						        	<div class="container_data">
 						        		
 						        		<p>Choose according to <br /> your condition</p>
-						        		<h2>Cancer</h2>
+						        		<h2></h2>
 						        		
 						        		<!--select-->
 						        		<div class="select_space">
@@ -1909,7 +1937,7 @@
 					<!--/conditions-->
 					
 					<!--conditions-->
-					<div class="condition">
+					<div class="condition cronical_container">
 						
 						<div class="card">
 							
@@ -1918,13 +1946,14 @@
 						       
 						       <!--graf-->
 						       <div class="graph_container">
-						       		<img src="/static/img/step_11/graf_2.png" alt="grafico" />
+                      <div id="canvas_11_2"></div>
+						       		<!--<img src="/static/img/step_11/graf_2.png" alt="grafico" />-->
 						       </div>
 						       <!--/graf-->
 						       
 						       <!--message-->
 						       <div class="bubble_msj">
-						       		<h2>Cancer</h2>
+						       		<h2></h2>
 						       		<div class="arrow"></div>
 						       </div>
 						       <!--/message-->
@@ -1986,7 +2015,7 @@
 					<!--/conditions-->
 					
 					<!--conditions-->
-					<div class="condition">
+					<div class="condition cronical_container">
 						
 						<div class="card">
 							
@@ -1995,13 +2024,14 @@
 						       
 						       <!--graf-->
 						       <div class="graph_container">
-						       		<img src="/static/img/step_11/graf_3.png" alt="grafico" />
+                      <div id="canvas_11_3"></div>
+						       		<!--<img src="/static/img/step_11/graf_3.png" alt="grafico" />-->
 						       </div>
 						       <!--/graf-->
 						       
 						       <!--message-->
 						       <div class="bubble_msj">
-						       		<h2>Cancer</h2>
+						       		<h2></h2>
 						       		<div class="arrow"></div>
 						       </div>
 						       <!--/message-->
@@ -2063,7 +2093,7 @@
 					<!--/conditions-->
 					
 					<!--conditions-->
-					<div class="condition">
+					<div class="condition cronical_container">
 						
 						<div class="card">
 							
@@ -2072,13 +2102,14 @@
 						       
 						       <!--graf-->
 						       <div class="graph_container">
-						       		<img src="/static/img/step_11/graf_2.png" alt="grafico" />
+                      <div id="canvas_11_4"></div>
+						       		<!--<img src="/static/img/step_11/graf_2.png" alt="grafico" />-->
 						       </div>
 						       <!--/graf-->
 						       
 						       <!--message-->
 						       <div class="bubble_msj">
-						       		<h2>Cancer</h2>
+						       		<h2></h2>
 						       		<div class="arrow"></div>
 						       </div>
 						       <!--/message-->
@@ -2140,7 +2171,7 @@
 					<!--/conditions-->
 					
 					<!--conditions-->
-					<div class="condition">
+					<div class="condition cronical_container">
 						
 						<div class="card">
 							
@@ -2149,13 +2180,14 @@
 						       
 						       <!--graf-->
 						       <div class="graph_container">
-						       		<img src="/static/img/step_11/graf_3.png" alt="grafico" />
+                      <div id="canvas_11_5"></div>
+						       		<!--<img src="/static/img/step_11/graf_3.png" alt="grafico" />-->
 						       </div>
 						       <!--/graf-->
 						       
 						       <!--message-->
 						       <div class="bubble_msj">
-						       		<h2>Cancer</h2>
+						       		<h2></h2>
 						       		<div class="arrow"></div>
 						       </div>
 						       <!--/message-->
@@ -2217,7 +2249,7 @@
 					<!--/conditions-->
 					
 					<!--conditions-->
-					<div class="condition">
+					<div class="condition add_more">
 						
 						<div class="card">
 							
@@ -2246,7 +2278,7 @@
 						        <div class="graph_container">
 						        	
 						        	<!--chose_subcategory-->
-						        	<div class="container_data">
+						        	<div class="container_data first_condition">
 						        		
 						        		<p>Choose according to <br /> your condition</p>
 						        		
@@ -2255,7 +2287,7 @@
 						        			<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
 						        			<div class="container_select">
 						        			
-						        				<select class="select_stats">
+						        				<select class="select_stats add_more_1">
 						        					<option value="Type">Type</option>
 						        					<option value="ActionScript">ActionScript</option>
 						        					<option value="AppleScript">AppleScript</option>
@@ -2283,7 +2315,7 @@
 						        			<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
 						        			<div class="container_select">
 						        			
-						        				<select class="select_stats">
+						        				<select class="select_stats add_more_2">
 						        					<option value="Type">Type</option>
 						        					<option value="ActionScript">ActionScript</option>
 						        					<option value="AppleScript">AppleScript</option>
@@ -2324,13 +2356,13 @@
 				
 				<!--cards-->
 				<div class="cards">
-					<div class="you_cards">
+					<div class="you_cards cronical_conditions_cards">
 						<ul>
 							<li><p>you</p></li>
-							<li><p><span>Cancer</span><br>Type: Lung cancer</p></li>
-							<li><p><span>Cancer</span><br>Type: Lung cancer</p></li>
-							<li><p><span>Cancer</span><br>Type: Lung cancer</p></li>
-							<li><p><span>Cancer</span><br>Type: Lung cancer</p></li>
+<!--							<li><p><span>cond 1</span><br>Type: </p></li>
+							<li><p><span>cond 1</span><br>Type: </p></li>
+							<li><p><span>cond 1</span><br>Type: </p></li>
+							<li><p><span>cond 1</span><br>Type: </p></li>-->
 						</ul>
 						<div class="clear"></div>
 					</div>
@@ -2350,8 +2382,8 @@
 			
 			<!--top-->
 			<div class="top">
-				<h2>Recurring complaints</h2>
-				<p>Click or tap to select yours</p>
+				<h2>Recurring Complaints</h2>
+				<p>Click or add complaints you habitually experience (at least more than 6 times a year)</p>
 			</div>
 			<!--/top-->
 			
@@ -2362,7 +2394,9 @@
 				<div class="block left">
 					
 					<!--sector_logo-->
-					<div class="logo_sector all"></div>
+					<div class="logo_sector all">
+						<p>all</p>
+					</div>
 					<!--/sector_logo-->
 					
 					<!--lista-->
@@ -2373,7 +2407,8 @@
 							<!--graph-->
 							<div class="stat left">
 								<div class="centered_graph">
-									<img src="/static/img/step_12/graf_1.png" alt="1" />
+                  <div id="canvas_12_1"></div>
+									<!--<img src="/static/img/step_12/graf_1.png" alt="1" />-->
 								</div>
 							</div>
 							<!--/graph-->
@@ -2391,7 +2426,8 @@
 							<!--graph-->
 							<div class="stat left">
 								<div class="centered_graph">
-									<img src="/static/img/step_12/graf_2.png" alt="2" />
+                  <div id="canvas_12_2"></div>
+									<!--<img src="/static/img/step_12/graf_2.png" alt="2" />-->
 								</div>
 							</div>
 							<!--/graph-->
@@ -2409,7 +2445,8 @@
 							<!--graph-->
 							<div class="stat left">
 								<div class="centered_graph">
-									<img src="/static/img/step_12/graf_3.png" alt="3" />
+                  <div id="canvas_12_3"></div>
+									<!--<img src="/static/img/step_12/graf_3.png" alt="3" />-->
 								</div>
 							</div>
 							<!--/graph-->
@@ -2427,7 +2464,8 @@
 							<!--graph-->
 							<div class="stat left">
 								<div class="centered_graph">
-									<img src="/static/img/step_12/graf_4.png" alt="4" />
+                  <div id="canvas_12_4"></div>
+									<!--<img src="/static/img/step_12/graf_4.png" alt="4" />-->
 								</div>
 							</div>
 							<!--/graph-->
@@ -2445,7 +2483,8 @@
 							<!--graph-->
 							<div class="stat left">
 								<div class="centered_graph">
-									<img src="/static/img/step_12/graf_5.png" alt="5" />
+                  <div id="canvas_12_5"></div>
+									<!--<img src="/static/img/step_12/graf_5.png" alt="5" />-->
 								</div>
 							</div>
 							<!--/graph-->
@@ -2469,25 +2508,25 @@
 				<div class="block right" id="select_complaints">
 				
 					<!--sector_logo-->
-					<div class="logo_sector all"></div>
+					<div class="logo_sector all">
+						<p>you</p>
+					</div>
 					<!--/sector_logo-->
-					
-					<!--lista-->
-					<ul>
-					
-						<li>
+          
+          <div style="display:none" id="complain_template">
+            <li>
 						
 							<!--graph-->
 							<div class="stat left">
 								<div class="centered_graph">
-									<img src="/static/img/step_12/graf_nar.png" alt="1" />
+                  <div id="canvas_12_custom_{{id}}"></div>
 								</div>
 							</div>
 							<!--/graph-->
 							
 							<!--tittle-->
 							<div class="stat right">
-								<h2>Runny nose</h2>
+								<h2>{{name}}</h2>
 							</div>
 							<!--/tittle-->
 							
@@ -2498,13 +2537,7 @@
 									<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
 									<div class="container_select">
 									
-										<select class="select_stats">
-											<option value="Type">Type</option>
-											<option value="ActionScript">ActionScript</option>
-											<option value="AppleScript">AppleScript</option>
-											<option value="Asp">Asp</option>
-											<option value="C++">probando un texto extremadamente largo</option>
-										</select>
+										<select class="select_stats"></select>
 										
 										<div class="clear"></div>
 									
@@ -2519,8 +2552,13 @@
 							
 							<div class="clear"></div>
 							
-						</li>		
-						<li>
+						</li>
+          </div>
+					
+					<!--lista-->
+					<ul>
+            
+						<li id="complains_adder_container">
 						
 							<!--graph-->
 							<div class="stat left">
@@ -2537,7 +2575,7 @@
 							<!--/tittle-->
 							
 							<!--select_stat-->
-							<div class="add_container">
+							<div class="complains add_container general_add">
 								
 								<div class="select_stat">
 									<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
@@ -2586,348 +2624,58 @@
 		
 			<!--top-->
 			<div class="top">
-				<h2>Share your blood type,<br />we all know it’s not blue</h2>
-				<p>Click or tap to select type</p>
+				<h2>Blood Type</h2>
+				<p>Click or tap to select yours</p>
 			</div>
 			<!--/top-->
 			
 			<!--top-->
 			<div class="bottom">
+        <!-- 
+					
+          IMPORTANTE:
+          - El alto maximo de la gota es de 130px, habria que dividir el porcentaje para hacer crecer el div .porcent_div
+
+        -->
+        <div id="blood_template" style="display:none">
+          <li id="blood_type_{{id}}" data-id="{{id}}">
+						<!--graph-->
+						<div class="graph_type">
+							
+							<!--mask-->
+							<div class="mask"></div>
+							<!--/mask-->
+							
+							<!--porcent_div-->
+							<div class="porcent_div" style="height: {{height}}px;"></div>
+							<!--/porcent_div-->
+							
+							<!--circle-->
+							<div class="circle_porcent">
+								<h2><span class="data_type">{{percentage}}</span><span class="min">%</span></h2>
+							</div>
+							<!--/circle-->
+							
+							<!--your_type-->
+							<div class="your_type">
+								<h2>Your type</h2>
+								<div class="arrow"></div>
+							</div>
+							<!--/your_type-->
+							
+						</div>
+						<!--graph-->
+					
+						<!--tittle_type-->
+						<div class="tittle_type">
+							<p>{{name}}</p>
+						</div>
+						<!--/tittle_type-->
+						
+					</li>
+        </div>
 				<ul id="chose_type">
 				
-					<!-- 
-					
-					IMPORTANTE:
-					- El alto maximo de la gota es de 130px, habria que dividir el porcentaje para hacer crecer el div .porcent_div
-					
-					-->
-				
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">35</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>I don't Know</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">20</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>A +</p>
-						</div>
-						<!--/tittle_type-->
-						
-						
-					</li>
-					<li>
-					
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">5</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>A -</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li class="active">
-					
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">10</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>B +</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">5</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>B -</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-					
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">5</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-						
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>AB +</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">10</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>AB -</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">2</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>0 +</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					<li>
-						
-						<!--graph-->
-						<div class="graph_type">
-							
-							<!--mask-->
-							<div class="mask"></div>
-							<!--/mask-->
-							
-							<!--porcent_div-->
-							<div class="porcent_div" style="height: 70px;"></div>
-							<!--/porcent_div-->
-							
-							<!--circle-->
-							<div class="circle_porcent">
-								<h2><span class="data_type">5</span><span class="min">%</span></h2>
-							</div>
-							<!--/circle-->
-							
-							<!--your_type-->
-							<div class="your_type">
-								<h2>Your type</h2>
-								<div class="arrow"></div>
-							</div>
-							<!--/your_type-->
-							
-						</div>
-						<!--graph-->
-					
-						<!--tittle_type-->
-						<div class="tittle_type">
-							<p>0 -</p>
-						</div>
-						<!--/tittle_type-->
-						
-					</li>
-					
 				</ul>
 			</div>
 			<!--/top-->
@@ -2942,14 +2690,14 @@
 		
 			<!--top-->
 			<div class="top">
-				<h2>Are you a morning <br /> person or more vampire style?</h2>
-				<p>Sleep distribution during last week</p>
+				<h2>Sleep Patterns</h2>
+				<p>Track your hours of sleep per week</p>
 			</div>
 			<!--/top-->
 			
 			<!--big_graph-->
 			<div class="big_graph">
-				<img src="/static/img/step_14/graph.png" alt="graph" />
+       			 <div id="canvas_14_1"></div>
 			</div>
 			<!--/big_graph-->
 	
@@ -2964,10 +2712,12 @@
 					<!--stat-->
 					<div class="number_stat">
 						
-						<h2>8,4</h2>
+						<h2></h2>
 					
 						<!--ico_right-->
-						<div class="ico_right"></div>
+						<div class="ico_right">
+							<p>h/day</p>
+						</div>
 						<!--/ico_right-->
 					</div>
 					<!--/stat-->
@@ -2983,10 +2733,12 @@
 					<!--stat-->
 					<div class="number_stat">
 						
-						<h2>6,3</h2>
+						<h2></h2>
 					
 						<!--ico_right-->
-						<div class="ico_right"></div>
+						<div class="ico_right">
+							<p>h/day</p>
+						</div>
 						<!--/ico_right-->
 					</div>
 					<!--/stat-->
@@ -3011,8 +2763,8 @@
 						
 						<!--top-->
 						<div class="top">
-							<h2>Emotions and feelings<br />can change everything else</h2>
-							<p>Share your mood here</p>
+							<h2>Emotional Health</h2>
+							<p>Add the feelings you register most frequently</p>
 						</div>
 						<!--/top-->
 						
@@ -3023,7 +2775,7 @@
 							<div class="graphs" id="graphs_emotions">
 								
 								<!--conditions-->
-								<div class="condition">
+								<div class="condition emotion_container">
 									
 									<div class="card">
 										
@@ -3032,7 +2784,8 @@
 									       
 									       <!--graf-->
 									       <div class="graph_container">
-									       		<img src="/static/img/step_11/graf_1.png" alt="grafico" />
+                           <div id="canvas_15_1"></div>
+									         <!--<img src="/static/img/step_11/graf_1.png" alt="grafico" />-->
 									       </div>
 									       <!--/graf-->
 									       
@@ -3100,7 +2853,7 @@
 								<!--/conditions-->
 								
 								<!--conditions-->
-								<div class="condition">
+								<div class="condition emotion_container">
 									
 									<div class="card">
 										
@@ -3109,7 +2862,8 @@
 									       
 									       <!--graf-->
 									       <div class="graph_container">
-									       		<img src="/static/img/step_11/graf_2.png" alt="grafico" />
+                           <div id="canvas_15_2"></div>
+									       	 <!--<img src="/static/img/step_11/graf_2.png" alt="grafico" />-->
 									       </div>
 									       <!--/graf-->
 									       
@@ -3177,7 +2931,7 @@
 								<!--/conditions-->
 								
 								<!--conditions-->
-								<div class="condition">
+								<div class="condition emotion_container">
 									
 									<div class="card">
 										
@@ -3186,7 +2940,8 @@
 									       
 									       <!--graf-->
 									       <div class="graph_container">
-									       		<img src="/static/img/step_11/graf_3.png" alt="grafico" />
+                           <div id="canvas_15_3"></div>
+									       	 <!--<img src="/static/img/step_11/graf_3.png" alt="grafico" />-->
 									       </div>
 									       <!--/graf-->
 									       
@@ -3254,7 +3009,7 @@
 								<!--/conditions-->
 								
 								<!--conditions-->
-								<div class="condition">
+								<div class="condition emotion_container">
 									
 									<div class="card">
 										
@@ -3263,7 +3018,8 @@
 									       
 									       <!--graf-->
 									       <div class="graph_container">
-									       		<img src="/static/img/step_11/graf_2.png" alt="grafico" />
+                           <div id="canvas_15_4"></div>
+									       	 <!--<img src="/static/img/step_11/graf_2.png" alt="grafico" />-->
 									       </div>
 									       <!--/graf-->
 									       
@@ -3331,7 +3087,7 @@
 								<!--/conditions-->
 								
 								<!--conditions-->
-								<div class="condition">
+								<div class="condition emotion_container">
 									
 									<div class="card">
 										
@@ -3340,7 +3096,8 @@
 									       
 									       <!--graf-->
 									       <div class="graph_container">
-									       		<img src="/static/img/step_11/graf_3.png" alt="grafico" />
+                           <div id="canvas_15_5"></div>
+									       	 <!--<img src="/static/img/step_11/graf_3.png" alt="grafico" />-->
 									       </div>
 									       <!--/graf-->
 									       
@@ -3408,7 +3165,7 @@
 								<!--/conditions-->
 								
 								<!--conditions-->
-								<div class="condition">
+								<div class="condition add_more">
 									
 									<div class="card">
 										
@@ -3417,7 +3174,7 @@
 									       
 									       <!--graf-->
 									       <div class="graph_container">
-									       		<img src="/static/img/step_11/graf_more.png" alt="grafico" />
+									       	 <img src="/static/img/step_11/graf_more.png" alt="grafico" />
 									       </div>
 									       <!--/graf-->
 									       
@@ -3446,7 +3203,7 @@
 									        			<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
 									        			<div class="container_select">
 									        			
-									        				<select class="select_stats">
+									        				<select class="select_stats add_more_emo_1">
 									        					<option value="Type">Type</option>
 									        					<option value="ActionScript">ActionScript</option>
 									        					<option value="AppleScript">AppleScript</option>
@@ -3474,7 +3231,7 @@
 									        			<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
 									        			<div class="container_select">
 									        			
-									        				<select class="select_stats">
+									        				<select class="select_stats add_more_emo_2">
 									        					<option value="Type">Type</option>
 									        					<option value="ActionScript">ActionScript</option>
 									        					<option value="AppleScript">AppleScript</option>
@@ -3514,14 +3271,10 @@
 							<!--/graphs-->
 							
 							<!--cards-->
-							<div class="cards">
+							<div class="cards emotion_cards">
 								<div class="you_cards">
 									<ul>
 										<li><p>you</p></li>
-										<li><p><span>Sad</span></p></li>
-										<li><p><span>Disappointed</span></p></li>
-										<li><p><span>Angry</span></p></li>
-										<li><p><span>Euphoric</span></p></li>
 									</ul>
 									<div class="clear"></div>
 								</div>
@@ -3543,8 +3296,8 @@
 		
 			<!--top-->
 			<div class="top">
-				<h2>Typical mood</h2>
-				<p>From 1 to 10</p>
+				<h2>Typical Mood</h2>
+				<p>How you feel in general over a one month period</p>
 			</div>
 			<!--/top-->
 			

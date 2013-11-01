@@ -8,7 +8,6 @@ var cronicalGraphs = {};
 var cronicalsList = {};
 var complainsTop5 = {};
 var complainsList = {};
-var emotionsList = {};
 var addedComplains = [];
 //_api_env = 'hard';
 _api_env = 'dev';
@@ -350,21 +349,28 @@ function drawCronicalConditionsGraph(data, num){
   animatedPie = drawVariableCircle(params, num, preffix);
   cronicalGraphs[data.id] = animatedPie;
   
+  var items_container = $('.cronical_container');
+  var graphs_main = $('#graphs_conditions .condition');
+  var post_url = _api_urls[_api_env].cronical_conditions_post;
+  setupCircleUi(items_container, graphs_main, post_url);
+}
+
+function setupCircleUi(items_container, graphs_main, post_url){
   //Setup info
-  $($('.cronical_container')[np]).find('.face.front .bubble_msj h2').html(data.name);
-  $($('.cronical_container')[np]).find('.face.back .container_data h2').html(data.name);
+  $(items_container[np]).find('.face.front .bubble_msj h2').html(data.name);
+  $(items_container[np]).find('.face.back .container_data h2').html(data.name);
   var cronicalTypes = '';
   if(data.types.length){
     for(var i in data.types){
       cronicalTypes += '<option value="'+data.types[i].id+'">'+data.types[i].name+'</option>';
     }
-    $($('.cronical_container')[np]).click(function (event) {
+    $(items_container[np]).click(function (event) {
       event.preventDefault
-      $('#graphs_conditions .condition').removeClass('active');
+      graphs_main.removeClass('active');
       $(this).addClass('active');
     });
     
-    $($('.cronical_container')[np]).find('.done_condition').live('click', {id_condition: data.id, container: $($('.cronical_container')[np]), graph: animatedPie, json: data}, function (event) {
+    $(items_container[np]).find('.done_condition').live('click', {id_condition: data.id, container: $(items_container[np]), graph: animatedPie, json: data}, function (event) {
       if(!$(this).hasClass('sent')){
         var el = $(this);
         var typeId = event.data.container.find('.face.back select.select_stats').val();
@@ -384,7 +390,7 @@ function drawCronicalConditionsGraph(data, num){
       }
     });
   }else{
-    $($('.cronical_container')[np]).click({id_condition: data.id, graph: animatedPie, json: data}, function (event) {
+    $(items_container[np]).click({id_condition: data.id, graph: animatedPie, json: data}, function (event) {
       event.preventDefault
       if(!$(this).hasClass('sent')){
         //Send data... change color
@@ -399,37 +405,6 @@ function drawCronicalConditionsGraph(data, num){
   }
   $($('.cronical_container')[np]).find('.face.back .select_stats').html(cronicalTypes);
   $($('.cronical_container')[np]).find('.face.back .select_stats').combobox();
-}
-
-function drawEmotionsGraph(data, num){
-  var adapter = new CronicalConditionsAdapter();
-  var params = adapter.getParameters(data, '#7737c7');
-  var np = num-1;
-  var preffix = 'canvas_15_';
-  
-  animatedPie = drawVariableCircle(params, num, preffix);
-  cronicalGraphs[data.id] = animatedPie;
-  
-  //Setup info
-  $($('.emotion_container')[np]).find('.face.front .bubble_msj h2').html(data.name);
-  $($('.emotion_container')[np]).find('.face.back .container_data h2').html(data.name);
-  var cronicalTypes = '';
-  
-  $($('.emotion_container')[np]).click({id_emotion: data.id, graph: animatedPie, json: data}, function (event) {
-    event.preventDefault
-    if(!$(this).hasClass('sent')){
-      //Send data... change color
-      $.post( _api_urls[_api_env].emotions_post, { id_emotion: event.data.id_emotion } );
-      addEmotionCard(event.data.json.name, '', event.data.id_emotion);
-      event.data.graph.lines[0].animate({"stroke": '#E56666'}, 500);
-      event.data.graph.texts[0].animate({"fill": '#E56666'}, 500);
-      event.data.graph.texts[1].animate({"fill": '#E56666'}, 500);
-      $(this).addClass('sent');
-    }
-  });
-    
-  $($('.emotion_container')[np]).find('.face.back .select_stats').html(cronicalTypes);
-  $($('.emotion_container')[np]).find('.face.back .select_stats').combobox();
 }
 
 function drawVariableCircle(params, num, preffix){
@@ -549,75 +524,6 @@ function setupAddCronicals(data){
 	});
 }
 
-function setupAddEmotions(data){
-  console.log('setupAddEmotions');
-  
-  var cronicals = '';
-  for(var i in data){
-    cronicals += '<option value="'+data[i].id+'">'+data[i].name+'</option>';
-  }
-
-  $('.select_stats.add_more_emo_1').html(cronicals);
-  $('.select_stats.add_more_emo_1').combobox();
-    
-	$('#graphs_emotions .condition.add_more').click(function (event) {
-    event.preventDefault
-    $('#graphs_emotions .condition').removeClass('active');
-    $(this).addClass('active');
-  });
-  
-	$('#graphs_emotions .done_condition').live('click',{cronicalsList: emotionsList}, function (event) {
-		event.preventDefault();
-    
-		if ($(this).hasClass('next_subsector')) {
-      console.log('ENTRA EN EL 1ER IF');
-			$(this).removeClass('next_subsector');
-			$(this).parent().parent().find('.graph_container').addClass('second_active');
-      
-      //Completo el 2do combobox y lo inicializo
-      var currentCronical = $('.select_stats.add_more_emo_1').val();
-      var currentCronicalName = $('.select_stats.add_more_emo_1 option:selected').text();
-      var cronicalTypes = '';
-      
-      $('#graphs_emotions .second_condition h2').html(currentCronicalName);
-      console.log(emotionsList);
-      for(var i in emotionsList){
-        if(emotionsList[i].id == currentCronical){
-          $('.select_stats.add_more_emo_2').parent().parent().hide();
-          $('.select_stats.add_more_emo_2').html(cronicalTypes);
-          $('.select_stats.add_more_emo_2').combobox();
-        }
-      }
-      
-      
-			$(this).find('span').hide().html('Done!').fadeIn(300);
-		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
-      console.log('ENTRA EN EL 2DO IF');
-      
-      //Envio los datos por POST y agrego la CARD
-      $.post( _api_urls[_api_env].emotions_post, { id_emotion: $('.select_stats.add_more_emo_1').val() } );
-      addEmotionCard($('.select_stats.add_more_emo_1 option:selected').text(), $('.select_stats.add_more_emo_2 option:selected').text(), $('.select_stats.add_more_emo_1').val());
-      setTimeout(function(){
-        try{
-          $('.select_stats.add_more_emo_2').combobox("destroy");
-        }catch(err){
-          //Do nothing...
-        }
-      }, 300);
-      
-			$(this).addClass('next_subsector');
-			$('#graphs_emotions .condition').removeClass('active');
-			$('#graphs_emotions .graph_container').removeClass('second_active');
-			$(this).find('span').hide().html('Next').fadeIn(300);
-		} else {
-      console.log('ENTRA EN EL ELSE'); //Nunca entra aca...
-		  $('#graphs_emotions .condition').removeClass('active');
-		  $(this).find('span').hide().html('Next').fadeIn(300);
-		}
-		
-	});
-}
-
 function addCronicalCard(label, typeLabel, id){
   var el = $('.cronical_conditions_cards ul');
   if(typeLabel){
@@ -625,11 +531,6 @@ function addCronicalCard(label, typeLabel, id){
   }else{
     el.html(el.html()+'<li id="cronical_id_'+id+'"><p><span>'+label+'</span><br /></p></li>');
   }
-}
-
-function addEmotionCard(label, typeLabel, id){
-  var el = $('.emotion_cards ul');
-  el.html(el.html()+'<li id="emotion_id_'+id+'"><p><span>'+label+'</span><br /></p></li>');
 }
 
 function drawComplainsTop5Item(data, num){
@@ -918,27 +819,17 @@ window.onload = function () {
   });
   
   $.getJSON( _api_urls[_api_env].emotions_top5, function( data ) {
-    console.log(data);
-    for(var i in data){
-      var num = parseInt(i)+1;
-      drawEmotionsGraph(data[i], num);
-    }
+//    console.log(data);
+//    for(var i in data){
+//      console.log(i);
+//      var num = parseInt(i)+1;
+//      drawCronicalConditionsGraph(data[i], num);
+//    }
   });
   
   $.getJSON( _api_urls[_api_env].emotions_list, function( data ) {
-    emotionsList = data;
-    setupAddEmotions(data);
-  });
-  
-  console.log('MOODS FROM SERVER');
-  $.getJSON( _api_urls[_api_env].mood_global, function( data ) {
-    $.getJSON( _api_urls[_api_env].mood_user, function( data_user ) {
-      $('#mood_2 .ui-slider-handle').html('<span>'+data.mood_avg+'</span>');
-      $('#mood_1 .ui-slider-handle').html('<span>'+data_user.mood_avg+'</span>');
-      $( "#mood_1" ).slider( "option", "value", data_user.mood_avg );
-      $( "#mood_2" ).slider( "option", "value", data.mood_avg );
-      
-    });
+//    cronicalsList = data;
+//    setupAddCronicals(data);
   });
   
 };
@@ -1003,18 +894,6 @@ $(document).ready(function(){
       type: "POST",
       url: _api_urls[_api_env].height,
       data: { unit: 'Ft', value: $("#height_slider").slider("value") },
-      success: function(data){
-        
-      }
-    });
-  });
-  
-  $("#mood_1").on("slidestop", function(event, ui) {
-    $.ajax({
-      dataType: "json",
-      type: "POST",
-      url: _api_urls[_api_env].mood_post,
-      data: { mood_avg: $("#mood_1").slider("value") },
       success: function(data){
         
       }
