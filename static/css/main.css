@@ -3906,6 +3906,8 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	font-size: 25px;
 	font-family: 'Omnes-Semibold';
 	margin-bottom: 25px;
+	position: relative;
+	top: 45px;
 }
 .step_fifteen .centered_container .bottom .graphs .condition .card .back .graph_container .container_data .select_space {
 	width: 210px;
