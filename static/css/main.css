@@ -1386,6 +1386,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	position: relative;
 	top: 3px;
 }
+.Safari.v6 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_one {
+	top: 0px!important;
+}
 .step_two .centered_container .bottom .block .graph .text_graph ul li h2.color_two {
 	color: #e56666;
 }
@@ -1934,6 +1937,9 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .Safari .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one {
 	position: relative;top: 3px;
+}
+.Safari.v6 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_one {
+        top: 0px !important;
 }
 .step_five .centered_container .three_graphs .graph .text_container ul li h2.color_two {
 	color: #e56666;
