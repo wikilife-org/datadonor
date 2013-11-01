@@ -285,7 +285,6 @@ a:hover {
 	-webkit-transition: background-color 0.4s;
 	-moz-transition: background-color 0.4s;
 	transition: background-color 0.4s;
-	-webkit-backface-visibility: hidden;
 }
 .big_social_login.collapsed {
 	height: auto;
