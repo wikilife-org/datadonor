@@ -87,7 +87,8 @@ EducationAdapter = function(){
         color: globalColor,
         text: json.global_data[prop]["title"],
         selected: false,
-        server_key: json.global_data[prop]["key"]
+        server_key: json.global_data[prop]["key"],
+        index: json.global_data[prop]["index"]
       }
       if(json.global_data[prop]["key"] == userLevel){ 
         item.color = userColor;
@@ -95,6 +96,12 @@ EducationAdapter = function(){
       }
       elements.push(item);
     }
+    
+    elements.sort(function(a,b){
+      if(a.index < b.index) return 1;
+      if(a.index > b.index) return -1;
+      return 0;
+    });
     
     return elements;
   }
@@ -284,7 +291,8 @@ StepsAdapter = function(){
     for(var i = 0; i < 6; i++){
       var label = {
         pos: this.getValueHeight(currentY, totalHeight, maxValue), 
-        text: currentY.toString(), 
+        //text: currentY.toString(), 
+        text: '', 
         width: 1090, 
         type: 'dotted', 
         "stroke-width": 3, 

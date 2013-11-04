@@ -214,6 +214,7 @@ function drawStepsGraph(data){
     drawAxis: true,
     drawLabels: true,
     elements: result.elements,
+    rotateBarLabels: true,
     xAxis: {
       length: 1093,
       "stroke-width": 2,
