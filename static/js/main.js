@@ -294,7 +294,7 @@ function drawHoursGraph(data){
     yAxis: {
       length: 423,
       "stroke-width": 0,
-      name: 'hs',
+      name: 'h',
       labels: result.yLabels
     },
     centerx: 10,
@@ -794,7 +794,7 @@ function drawSleepGraph(data, data_user){
     yAxis: {
       length: 750,
       "stroke-width": 0,
-      name: 'Hs',
+      name: 'h',
       labels: result.yLabels
     },
     centerx: 30,
