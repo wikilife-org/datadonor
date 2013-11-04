@@ -214,9 +214,18 @@ StepsAdapter = function(){
     var yLabels = [];
     result = {};
     
-    elements = this.addElements(json, totalHeight, maxValue);
-    yLabels = this.getYLabels(json, totalHeight, maxValue);
-    xLabels = this.getXLabels(json);
+    var ordered = [];
+    ordered.push([json.days.sunday,'Sunday']);
+    ordered.push([json.days.monday,'Monday']);
+    ordered.push([json.days.tuesday,'Tuesday']);
+    ordered.push([json.days.wednesday,'Wednesday']);
+    ordered.push([json.days.thursday,'Thursday']);
+    ordered.push([json.days.friday,'Friday']);
+    ordered.push([json.days.saturday,'Saturday']);
+    
+    elements = this.addElements(ordered, totalHeight, maxValue);
+    yLabels = this.getYLabels(ordered, json, totalHeight, maxValue);
+    xLabels = this.getXLabels(ordered);
     
     result.elements = elements;
     result.yLabels = yLabels;
@@ -241,23 +250,23 @@ StepsAdapter = function(){
     var elements = [];
     
     //for(var i = 0; i < json.data.length; i = i+2){
-    for(var i in json.days){
+    for(var i in json){
       var item = {
         pos: currentPos,
         color: globalColor,
         width: 62,
-        label: json.days[i].global_steps,
-        vlabel: json.days[i].global_steps,
-        value: this.getValueHeight(json.days[i].global_steps, totalHeight, maxValue),
+        label: json[i][0].global_steps,
+        vlabel: json[i][0].global_steps,
+        value: this.getValueHeight(json[i][0].global_steps, totalHeight, maxValue),
       }
       
       var userItem = {
         pos: currentPos+62,
         color: userColor,
         width: 62,
-        label: json.days[i].user_steps,
-        vlabel: json.days[i].user_steps,
-        value: this.getValueHeight(json.days[i].user_steps, totalHeight, maxValue),
+        label: json[i][0].user_steps,
+        vlabel: json[i][0].user_steps,
+        value: this.getValueHeight(json[i][0].user_steps, totalHeight, maxValue),
       }
       
       elements.push(item);
@@ -268,7 +277,7 @@ StepsAdapter = function(){
     return elements;
   }
   
-  this.getYLabels = function(json, totalHeight, maxValue){
+  this.getYLabels = function(json, orig_json, totalHeight, maxValue){
     var labels = [];
     var currentY = 3000;
     
@@ -288,8 +297,8 @@ StepsAdapter = function(){
     
     console.log(json);
     var gloabalAvgLabel = {
-      pos: this.getValueHeight(json.global_avg_steps, totalHeight, maxValue), 
-      text: json.global_avg_steps.toString()+'\navg', 
+      pos: this.getValueHeight(orig_json.global_avg_steps, totalHeight, maxValue), 
+      text: orig_json.global_avg_steps.toString()+'\navg', 
       width: 1090, 
       type: 'dotted', 
       "stroke-width": 3, 
@@ -299,8 +308,8 @@ StepsAdapter = function(){
     labels.push(gloabalAvgLabel);
     
     var userAvgLabel = {
-      pos: this.getValueHeight(json.user_avg_steps, totalHeight, maxValue), 
-      text: json.user_avg_steps.toString()+'\navg', 
+      pos: this.getValueHeight(orig_json.user_avg_steps, totalHeight, maxValue), 
+      text: orig_json.user_avg_steps.toString()+'\navg', 
       width: 1090, 
       type: 'dotted', 
       "stroke-width": 3, 
@@ -315,8 +324,8 @@ StepsAdapter = function(){
   this.getXLabels = function(json){
     xLabels = [];
     currentPos = 132;
-    for(var i in json.days){
-      var label = {pos: currentPos, text: i[0].toUpperCase(), type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'};
+    for(var i in json){
+      var label = {pos: currentPos, text: json[i][1][0].toUpperCase(), type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'};
       xLabels.push(label);
       currentPos = currentPos + 144;
     }
@@ -439,9 +448,23 @@ MilesAdapter = function(){
     var yLabels = [];
     result = {};
     
-    elements = this.addElements(json, totalHeight, maxValue);
-    yLabels = this.getYLabels(json, totalHeight, maxValue, yLabelsValues);
-    xLabels = this.getXLabels(json);
+    var ordered = [];
+    ordered.push([json.days.sunday,'Sunday']);
+    ordered.push([json.days.monday,'Monday']);
+    ordered.push([json.days.tuesday,'Tuesday']);
+    ordered.push([json.days.wednesday,'Wednesday']);
+    ordered.push([json.days.thursday,'Thursday']);
+    ordered.push([json.days.friday,'Friday']);
+    ordered.push([json.days.saturday,'Saturday']);
+    
+//    elements = this.addElements(json, totalHeight, maxValue);
+//    elements = this.addElements(json, totalHeight, maxValue);
+//    yLabels = this.getYLabels(json, totalHeight, maxValue, yLabelsValues);
+//    xLabels = this.getXLabels(json);
+    
+    elements = this.addElements(ordered, totalHeight, maxValue);
+    yLabels = this.getYLabels(ordered, json, totalHeight, maxValue, yLabelsValues);
+    xLabels = this.getXLabels(ordered);
     
     result.elements = elements;
     result.yLabels = yLabels;
@@ -462,21 +485,21 @@ MilesAdapter = function(){
     var userColor = '#E56666';
     var elements = [];
     
-    for(var i in json.days){
+    for(var i in json){
       var item = {
         pos: currentPos,
         color: globalColor,
         width: 45,
-        label: json.days[i].global_miles,
-        value: this.getValueHeight(json.days[i].global_miles, totalHeight, maxValue),
+        label: json[i][0].global_miles,
+        value: this.getValueHeight(json[i][0].global_miles, totalHeight, maxValue),
       }
       
       var userItem = {
         pos: currentPos+15,
         color: userColor,
         width: 45,
-        label: json.days[i].user_miles,
-        value: this.getValueHeight(json.days[i].user_miles, totalHeight, maxValue),
+        label: json[i][0].user_miles,
+        value: this.getValueHeight(json[i][0].user_miles, totalHeight, maxValue),
       }
       
       elements.push(item);
@@ -487,7 +510,7 @@ MilesAdapter = function(){
     return elements;
   }
   
-  this.getYLabels = function(json, totalHeight, maxValue, yLabels){
+  this.getYLabels = function(json, orig_json, totalHeight, maxValue, yLabels){
     //console.log(yLabels);
     var labels = [];
     var currentY = 10;
@@ -508,7 +531,7 @@ MilesAdapter = function(){
     }
     
     var gloabalAvgLabel = {
-      pos: this.getValueHeight(json.global_avg_miles, totalHeight, maxValue), 
+      pos: this.getValueHeight(orig_json.global_avg_miles, totalHeight, maxValue), 
       text: '', 
       width: 1090, 
       type: 'dotted', 
@@ -519,7 +542,7 @@ MilesAdapter = function(){
     labels.push(gloabalAvgLabel);
     
     var userAvgLabel = {
-      pos: this.getValueHeight(json.user_avg_miles, totalHeight, maxValue), 
+      pos: this.getValueHeight(orig_json.user_avg_miles, totalHeight, maxValue), 
       text: '', 
       width: 1090, 
       type: 'dotted', 
@@ -535,8 +558,8 @@ MilesAdapter = function(){
   this.getXLabels = function(json){
     xLabels = [];
     currentPos = 60;
-    for(var i in json.days){
-      var label = {pos: currentPos, text: i[0].toUpperCase(), type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'};
+    for(var i in json){
+      var label = {pos: currentPos, text: json[i][1][0].toUpperCase(), type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'};
       xLabels.push(label);
       currentPos = currentPos + 70;
     }
@@ -553,9 +576,18 @@ HoursAdapter = function(){
     var yLabels = [];
     result = {};
     
-    elements = this.addElements(json, totalHeight, maxValue);
-    yLabels = this.getYLabels(json, totalHeight, maxValue, yLabelsValues);
-    xLabels = this.getXLabels(json);
+    var ordered = [];
+    ordered.push([json.days.sunday,'Sunday']);
+    ordered.push([json.days.monday,'Monday']);
+    ordered.push([json.days.tuesday,'Tuesday']);
+    ordered.push([json.days.wednesday,'Wednesday']);
+    ordered.push([json.days.thursday,'Thursday']);
+    ordered.push([json.days.friday,'Friday']);
+    ordered.push([json.days.saturday,'Saturday']);
+    
+    elements = this.addElements(ordered, totalHeight, maxValue);
+    yLabels = this.getYLabels(ordered, json, totalHeight, maxValue, yLabelsValues);
+    xLabels = this.getXLabels(ordered);
     
     result.elements = elements;
     result.yLabels = yLabels;
@@ -576,21 +608,21 @@ HoursAdapter = function(){
     var userColor = '#E56666';
     var elements = [];
     
-    for(var i in json.days){
+    for(var i in json){
       var item = {
         pos: currentPos,
         color: globalColor,
         width: 45,
-        label: json.days[i].global_hours,
-        value: this.getValueHeight(json.days[i].global_hours, totalHeight, maxValue),
+        label: json[i][0].global_hours,
+        value: this.getValueHeight(json[i][0].global_hours, totalHeight, maxValue),
       }
       
       var userItem = {
         pos: currentPos+15,
         color: userColor,
         width: 45,
-        label: json.days[i].user_hours,
-        value: this.getValueHeight(json.days[i].user_hours, totalHeight, maxValue),
+        label: json[i][0].user_hours,
+        value: this.getValueHeight(json[i][0].user_hours, totalHeight, maxValue),
       }
       
       elements.push(item);
@@ -601,7 +633,7 @@ HoursAdapter = function(){
     return elements;
   }
   
-  this.getYLabels = function(json, totalHeight, maxValue, yLabels){
+  this.getYLabels = function(json, orig_json, totalHeight, maxValue, yLabels){
     //console.log(yLabels);
     var labels = [];
     var currentY = 10;
@@ -622,7 +654,7 @@ HoursAdapter = function(){
     }
     
     var gloabalAvgLabel = {
-      pos: this.getValueHeight(json.global_avg_hours, totalHeight, maxValue), 
+      pos: this.getValueHeight(orig_json.global_avg_hours, totalHeight, maxValue), 
       text: '', 
       width: 1090, 
       type: 'dotted', 
@@ -633,7 +665,7 @@ HoursAdapter = function(){
     labels.push(gloabalAvgLabel);
     
     var userAvgLabel = {
-      pos: this.getValueHeight(json.user_avg_hours, totalHeight, maxValue), 
+      pos: this.getValueHeight(orig_json.user_avg_hours, totalHeight, maxValue), 
       text: '', 
       width: 1090, 
       type: 'dotted', 
@@ -649,8 +681,8 @@ HoursAdapter = function(){
   this.getXLabels = function(json){
     xLabels = [];
     currentPos = 60;
-    for(var i in json.days){
-      var label = {pos: currentPos, text: i[0].toUpperCase(), type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'};
+    for(var i in json){
+      var label = {pos: currentPos, text: json[i][1][0].toUpperCase(), type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'};
       xLabels.push(label);
       currentPos = currentPos + 70;
     }
