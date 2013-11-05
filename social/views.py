@@ -149,15 +149,17 @@ def social_work_mock(request):
 def social_education_mock(request):
     if request.method == "POST":
         education_level = request.POST["education_level"]
-
-    user_data = {"user_level": 3}
+        user_data = {"user_level": education_level}
+    else:
+        
+        user_data = {"user_level": 'junior_college'}
     global_data = {6:{"percentage":8, "key":"phd", "title": "PhD", "index":6},
-                   5:{"percentage":10, "key":"master", "title": "Master", "index":5},
-                   4:{"percentage":23, "key":"university", "title": "University", "index":4}, 
-                   3:{"percentage":5, "key":"tech_institute", "title": "Technical Institute", "index":3},
-                   2:{"percentage":3, "key":"high_school", "title": "High School", "index":2},
-                   1:{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
-                   0:{"percentage":3, "key":"elemtary_school", "title": "Elementary School", "index":0}}
+                       5:{"percentage":10, "key":"master", "title": "Master", "index":5},
+                       4:{"percentage":23, "key":"university", "title": "University", "index":4}, 
+                       3:{"percentage":5, "key":"tech_institute", "title": "Technical Institute", "index":3},
+                       2:{"percentage":3, "key":"high_school", "title": "High School", "index":2},
+                       1:{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
+                       0:{"percentage":3, "key":"elemtary_school", "title": "Elementary School", "index":0}}
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
