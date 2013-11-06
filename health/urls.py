@@ -57,8 +57,11 @@ urlpatterns = patterns('',
     #Mood
     url(r'^mood/global/avg/mock/', mood_avg_global_mock, name='mood_avg_global_mock'),
     url(r'^mood/user/avg/mock/', mood_avg_by_user_mock, name='mood_avg_by_user_mock'),   
+    url(r'^mood/activate/mood_panda/mock/', mood_panda_activate_mock, name='mood_panda_activate_mock'),
+
 
     url(r'^mood/global/avg/', mood_avg_global, name='mood_avg_global'),
     url(r'^mood/user/avg/', mood_avg_by_user, name='mood_avg_by_user'),
+    url(r'^mood/activate/mood_panda/', mood_panda_activate, name='mood_panda_activate'),
     
 )
