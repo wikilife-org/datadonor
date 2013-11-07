@@ -152,6 +152,7 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.evernote.EvernoteBackend',
     'social_auth.backends.contrib.fitbit.FitbitBackend',
     'physical.auth_backends.runkeeper.RunkeeperBackend',
+    'physical.auth_backends.fatsecret.FatsecretBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',
     'social_auth.backends.contrib.ihealth.IhealthBackend',
     'social_auth.backends.contrib.jawbone.JawboneBackend',
@@ -197,6 +198,7 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.evernote.evernote_info',
     'pipeline.fitbit.fitbit_info',
     'pipeline.runkeeper.runkeeper_info',
+    'pipeline.fatsecret.fatsecret_info',
     'pipeline.dailymile.dailymile_info',
     'pipeline.ihealth.ihealth_info',
     'pipeline.jawbone.jawbone_info',
@@ -223,11 +225,13 @@ SOCIAL_AUTH_PIPELINE_old = (
 
 )
 
+
 PROFILE_SOURCES_PRIORITY = {
     "runkeeper": 1, 
     "fitbit": 2, 
-    "facebook": 3, 
-    "twitter": 4 
+    "fatsecret": 3, 
+    "facebook": 4, 
+    "twitter": 5 
 }
 
 #FACEBOOK CONFIG

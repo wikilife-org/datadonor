@@ -2,7 +2,8 @@
 
 
 SERVICES = {
-    "runkeeper": "physical.services.runkeeper_service.RunkeeperService"
+    "runkeeper": "physical.services.runkeeper_service.RunkeeperService",
+    "fatsecret": "physical.services.fatsecret_service.FatsecretService"
 }
 
 
