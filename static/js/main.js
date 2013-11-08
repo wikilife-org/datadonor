@@ -211,8 +211,15 @@ function drawExerciseGraphs(data){
 }
 
 function drawStepsGraph(data){
+  
+  var maxValue = 0;
+  for(var i in data.days){
+    if(data.days[i].global_steps > maxValue) maxValue = data.days[i].global_steps;
+    if(data.days[i].user_steps > maxValue) maxValue = data.days[i].user_steps;
+  }
+  
   var adapter = new StepsAdapter();
-  var result = adapter.getParameters(data, 400, 20000);
+  var result = adapter.getParameters(data, 380, maxValue);
   //console.log(result);
   var r_6_1 = Raphael('canvas_6_1', 1093, 423);
   doubleAxisParams2 = {
@@ -296,7 +303,7 @@ function drawHoursGraph(data){
     if(data.days[i].global_hours > maxValue) maxValue = data.days[i].global_hours;
     if(data.days[i].user_hours > maxValue) maxValue = data.days[i].user_hours;
   }
-  console.log('MAX BAR VALUE: '+maxValue);
+  //console.log('MAX BAR VALUE: '+maxValue);
   
   var adapter = new HoursAdapter();
   var result = adapter.getParameters(data, 340, maxValue,[1,3,5,7]);
