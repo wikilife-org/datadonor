@@ -764,21 +764,17 @@ SleepAdapter = function(){
     ordered.push([json.days.saturday,'Saturday']);
     
     var ordered_user = [];
-    ordered_user.push([json_user.days.sunday,'Sunday']);
-    ordered_user.push([json_user.days.monday,'Monday']);
-    ordered_user.push([json_user.days.tuesday,'Tuesday']);
-    ordered_user.push([json_user.days.wednesday,'Wednesday']);
-    ordered_user.push([json_user.days.thursday,'Thursday']);
-    ordered_user.push([json_user.days.friday,'Friday']);
-    ordered_user.push([json_user.days.saturday,'Saturday']);
+    ordered.push([json_user.days.sunday,'Sunday']);
+    ordered.push([json_user.days.monday,'Monday']);
+    ordered.push([json_user.days.tuesday,'Tuesday']);
+    ordered.push([json_user.days.wednesday,'Wednesday']);
+    ordered.push([json_user.days.thursday,'Thursday']);
+    ordered.push([json_user.days.friday,'Friday']);
+    ordered.push([json_user.days.saturday,'Saturday']);
     
-    elements = this.addElements(ordered, ordered_user, totalHeight, maxValue);
-    yLabels = this.getYLabels(ordered, ordered_user, totalHeight, maxValue);
-    xLabels = this.getXLabels(ordered);
-    
-//    elements = this.addElements(json, json_user, totalHeight, maxValue);
-//    yLabels = this.getYLabels(json, json_user, totalHeight, maxValue);
-//    xLabels = this.getXLabels(json);
+    elements = this.addElements(json, json_user, totalHeight, maxValue);
+    yLabels = this.getYLabels(json, json_user, totalHeight, maxValue);
+    xLabels = this.getXLabels(json);
     
     result.elements = elements;
     result.yLabels = yLabels;
@@ -803,23 +799,23 @@ SleepAdapter = function(){
     var elements = [];
     
     //for(var i = 0; i < json.data.length; i = i+2){
-    for(var i in json){
+    for(var i in json.days){
       var item = {
         pos: currentPos,
         color: globalColor,
         width: 62,
-        label: json[i][0].hours,
-        vlabel: json[i][0].hours,
-        value: this.getValueHeight(json[i][0].hours, totalHeight, maxValue),
+        label: json.days[i].hours,
+        vlabel: json.days[i].hours,
+        value: this.getValueHeight(json.days[i].hours, totalHeight, maxValue),
       }
       
       var userItem = {
         pos: currentPos+62,
         color: userColor,
         width: 62,
-        label: json_user[i][0].hours,
-        vlabel: json_user[i][0].hours,
-        value: this.getValueHeight(json_user[i][0].hours, totalHeight, maxValue),
+        label: json_user.days[i].hours,
+        vlabel: json_user.days[i].hours,
+        value: this.getValueHeight(json_user.days[i].hours, totalHeight, maxValue),
       }
       
       elements.push(item);
@@ -855,11 +851,10 @@ SleepAdapter = function(){
   }
   
   this.getXLabels = function(json){
-    console.log(json);
     xLabels = [];
     currentPos = 132;
-    for(var i in json){
-      var label = {pos: currentPos, text: json[i][1][0].toUpperCase(), type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'};
+    for(var i in json.days){
+      var label = {pos: currentPos, text: i[0].toUpperCase(), type: 'bubble', "font-size": 20, "font-family": 'Gotham-Ultra'};
       xLabels.push(label);
       currentPos = currentPos + 144;
     }
