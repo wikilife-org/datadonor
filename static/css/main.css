@@ -2063,12 +2063,13 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	height: auto;
 	padding: 20px 0px 20px 0px;
 	position: relative;
-	text-align: left;
+	text-align: right;
 }
 .step_six .centered_container .stats_bottom .bloq .number_stat h2 {
 	font-size: 120px;
 	font-family: 'Omnes-Semibold';
 	letter-spacing: -2px;
+	padding-right: 120px;
 }
 .step_six .centered_container .stats_bottom .bloq .number_stat .ico_right {
 	width: 95px;
