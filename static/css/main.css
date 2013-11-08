@@ -100,24 +100,25 @@ a:hover {
 --------------------------------------- */
 
 #header {
-	height: 160px;
+	height: auto;
 	background-color: white;
+	padding-bottom: 15px;
 }
 
 /* --- logotipo */
 #header .logo {
-	width: 361px;
-	height: 125px;
+	width: 253px;
+	height: 88px;
 	float: left;
 	margin-top: 19px;
 }
 #header .logo h1 {
-	width: 361px;
-	height: 125px;
+	width: 253px;
+	height: 88px;
 }
 #header .logo h1 a {
-	width: 361px;
-	height: 125px;
+	width: 253px;
+	height: 88px;
 	background-image: url(../img/header/logo.png);
 	background-position: center;
 	background-repeat: no-repeat;
@@ -128,7 +129,7 @@ a:hover {
 /* --- logout */
 #header .logout_boton {
 	float: right;
-	margin-top: 123px;
+	margin-top: 87px;
 }
 #header .logout_boton a {
 	color: #3F4A5A;
