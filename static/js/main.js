@@ -945,6 +945,9 @@ window.onload = function () {
 };
 
 $(document).ready(function(){
+  
+  $("#age_select_value").jStepper({minValue:0, maxValue:60, allowDecimals: false});
+  
   $('#your_lvl_c li').click(function (event) {
     var pos = $(this).attr('ref');
     //line = animatedQuarterPie.lines[pos];
