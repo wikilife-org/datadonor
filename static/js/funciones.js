@@ -133,6 +133,14 @@ $(document).ready(function () {
 	   	});
 	  }
 	);
+	
+	$("#trigger_social li").click(function (event) {
+		event.preventDefault();
+		if ($(this).hasClass('last')) {} else {
+			var url = $(this).find('a').attr('href');
+			window.open(url, '_blank');
+		}
+	});
 	// SHARE SOCIAL
 	
 	// EMAIL SHARE POP-UP
