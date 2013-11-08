@@ -71,8 +71,8 @@ def nutrition_weight_mock(request):
         user_data = {"value":value, "unit":unit}
     else:
         user_data = {"value":112, "unit":"Lbs"}
-        global_data = {"men":{"value":120, "unit":"Lbs"}, "women":{"value":94, "unit":"Lbs"}}
-        data = {"user_data":user_data, "global_data":global_data}
+    global_data = {"men":{"value":120, "unit":"Lbs"}, "women":{"value":94, "unit":"Lbs"}}
+    data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
@@ -127,8 +127,8 @@ def nutrition_height_mock(request):
         user_data = {"value":value, "unit":unit}
     else:
         user_data = {"value":5.8, "unit":"Ft"}
-        global_data = {"men":{"value":7.2, "unit":"Ft"}, "women":{"value":4.3, "unit":"Ft"}}
-        data = {"user_data":user_data, "global_data":global_data}
+    global_data = {"men":{"value":7.2, "unit":"Ft"}, "women":{"value":4.3, "unit":"Ft"}}
+    data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
