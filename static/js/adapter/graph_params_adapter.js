@@ -849,15 +849,15 @@ SleepAdapter = function(){
   
   this.getYLabels = function(json, json_user, totalHeight, maxValue){
     var labels = [];
-    var currentY = 57;
+    var currentY = 1;
     
-    for(var i = 1; i <= 12; i++){
-      console.log('totalHeight: '+totalHeight);
-      console.log('Max value: '+maxValue);
-      console.log('CURRENT LABEL HEIGHT: '+this.getValueHeight(i, totalHeight, maxValue));
+    console.log('SLEEP MAX VALUE '+maxValue);
+    
+    //for(var i = 1; i <= 12; i++){
+    while(currentY <= maxValue){
       var label = {
-        pos: this.getValueHeight(i, totalHeight, maxValue), 
-        text: i.toString(), 
+        pos: this.getValueHeight(currentY, totalHeight, maxValue), 
+        text: currentY.toString(), 
         width: 1103, 
         type: 'dotted', 
         "stroke-width": 3, 
@@ -865,7 +865,7 @@ SleepAdapter = function(){
         "text-color": "#ADB6BF"
       }
       labels.push(label);
-      currentY = currentY + 57;
+      currentY = currentY + 1;
     }
     
     return labels;

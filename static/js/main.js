@@ -802,8 +802,17 @@ function drawBloodDrops(data){
 }
 
 function drawSleepGraph(data, data_user){
+  
+  var maxValue = 0;
+  for(var i in data.days){
+    if(data.days[i].hours > maxValue) maxValue = data.days[i].hours;
+  }
+  for(var i in data_user.days){
+    if(data_user.days[i].hours > maxValue) maxValue = data_user.days[i].hours;
+  }
+  
   var adapter = new SleepAdapter();
-  var result = adapter.getParameters(data, data_user, 684, 12);
+  var result = adapter.getParameters(data, data_user, 684, maxValue);
   //console.log(result);
   var r_14_1 = Raphael('canvas_14_1', 1103, 767);
   doubleAxisParams2 = {
