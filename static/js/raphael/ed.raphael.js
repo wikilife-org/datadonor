@@ -394,7 +394,7 @@ EdBarChart = function(r, options){
         }
         var fontSize = '18px';
         if(typeof label["font-size"] != 'undefined') fontSize = label["font-size"];
-        this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": fontSize, "fill": label['text-color'], 'text-anchor': 'start'}).toBack();
+        this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": fontSize, "fill": label['text-color'], 'text-anchor': 'start'}).toFront();
         if(label.type == 'dotted') this.drawDottedLine(label, 'y');
       }
     }

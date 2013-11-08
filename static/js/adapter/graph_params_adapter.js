@@ -286,9 +286,14 @@ StepsAdapter = function(){
   
   this.getYLabels = function(json, orig_json, totalHeight, maxValue){
     var labels = [];
-    var currentY = 3000;
+    var step = Math.ceil((maxValue/totalHeight))*100;
     
-    for(var i = 0; i < 6; i++){
+    console.log('MAX VALUE: '+maxValue);
+    console.log('STEP: '+step);
+    var currentY = step;
+    
+    //for(var i = 0; i < 6; i++){
+    while(currentY <= maxValue){
       var label = {
         pos: this.getValueHeight(currentY, totalHeight, maxValue), 
         //text: currentY.toString(), 
@@ -299,14 +304,16 @@ StepsAdapter = function(){
         color: '#F1F2F2', 
         "text-color": "#ADB6BF"
       }
+      
       labels.push(label);
-      currentY = currentY + 3000;
+      currentY = currentY + step;
     }
     
     console.log(json);
     var gloabalAvgLabel = {
       pos: this.getValueHeight(orig_json.global_avg_steps, totalHeight, maxValue), 
-      text: orig_json.global_avg_steps.toString()+'\navg', 
+      //text: orig_json.global_avg_steps.toString()+'\navg', 
+      text: orig_json.global_avg_steps.toString(), 
       width: 1090, 
       type: 'dotted', 
       "stroke-width": 3, 
@@ -318,7 +325,7 @@ StepsAdapter = function(){
     
     var userAvgLabel = {
       pos: this.getValueHeight(orig_json.user_avg_steps, totalHeight, maxValue), 
-      text: orig_json.user_avg_steps.toString()+'\navg', 
+      text: orig_json.user_avg_steps.toString(), 
       width: 1090, 
       type: 'dotted', 
       "stroke-width": 3, 
@@ -842,15 +849,15 @@ SleepAdapter = function(){
   
   this.getYLabels = function(json, json_user, totalHeight, maxValue){
     var labels = [];
-    var currentY = 57;
+    var currentY = 1;
     
-    for(var i = 1; i <= 12; i++){
-      console.log('totalHeight: '+totalHeight);
-      console.log('Max value: '+maxValue);
-      console.log('CURRENT LABEL HEIGHT: '+this.getValueHeight(i, totalHeight, maxValue));
+    console.log('SLEEP MAX VALUE '+maxValue);
+    
+    //for(var i = 1; i <= 12; i++){
+    while(currentY <= maxValue){
       var label = {
-        pos: this.getValueHeight(i, totalHeight, maxValue), 
-        text: i.toString(), 
+        pos: this.getValueHeight(currentY, totalHeight, maxValue), 
+        text: currentY.toString(), 
         width: 1103, 
         type: 'dotted', 
         "stroke-width": 3, 
@@ -858,7 +865,7 @@ SleepAdapter = function(){
         "text-color": "#ADB6BF"
       }
       labels.push(label);
-      currentY = currentY + 57;
+      currentY = currentY + 1;
     }
     
     return labels;
