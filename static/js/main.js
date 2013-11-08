@@ -357,7 +357,7 @@ function drawNutrientProportionGraph(data){
   
   var r_9_2 = Raphael('canvas_9_2', 1095, 115);
   var adapter = new NutrientsAdapter();
-  var elems = adapter.getParameters(data.global_data,['#FF9C8C','#FF836F','#E56666','#D44B5F',]);
+  var elems = adapter.getParameters(data.user_data,['#FF9C8C','#FF836F','#E56666','#D44B5F',]);
   SingleBarChart = new EdSingleBarChart(r_9_2, elems, {
     x: 20,
     y: 5,
