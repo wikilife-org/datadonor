@@ -286,30 +286,10 @@ StepsAdapter = function(){
   
   this.getYLabels = function(json, orig_json, totalHeight, maxValue){
     var labels = [];
-    var step = Math.ceil((maxValue/totalHeight))*100;
+    //var step = Math.ceil((maxValue/totalHeight))*100;
     
-    console.log('MAX VALUE: '+maxValue);
-    console.log('STEP: '+step);
-    var currentY = step;
+    var currentY = 1000;
     
-    //for(var i = 0; i < 6; i++){
-    while(currentY <= maxValue){
-      var label = {
-        pos: this.getValueHeight(currentY, totalHeight, maxValue), 
-        //text: currentY.toString(), 
-        text: '', 
-        width: 1090, 
-        type: 'dotted', 
-        "stroke-width": 3, 
-        color: '#F1F2F2', 
-        "text-color": "#ADB6BF"
-      }
-      
-      labels.push(label);
-      currentY = currentY + step;
-    }
-    
-    console.log(json);
     var gloabalAvgLabel = {
       pos: this.getValueHeight(orig_json.global_avg_steps, totalHeight, maxValue), 
       //text: orig_json.global_avg_steps.toString()+'\navg', 
@@ -334,6 +314,25 @@ StepsAdapter = function(){
       is_avg: true
     }
     labels.push(userAvgLabel);
+    
+    //for(var i = 0; i < 6; i++){
+    while(currentY <= maxValue){
+      var label = {
+        pos: this.getValueHeight(currentY, totalHeight, maxValue), 
+        //text: currentY.toString(), 
+        text: '', 
+        width: 1090, 
+        type: 'dotted', 
+        "stroke-width": 3, 
+        color: '#F1F2F2', 
+        "text-color": "#ADB6BF"
+      }
+      
+      labels.push(label);
+      currentY = currentY + 1000;
+    }
+    
+    
     
     return labels;
   }
@@ -790,7 +789,7 @@ SleepAdapter = function(){
     ordered_user.push([json_user.days.saturday,'Saturday']);
     
     elements = this.addElements(ordered, ordered_user, totalHeight, maxValue);
-    yLabels = this.getYLabels(ordered, ordered_user, totalHeight, maxValue);
+    yLabels = this.getYLabels(json, json_user, totalHeight, maxValue);
     xLabels = this.getXLabels(ordered);
     
 //    elements = this.addElements(json, json_user, totalHeight, maxValue);
@@ -851,7 +850,31 @@ SleepAdapter = function(){
     var labels = [];
     var currentY = 1;
     
-    console.log('SLEEP MAX VALUE '+maxValue);
+    console.log('SLEEP AVG PARAMS');
+    console.log(json);
+    console.log(json_user);
+    
+    var gloabalAvgLabel = {
+      pos: this.getValueHeight(json.avg_hours, totalHeight, maxValue), 
+      text: '', 
+      width: 1090, 
+      type: 'dotted', 
+      "stroke-width": 3, 
+      color: '#7737c7', 
+      "text-color": "#7737c7"
+    }
+    labels.push(gloabalAvgLabel);
+    
+    var userAvgLabel = {
+      pos: this.getValueHeight(json_user.avg_hours, totalHeight, maxValue), 
+      text: '', 
+      width: 1090, 
+      type: 'dotted', 
+      "stroke-width": 3, 
+      color: '#E56666', 
+      "text-color": "#E56666"
+    }
+    labels.push(userAvgLabel);
     
     //for(var i = 1; i <= 12; i++){
     while(currentY <= maxValue){
