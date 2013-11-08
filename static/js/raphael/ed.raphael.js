@@ -1,6 +1,11 @@
 /* 
  * Wrapper for raphael library
  */
+//(function extendRaphael() {
+//  Raphael.el.zIndex = function(z) {
+//    this.node.style.zIndex = z;
+//  };
+//})();
 
 EdPieChart = function(r, elements, options){
   
@@ -296,6 +301,8 @@ EdBarChart = function(r, options){
   this.r = r;
   this.options = options;
   this.elements;
+  this.lines = [];
+  this.avg_lines = [];
   this.multiplier = 1;
   
   this.init = function(){
@@ -305,9 +312,9 @@ EdBarChart = function(r, options){
   
   this.draw = function(){
     this.drawBars();
-    if(this.options.drawValues) this.drawValues();
     if(this.options.drawLabels) this.drawLabels();
     if(this.options.drawAxis) this.drawAxis();
+    if(this.options.drawValues) this.drawValues();
   }
   
   this.drawValues = function(){
@@ -367,6 +374,13 @@ EdBarChart = function(r, options){
         }
         
       }
+      
+      console.log('SEND AVG TO FRONT!');
+      console.log(this.avg_lines);
+      for(var j in this.avg_lines){
+        console.log('sending to front!');
+        this.avg_lines[j].toFront();
+      }
     }
     
     if(this.options.yAxis.labels.length){
@@ -380,22 +394,29 @@ EdBarChart = function(r, options){
         }
         var fontSize = '18px';
         if(typeof label["font-size"] != 'undefined') fontSize = label["font-size"];
-        this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": fontSize, "fill": label['text-color'], 'text-anchor': 'start'});
+        this.r.text(this.options.centerx, yPos+15+paddingTop, label.text).attr({"font-family": 'Omnes-Semibold', "font-size": fontSize, "fill": label['text-color'], 'text-anchor': 'start'}).toBack();
         if(label.type == 'dotted') this.drawDottedLine(label, 'y');
       }
     }
   }
   
   this.drawDottedLine = function(label, axis){
+    console.log('dotted line single draw');
     if(axis == 'x'){
       var xTarget = this.options.centerx + (label['pos']*this.multiplier);
       var yTarget = this.options.centery - label['width'];
       //this.r.path("M"+this.options.centerx+" "+yTarget+"L"+xTarget+" "+yTarget).attr({"stroke-dasharray": '- ', "stroke-width": 1});
-      this.r.path("M"+xTarget+" "+this.options.centery+"L"+xTarget+" "+yTarget).attr({"stroke-dasharray": '.', "stroke-width": label["stroke-width"], "stroke": label["color"], "font-family": 'Omnes-Semibold'}).toBack();
+      var line = this.r.path("M"+xTarget+" "+this.options.centery+"L"+xTarget+" "+yTarget).attr({"stroke-dasharray": '.', "stroke-width": label["stroke-width"], "stroke": label["color"], "font-family": 'Omnes-Semibold'}).toBack();
+      
     }else{
+      console.log('IS AVG???');
       var yTarget = this.options.centery + (label['pos']*this.multiplier);
       var xTarget = this.options.centerx + label['width'];
-      this.r.path("M"+this.options.centerx+" "+yTarget+"L"+xTarget+" "+yTarget).attr({"stroke-dasharray": '.', "stroke-width": label["stroke-width"], "stroke": label["color"], "font-family": 'Omnes-Semibold'}).toBack();
+      var line = this.r.path("M"+this.options.centerx+" "+yTarget+"L"+xTarget+" "+yTarget).attr({"stroke-dasharray": '.', "stroke-width": label["stroke-width"], "stroke": label["color"], "font-family": 'Omnes-Semibold'}).toBack();
+      
+      if(typeof label['is_avg'] != 'undefined' && label['is_avg'] == true){
+        this.avg_lines.push(line);
+      }
     }
   }
   

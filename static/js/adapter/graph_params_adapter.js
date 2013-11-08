@@ -311,7 +311,8 @@ StepsAdapter = function(){
       type: 'dotted', 
       "stroke-width": 3, 
       color: '#7737c7', 
-      "text-color": "#7737c7"
+      "text-color": "#7737c7",
+      is_avg: true
     }
     labels.push(gloabalAvgLabel);
     
@@ -322,7 +323,8 @@ StepsAdapter = function(){
       type: 'dotted', 
       "stroke-width": 3, 
       color: '#E56666', 
-      "text-color": "#E56666"
+      "text-color": "#E56666",
+      is_avg: true
     }
     labels.push(userAvgLabel);
     
@@ -416,10 +418,24 @@ WorkAdapter = function(){
     var labels = [];
     var currentY = 10;
     
+    var avgLabel = {
+      pos: this.getValueHeight(json.avg, totalHeight, maxValue), 
+      text: '', 
+      width: 1090, 
+      type: 'dotted', 
+      "stroke-width": 3, 
+      color: '#7737c7', 
+      "text-color": "#7737c7",
+      "font-size": 15,
+      is_avg: true
+    }
+    labels.push(avgLabel);
+    
     for(var i = 0; i < 6; i++){
       var label = {
         pos: this.getValueHeight(currentY, totalHeight, maxValue), 
-        text: currentY.toString(), 
+        //text: currentY.toString(), 
+        text: '', 
         width: 1090, 
         type: 'dotted', 
         "stroke-width": 3, 
@@ -429,18 +445,6 @@ WorkAdapter = function(){
       labels.push(label);
       currentY = currentY + 10;
     }
-    
-    var avgLabel = {
-      pos: this.getValueHeight(json.avg, totalHeight, maxValue), 
-      text: 'years avg', 
-      width: 1090, 
-      type: 'dotted', 
-      "stroke-width": 3, 
-      color: '#7737c7', 
-      "text-color": "#7737c7",
-      "font-size": 15
-    }
-    labels.push(avgLabel);
     
     return labels;
   }
@@ -523,21 +527,6 @@ MilesAdapter = function(){
     var labels = [];
     var currentY = 10;
     
-    //for(var i = 0; i < 6; i++){
-    for(var i in yLabels){
-      var label = {
-        pos: this.getValueHeight(yLabels[i], totalHeight, maxValue), 
-        text: yLabels[i].toString(), 
-        width: 1090, 
-        type: 'dotted', 
-        "stroke-width": 3, 
-        color: '#F1F2F2', 
-        "text-color": "#ADB6BF"
-      }
-      labels.push(label);
-      currentY = currentY + 10;
-    }
-    
     var gloabalAvgLabel = {
       pos: this.getValueHeight(orig_json.global_avg_miles, totalHeight, maxValue), 
       text: '', 
@@ -559,6 +548,21 @@ MilesAdapter = function(){
       "text-color": "#E56666"
     }
     labels.push(userAvgLabel);
+    
+    //for(var i = 0; i < 6; i++){
+    for(var i in yLabels){
+      var label = {
+        pos: this.getValueHeight(yLabels[i], totalHeight, maxValue), 
+        text: yLabels[i].toString(), 
+        width: 1090, 
+        type: 'dotted', 
+        "stroke-width": 3, 
+        color: '#ADB6BF', 
+        "text-color": "#ADB6BF"
+      }
+      labels.push(label);
+      currentY = currentY + 10;
+    }
     
     return labels;
   }
@@ -646,21 +650,6 @@ HoursAdapter = function(){
     var labels = [];
     var currentY = 10;
     
-    //for(var i = 0; i < 6; i++){
-    for(var i in yLabels){
-      var label = {
-        pos: this.getValueHeight(yLabels[i], totalHeight, maxValue), 
-        text: yLabels[i].toString(), 
-        width: 1090, 
-        type: 'dotted', 
-        "stroke-width": 3, 
-        color: '#F1F2F2', 
-        "text-color": "#ADB6BF"
-      }
-      labels.push(label);
-      currentY = currentY + 10;
-    }
-    
     var gloabalAvgLabel = {
       pos: this.getValueHeight(orig_json.global_avg_hours, totalHeight, maxValue), 
       text: '', 
@@ -682,6 +671,21 @@ HoursAdapter = function(){
       "text-color": "#E56666"
     }
     labels.push(userAvgLabel);
+    
+    //for(var i = 0; i < 6; i++){
+    for(var i in yLabels){
+      var label = {
+        pos: this.getValueHeight(yLabels[i], totalHeight, maxValue), 
+        text: yLabels[i].toString(), 
+        width: 1090, 
+        type: 'dotted', 
+        "stroke-width": 3, 
+        color: '#ADB6BF', 
+        "text-color": "#ADB6BF"
+      }
+      labels.push(label);
+      currentY = currentY + 10;
+    }
     
     return labels;
   }

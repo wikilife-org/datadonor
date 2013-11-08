@@ -124,10 +124,10 @@ function drawEducationGraph(data){
 }
 
 function drawWorkGraph(data){
-  console.log('PRE PARAMS WORK');
+  //console.log('PRE PARAMS WORK');
   var adapter = new WorkAdapter();
   var result = adapter.getParameters(data, 423, 80, workCallback);
-  console.log('POST PARAMS WORK');
+  //console.log('POST PARAMS WORK');
   var r_4_1 = Raphael('canvas_4_1', 1093, 423);
   doubleAxisParams = {
     axis: 'both',
@@ -752,10 +752,10 @@ function drawBloodDrops(data){
     height = (blood.percentage*130)/100;
     content = '';
     content = $('#blood_template').html();
-    content = content.replace(/{{name}}/g, blood.name);
-    content = content.replace(/{{percentage}}/g, blood.percentage);
-    content = content.replace(/{{id}}/g, blood.id);
-    content = content.replace(/{{height}}/g, 0);
+    content = content.replace(/\[\[name\]\]/g, blood.name);
+    content = content.replace(/\[\[percentage\]\]/g, blood.percentage);
+    content = content.replace(/\[\[id\]\]/g, blood.id);
+    content = content.replace(/\[\[height\]\]/g, 0);
     
     $('#chose_type').append(content);
     
