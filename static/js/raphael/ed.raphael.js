@@ -384,7 +384,7 @@ EdBarChart = function(r, options){
     }
     
     if(this.options.yAxis.labels.length){
-      this.r.text(this.options.centerx, 25, this.options.yAxis.name).attr({"font-family": 'Omnes-Semibold', "font-size": '18', "fill": "#ADB6BF", 'text-anchor': 'start'});
+      this.r.text(this.options.centerx, 10, this.options.yAxis.name).attr({"font-family": 'Omnes-Semibold', "font-size": '18', "fill": "#ADB6BF", 'text-anchor': 'start'});
       for(var i in this.options.yAxis.labels){
         label = this.options.yAxis.labels[i];
         yPos = this.options.centery - label.pos;

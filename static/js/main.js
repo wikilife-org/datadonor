@@ -125,8 +125,15 @@ function drawEducationGraph(data){
 
 function drawWorkGraph(data){
   //console.log('PRE PARAMS WORK');
+  
+  var maxValue = 0;
+  for(var i in data.global_data){
+    if(data.global_data[i].value > maxValue) maxValue = data.global_data[i].value;
+  }
+  if(data.user_data.user_experience.value > maxValue) maxValue = data.user_data.user_experience.value;
+  
   var adapter = new WorkAdapter();
-  var result = adapter.getParameters(data, 423, 80, workCallback);
+  var result = adapter.getParameters(data, 423, maxValue+10, workCallback);
   //console.log('POST PARAMS WORK');
   var r_4_1 = Raphael('canvas_4_1', 1093, 423);
   doubleAxisParams = {
@@ -241,8 +248,16 @@ function drawStepsGraph(data){
 }
 
 function drawMilesGraph(data){
+  
+  var maxValue = 0;
+  for(var i in data.days){
+    if(data.days[i].global_miles > maxValue) maxValue = data.days[i].global_miles;
+    if(data.days[i].user_miles > maxValue) maxValue = data.days[i].user_miles;
+  }
+  //console.log('MAX BAR VALUE: '+maxValue);
+  
   var adapter = new MilesAdapter();
-  var result = adapter.getParameters(data, 400, 60,[10,20,30,40]);
+  var result = adapter.getParameters(data, 350, maxValue,[10,30,50,70]);
   var r_7_1 = Raphael('canvas_7_1', 530, 400);
   doubleAxisParams3 = {
     axis: 'both',
@@ -275,8 +290,16 @@ function drawMilesGraph(data){
 }
 
 function drawHoursGraph(data){
+  
+  var maxValue = 0;
+  for(var i in data.days){
+    if(data.days[i].global_hours > maxValue) maxValue = data.days[i].global_hours;
+    if(data.days[i].user_hours > maxValue) maxValue = data.days[i].user_hours;
+  }
+  console.log('MAX BAR VALUE: '+maxValue);
+  
   var adapter = new HoursAdapter();
-  var result = adapter.getParameters(data, 400, 9,[1,3,4,7]);
+  var result = adapter.getParameters(data, 340, maxValue,[1,3,5,7]);
   var r_7_2 = Raphael('canvas_7_2', 530, 400);
   doubleAxisParams4 = {
     axis: 'both',

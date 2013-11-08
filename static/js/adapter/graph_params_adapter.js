@@ -431,7 +431,8 @@ WorkAdapter = function(){
     }
     labels.push(avgLabel);
     
-    for(var i = 0; i < 6; i++){
+    //for(var i = 0; i < 6; i++){
+    while (currentY < totalHeight){
       var label = {
         pos: this.getValueHeight(currentY, totalHeight, maxValue), 
         //text: currentY.toString(), 
@@ -550,16 +551,20 @@ MilesAdapter = function(){
     labels.push(userAvgLabel);
     
     //for(var i = 0; i < 6; i++){
-    for(var i in yLabels){
+    //for(var i in yLabels){
+    while(currentY <= maxValue){
       var label = {
-        pos: this.getValueHeight(yLabels[i], totalHeight, maxValue), 
-        text: yLabels[i].toString(), 
+        pos: this.getValueHeight(currentY, totalHeight, maxValue), 
+        text: '', 
         width: 1090, 
         type: 'dotted', 
         "stroke-width": 3, 
         color: '#ADB6BF', 
         "text-color": "#ADB6BF"
       }
+      
+      if($.inArray(currentY, yLabels) != '-1') label.text = currentY.toString();
+      
       labels.push(label);
       currentY = currentY + 10;
     }
@@ -648,7 +653,7 @@ HoursAdapter = function(){
   this.getYLabels = function(json, orig_json, totalHeight, maxValue, yLabels){
     //console.log(yLabels);
     var labels = [];
-    var currentY = 10;
+    var currentY = 1;
     
     var gloabalAvgLabel = {
       pos: this.getValueHeight(orig_json.global_avg_hours, totalHeight, maxValue), 
@@ -673,18 +678,23 @@ HoursAdapter = function(){
     labels.push(userAvgLabel);
     
     //for(var i = 0; i < 6; i++){
-    for(var i in yLabels){
+    //for(var i in yLabels){
+    while(currentY <= maxValue){
+      console.log('CURRENT Y HOURS '+currentY+' - '+maxValue);
       var label = {
-        pos: this.getValueHeight(yLabels[i], totalHeight, maxValue), 
-        text: yLabels[i].toString(), 
+        pos: this.getValueHeight(currentY, totalHeight, maxValue), 
+        text: '', 
         width: 1090, 
         type: 'dotted', 
         "stroke-width": 3, 
         color: '#ADB6BF', 
         "text-color": "#ADB6BF"
       }
+      
+      if($.inArray(currentY, yLabels) != '-1') label.text = currentY.toString();
+      
       labels.push(label);
-      currentY = currentY + 10;
+      currentY = currentY + 1;
     }
     
     return labels;
