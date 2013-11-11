@@ -901,6 +901,14 @@ function drawSleepGraph(data, data_user){
   $('#step_fourteen .bloq.right .number_stat h2').html(pad(data_user.avg_hours,2));
 }
 
+function loadNewBmi(){
+  $.getJSON( _api_urls[_api_env].bmi, function( data ) {
+    $('.bmi_values .man .value').html(data.global_data.men.value);
+    $('.bmi_values .woman .value').html(data.global_data.women.value);
+    $('.your_bmi h2').html(data.user_data.value);
+  });
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -1100,7 +1108,7 @@ $(document).ready(function(){
       url: _api_urls[_api_env].weight,
       data: { unit: 'Lbs', value: $("#weight_slider").slider("value") },
       success: function(data){
-        
+        loadNewBmi();
       }
     });
   });
@@ -1112,7 +1120,7 @@ $(document).ready(function(){
       url: _api_urls[_api_env].height,
       data: { unit: 'Ft', value: $("#height_slider").slider("value") },
       success: function(data){
-        
+        loadNewBmi();
       }
     });
   });
