@@ -105,9 +105,12 @@ StickyHeader.prototype.updateNav = function(){
 	$('.'+activate_class).parent().addClass('active');
 		    	
     var anchorVal = $('.'+activate_class).attr('href');
+    if(typeof(anchorVal)=="undefined"){
+    	location.hash = "#";
+    }else{
+    	location.hash = anchorVal;
+    }
     
-    location.hash = anchorVal;
-	
 }
 
 // !init crea una isntancia de por cada StickyHeader .sticky
