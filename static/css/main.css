@@ -1847,7 +1847,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 .step_five {
 	background-color: #F7F2ED;
-	height: 835px;
+	height: 700px;
 }
 .step_five .centered_container {
 	width: 1000px;
@@ -1963,6 +1963,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_five .centered_container .you_cards {
 	width: auto;
 	height: 70px;
+	display: none;
 }
 .step_five .centered_container .you_cards ul {
 	width: auto;
