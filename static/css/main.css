@@ -361,11 +361,14 @@ a:hover {
 	overflow: hidden;
 }
 .big_social_login .social_icons .overflow_icons ul {
-	float: right;
-	text-align: right;
+	float: left;
+	text-align: left;
 	width: auto!important;
 	white-space: nowrap;
 	position: relative;
+}
+.big_social_login .social_icons.inactive .overflow_icons ul {
+	float: right;
 }
 .big_social_login .social_icons .overflow_icons ul li {
 	width: 124px;
@@ -1847,7 +1850,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 .step_five {
 	background-color: #F7F2ED;
-	height: 835px;
+	height: 700px;
 }
 .step_five .centered_container {
 	width: 1000px;
@@ -1963,6 +1966,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_five .centered_container .you_cards {
 	width: auto;
 	height: 70px;
+	display: none;
 }
 .step_five .centered_container .you_cards ul {
 	width: auto;
@@ -3216,6 +3220,23 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	text-align: left;
 	background-color: #F0E8E4;
 	margin-bottom: 10px;
+	position: relative;
+	cursor: default;
+}
+.step_eleven .centered_container .bottom .cards .you_cards ul li .close_tab {
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background-image: url(../img/step_11/close_tab.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-transition: opacity 0.4s;
+	-moz-transition: opacity 0.4s;
+	transition: opacity 0.4s;
 }
 .step_eleven .centered_container .bottom .cards .you_cards ul li:first-child {
 	width: 92px;
@@ -3999,6 +4020,23 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	text-align: left;
 	background-color: #F0E8E4;
 	margin-bottom: 10px;
+	position: relative;
+}
+
+.step_fifteen .centered_container .bottom .cards .you_cards ul li .close_tab {
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background-image: url(../img/step_11/close_tab.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-transition: opacity 0.4s;
+	-moz-transition: opacity 0.4s;
+	transition: opacity 0.4s;
 }
 .step_fifteen .centered_container .bottom .cards .you_cards ul li:first-child {
 	width: 92px;
