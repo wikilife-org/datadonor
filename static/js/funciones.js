@@ -38,12 +38,11 @@ $(document).ready(function () {
         var offseeleven = $('#step_eleven').offset().top - 150;
 	}
 	// SECTOR FIXED NAV
-	
+		
 	// SCROLL SOLO
 	$('.nav_steps a').click(function (event) {
-		event.preventDefault();
 		
-		var idClick = $('#step_five').attr('data-scroll');
+		event.preventDefault();
 		
 		if ($(this).hasClass('nav_one')) {
 			$('body,html').animate({
