@@ -111,8 +111,6 @@ StickyHeader.prototype.updateNav = function(){
     }else{
     	location.hash = anchorVal;
     }
-      
-    //	$('#'+valorUrl).trigger('click');
     
 }
 
