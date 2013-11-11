@@ -280,7 +280,7 @@ a:hover {
 
 .big_social_login {
 	background-color: #333d4a;
-	z-index: 9999 !important;
+	z-index: 9999;
 	height: 0px;
 	overflow: hidden;
 	-webkit-transition: background-color 0.4s;

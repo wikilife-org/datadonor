@@ -105,11 +105,14 @@ StickyHeader.prototype.updateNav = function(){
 	$('.'+activate_class).parent().addClass('active');
 		    	
     var anchorVal = $('.'+activate_class).attr('href');
+    
     if(typeof(anchorVal)=="undefined"){
     	location.hash = "#";
     }else{
     	location.hash = anchorVal;
     }
+      
+    //	$('#'+valorUrl).trigger('click');
     
 }
 
@@ -122,9 +125,20 @@ $(function() {
 		new StickyHeader(item_id,i);
 		i++;
 	})
+	
+	var url_actual = location.href; 
+	var url_array = url_actual.split('#'); 
+	var valorUrl = url_array[1]
+	
+	setTimeout(function () {
+		$('.nav li a.'+ valorUrl).trigger('click');
+	}, 1500)
+	
 	$(window).scroll(function(){
 		stickyListeners.broadcast('onScrollUpdate');
 	});
+	
+	
 	
 })
 
