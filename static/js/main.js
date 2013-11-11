@@ -432,7 +432,7 @@ function drawCronicalConditionsGraph(data, num){
   $($('.cronical_container')[np]).find('.face.back .select_stats').combobox();
 }
 
-function drawEmotionsGraph(data, num){
+function drawEmotionsGraph(data, num, user_data){
   var adapter = new CronicalConditionsAdapter();
   var params = adapter.getParameters(data, '#7737c7');
   var np = num-1;
@@ -440,6 +440,28 @@ function drawEmotionsGraph(data, num){
   
   animatedPie = drawVariableCircle(params, num, preffix);
   cronicalGraphs[data.id] = animatedPie;
+  
+  var selectedGraphs = [];
+  for(var i in user_data){
+    console.log('user emotion? '+data.id+' = '+user_data[i].id_emotion);
+    if(data.id == user_data[i].id_emotion){
+      var result = [animatedPie, data]
+      selectedGraphs.push(result);
+    }
+  }
+  
+  setTimeout(function(){
+    for(var i in selectedGraphs){
+        var graph = selectedGraphs[i][0];
+        var data = selectedGraphs[i][1];
+        console.log('COLORING USER EMOTION!');
+        graph.lines[0].animate({"stroke": '#E56666'}, 500);
+        graph.texts[0].animate({"fill": '#E56666'}, 500);
+        graph.texts[1].animate({"fill": '#E56666'}, 500);
+        //$(this).addClass('sent');
+        addEmotionCard(data.name, '', data.id);
+    }
+  }, 1000);
   
   //Setup info
   $($('.emotion_container')[np]).find('.face.front .bubble_msj h2').html(data.name);
@@ -810,6 +832,7 @@ function drawSleepGraph(data, data_user){
   for(var i in data_user.days){
     if(data_user.days[i].hours > maxValue) maxValue = data_user.days[i].hours;
   }
+  maxValue = Math.ceil(maxValue);
   
   var adapter = new SleepAdapter();
   var result = adapter.getParameters(data, data_user, 684, maxValue);
@@ -957,12 +980,15 @@ window.onload = function () {
     });
   });
   
-  $.getJSON( _api_urls[_api_env].emotions_top5, function( data ) {
-    console.log(data);
-    for(var i in data){
-      var num = parseInt(i)+1;
-      drawEmotionsGraph(data[i], num);
-    }
+  $.getJSON( _api_urls[_api_env].emotions_user, function( user_data ) {
+    //user_data = [user_data];
+    $.getJSON( _api_urls[_api_env].emotions_top5, function( data ) {
+      console.log(data);
+      for(var i in data){
+        var num = parseInt(i)+1;
+        drawEmotionsGraph(data[i], num, user_data);
+      }
+    });
   });
   
   $.getJSON( _api_urls[_api_env].emotions_list, function( data ) {
