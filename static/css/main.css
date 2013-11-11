@@ -283,13 +283,19 @@ a:hover {
 	z-index: 9999;
 	height: 0px;
 	overflow: hidden;
+	opacity: 0;
 	-webkit-transition: background-color 0.4s;
 	-moz-transition: background-color 0.4s;
 	transition: background-color 0.4s;
+	-webkit-backface-visibility: hidden;
 }
 .big_social_login.collapsed {
 	height: auto;
 	background-color: #3F4B5B;
+	opacity: 1;
+}
+#social_nav_one {
+	opacity: 1;
 }
 .big_social_login.collapsed .sector_icon {
 	-webkit-transform: scale(1);
