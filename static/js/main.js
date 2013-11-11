@@ -990,10 +990,16 @@ window.onload = function () {
     setupAddCronicals(data);
   });
   
-  $.getJSON( _api_urls[_api_env].complains_top5, function( data ) {
-    for(var i in data){
-      var num = parseInt(i)+1;
-      drawComplainsTop5Item(data[i], num);
+  $.getJSON( _api_urls[_api_env].complains_user, function( user_data ) {
+    $.getJSON( _api_urls[_api_env].complains_top5, function( data ) {
+      for(var i in data){
+        var num = parseInt(i)+1;
+        drawComplainsTop5Item(data[i], num);
+      }
+    });
+    
+    for(var j in user_data){
+      addNewComplain(user_data[j].id, user_data[j].name, user_data);
     }
   });
   
