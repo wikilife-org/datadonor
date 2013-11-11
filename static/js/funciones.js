@@ -44,6 +44,8 @@ $(document).ready(function () {
 		
 		event.preventDefault();
 		
+		$('body,html').stop(true,true);
+		
 		if ($(this).hasClass('nav_one')) {
 			$('body,html').animate({
 				scrollTop: offsetOne
@@ -254,8 +256,6 @@ $(document).ready(function () {
 				$prevCarousel.show();
 			}
 			
-			console.log(nu_pos);
-			
 		}
 		
 		function $prevNetwork() {
@@ -290,8 +290,6 @@ $(document).ready(function () {
 				$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
 				$nextCarousel.show();
 			}
-			
-			console.log(nu_pos);
 			
 		}
 	
