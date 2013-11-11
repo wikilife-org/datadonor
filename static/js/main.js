@@ -372,7 +372,7 @@ function drawNutrientProportionGraph(data){
 
 }
 
-function drawCronicalConditionsGraph(data, num){
+function drawCronicalConditionsGraph(data, num, user_data){
   var adapter = new CronicalConditionsAdapter();
   var params = adapter.getParameters(data, '#7737c7');
   var np = num-1;
@@ -380,6 +380,37 @@ function drawCronicalConditionsGraph(data, num){
   
   animatedPie = drawVariableCircle(params, num, preffix);
   cronicalGraphs[data.id] = animatedPie;
+  
+  var selectedGraphs = [];
+  for(var i in user_data){
+    console.log('user cronical? '+data.id+' = '+user_data[i].id_condition);
+    if(data.id == user_data[i].id_condition){
+      var result = [animatedPie, data, user_data[i]]
+      selectedGraphs.push(result);
+    }
+    
+    if($('#cronical_id_'+user_data[i].id_condition).length == 0){
+      var type_name = '';
+      if(typeof user_data[i].type_name != 'undefined'){
+        type_name = user_data[i].type_name;
+      }
+      addCronicalCard(user_data[i].name, type_name, user_data[i].id_condition);
+    }
+  }
+  
+  setTimeout(function(){
+    for(var i in selectedGraphs){
+        var graph = selectedGraphs[i][0];
+        var data = selectedGraphs[i][1];
+        var user_data = selectedGraphs[i][2];
+        console.log('COLORING USER EMOTION!');
+        console.log(user_data);
+        graph.lines[0].animate({"stroke": '#E56666'}, 500);
+        graph.texts[0].animate({"fill": '#E56666'}, 500);
+        graph.texts[1].animate({"fill": '#E56666'}, 500);
+        //$(this).addClass('sent');
+    }
+  }, 1000);
   
   //Setup info
   $($('.cronical_container')[np]).find('.face.front .bubble_msj h2').html(data.name);
@@ -943,13 +974,15 @@ window.onload = function () {
     }
   });
   
-  $.getJSON( _api_urls[_api_env].cronical_conditions_top5, function( data ) {
-    console.log(data);
-    for(var i in data){
-      console.log(i);
-      var num = parseInt(i)+1;
-      drawCronicalConditionsGraph(data[i], num);
-    }
+  $.getJSON( _api_urls[_api_env].cronical_conditions_user, function( user_data ) {
+    $.getJSON( _api_urls[_api_env].cronical_conditions_top5, function( data ) {
+      console.log(data);
+      for(var i in data){
+        console.log(i);
+        var num = parseInt(i)+1;
+        drawCronicalConditionsGraph(data[i], num, user_data);
+      }
+    });
   });
   
   $.getJSON( _api_urls[_api_env].cronical_conditions_list, function( data ) {
