@@ -3217,6 +3217,29 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	text-align: left;
 	background-color: #F0E8E4;
 	margin-bottom: 10px;
+	position: relative;
+	cursor: default;
+}
+.step_eleven .centered_container .bottom .cards .you_cards ul li .close_tab {
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background-image: url(../img/step_11/close_tab.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-transition: opacity 0.4s;
+	-moz-transition: opacity 0.4s;
+	transition: opacity 0.4s;
+	opacity: 0;
+	visibility: hidden;
+}
+.step_eleven .centered_container .bottom .cards .you_cards ul li:hover .close_tab {
+	opacity: 1;
+	visibility: visible;
 }
 .step_eleven .centered_container .bottom .cards .you_cards ul li:first-child {
 	width: 92px;
@@ -4000,6 +4023,29 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	text-align: left;
 	background-color: #F0E8E4;
 	margin-bottom: 10px;
+	position: relative;
+}
+
+.step_fifteen .centered_container .bottom .cards .you_cards ul li .close_tab {
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background-image: url(../img/step_11/close_tab.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-transition: opacity 0.4s;
+	-moz-transition: opacity 0.4s;
+	transition: opacity 0.4s;
+	opacity: 0;
+	visibility: hidden;
+}
+.step_fifteen .centered_container .bottom .cards .you_cards ul li:hover .close_tab {
+	opacity: 1;
+	visibility: visible;
 }
 .step_fifteen .centered_container .bottom .cards .you_cards ul li:first-child {
 	width: 92px;

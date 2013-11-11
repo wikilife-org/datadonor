@@ -439,6 +439,13 @@ $(document).ready(function () {
 		   });
 	   
 	   // STEP 16
+	   
+	   // TABS YOU REMOVE
+	   $('.cards .you_cards ul li .close_tab').click(function (event) {
+	   	event.preventDefault();
+	   });
+	   // TABS YOU REMOVE
+	    
 	
 	//DORESIZE
 	doResize();
