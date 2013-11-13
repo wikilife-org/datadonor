@@ -36,7 +36,6 @@ FATSECRET_REQUEST_TOKEN_EXTRA_ARGUMENTS = {
     "oauth_consumer_key" : FATSECRET_REST_API_CONSUMER_KEY,
     "oauth_signature_method" : "HMAC-SHA1", 
     "oauth_version" : "1.0",
-    "method" : "profile.get_auth",
     "format": "json"
 }
 
