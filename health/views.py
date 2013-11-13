@@ -33,7 +33,7 @@ def cronical_conditions_by_user_mock(request):
         id_condition = request.POST["id_condition"]
         id_type = request.POST["id_type"]
     
-    data = {"id_condition": 4, "name":"Diabetes", "id_type":1, "type_name": "Type 2"}
+    data = [{"id_condition": 4, "name":"Diabetes", "id_type":1, "type_name": "Type 2"}]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def cronical_conditions_list_mock(request):
@@ -227,7 +227,7 @@ def emotions_by_user_mock(request):
     if request.method == 'POST':
         id_emotion = request.POST["id_emotion"]
     
-    data = {"id_emotion": 10, "name":"Disappointed"}
+    data = [{"id_emotion": 10, "name":"Disappointed"}]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def emotions_list_mock(request):

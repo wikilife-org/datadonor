@@ -39,6 +39,7 @@ var _api_urls = {
     user_exercise: "http://datadonors.org/physical/exercise/user/mock/",
     cronical_conditions_top5: "http://datadonors.org/health/cronical_conditions/global/top_5/mock/",
     cronical_conditions_post: "http://datadonors.org/health/cronical_conditions/user/mock/",
+    cronical_conditions_user: "http://datadonors.org/health/cronical_conditions/user/mock/",
     cronical_conditions_list: "http://datadonors.org/health/cronical_conditions/list/mock/",
     complains_top5: "http://datadonors.org/health/complaints/global/top_5/mock/",
     complains_post: "http://datadonors.org/health/complaints/user/mock/",
@@ -51,6 +52,7 @@ var _api_urls = {
     emotions_top5: "http://datadonors.org/health/emotions/global/top_5/mock/",
     emotions_post: "http://datadonors.org/health/emotions/user/mock/",
     emotions_list: "http://datadonors.org/health/emotions/list/mock/",
+    emotions_user: "http://datadonors.org/health/emotions/user/mock/",
     mood_global: "http://datadonors.org/health/mood/global/avg/mock/",
     mood_user: "http://datadonors.org/health/mood/user/avg/mock/",
     mood_post: "http://datadonors.org/health/mood/user/avg/mock/"

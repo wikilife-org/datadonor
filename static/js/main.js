@@ -357,7 +357,7 @@ function drawNutrientProportionGraph(data){
   
   var r_9_2 = Raphael('canvas_9_2', 1095, 115);
   var adapter = new NutrientsAdapter();
-  var elems = adapter.getParameters(data.global_data,['#FF9C8C','#FF836F','#E56666','#D44B5F',]);
+  var elems = adapter.getParameters(data.user_data,['#FF9C8C','#FF836F','#E56666','#D44B5F',]);
   SingleBarChart = new EdSingleBarChart(r_9_2, elems, {
     x: 20,
     y: 5,
@@ -372,7 +372,7 @@ function drawNutrientProportionGraph(data){
 
 }
 
-function drawCronicalConditionsGraph(data, num){
+function drawCronicalConditionsGraph(data, num, user_data){
   var adapter = new CronicalConditionsAdapter();
   var params = adapter.getParameters(data, '#7737c7');
   var np = num-1;
@@ -380,6 +380,37 @@ function drawCronicalConditionsGraph(data, num){
   
   animatedPie = drawVariableCircle(params, num, preffix);
   cronicalGraphs[data.id] = animatedPie;
+  
+  var selectedGraphs = [];
+  for(var i in user_data){
+    console.log('user cronical? '+data.id+' = '+user_data[i].id_condition);
+    if(data.id == user_data[i].id_condition){
+      var result = [animatedPie, data, user_data[i]]
+      selectedGraphs.push(result);
+    }
+    
+    if($('#cronical_id_'+user_data[i].id_condition).length == 0){
+      var type_name = '';
+      if(typeof user_data[i].type_name != 'undefined'){
+        type_name = user_data[i].type_name;
+      }
+      addCronicalCard(user_data[i].name, type_name, user_data[i].id_condition);
+    }
+  }
+  
+  setTimeout(function(){
+    for(var i in selectedGraphs){
+        var graph = selectedGraphs[i][0];
+        var data = selectedGraphs[i][1];
+        var user_data = selectedGraphs[i][2];
+        console.log('COLORING USER EMOTION!');
+        console.log(user_data);
+        graph.lines[0].animate({"stroke": '#E56666'}, 500);
+        graph.texts[0].animate({"fill": '#E56666'}, 500);
+        graph.texts[1].animate({"fill": '#E56666'}, 500);
+        //$(this).addClass('sent');
+    }
+  }, 1000);
   
   //Setup info
   $($('.cronical_container')[np]).find('.face.front .bubble_msj h2').html(data.name);
@@ -432,7 +463,7 @@ function drawCronicalConditionsGraph(data, num){
   $($('.cronical_container')[np]).find('.face.back .select_stats').combobox();
 }
 
-function drawEmotionsGraph(data, num){
+function drawEmotionsGraph(data, num, user_data){
   var adapter = new CronicalConditionsAdapter();
   var params = adapter.getParameters(data, '#7737c7');
   var np = num-1;
@@ -440,6 +471,28 @@ function drawEmotionsGraph(data, num){
   
   animatedPie = drawVariableCircle(params, num, preffix);
   cronicalGraphs[data.id] = animatedPie;
+  
+  var selectedGraphs = [];
+  for(var i in user_data){
+    console.log('user emotion? '+data.id+' = '+user_data[i].id_emotion);
+    if(data.id == user_data[i].id_emotion){
+      var result = [animatedPie, data]
+      selectedGraphs.push(result);
+    }
+  }
+  
+  setTimeout(function(){
+    for(var i in selectedGraphs){
+        var graph = selectedGraphs[i][0];
+        var data = selectedGraphs[i][1];
+        console.log('COLORING USER EMOTION!');
+        graph.lines[0].animate({"stroke": '#E56666'}, 500);
+        graph.texts[0].animate({"fill": '#E56666'}, 500);
+        graph.texts[1].animate({"fill": '#E56666'}, 500);
+        //$(this).addClass('sent');
+        addEmotionCard(data.name, '', data.id);
+    }
+  }, 1000);
   
   //Setup info
   $($('.emotion_container')[np]).find('.face.front .bubble_msj h2').html(data.name);
@@ -810,6 +863,7 @@ function drawSleepGraph(data, data_user){
   for(var i in data_user.days){
     if(data_user.days[i].hours > maxValue) maxValue = data_user.days[i].hours;
   }
+  maxValue = Math.ceil(maxValue);
   
   var adapter = new SleepAdapter();
   var result = adapter.getParameters(data, data_user, 684, maxValue);
@@ -845,6 +899,14 @@ function drawSleepGraph(data, data_user){
   
   $('#step_fourteen .bloq.left .number_stat h2').html(pad(data.avg_hours,2));
   $('#step_fourteen .bloq.right .number_stat h2').html(pad(data_user.avg_hours,2));
+}
+
+function loadNewBmi(){
+  $.getJSON( _api_urls[_api_env].bmi, function( data ) {
+    $('.bmi_values .man .value').html(data.global_data.men.value);
+    $('.bmi_values .woman .value').html(data.global_data.women.value);
+    $('.your_bmi h2').html(data.user_data.value);
+  });
 }
 
 window.onload = function () {
@@ -920,13 +982,15 @@ window.onload = function () {
     }
   });
   
-  $.getJSON( _api_urls[_api_env].cronical_conditions_top5, function( data ) {
-    console.log(data);
-    for(var i in data){
-      console.log(i);
-      var num = parseInt(i)+1;
-      drawCronicalConditionsGraph(data[i], num);
-    }
+  $.getJSON( _api_urls[_api_env].cronical_conditions_user, function( user_data ) {
+    $.getJSON( _api_urls[_api_env].cronical_conditions_top5, function( data ) {
+      console.log(data);
+      for(var i in data){
+        console.log(i);
+        var num = parseInt(i)+1;
+        drawCronicalConditionsGraph(data[i], num, user_data);
+      }
+    });
   });
   
   $.getJSON( _api_urls[_api_env].cronical_conditions_list, function( data ) {
@@ -934,10 +998,16 @@ window.onload = function () {
     setupAddCronicals(data);
   });
   
-  $.getJSON( _api_urls[_api_env].complains_top5, function( data ) {
-    for(var i in data){
-      var num = parseInt(i)+1;
-      drawComplainsTop5Item(data[i], num);
+  $.getJSON( _api_urls[_api_env].complains_user, function( user_data ) {
+    $.getJSON( _api_urls[_api_env].complains_top5, function( data ) {
+      for(var i in data){
+        var num = parseInt(i)+1;
+        drawComplainsTop5Item(data[i], num);
+      }
+    });
+    
+    for(var j in user_data){
+      addNewComplain(user_data[j].id, user_data[j].name, user_data);
     }
   });
   
@@ -957,12 +1027,15 @@ window.onload = function () {
     });
   });
   
-  $.getJSON( _api_urls[_api_env].emotions_top5, function( data ) {
-    console.log(data);
-    for(var i in data){
-      var num = parseInt(i)+1;
-      drawEmotionsGraph(data[i], num);
-    }
+  $.getJSON( _api_urls[_api_env].emotions_user, function( user_data ) {
+    //user_data = [user_data];
+    $.getJSON( _api_urls[_api_env].emotions_top5, function( data ) {
+      console.log(data);
+      for(var i in data){
+        var num = parseInt(i)+1;
+        drawEmotionsGraph(data[i], num, user_data);
+      }
+    });
   });
   
   $.getJSON( _api_urls[_api_env].emotions_list, function( data ) {
@@ -1035,7 +1108,7 @@ $(document).ready(function(){
       url: _api_urls[_api_env].weight,
       data: { unit: 'Lbs', value: $("#weight_slider").slider("value") },
       success: function(data){
-        
+        loadNewBmi();
       }
     });
   });
@@ -1047,7 +1120,7 @@ $(document).ready(function(){
       url: _api_urls[_api_env].height,
       data: { unit: 'Ft', value: $("#height_slider").slider("value") },
       success: function(data){
-        
+        loadNewBmi();
       }
     });
   });

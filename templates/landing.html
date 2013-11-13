@@ -44,11 +44,14 @@
 
 {% include "landing_inc/slogan.html" %}
 
-<script src="/static/js/jquery-2.0.3.min.js"></script>
 
-<script src="/static/js/plugins.js"></script>
+<script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-migrate-1.2.0.min.js"></script>
 
-<script src="/static/js/jquery.scrollSections.js"></script>
+
+<script type="text/javascript" src="/static/js/plugins.js"></script>
+
+<script type="text/javascript" src="/static/js/jquery.scrollSections.js"></script>
 
 <script type="text/javascript" src="/static/js/flexslider.js" ></script>
 	
@@ -235,7 +238,6 @@ function move_slider() {
 			e.preventDefault();
 			
 			var este = $( this ).attr( 'data-scroll' ) ;
-			
 			topthis = $( '#'+este )
 	   		var scrollTop = $(window).scrollTop(),
 	        elementOffset = topthis.offset().top,
@@ -262,7 +264,6 @@ function move_slider() {
 				animationLoop: true,
 				start: function(slider) {
 				//myVideoback.play();
-				 	console.log("Working?");
 					video_slide = slider.currentSlide;
 					 ///myVideo1.pause();
 
@@ -360,8 +361,8 @@ function move_slider() {
 	
         </script>
 
+<script type="text/javascript"  src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
-<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
 </body>
 
 {% endblock %}

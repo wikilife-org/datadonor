@@ -39,6 +39,7 @@ class BodymediaBackend(OAuthBackend):
         Bodymedia doesn't provide user data, it must be requested to its API:
             https://wiki.bodymedia.com/display/API/API-Get-User-Info
         """
+        response['id'] = response['access_token']
         return response['id']
 
     def get_user_details(self, response):
@@ -73,12 +74,11 @@ class BodymediaAuth(ConsumerBasedOAuth, PhysicalBackend):
         token.username = params.get('username', [None])[0]
         return token
 
+
     def user_data(self, access_token, *args, **kwargs):
         """Loads user data from service"""
         return {
-            'id': access_token.encoded_user_id,
-            'username': access_token.username,
-            'fullname': access_token.fullname,
+            'token': access_token
         }
         
     def oauth_authorization_request(self, token):

@@ -97,10 +97,21 @@ StickyHeader.prototype.checkStickyness = function(){
 	
 }
 
+
 StickyHeader.prototype.updateNav = function(){
+	
 	var activate_class = $('.sticky.collapsed').last().data('step_nav');
 	$('.nav_steps .nav a').parent().removeClass("active");
 	$('.'+activate_class).parent().addClass('active');
+		    	
+    var anchorVal = $('.'+activate_class).attr('href');
+    
+    if(typeof(anchorVal)=="undefined"){
+    	location.hash = "#";
+    }else{
+    	location.hash = anchorVal;
+    }
+    
 }
 
 // !init crea una isntancia de por cada StickyHeader .sticky
@@ -112,9 +123,20 @@ $(function() {
 		new StickyHeader(item_id,i);
 		i++;
 	})
+	
+	var url_actual = location.href; 
+	var url_array = url_actual.split('#'); 
+	var valorUrl = url_array[1]
+	
+	setTimeout(function () {
+		$('.nav li a.'+ valorUrl).trigger('click');
+	}, 1500)
+	
 	$(window).scroll(function(){
 		stickyListeners.broadcast('onScrollUpdate');
 	});
+	
+	
 	
 })
 

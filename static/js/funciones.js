@@ -38,12 +38,13 @@ $(document).ready(function () {
         var offseeleven = $('#step_eleven').offset().top - 150;
 	}
 	// SECTOR FIXED NAV
-	
+		
 	// SCROLL SOLO
 	$('.nav_steps a').click(function (event) {
+		
 		event.preventDefault();
 		
-		var idClick = $('#step_five').attr('data-scroll');
+		$('body,html').stop(true,true);
 		
 		if ($(this).hasClass('nav_one')) {
 			$('body,html').animate({
@@ -133,6 +134,14 @@ $(document).ready(function () {
 	   	});
 	  }
 	);
+	
+	$("#trigger_social li").click(function (event) {
+		event.preventDefault();
+		if ($(this).hasClass('last')) {} else {
+			var url = $(this).find('a').attr('href');
+			window.open(url, '_blank');
+		}
+	});
 	// SHARE SOCIAL
 	
 	// EMAIL SHARE POP-UP
@@ -180,8 +189,6 @@ $(document).ready(function () {
 
 	// Activar navegacion
 	
-	$('.social_icons .boton.next').hide();
-	
 	var carOne = $('#carousel_one .overflow_icons ul').width();
 	var carTwo = $('#carousel_two .overflow_icons ul').width();
 	var carThree = $('#carousel_three .overflow_icons ul').width();
@@ -190,93 +197,101 @@ $(document).ready(function () {
 	
 	if (carOne <= 930) {
 		$('#carousel_one a.boton').hide();
+		$('#carousel_one').addClass('inactive');
 	} 
 	if (carTwo <= 930) {
 		$('#carousel_two a.boton').hide();
+		$('#carousel_two').addClass('inactive');
 	} 
 	if (carThree <= 930) {
 		$('#carousel_three a.boton').hide();
+		$('#carousel_three').addClass('inactive');
 	} 
 	if (carFour <= 930) {
 		$('#carousel_four a.boton').hide();
+		$('#carousel_four').addClass('inactive');
 	} 
 	if (carFive <= 930) {
 		$('#carousel_five a.boton').hide();
+		$('#carousel_five').addClass('inactive');
 	} 
 	
 	// funciones que generan movimiento
 	
-	function $nextNetwork() {
+	$('.social_icons .boton.prev').hide();
+	
+	$('.social_icons .boton.prev').hide();
+	
 		
-		// Data slider
-		var nu_pos = $(this).parent().find('.overflow_icons').attr('data-position');
-		nu_pos--;
-		
-		// Overflow size
-		var visibleArea = $(this).parent().find('.overflow_icons').width();
-		var overflowWidth = $(this).parent().find('.overflow_icons').find('ul').width();
-		var hiddenOverflow = overflowWidth - visibleArea;
-		var leftMove = hiddenOverflow / 2;
-		
-		// Navegacion off
-		var $prevCarousel = $(this).parent().find('.boton.prev');
-		var $nextCarousel = $(this).parent().find('.boton.next');
-		
-		// Move element
-		$nuevaPosicion = $(this).parent().find('.overflow_icons').find('ul');
-		
-		if (overflowWidth < visibleArea) {
-			nu_pos = 0;
-		} else if (nu_pos <= 0 ) {
-			nu_pos = 0;
-			$(this).parent().find('.overflow_icons').attr('data-position',0);
-			$nuevaPosicion.stop(true,true);
-			$nuevaPosicion.animate({left:'0px'},400);
-			$nextCarousel.hide();
-		} else {
-			$nuevaPosicion.stop(true,true);
-			$nuevaPosicion.animate({left:'-='+leftMove+'px'},400);
-			$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
-			$prevCarousel.show();
+		function $nextNetwork() {
+			
+			// Data slider
+			var nu_pos = $(this).parent().find('.overflow_icons').attr('data-position');
+			nu_pos++;
+			
+			// Overflow size
+			var visibleArea = $(this).parent().find('.overflow_icons').width();
+			var overflowWidth = $(this).parent().find('.overflow_icons').find('ul').width();
+			var hiddenOverflow = overflowWidth - visibleArea;
+			var leftMove = hiddenOverflow / 2;
+			
+			var $prevCarousel = $(this).parent().find('.boton.prev');
+			var $nextCarousel = $(this).parent().find('.boton.next');
+			
+			// Move element
+			$nuevaPosicion = $(this).parent().find('.overflow_icons').find('ul');
+	
+			if (overflowWidth < visibleArea) {
+				nu_pos = 0;
+			} else if (nu_pos >= 2 ) {
+				nu_pos = 2;
+				$(this).parent().find('.overflow_icons').attr('data-position',2);
+				$nuevaPosicion.stop(true,true);
+				$nuevaPosicion.animate({left: -hiddenOverflow+'px'},400);
+				$nextCarousel.hide();
+			} else {
+				$nuevaPosicion.stop(true,true);
+				$nuevaPosicion.animate({left:'-='+leftMove+'px'},400);
+				$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
+				$prevCarousel.show();
+			}
+			
 		}
 		
-	}
-	
-	function $prevNetwork() {
-	
-		// Data slider
-		var nu_pos = $(this).parent().find('.overflow_icons').attr('data-position');
-		nu_pos++;
+		function $prevNetwork() {
 		
-		// Overflow size
-		var visibleArea = $(this).parent().find('.overflow_icons').width();
-		var overflowWidth = $(this).parent().find('.overflow_icons').find('ul').width();
-		var hiddenOverflow = overflowWidth - visibleArea;
-		var leftMove = hiddenOverflow / 2;
-		
-		// Navegacion off
-		var $prevCarousel = $(this).parent().find('.boton.prev');
-		var $nextCarousel = $(this).parent().find('.boton.next');
-		
-		// Move element
-		$nuevaPosicion = $(this).parent().find('.overflow_icons').find('ul');
-		
-		if (overflowWidth < visibleArea) {
-			nu_pos = 0;
-		} else if (nu_pos >= 2 ) {
-			nu_pos = 2;
-			$(this).parent().find('.overflow_icons').attr('data-position',2);
-			$nuevaPosicion.stop(true,true);
-			$nuevaPosicion.animate({left: hiddenOverflow+'px'},400);
-			$prevCarousel.hide();
-		} else {
-			$nuevaPosicion.stop(true,true);
-			$nuevaPosicion.animate({left:'+='+leftMove+'px'},400);
-			$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
-			$nextCarousel.show();
+			// Data slider
+			var nu_pos = $(this).parent().find('.overflow_icons').attr('data-position');
+			nu_pos--;
+			
+			// Overflow size
+			var visibleArea = $(this).parent().find('.overflow_icons').width();
+			var overflowWidth = $(this).parent().find('.overflow_icons').find('ul').width();
+			var hiddenOverflow = overflowWidth - visibleArea;
+			var leftMove = hiddenOverflow / 2;
+			
+			var $prevCarousel = $(this).parent().find('.boton.prev');
+			var $nextCarousel = $(this).parent().find('.boton.next');
+			
+			// Move element
+			$nuevaPosicion = $(this).parent().find('.overflow_icons').find('ul');
+			
+			if (overflowWidth < visibleArea) {
+				nu_pos = 0;
+			} else if (nu_pos <= 0 ) {
+				nu_pos = 0;
+				$(this).parent().find('.overflow_icons').attr('data-position',0);
+				$nuevaPosicion.stop(true,true);
+				$nuevaPosicion.animate({left:'0px'},400);
+				$prevCarousel.hide();
+			} else {
+				$nuevaPosicion.stop(true,true);
+				$nuevaPosicion.animate({left:'+='+leftMove+'px'},400);
+				$(this).parent().find('.overflow_icons').attr('data-position',nu_pos);
+				$nextCarousel.show();
+			}
+			
 		}
-		
-	}
 	
 	// MOVIMIENTO
 	
@@ -431,6 +446,13 @@ $(document).ready(function () {
 		   });
 	   
 	   // STEP 16
+	   
+	   // TABS YOU REMOVE
+	   $('.cards .you_cards ul li .close_tab').click(function (event) {
+	   	event.preventDefault();
+	   });
+	   // TABS YOU REMOVE
+	    
 	
 	//DORESIZE
 	doResize();

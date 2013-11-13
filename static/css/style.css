@@ -1636,6 +1636,67 @@ border-radius: 125px;
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
+
+
+
+
+/*popup*/
+
+#redes-pop
+{
+	float:right;
+	margin:20px;
+}
+#redes-pop li
+{
+	float:left;
+	margin-right:5px;
+	margin-top:27px;
+	height:36px;
+	width:36px;
+}
+#redes-pop li a
+{
+	//border:3px solid #5b6d7f;
+	float:left;
+	height:30px;
+	width:30px;
+	
+	-webkit-border-radius: 125px;
+-moz-border-radius: 125px;
+border-radius: 125px;
+
+-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-ms-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+#redes-pop li.facebook a
+{
+	background:url(/static/img/facebook-pop.png) no-repeat;
+}
+
+
+#redes-pop li.twitter a
+{
+	background:url(/static/img/twitter-pop.png) no-repeat;
+}
+#redes-pop li.mail a
+{
+	background:url(/static/img/mail-footer.png) no-repeat;
+}
+#redes-pop li a:hover
+{
+	background-color:#fff;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-ms-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+
+
 /* how-to-share */
 #howtoshare
 {
