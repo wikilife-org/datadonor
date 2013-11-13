@@ -8,6 +8,8 @@ https://wiki.fitbit.com/display/API/Fitbit+Resource+Access+API
 from health.clients.base_device_client import BaseDeviceClient
 from wikilife_utils.date_utils import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
+from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
+from utils.date_util import get_days_list
 import requests
 
 FITBIT_END_POINTS = {"sleep":"/user/-/sleep/date/",
@@ -17,6 +19,24 @@ FITBIT_END_POINTS = {"sleep":"/user/-/sleep/date/",
                      "blood_pressure": "/1/user/-/bp/date/",
                      "glucose": "/1/user/-/glucose/date/",
                      }
+
+class Backend(object):
+    name = None
+    def __init__(self, name):
+        self.name = name
+
+"""
+TODO: 
+* Obtener los datos: Miles por dia en los ultimos 7 dias.
+* Hours por dia en los ultimos 7 dias
+* Steps por dia en los ultimos 7 dias.
+* Cantidad de veces por cada exercise en los ultimos 7 dias.
+* Agregarlo a pipeline.
+* Guardar en la base.
+* Generar metodos en el cliente para que se puedan usar por el proceso asincronico.
+
+
+"""
 
 class FitbitClient(BaseDeviceClient):
     PAGE_SIZE = 25
@@ -58,34 +78,23 @@ class FitbitClient(BaseDeviceClient):
         return self._get_user_activity_last_7_days("glucose")
 
     def _get_user_activity_last_7_days(self, activity_code):
-        date_to = DateUtils.get_date_utc()
-        date_from = DateUtils.add_days(date_to, -7) #2010-02-25.json
-        return self._get_user_activity(activity_code, date_from, date_to)
 
-    def _get_user_activity(self, activity_code, date_from, date_to):
+        day_list = get_days_list(7)
         result = {}
-        result["items"] = None
-        result["activity"] = activity_code
-        result["date_from"] = date_from
-        result["date_to"] = date_to
-
-        uri =  FITBIT_END_POINTS[activity_code] 
-
-        params = {}
-        params["page"] = 0 
-        params["pageSize"] = self.PAGE_SIZE 
-        params["noEarlierThan"] = DateFormatter.to_date(date_from)
-        params["noLaterThan"] = DateFormatter.to_date(date_to)
-
-        response = self._get(uri, params=params)
-        result["items"] = response["items"]
-
-        while (params["page"]+1)*self.PAGE_SIZE < response["size"]:
-            params["page"] += 1
-            response = self._get(uri, params=params)
-            result["items"].extend(response["items"])
-
+        for day in day_list:
+            result[day_formatted] = self._get_user_activity(activity_code, day)
         return result
+
+    def _get_user_activity(self, activity_code, date_from):
+        
+        day_formatted = date_from.strftime("%Y-%m-%d")
+
+        url = self._api_host + FITBIT_END_POINTS[activity_code] + "%s.json" %(day_formatted)
+        request = build_consumer_oauth_request(Backend("fitbit"),self._access_token, url)
+        response = requests.request("GET", url, headers=request.to_header())
+        return response.json()
+        
+       
 
     def _get_user_info(self):
         """
