@@ -43,62 +43,38 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 
 
 {% block content %}
-<body> 
-<section id="disclaimer" class="scrollsections">
+<body>
 
-	<div class="container-header">
-	
+  <div class="container-header">
     <header id="header" >
     
         <div id="top">
-            
+            <!-- These are the three top colored thinguies -->
             <div class="col-3 left" ></div>
-            
             <div class="col-3 center" ></div>
-            
             <div class="col-3 right" ></div>
-            
             <h1>
-            	
-                <img src="/static/img/logo.png" width="145" height="49" alt="Logo DataDonors" title="Logo DataDonors" />
-            
+                <img src="/static/img/logo_landing.png" width="145" height="49" alt="Logo DataDonors" title="DataDonors" />
             </h1>
-            
-            <div id="center-nav">
-            
-<!--                 <h2>What if we could save lives with what we do every day?</h2>
- -->                
-            </div><!-- #center-nav -->                	
-            
+            <div id="center-nav"></div>
         </div><!-- #top -->
            
-           <!-- <ul class="redes">
-          <li class="facebook"><a href="https://www.facebook.com/datadonors" title="facebook"></a></li>
-
-<li class="twitter"><a href="https://twitter.com/datadonors" title="twitter"></a></li>
-
-<li class="mail"><a href="mailto:info@datadonors.org" title="mail"></a></li>
-
-           
-           </ul> -->
-           <!-- .redes -->
-        
         <div class="bottom"></div>
         
-    </header><!-- #header -->
-		
-</div><!-- .container-header -->
-      	{% include "wizard_inc/disclaimer.html" %}
-      </section>
+    </header>
+  </div><!-- .container-header -->
+  
+<section id="disclaimer" class="scrollsections">
+
+
+  {% include "wizard_inc/disclaimer.html" %}
+</section>
       
-      <section id="whatfor" class="scrollsections claro">
-      
-      	{% include 'wizard_inc/what-for.html' %}
-      
-      </section>
+<section id="whatfor" class="scrollsections claro">
+{% include 'wizard_inc/what-for.html' %}
+</section>
       
       <script src="/static/js/jquery-2.0.3.min.js"></script>
-      <script src="/static/js/jquery.jcarousel.min.js" ></script>
       <script src="/static/js/plugins.js"></script>
       <script src="/static/js/jquery.scrollSections.js"></script>
       <script src="/static/js/flexcroll.js" ></script>
@@ -109,14 +85,18 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 
 <script type="text/javascript">
 $(document).ready(function(){
-{% if  show_wizard %}
-	$("#iagree").trigger("click");
-{% endif %}
-console.log("{{request.session.association.type}}");
-{% if request.session.association.type == "social" %}
-go_to_slide(0);
-{% endif %}
-
+    var show_wizard = "{{ show_wizard }}" == "True";
+    var assoc_type = "{{request.session.association.type}}";
+    
+    console.log("Show wizard: " + show_wizard);
+    if (show_wizard) {
+        $("section#disclaimer").hide();
+        $("#iagree").trigger("click");
+    }
+    
+    console.log("Association Type: ");
+    if (assoc_type == "social")
+        go_to_slide(0);
 });
 </script>
 

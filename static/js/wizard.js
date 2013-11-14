@@ -1,7 +1,5 @@
 var interval = 0;
 $('#slide-1').show();
-// clearInterval ( interval );
-// interval = setInterval ( "move_slider()" , 8000 );
 
 $('#slider .flexslider').flexslider({
 	animation : "slide",
@@ -37,8 +35,6 @@ $('#controles li a').click(function(event) {
 	ira = $(this).attr('data-link');
 	ira = parseFloat(ira);
 
-	// $( '#whatfor' ).addClass( 'claro' );
-
 	if ($(this).parent().hasClass('active')) {
 		$(this).addClass('active');
 	} else {
@@ -54,18 +50,7 @@ $('.slide_control').click(function(event) {
 	event.preventDefault();
 
 	ira = $(this).attr('data-link');
-
 	ira = parseFloat(ira);
-
-	// $( '#whatfor' ).addClass( 'claro' );
-
-	if (ira > 3) {
-		// $( '#whatfor' ).addClass( 'claro' );
-	} else {
-
-		// $( '#whatfor' ).removeClass( 'claro' );
-
-	}
 
 	if ($(this).parent().hasClass('active')) {
 		$(this).addClass('active');
@@ -74,23 +59,13 @@ $('.slide_control').click(function(event) {
 	}
 
 	moves_slider();
-
 	captions();
 });
 
 function go_to_slide(ira_) {
-
 	show_animation = false;
 	clearInterval(interval);
 	ira = parseFloat(ira_);
-	// $( '#whatfor' ).addClass( 'claro' );
-	if (ira > 3) {
-		// $( '#whatfor' ).addClass( 'claro' );
-	} else {
-
-		// $( '#whatfor' ).removeClass( 'claro' );
-
-	}
 
 	if ($(this).parent().hasClass('active')) {
 		$(this).addClass('active');
@@ -99,7 +74,6 @@ function go_to_slide(ira_) {
 	}
 
 	moves_slider();
-
 	captions();
 }
 
@@ -108,46 +82,11 @@ function captions() {
 
 	$('#controles #thumb-' + ira).addClass('active');
 
-	if (ira > 2) {
-
-		// $( '#whatfor' ).addClass( 'claro' );
-
-		// clearInterval ( interval );
-	} else {
-
-		// $( '#whatfor' ).removeClass( 'claro' );
-
-		// clearInterval ( interval );
-
-		// interval = setInterval ( "move_slider()" , 8000 );
-		// $( '#progress' )
-
-		/*
-		 * $( '#progress' ).stop ( true , true ).animate ( { 'width' : ira * 80 } ,
-		 * 0 , function ( ) { $( '#progress' ).animate ( { 'width' : 240 } ,
-		 * 24000 - ira * 8000 ,"linear" ); } );
-		 */
-	}
-
 	$('#progress').stop(true, true).css({
 		'width' : progres_ancho
 	});
 
-	if (ira < 3) {
-		// $( '#progress' ).stop ( true , true ).animate ( { 'width' : ira * 80
-		// } , 0 , function ( )
-		// {
-		// $( '#progress' ).animate ( { 'width' : 240 } , 24000 - ira * 8000
-		// ,"linear" );
-		// } );
-	} else {
-		// $( '#progress' ).stop ( true , true ).css({ 'width': progres_ancho }
-		// );
-	}
-
 	$('#controles li a').each(function(i, el) {
-		// console.log( i )
-
 		if (i > ira) {
 			$(this).parent().removeClass('active');
 		} else if (i < ira) {
@@ -168,10 +107,6 @@ function moves_slider() {
 $('.inner-redes a').click(
 
 function(event) {
-
-	// event.preventDefault ( );
-
-	// $( this ).parent( ).hasClass( 'active' );
 	if ($(this).hasClass('checked')) {
 		$(this).removeClass('checked');
 	} else {
@@ -190,13 +125,6 @@ $('.back').click(function(event) {
 	if (ira == 2) {
 		clearInterval(interval);
 		interval = setInterval("move_slider()", 8000);
-//		$('#progress').stop(true, true).animate({
-//			'width' : ira * 80
-//		}, 0, function() {
-//			$('#progress').animate({
-//				'width' : 240
-//			}, 24000 - ira * 8000, "linear");
-//		});
 	}
 
 	$('#controles #thumb-' + thumb_actual).addClass('active');
@@ -208,8 +136,6 @@ $('.back').click(function(event) {
 	});
 
 	$('#controles li a').each(function(i, el) {
-		// console.log( i )
-
 		if (i > ira) {
 			$(this).parent().removeClass('active');
 		} else if (i < ira) {
@@ -242,7 +168,6 @@ $('.next').click(function(event) {
 
 function move_slider() {
 	return;
-	// alert( 'movel' )
 	ira++;
 
 	var exampleSlider = $('#slider .flexslider').data('flexslider');
@@ -264,7 +189,6 @@ $(function() {
 		navigation : true,
 		keyboard : false,
 		before : function($currentSection, $nextSection) {
-			// alert( $($currentSection).attr('id') )
 
 		},
 		after : function($currentSection, $previousSection) {
@@ -302,4 +226,27 @@ $(document).ready(function() {
 	});
 });
 
-$('#slide-5 .inner-redes').scrollable()();
+
+// This handles the carousel for the fitness trackers tab
+// 133 is the full width of a single bubble
+$('#redes-inner-left').click(function(e) {
+	e.preventDefault();
+	var panel = $('.inner-redes .container .scrollable')
+	var margin = parseInt(panel.css('margin-left')) + 133;
+	panel.stop().animate({
+		'margin-left' : margin >= 0 ? 0 : margin + "px"
+	});
+});
+
+$('#redes-inner-right').click(function(e) {
+	e.preventDefault();
+	var panel = $('.inner-redes .container .scrollable')
+	var margin = parseInt(panel.css('margin-left')) - 133;
+	panel.stop().animate({
+		'margin-left' : margin <= -399 ? -399 : margin + "px"
+	});
+});
+
+$('.learnmore').click(function(e) {
+	e.preventDefault();
+});
