@@ -39,14 +39,14 @@ def nutrition_user_nutrients_mock(request):
 
 def nutrition_nutrients(request):
 
-    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":90}, 
-                 "fat":{"title":"Fat", "key":"fat", "percentage":1},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":2},
-                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":7}}
+    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":20},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":20},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":20}}
     
     global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
                  "fat":{"title":"Fat", "key":"fat", "percentage":20},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":15},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":10},
                  "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
