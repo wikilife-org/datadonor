@@ -105,6 +105,7 @@ def auth_process(request, backend):
     # Clean any partial pipeline info before starting the process
     clean_partial_pipeline(request)
 
+
     if backend.uses_redirect:
         return HttpResponseRedirect(backend.auth_url())
     else:

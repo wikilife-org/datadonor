@@ -39,18 +39,11 @@ function Viewport() {
 			 */
 
 		});
-		/*
-		 * $("#how-to-share:in-viewport").each( function( ) { $( '#how-to-share
-		 * .flexslider' ).flexslider({slider.play()}); });
-		 */
-
 	}// end function fViewport()
 }// end function openViewoirt()
 
 function next_boton() {
 	$('.inner-redes a').click(function(event) {
-		// event.preventDefault ( );
-		// $( this ).parent( ).hasClass( 'active' );
 		if ($(this).hasClass('checked')) {
 			$(this).removeClass('checked');
 		} else {

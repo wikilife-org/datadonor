@@ -1733,3 +1733,7 @@ body .flexslider {
 a, a:visited {
     color: rgb(63, 209, 202);
 }
+
+section#whatfor {
+	margin-top: 3em;
+}
