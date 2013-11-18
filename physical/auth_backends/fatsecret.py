@@ -31,14 +31,15 @@ class FatsecretAuth(ConsumerBasedOAuth):
     AUTH_BACKEND = FatsecretBackend
     SETTINGS_KEY_NAME = 'FATSECRET_REST_API_ACCESS_KEY'
     SETTINGS_SECRET_NAME = 'FATSECRET_REST_API_SHARED_SECRET'
-    AUTHORIZATION_URL = 'http://platform.fatsecret.com/rest/server.api/oauth/authorize'
+    AUTHORIZATION_URL = 'http://www.fatsecret.com/oauth/authorize'
     #REQUEST_TOKEN_URL = 'http://platform.fatsecret.com/rest/server.api/oauth/request_token'
     REQUEST_TOKEN_URL = 'http://www.fatsecret.com/oauth/request_token'
-    ACCESS_TOKEN_URL = 'http://platform.fatsecret.com/rest/server.api/oauth/access_token'
+    ACCESS_TOKEN_URL = 'http://www.fatsecret.com/oauth/access_token'
 
     def oauth_request(self, token, url, extra_params=None):
-        extra_params["method"] = "profile.request_script_session_key"
-        params = {'oauth_callback': self.redirect_uri}
+
+        params = {'oauth_callback': self.redirect_uri,
+                  "method": "profile.request_script_session_key"}
         if extra_params:
             params.update(extra_params)
         
@@ -53,6 +54,25 @@ class FatsecretAuth(ConsumerBasedOAuth):
                                                        http_url=url,
                                                        parameters=params,
                                                        is_form_encoded=True)
+        request.sign_request(SignatureMethod_HMAC_SHA1(), consumer, token)
+        return request
+
+    def oauth_authorization_request(self, token):
+        """Generate OAuth request to authorize token."""
+        params = self.auth_extra_arguments() or {}
+        params.update(self.get_scope_argument())
+        params.update({"oauth_nonce":OAuthRequest.make_nonce()})
+        params.update({"oauth_timestamp":OAuthRequest.make_timestamp()})
+        params.update({"method": "profile.request_script_session_key"})
+        
+        request =  OAuthRequest.from_token_and_callback(
+            token=token,
+            callback=self.redirect_uri,
+            http_url=self.AUTHORIZATION_URL,
+            parameters=params
+        )
+        request.is_form_encoded = True
+        consumer = OAuthConsumer(*self.get_key_and_secret())
         request.sign_request(SignatureMethod_HMAC_SHA1(), consumer, token)
         return request
     
