@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
     'social',
+    'users',
 )
 
 LOGGING = {
@@ -150,7 +151,7 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.linkedin.LinkedinOAuth2Backend',
     'social_auth.backends.contrib.foursquare.FoursquareBackend',
     'social_auth.backends.contrib.evernote.EvernoteBackend',
-    'social_auth.backends.contrib.fitbit.FitbitBackend',
+    'physical.auth_backends.fitbit.FitbitBackend',
     'physical.auth_backends.runkeeper.RunkeeperBackend',
     'physical.auth_backends.fatsecret.FatsecretBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',
@@ -251,3 +252,10 @@ try:
     from conf_settings import *
 except:
     pass
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+    }
+}
