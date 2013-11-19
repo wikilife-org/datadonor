@@ -154,6 +154,7 @@ AUTHENTICATION_BACKENDS = (
     'physical.auth_backends.fitbit.FitbitBackend',
     'physical.auth_backends.runkeeper.RunkeeperBackend',
     'physical.auth_backends.fatsecret.FatsecretBackend',
+    'health.auth_backends.withings.WithingsBackend',
     'genomics.auth_backends.twentythreeandme.TwentyThreeAndMeBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',
     'social_auth.backends.contrib.ihealth.IhealthBackend',
@@ -206,7 +207,7 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.jawbone.jawbone_info',
     'pipeline.bodymedia.bodymedia_info',
     'pipeline.twentythreeandme.twentythreeandme_info',
-    
+    'pipeline.withings.withings_info',
     'pipeline.meta_association.association_info'
 )
 
