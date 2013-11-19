@@ -1075,6 +1075,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	border-radius: 50px;
+	display: none!important;
 }
 .step_one .centered_container .nav_steps .trigger_social ul {
 	width: 100%;
@@ -4400,6 +4401,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_seventeen .centered_container {
 	width: 1050px;
+	padding-bottom: 80px;
 }
 
 /* --- top */
@@ -4525,6 +4527,141 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li:first-child {
 	margin-top: 0px;
 }
+
+/* @end */
+
+/* @group STEP EIGHTEEN
+--------------------------------------- */
+
+.step_eighteen {
+	background-color: #FBF8F6;
+	position: relative;
+}
+.step_eighteen .centered_container {
+	width: 900px;
+	padding: 40px 0px 40px 0px;
+}
+
+/* --- top */
+.step_eighteen .centered_container .top {
+	width: 100%;
+	text-align: center;
+	background-color: red;
+	padding-bottom: 40px;
+}
+.step_eighteen .centered_container .top h2 {
+	font-family: 'Gotham-Ultra';
+	font-size: 30px;
+	line-height: 30px;
+	color: #5B6D7F;
+}
+.step_eighteen .centered_container .top p {
+	font-size: 18px;
+	color: #8D99A6;
+	font-family: 'Omnes-Semibold';
+	margin-top: 8px;
+}
+
+/* --- bottom */
+.step_eighteen .centered_container .bottom {
+	width: 100%;
+}
+.step_eighteen .centered_container .bottom .container_data {
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+	background-color: green;
+}
+.step_eighteen .centered_container .bottom .container_data .block {
+	float: left;
+	height: 200px;
+	margin-left: 30px;
+	background-color: yellow;
+}
+.step_eighteen .centered_container .bottom .container_data .block.left {
+	margin-left: 0px;
+	width: 250px;
+}
+.step_eighteen .centered_container .bottom .container_data .block.right {
+	width: 620px;
+}
+
+/* left */
+.step_eighteen .centered_container .bottom .container_data .block.left .icon {
+	width: 100%;
+	height: 107px;
+	margin-bottom: 0px;
+	background-position: 20px bottom;
+	background-repeat: no-repeat;
+}
+.step_eighteen .centered_container .bottom .container_data .block.left .icon.alchol {
+	background-image: url(../img/step_18/ico_1.png);
+}
+.step_eighteen .centered_container .bottom .container_data .block.left .icon.pills {
+	background-image: url(../img/step_18/ico_2.png);
+	height: 53px;
+}
+.step_eighteen .centered_container .bottom .container_data .block.left .text_sector {
+	width: 100%;
+}
+.step_eighteen .centered_container .bottom .container_data .block.left .text_sector p {
+	font-family: 'Omnes-Semibold';
+	font-size: 24px;
+	color: #5B6D7F;
+	line-height: 30px;
+}
+.step_eighteen .centered_container .bottom .container_data .block.left .text_sector p strong {
+	font-family: 'Omnes-bold';
+	font-size: 26px;
+}
+
+/* right */
+.step_eighteen .centered_container .bottom .container_data .block.right .graph_container {
+	width: 750px;
+	height: 60px;
+	margin-top: 10px;
+	background-color: red;
+}
+.step_eighteen .centered_container .bottom .container_data .block.right .graph_container:first-child {
+	margin-top: 0px;
+}
+.step_eighteen .centered_container .bottom .container_data .block.right .graph_container > p {
+	width: 100%;
+	color: #999999;
+	margin-bottom: 3px;
+	font-size: 18px;
+	font-family: 'Omnes-bold';
+	float: left;
+}
+.step_eighteen .centered_container .bottom .container_data .block.right .graph_container .porcent_data {
+	height: 40px;
+	width: 620px;
+	-moz-border-radius-topright: 30px;
+	-webkit-border-top-right-radius: 30px;
+	border-top-right-radius: 30px;
+	-moz-border-radius-bottomright: 30px;
+	-webkit-border-bottom-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	-webkit-transition: width 0.4s;
+	-moz-transition: width 0.4s;
+	transition: width 0.4s;
+	background-color: orange;
+	position: relative;
+	float: left;
+}
+.step_eighteen .centered_container .bottom .container_data .block.right .graph_container .porcent_text {
+	font-size: 55px;
+	height: 40px;
+	font-family: 'Omnes-Semibold';
+	background-color: red;
+	float: left;
+	position: relative;
+	top: -6px;
+	margin-left: 10px;
+}
+.step_eighteen .centered_container .bottom .container_data .block.right .graph_container .porcent_text strong {
+	font-size: 18px;
+}
+
 
 /* @end */
 
