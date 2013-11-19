@@ -117,7 +117,7 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
     'social',
-    'users',
+
 )
 
 LOGGING = {

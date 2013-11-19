@@ -9,7 +9,7 @@ class GlobalMoodLastWeek(models.Model):
 
 
 class UserMoodLastWeek(models.Model):
-    user=models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
+    user=models.OneToOneField(settings.AUTH_USER_MODEL, related_name='mood_week')
     avg_mood=models.IntegerField(null=False)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
@@ -26,7 +26,7 @@ class GlobalSleepDistributionLastWeek(models.Model):
 
 
 class UserSleepDistributionLastWeek(models.Model):
-    user=models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
+    user=models.OneToOneField(settings.AUTH_USER_MODEL, related_name='sleep_week')
     sun=models.FloatField(null=False, default=0)
     mon=models.FloatField(null=False, default=0)
     tue=models.FloatField(null=False, default=0)
