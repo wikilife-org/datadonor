@@ -20,7 +20,7 @@ class GlobalPhysicalActivity(models.Model):
 
 
 class UserPhysicalActivity(models.Model):
-    user=models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
+    user=models.OneToOneField(settings.AUTH_USER_MODEL, related_name='physical_activity')
     act_wl_id=models.IntegerField(null=False)
     tpw=models.FloatField(null=False)
     update_time = models.DateTimeField("last updated on", auto_now=True)
@@ -40,7 +40,7 @@ class GlobalDistributionLastWeek(models.Model):
 
 
 class UserDistributionLastWeek(models.Model):
-    user=models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
+    user=models.OneToOneField(settings.AUTH_USER_MODEL, related_name='physical_distribution')
     act_code=models.CharField(max_length=16, null=False)
     sun=models.FloatField(null=False, default=0)
     mon=models.FloatField(null=False, default=0)
