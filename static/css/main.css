@@ -3554,7 +3554,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	background-color: #F7F4F0;
 }
 .step_thirteen .centered_container .bottom ul li .graph_type .mask {
-	width: 124px;
+	width: 125px;
 	height: 170px;
 	background-image: url(../img/step_13/mask_graph.png);
 	background-position: center top;
@@ -4632,7 +4632,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	color: #999999;
 	margin-bottom: 3px;
 	font-size: 18px;
-	font-family: 'Omnes-bold';
+	font-family: 'Omnes-Semibold';
 	float: left;
 }
 .step_eighteen .centered_container .bottom .container_data .block.right .graph_container .porcent_data {
