@@ -2,8 +2,11 @@
 
 from django.http.response import HttpResponse
 from django.utils import simplejson
+from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 
+ONE_MINUTE = 60
+ONE_HOUR = ONE_MINUTE*60
 
 #Cronical Conditions
 
@@ -121,14 +124,17 @@ def complaints_by_user_mock(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
+@cache_page(ONE_HOUR)
 def complaints_ranking_global(request):
     data = []
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+@cache_page(ONE_HOUR)
 def complaints_list(request):
     data = []
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+@cache_page(ONE_MINUTE)
 @csrf_exempt
 def complaints_by_user(request):
     data = []
