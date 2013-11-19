@@ -1,59 +1,21 @@
 import requests
-# Get the token using a POST request and a code
 
-import settings
-
-SCOPE = "basic names rs53576 rs1815739 rs6152 rs1800497 rs1805007 rs9939609 rs662799 rs7495174 rs7903146 rs12255372 rs1799971 rs17822931 rs4680 rs1333049 rs1801133 rs1051730 rs3750344 rs4988235"
 
 # leave these alone
 BASE_URL = "https://api.23andme.com/1/"
-LOGIN_URL = "https://api.23andme.com/authorize/?redirect_uri=%s&response_type=code&client_id=%s&scope=%s" % (settings.CALLBACK_URL, settings.CLIENT_ID, SCOPE)
-OAUTH_KEY = "access_token"
 
-class OAuthClient(object):
-    def __init__(self, access_token=None):
-        self.access_token = access_token
 
-    def get_token(self, authorization_code):
-        parameters = {
-            'client_id': settings.CLIENT_ID,
-            'client_secret': settings.CLIENT_SECRET,
-            'grant_type': 'authorization_code',
-            'code': authorization_code, # the authorization code obtained above
-            'redirect_uri': settings.CALLBACK_URL,
-            'scope': SCOPE,
-        }
-        response = requests.post(
-            "https://api.23andme.com/token/",
-            data = parameters
-        )
 
-        print "response.json: %s" % response.json()
-        if response.status_code == 200:
-            return (response.json()['access_token'], response.json()['refresh_token'])
-        else:
-            response.raise_for_status()
+class TwentyThreeAndMeClient(BaseDeviceClient):
+    PAGE_SIZE = 25
 
-    def refresh_token(self, refresh_token):
-        parameters = {
-            'client_id': settings.CLIENT_ID,
-            'client_secret': settings.CLIENT_SECRET,
-            'grant_type': 'refresh_token',
-            'refresh_token': refresh_token,
-            'redirect_uri': settings.CALLBACK_URL,
-            'scope': SCOPE,
-        }
-        response = requests.post(
-            "https://api.23andme.com/token/",
-            data = parameters
-        )
+    _api_host = None
+    _access_token = None
+    _user_info = None
 
-        print "response.json: %s" % response.json()
-        if response.status_code == 200:
-            self.access_token = response.json()['access_token']
-            return (response.json()['access_token'], response.json()['refresh_token'])
-        else:
-            response.raise_for_status()
+    def __init__(self, api_host, access_token):
+        self._api_host = api_host
+        self._access_token = access_token
 
     def _get_resource(self, resource):
         if self.access_token is None:
@@ -86,3 +48,4 @@ class OAuthClient(object):
 
     def get_genotype(self, locations):
         return self._get_resource("genotypes/?locations=%s" % locations)
+ 

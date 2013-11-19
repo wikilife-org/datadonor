@@ -15,7 +15,7 @@ ROOT_PATH = abspath(dirname(__file__))
 PROJECT_NAME = basename(ROOT_PATH)
 
 ADMINS = (
-     ('Joaquin Quintas', 'joako84@gmail.com'),
+     ('Joaquin Quintas', 'jquintas@wikilife.org'),
 )
 
 import os
@@ -249,6 +249,8 @@ GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email',
                        ]
 
 LINKEDIN_SCOPE = ["r_fullprofile", "r_emailaddress", "r_network", "r_contactinfo", "r_basicprofile"]
+
+TWENTYTHREEANDME_SCOPE = ["basic", "genomes", "haplogroups", "ancestry", "relatives", "analyses", "profile:read", "introduction:read", "names", "rs53576", "rs1815739", "rs6152", "rs1800497", "rs1805007", "rs9939609", "rs662799", "rs7495174", "rs7903146", "rs12255372", "rs1799971" ,"rs17822931" ,"rs4680", "rs1333049", "rs1801133" ,"rs1051730" ,"rs3750344", "rs4988235"]
 
 try:
     from conf_settings import *
