@@ -36,6 +36,7 @@ $(document).ready(function () {
         var offsetfive = $('#step_five').offset().top - 150;
         var offseteight = $('#step_eight').offset().top - 150;
         var offseeleven = $('#step_eleven').offset().top - 150;
+        var offseseventeen = $('#step_seventeen').offset().top - 150;
 	}
 	// SECTOR FIXED NAV
 		
@@ -70,6 +71,13 @@ $(document).ready(function () {
 		if ($(this).hasClass('nav_four')) {
 			$('body,html').animate({
 				scrollTop: offseeleven
+			}, 1000);
+			return false;
+		}
+		
+		if ($(this).hasClass('nav_five')) {
+			$('body,html').animate({
+				scrollTop: offseseventeen
 			}, 1000);
 			return false;
 		}
