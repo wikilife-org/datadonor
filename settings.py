@@ -150,10 +150,11 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.google.GoogleOAuth2Backend',
     'social_auth.backends.contrib.linkedin.LinkedinOAuth2Backend',
     'social_auth.backends.contrib.foursquare.FoursquareBackend',
-    'social_auth.backends.contrib.evernote.EvernoteBackend',
+#    'social_auth.backends.contrib.evernote.EvernoteBackend',
     'physical.auth_backends.fitbit.FitbitBackend',
     'physical.auth_backends.runkeeper.RunkeeperBackend',
     'physical.auth_backends.fatsecret.FatsecretBackend',
+    'genomics.auth_backends.twentythreeandme.TwentyThreeAndMeBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',
     'social_auth.backends.contrib.ihealth.IhealthBackend',
     'social_auth.backends.contrib.jawbone.JawboneBackend',
@@ -204,6 +205,7 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.ihealth.ihealth_info',
     'pipeline.jawbone.jawbone_info',
     'pipeline.bodymedia.bodymedia_info',
+    'pipeline.twentythreeandme.twentythreeandme_info',
     
     'pipeline.meta_association.association_info'
 )

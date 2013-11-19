@@ -1,4 +1,4 @@
-from social_auth.backends import SocialBackend, PhysicalBackend
+from social_auth.backends import SocialBackend, PhysicalBackend, NutritionBackend, GenomicsBackend, HealthBackend
 
 def association_info(request, *args, **kwargs):
     backend = kwargs.get('backend')

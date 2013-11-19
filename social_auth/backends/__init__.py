@@ -189,10 +189,19 @@ class SocialAuthBackend(object):
         """
         return UserSocialAuth.get_user(user_id)
 
-class SocialBackend():
+class SocialBackend(object):
     pass
 
-class PhysicalBackend():
+class PhysicalBackend(object):
+    pass
+
+class GenomicsBackend(object):
+    pass
+
+class NutritionBackend(object):
+    pass
+
+class HealthBackend(object):
     pass
 
 class OAuthBackend(SocialAuthBackend):
