@@ -82,6 +82,7 @@ a:hover {
 	width: 100%;
 	min-width: 1190px;
 	overflow: hidden;
+	zoom: 85%;
 }
 
 /* --- full container */
@@ -3553,7 +3554,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	background-color: #F7F4F0;
 }
 .step_thirteen .centered_container .bottom ul li .graph_type .mask {
-	width: 125px;
+	width: 124px;
 	height: 170px;
 	background-image: url(../img/step_13/mask_graph.png);
 	background-position: center top;
@@ -3787,7 +3788,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_fifteen .centered_container {
 	width: 1000px;
 	padding: 40px 0px 0px 0px;
-	height: 1240px;
+	height: 1164px;
 }
 
 /* --- top */
