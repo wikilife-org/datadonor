@@ -637,6 +637,20 @@ a:hover {
 	background-position: -700px 3px;
 }
 
+/* --- GENETICS NETWORKS */
+.big_social_login .social_icons ul li a.andme {
+	background-image: url(../img/big_social_nav/genetics_network.png);
+	background-position: center bottom;
+}
+.big_social_login .social_icons ul li a.andme:hover {
+	background-image: url(../img/big_social_nav/genetics_network.png);
+	background-position: center 2px;
+}
+.big_social_login .social_icons ul li.active a.andme {
+	background-image: url(../img/big_social_nav/genetics_network.png);
+	background-position: center 2px;
+}
+
 /* @end */
 
 /* @group EMAIL SHARE
@@ -4386,7 +4400,6 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_seventeen .centered_container {
 	width: 1050px;
-	background-color: gray;
 }
 
 /* --- top */
@@ -4420,7 +4433,6 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_seventeen .centered_container .bottom .container_graphs {
 	width: 100%;
 	padding: 30px 0px 0px 0px;
-	background-color: blue;
 	text-align: center;
 }
 .step_seventeen .centered_container .bottom .container_graphs .divisor {
@@ -4433,7 +4445,6 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_seventeen .centered_container .bottom .container_graphs .graph {
 	width: 310px;
 	height: 430px;
-	background-color: green;
 	display: inline-table;
 	margin: 0px 15px 30px 15px;
 	position: relative;
@@ -4441,51 +4452,69 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_seventeen .centered_container .bottom .container_graphs .graph .top_graph {
 	width: 310px;
 	height: 306px;
-	background-color: orange;
 }
 .step_seventeen .centered_container .bottom .container_graphs .graph .info_graph {
 	width: 310px;
 	height: auto;
 	position: absolute;
 	bottom: 0px;
-	background-color: yellow;
 }
 .step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul {
 	width: 100%;
 	text-align: left;
 }
 .step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li {
-	background-color: violet;
-	margin-top: 5px;
-	margin-left: 55px;
+	margin-top: -5px;
+	margin-left: 30px;
 	position: relative;
 }
-.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li span {
+.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li span.porcent {
 	font-family: 'Omnes-Semibold';
 	width: 130px;
 	text-align: right;
-	background-color: brown;
 	display: inline-block;
 	margin-left: -30px;
 }
-.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li.color_one span {
+.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li.color_one span.porcent {
 	font-size: 55px;
 	color: #E56666;
 }
-.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li.color_two span {
+.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li.color_two span.porcent {
 	font-size: 35px;
 	color: #7737C7;
 }
-.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li span strong {
+.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li span.porcent strong {
 	font-size: 18px;
 }
 .step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li p {
 	font-size: 18px;
 	color: #999999;
 	font-family: 'Omnes-Semibold';
-	width: 190px;
 	position: absolute;
 	left: 108px;
+	white-space: nowrap;
+}
+.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li p span {
+	position: absolute;
+	line-height: 49px;
+	height: 43px;
+	color: #fff;
+	padding: 0px 46px 0px 14px;
+	right: -100px;
+	display: inline-block;
+	background-image: url(../img/step_17/popuser.png);
+	background-repeat: no-repeat;
+}
+.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li.color_one p span {
+	background-position: left;
+	top: -14px;
+	z-index: 11;
+}
+.step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li.color_two p span {
+	background-position: -121px center;
+	right: -90px;
+	top: -13px;
+	z-index: 9;
 }
 .step_seventeen .centered_container .bottom .container_graphs .graph .info_graph ul li.color_one p {
 	bottom: 5px;
