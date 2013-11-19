@@ -117,14 +117,7 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
     'social',
-    'users',
-<<<<<<< HEAD
-    'health',
-    'physical',
-    'nutrition',
-    'genomics'
-=======
->>>>>>> 72cdc3022db6f8adbd702aa054ba2c01b8db04a6
+
 )
 
 LOGGING = {
