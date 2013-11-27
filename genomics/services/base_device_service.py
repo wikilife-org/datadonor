@@ -1,8 +1,10 @@
 # coding=utf-8
 
 from abc import abstractmethod
+from wikilife.services.base_source_service import BaseSourceService
 
-class BaseDeviceService(object):
+
+class BaseDeviceService(BaseSourceService):
 
     _wl_user_client = None
     _wl_logs_client = None

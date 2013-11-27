@@ -1,9 +1,9 @@
 
 import requests
-from physical.util.physical_service_locator import PhysicalServiceLocator
+#from physical.util.physical_service_locator import PhysicalServiceLocator
 
 
-def runkeeper_info(request, *args, **kwargs):
+def fatsecret_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
     social_user = kwargs.get('social_user')
     result = {}

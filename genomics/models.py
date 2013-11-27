@@ -4,16 +4,16 @@ from django.db import models
 
 
 class UserTrait(models.Model):
-    user= models.OneToOneField(settings.AUTH_USER_MODEL, related_name='traits')
-    report_id = models.CharField()
-    value = models.CharField()
+    user= models.ForeignKey(settings.AUTH_USER_MODEL, related_name='traits')
+    report_id = models.CharField(max_length=255)
+    value = models.CharField(max_length=255)
 
 class UserDrugResponse(models.Model):
-    user= models.OneToOneField(settings.AUTH_USER_MODEL, related_name='drug_reponse')
-    report_id = models.CharField()
-    value = models.CharField()
+    user= models.ForeignKey(settings.AUTH_USER_MODEL, related_name='drug_reponse')
+    report_id = models.CharField(max_length=255)
+    value = models.CharField(max_length=255)
 
 class UserRisk(models.Model):
-    user= models.OneToOneField(settings.AUTH_USER_MODEL, related_name='risks')
-    report_id = models.CharField()
-    value = models.CharField()
+    user= models.ForeignKey(settings.AUTH_USER_MODEL, related_name='risks')
+    report_id = models.CharField(max_length=255)
+    value = models.CharField(max_length=255)

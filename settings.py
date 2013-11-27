@@ -117,6 +117,9 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
     'social',
+    'genomics',
+    'users'
+    
 
 )
 
@@ -235,7 +238,8 @@ PROFILE_SOURCES_PRIORITY = {
     "fitbit": 2, 
     "fatsecret": 3, 
     "facebook": 4, 
-    "twitter": 5 
+    "twitter": 5 ,
+    "twentythreeandme":6
 }
 
 #FACEBOOK CONFIG

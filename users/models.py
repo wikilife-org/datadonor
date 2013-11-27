@@ -7,6 +7,8 @@ from django.db import models
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
     account_id = models.CharField(max_length=255, unique=True, null=False)
+    first_name = models.CharField(max_length=255, blank=True, null=True)
+    last_name = models.CharField(max_length=255, blank=True, null=True)
     email = models.CharField(max_length=255, blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
@@ -22,6 +24,8 @@ class Profile(models.Model):
     region = models.CharField(max_length=255, null=True)
     country = models.CharField(max_length=255, null=True)
     
+    first_name_source = models.CharField(max_length=255, blank=True, null=True)
+    last_name_source = models.CharField(max_length=255, blank=True, null=True)
     email_source = models.CharField(max_length=64, null=True)
     age_source = models.CharField(max_length=64, null=True)
     date_of_birth_source = models.CharField(max_length=64, null=True)
