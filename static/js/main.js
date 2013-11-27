@@ -935,6 +935,102 @@ function loadNewBmi(){
   });
 }
 
+function drawGenomicsTraits(data, user_data){
+  $('#genomic_traits_container').html('');
+  var c = 0;
+  itemsHtml = '';
+  var finalData = [];
+  
+  for(var i in data){
+    var itemHtml = $('#genomics_traits_graph_template').html();
+    itemHtml = itemHtml.replace(/\[\[canvas_id\]\]/g, data[i].id);
+    itemHtml = itemHtml.replace(/\[\[center_text\]\]/g, data[i].name);
+    
+    for(var j in user_data){
+      if(user_data[j].id == data[i].id){
+        if(user_data[j].value == data[i].values[0]){
+          itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage);
+          itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[0].name);
+          itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage);
+          itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[1].name);
+          firstItem = { percentage: data[i].values[0].percentage, color: '#E56666' };
+          secondItem = { percentage: data[i].values[1].percentage, color: '#7737C7' };
+        }else{
+          itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+          itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
+          itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+          itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
+          firstItem = { percentage: data[i].values[0].percentage, color: '#7737C7' };
+          secondItem = { percentage: data[i].values[1].percentage, color: '#E56666' };
+        }
+      }
+    }
+    
+    if(c === 0){
+      itemsHtml += '<div class="container_graphs">'+itemHtml;
+      c++;
+    }else if(c%2 === 0){
+      itemsHtml += itemHtml+'</div>';
+      c = 0;
+    }else{
+      itemsHtml += itemHtml;
+      c++;
+    }
+    
+    var finalDataItem = {
+      firstItem: firstItem,
+      secondItem: secondItem,
+      name: data[i].name,
+      id: data[i].id
+    }
+    
+    finalData.push(finalDataItem);
+  }
+  
+  $('#genomic_traits_container').html(itemsHtml);
+  
+  console.log('FINAL DATA ARRAY');
+  console.log(finalData);
+  for(var i in finalData){
+    console.log('final data looping '+i);
+    console.log('final data looping');
+    var elements = [
+      {percentage: finalData[i].firstItem.percentage, color: finalData[i].firstItem.color, text: ''},
+      {percentage: finalData[i].secondItem.percentage, color: finalData[i].secondItem.color, text: ''}
+    ]
+    var r = Raphael('genomics_trait_canvas_'+finalData[i].id, 310, 310);
+    var animatedPie = new EdAnimatedPie(r, elements, {
+      animationTime: 900,
+      easing: '<',
+      useAnimationDelay: false,
+      lineWidth: 55,
+      fontSize: 20,
+      centerx: 155,
+      centery: 155,
+      radius: 122,
+      borderColor: '#F7F2ED',
+      borderMargin: 0,
+      drawReferences: false,
+      drawCenterImage: false,
+      drawCenterText: true,
+      bubbleColor: '#3F4B5B',
+      centerText: {
+        color: '#5B6D7F',
+        size: '26',
+        font: 'Omnes-Semibold',
+        text: '',
+        xOffset: [0,0],
+        unit: '',
+        unitFont: 'Omnes-Semibold',
+        unitSize: 30,
+        unitOffset: [45,30],
+        unitOffsetTop: 5
+      }
+    });
+    animatedPie.draw();
+  }
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -1077,6 +1173,15 @@ window.onload = function () {
       $( "#mood_1" ).slider( "option", "value", data_user.mood_avg );
       $( "#mood_2" ).slider( "option", "value", data.mood_avg );
       
+    });
+  });
+  
+  $.getJSON( _api_urls[_api_env].genomics_traits, function( data ) {
+    $.getJSON( _api_urls[_api_env].genomics_traits_user, function( user_data ) {
+      console.log('GENOMIC TRAITS!');
+      console.log(data);
+      console.log(user_data);
+      drawGenomicsTraits(data, user_data);
     });
   });
   

@@ -3379,9 +3379,45 @@
 				<p>Your DNA shows these traits. We only show data with four stars of confidence.</p>
 			</div>
 			<!--/top-->
+      
+      <div id="genomics_traits_container_template" style="display:none;">
+          [[graphs]]
+          <!--divisor-->
+					<div class="divisor"></div>
+					<!--/divisor-->
+      </div>
+      
+      <div id="genomics_traits_graph_template" style="display:none;">
+        <!--graph-->
+        <div class="graph">
+
+          <!--container_graph-->
+          <div class="top_graph">
+            <div id="genomics_trait_canvas_[[canvas_id]]"></div>
+            <span>
+              <div>
+                <p>[[center_text]]</p>
+              </div>
+            </span>
+          </div>
+          <!--/container_graph-->
+
+          <!--info_graph-->
+          <div class="info_graph">
+            <ul>
+              <li class="color_one"><span class="porcent">[[porcent_user]]<strong>%</strong></span><p>[[user_trait_name]] <span>You</span></p></li>
+              <li class="color_two"><span class="porcent">[[porcent_global]]<strong>%</strong></span><p>[[global_trait_name]] <span>All</span></p></li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+          <!--/info_graph-->
+
+        </div>
+        <!--/graph-->
+      </div>
 			
 			<!--bottom-->
-			<div class="bottom">
+			<div id="genomic_traits_container" class="bottom">
 			
 				<!--graphs-->
 				<div class="container_graphs">

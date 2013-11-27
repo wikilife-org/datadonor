@@ -55,7 +55,13 @@ var _api_urls = {
     emotions_user: "http://datadonors.org/health/emotions/user/mock/",
     mood_global: "http://datadonors.org/health/mood/global/avg/mock/",
     mood_user: "http://datadonors.org/health/mood/user/avg/mock/",
-    mood_post: "http://datadonors.org/health/mood/user/avg/mock/"
+    mood_post: "http://datadonors.org/health/mood/user/avg/mock/",
+    genomics_traits: "http://datadonors.org/genomics/traits/global/mock/",
+    genomics_traits_user: "http://datadonors.org/genomics/traits/user/mock/",
+    genomics_drugs: "http://datadonors.org/genomics/drugs/global/mock/",
+    genomics_drugs_user: "http://datadonors.org/genomics/drugs/user/mock/",
+    genomics_risks: "http://datadonors.org/genomics/risks/global/mock/",
+    genomics_risks_user: "http://datadonors.org/genomics/risks/user/mock/"
   },
   hard: {
     social_reach: "../../static/js/adapter/examples/social_reach",
