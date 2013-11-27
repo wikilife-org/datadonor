@@ -19,6 +19,27 @@ function workCallback(args){
   $('#age_input li a[data-key='+args[0]+']').click();
 }
 
+var sortObjectByKey = function(obj){
+    var keys = [];
+    var sorted_obj = {};
+
+    for(var key in obj){
+        if(obj.hasOwnProperty(key)){
+            keys.push(key);
+        }
+    }
+
+    // sort keys
+    keys.sort();
+
+    // create new array based on Sorted Keys
+    jQuery.each(keys, function(i, key){
+        sorted_obj[key] = obj[key];
+    });
+
+    return sorted_obj;
+};
+
 function drawSocialGraph(json){
   console.log(json);
   var global_data = json.global_data;
@@ -125,6 +146,8 @@ function drawEducationGraph(data){
 
 function drawWorkGraph(data){
   //console.log('PRE PARAMS WORK');
+  
+  data.global_data = sortObjectByKey(data.global_data);
   
   var maxValue = 0;
   for(var i in data.global_data){
@@ -832,7 +855,10 @@ function drawBloodDrops(data){
   var content, blood, height;
   for(var i in data){
     blood = data[i];
-    height = (blood.percentage*130)/100;
+    var heightPercentage = blood.percentage;
+    if(heightPercentage < 10) heightPercentage = 8;
+    //height = (blood.percentage*130)/100;
+    height = (heightPercentage*130)/100;
     content = '';
     content = $('#blood_template').html();
     content = content.replace(/\[\[name\]\]/g, blood.name);
@@ -866,7 +892,7 @@ function drawSleepGraph(data, data_user){
   maxValue = Math.ceil(maxValue);
   
   var adapter = new SleepAdapter();
-  var result = adapter.getParameters(data, data_user, 684, maxValue);
+  var result = adapter.getParameters(data, data_user, 684, maxValue, [2,4,6,8,10,12,14,16,18,20,22,24]);
   //console.log(result);
   var r_14_1 = Raphael('canvas_14_1', 1103, 767);
   doubleAxisParams2 = {

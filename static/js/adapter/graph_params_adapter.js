@@ -763,7 +763,7 @@ CronicalConditionsAdapter = function(){
 
 SleepAdapter = function(){
   
-  this.getParameters = function(json, json_user, totalHeight, maxValue){
+  this.getParameters = function(json, json_user, totalHeight, maxValue, yLabelsValues){
     
     var elements = [];
     var xLabels = [];
@@ -789,7 +789,7 @@ SleepAdapter = function(){
     ordered_user.push([json_user.days.saturday,'Saturday']);
     
     elements = this.addElements(ordered, ordered_user, totalHeight, maxValue);
-    yLabels = this.getYLabels(json, json_user, totalHeight, maxValue);
+    yLabels = this.getYLabels(json, json_user, totalHeight, maxValue, yLabelsValues);
     xLabels = this.getXLabels(ordered);
     
 //    elements = this.addElements(json, json_user, totalHeight, maxValue);
@@ -846,7 +846,7 @@ SleepAdapter = function(){
     return elements;
   }
   
-  this.getYLabels = function(json, json_user, totalHeight, maxValue){
+  this.getYLabels = function(json, json_user, totalHeight, maxValue, yLabelsValues){
     var labels = [];
     var currentY = 1;
     
@@ -880,13 +880,16 @@ SleepAdapter = function(){
     while(currentY <= maxValue){
       var label = {
         pos: this.getValueHeight(currentY, totalHeight, maxValue), 
-        text: currentY.toString(), 
+        text: '', 
         width: 1103, 
         type: 'dotted', 
         "stroke-width": 3, 
         color: '#F1F2F2', 
         "text-color": "#ADB6BF"
       }
+      
+      if($.inArray(currentY, yLabelsValues) != '-1') label.text = currentY.toString();
+      
       labels.push(label);
       currentY = currentY + 1;
     }
