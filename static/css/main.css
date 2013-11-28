@@ -4716,12 +4716,17 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	color: #6551A2;
 }
 .graph_container.color_three .porcent_data {
-	background-color: #E06666;
+	background-color: #6551A2;
 }
 .graph_container.color_three .porcent_text {
-	color: #E06666;
+	color: #6551A2;
 }
-
+.graph_container.active .porcent_data {
+	background-color: #E06666!important;
+}
+.graph_container.active .porcent_text {
+	color: #E06666!important;
+}
 
 /* @end */
 
