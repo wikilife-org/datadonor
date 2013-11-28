@@ -22,3 +22,5 @@ python-openid==2.2.5
 requests==1.2.3
 selenium==2.33.0
 wsgiref==0.1.2
+requests-oauth==0.4.1
+requests-oauthlib==0.3.2

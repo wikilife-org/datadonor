@@ -121,7 +121,7 @@ def complaints_by_user_mock(request):
         
     data = [{"id":10, "name":"Runny Nose", 
              "percentage":27},
-            {"id":4, "name":"Neck Pain", 
+            {"id":40, "name":"Neck Pain", 
              "percentage":10},
             {"id":4, "name":"Leg Pain", 
              "percentage":10}]

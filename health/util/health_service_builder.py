@@ -1,12 +1,12 @@
 # coding=utf-8
 
 from django.conf import settings
-from wikilife.client.logs import Logs
-from wikilife.client.stats import Stats
-from wikilife.client.user import User
+from wikilife.clients.logs import Logs
+from wikilife.clients.stats import Stats
+from wikilife.clients.user import User
 
 SERVICES = {
-    #"runkeeper": "physical.services.runkeeper_service.RunkeeperService"
+    "withings": "health.services.withings_service.WithingsService"
 }
 
 
@@ -14,7 +14,7 @@ class HealthServiceBuilderException(Exception):
     pass
 
 
-class HealthlServiceBuilder(object):
+class HealthServiceBuilder(object):
 
     _wikilife_settings = None
 
