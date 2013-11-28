@@ -3747,8 +3747,8 @@
 						<div class="graph_container color_one alcohol_1">
 							<p>Typical risk</p>
 							<div class="graph_html">
-								<div class="porcent_data" style="width: 530px;"></div>
-								<div class="porcent_text"><p>70<strong>%</strong></p></div>
+								<div class="porcent_data" style="width: 0px;"></div>
+								<div class="porcent_text"><p>0<strong>%</strong></p></div>
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -3758,8 +3758,8 @@
 						<div class="graph_container color_two alcohol_2">
 							<p>Substantially increased risk</p>
 							<div class="graph_html">
-								<div class="porcent_data" style="width: 180px;"></div>
-								<div class="porcent_text"><p>25<strong>%</strong></p></div>
+								<div class="porcent_data" style="width: 0px;"></div>
+								<div class="porcent_text"><p>0<strong>%</strong></p></div>
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -3769,8 +3769,8 @@
 						<div class="graph_container color_three alcohol_3">
 							<p>Greatly increased risk</p>
 							<div class="graph_html">
-								<div class="porcent_data" style="width: 70px;"></div>
-								<div class="porcent_text"><p>5<strong>%</strong></p></div>
+								<div class="porcent_data" style="width: 00px;"></div>
+								<div class="porcent_text"><p>0<strong>%</strong></p></div>
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -3810,8 +3810,8 @@
 						<div class="graph_container color_one pills_1">
 							<p>Normal</p>
 							<div class="graph_html">
-								<div class="porcent_data" style="width: 595px;"></div>
-								<div class="porcent_text"><p>11<strong>%</strong></p></div>
+								<div class="porcent_data" style="width: 0px;"></div>
+								<div class="porcent_text"><p>0<strong>%</strong></p></div>
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -3821,8 +3821,8 @@
 						<div class="graph_container color_two pills_2">
 							<p>Reduced</p>
 							<div class="graph_html">
-								<div class="porcent_data" style="width: 180px;"></div>
-								<div class="porcent_text"><p>11<strong>%</strong></p></div>
+								<div class="porcent_data" style="width: 0px;"></div>
+								<div class="porcent_text"><p>0<strong>%</strong></p></div>
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -3832,8 +3832,8 @@
 						<div class="graph_container color_three pills_3">
 							<p>Unable</p>
 							<div class="graph_html">
-								<div class="porcent_data" style="width: 40px;"></div>
-								<div class="porcent_text"><p>4<strong>%</strong></p></div>
+								<div class="porcent_data" style="width: 0px;"></div>
+								<div class="porcent_text"><p>0<strong>%</strong></p></div>
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -3864,6 +3864,20 @@
 				<p>Compare your <strong>risk</strong> with 23andme average population</p>
 			</div>
 			<!--/top-->
+      
+      <div id="genomic_risks_item_template" style="display:none;">
+        <!--page template-->
+        <div class="pages">
+          <div class="centered">
+            <h2>[[name]]</h2>
+            <ul>
+              <li class="color_one"><span class="porcent">[[global_percent]]<strong>%</strong></span></li>
+              <li class="color_two"><span class="porcent">[[user_percent]]<strong>%</strong></span></li>
+            </ul>
+          </div>
+        </div>
+        <!--/page template-->
+      </div>
 			
 			<!--bottom-->
 			<div class="bottom">
@@ -3945,18 +3959,18 @@
 					
 				</div>
 				<!--/pages_containers-->
-				
-				<!--list_page-->
-				<div class="list_page">
-					<ul>
-						<li class="color_one">The group where you belong according 23andme information</li>
-						<li class="color_two">Other people  in the 23andme population</li>
-					</ul>
-				</div>
-				<!--list_page-->
 			
 			</div>
 			<!--/bottom-->
+      
+      <!--list_page-->
+      <div class="list_page">
+        <ul>
+          <li class="color_one">The group where you belong according 23andme information</li>
+          <li class="color_two">Other people  in the 23andme population</li>
+        </ul>
+      </div>
+      <!--list_page-->
 			
 		</div>
 	</div>
