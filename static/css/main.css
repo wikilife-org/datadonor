@@ -4821,15 +4821,15 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 
 /* --- list container */
-.step_nineteen .centered_container .bottom .list_page {
+.step_nineteen .centered_container .list_page {
 	width: 100%;
 }
-.step_nineteen .centered_container .bottom .list_page ul {
+.step_nineteen .centered_container .list_page ul {
 	width: 978px;
 	margin:  0 auto;
 	text-align: left;
 }
-.step_nineteen .centered_container .bottom .list_page ul li {
+.step_nineteen .centered_container .list_page ul li {
 	width: 100%;
 	text-align: left;
 	color: #8D99A6;
@@ -4840,10 +4840,10 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	background-position: center left;
 	padding: 2px 0px 2px 25px;
 }
-.step_nineteen .centered_container .bottom .list_page ul li.color_one {
+.step_nineteen .centered_container .list_page ul li.color_one {
 	background-image: url(../img/step_19/squere_one.png);
 }
-.step_nineteen .centered_container .bottom .list_page ul li.color_two {
+.step_nineteen .centered_container .list_page ul li.color_two {
 	background-image: url(../img/step_19/squere_two.png);
 }
 
