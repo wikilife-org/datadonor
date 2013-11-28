@@ -5,6 +5,7 @@ var animatedQuarterPie;
 var doubleAxisParams;
 var SingleBarChart;
 var cronicalGraphs = {};
+var emotionGraphs = {};
 var cronicalsList = {};
 var complainsTop5 = {};
 var complainsList = {};
@@ -471,14 +472,15 @@ function drawCronicalConditionsGraph(data, num, user_data){
   }else{
     $($('.cronical_container')[np]).click({id_condition: data.id, graph: animatedPie, json: data}, function (event) {
       event.preventDefault
-      if(!$(this).hasClass('sent')){
+      //if(!$(this).hasClass('sent')){
+      if($('#cronical_id_'+event.data.id_condition).length == 0){
         //Send data... change color
         $.post( _api_urls[_api_env].cronical_conditions_post, { id_condition: event.data.id_condition } );
         addCronicalCard(event.data.json.name, '', event.data.id_condition);
         event.data.graph.lines[0].animate({"stroke": '#E56666'}, 500);
         event.data.graph.texts[0].animate({"fill": '#E56666'}, 500);
         event.data.graph.texts[1].animate({"fill": '#E56666'}, 500);
-        $(this).addClass('sent');
+        //$(this).addClass('sent');
       }
     });
   }
@@ -493,7 +495,8 @@ function drawEmotionsGraph(data, num, user_data){
   var preffix = 'canvas_15_';
   
   animatedPie = drawVariableCircle(params, num, preffix);
-  cronicalGraphs[data.id] = animatedPie;
+  //cronicalGraphs[data.id] = animatedPie;
+  emotionGraphs[data.id] = animatedPie;
   
   var selectedGraphs = [];
   for(var i in user_data){
@@ -726,17 +729,21 @@ function setupAddEmotions(data){
 }
 
 function addCronicalCard(label, typeLabel, id){
-  var el = $('.cronical_conditions_cards ul');
-  if(typeLabel){
-    el.html(el.html()+'<li id="cronical_id_'+id+'"><p><span>'+label+'</span><br />Type: '+typeLabel+'</p></li>');
-  }else{
-    el.html(el.html()+'<li id="cronical_id_'+id+'"><p><span>'+label+'</span><br /></p></li>');
+  if($('#cronical_id_'+id).length == 0){
+    var el = $('.cronical_conditions_cards ul');
+    if(typeLabel){
+      el.html(el.html()+'<li id="cronical_id_'+id+'" data-id="'+id+'" data-param="id_condition"><p><span>'+label+'</span><br />Type: '+typeLabel+'</p><a href="#" class="close_tab close_cronical_card">close</a></li>');
+    }else{
+      el.html(el.html()+'<li id="cronical_id_'+id+'" data-id="'+id+'" data-param="id_condition"><p><span>'+label+'</span><br /></p><a href="#" class="close_tab close_cronical_card">close</a></li>');
+    }
   }
 }
 
 function addEmotionCard(label, typeLabel, id){
-  var el = $('.emotion_cards ul');
-  el.html(el.html()+'<li id="emotion_id_'+id+'"><p><span>'+label+'</span><br /></p></li>');
+  if($('#emotion_id_'+id).length == 0){
+    var el = $('.emotion_cards ul');
+    el.html(el.html()+'<li id="emotion_id_'+id+'" data-id="'+id+'" data-param="id_emotion"><p><span>'+label+'</span><br /></p><a href="#" class="close_tab close_emotion_card">close</a></li>');
+  }
 }
 
 function drawComplainsTop5Item(data, num){
@@ -1080,6 +1087,17 @@ function drawGenomicsRisks(data, user_data){
   }
 }
 
+function deleteUserData(url, param, value, callback){
+  $.ajax({
+    url: url,
+    data: param+'='+value,
+    type: 'DELETE',
+    success: function(result) {
+      callback(result);
+    }
+});
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -1327,5 +1345,49 @@ $(document).ready(function(){
         
       }
     });
+  });
+  
+  $('.close_cronical_card').live('click', function(){
+    $(this).parent().remove();
+    var id = $(this).parent().attr('data-id');
+    console.log('DELETING CRONICAL ID: '+id);
+    deleteUserData(_api_urls[_api_env].cronical_conditions_delete, $(this).parent().attr('data-param'), id, function(result){
+      
+    });
+    
+    for(var i in cronicalGraphs){
+      console.log('looping cronical graphs: '+i);
+      if(i == id){
+        console.log('found graph to deanimate!');
+        var graph = cronicalGraphs[i];
+        graph.lines[0].animate({"stroke": '#7737C7'}, 500);
+        graph.texts[0].animate({"fill": '#7737C7'}, 500);
+        graph.texts[1].animate({"fill": '#7737C7'}, 500);
+      }
+    }
+      
+    return false;
+  });
+  
+  $('.close_emotion_card').live('click', function(){
+    $(this).parent().remove();
+    var id = $(this).parent().attr('data-id');
+    console.log('DELETING EMOTION ID: '+id);
+    deleteUserData(_api_urls[_api_env].emotions_delete, $(this).parent().attr('data-param'), id, function(result){
+      
+    });
+    
+    for(var i in emotionGraphs){
+      console.log('looping emotion graphs: '+i);
+      if(i == id){
+        console.log('found emotion graph to deanimate!');
+        var graph = emotionGraphs[i];
+        graph.lines[0].animate({"stroke": '#7737C7'}, 500);
+        graph.texts[0].animate({"fill": '#7737C7'}, 500);
+        graph.texts[1].animate({"fill": '#7737C7'}, 500);
+      }
+    }
+      
+    return false;
   });
 });
