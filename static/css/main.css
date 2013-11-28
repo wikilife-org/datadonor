@@ -82,7 +82,7 @@ a:hover {
 	width: 100%;
 	min-width: 1190px;
 	overflow: hidden;
-	zoom: 85%;
+	/*zoom: 85%;*/
 }
 
 /* --- full container */
@@ -4455,6 +4455,28 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .step_seventeen .centered_container .bottom .container_graphs .graph .top_graph {
 	width: 310px;
 	height: 306px;
+	position: relative;
+}
+.step_seventeen .centered_container .bottom .container_graphs .graph .top_graph span {
+	width: 180px;
+	height: 180px;
+	position: absolute;
+	top: 50%;
+	margin-top: -88px;
+	left: 50%;
+	margin-left: -90px;
+	display: table;
+}
+.step_seventeen .centered_container .bottom .container_graphs .graph .top_graph span div {
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.step_seventeen .centered_container .bottom .container_graphs .graph .top_graph span div p {
+	color: #5B6D7F;
+	font-size: 26px;
+	font-family: 'Omnes-Semibold';
 }
 .step_seventeen .centered_container .bottom .container_graphs .graph .info_graph {
 	width: 310px;
