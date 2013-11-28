@@ -940,11 +940,20 @@ function drawGenomicsTraits(data, user_data){
   var c = 0;
   itemsHtml = '';
   var finalData = [];
+  var first = true;
   
   for(var i in data){
     var itemHtml = $('#genomics_traits_graph_template').html();
     itemHtml = itemHtml.replace(/\[\[canvas_id\]\]/g, data[i].id);
     itemHtml = itemHtml.replace(/\[\[center_text\]\]/g, data[i].name);
+    if(first === true){
+      first = false;
+      console.log('REPLACE FIRST TRUE');
+      itemHtml = itemHtml.replace(/\[\[hint_style\]\]/g, '');
+    }else{
+      console.log('REPLACE FIRST FALSE');
+      itemHtml = itemHtml.replace(/\[\[hint_style\]\]/g, 'display:none;');
+    }
     
     for(var j in user_data){
       if(user_data[j].id == data[i].id){
@@ -970,7 +979,7 @@ function drawGenomicsTraits(data, user_data){
       itemsHtml += '<div class="container_graphs">'+itemHtml;
       c++;
     }else if(c%2 === 0){
-      itemsHtml += itemHtml+'</div>';
+      itemsHtml += itemHtml+'<div class="divisor"></div></div>';
       c = 0;
     }else{
       itemsHtml += itemHtml;
