@@ -1040,6 +1040,28 @@ function drawGenomicsTraits(data, user_data){
   }
 }
 
+function drawGenomicsDrugs(data, user_data){
+  var section = 'alcohol';
+  for(i=0; i<2; i++){
+    if(i == 1) section = 'pills';
+    for(j=1; j<=3; j++){
+      var perc = data[i].values[j-1].percentage;
+      var name = data[i].values[j-1].name;
+      var id = data[i].id;
+      var pxWidth = (perc*620)/100;
+      var selectorStr = '.container_data.'+section+' .block.right .'+section+'_'+j;
+      $(selectorStr).attr('data-name', name);
+      $(selectorStr+' p').html(name);
+      $(selectorStr+' .porcent_data').css('width', pxWidth+'px')
+      $(selectorStr+' .porcent_text').html('<p>'+perc+'<strong>%</strong></p>');
+    }
+  }
+  
+  for(var z in user_data){
+    $('div[data-name="'+user_data[z].value+'"]').addClass('active');
+  }
+}
+
 window.onload = function () {
   
   /*********** PIE CHARTS *******************/
@@ -1187,10 +1209,13 @@ window.onload = function () {
   
   $.getJSON( _api_urls[_api_env].genomics_traits, function( data ) {
     $.getJSON( _api_urls[_api_env].genomics_traits_user, function( user_data ) {
-      console.log('GENOMIC TRAITS!');
-      console.log(data);
-      console.log(user_data);
       drawGenomicsTraits(data, user_data);
+    });
+  });
+  
+  $.getJSON( _api_urls[_api_env].genomics_drugs, function( data ) {
+    $.getJSON( _api_urls[_api_env].genomics_drugs_user, function( user_data ) {
+      drawGenomicsDrugs(data, user_data);
     });
   });
   
