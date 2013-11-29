@@ -752,8 +752,17 @@ function drawComplainsTop5Item(data, num){
   var np = num-1;
   var preffix = 'canvas_12_';
   
+  console.log('COMPLAINS DYNAMIC');
+  var itemHtml = '';
+  itemHtml = $('#complains_item_template').html();
+  itemHtml = itemHtml.replace(/\[\[id\]\]/g, data.id);
+  itemHtml = itemHtml.replace(/\[\[name\]\]/g, data.name);
+  itemHtml = itemHtml.replace(/\[\[perc\]\]/g, data.percentage);
+  $('#complains_top5').append(itemHtml);
+  
   //Start graph
-  drawComplainGraph(params, num, preffix);
+  //drawComplainGraph(params, num, preffix);
+  drawComplainGraph(params, data.id, preffix);
 }
 
 function drawComplainGraph(params, num, preffix){
@@ -815,43 +824,48 @@ function createComplainsAutocompleter(data){
 
 function addNewComplain(id, name, data){
   //content = content.replace(/{{name}}/g, elem.attr('data-title'));
-  var repeated = false;
-  for(var i in addedComplains){
-    if(addedComplains[i].id == id){
-      repeated = true;
-      console.log('repeated!');
-    }
-  }
-  
-  if(!repeated){
-    console.log('adding complain');
-    var content = $('#complain_template').html();
-    content = content.replace(/{{name}}/g, name);
-    content = content.replace(/{{id}}/g, id);
-    //console.log(content);
-
-    var ulElem = $('#select_complaints ul');
-    ulElem.prepend(content);
-
-    var itemData = {};
-    for(var i in data){
-      if(data[i].id == id){
-        itemData = data[i];
-        addedComplains.push(data[i]);
-        break;
+  if(addedComplains.length < 5){
+    var repeated = false;
+    for(var i in addedComplains){
+      if(addedComplains[i].id == id){
+        repeated = true;
+        console.log('repeated!');
       }
     }
-    //console.log('ITEM DATA');
-    var adapter = new CronicalConditionsAdapter();
-    var params = adapter.getParameters(itemData, '#E56666');
-    var preffix = 'canvas_12_custom_';
-    console.log(params);
 
-    //Start graph
-    drawComplainGraph(params, id, preffix);
+    if(!repeated){
+      console.log('adding complain');
+      var content = $('#complain_template').html();
+      content = content.replace(/{{name}}/g, name);
+      content = content.replace(/{{id}}/g, id);
+      //console.log(content);
 
-    if(addedComplains.length == 5){
-      $('#complains_adder_container').hide();
+      var ulElem = $('#select_complaints ul');
+      ulElem.prepend(content);
+
+      var itemData = {};
+      for(var i in data){
+        if(data[i].id == id){
+          itemData = data[i];
+          addedComplains.push(data[i]);
+          break;
+        }
+      }
+
+      console.log('ITEM DATA');
+      console.log(itemData);
+      var adapter = new CronicalConditionsAdapter();
+      var params = adapter.getParameters(itemData, '#E56666');
+      console.log(params);
+      var preffix = 'canvas_12_custom_';
+      console.log(params);
+
+      //Start graph
+      drawComplainGraph(params, id, preffix);
+
+      if(addedComplains.length == 5){
+        $('#complains_adder_container').hide();
+      }
     }
   }
 }
@@ -1089,13 +1103,25 @@ function drawGenomicsRisks(data, user_data){
 
 function deleteUserData(url, param, value, callback){
   $.ajax({
-    url: url,
-    data: param+'='+value,
-    type: 'DELETE',
-    success: function(result) {
-      callback(result);
+      url: url+'?'+param+'='+value,
+      //data: param+'='+value,
+      type: 'DELETE',
+      success: function(result) {
+        callback(result);
+      }
+  });
+}
+
+function deleteUserComplain(id){
+  $('.user_complain[data-id='+id+']').remove();
+  for(var i in addedComplains){
+    if(addedComplains[i].id == id){
+      addedComplains.splice(i, 1);
     }
-});
+  }
+  deleteUserData(_api_urls[_api_env].complains_delete, 'id_complaint', id, function(){
+    
+  });
 }
 
 window.onload = function () {
@@ -1267,6 +1293,19 @@ window.onload = function () {
 };
 
 $(document).ready(function(){
+  
+  $('.user_complain').live('click', function(){
+    deleteUserComplain($(this).attr('data-id'));
+    $('#complains_adder_container').click();
+  });
+  
+  $('#complains_top5 li').live('click', function(){
+    addNewComplain(
+      $(this).attr('data-id'), 
+      $(this).attr('data-name'),
+      complainsList
+    );
+  });
   
   $("#age_select_value").jStepper({minValue:0, maxValue:60, allowDecimals: false});
   

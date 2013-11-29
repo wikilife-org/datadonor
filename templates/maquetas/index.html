@@ -2398,106 +2398,31 @@
 						<p>all</p>
 					</div>
 					<!--/sector_logo-->
+          
+          <div id="complains_item_template" style="display:none;">
+            <li data-id="[[id]]" data-name="[[name]]" data-perc="[[perc]]">
+						
+							<!--graph-->
+							<div class="stat left">
+								<div class="centered_graph">
+                  <div id="canvas_12_[[id]]"></div>
+								</div>
+							</div>
+							<!--/graph-->
+							
+							<!--tittle-->
+							<div class="stat right">
+								<h2>[[name]]</h2>
+							</div>
+							<!--/tittle-->
+							
+							<div class="clear"></div>
+						</li>
+          </div>
 					
 					<!--lista-->
-					<ul>
+					<ul id="complains_top5">
 					
-						<li>
-						
-							<!--graph-->
-							<div class="stat left">
-								<div class="centered_graph">
-                  <div id="canvas_12_1"></div>
-									<!--<img src="/static/img/step_12/graf_1.png" alt="1" />-->
-								</div>
-							</div>
-							<!--/graph-->
-							
-							<!--tittle-->
-							<div class="stat right">
-								<h2>Runny nose</h2>
-							</div>
-							<!--/tittle-->
-							
-							<div class="clear"></div>
-						</li>
-						<li>
-							
-							<!--graph-->
-							<div class="stat left">
-								<div class="centered_graph">
-                  <div id="canvas_12_2"></div>
-									<!--<img src="/static/img/step_12/graf_2.png" alt="2" />-->
-								</div>
-							</div>
-							<!--/graph-->
-							
-							<!--tittle-->
-							<div class="stat right">
-								<h2>Fatigue</h2>
-							</div>
-							<!--/tittle-->
-							
-							<div class="clear"></div>
-						</li>
-						<li>
-							
-							<!--graph-->
-							<div class="stat left">
-								<div class="centered_graph">
-                  <div id="canvas_12_3"></div>
-									<!--<img src="/static/img/step_12/graf_3.png" alt="3" />-->
-								</div>
-							</div>
-							<!--/graph-->
-							
-							<!--tittle-->
-							<div class="stat right">
-								<h2>Headache</h2>
-							</div>
-							<!--/tittle-->
-							
-							<div class="clear"></div>
-						</li>
-						<li>
-							
-							<!--graph-->
-							<div class="stat left">
-								<div class="centered_graph">
-                  <div id="canvas_12_4"></div>
-									<!--<img src="/static/img/step_12/graf_4.png" alt="4" />-->
-								</div>
-							</div>
-							<!--/graph-->
-							
-							<!--tittle-->
-							<div class="stat right">
-								<h2>Back pain</h2>
-							</div>
-							<!--tittle-->
-							
-							<div class="clear"></div>
-						</li>
-						<li>
-						
-							<!--graph-->
-							<div class="stat left">
-								<div class="centered_graph">
-                  <div id="canvas_12_5"></div>
-									<!--<img src="/static/img/step_12/graf_5.png" alt="5" />-->
-								</div>
-							</div>
-							<!--/graph-->
-							
-							<!--tittle-->
-							<div class="stat right">
-								<h2>Abdominal pain</h2>
-							</div>
-							<!--/tittle-->
-							
-							<div class="clear"></div>
-						</li>
-						
 					</ul>
 					<!--lista-->
 					
@@ -2513,8 +2438,8 @@
 					</div>
 					<!--/sector_logo-->
           
-         			<div style="display:none" id="complain_template">
-            <li>
+         	<div style="display:none" id="complain_template">
+            <li class="user_complain" data-id="{{id}}">
 						
 							<!--graph-->
 							<div class="stat left">
@@ -2570,7 +2495,7 @@
 							
 							<!--tittle-->
 							<div class="stat right">
-								<p><a href="#">Add yours<br />complaints</a></p>
+								<p><a href="#">Add your<br />complaints</a></p>
 							</div>
 							<!--/tittle-->
 							
@@ -2581,13 +2506,7 @@
 									<!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
 									<div class="container_select">
 									
-										<select class="select_stats">
-											<option value="Type">Type</option>
-											<option value="ActionScript">ActionScript</option>
-											<option value="AppleScript">AppleScript</option>
-											<option value="Asp">Asp</option>
-											<option value="C++">probando un texto extremadamente largo</option>
-										</select>
+										<select class="select_stats"></select>
 										
 										<div class="clear"></div>
 									
