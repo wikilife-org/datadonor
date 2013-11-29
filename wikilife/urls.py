@@ -1,6 +1,6 @@
 # coding=utf-8
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from wikilife.views import *

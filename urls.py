@@ -1,6 +1,8 @@
-from django.conf import settings
-from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
+admin.autodiscover()
+
+from django.conf import settings
+from django.conf.urls import patterns, include, url
 #from social.facebook import facebook_view
 from views import *
 
