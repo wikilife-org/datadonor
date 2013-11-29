@@ -145,10 +145,10 @@ def create_user_social(sender, instance, **kwargs):
         profile.account_id = generated_uid
         profile.save()
      
-    social, created = SocialUserAggregatedData.objects.get_or_create(user=instance)
+    """social, created = SocialUserAggregatedData.objects.get_or_create(user=instance)
     if created or social.user == None:
         social.user = instance
-        social.save()
+        social.save()"""
      
     
 post_save.connect(create_user_social, sender=User, dispatch_uid="create_user_social")

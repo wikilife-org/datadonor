@@ -1,8 +1,8 @@
 from django.conf import settings
 from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
-from social.facebook import facebook_view
-from social.views import *
+#from social.facebook import facebook_view
+from views import *
 
 
 admin.autodiscover()
@@ -19,10 +19,10 @@ urlpatterns = patterns('',
     url(r'^end-wizard/$', end_wizard, name='end_wizard'),
     url(r'^iagree/$', iagree, name='iagree'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^fb/', facebook_view, name='fb_app'),
+    #url(r'^fb/', facebook_view, name='fb_app'),
     url(r'^comming/', comming, name='comming'),
-    url(r'', include('social_auth.urls')),
     
+    url(r'', include('social_auth.urls')),
     url(r'^genomics/', include('genomics.urls')),
     url(r'^nutrition/', include('nutrition.urls')),
     url(r'^social/', include('social.urls')),

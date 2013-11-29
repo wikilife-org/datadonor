@@ -24,15 +24,15 @@
 					{% else %}
 					<a href="{% url "socialauth_begin" "facebook" %}" class="circle facebook" title="Facebook"><span>Facebook</span></a>
 					{% endif%}
-					{% if "linkedin-oauth2" in social_auth.social.associated %}
-					<a href="{% url "socialauth_disconnect" "linkedin-oauth2" %}" class="circle linkedin checked" title="linkedin"><span>Linkedin</span></a>
+					{% if "linkedin" in social_auth.social.associated %}
+					<a href="{% url "socialauth_disconnect" "linkedin" %}" class="circle linkedin checked" title="linkedin"><span>Linkedin</span></a>
 					{% else %}
-					<a href="{% url "socialauth_begin" "linkedin-oauth2" %}" class="circle linkedin" title="linkedin"><span>Linkedin</span></a>
+					<a href="{% url "socialauth_begin" "linkedin" %}" class="circle linkedin" title="linkedin"><span>Linkedin</span></a>
 					{% endif%}
-					{% if "google-oauth2" in social_auth.social.associated %}
-					<a href="{% url "socialauth_disconnect" "google-oauth2" %}" class="circle gmail checked" title="google_+" ><span>Google +</span></a>
+					{% if "google" in social_auth.social.associated %}
+					<a href="{% url "socialauth_disconnect" "google" %}" class="circle gmail checked" title="google_+" ><span>Google +</span></a>
 					{% else %}
-					<a href="{% url "socialauth_begin" "google-oauth2" %}" class="circle gmail" title="google_+" ><span>Google +</span></a>
+					<a href="{% url "socialauth_begin" "google" %}" class="circle gmail" title="google_+" ><span>Google +</span></a>
 					{% endif%}
 					{% if "foursquare" in social_auth.social.associated %}
 					<a href="{% url "socialauth_disconnect" "foursquare" %}" class="circle foursquare checked" title="Foursquare" ><span>Foursquare</span></a>
