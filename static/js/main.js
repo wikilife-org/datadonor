@@ -1122,6 +1122,7 @@ function deleteUserComplain(id){
   deleteUserData(_api_urls[_api_env].complains_delete, 'id_complaint', id, function(){
     
   });
+  $('#complains_adder_container').show();
 }
 
 window.onload = function () {
