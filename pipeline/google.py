@@ -5,7 +5,7 @@ from urllib import urlencode
 from utils.aggregated_data import complete_google_info, complete_profile
 
 
-G_API_KEY = "AIzaSyDwzw-NWn7vmJOwXa5QVhX-aGlc-9hLapM"
+G_API_KEY = "AIzaSyC0iHcxDeCDMUc6Yv2CxhmKGFTu5ZDqxZw"
 
 def google_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
