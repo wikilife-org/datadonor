@@ -192,8 +192,6 @@ def linkedin_info(request, *args, **kwargs):
         access_token = data["access_token"]
         
         result = get_profile( access_token)
-        result["profile_img"] = result["pictureUrl"]
-        del result["pictureUrl"]
         
         connections = get_connections(access_token)
         positions = get_positions(access_token)

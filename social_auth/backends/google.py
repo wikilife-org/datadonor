@@ -68,7 +68,7 @@ class GoogleOAuthBackend(OAuthBackend):
 
 class GoogleOAuth2Backend(GoogleOAuthBackend, SocialBackend):
     """Google OAuth2 authentication backend"""
-    name = 'google-oauth2'
+    name = 'google'
     EXTRA_DATA = [
         ('refresh_token', 'refresh_token', True),
         ('expires_in', 'expires'),
@@ -94,7 +94,7 @@ class GoogleOAuth2Backend(GoogleOAuthBackend, SocialBackend):
 
 class GoogleBackend(OpenIDBackend):
     """Google OpenID authentication backend"""
-    name = 'google'
+    name = 'google-auth'
 
     def get_user_id(self, details, response):
         """

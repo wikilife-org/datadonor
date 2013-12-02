@@ -50,7 +50,7 @@ class LinkedinBackend(OAuthBackend, SocialBackend):
 
 class LinkedinOAuth2Backend(LinkedinBackend, SocialBackend):
     """Linkedin OAuth2 authentication backend"""
-    name = 'linkedin-oauth2'
+    name = 'linkedin'
 
     EXTRA_DATA = [('id', 'id'),
                   ('firstName', 'first_name'),
@@ -169,6 +169,6 @@ def to_dict(xml):
 
 # Backend definition
 BACKENDS = {
-    'linkedin-oauth': LinkedinAuth,
+#    'linkedin-oauth': LinkedinAuth,
     'linkedin': LinkedinOAuth2,
 }
