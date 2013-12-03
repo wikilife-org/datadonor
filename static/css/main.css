@@ -2608,7 +2608,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 .step_nine {
 	background-color: #F7F2ED;
-	height: 495px;
+	height: 890px;
 }
 .step_nine .centered_container {
 	width: 1120px;
@@ -2635,16 +2635,130 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 /* --- bottom */
 .step_nine .centered_container .bottom {
+	width: 580px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.step_nine .centered_container .bottom .container_data {
 	width: 100%;
+	padding: 10px 0px 10px 0px;
 	margin-top: 30px;
 }
-.step_nine .centered_container .bottom .graph {
-	width: 1010px;
-	height: 115px;
-        margin: 0 auto;
+.step_nine .centered_container .bottom .container_data .block {
+	float: left;
+	height: auto;
+	margin-left: 30px;
 }
-.step_nine .centered_container .bottom .graph.one {
-	margin-bottom: 30px;
+.step_nine .centered_container .bottom .container_data .block.left {
+	margin-left: 0px;
+	width: 250px;
+}
+.step_nine .centered_container .bottom .container_data .block.right {
+	width: 620px;
+}
+
+/* right */
+.step_nine .centered_container .bottom .container_data .block.right .graph_container {
+	width: 750px;
+	height: 60px;
+	margin-top: 13px;
+}
+.step_nine .centered_container .bottom .container_data .block.right .graph_container:first-child {
+	margin-top: 0px;
+}
+.step_nine .centered_container .bottom .container_data .block.right .graph_container > p {
+	width: 100%;
+	color: #999999;
+	margin-bottom: 3px;
+	font-size: 18px;
+	font-family: 'Omnes-Semibold';
+	float: left;
+}
+.step_nine .centered_container .bottom .container_data .block.right .graph_container .porcent_data {
+	height: 40px;
+	width: 620px;
+	-moz-border-radius-topright: 30px;
+	-webkit-border-top-right-radius: 30px;
+	border-top-right-radius: 30px;
+	-moz-border-radius-bottomright: 30px;
+	-webkit-border-bottom-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	-webkit-transition: width 0.4s;
+	-moz-transition: width 0.4s;
+	transition: width 0.4s;
+	position: relative;
+	float: left;
+}
+.step_nine .centered_container .bottom .container_data .block.right .graph_container .porcent_text {
+	font-size: 55px;
+	height: 40px;
+	font-family: 'Omnes-Semibold';
+	float: left;
+	position: relative;
+	top: -6px;
+	margin-left: 5px;
+}
+.step_nine .centered_container .bottom .container_data .block.right .graph_container .porcent_text strong {
+	font-size: 18px;
+}
+
+/* ALCHOHOL COLORS */
+.step_nine .alcohol .graph_container.color_one .porcent_data {
+	background-color: #B48AEA;
+}
+.step_nine .alcohol .graph_container.color_one .porcent_text {
+	color: #B48AEA;
+}
+.step_nine .alcohol .graph_container.color_two .porcent_data {
+	background-color: #8945E5;
+}
+.step_nine .alcohol .graph_container.color_two .porcent_text {
+	color: #8945E5;
+}
+.step_nine .alcohol .graph_container.color_three .porcent_data {
+	background-color: #3E3EA5;
+}
+.step_nine .alcohol .graph_container.color_three .porcent_text {
+	color: #3E3EA5;
+}
+.step_nine .alcohol .graph_container.color_four .porcent_data {
+	background-color: #7737C7;
+}
+.step_nine .alcohol .graph_container.color_four .porcent_text {
+	color: #7737C7;
+}
+
+/* PILLS COLORS */
+.step_nine .pills .graph_container.color_one .porcent_data {
+	background-color: #FF9C8D;
+}
+.step_nine .pills .graph_container.color_one .porcent_text {
+	color: #FF9C8D;
+}
+.step_nine .pills .graph_container.color_two .porcent_data {
+	background-color: #D44B5F;
+}
+.step_nine .pills .graph_container.color_two .porcent_text {
+	color: #D44B5F;
+}
+.step_nine .pills .graph_container.color_three .porcent_data {
+	background-color: #E56666;
+}
+.step_nine .pills .graph_container.color_three .porcent_text {
+	color: #E56666;
+}
+.step_nine .pills .graph_container.color_four .porcent_data {
+	background-color: #FF836F;
+}
+.step_nine .pills .graph_container.color_four .porcent_text {
+	color: #FF836F;
+}
+
+.step_nine .graph_container.active .porcent_data {
+	background-color: #E06666!important;
+}
+.step_nine .graph_container.active .porcent_text {
+	color: #E06666!important;
 }
 
 /* @end */
