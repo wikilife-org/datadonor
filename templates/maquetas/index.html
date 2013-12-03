@@ -1568,8 +1568,19 @@
 					- CONTAINER 100% = width 620px
 				 -->
 				
+        <div id="nutrient_template_data" style="display:none;">
+          <div class="graph_container color_four">
+            <p>[[name]]</p>
+            <div class="graph_html">
+              <div class="porcent_data" style="[[perc_data_style]]"></div>
+              <div class="porcent_text" style="[[perc_text_style]]"><p>[[perc]]<strong>%</strong></p></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+         
 				<!--container_data-->
-				<div class="container_data alcohol">
+				<div class="container_data global_nutrient_data">
 					
 					<!--right-->
 					<div class="block right">
@@ -1627,7 +1638,7 @@
 				<!--container_data-->
 				
 				<!--container_data-->
-				<div class="container_data pills">
+				<div class="container_data user_nutrient_data">
 					
 					<!--right-->
 					<div class="block right">

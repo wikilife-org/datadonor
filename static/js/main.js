@@ -363,36 +363,94 @@ function drawHoursGraph(data){
 }
 
 function drawNutrientProportionGraph(data){
-
-  var r_9_1 = Raphael('canvas_9_1', 1095, 115);
-  var adapter = new NutrientsAdapter();
-  var elems = adapter.getParameters(data.global_data,['#B48AEA','#8A45E5','#7737C7','#3E3EA5',]);
-  SingleBarChart = new EdSingleBarChart(r_9_1, elems, {
-    x: 20,
-    y: 5,
-    width: 1050,
-    height: 83,
-    fontSize: 47,
-    fontColor: '#ffffff',
-    first_icon: '/static/img/step_9/ico_1.png',
-    end_icon: '/static/img/step_9/porcentaje.png'
-  });
-  SingleBarChart.draw();
   
-  var r_9_2 = Raphael('canvas_9_2', 1095, 115);
-  var adapter = new NutrientsAdapter();
-  var elems = adapter.getParameters(data.user_data,['#FF9C8C','#FF836F','#E56666','#D44B5F',]);
-  SingleBarChart = new EdSingleBarChart(r_9_2, elems, {
-    x: 20,
-    y: 5,
-    width: 1050,
-    height: 83,
-    fontSize: 47,
-    fontColor: '#ffffff',
-    first_icon: '/static/img/step_9/ico_2.png',
-    end_icon: '/static/img/step_9/porcentaje.png'
-  });
-  SingleBarChart.draw();
+  //console.log('NUTRIENT DATA!');
+  //console.log(data);
+  
+  $('.global_nutrient_data .block.right').html('');
+  $('.user_nutrient_data .block.right').html('');
+  
+  var global_colors = ['#B48AEA','#8A45E5','#7737C7','#3E3EA5'];
+  var c = 0;
+  for(var i in data.global_data){
+    currentColor = global_colors[c];
+    var width = (data.global_data[i].percentage*620)/100;
+    var content = $('#nutrient_template_data').html();
+    content = content.replace(/\[\[name\]\]/g, data.global_data[i].title);
+    content = content.replace(/\[\[perc\]\]/g, data.global_data[i].percentage);
+    content = content.replace(/\[\[perc_data_style\]\]/g, 'width:'+width+'px; background-color:'+currentColor+';');
+    content = content.replace(/\[\[perc_text_style\]\]/g, 'color:'+currentColor+';');
+    console.log(content);
+    $('.global_nutrient_data .block.right').append(content);
+    
+    c++;
+    
+    if(c >= global_colors.length) c = 0;
+  }
+  
+  var user_colors = ['#FF9C8C','#FF836F','#E56666','#D44B5F'];
+  var c = 0;
+  for(var j in data.user_data){
+    currentColor = user_colors[c];
+    var width = (data.user_data[j].percentage*620)/100;
+    var content = $('#nutrient_template_data').html();
+    content = content.replace(/\[\[name\]\]/g, data.user_data[j].title);
+    content = content.replace(/\[\[perc\]\]/g, data.user_data[j].percentage);
+    content = content.replace(/\[\[perc_data_style\]\]/g, 'width:'+width+'px; background-color:'+currentColor+';');
+    content = content.replace(/\[\[perc_text_style\]\]/g, 'color:'+currentColor+';');
+    console.log(content);
+    $('.user_nutrient_data .block.right').append(content);
+    
+    c++;
+    
+    if(c >= user_colors.length) c = 0;
+  }
+
+//  var section = 'alcohol';
+//  for(i=0; i<2; i++){
+//    if(i == 1) section = 'pills';
+//    for(j=1; j<=3; j++){
+//      var perc = data[i].values[j-1].percentage;
+//      var name = data[i].values[j-1].name;
+//      var id = data[i].id;
+//      var pxWidth = (perc*620)/100;
+//      var selectorStr = '.container_data.'+section+' .block.right .'+section+'_'+j;
+//      $(selectorStr).attr('data-name', name);
+//      $(selectorStr+' p').html(name);
+//      $(selectorStr+' .porcent_data').css('width', pxWidth+'px')
+//      $(selectorStr+' .porcent_text').html('<p>'+perc+'<strong>%</strong></p>');
+//    }
+//  }
+  
+//  var r_9_1 = Raphael('canvas_9_1', 1095, 115);
+//  var adapter = new NutrientsAdapter();
+//  var elems = adapter.getParameters(data.global_data,['#B48AEA','#8A45E5','#7737C7','#3E3EA5',]);
+//  SingleBarChart = new EdSingleBarChart(r_9_1, elems, {
+//    x: 20,
+//    y: 5,
+//    width: 1050,
+//    height: 83,
+//    fontSize: 47,
+//    fontColor: '#ffffff',
+//    first_icon: '/static/img/step_9/ico_1.png',
+//    end_icon: '/static/img/step_9/porcentaje.png'
+//  });
+//  SingleBarChart.draw();
+//  
+//  var r_9_2 = Raphael('canvas_9_2', 1095, 115);
+//  var adapter = new NutrientsAdapter();
+//  var elems = adapter.getParameters(data.user_data,['#FF9C8C','#FF836F','#E56666','#D44B5F',]);
+//  SingleBarChart = new EdSingleBarChart(r_9_2, elems, {
+//    x: 20,
+//    y: 5,
+//    width: 1050,
+//    height: 83,
+//    fontSize: 47,
+//    fontColor: '#ffffff',
+//    first_icon: '/static/img/step_9/ico_2.png',
+//    end_icon: '/static/img/step_9/porcentaje.png'
+//  });
+//  SingleBarChart.draw();
 
 }
 
