@@ -2608,7 +2608,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 .step_nine {
 	background-color: #F7F2ED;
-	height: 890px;
+	min-height: 890px;
 }
 .step_nine .centered_container {
 	width: 1120px;
