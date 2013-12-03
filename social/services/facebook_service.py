@@ -98,7 +98,7 @@ class FacebookService(BaseDeviceService):
         distance_km = item["total_distance"] * 1000
         calories = item["total_calories"]
         text = "%s %s km, %s calories" %(item["type"], distance_km, calories)
-        source = "datadonor.runkeeper.%s" %item["source"]
+        source = "datadonor.facebook.%s" %item["source"]
 
         nodes = []
         nodes.append(LogCreator.create_log_node(self, node_id, 0, distance_km))

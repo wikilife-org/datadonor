@@ -50,12 +50,12 @@ class TwitterService(BaseDeviceService):
         aggregated.twitter_retweets_count_last_seven_days = retweets_last_week
         aggregated.save()  
 
-    def pull_user_activity(self, user_id, user_auth):
+    def pull_user_activity(self, user_id, user_auth, twitter_id):
         wikilife_token = self._get_wikilife_token(user_id)
-        client = FacebookClient(user_auth["access_token"])
-        friend_count = client.get_friend_count()
-        avg_posts = client.get_avg_weekly_post()
-        avg_likes = client.get_avg_weekly_like()
+        client = TwitterClient(user_auth["access_token"], twitter_id)
+        followers = client.get_followers()
+        tweets_last_week = client.get_tweets_last_week()
+        retweets_last_week = client.get_retweets_last_week()
         #Create logs to wikilife
         start_time = DateParser.from_datetime(item["start_time"])
         end_time = DateUtils.add_seconds(start_time, item["duration"])
@@ -65,7 +65,7 @@ class TwitterService(BaseDeviceService):
         distance_km = item["total_distance"] * 1000
         calories = item["total_calories"]
         text = "%s %s km, %s calories" %(item["type"], distance_km, calories)
-        source = "datadonor.runkeeper.%s" %item["source"]
+        source = "datadonor.twitter.%s" %item["source"]
 
         nodes = []
         nodes.append(LogCreator.create_log_node(self, node_id, 0, distance_km))

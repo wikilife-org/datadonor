@@ -234,12 +234,15 @@ SOCIAL_AUTH_PIPELINE_old = (
 
 
 PROFILE_SOURCES_PRIORITY = {
-    "runkeeper": 1, 
-    "fitbit": 2, 
-    "fatsecret": 3, 
-    "facebook": 4, 
-    "twitter": 5 ,
-    "twentythreeandme":6
+    "runkeeper": 8, 
+    "fitbit": 6, 
+    "fatsecret": 7, 
+    "facebook": 1, 
+    "twitter": 4 ,
+    "google":2,
+    "linkedin":3,
+    "foursquare":5,
+    "twentythreeandme":9
 }
 
 #FACEBOOK CONFIG
