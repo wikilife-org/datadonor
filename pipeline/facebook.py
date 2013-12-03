@@ -1,42 +1,5 @@
+# coding=utf-8
 
-"""
-{
-    'username': u'tests',
-    'uid': u'100006128858058',
-    'is_new': False,
-    'auth': <social_auth.backends.facebook.FacebookAuthobjectat0x10d886e50>,
-    'new_association': False,
-    'facebook': True,
-    'user': <django.utils.functional.SimpleLazyObjectobjectat0x10d886c10>,
-    'social_user': <UserSocialAuth: tests-Facebook>,
-    'response': {
-        u'username': u'wikilife.development',
-        u'first_name': u'Wikilife',
-        u'last_name': u'Development',
-        u'verified': True,
-        u'name': u'WikilifeDevelopment',
-        u'locale': u'es_LA',
-        u'gender': u'male',
-        'expires': '5182651',
-        u'email': u'jquintas@wikilife.org',
-        'access_token': 'CAACYMya0cUsBAJ1elZAxMZA0095cyQWrtjeF77Gg3ZBFu3azIiKWb6MSAGTvii5vq8XgqcIVLIrwR5okoRMfSOyroIINCEkkvz8clYpZB1lynzLOyjY7ZCB6nCuT1BEBV92gkJBWV7VXRXvWh8BilCDcvnIQcIU4ZD',
-        u'birthday': u'10/10/1970',
-        u'link': u'http: //www.facebook.com/wikilife.development',
-        u'timezone': -3,
-        u'updated_time': u'2013-06-14T15: 35: 51+0000',
-        u'id': u'100006128858058'
-    },
-    'backend': <social_auth.backends.facebook.FacebookBackendobjectat0x10d897650>,
-    'pipeline_index': 11,
-    'details': {
-        'username': u'wikilife.development',
-        'fullname': u'WikilifeDevelopment',
-        'last_name': u'Development',
-        'email': u'jquintas@wikilife.org',
-        'first_name': u'Wikilife'
-    }
-}
-"""
 import urllib2
 import math
 from django.utils import simplejson
@@ -44,6 +7,8 @@ from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
 from utils.facebook import GraphAPI, GraphAPIError
 from datetime import date, timedelta, datetime
 from utils.aggregated_data import complete_facebook_info, complete_profile
+
+from social.util.social_service_locator import SocialServiceLocator
 
 def facebook_info(request, *args, **kwargs):
     backend = kwargs.get('backend')
@@ -53,8 +18,11 @@ def facebook_info(request, *args, **kwargs):
     if backend.name == "facebook":
         
         data = kwargs.get('response')
-        
-        facebook_id = data.get("id", "")
+        dd_user_id = social_user.user.id
+        facebook_service = SocialServiceLocator.get_instane().build_service_by_name("facebook")
+        facebook_service.pull_user_info(dd_user_id, {"access_token": data["access_token"]})
+
+        """facebook_id = data.get("id", "")
         time_zone = data.get("timezone", "")
         birthday = data.get("birthday", "")
         email = data.get("email", "")
@@ -75,14 +43,7 @@ def facebook_info(request, *args, **kwargs):
 
         total_friend = graph.fql("SELECT friend_count FROM user WHERE uid = me()")[0]["friend_count"]
         
-        """        
-        albums = graph.get_connections("me", "albums")
 
-        total_photos = 0
-        for photos in albums["data"]:
-            total_photos += photos["count"]
-
-        """
         today = date.today()
 
         
@@ -150,14 +111,7 @@ def facebook_info(request, *args, **kwargs):
         social_user.extra_data.update(result)
         social_user.save()
           
-        return result
-    
-
-def load_profile_pic(faceboof_id):
-
-    url = "http://graph.facebook.com/%s/picture?width=200&height=200&redirect=false" % faceboof_id
-    data = simplejson.loads(urllib2.urlopen(url).read())['data']
-    return data["url"]
+        return result"""
 
 
 

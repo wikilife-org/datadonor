@@ -1,5 +1,5 @@
+# coding=utf-8
 
-import requests
 from genomics.util.genomics_service_locator import GenomicsServiceLocator
 
 

@@ -148,11 +148,11 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.facebook.FacebookBackend',
-    'social_auth.backends.twitter.TwitterBackend',
-    'social_auth.backends.google.GoogleOAuth2Backend',
-    'social_auth.backends.contrib.linkedin.LinkedinOAuth2Backend',
-    'social_auth.backends.contrib.foursquare.FoursquareBackend',
+    'social.auth_backends.facebook.FacebookBackend',
+    'social.auth_backends.twitter.TwitterBackend',
+    'social.auth_backends.google.GoogleOAuth2Backend',
+    'social.auth_backends.linkedin.LinkedinOAuth2Backend',
+    'social.auth_backends.foursquare.FoursquareBackend',
 #    'social_auth.backends.contrib.evernote.EvernoteBackend',
     'physical.auth_backends.fitbit.FitbitBackend',
     'physical.auth_backends.runkeeper.RunkeeperBackend',
