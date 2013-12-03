@@ -22,7 +22,7 @@ def consumer_oauth_url_request(backend, url, user_or_id, redirect_uri='/',
     return response
 
 
-def build_consumer_oauth_request(backend, token, url, redirect_uri='/',
+def build_consumer_oauth_request(backend_name, token, url, redirect_uri='/',
                                  oauth_verifier=None, extra_params=None,
                                  method=HTTP_METHOD):
     """Builds a Consumer OAuth request."""
@@ -34,7 +34,7 @@ def build_consumer_oauth_request(backend, token, url, redirect_uri='/',
         params['oauth_verifier'] = oauth_verifier
         
     token = Token.from_string(token)
-    consumer = OAuthConsumer(*get_keys(backend.name))
+    consumer = OAuthConsumer(*get_keys(backend_name))
     request = OAuthRequest.from_consumer_and_token(consumer,
                                                    token=token,
                                                    http_method=method,

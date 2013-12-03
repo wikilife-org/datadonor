@@ -16,11 +16,11 @@ class FacebookClient(BaseDeviceClient):
         self._graph = GraphAPI(access_token)
     
     def get_profile(self):
-        return self._graph("me")
+        return self._graph.get_object("me")
     
     def get_avg_weekly_post(self):
         today = date.today()
-        posts = graph.request("me/posts", {"limit":1000})
+        posts = self._graph.request("me/posts", {"limit":1000})
         index = len(posts["data"]) - 1
         initial_date = datetime.strptime(posts["data"][index]["created_time"][:10], "%Y-%m-%d").date()
         weeks = (today - initial_date).days / 7
@@ -30,7 +30,7 @@ class FacebookClient(BaseDeviceClient):
     def get_avg_weekly_like(self):
         today = date.today()
         total_likes_query = "SELECT object_id FROM like WHERE user_id=me() limit 5000"
-        total_likes = graph.fql(total_likes_query)
+        total_likes = self._graph.fql(total_likes_query)
         count_likes = len(total_likes)
         index = count_likes - 1
         avg_likes = 0
@@ -38,7 +38,7 @@ class FacebookClient(BaseDeviceClient):
         
         while f_object is None and index >= 0:
             try:
-                f_object = graph.get_object(total_likes[index]["object_id"])
+                f_object = self._graph.get_object(total_likes[index]["object_id"])
             except GraphAPIError:
                 index = index - 1
         
@@ -53,7 +53,7 @@ class FacebookClient(BaseDeviceClient):
         return avg_likes
     
     def get_friend_count(self):
-        total_friend = graph.fql("SELECT friend_count FROM user WHERE uid = me()")[0]["friend_count"]
+        total_friend = self._graph.fql("SELECT friend_count FROM user WHERE uid = me()")[0]["friend_count"]
         return total_friend
 
  

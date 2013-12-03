@@ -1,14 +1,13 @@
 # coding=utf-8
 
+from datetime import datetime
 from django.contrib.auth.models import User
-
 from social.clients.facebook import FacebookClient
 from social.services.base_device_service import BaseDeviceService
 from wikilife_utils.date_utils import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
 from wikilife_utils.logs.log_creator import LogCreator
 from wikilife_utils.parsers.date_parser import DateParser
-
 from social.models import SocialUserAggregatedData
 
 
@@ -37,6 +36,12 @@ class FacebookService(BaseDeviceService):
         user = User.objects.get(id=user_id)
         client = FacebookClient(user_auth["access_token"])
         profile = client.get_profile()
+
+        birthday = profile.get("birthday", "")
+        email = profile.get("email", "")
+        gender = profile.get("gender", "")
+        first_name = profile.get("first_name", "")
+        last_name = profile.get("last_name", "")
         
         if gender:
             if gender =="male":
@@ -44,18 +49,27 @@ class FacebookService(BaseDeviceService):
             elif gender == "female":
                 gender = "f"
         
-        birthdate = None
+        date_of_birth = None
         if birthday:
-            birthdate = datetime.strptime(birthday, "%m/%d/%Y").date()
+            date_of_birth = datetime.strptime(birthday, "%m/%d/%Y").date()
 
         profile_items = {}
+        
+        if date_of_birth:
+            profile_items["date_of_birth"] = date_of_birth
+            
+        if first_name:
+            profile_items["first_name"] = first_name
 
-        if "first_name" in names:
-            profile_items["first_name"] = names["first_name"]
-
-        if "last_name" in names:
-            profile_items["last_name"] = names["last_name"]
-
+        if last_name:
+            profile_items["last_name"] = last_name
+            
+        if gender:
+            profile_items["gender"] = gender
+        
+        if email:
+            profile_items["email"] = email
+            
         self._update_profile(user_id, **profile_items)
         
         friend_count = client.get_friend_count()
@@ -66,7 +80,7 @@ class FacebookService(BaseDeviceService):
         aggregated.user = user
         aggregated.facebook_friend_count = friend_count
         aggregated.facebook_post_weekly_avg = avg_posts
-        aggregated.facebook_likes_count_last_seven_days = avg_likes
+        aggregated.facebook_likes_weekly_avg = avg_likes
         aggregated.save()  
 
     def pull_user_activity(self, user_id, user_auth):
