@@ -2703,55 +2703,11 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 
 /* ALCHOHOL COLORS */
-.step_nine .alcohol .graph_container.color_one .porcent_data {
+.step_nine .graph_container.color_one .porcent_data {
 	background-color: #B48AEA;
 }
-.step_nine .alcohol .graph_container.color_one .porcent_text {
+.step_nine .graph_container.color_one .porcent_text {
 	color: #B48AEA;
-}
-.step_nine .alcohol .graph_container.color_two .porcent_data {
-	background-color: #8945E5;
-}
-.step_nine .alcohol .graph_container.color_two .porcent_text {
-	color: #8945E5;
-}
-.step_nine .alcohol .graph_container.color_three .porcent_data {
-	background-color: #3E3EA5;
-}
-.step_nine .alcohol .graph_container.color_three .porcent_text {
-	color: #3E3EA5;
-}
-.step_nine .alcohol .graph_container.color_four .porcent_data {
-	background-color: #7737C7;
-}
-.step_nine .alcohol .graph_container.color_four .porcent_text {
-	color: #7737C7;
-}
-
-/* PILLS COLORS */
-.step_nine .pills .graph_container.color_one .porcent_data {
-	background-color: #FF9C8D;
-}
-.step_nine .pills .graph_container.color_one .porcent_text {
-	color: #FF9C8D;
-}
-.step_nine .pills .graph_container.color_two .porcent_data {
-	background-color: #D44B5F;
-}
-.step_nine .pills .graph_container.color_two .porcent_text {
-	color: #D44B5F;
-}
-.step_nine .pills .graph_container.color_three .porcent_data {
-	background-color: #E56666;
-}
-.step_nine .pills .graph_container.color_three .porcent_text {
-	color: #E56666;
-}
-.step_nine .pills .graph_container.color_four .porcent_data {
-	background-color: #FF836F;
-}
-.step_nine .pills .graph_container.color_four .porcent_text {
-	color: #FF836F;
 }
 
 .step_nine .graph_container.active .porcent_data {
