@@ -367,8 +367,8 @@ function drawNutrientProportionGraph(data){
   //console.log('NUTRIENT DATA!');
   //console.log(data);
   
-  $('.global_nutrient_data .block.right').html('');
-  $('.user_nutrient_data .block.right').html('');
+  //$('.global_nutrient_data .block.right').html('');
+  //$('.user_nutrient_data .block.right').html('');
   
   var global_colors = ['#B48AEA','#8A45E5','#7737C7','#3E3EA5'];
   var c = 0;
@@ -1223,6 +1223,8 @@ window.onload = function () {
     drawHoursGraph(data);
   });
   
+  $('.global_nutrient_data .block.right').html('');
+  $('.user_nutrient_data .block.right').html('');
   $.getJSON( _api_urls[_api_env].nutrients, function( data ) {
     //console.log('NUTRIENT PROPORTION!');
     drawNutrientProportionGraph(data);
