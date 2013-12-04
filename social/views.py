@@ -10,6 +10,7 @@ from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from social.services.utils import *
+from social.models import GlobalWorkExperinceDistribution
 
 
 def social_reach(request):
@@ -28,13 +29,24 @@ def social_sharing(request):
 def social_work(request):
     if request.method == 'POST':
         working_experience = request.POST["working_experience"]
-
-    user_data = {"user_experience": {"key": "26-35", "value":40}}
-    global_data = {"15-25":{"key": "15-25", "value":20}, 
-                    "26-35":{"key": "26-35", "value":50}, 
-                    "36-45":{"key": "36-45", "value":60}, 
-                    "46-55":{"key": "46-55", "value":70}, 
-                    "56-65":{"key": "56-65", "value":80}}
+        #Validate value
+        if is_valid_working_experience(working_experience):
+        #save Value
+            request.user.social_aggregated_data.work_experience_years_manual = int(working_experience)
+            request.user.social_aggregated_data.save()
+    
+    years = request.user.social_aggregated_data.work_experience_years_manual or \
+                        request.user.social_aggregated_data.work_experience_years
+    age_range = get_age_range(request.user.profile.date_of_birth)
+    user_data = {"user_experience": {"key": age_range, "value":years}}
+    
+    last_distribution = GlobalWorkExperinceDistribution.objects.latest()
+    
+    global_data = { "15-25":{"key": "15-25", "value": last_distribution.range_15_25}, 
+                    "26-35":{"key": "26-35", "value": last_distribution.range_26_35}, 
+                    "36-45":{"key": "36-45", "value": last_distribution.range_36_45}, 
+                    "46-55":{"key": "46-55", "value": last_distribution.range_46_55}, 
+                    "56-65":{"key": "56-65", "value": last_distribution.range_56_65}}
     data = {"user_data":user_data, "global_data":global_data, "avg":10}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
@@ -45,9 +57,10 @@ def social_education(request):
         #Validate value
         if is_valid_education(education_level):
         #save Value
-            request.user.social_aggregated_data.education_level = int(education_level)
+            request.user.social_aggregated_data.education_level_manual = int(education_level)
             request.user.social_aggregated_data.save()
-            update_degree(request.user.social_aggregated_data.education_degree, int(education_level))
+            if request.user.social_aggregated_data.education_degree:
+                update_degree(request.user.social_aggregated_data.education_degree, int(education_level))
 
     user_data = {"user_level": request.user.social_aggregated_data.education_level}
     global_data = {6:{"percentage":8, "key":"phd", "title": "PhD", "index":6},
