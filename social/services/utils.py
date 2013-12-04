@@ -1,5 +1,5 @@
 from social_auth.models import *
-from utils.c import calculate_age
+from utils.commons import calculate_age
 
 def global_social_reach():
     return {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":10},
