@@ -415,7 +415,7 @@ u'response': {
 
 from django.utils import simplejson
 from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
-from utils.aggregated_data import complete_foursquare_info, complete_profile
+from utils.aggregated_data import complete_foursquare_info#, complete_profile
 
 
 def foursquare_info(request, *args, **kwargs):
@@ -437,7 +437,7 @@ def foursquare_info(request, *args, **kwargs):
         if "contact" in data and "email" in data["contact"]:
             email = data["contact"]["email"]
             
-        complete_profile(social_user.user, email, None, gender )
+        #complete_profile(social_user.user, email, None, gender )
         result.update(data)
         result["profile_img"] = data["photo"]
         social_user.extra_data.update(result)
