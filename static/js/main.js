@@ -1358,6 +1358,12 @@ window.onload = function () {
 
 $(document).ready(function(){
   
+  $('.delete_stat').click(function(){
+    //$('#complains_adder_container').hide();
+    $('#complains_adder_container').removeClass('active');
+    return false;
+  });
+  
   $('.user_complain').live('click', function(){
     deleteUserComplain($(this).attr('data-id'));
     $('#complains_adder_container').click();
