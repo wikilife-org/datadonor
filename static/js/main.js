@@ -894,8 +894,11 @@ function addNewComplain(id, name, data){
     if(!repeated){
       console.log('adding complain');
       var content = $('#complain_template').html();
-      content = content.replace(/{{name}}/g, name);
-      content = content.replace(/{{id}}/g, id);
+      //content = content.replace(/{{name}}/g, name);
+      //content = content.replace(/{{id}}/g, id);
+      
+      content = content.replace(/\[\[name\]\]/g, name);
+      content = content.replace(/\[\[id\]\]/g, id);
       //console.log(content);
 
       var ulElem = $('#select_complaints ul');
