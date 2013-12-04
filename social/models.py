@@ -20,8 +20,10 @@ class SocialUserAggregatedData(models.Model):
     linkedin_connections_count = models.IntegerField(default=0)
     foursquare_friends_count = models.IntegerField(default=0)
     education_level = models.IntegerField(default=2)
+    education_level_manual = models.IntegerField(default=2)
     education_degree = models.CharField(max_length=250, blank=True, null=True)
     work_experience_years = models.IntegerField(default=0)
+    work_experience_years_manual = models.IntegerField(default=0)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
     wikilife_ids = models.CharField(max_length=255, null=True)
@@ -68,16 +70,22 @@ class GlobalEducationDistribution(models.Model):
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
+    class Meta:
+        get_latest_by = 'update_time'
+        #MyModel.objects.latest() you will get the latest instance based on the date/time field.
+        #And when I tested your code using sample data, it indeed did.
     
 class GlobalWorkExperinceDistribution(models.Model):
     range_15_25 = models.IntegerField(default=0)
-    range_25_35 = models.IntegerField(default=0)
+    range_26_35 = models.IntegerField(default=0)
     range_36_45 = models.IntegerField(default=0)
     range_46_55 = models.IntegerField(default=0)
     range_56_65 = models.IntegerField(default=0)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
+    class Meta:
+        get_latest_by = 'update_time'
 
 class SocialGlobalAggregatedData(models.Model):
     avg_facebook_friend_count = models.IntegerField(default=0)

@@ -18,7 +18,16 @@ def is_valid_education(education_level):
         pass
     
     return valid
+
+def is_valid_working_experience(working_experience):
+    valid = False
+    try:
+        working_experience = int(working_experience)
+        valid = working_experience>= 0 and working_experience<=60
+    except:
+        pass
     
+    return valid
 
 def update_degree(degree, level):
 

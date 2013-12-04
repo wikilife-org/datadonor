@@ -2,7 +2,7 @@
 
 from datetime import date
 import requests
-from utils.aggregated_data import get_level_of_education_by_degree
+from utils.commons import get_level_of_education_by_degree
 from social.clients.base_device_client import BaseDeviceClient
 
 
