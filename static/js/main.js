@@ -923,6 +923,8 @@ function addNewComplain(id, name, data){
 
       //Start graph
       drawComplainGraph(params, id, preffix);
+      
+      $.post( _api_urls[_api_env].complains_post, { id_complaint: id } );
 
       if(addedComplains.length == 5){
         $('#complains_adder_container').hide();
