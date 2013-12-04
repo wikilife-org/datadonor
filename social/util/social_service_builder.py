@@ -10,7 +10,7 @@ SERVICES = {
     "twitter": "social.services.twitter_service.TwitterService",
     "linkedin": "social.services.linkedin_service.LinkedinService",
     "google": "social.services.google_service.GoogleService",
-    "foursquare": "social.services.foursquare_services.FoursquareService",
+    "foursquare": "social.services.foursquare_service.FoursquareService",
 }
 
 

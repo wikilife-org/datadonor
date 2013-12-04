@@ -5,13 +5,6 @@ from social.models import SocialUserAggregatedData, DegreeLevel
 
 DEFAULT_EDUCATION_LEVEL = 2
 
-  
-def complete_foursquare_info(user, foursquare_friends_count):
-    aggregated, created = SocialUserAggregatedData.objects.get_or_create(user=user)
-    aggregated.user = user
-    aggregated.foursquare_friends_count = foursquare_friends_count
-    aggregated.save()
- 
 
 def get_level_of_education_by_degree(degree):
     degree, created = DegreeLevel.objects.get_or_create(title=degree)
