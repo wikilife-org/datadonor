@@ -37,6 +37,7 @@ def social_work(request):
     
     years = request.user.social_aggregated_data.work_experience_years_manual or \
                         request.user.social_aggregated_data.work_experience_years
+    
     age_range = get_age_range(request.user.profile.date_of_birth)
     user_data = {"user_experience": {"key": age_range, "value":years}}
     
@@ -47,6 +48,7 @@ def social_work(request):
                     "36-45":{"key": "36-45", "value": last_distribution.range_36_45}, 
                     "46-55":{"key": "46-55", "value": last_distribution.range_46_55}, 
                     "56-65":{"key": "56-65", "value": last_distribution.range_56_65}}
+    
     data = {"user_data":user_data, "global_data":global_data, "avg":10}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 

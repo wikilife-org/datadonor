@@ -1,5 +1,6 @@
 from social_auth.models import *
 
+
 def global_social_reach():
     return {"facebook":{"count": 20, "percentage":20}, "twitter":{"count": 20, "percentage":10},
                 "gmail":{"count": 20, "percentage":10}, "foursquare":{"count": 20, "percentage":40},
@@ -49,7 +50,36 @@ def update_degree(degree, level):
     
     degree.save()
     
+def calculate_age(born):
+    today = date.today()
+    try: 
+        birthday = born.replace(year=today.year)
+    except ValueError: # raised when birth date is February 29 and the current year is not a leap year
+        birthday = born.replace(year=today.year, day=born.day-1)
+    if birthday > today:
+        return today.year - born.year - 1
+    else:
+        return today.year - born.year
     
+def get_age_range(birth_date):
+    age_range = "26-35"
+    if birth_date:
+        age = calculate_age(birth_date)
+        if age>=15 and age <=25:
+            age_range = "15-25"
+        elif age>=26 and age <=35:
+            age_range = "26-35"
+        elif age>=36 and age <=45:
+            age_range = "36-45"
+        elif age>=46 and age <=55:
+            age_range = "46-55"
+        elif age>=56 and age <=65:
+            age_range = "56-65"
+    
+    return age_range
+        
+
+
 ###### MOCK SECTION #############
 # Will be deleted after deployment
 #################################
