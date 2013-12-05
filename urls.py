@@ -23,6 +23,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^fb/', facebook_view, name='fb_app'),
     url(r'^comming/', comming, name='comming'),
+    url(r'^privacy/', privacy, name='privacy'),
+    url(r'^terms-of-service/', tos, name='tos'),
     
     url(r'', include('social_auth.urls')),
     url(r'^genomics/', include('genomics.urls')),

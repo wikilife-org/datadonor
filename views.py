@@ -31,6 +31,14 @@ def terms(request):
     return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
                                   RequestContext(request))
 
+def privacy(request):
+    return render_to_response('static/privacy.html',{},
+                                  RequestContext(request))
+
+def tos(request):
+    return render_to_response('static/tos.html',{},
+                                  RequestContext(request))
+    
 def home(request):
     """Home view, displays login mechanism"""
     videos = request.GET.get('videos', None)
