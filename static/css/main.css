@@ -102,23 +102,23 @@ a:hover {
 #header {
 	height: auto;
 	background-color: white;
-	padding-bottom: 15px;
+	border-bottom: 4px solid rgba(0, 0, 0, 0.30);
+	padding: 23px 0px 8px 0px;
 }
 
 /* --- logotipo */
 #header .logo {
-	width: 253px;
-	height: 88px;
+	width: 187px;
+	height: 66px;
 	float: left;
-	margin-top: 19px;
 }
 #header .logo h1 {
-	width: 253px;
-	height: 88px;
+	width: 187px;
+	height: 66px;
 }
 #header .logo h1 a {
-	width: 253px;
-	height: 88px;
+	width: 187px;
+	height: 66px;
 	background-image: url(../img/header/logo.png);
 	background-position: center;
 	background-repeat: no-repeat;
@@ -127,20 +127,29 @@ a:hover {
 }
 
 /* --- logout */
-#header .logout_boton {
+#header .navegacion_top {
 	float: right;
-	margin-top: 87px;
+	margin: 18px 0px 0px 0px;
 }
-#header .logout_boton a {
-	color: #3F4A5A;
-	font-size: 19px;
-    font-family: 'Omnes-Semibold';
-    -webkit-transition: color 0.4s;
-    -moz-transition: color 0.4s;
-    transition: color 0.4s;
+#header .navegacion_top ul {
+	text-align: left;
 }
-#header .logout_boton a:hover {
-	color: #7737c7;
+#header .navegacion_top ul li {
+	display: inline-table;
+}
+#header .navegacion_top ul li a {
+	display: inline;
+	margin: 0 10px;
+	font-size: 18px;
+	font-family: "Gotham-Ultra";
+	text-transform: uppercase;
+	color: #aeb0b1;
+	-webkit-transition: color 0.4s;
+	-moz-transition: color 0.4s;
+	transition: color 0.4s;
+}
+#header .navegacion_top ul li a:hover {
+	color: #424858;
 }
 
 /* @end */
@@ -2608,7 +2617,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 .step_nine {
 	background-color: #F7F2ED;
-	min-height: 890px;
+	height: 890px;
 }
 .step_nine .centered_container {
 	width: 1120px;
