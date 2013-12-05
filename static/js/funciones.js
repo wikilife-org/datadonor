@@ -27,7 +27,24 @@ $(document).ready(function () {
 	// SECTOR FIXED NAV
 	
 	// NAVEGACION
+	
 	$('.nav_big_social a').live('click',function (event) {event.preventDefault();});
+	
+	// deslinkear red social
+	$('.nav_big_social a').on('click',function () {
+		if ($(this).parent().hasClass('active')) {
+			$('#disconect_network').fadeIn(function () {
+				$(this).addClass('active');
+			});
+			
+		}
+	});
+	$('#close_network').on('click',function (event) {
+		event.preventDefault();
+		$('#disconect_network').fadeOut();
+		$('#disconect_network').removeClass('active');
+	});
+	
 	// NAVEGACION
     
     // SECTOR FIXED NAV
@@ -509,6 +526,11 @@ function doResize(){
 	// LOGIN POPUP
 	$('#login_container').height(windowHeight);
 	// LOGIN POPUP
+	
+	// disconect_network NETWORK
+	$('#disconect_network').height(windowHeight);
+	// disconect_network NETWORK
+
 	
 }
 //DORESIZE
