@@ -460,6 +460,17 @@ $(document).ready(function () {
 	   	event.preventDefault();
 	   });
 	   // TABS YOU REMOVE
+	   
+	   // login trigger
+	   $('a#login_popup').on('click',function (event) {
+	   		event.preventDefault();
+	   		$('#login_container').fadeIn();
+	   });
+	   $('a#close_login').on('click',function (event) {
+	   		event.preventDefault();
+	   		$('#login_container').fadeOut();
+	   });
+	   // login trigger
 	    
 	
 	//DORESIZE
@@ -494,6 +505,10 @@ function doResize(){
 	//  EMAIL SHARE
 	$('#email_container').height(windowHeight);
 	//  EMAIL SHARE	
+	
+	// LOGIN POPUP
+	$('#login_container').height(windowHeight);
+	// LOGIN POPUP
 	
 }
 //DORESIZE

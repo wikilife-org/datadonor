@@ -111,6 +111,48 @@
 	
 	</div>
 	<!--/email_sharing-->
+	
+	<!--login_popup-->
+	<div id="login_container">
+		
+		<!--centered-->
+		<div class="container_center">
+		
+			<!--close-->
+			<div class="close_login">
+				<a href="#" id="close_login">close</a>
+			</div>
+			<!--/close-->
+			
+			<!--social_center-->
+			<div class="social_center">
+			
+				<!--top-->
+				<div class="top">
+					<h3>Login</h3>
+					<h2>Welcome back</h2>
+					<p>use any of these services to login</p>
+				</div>
+				<!--/top-->
+				
+				<!--bottom-->
+				<div class="bottom">
+					<ul>
+						<li><a href="#" class="twitter">twitter</a></li>
+						<li><a href="#" class="facebook">facebook</a></li>
+						<li><a href="#" class="gmail">gmail</a></li>
+					</ul>
+				</div>
+				<!--/bottom-->
+			
+			</div>
+			<!--/social_center-->
+		
+		</div>
+		<!--/centered-->
+		
+	</div>
+	<!--/login_popup-->
 
 	<!--header-->
 	<div class="full_container" id="header">
@@ -124,11 +166,15 @@
 			</div>
 			<!--/logo-->
 			
-			<!--logout-->
-			<div class="logout_boton">
-				<a href="#">logout</a>
+			<!--navegacion-->
+			<div class="navegacion_top">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/demo">Dashboard</a></li>
+					<li><a href="#" id="login_popup">Login</a></li>
+				</ul>
 			</div>
-			<!--/logout-->
+			<!--/navegacion-->
 			
 			<div class="clear"></div>
 			
@@ -4011,36 +4057,38 @@
 	<div class="full_container" id="footer">
 		<div class="centered_container">
 			
-			<!--logo-->
-			<div class="logo">
-				<h1>
-					<a href="index.html">DATADONORS</a>
-				</h1>
+			<!--navegacion_footer-->
+			<div class="navegacion_footer">
+				<ul>
+					<li><a href="#">Privacy</a></li>
+					<li>/</li>
+					<li><a href="#">Terms of Service</a></li>
+					<li>/</li>
+					<li><a href="#">Learn More</a></li>
+					<li>/</li>
+					<li><a href="#">The Wikilife Foundation</a></li>
+				</ul>
 			</div>
-			<!--/logo-->
-			
-			<!--footer_text-->
-			<div class="footer_text">
-				<p>Datadonors.org - datadonors brand all rights reserved - 2013</p>
-			</div>
-			<!--/footer_text-->
+			<!--/navegacion_footer-->
 			
 			<!--social_footer-->
 			<div class="footer_social">
-				<h2>Follow us on</h2>
 				<ul>
 					<li><a href="https://www.facebook.com/datadonors" target="_blank" class="facebook">facebook</a></li>
 					<li><a href="https://twitter.com/DataDonors" target="_blank" class="twitter">twitter</a></li>
-					<li><a href="#" class="email">email</a></li>
+					<!-- trigger a popup <li><a href="#" class="email">email</a></li>-->
+					<li><a href="mailto:info@datadonors.org" class="e_mail">email</a></li>
 				</ul>
 				<div class="clear"></div>
 			</div>
 			<!--/social_footer-->
 			
+			<div class="clear"></div>
+			
 		</div>
 	</div>
 	<!--/footer-->
-        
+	    
 </div>
 
 </body>
