@@ -9,6 +9,7 @@ from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 
+
 def comming(request):
     return render_to_response('splash/index.html', {'version': version},
                                   RequestContext(request))
@@ -17,7 +18,6 @@ def mock(request):
     return render_to_response('maquetas/index.html', {'version': version},
                                   RequestContext(request))
 
-                        
 def wizard(request):
     agent = request.META['HTTP_USER_AGENT']
     show_wizard =  request.user.is_authenticated() or request.session.get("user_agree", False)
