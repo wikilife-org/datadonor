@@ -172,20 +172,9 @@ function Viewport ( )
   function fViewport( )
   {
     
-	$("section:in-viewport").each( function( ) 
-	{
+	$("section:in-viewport").each( function( ) {
 		$(this).addClass("animate");
-		/*if($( this ).attr('id') == 'section-counter' ) 
-		{
-			 $( 'nav a' ).attr( 'data-scroll, how-to-share'  ).addClass( 'active' );
-		}*/
-
 	});
-		/*$("#how-to-share:in-viewport").each( function( ) 
-		{
-		$( '#how-to-share .flexslider' ).flexslider({slider.play()});
-		});*/
-
    
   }//end function  fViewport()
 
@@ -326,7 +315,7 @@ function img_footer( )
 
 function scroll_nav ( )
 {
-	$( 'nav a, .goto' ).click(function( e )
+	$( '.goto' ).click(function( e )
 		{
 			e.preventDefault();
 			

@@ -33,11 +33,6 @@ function Viewport() {
 
 		$("section:in-viewport").each(function() {
 			$(this).addClass("animate");
-			/*
-			 * if($( this ).attr('id') == 'section-counter' ) { $( 'nav a'
-			 * ).attr( 'data-scroll, how-to-share' ).addClass( 'active' ); }
-			 */
-
 		});
 	}// end function fViewport()
 }// end function openViewoirt()

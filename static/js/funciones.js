@@ -28,7 +28,7 @@ $(document).ready(function () {
 	
 	// NAVEGACION
 	
-	$('.nav_big_social a').live('click',function (event) {event.preventDefault();});
+	$('.nav_big_social a').on('click',function (event) {event.preventDefault();});
 	
 	// deslinkear red social
 	$('.nav_big_social a').on('click',function () {
@@ -338,7 +338,7 @@ $(document).ready(function () {
 //		$(this).addClass('active');
 //	});
 	
-//	$('#graphs_conditions .done_condition').live('click',function (event) {
+//	$('#graphs_conditions .done_condition').on('click',function (event) {
 //		event.preventDefault();
 //		
 //		if ($(this).hasClass('next_subsector')) {
@@ -382,7 +382,7 @@ $(document).ready(function () {
 //		$(this).addClass('active');
 //	});
 //	
-//	$('#graphs_emotions .done_condition').live('click',function (event) {
+//	$('#graphs_emotions .done_condition').on('click',function (event) {
 //		event.preventDefault();
 //		
 //		if ($(this).hasClass('next_subsector')) {
@@ -416,8 +416,8 @@ $(document).ready(function () {
 	
 	// STEP 16
 	
-		$( "#mood_1 a" ).live('click',function (event) {event.preventDefault();});
-		$( "#mood_2 a" ).live('click',function (event) {event.preventDefault();});
+		$( "#mood_1 a" ).on('click',function (event) {event.preventDefault();});
+		$( "#mood_2 a" ).on('click',function (event) {event.preventDefault();});
 	
 		// sliders your
 		$( "#mood_1" ).slider({
@@ -477,18 +477,6 @@ $(document).ready(function () {
 	   	event.preventDefault();
 	   });
 	   // TABS YOU REMOVE
-	   
-	   // login trigger
-	   $('a#login_popup').on('click',function (event) {
-	   		event.preventDefault();
-	   		$('#login_container').fadeIn();
-	   });
-	   $('a#close_login').on('click',function (event) {
-	   		event.preventDefault();
-	   		$('#login_container').fadeOut();
-	   });
-	   // login trigger
-	    
 	
 	//DORESIZE
 	doResize();
@@ -522,10 +510,6 @@ function doResize(){
 	//  EMAIL SHARE
 	$('#email_container').height(windowHeight);
 	//  EMAIL SHARE	
-	
-	// LOGIN POPUP
-	$('#login_container').height(windowHeight);
-	// LOGIN POPUP
 	
 	// disconect_network NETWORK
 	$('#disconect_network').height(windowHeight);

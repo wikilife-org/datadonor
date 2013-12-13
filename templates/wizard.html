@@ -20,6 +20,8 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 {% endblock  %}
 
 {% block styles %}
+<link rel="stylesheet" href="/static/css/header.css" />
+<link rel="stylesheet" href="/static/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/reset-wizard.css"/> 
 <link rel="stylesheet" type="text/css" href="/static/css/scroll-wizard.css"/>
 <link rel="stylesheet" type="text/css" href="/static/css/style-wizard.css?6548321"/>
@@ -45,24 +47,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 {% block content %}
 <body>
 
-  <div class="container-header">
-    <header id="header" >
-    
-        <div id="top">
-            <!-- These are the three top colored thinguies -->
-            <div class="col-3 left" ></div>
-            <div class="col-3 center" ></div>
-            <div class="col-3 right" ></div>
-            <h1>
-                <img src="/static/img/logo_landing.png" alt="Logo DataDonors" title="DataDonors" />
-            </h1>
-            <div id="center-nav"></div>
-        </div><!-- #top -->
-           
-        <div class="bottom"></div>
-        
-    </header>
-  </div><!-- .container-header -->
+{% include "header.include.html" %}
   
 <section id="disclaimer" class="scrollsections">
 

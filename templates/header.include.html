@@ -1,0 +1,39 @@
+{% include "popups/login.include.html" %}
+
+<link rel="stylesheet" href="/static/css/header.css" />
+<link rel="stylesheet" href="/static/css/reveal.css">
+
+<script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
+
+
+<div class="container-header">
+    <header id="header">
+        <div id="top">
+            <div class="col-3 left"></div>
+            <div class="col-3 center"></div>
+            <div class="col-3 right"></div>
+            <h1>
+                <img src="/static/img/logo_landing.png" width="186" height="65" alt="Logo DataDonors"
+                    title="Logo DataDonors" />
+            </h1>
+            <div id="center-nav">
+                <nav class="nav" id="scrollsections-navigation">
+                    <a href="/" title="Home">Home</a>
+                    <a href="/dashboard" title="Dashboard">Dashboard</a>
+                    {% if request.user.is_authenticated %}
+                    <a href="logout" title="logout">logout</a>
+                    {% else %}
+                    <a href="#" title="login" >login</a><!-- XXX TODO: data-reveal-id="login_container" -->
+                    {% endif %}
+                </nav>
+            </div>
+            <!-- #preloader-copy-wrapper -->
+            {% if can_share %}
+            <a href="#" title="Start Sharing" id="start-sharing" data-reveal-id="coming">Start Sharing</a>
+            {% endif %}
+        </div>
+        <div class="bottom"></div>
+    </header>
+    <!-- #header -->
+</div>
+<!-- .container-header -->

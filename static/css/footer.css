@@ -1,0 +1,94 @@
+/* @group FOOTER
+--------------------------------------- */
+
+#footer {
+    background-color: #f5f0eb;
+    padding: 30px 0px 30px 0px;
+}
+#footer .centered_container {
+    width: 1050px;
+}
+
+/* --- logotipo */
+#footer .navegacion_footer {
+    float: left;
+    margin-top: 1px;
+}
+#footer .navegacion_footer ul {
+    text-align: left;
+}
+#footer .navegacion_footer ul li {
+    display: inline-table;
+    font-family: 'Omnes-Semibold';
+    font-size: 16px;
+    margin: 5px 0px 5px 0px;
+    color: #848587;
+}
+#footer .navegacion_footer ul li:first-child {
+    margin-left: 0px;
+}
+#footer .navegacion_footer ul li a {
+    display: inline;
+    font-size: 16px;
+    font-family: 'Omnes-Semibold';
+    color: #848587;
+    -webkit-transition: color 0.4s;
+    -moz-transition: color 0.4s;
+    transition: color 0.4s;
+}
+#footer .navegacion_footer ul li a:hover {
+    color: #424858;
+}
+
+/* --- social header */
+#footer .footer_social {
+    float: right;
+    position: relative;
+}
+#footer .footer_social ul {
+    width: 100%;
+}
+#footer .footer_social ul li {
+    width: auto;
+    height: auto;
+    float: left;
+    margin-left: 10px;
+}
+#footer .footer_social ul li a {
+    width: 27px;
+    height: 27px;
+    text-indent: -9999px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    -webkit-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+    background-image: url(../img/header/footer_social_new.png);
+}
+#footer .footer_social ul li a.twitter {
+    background-position: -41px top;
+}
+#footer .footer_social ul li a.twitter:hover {
+    background-position: -41px -30px;
+}
+#footer .footer_social ul li a.facebook {
+    background-position: 1px top;
+}
+#footer .footer_social ul li a.facebook:hover {
+    background-position: 1px -30px;
+}
+#footer .footer_social ul li a.email {
+    background-position: -83px top;
+}
+#footer .footer_social ul li a.email:hover {
+    background-position: -83px -30px;
+}
+#footer .footer_social ul li a.e_mail {
+    background-position: -83px top;
+}
+#footer .footer_social ul li a.e_mail:hover {
+    background-position: -83px -30px;
+}
+
+/* @end */

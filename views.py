@@ -43,7 +43,7 @@ def home(request):
     """Home view, displays login mechanism"""
     videos = request.GET.get('videos', None)
     ctx =  {'version': version}   
-    return render_to_response('landing.html', {'version': version, 'videos':videos, "loop_times":range(1,79)},
+    return render_to_response('landing.html', {'can_share': True, 'version': version, 'videos':videos, "loop_times":range(1,79)},
                                   RequestContext(request))
 
 def greg(request):

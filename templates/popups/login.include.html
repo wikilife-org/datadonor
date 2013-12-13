@@ -1,0 +1,50 @@
+<!--login_container-->
+<div id="login_container" class="reveal-modal">
+
+	<!--centered-->
+	<div class="container_center">
+
+		<div class="close_login">
+			<a href="#" id="close_login">close</a>
+		</div>
+
+		<!--social_center-->
+		<div class="social_center">
+
+			<!--top-->
+			<div class="top">
+				<h3>Login</h3>
+				<h2>Welcome back</h2>
+				<p>use any of these services to login</p>
+			</div>
+			<!--/top-->
+
+			<!--bottom-->
+			<div class="bottom">
+				<ul>
+					<li><a href="{% url "socialauth_begin" "twitter" %}" class="twitter">twitter</a></li>
+					<li><a href="{% url "socialauth_begin" "facebook" %}" class="facebook">facebook</a></li>
+					<li><a href="{% url "socialauth_begin" "google" %}" class="gmail">gmail</a></li>
+				</ul>
+			</div>
+			<!--/bottom-->
+
+		</div>
+		<!--/social_center-->
+
+	</div>
+	<!--/centered-->
+
+</div>
+<!--/login_container-->
+
+<link rel="stylesheet" href="/static/css/login.css" />
+
+<script>
+	$(function() {
+		$('a#close_login').on('click', function(event) {
+			event.preventDefault();
+			$('#login_container').fadeOut();
+		});
+	});
+</script>

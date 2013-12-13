@@ -1,4 +1,3 @@
-
 <div id="coming" class="reveal-modal">
 	<h1>
 		We're finalizing the details of the DataDonors site and you'll be able
@@ -14,49 +13,17 @@
 	<a class="close-reveal-modal">&#215;</a>
 </div>
 
-<div class="container-header">
-
-	<header id="header">
-
-		<div id="top">
-
-			<div class="col-3 left"></div>
-
-			<div class="col-3 center"></div>
-
-			<div class="col-3 right"></div>
-
-			<h1>
-
-				<img src="/static/img/logo_landing.png" width="186" height="65"
-					alt="Logo DataDonors" title="Logo DataDonors" />
-
-			</h1>
-
-			<div id="center-nav">
-
-				<nav class="nav" id="scrollsections-navigation">
-
-					<a href="#home" title="section" class="link-home" data-scroll="top">home</a>
-					<a href="#about" title="section" class="link-about" data-scroll="about">about</a> 
-					<a href="#whatfor" title="section" class="link-for-what" data-scroll="whatfor">why</a> 
-					<a href="#howtoshare" title="section" class="link-how-to-share" data-scroll="howtoshare">how</a>
-					<a href="#donors" title="section" class="link-counter" data-scroll="donors">donors</a> 
-
-				</nav>
-
-			</div>
-			<!-- #preloader-copy-wrapper -->
-
-			<a href="#" title="Start Sharing" id="start-sharing"
-				data-reveal-id="coming">Start Sharing</a>
-
-		</div>
-
-		<div class="bottom"></div>
-
-	</header>
-	<!-- #header -->
-
+<div id="login" class="reveal-modal login-modal">
+    <h1>Login</h1>
+    <h2>Welcome Back!</h2>
+    <span>use any of these services to log in.</span>
+    <div style="clear: both;"></div>
+    <a href="{% url "socialauth_begin" "twitter" %}" class="social-network-bubble circle twitter"  title="twitter" ><span>Twitter</span></a>
+    <a href="{% url "socialauth_begin" "facebook" %}" class="social-network-bubble circle facebook" title="Facebook"><span>Facebook</span></a>
+    <a href="{% url "socialauth_begin" "google" %}" class="social-network-bubble circle gmail" title="google_+" ><span>Google +</span></a>
+    
+    <div style="clear: both;"></div>
+    <a class="close-reveal-modal">&#215;</a>
 </div>
-<!-- .container-header -->
+
+{% include "header.include.html" %}

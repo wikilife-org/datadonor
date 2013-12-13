@@ -129,7 +129,7 @@ def create_user_social(sender, instance, **kwargs):
 
 
     #Send email
-    send_email(instance.email, "email/welcome.html", "email/welcome.txt")
+    # TODO: send_email(instance.email, "email/welcome.html", "email/welcome.txt")
     
     profile, created  = Profile.objects.get_or_create(user=instance)
     if created or profile.user == None:

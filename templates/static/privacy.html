@@ -16,10 +16,11 @@
 	<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"/>
 	
 	<!-- Styles -->
-	<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="/static/css/main.css" rel="stylesheet" />
+	<link href="/static/css/footer.css" rel="stylesheet" />
 	
 	<!-- Javascript -->
-	<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="/static/js/funciones.js"></script>
    
 </head>
@@ -108,41 +109,7 @@
 	</div>
 	<!--/privacy-->
 	
-	<!--footer-->
-	<div class="full_container" id="footer">
-		<div class="centered_container">
-			
-			<!--navegacion_footer-->
-			<div class="navegacion_footer">
-				<ul>
-					<li><a href="/privacy">Privacy</a></li>
-					<li>/</li>
-					<li><a href="/terms-of-service">Terms of Service</a></li>
-					<li>/</li>
-					<li><a href="#">Learn More</a></li>
-					<li>/</li>
-					<li><a href="#">The Wikilife Foundation</a></li>
-				</ul>
-			</div>
-			<!--/navegacion_footer-->
-			
-			<!--social_footer-->
-			<div class="footer_social">
-				<ul>
-					<li><a href="https://www.facebook.com/datadonors" target="_blank" class="facebook">facebook</a></li>
-					<li><a href="https://twitter.com/DataDonors" target="_blank" class="twitter">twitter</a></li>
-					<!-- trigger a popup <li><a href="#" class="email">email</a></li>-->
-					<li><a href="mailto:info@datadonors.org" class="e_mail">email</a></li>
-				</ul>
-				<div class="clear"></div>
-			</div>
-			<!--/social_footer-->
-			
-			<div class="clear"></div>
-			
-		</div>
-	</div>
-	<!--/footer-->
+	{% include "footer.include.html" %}
 	    
 </div>
 

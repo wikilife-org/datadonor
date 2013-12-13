@@ -1,0 +1,126 @@
+/* @group LOGIN CONTAINER
+--------------------------------------- */
+
+#login_container {
+    background: url(../img/email_share/trans.png) center repeat !important;
+    padding: 0 !important;
+}
+#login_container .container_center {
+    width: 830px;
+    height: 450px;
+    background-color: #3f4a5a;
+}
+
+/* close */
+#login_container .container_center .close_login {
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    top: 30px;
+    right: 30px;
+}
+#login_container .container_center .close_login a {
+    display: inline-block;
+    width: 57px;
+    height: 57px;
+    text-indent: -9999px;
+    background-image: url(../img/header/exit.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+#login_container .container_center .close_login a:hover {
+    opacity: 0.5;
+}
+
+/* center data */
+#login_container .container_center .social_center {
+    margin: 0 auto;
+    width: 450px;
+    padding: 20px 0px 20px 0px;
+}
+#login_container .container_center .social_center .top {
+    text-align: center;
+    width: 100%;
+}
+#login_container .container_center .social_center .top h3 {
+    color: rgb(63, 209, 202);
+    font-family: "gothamultra";
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+#login_container .container_center .social_center .top h2 {
+    color: #fff;
+    font-family: "gothamultra";
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+#login_container .container_center .social_center .top p {
+    color: #9c9ea1;
+    font-family: 'Omnes-Semibold';
+    font-size: 18px;
+}
+
+#login_container .container_center .social_center .bottom {
+    width: 100%;
+    margin-top: 50px;
+}
+#login_container .container_center .social_center .bottom ul {
+    width: 100%;
+    text-align: center;
+}
+#login_container .container_center .social_center .bottom ul li {
+    width: 124px;
+    line-height: 124px;
+    display: inline-table;
+    margin: 0px 5px 0px 5px;
+}
+#login_container .container_center .social_center .bottom ul li a {
+    text-indent: 9999px;
+    width: 124px;
+    height: 124px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+#login_container .container_center .social_center .bottom ul li a.twitter {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: left bottom;
+}
+#login_container .container_center .social_center .bottom ul li a.twitter:hover {
+    background-position: left 3px;
+}
+#login_container .container_center .social_center .bottom ul li.active a.twitter {
+    background-position: left 3px;
+}
+
+#login_container .container_center .social_center .bottom ul li a.facebook {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -140px bottom;
+}
+#login_container .container_center .social_center .bottom ul li a.facebook:hover {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -140px 3px;
+}
+#login_container .container_center .social_center .bottom ul li.active a.facebook {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -140px 3px;
+}
+
+#login_container .container_center .social_center .bottom ul li a.gmail {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -420px bottom;
+}
+#login_container .container_center .social_center .bottom ul li a.gmail:hover {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -420px 3px;
+}
+#login_container .container_center .social_center .bottom ul li.active a.gmail {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -420px 3px;
+}
+
+/* @end */

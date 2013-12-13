@@ -8,9 +8,11 @@
 {% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" type="text/css" href="/static/css/reset.css"/> 
-<link rel="stylesheet" type="text/css" href="/static/css/style.css?6548321"/>
-<link rel="stylesheet" type="text/css" href="/static/css/flexslider.css"/>
+<link rel="stylesheet" href="/static/css/reset.css"/> 
+<link rel="stylesheet" href="/static/css/header.css" />
+<link rel="stylesheet" href="/static/css/common.css" />
+<link rel="stylesheet" href="/static/css/style.css?6548321"/>
+<link rel="stylesheet" href="/static/css/flexslider.css"/>
 <link rel="stylesheet" media="screen and (max-height: 730px)" href="/static/css/min.css" />
 <link rel="stylesheet" media="screen and (min-height: 800px)" href="/static/css/max.css" />
 <link rel="stylesheet" media="screen and (min-height: 900px)" href="/static/css/highest.css" />
@@ -18,7 +20,7 @@
 <link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)" href="/static/css/ipad-v.css" /> 
 <link rel="stylesheet" href="/static/css/style2.css">
 <link rel="stylesheet" href="/static/css/jquery.scrollSections.css">
-<link rel="stylesheet" href="/static/css/reveal.css">
+<link rel="stylesheet" href="/static/css/footer.css" />
 {% endblock %}
 
 {% block script %}
@@ -47,14 +49,9 @@
 
 <script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery-migrate-1.2.0.min.js"></script>
-
-
 <script type="text/javascript" src="/static/js/plugins.js"></script>
-
 <script type="text/javascript" src="/static/js/jquery.scrollSections.js"></script>
-
 <script type="text/javascript" src="/static/js/flexslider.js" ></script>
-	
 <script type="text/javascript" src="/static/js/script.js" ></script>
 
 <!-- <script src="../build/js/jquery.scrollSections-0.4.1.min.js"></script> -->
@@ -143,34 +140,20 @@ function move_slider() {
 		$( '.nav-slider .active' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
 		
-	}
-	else if( slide_actual == 1) {
+	} else if( slide_actual == 1) {
 		exampleSlider.flexAnimate(slide_actual);
 		$( '.nav-slider #thumb-2, .nav-slider #thumb-3' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
 		
-	}
-	else if( slide_actual == 2) {
+	} else if( slide_actual == 2) {
 		exampleSlider.flexAnimate(slide_actual);
 		$( '.nav-slider #thumb-4' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
 		
 	}
 }
-      $( document ).ready ( function() 
+      $( function() 
 		{
-    		$( '#controles li a' ).click (
-    		
-    			function ( event ) {
-    				event.preventDefault ( );
-    				clearInterval ( interval );
-    				slide_actual = parseInt ( $( this ).attr ( 'data-link' ) ) ; 
-    				moves_slider ( );
-    				interval = setInterval ( "move_slider()" , 8000 );
-    				$( '#progress' ).stop ( true , true ).animate ( { 'width' : slide_actual * 166 } , 0 , function ( ) { $( '#progress' ).animate ( { 'width' : 500 } , 24000 - slide_actual * 8000 ,"linear" ); } );
-    			}
-    		);
-
         	var firsttime=false;
         	var first_sec = "home";
         	var interval =0;
@@ -233,7 +216,7 @@ function move_slider() {
         		});
 			//$('#slider-logos .flexslider').flexslider({ animation: "slide", animationLoop: true, slideshow: false, controlNav: false , pauseOnHover: false ,  directionNav: true,  animationSpeed: 600, itemWidth: 96, itemMargin: 0, minItems: 1 , maxItems: 6, move: 6 });
    
-			$( 'nav a, .goto' ).click(function( e )
+			$( '.goto' ).click(function( e )
 		{	
 			e.preventDefault();
 			
@@ -361,7 +344,7 @@ function move_slider() {
 	
         </script>
 
-<script type="text/javascript"  src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
+<script type="text/javascript" src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
 </body>
 

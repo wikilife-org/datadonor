@@ -508,7 +508,7 @@ function drawCronicalConditionsGraph(data, num, user_data){
       $(this).addClass('active');
     });
     
-    $($('.cronical_container')[np]).find('.done_condition').live('click', {id_condition: data.id, container: $($('.cronical_container')[np]), graph: animatedPie, json: data}, function (event) {
+    $($('.cronical_container')[np]).find('.done_condition').on('click', {id_condition: data.id, container: $($('.cronical_container')[np]), graph: animatedPie, json: data}, function (event) {
       if(!$(this).hasClass('sent')){
         var el = $(this);
         var typeId = event.data.container.find('.face.back select.select_stats').val();
@@ -657,7 +657,7 @@ function setupAddCronicals(data){
     $(this).addClass('active');
   });
   
-	$('#graphs_conditions .done_condition').live('click',{cronicalsList: cronicalsList}, function (event) {
+	$('#graphs_conditions .done_condition').on('click',{cronicalsList: cronicalsList}, function (event) {
 		event.preventDefault();
     
 		if ($(this).hasClass('next_subsector')) {
@@ -734,7 +734,7 @@ function setupAddEmotions(data){
     $(this).addClass('active');
   });
   
-	$('#graphs_emotions .done_condition').live('click',{cronicalsList: emotionsList}, function (event) {
+	$('#graphs_emotions .done_condition').on('click',{cronicalsList: emotionsList}, function (event) {
 		event.preventDefault();
     
 		if ($(this).hasClass('next_subsector')) {
@@ -870,7 +870,7 @@ function createComplainsAutocompleter(data){
   selectElem.html(complainOptions);
   selectElem.combobox();
   
-  $('#select_complaints .done_stat').live('click',function (event) {
+  $('#select_complaints .done_stat').on('click',function (event) {
 		event.preventDefault();
 		$(this).parent().parent().removeClass('active');
     var id = selectElem.val();
@@ -1366,12 +1366,12 @@ $(document).ready(function(){
     return false;
   });
   
-  $('.user_complain').live('click', function(){
+  $('.user_complain').on('click', function(){
     deleteUserComplain($(this).attr('data-id'));
     $('#complains_adder_container').click();
   });
   
-  $('#complains_top5 li').live('click', function(){
+  $('#complains_top5 li').on('click', function(){
     addNewComplain(
       $(this).attr('data-id'), 
       $(this).attr('data-name'),
@@ -1458,7 +1458,7 @@ $(document).ready(function(){
     });
   });
   
-  $('.close_cronical_card').live('click', function(){
+  $('.close_cronical_card').on('click', function(){
     $(this).parent().remove();
     var id = $(this).parent().attr('data-id');
     console.log('DELETING CRONICAL ID: '+id);
@@ -1480,7 +1480,7 @@ $(document).ready(function(){
     return false;
   });
   
-  $('.close_emotion_card').live('click', function(){
+  $('.close_emotion_card').on('click', function(){
     $(this).parent().remove();
     var id = $(this).parent().attr('data-id');
     console.log('DELETING EMOTION ID: '+id);

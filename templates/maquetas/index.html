@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 
 <head>
 
@@ -9,34 +9,34 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
 	<meta name="description" content="#" />
-	<meta name="keywords" content="DataDonors,Non-profit,The Wikilife Foundation,Share,Wikilife,Data,Big Data,Data Donation,Scientific Community,Research,Global project,Sharing for good,Personal data,App,Devices,Medical Records,Health Data,Health,Lifestyle Data,Lifestyle,Global Health,Health Information,Lifestyle Information,Metadata,Open API">
-	<meta name="viewport" content="width=1024, initial-scale=1.0">
+	<meta name="keywords" content="DataDonors,Non-profit,The Wikilife Foundation,Share,Wikilife,Data,Big Data,Data Donation,Scientific Community,Research,Global project,Sharing for good,Personal data,App,Devices,Medical Records,Health Data,Health,Lifestyle Data,Lifestyle,Global Health,Health Information,Lifestyle Information,Metadata,Open API" />
+	<meta name="viewport" content="width=1024, initial-scale=1.0"/>
             
 	<!-- Iconos -->
 	<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"/>
 	
 	<!-- Styles -->
+	<link rel="stylesheet" href="/static/css/reset.css"/> 
 	<link href="/static/css/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
 	<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
 	
 	<!-- Javascript -->
-	<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="/static/js/jstepper.min.js"></script>
 	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/raphael/raphael-min.js"></script>
     <script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
   	<script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
-        <script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
-        <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="/static/js/ed.eventListeners.js"></script>
-        <script type="text/javascript" src="/static/js/ed.stickyHeader.js"></script>
-        <script type="text/javascript" src="/static/js/adapter/graph_params_adapter.js"></script>
-        <script type="text/javascript" src="/static/js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script type="text/javascript" src="/static/js/jquery.ui.combobox.js"></script>
-        <script type="text/javascript" src="/static/js/url_vars.js"></script>
+    <script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/static/js/ed.eventListeners.js"></script>
+    <script type="text/javascript" src="/static/js/ed.stickyHeader.js"></script>
+    <script type="text/javascript" src="/static/js/adapter/graph_params_adapter.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.ui.combobox.js"></script>
+    <script type="text/javascript" src="/static/js/url_vars.js"></script>
 	<script type="text/javascript" src="/static/js/funciones.js"></script>
-        <script type="text/javascript" src="/static/js/main.js"></script>
-   
+    <script type="text/javascript" src="/static/js/main.js"></script>
 </head>
 
 <body>
@@ -112,48 +112,6 @@
 	</div>
 	<!--/email_sharing-->
 	
-	<!--login_popup-->
-	<div id="login_container">
-		
-		<!--centered-->
-		<div class="container_center">
-		
-			<!--close-->
-			<div class="close_login">
-				<a href="#" id="close_login">close</a>
-			</div>
-			<!--/close-->
-			
-			<!--social_center-->
-			<div class="social_center">
-			
-				<!--top-->
-				<div class="top">
-					<h3>Login</h3>
-					<h2>Welcome back</h2>
-					<p>use any of these services to login</p>
-				</div>
-				<!--/top-->
-				
-				<!--bottom-->
-				<div class="bottom">
-					<ul>
-						<li><a href="{% url "socialauth_begin" "twitter" %}" class="twitter">twitter</a></li>
-						<li><a href="{% url "socialauth_begin" "facebook" %}" class="facebook">facebook</a></li>
-						<li><a href="{% url "socialauth_begin" "google" %}" class="gmail">gmail</a></li>
-					</ul>
-				</div>
-				<!--/bottom-->
-			
-			</div>
-			<!--/social_center-->
-		
-		</div>
-		<!--/centered-->
-		
-	</div>
-	<!--/login_popup-->
-	
 	<!--disconect-->
 	<div id="disconect_network">
 		
@@ -183,33 +141,7 @@
 	</div>
 	<!--/disconect-->
 
-	<!--header-->
-	<div class="full_container" id="header">
-		<div class="centered_container">
-			
-			<!--logo-->
-			<div class="logo">
-				<h1>
-					<a href="/">DATADONORS</a>
-				</h1>
-			</div>
-			<!--/logo-->
-			
-			<!--navegacion-->
-			<div class="navegacion_top">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/demo">Dashboard</a></li>
-					<li><a href="#" id="login_popup">Login</a></li>
-				</ul>
-			</div>
-			<!--/navegacion-->
-			
-			<div class="clear"></div>
-			
-		</div>
-	</div>
-	<!--/header-->
+    {% include "header.include.html" %}
 
 	<!-- SOCIAL NETWORKS -->
 	
@@ -4081,43 +4013,9 @@
 		</div>
 	</div>
 	<!--/step_nineteen-->
-	
-	<!--footer-->
-	<div class="full_container" id="footer">
-		<div class="centered_container">
-			
-			<!--navegacion_footer-->
-			<div class="navegacion_footer">
-				<ul>
-					<li><a href="/privacy">Privacy</a></li>
-					<li>/</li>
-					<li><a href="/terms-of-service">Terms of Service</a></li>
-					<li>/</li>
-					<li><a href="#">Learn More</a></li>
-					<li>/</li>
-					<li><a href="#">The Wikilife Foundation</a></li>
-				</ul>
-			</div>
-			<!--/navegacion_footer-->
-			
-			<!--social_footer-->
-			<div class="footer_social">
-				<ul>
-					<li><a href="https://www.facebook.com/datadonors" target="_blank" class="facebook">facebook</a></li>
-					<li><a href="https://twitter.com/DataDonors" target="_blank" class="twitter">twitter</a></li>
-					<!-- trigger a popup <li><a href="#" class="email">email</a></li>-->
-					<li><a href="mailto:info@datadonors.org" class="e_mail">email</a></li>
-				</ul>
-				<div class="clear"></div>
-			</div>
-			<!--/social_footer-->
-			
-			<div class="clear"></div>
-			
-		</div>
-	</div>
-	<!--/footer-->
-	    
+
+	{% include "footer.include.html" %}
+
 </div>
 
 </body>
