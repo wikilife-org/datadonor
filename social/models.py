@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.utils.crypto import get_random_string as random_string
-from utils.oper import percentage
+from utils.oper import percentage, send_email
 from users.models import Profile
 
 
@@ -128,6 +128,9 @@ class DegreeLevel(models.Model):
 def create_user_social(sender, instance, **kwargs):
 
 
+    #Send email
+    send_email(instance.email, "email/welcome.html", "email/welcome.txt")
+    
     profile, created  = Profile.objects.get_or_create(user=instance)
     if created or profile.user == None:
         profile.user = instance
@@ -142,6 +145,7 @@ def create_user_social(sender, instance, **kwargs):
             u_profile = Profile.objects.get(account_id=generated_uid)
         except:
             pass
+        
         while u_profile is not None:
             generated_uid = random_string(length=6,
                       allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
@@ -153,6 +157,7 @@ def create_user_social(sender, instance, **kwargs):
         profile.account_id = generated_uid
         profile.save()
      
+    
     """social, created = SocialUserAggregatedData.objects.get_or_create(user=instance)
     if created or social.user == None:
         social.user = instance
