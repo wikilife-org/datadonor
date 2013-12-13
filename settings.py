@@ -37,6 +37,17 @@ MEDIA_URL = '/media/'
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = ""
 
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "social_auth.backends.contrib.django_smtp_ssl.SSLEmailBackend"
+EMAIL_HOST= "email-smtp.us-east-1.amazonaws.com"
+EMAIL_PORT = 465
+#EMAIL_PORT = 25
+EMAIL_HOST_USER = "AKIAJJ6TL3UOOPCI4KSA"
+EMAIL_HOST_PASSWORD = "AkkJOCCddBKok7n/EBmJw2bIvpnIDsbgGeZdz3TPDfO0"
+#EMAIL_USE_TLS = True
+
+WELCOME_EMAIL_FROM = "no-reply@wikilife.org"
+
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
