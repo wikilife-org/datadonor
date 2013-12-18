@@ -1,7 +1,8 @@
 
 import math
-from utils.oper import percentage
+from utils.commons import percentage
 from social_auth.models import *
+from social.models import SocialUserAggregatedData
 
 
 def global_social_reach():

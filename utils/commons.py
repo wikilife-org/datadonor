@@ -1,12 +1,11 @@
 # coding=utf-8
 
-from social.models import SocialUserAggregatedData, DegreeLevel
-
 
 DEFAULT_EDUCATION_LEVEL = 2
 
 
 def get_level_of_education_by_degree(degree):
+    from social.models import DegreeLevel
     degree, created = DegreeLevel.objects.get_or_create(title=degree)
     level = DEFAULT_EDUCATION_LEVEL
     d_level = degree.education_level()

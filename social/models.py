@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.utils.crypto import get_random_string as random_string
-from utils.oper import percentage, send_email
 from users.models import Profile
 
 
@@ -29,6 +28,7 @@ class SocialUserAggregatedData(models.Model):
     wikilife_ids = models.CharField(max_length=255, null=True)
 
     def social_reach(self):
+        from utils.commons import percentage
         f_count = self.facebook_friend_count or 0
         t_count = self.twitter_followers_count or 0
         l_count = self.linkedin_connections_count or 0
@@ -159,7 +159,7 @@ post_save.connect(create_user_social, sender=User, dispatch_uid="create_user_soc
 
 
 def send_welcome_email(sender, instance, **kwargs):
-
+    from utils.commons import send_email
     if instance.email and instance.sent_welcome_email == False:
         #Send email
         send_email(instance.email, "email/welcome.html", "email/welcome.txt")
