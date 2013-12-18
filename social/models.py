@@ -166,4 +166,4 @@ def send_welcome_email(sender, instance, **kwargs):
         instance.sent_welcome_email = True
         instance.save()
     
-post_save.connect(create_user_social, sender=User, dispatch_uid="create_user_social")
+post_save.connect(send_welcome_email, sender=Profile, dispatch_uid="create_user_social")
