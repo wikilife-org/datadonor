@@ -51,12 +51,6 @@ class SocialUserAggregatedData(models.Model):
     def social_sharing(self):
         return {"facebook":{"posts":self.facebook_post_weekly_avg, "likes":self.facebook_likes_weekly_avg},
         "twitter":{"tweets":self.twitter_tweets_count_last_seven_days, "retweets":self.twitter_retweets_count_last_seven_days}}
-    
-    def social_education(self):
-        pass
-    
-    def social_work(self):
-        pass
 
 
 class GlobalEducationDistribution(models.Model):
@@ -127,11 +121,10 @@ class DegreeLevel(models.Model):
 # method for updating
 def create_user_social(sender, instance, **kwargs):
 
-
-    #Send email
-    send_email(instance.email, "email/welcome.html", "email/welcome.txt")
-    
     profile, created  = Profile.objects.get_or_create(user=instance)
+    if created:
+        #Send email
+        send_email(instance.email, "email/welcome.html", "email/welcome.txt")
     if created or profile.user == None:
         profile.user = instance
         profile.save()

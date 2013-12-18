@@ -25,6 +25,24 @@ def social_sharing(request):
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+
+@csrf_exempt
+def social_education(request):
+    if request.method == "POST":
+        education_level = request.POST["education_level"]
+        #Validate value
+        if is_valid_education(education_level):
+        #save Value
+            request.user.social_aggregated_data.education_level_manual = int(education_level)
+            request.user.social_aggregated_data.save()
+            if request.user.social_aggregated_data.education_degree:
+                update_degree(request.user.social_aggregated_data.education_degree, int(education_level))
+
+    user_data = {"user_level": request.user.social_aggregated_data.education_level}
+    global_data = global_education()
+    data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
 @csrf_exempt
 def social_work(request):
     if request.method == 'POST':
@@ -41,6 +59,7 @@ def social_work(request):
     age_range = get_age_range(request.user.profile.date_of_birth)
     user_data = {"user_experience": {"key": age_range, "value":years}}
     
+    """
     last_distribution = GlobalWorkExperinceDistribution.objects.latest()
     
     global_data = { "15-25":{"key": "15-25", "value": last_distribution.range_15_25}, 
@@ -48,31 +67,10 @@ def social_work(request):
                     "36-45":{"key": "36-45", "value": last_distribution.range_36_45}, 
                     "46-55":{"key": "46-55", "value": last_distribution.range_46_55}, 
                     "56-65":{"key": "56-65", "value": last_distribution.range_56_65}}
+    """
     
-    data = {"user_data":user_data, "global_data":global_data, "avg":10}
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-@csrf_exempt
-def social_education(request):
-    if request.method == "POST":
-        education_level = request.POST["education_level"]
-        #Validate value
-        if is_valid_education(education_level):
-        #save Value
-            request.user.social_aggregated_data.education_level_manual = int(education_level)
-            request.user.social_aggregated_data.save()
-            if request.user.social_aggregated_data.education_degree:
-                update_degree(request.user.social_aggregated_data.education_degree, int(education_level))
-
-    user_data = {"user_level": request.user.social_aggregated_data.education_level}
-    global_data = {6:{"percentage":8, "key":"phd", "title": "PhD", "index":6},
-                   5:{"percentage":10, "key":"master", "title": "Master", "index":5},
-                   4:{"percentage":23, "key":"university", "title": "University", "index":4}, 
-                   3:{"percentage":5, "key":"tech_institute", "title": "Technical Institute", "index":3},
-                   2:{"percentage":3, "key":"high_school", "title": "High School", "index":2},
-                   1:{"percentage":57, "key":"junior_college", "title": "Junior College", "index":1},
-                   0:{"percentage":3, "key":"elemtary_school", "title": "Elementary School", "index":0}}
-    data = {"user_data":user_data, "global_data":global_data}
+    global_data, avg = global_work()
+    data = {"user_data":user_data, "global_data":global_data, "avg":avg}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_reach_mock(request):

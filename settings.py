@@ -39,6 +39,7 @@ STATIC_ROOT = ""
 
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = "social_auth.backends.contrib.django_smtp_ssl.SSLEmailBackend"
+#EMAIL_BACKEND = 'django_ses.SESBackend'
 EMAIL_HOST= "email-smtp.us-east-1.amazonaws.com"
 EMAIL_PORT = 465
 #EMAIL_PORT = 25
@@ -129,6 +130,7 @@ INSTALLED_APPS = (
     'social_auth',
     'social',
     'genomics',
+    'health',
     'users'
     
 

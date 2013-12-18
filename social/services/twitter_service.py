@@ -14,21 +14,7 @@ from social.models import SocialUserAggregatedData
 
 TWITTER_API = "https://api.twitter.com/1.1/"
 
-ACTIVITY_TYPE_NODE_ID_MAP = {
-    "Running": 0, 
-    "Cycling": 0, 
-    "Mountain Biking": 0, 
-    "Walking": 0, 
-    "Hiking": 0, 
-    "Downhill Skiing": 0, 
-    "Cross-Country Skiing": 0, 
-    "Snowboarding": 0, 
-    "Skating": 0, 
-    "Swimming": 0, 
-    "Wheelchair": 0, 
-    "Rowing": 0, 
-    "Elliptical": 0, 
-    "Other": 0
+NODE_ID_MAP = {
 }
 
 class TwitterService(BaseDeviceService):
@@ -51,7 +37,8 @@ class TwitterService(BaseDeviceService):
         aggregated.save()  
 
     def pull_user_activity(self, user_id, user_auth, twitter_id):
-        wikilife_token = self._get_wikilife_token(user_id)
+        pass
+        """wikilife_token = self._get_wikilife_token(user_id)
         client = TwitterClient(user_auth["access_token"], twitter_id)
         followers = client.get_followers()
         tweets_last_week = client.get_tweets_last_week()
@@ -72,4 +59,4 @@ class TwitterService(BaseDeviceService):
         nodes.append(LogCreator.create_log_node(self, node_id, 0, calories))
 
         log = LogCreator.create_log(self, 0, start, end, text, source, nodes)
-        self._log_client.add_log(wikilife_token, log)
+        self._log_client.add_log(wikilife_token, log)"""
