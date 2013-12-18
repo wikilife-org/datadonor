@@ -2,24 +2,31 @@
 --------------------------------------- */
 
 #login_container {
-    background: url(../img/email_share/trans.png) center repeat !important;
     padding: 0 !important;
-}
-#login_container .container_center {
-    width: 830px;
-    height: 450px;
     background-color: #3f4a5a;
+    width: 800px;
+    margin-left: -400px;
+    height: 440px;
+    top: 50%;
+    margin-top: -220px;
+}
+
+#login_container p {
+	text-align: center;
+	color: #9c9ea1;
+	font-weight: bold;
+	font-size: 1.6em;
 }
 
 /* close */
-#login_container .container_center .close_login {
+#login_container .close_login {
     position: absolute;
     width: 57px;
     height: 57px;
     top: 30px;
     right: 30px;
 }
-#login_container .container_center .close_login a {
+#login_container .close_login a {
     display: inline-block;
     width: 57px;
     height: 57px;
@@ -31,54 +38,50 @@
     -moz-transition: all 0.4s;
     transition: all 0.4s;
 }
-#login_container .container_center .close_login a:hover {
+#login_container .close_login a:hover {
     opacity: 0.5;
 }
 
-/* center data */
-#login_container .container_center .social_center {
-    margin: 0 auto;
-    width: 450px;
-    padding: 20px 0px 20px 0px;
-}
-#login_container .container_center .social_center .top {
+#login_container .social_center .top {
     text-align: center;
     width: 100%;
 }
-#login_container .container_center .social_center .top h3 {
+#login_container h1 {
     color: rgb(63, 209, 202);
     font-family: "gothamultra";
-    margin-bottom: 10px;
+    margin-bottom: 1.1em;
+    margin-top: 5em;
     font-size: 18px;
+    text-align: center;
 }
-#login_container .container_center .social_center .top h2 {
+#login_container h2 {
     color: #fff;
     font-family: "gothamultra";
     margin-bottom: 10px;
     text-transform: uppercase;
     font-size: 40px;
+    text-align: center;
 }
-#login_container .container_center .social_center .top p {
-    color: #9c9ea1;
+#login_container .social_center .top p {
     font-family: 'Omnes-Semibold';
     font-size: 18px;
 }
 
-#login_container .container_center .social_center .bottom {
+#login_container .login-bubbles {
     width: 100%;
     margin-top: 50px;
 }
-#login_container .container_center .social_center .bottom ul {
+#login_container .login-bubbles ul {
     width: 100%;
     text-align: center;
 }
-#login_container .container_center .social_center .bottom ul li {
+#login_container .login-bubbles ul li {
     width: 124px;
     line-height: 124px;
     display: inline-table;
     margin: 0px 5px 0px 5px;
 }
-#login_container .container_center .social_center .bottom ul li a {
+#login_container  .login-bubbles ul li a {
     text-indent: 9999px;
     width: 124px;
     height: 124px;
@@ -86,39 +89,39 @@
     background-repeat: no-repeat;
 }
 
-#login_container .container_center .social_center .bottom ul li a.twitter {
+#login_container  .login-bubbles ul li a.twitter {
     background-image: url(../img/big_social_nav/social.png);
     background-position: left bottom;
 }
-#login_container .container_center .social_center .bottom ul li a.twitter:hover {
+#login_container  .login-bubbles ul li a.twitter:hover {
     background-position: left 3px;
 }
-#login_container .container_center .social_center .bottom ul li.active a.twitter {
+#login_container  .login-bubbles ul li.active a.twitter {
     background-position: left 3px;
 }
 
-#login_container .container_center .social_center .bottom ul li a.facebook {
+#login_container  .login-bubbles ul li a.facebook {
     background-image: url(../img/big_social_nav/social.png);
     background-position: -140px bottom;
 }
-#login_container .container_center .social_center .bottom ul li a.facebook:hover {
+#login_container  .login-bubbles ul li a.facebook:hover {
     background-image: url(../img/big_social_nav/social.png);
     background-position: -140px 3px;
 }
-#login_container .container_center .social_center .bottom ul li.active a.facebook {
+#login_container  .login-bubbles ul li.active a.facebook {
     background-image: url(../img/big_social_nav/social.png);
     background-position: -140px 3px;
 }
 
-#login_container .container_center .social_center .bottom ul li a.gmail {
+#login_container  .login-bubbles ul li a.gmail {
     background-image: url(../img/big_social_nav/social.png);
     background-position: -420px bottom;
 }
-#login_container .container_center .social_center .bottom ul li a.gmail:hover {
+#login_container  .login-bubbles ul li a.gmail:hover {
     background-image: url(../img/big_social_nav/social.png);
     background-position: -420px 3px;
 }
-#login_container .container_center .social_center .bottom ul li.active a.gmail {
+#login_container  .login-bubbles ul li.active a.gmail {
     background-image: url(../img/big_social_nav/social.png);
     background-position: -420px 3px;
 }

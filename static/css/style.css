@@ -4,6 +4,14 @@
 
 */
 
+body {
+	overflow-x: hidden;
+}
+
+.reveal-modal#coming {
+    padding-top: 3em;
+}
+
 /* FONTS */
 #section-marcar,#four-heading,#how-it-works {
 	display: none;

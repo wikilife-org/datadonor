@@ -18,15 +18,12 @@
 		visibility: hidden;
 		top: 100px; 
 		left: 50%;
-		margin-left: -300px;
+		margin-left: -260px;
 		width: 520px;
 		background-color: #E46565;
 		position: absolute;
 		z-index: 10000;
 		padding: 6px 20px 8px;
-		-moz-border-radius: 5px;
-		-webkit-border-radius: 5px;
-		border-radius: 25px;
 		-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
 		-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
 		-box-shadow: 0 0 10px rgba(0,0,0,.4);

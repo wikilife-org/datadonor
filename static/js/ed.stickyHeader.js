@@ -128,15 +128,13 @@ $(function() {
 	var url_array = url_actual.split('#'); 
 	var valorUrl = url_array[1]
 	
-	setTimeout(function () {
-		$('.nav li a.'+ valorUrl).trigger('click');
-	}, 1500)
+	if (valorUrl != null && valorUrl != undefined && valorUrl.length > 0)
+    	setTimeout(function () {
+    		$('.nav li a.'+ valorUrl).trigger('click');
+    	}, 1500)
 	
 	$(window).scroll(function(){
 		stickyListeners.broadcast('onScrollUpdate');
 	});
-	
-	
-	
 })
 
