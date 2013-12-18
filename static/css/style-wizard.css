@@ -576,6 +576,12 @@ body section {
 	padding-right: 50px;
 }
 
+#disclaimer #scrollsections-navigation {
+    margin: 0px auto 50px;
+    height: 50px;
+    width: 500px;
+}
+
 #scrollsections-navigation li,#scrollsections-navigation li a {
 	float: left;
 	text-align: center;
@@ -1250,7 +1256,7 @@ body #slider .slide .inner-redes {
 #slide-6 .inner-redes {
 	height: 140px;
 	margin: 0 auto;
-	width: 480px;
+	width: 510px;
 }
 
 #slide-6 .inner-redes .circle.checked {
@@ -1322,7 +1328,7 @@ body #slider .slide .inner-redes {
 #slide-7 .inner-redes {
 	height: 140px;
 	margin: 0 auto;
-	width: 920px;
+	width: 1010px;
 }
 
 #slide-7 .inner-redes .circle.checked {
