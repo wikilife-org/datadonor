@@ -40,3 +40,5 @@ class Profile(models.Model):
     agree_tos = models.BooleanField(default=True)
     wikilife_token = models.CharField(max_length=255, null=True)
     wikilife_ready = models.BooleanField(default=False)
+    sent_welcome_email = models.BooleanField(default=False)
+    
