@@ -9,7 +9,7 @@ from social_auth.utils import setting
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
-from social.services.utils import *
+from social.services.utilities import *
 from social.models import GlobalWorkExperinceDistribution
 
 
