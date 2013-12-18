@@ -12,20 +12,6 @@ from social.models import SocialUserAggregatedData
 
 
 NODE_ID_MAP = {
-    "Running": 0, 
-    "Cycling": 0, 
-    "Mountain Biking": 0, 
-    "Walking": 0, 
-    "Hiking": 0, 
-    "Downhill Skiing": 0, 
-    "Cross-Country Skiing": 0, 
-    "Snowboarding": 0, 
-    "Skating": 0, 
-    "Swimming": 0, 
-    "Wheelchair": 0, 
-    "Rowing": 0, 
-    "Elliptical": 0, 
-    "Other": 0
 }
 
 class FacebookService(BaseDeviceService):
@@ -84,7 +70,8 @@ class FacebookService(BaseDeviceService):
         aggregated.save()  
 
     def pull_user_activity(self, user_id, user_auth):
-        wikilife_token = self._get_wikilife_token(user_id)
+        pass
+        """wikilife_token = self._get_wikilife_token(user_id)
         client = FacebookClient(user_auth["access_token"])
         friend_count = client.get_friend_count()
         avg_posts = client.get_avg_weekly_post()
@@ -106,3 +93,4 @@ class FacebookService(BaseDeviceService):
 
         log = LogCreator.create_log(self, 0, start, end, text, source, nodes)
         self._log_client.add_log(wikilife_token, log)
+        """

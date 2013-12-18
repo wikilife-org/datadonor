@@ -14,21 +14,35 @@ from genomics.models import UserTrait, UserDrugResponse, UserRisk
 
 TWENTY_THREE_AND_ME_API = "https://api.23andme.com/1/"
 
-ACTIVITY_TYPE_NODE_ID_MAP = {
-    "Running": 0, 
-    "Cycling": 0, 
-    "Mountain Biking": 0, 
-    "Walking": 0, 
-    "Hiking": 0, 
-    "Downhill Skiing": 0, 
-    "Cross-Country Skiing": 0, 
-    "Snowboarding": 0, 
-    "Skating": 0, 
-    "Swimming": 0, 
-    "Wheelchair": 0, 
-    "Rowing": 0, 
-    "Elliptical": 0, 
-    "Other": 0
+REPORT_TYPE_NODE_ID_MAP = {
+    "breastcancer": 0, 
+    "gallstones": 0, 
+    "atrialfib": 0, 
+    "amd": 0, 
+    "restlesslegs": 0, 
+    "chronickidneydisease": 0, 
+    "celiac": 0, 
+    "scleroderma": 0, 
+    "venousthromboembolism": 0, 
+    "psoriasis":0,
+    "melanoma":0,
+    "glaucoma":0,
+    "multiplesclerosis":0,
+    "crohns":0,
+    "escc":0,
+    "gca":0,
+    "obesity":0,
+    "coronaryheartdisease":0,
+    "type2diabetes":0,
+    "lungcancer": 0, 
+    "colorectalcancer": 0, 
+    "rheumarthritis": 0, 
+    "type1diabetes": 0, 
+    "uc": 0,
+    "primary_biliary_cirrhosis": 0,
+    "lupus": 0,
+    "bipolar_disorder": 0,
+    "prostate":0
 }
 
 class TwentythreeandmeService(BaseDeviceService):
@@ -73,21 +87,46 @@ class TwentythreeandmeService(BaseDeviceService):
 
     def pull_user_activity(self, user_id, user_auth):
         wikilife_token = self._get_wikilife_token(user_id)
-        client = TwentyThreeAndMeClient(RUNKEEPER_API, user_auth["access_token"])
-        fitness_activities = client.get_user_fitness_activities()
-        self._log_fitness_activities(wikilife_token, fitness_activities["items"])
+        client = TwentyThreeAndMeClient(TWENTY_THREE_AND_ME_API, user_auth["access_token"])
+
+        risks = client.get_risks()
+        self._log_genomics_risks(user, risks)
+        
+        traits = client.get_traits()
+        self._log_genomics_traits(user, traits)
+        
+        drug_responses = client.get_drug_responses()
+        self._log_genomics_drug_responses(user, drug_responses)
  
-    def _log_fitness_activities(self, wikilife_token, items):
-        for item in items:
+    def _log_genomics_risks(self, wikilife_token, items):
+        for item in items["risks"]:
             start_time = DateParser.from_datetime(item["start_time"])
             end_time = DateUtils.add_seconds(start_time, item["duration"])
             start = DateFormatter.to_datetime(start_time)
             end = DateFormatter.to_datetime(end_time)
-            node_id = ACTIVITY_TYPE_NODE_ID_MAP[item["type"]]
+            node_id = REPORT_TYPE_NODE_ID_MAP[item["report_id"]]
             distance_km = item["total_distance"] * 1000
             calories = item["total_calories"]
             text = "%s %s km, %s calories" %(item["type"], distance_km, calories)
-            source = "datadonor.runkeeper.%s" %item["source"]
+            source = "datasharing.23andme.%s" %item["source"]
+
+            nodes = []
+            nodes.append(LogCreator.create_log_node(self, node_id, 0, distance_km))
+
+            log = LogCreator.create_log(self, 0, start, end, text, source, nodes)
+            self._log_client.add_log(wikilife_token, log)
+
+    def _log_genomics_traits(self, wikilife_token, items):
+        for item in items["traits"]:
+            start_time = DateParser.from_datetime(item["start_time"])
+            end_time = DateUtils.add_seconds(start_time, item["duration"])
+            start = DateFormatter.to_datetime(start_time)
+            end = DateFormatter.to_datetime(end_time)
+            node_id = REPORT_TYPE_NODE_ID_MAP[item["report_id"]]
+            distance_km = item["total_distance"] * 1000
+            calories = item["total_calories"]
+            text = "%s %s km, %s calories" %(item["type"], distance_km, calories)
+            source = "datasharing.23andme.%s" %item["source"]
 
             nodes = []
             nodes.append(LogCreator.create_log_node(self, node_id, 0, distance_km))
@@ -95,3 +134,24 @@ class TwentythreeandmeService(BaseDeviceService):
 
             log = LogCreator.create_log(self, 0, start, end, text, source, nodes)
             self._log_client.add_log(wikilife_token, log)
+
+    def _log_genomics_drug_responses(self, wikilife_token, items):
+        for item in items["drug_responses"]:
+            
+            start_time = DateParser.from_datetime(item["start_time"])
+            end_time = DateUtils.add_seconds(start_time, item["duration"])
+            start = DateFormatter.to_datetime(start_time)
+            end = DateFormatter.to_datetime(end_time)
+            
+            node_id = REPORT_TYPE_NODE_ID_MAP[item["report_id"]]
+            description = item["description"]
+            status = item["status"]
+            text = "%s %s" %(description, status)
+            source = "datasharing.23andme"
+
+            nodes = []
+            nodes.append(LogCreator.create_log_node(self, node_id, 0, status))
+
+            log = LogCreator.create_log(self, 0, start, end, text, source, nodes)
+            self._log_client.add_log(wikilife_token, log)
+            

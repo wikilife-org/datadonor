@@ -35,3 +35,34 @@ class UserSleepDistributionLastWeek(models.Model):
     fri=models.FloatField(null=False, default=0)
     sat=models.FloatField(null=False, default=0)
     update_time = models.DateTimeField("last updated on", auto_now=True)
+
+    
+class UserConditions(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='conditions')
+    condition_id = models.IntegerField()
+    metric_id = models.IntegerField()
+    log_id = models.IntegerField()
+    update_time = models.DateTimeField("last updated on", auto_now=True)
+
+class UserComplaints(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='complaints')
+    complaint_id = models.IntegerField()
+    metric_id = models.IntegerField()
+    log_id = models.IntegerField()
+    update_time = models.DateTimeField("last updated on", auto_now=True)
+
+
+class UserBloodType(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='blood_type')
+    blood_type_id = models.IntegerField()
+    metric_id = models.IntegerField()
+    log_id = models.IntegerField()
+    update_time = models.DateTimeField("last updated on", auto_now=True)
+ 
+class UserEmotions(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='emotions')
+    emotion_id = models.IntegerField()
+    metric_id = models.IntegerField()
+    log_id = models.IntegerField()
+    update_time = models.DateTimeField("last updated on", auto_now=True)
+      

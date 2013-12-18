@@ -13,20 +13,6 @@ from social.models import SocialUserAggregatedData
 LINKEDIN_API = "https://api.linkedin.com/v1/"
 
 NODE_ID_MAP = {
-    "Running": 0, 
-    "Cycling": 0, 
-    "Mountain Biking": 0, 
-    "Walking": 0, 
-    "Hiking": 0, 
-    "Downhill Skiing": 0, 
-    "Cross-Country Skiing": 0, 
-    "Snowboarding": 0, 
-    "Skating": 0, 
-    "Swimming": 0, 
-    "Wheelchair": 0, 
-    "Rowing": 0, 
-    "Elliptical": 0, 
-    "Other": 0
 }
 
 
@@ -67,7 +53,8 @@ class LinkedinService(BaseDeviceService):
         aggregated.save()  
 
     def pull_user_activity(self, user_id, user_auth):
-        wikilife_token = self._get_wikilife_token(user_id)
+        pass
+        """wikilife_token = self._get_wikilife_token(user_id)
         client = LinkedinClient(LINKEDIN_API, user_auth["access_token"])
         connections_count = client.get_connections_count()
         education_level, degree = client.get_education_level()
@@ -88,4 +75,4 @@ class LinkedinService(BaseDeviceService):
         nodes.append(LogCreator.create_log_node(self, node_id, 0, calories))
 
         log = LogCreator.create_log(self, 0, start, end, text, source, nodes)
-        self._log_client.add_log(wikilife_token, log)
+        self._log_client.add_log(wikilife_token, log)"""
