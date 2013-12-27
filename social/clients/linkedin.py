@@ -62,7 +62,7 @@ class LinkedinClient(BaseDeviceClient):
 
     
     def get_education_level(self):
-        education_level = 2
+        education_level = None
         degree = None
         educations = self.get_educations()
         try:

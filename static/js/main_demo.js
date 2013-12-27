@@ -12,11 +12,11 @@ var complainsList = {};
 var emotionsList = {};
 var addedComplains = [];
 //_api_env = 'hard';
-_api_env = 'prod';
+_api_env = 'dev';
 
 function workCallback(args){
   //$('#age_input li a[data-key=15-25]');
-  //console.log(args);
+  console.log(args);
   $('#age_input li a[data-key='+args[0]+']').click();
 }
 
@@ -42,7 +42,7 @@ var sortObjectByKey = function(obj){
 };
 
 function drawSocialGraph(json){
-  //console.log(json);
+  console.log(json);
   var global_data = json.global_data;
   $('.block.twitter ul li span.global_data').html(pad(global_data.twitter.count, 2));
   $('.block.facebook ul li span.global_data').html(pad(global_data.facebook.count, 2));
@@ -119,8 +119,8 @@ function drawShareGraphs(data){
 function drawEducationGraph(data){
   var adapter = new EducationAdapter();
   var elements = adapter.getParameters(data);
-  //console.log('QUARTER PIE ADAPTER');
-  //console.log(elements);
+  console.log('QUARTER PIE ADAPTER');
+  console.log(elements);
   var r_3_1 = Raphael('canvas_3_1', 435, 428);
   animatedQuarterPie = new EdQuarterAnimatedPie(r_3_1, elements, {
     animationTime: 900,
@@ -182,14 +182,12 @@ function drawWorkGraph(data){
     centery: 400,
     canvasSize: [1093,425]
   }
-  $('#data_1_4 .left .number_stat h2').html(pad(data.avg,2));
-  $('#data_1_4 .right .number_stat h2').html(pad(data.user_data.user_experience.value,2));
   doubleAxisBars = new EdBarChart(r_4_1, doubleAxisParams);
-  
   doubleAxisBars.draw();
 }
 
 function drawExerciseGraphs(data){
+  console.log(data);
   var adapter = new SocialShareAdapter();
   var graphConfig = {
     centerx: 105,
@@ -246,6 +244,7 @@ function drawStepsGraph(data){
   
   var adapter = new StepsAdapter();
   var result = adapter.getParameters(data, 380, maxValue);
+  //console.log(result);
   var r_6_1 = Raphael('canvas_6_1', 1093, 423);
   doubleAxisParams2 = {
     axis: 'both',
@@ -286,6 +285,7 @@ function drawMilesGraph(data){
     if(data.days[i].global_miles > maxValue) maxValue = data.days[i].global_miles;
     if(data.days[i].user_miles > maxValue) maxValue = data.days[i].user_miles;
   }
+  //console.log('MAX BAR VALUE: '+maxValue);
   
   var adapter = new MilesAdapter();
   var result = adapter.getParameters(data, 350, maxValue,[10,30,50,70]);
@@ -327,6 +327,7 @@ function drawHoursGraph(data){
     if(data.days[i].global_hours > maxValue) maxValue = data.days[i].global_hours;
     if(data.days[i].user_hours > maxValue) maxValue = data.days[i].user_hours;
   }
+  //console.log('MAX BAR VALUE: '+maxValue);
   
   var adapter = new HoursAdapter();
   var result = adapter.getParameters(data, 340, maxValue,[1,3,5,7]);
@@ -379,7 +380,7 @@ function drawNutrientProportionGraph(data){
     content = content.replace(/\[\[perc\]\]/g, data.global_data[i].percentage);
     content = content.replace(/\[\[perc_data_style\]\]/g, 'width:'+width+'px; background-color:'+currentColor+';');
     content = content.replace(/\[\[perc_text_style\]\]/g, 'color:'+currentColor+';');
-    //console.log(content);
+    console.log(content);
     $('.global_nutrient_data .block.right').append(content);
     
     c++;
@@ -397,7 +398,7 @@ function drawNutrientProportionGraph(data){
     content = content.replace(/\[\[perc\]\]/g, data.user_data[j].percentage);
     content = content.replace(/\[\[perc_data_style\]\]/g, 'width:'+width+'px; background-color:'+currentColor+';');
     content = content.replace(/\[\[perc_text_style\]\]/g, 'color:'+currentColor+';');
-    //console.log(content);
+    console.log(content);
     $('.user_nutrient_data .block.right').append(content);
     
     c++;
@@ -464,7 +465,7 @@ function drawCronicalConditionsGraph(data, num, user_data){
   
   var selectedGraphs = [];
   for(var i in user_data){
-    //console.log('user cronical? '+data.id+' = '+user_data[i].id_condition);
+    console.log('user cronical? '+data.id+' = '+user_data[i].id_condition);
     if(data.id == user_data[i].id_condition){
       var result = [animatedPie, data, user_data[i]]
       selectedGraphs.push(result);
@@ -484,8 +485,8 @@ function drawCronicalConditionsGraph(data, num, user_data){
         var graph = selectedGraphs[i][0];
         var data = selectedGraphs[i][1];
         var user_data = selectedGraphs[i][2];
-        //console.log('COLORING USER EMOTION!');
-        //console.log(user_data);
+        console.log('COLORING USER EMOTION!');
+        console.log(user_data);
         graph.lines[0].animate({"stroke": '#E56666'}, 500);
         graph.texts[0].animate({"fill": '#E56666'}, 500);
         graph.texts[1].animate({"fill": '#E56666'}, 500);
@@ -512,12 +513,12 @@ function drawCronicalConditionsGraph(data, num, user_data){
         var el = $(this);
         var typeId = event.data.container.find('.face.back select.select_stats').val();
         var typeText = event.data.container.find('.face.back select.select_stats option:selected').text();
-        //console.log('TYPE ID: '+typeId);
+        console.log('TYPE ID: '+typeId);
         $.post( _api_urls[_api_env].cronical_conditions_post, { id_condition: event.data.id_condition, id_type: typeId } );
         addCronicalCard(event.data.json.name, typeText, event.data.id_condition);
         setTimeout(function(){
           el.parent().parent().parent().parent().removeClass('active');
-          //console.log(el.parent().parent().parent().parent());
+          console.log(el.parent().parent().parent().parent());
         }, 50);
         //Change color
         event.data.graph.lines[0].animate({"stroke": '#E56666'}, 500);
@@ -557,7 +558,7 @@ function drawEmotionsGraph(data, num, user_data){
   
   var selectedGraphs = [];
   for(var i in user_data){
-    //console.log('user emotion? '+data.id+' = '+user_data[i].id_emotion);
+    console.log('user emotion? '+data.id+' = '+user_data[i].id_emotion);
     if(data.id == user_data[i].id_emotion){
       var result = [animatedPie, data]
       selectedGraphs.push(result);
@@ -568,7 +569,7 @@ function drawEmotionsGraph(data, num, user_data){
     for(var i in selectedGraphs){
         var graph = selectedGraphs[i][0];
         var data = selectedGraphs[i][1];
-        //console.log('COLORING USER EMOTION!');
+        console.log('COLORING USER EMOTION!');
         graph.lines[0].animate({"stroke": '#E56666'}, 500);
         graph.texts[0].animate({"fill": '#E56666'}, 500);
         graph.texts[1].animate({"fill": '#E56666'}, 500);
@@ -640,7 +641,7 @@ function pad(num, size) {
 }
 
 function setupAddCronicals(data){
-  //console.log('setupAddCronicals');
+  console.log('setupAddCronicals');
   
   var cronicals = '';
   for(var i in data){
@@ -660,7 +661,7 @@ function setupAddCronicals(data){
 		event.preventDefault();
     
 		if ($(this).hasClass('next_subsector')) {
-      //console.log('ENTRA EN EL 1ER IF');
+      console.log('ENTRA EN EL 1ER IF');
 			$(this).removeClass('next_subsector');
 			$(this).parent().parent().find('.graph_container').addClass('second_active');
       
@@ -670,7 +671,7 @@ function setupAddCronicals(data){
       var cronicalTypes = '';
       
       $('#graphs_conditions .second_condition h2').html(currentCronicalName);
-      //console.log(cronicalsList);
+      console.log(cronicalsList);
       for(var i in cronicalsList){
         if(cronicalsList[i].id == currentCronical){
           if(cronicalsList[i].types.length != 0){
@@ -690,7 +691,7 @@ function setupAddCronicals(data){
       
 			$(this).find('span').hide().html('Done!').fadeIn(300);
 		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
-      //console.log('ENTRA EN EL 2DO IF');
+      console.log('ENTRA EN EL 2DO IF');
       
       //Envio los datos por POST y agrego la CARD
       $.post( _api_urls[_api_env].cronical_conditions_post, { id_condition: $('.select_stats.add_more_1').val(), id_type: $('.select_stats.add_more_2').val() } );
@@ -717,7 +718,7 @@ function setupAddCronicals(data){
 }
 
 function setupAddEmotions(data){
-  //console.log('setupAddEmotions');
+  console.log('setupAddEmotions');
   
   var cronicals = '';
   for(var i in data){
@@ -737,7 +738,7 @@ function setupAddEmotions(data){
 		event.preventDefault();
     
 		if ($(this).hasClass('next_subsector')) {
-      //console.log('ENTRA EN EL 1ER IF');
+      console.log('ENTRA EN EL 1ER IF');
 			$(this).removeClass('next_subsector');
 			$(this).parent().parent().find('.graph_container').addClass('second_active');
       
@@ -747,7 +748,7 @@ function setupAddEmotions(data){
       var cronicalTypes = '';
       
       $('#graphs_emotions .second_condition h2').html(currentCronicalName);
-      //console.log(emotionsList);
+      console.log(emotionsList);
       for(var i in emotionsList){
         if(emotionsList[i].id == currentCronical){
           $('.select_stats.add_more_emo_2').parent().parent().hide();
@@ -759,7 +760,7 @@ function setupAddEmotions(data){
       
 			$(this).find('span').hide().html('Done!').fadeIn(300);
 		} else if ($(this).parent().parent().find('.graph_container').hasClass('second_active')) {
-      //console.log('ENTRA EN EL 2DO IF');
+      console.log('ENTRA EN EL 2DO IF');
       
       //Envio los datos por POST y agrego la CARD
       $.post( _api_urls[_api_env].emotions_post, { id_emotion: $('.select_stats.add_more_emo_1').val() } );
@@ -777,7 +778,7 @@ function setupAddEmotions(data){
 			$('#graphs_emotions .graph_container').removeClass('second_active');
 			$(this).find('span').hide().html('Next').fadeIn(300);
 		} else {
-      //console.log('ENTRA EN EL ELSE'); //Nunca entra aca...
+      console.log('ENTRA EN EL ELSE'); //Nunca entra aca...
 		  $('#graphs_emotions .condition').removeClass('active');
 		  $(this).find('span').hide().html('Next').fadeIn(300);
 		}
@@ -912,13 +913,13 @@ function addNewComplain(id, name, data){
         }
       }
 
-      //console.log('ITEM DATA');
-      ///console.log(itemData);
+      console.log('ITEM DATA');
+      console.log(itemData);
       var adapter = new CronicalConditionsAdapter();
       var params = adapter.getParameters(itemData, '#E56666');
-      //console.log(params);
+      console.log(params);
       var preffix = 'canvas_12_custom_';
-      //console.log(params);
+      console.log(params);
 
       //Start graph
       drawComplainGraph(params, id, preffix);
@@ -933,7 +934,7 @@ function addNewComplain(id, name, data){
 }
 
 function drawBloodDrops(data){
-  //console.log('drawing blood drops!');
+  console.log('drawing blood drops!');
   //console.log(data);
   var content, blood, height;
   for(var i in data){
@@ -1031,10 +1032,10 @@ function drawGenomicsTraits(data, user_data){
     itemHtml = itemHtml.replace(/\[\[center_text\]\]/g, data[i].name);
     if(first === true){
       first = false;
-      //console.log('REPLACE FIRST TRUE');
+      console.log('REPLACE FIRST TRUE');
       itemHtml = itemHtml.replace(/\[\[hint_style\]\]/g, '');
     }else{
-      //console.log('REPLACE FIRST FALSE');
+      console.log('REPLACE FIRST FALSE');
       itemHtml = itemHtml.replace(/\[\[hint_style\]\]/g, 'display:none;');
     }
     
@@ -1081,11 +1082,11 @@ function drawGenomicsTraits(data, user_data){
   
   $('#genomic_traits_container').html(itemsHtml);
   
-  //console.log('FINAL DATA ARRAY');
-  //console.log(finalData);
+  console.log('FINAL DATA ARRAY');
+  console.log(finalData);
   for(var i in finalData){
-    //console.log('final data looping '+i);
-    //console.log('final data looping');
+    console.log('final data looping '+i);
+    console.log('final data looping');
     var elements = [
       {percentage: finalData[i].firstItem.percentage, color: finalData[i].firstItem.color, text: ''},
       {percentage: finalData[i].secondItem.percentage, color: finalData[i].secondItem.color, text: ''}
@@ -1235,22 +1236,22 @@ window.onload = function () {
   });
   
   $.getJSON( _api_urls[_api_env].weight, function( data ) {
-    //console.log('WEIGHT!');
+    console.log('WEIGHT!');
     $('.weight_values .man .value').html(data.global_data.men.value);
     $('.weight_values .woman .value').html(data.global_data.women.value);
     $('#weight_number').html(data.user_data.value);
   });
   
   $.getJSON( _api_urls[_api_env].height, function( data ) {
-    //console.log('WEIGHT!');
+    console.log('WEIGHT!');
     $('.height_values .man .value').html(data.global_data.men.value);
     $('.height_values .woman .value').html(data.global_data.women.value);
-    //console.log('HEIGHT USER: '+data.user_data.value);
+    console.log('HEIGHT USER: '+data.user_data.value);
     $('#height_number').html(data.user_data.value);
   });
   
   $.getJSON( _api_urls[_api_env].bmi, function( data ) {
-    //console.log('WEIGHT!');
+    console.log('WEIGHT!');
     $('.bmi_values .man .value').html(data.global_data.men.value);
     $('.bmi_values .woman .value').html(data.global_data.women.value);
     $('.your_bmi h2').html(data.user_data.value);
@@ -1348,9 +1349,9 @@ window.onload = function () {
   
   $.getJSON( _api_urls[_api_env].genomics_risks, function( data ) {
     $.getJSON( _api_urls[_api_env].genomics_risks_user, function( user_data ) {
-      //console.log('GENOMIC RISKS');
-      //console.log(data);
-      //console.log(user_data);
+      console.log('GENOMIC RISKS');
+      console.log(data);
+      console.log(user_data);
       drawGenomicsRisks(data, user_data);
     });
   });
@@ -1406,7 +1407,7 @@ $(document).ready(function(){
   });
   
   $('#age_select_form').submit(function(){
-    //console.log('form submitted!');
+    console.log('form submitted!');
     var age = $('#age_select_value').val();
     $('#canvas_4_1').html('');
     $.ajax({
@@ -1460,15 +1461,15 @@ $(document).ready(function(){
   $('.close_cronical_card').on('click', function(){
     $(this).parent().remove();
     var id = $(this).parent().attr('data-id');
-    //console.log('DELETING CRONICAL ID: '+id);
+    console.log('DELETING CRONICAL ID: '+id);
     deleteUserData(_api_urls[_api_env].cronical_conditions_delete, $(this).parent().attr('data-param'), id, function(result){
       
     });
     
     for(var i in cronicalGraphs){
-      //console.log('looping cronical graphs: '+i);
+      console.log('looping cronical graphs: '+i);
       if(i == id){
-        //console.log('found graph to deanimate!');
+        console.log('found graph to deanimate!');
         var graph = cronicalGraphs[i];
         graph.lines[0].animate({"stroke": '#7737C7'}, 500);
         graph.texts[0].animate({"fill": '#7737C7'}, 500);
@@ -1482,15 +1483,15 @@ $(document).ready(function(){
   $('.close_emotion_card').on('click', function(){
     $(this).parent().remove();
     var id = $(this).parent().attr('data-id');
-    //console.log('DELETING EMOTION ID: '+id);
+    console.log('DELETING EMOTION ID: '+id);
     deleteUserData(_api_urls[_api_env].emotions_delete, $(this).parent().attr('data-param'), id, function(result){
       
     });
     
     for(var i in emotionGraphs){
-      //console.log('looping emotion graphs: '+i);
+      console.log('looping emotion graphs: '+i);
       if(i == id){
-        //console.log('found emotion graph to deanimate!');
+        console.log('found emotion graph to deanimate!');
         var graph = emotionGraphs[i];
         graph.lines[0].animate({"stroke": '#7737C7'}, 500);
         graph.texts[0].animate({"fill": '#7737C7'}, 500);

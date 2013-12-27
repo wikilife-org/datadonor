@@ -14,8 +14,8 @@ def comming(request):
     return render_to_response('splash/index.html', {'version': version},
                                   RequestContext(request))
 
-def mock(request):
-    return render_to_response('maquetas/index.html', {'version': version},
+def demo(request):
+    return render_to_response('demo/index.html', {'version': version},
                                   RequestContext(request))
 
 def wizard(request):
@@ -59,7 +59,7 @@ def dashboard(request):
         'version': version,
         'last_login': request.session.get('social_auth_last_login_backend')
     }
-    return render_to_response('data_donation.html', ctx, context_instance=RequestContext(request))
+    return render_to_response('dashboard/index.html', ctx, context_instance=RequestContext(request))
 
 def end_wizard(request):
     request.session["wizard_mode"] = False

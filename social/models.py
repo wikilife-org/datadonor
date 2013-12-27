@@ -9,20 +9,20 @@ from users.models import Profile
 
 class SocialUserAggregatedData(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='social_aggregated_data', blank=True, null=True)
-    facebook_friend_count = models.IntegerField(default=0)
-    facebook_post_weekly_avg = models.IntegerField(default=0)
-    facebook_likes_weekly_avg = models.IntegerField(default=0)
-    twitter_followers_count = models.IntegerField(default=0)
-    twitter_tweets_count_last_seven_days = models.IntegerField(default=0)
-    twitter_retweets_count_last_seven_days = models.IntegerField(default=0)
-    gplus_contacts_count = models.IntegerField(default=0)
-    linkedin_connections_count = models.IntegerField(default=0)
-    foursquare_friends_count = models.IntegerField(default=0)
-    education_level = models.IntegerField(default=2)
-    education_level_manual = models.IntegerField(default=2)
+    facebook_friend_count = models.IntegerField(null=True)
+    facebook_post_weekly_avg = models.IntegerField(null=True)
+    facebook_likes_weekly_avg = models.IntegerField(null=True)
+    twitter_followers_count = models.IntegerField(null=True)
+    twitter_tweets_count_last_seven_days = models.IntegerField(null=True)
+    twitter_retweets_count_last_seven_days = models.IntegerField(null=True)
+    gplus_contacts_count = models.IntegerField(null=True)
+    linkedin_connections_count = models.IntegerField(null=True)
+    foursquare_friends_count = models.IntegerField(null=True)
+    education_level = models.IntegerField(null=True)
+    education_level_manual = models.IntegerField(null=True)
     education_degree = models.CharField(max_length=250, blank=True, null=True)
-    work_experience_years = models.IntegerField(default=0)
-    work_experience_years_manual = models.IntegerField(default=0)
+    work_experience_years = models.IntegerField(null=True)
+    work_experience_years_manual = models.IntegerField(null=True)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
     wikilife_ids = models.CharField(max_length=255, null=True)
@@ -49,8 +49,8 @@ class SocialUserAggregatedData(models.Model):
         return data
     
     def social_sharing(self):
-        return {"facebook":{"posts":self.facebook_post_weekly_avg, "likes":self.facebook_likes_weekly_avg},
-        "twitter":{"tweets":self.twitter_tweets_count_last_seven_days, "retweets":self.twitter_retweets_count_last_seven_days}}
+        return {"facebook":{"posts":self.facebook_post_weekly_avg or 0, "likes":self.facebook_likes_weekly_avg or 0},
+        "twitter":{"tweets":self.twitter_tweets_count_last_seven_days or 0, "retweets":self.twitter_retweets_count_last_seven_days or 0}}
 
 
 class GlobalEducationDistribution(models.Model):
@@ -126,7 +126,8 @@ def create_user_social(sender, instance, **kwargs):
     if created or profile.user == None:
         profile.user = instance
         profile.save()
-
+        #WikilifeUserClient
+        
     if created or not profile.account_id:
         generated_uid = random_string(length=6,
                       allowed_chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')

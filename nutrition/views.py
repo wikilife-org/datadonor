@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response, redirect
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
-
+from nutrition.services.utilities import *
 
 # Nutrients
 def nutrition_nutrients_mock(request):
@@ -136,10 +136,12 @@ def nutrition_height(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
+        request.user.profile.height = value
+        request.user.profile.save()
         user_data = {"value":value, "unit":unit}
     else:
-        user_data = {"value":0, "unit":"Ft"}
-    global_data = {"men":{"value":7.2, "unit":"Ft"}, "women":{"value":4.3, "unit":"Ft"}}
+        user_data = {"value":request.user.profile.height, "unit":"Ft"}
+    global_data = global_height()
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 

@@ -2,34 +2,88 @@
 import math
 from utils.commons import percentage
 from social_auth.models import *
-from social.models import SocialUserAggregatedData
+from social.models import SocialUserAggregatedData, DegreeLevel
+from datetime import date
 
 
 def global_social_reach():
-    user_count = 0
+    
+    user_count_facebook = 0
+    user_count_twitter = 0
+    user_count_gplus = 0
+    user_count_foursquare = 0
+    user_count_linkedin = 0
+    
     facebook_friend_count_total = 0
     twitter_followers_count_total = 0
     gplus_contacts_count_total = 0
     foursquare_friends_count_total = 0
     linkedin_connections_count_total = 0 
+
+    avg_facebook_friend_count_total = 0
+    avg_twitter_followers_count_total = 0
+    avg_gplus_contacts_count_total = 0
+    avg_foursquare_friends_count_total = 0
+    avg_linkedin_connections_count_total = 0
+    
+    
     
     for user_data in SocialUserAggregatedData.objects.all():
-        user_count += 1
-        facebook_friend_count_total += user_data.facebook_friend_count
-        twitter_followers_count_total += user_data.twitter_followers_count
-        gplus_contacts_count_total += user_data.gplus_contacts_count
-        foursquare_friends_count_total += user_data.foursquare_friends_count
-        linkedin_connections_count_total += user_data.linkedin_connections_count
+        if user_data.facebook_friend_count:
+            user_count_facebook += 1
+            facebook_friend_count_total += user_data.facebook_friend_count
         
-    avg_facebook_friend_count_total = int(math.ceil(facebook_friend_count_total / user_count))
-    avg_twitter_followers_count_total = int(math.ceil(twitter_followers_count_total / user_count))
-    avg_gplus_contacts_count_total = int(math.ceil(gplus_contacts_count_total / user_count))
-    avg_foursquare_friends_count_total = int(math.ceil(foursquare_friends_count_total / user_count))
-    avg_linkedin_connections_count_total = int(math.ceil(linkedin_connections_count_total / user_count))
+        if user_data.twitter_followers_count:
+            user_count_twitter +=1
+            twitter_followers_count_total += user_data.twitter_followers_count
+            
+        if user_data.gplus_contacts_count:
+            user_count_gplus +=1
+            gplus_contacts_count_total += user_data.gplus_contacts_count
+        
+        if user_data.foursquare_friends_count:
+            user_count_foursquare +=1
+            foursquare_friends_count_total += user_data.foursquare_friends_count
+        
+        if user_data.linkedin_connections_count:
+            user_count_linkedin +=1
+            linkedin_connections_count_total += user_data.linkedin_connections_count
+    
+    try: 
+        avg_facebook_friend_count_total = int(math.ceil(facebook_friend_count_total / user_count_facebook))
+
+    except:
+        pass
+
+    try: 
+        avg_twitter_followers_count_total = int(math.ceil(twitter_followers_count_total / user_count_twitter))
+
+    except:
+        pass
+
+    try: 
+
+        avg_gplus_contacts_count_total = int(math.ceil(gplus_contacts_count_total / user_count_gplus))
+
+    except:
+        pass
+
+    try: 
+
+        avg_foursquare_friends_count_total = int(math.ceil(foursquare_friends_count_total / user_count_foursquare))
+    except:
+        pass
+
+    try: 
+
+        avg_linkedin_connections_count_total = int(math.ceil(linkedin_connections_count_total / user_count_linkedin))
+    except:
+        pass
 
     total = avg_facebook_friend_count_total + avg_twitter_followers_count_total \
              + avg_linkedin_connections_count_total + avg_gplus_contacts_count_total \
              + avg_foursquare_friends_count_total
+             
     f_per = percentage(avg_facebook_friend_count_total, total)
     l_per = percentage(avg_linkedin_connections_count_total, total)
     g_per = percentage(avg_gplus_contacts_count_total, total)
@@ -41,24 +95,50 @@ def global_social_reach():
                 "linkedin":{"count": avg_linkedin_connections_count_total, "percentage":l_per}}
 
 def global_social_sharing():
-    user_count = 0
+    user_count_facebook = 0
+    user_count_twitter = 0
     facebook_post_weekly_avg_total = 0
     facebook_likes_weekly_avg_total = 0
     twitter_tweets_count_last_seven_days_total = 0
     twitter_retweets_count_last_seven_days_total = 0
-    
-    for user_data in SocialUserAggregatedData.objects.all():
-        user_count += 1
-        facebook_post_weekly_avg_total += user_data.facebook_post_weekly_avg
-        facebook_likes_weekly_avg_total += user_data.facebook_likes_weekly_avg
-        twitter_tweets_count_last_seven_days_total += user_data.twitter_tweets_count_last_seven_days
-        twitter_retweets_count_last_seven_days_total += user_data.twitter_retweets_count_last_seven_days
-        
-    avg_facebook_post_weekly_avg_total = int(math.ceil(facebook_post_weekly_avg_total / user_count))
-    avg_facebook_likes_weekly_avg_total = int(math.ceil(facebook_likes_weekly_avg_total / user_count))
-    avg_twitter_tweets_count_last_seven_days_total = int(math.ceil(twitter_tweets_count_last_seven_days_total / user_count))
-    avg_twitter_retweets_count_last_seven_days_total = int(math.ceil(twitter_retweets_count_last_seven_days_total / user_count))
 
+    avg_facebook_post_weekly_avg_total = 0
+    avg_facebook_likes_weekly_avg_total = 0
+    avg_twitter_tweets_count_last_seven_days_total = 0
+    avg_twitter_retweets_count_last_seven_days_total = 0
+
+    for user_data in SocialUserAggregatedData.objects.all():
+        
+        if user_data.facebook_post_weekly_avg or user_data.facebook_likes_weekly_avg:
+            user_count_facebook += 1
+            facebook_post_weekly_avg_total += user_data.facebook_post_weekly_avg
+            facebook_likes_weekly_avg_total += user_data.facebook_likes_weekly_avg
+        
+        if user_data.twitter_tweets_count_last_seven_days or user_data.twitter_retweets_count_last_seven_days:
+            user_count_twitter += 1
+            twitter_tweets_count_last_seven_days_total += user_data.twitter_tweets_count_last_seven_days
+            twitter_retweets_count_last_seven_days_total += user_data.twitter_retweets_count_last_seven_days
+    
+    try:    
+        avg_facebook_post_weekly_avg_total = int(math.ceil(facebook_post_weekly_avg_total / user_count_facebook))
+    except:
+        pass
+
+    try:    
+        avg_facebook_likes_weekly_avg_total = int(math.ceil(facebook_likes_weekly_avg_total / user_count_facebook))
+    except:
+        pass
+
+    try:    
+        avg_twitter_tweets_count_last_seven_days_total = int(math.ceil(twitter_tweets_count_last_seven_days_total / user_count_twitter))
+    except:
+        pass
+
+    try:    
+        avg_twitter_retweets_count_last_seven_days_total = int(math.ceil(twitter_retweets_count_last_seven_days_total / user_count_twitter))
+    except:
+        pass
+    
     return {"facebook":{"posts":avg_facebook_post_weekly_avg_total, "likes":avg_facebook_likes_weekly_avg_total}, 
             "twitter":{"tweets":avg_twitter_tweets_count_last_seven_days_total, "retweets":avg_twitter_retweets_count_last_seven_days_total}}
 
@@ -97,7 +177,7 @@ def global_education():
             3:{"percentage":percentage(tech_total, total), "key":"tech_institute", "title": "Technical Institute", "index":3},
             2:{"percentage":percentage(high_school_total, total), "key":"high_school", "title": "High School", "index":2},
             1:{"percentage":percentage(junior_college_total, total), "key":"junior_college", "title": "Junior College", "index":1},
-            0:{"percentage":percentage(elementary_total, total), "key":"elemtary_school", "title": "Elementary School", "index":0}}
+            0:{"percentage":percentage(elementary_total, total), "key":"elementary_school", "title": "Elementary School", "index":0}}
 
 
 def global_work():
@@ -121,36 +201,69 @@ def global_work():
                 age_range = get_age_range(user_data.user.profile.date_of_birth)
                 age_range_dict[age_range]["sum"] += years
                 age_range_dict[age_range]["count"] += 1
-
-    total_avg = int(math.ceil(total_years_count / total_user_count))
     
-    age_range_dict["15-25"]["value"] = int(math.ceil(age_range_dict["15-25"]["sum"] / age_range_dict["15-25"]["count"]))
-    del age_range_dict["15-25"]["sum"]
-    del age_range_dict["15-25"]["count"]
-    age_range_dict["26-35"]["value"] = int(math.ceil(age_range_dict["26-35"]["sum"] / age_range_dict["26-35"]["count"]))
-    del age_range_dict["26-35"]["sum"]
-    del age_range_dict["26-35"]["count"]
-    age_range_dict["36-45"]["value"] = int(math.ceil(age_range_dict["36-45"]["sum"] / age_range_dict["36-45"]["count"]))
-    del age_range_dict["36-45"]["sum"]
-    del age_range_dict["36-45"]["count"]
-    age_range_dict["46-55"]["value"] = int(math.ceil(age_range_dict["46-55"]["sum"] / age_range_dict["46-55"]["count"]))
-    del age_range_dict["46-55"]["sum"]
-    del age_range_dict["46-55"]["count"]
-    age_range_dict["56-65"]["value"] = int(math.ceil(age_range_dict["56-65"]["sum"] / age_range_dict["56-65"]["count"]))
-    del age_range_dict["56-65"]["sum"]
-    del age_range_dict["56-65"]["count"]
-    
-    return age_range_dict, total_avg
-    
-def is_valid_education(education_level):
-    valid = False
     try:
-        education_level = int(education_level)
-        valid = education_level>= 0 and education_level<=6
+        total_avg = int(math.ceil(total_years_count / total_user_count))
     except:
         pass
     
-    return valid
+    if age_range_dict["15-25"]["count"]:
+        age_range_dict["15-25"]["value"] = int(math.ceil(age_range_dict["15-25"]["sum"] / age_range_dict["15-25"]["count"]))
+        del age_range_dict["15-25"]["sum"]
+        del age_range_dict["15-25"]["count"]
+    else:
+        age_range_dict["15-25"]["value"] = 0
+    
+    if age_range_dict["26-35"]["count"]:
+        age_range_dict["26-35"]["value"] = int(math.ceil(age_range_dict["26-35"]["sum"] / age_range_dict["26-35"]["count"]))
+        del age_range_dict["26-35"]["sum"]
+        del age_range_dict["26-35"]["count"]
+    else:
+        age_range_dict["26-35"]["value"] = 0
+        
+    if age_range_dict["36-45"]["count"]:
+        age_range_dict["36-45"]["value"] = int(math.ceil(age_range_dict["36-45"]["sum"] / age_range_dict["36-45"]["count"]))
+        del age_range_dict["36-45"]["sum"]
+        del age_range_dict["36-45"]["count"]
+    else:
+        age_range_dict["36-45"]["value"] = 0
+    
+    if age_range_dict["46-55"]["count"]:
+        age_range_dict["46-55"]["value"] = int(math.ceil(age_range_dict["46-55"]["sum"] / age_range_dict["46-55"]["count"]))
+        del age_range_dict["46-55"]["sum"]
+        del age_range_dict["46-55"]["count"]
+    else:
+        age_range_dict["46-55"]["value"] = 0
+    
+    if age_range_dict["56-65"]["count"]:
+        age_range_dict["56-65"]["value"] = int(math.ceil(age_range_dict["56-65"]["sum"] / age_range_dict["56-65"]["count"]))
+        del age_range_dict["56-65"]["sum"]
+        del age_range_dict["56-65"]["count"]
+    else:
+        age_range_dict["56-65"]["value"] = 0
+        
+    return age_range_dict, total_avg
+
+EDUCATION_LEVELS = {"phd":6,
+            "master":5,
+            "university":4, 
+           "tech_institute":3,
+            "high_school":2,
+            "junior_college":1,
+            "elementary_school":0}
+
+def is_valid_education(education_level):
+    
+    valid = False
+    
+    try:
+        education_level = int(EDUCATION_LEVELS[education_level])
+        #education_level = int(education_level)
+        valid = education_level>= 0 and education_level<=6
+    except:
+        education_level = 2
+    
+    return valid, education_level
 
 def is_valid_working_experience(working_experience):
     valid = False

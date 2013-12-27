@@ -26,19 +26,33 @@ def social_sharing(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
+EDUCATION_LEVELS = {6:"phd",
+            5:"master",
+            4:"university", 
+           3:"tech_institute",
+            2:"high_school",
+            1:"junior_college",
+            0:"elementary_school"}
+
 @csrf_exempt
 def social_education(request):
     if request.method == "POST":
         education_level = request.POST["education_level"]
         #Validate value
-        if is_valid_education(education_level):
+        valid, education_level = is_valid_education(education_level)
+        if valid:
         #save Value
             request.user.social_aggregated_data.education_level_manual = int(education_level)
             request.user.social_aggregated_data.save()
             if request.user.social_aggregated_data.education_degree:
                 update_degree(request.user.social_aggregated_data.education_degree, int(education_level))
-
-    user_data = {"user_level": request.user.social_aggregated_data.education_level}
+    
+    if request.user.social_aggregated_data.education_level_manual is not None:
+        level = request.user.social_aggregated_data.education_level_manual
+    else:
+        level = request.user.social_aggregated_data.education_level
+    
+    user_data = {"user_level": EDUCATION_LEVELS[level]}
     global_data = global_education()
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
