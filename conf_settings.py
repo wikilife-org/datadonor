@@ -1,3 +1,7 @@
+WIKILIFE = {
+   "HOST": "http://api.wikilife.org"
+}
+
 # ========= SOCIAL =======
 TWITTER_CONSUMER_KEY ='ZWhTDeIIydZSTtpLDaKLg'     
 TWITTER_CONSUMER_SECRET ='geDuzAlLPWX1ywir9jqZQniGg0WAwo76hwlHk'
