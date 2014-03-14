@@ -39,15 +39,15 @@ def nutrition_user_nutrients_mock(request):
 
 def nutrition_nutrients(request):
 
-    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
-                 "fat":{"title":"Fat", "key":"fat", "percentage":20},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":20},
-                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":20}}
+    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":0}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":0},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":0},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":0}}
     
-    global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":30}, 
-                 "fat":{"title":"Fat", "key":"fat", "percentage":20},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":10},
-                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":25}}
+    global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":0}, 
+                 "fat":{"title":"Fat", "key":"fat", "percentage":0},
+                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":0},
+                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":0}}
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
@@ -80,10 +80,15 @@ def nutrition_weight(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
+        
+        request.user.profile.height = value
+        request.user.profile.save()
         user_data = {"value":value, "unit":unit}
     else:
-        user_data = {"value":0, "unit":"Lbs"}
-    global_data = {"men":{"value":120, "unit":"Lbs"}, "women":{"value":94, "unit":"Lbs"}}
+        user_data = {"value":request.user.profile.weight, "unit":"Lbs"}
+        
+        global_data = global_weight()
+    
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
@@ -124,6 +129,7 @@ def nutrition_height_mock(request):
     if request.method == 'POST':
         unit = request.POST["unit"]
         value = request.POST["value"]
+    
         user_data = {"value":value, "unit":unit}
     else:
         user_data = {"value":5.8, "unit":"Ft"}
