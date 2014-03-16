@@ -37,7 +37,7 @@ class RunkeeperBackend(OAuthBackend, PhysicalBackend):
         return {}
 
 
-class RunkeeperAuth(BaseOAuth2):
+class RunkeeperAuth(BaseOAuth2, PhysicalBackend):
     """Runkeeper OAuth2 support"""
     AUTHORIZATION_URL = RUNKEEPER_AUTHORIZATION_URL
     ACCESS_TOKEN_URL = RUNKEEPER_ACCESS_TOKEN_URL

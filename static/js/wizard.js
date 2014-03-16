@@ -110,7 +110,7 @@ function(event) {
 	if ($(this).hasClass('checked')) {
 		$(this).removeClass('checked');
 	} else {
-		$(this).addClass('checked');
+		//$(this).addClass('checked');
 	}
 });
 $('.back').click(function(event) {

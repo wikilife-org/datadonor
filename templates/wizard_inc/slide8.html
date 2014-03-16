@@ -8,8 +8,12 @@
     </h4>
 
     <div class="inner-redes">
-    
-    	<a href="#" class="circle genomics-23andMe"  title="23andMe" ><span>23andMe</span></a>
+        {% if "twentythreeandme" in social_auth.genomics.associated %}
+		<a href="{% url "socialauth_disconnect" "twentythreeandme" %}"class="circle genomics-23andMe checked"  title="23andMe" ><span>23andMe</span></a>
+		{% else %}
+		<a href="{% url "socialauth_begin" "twentythreeandme" %}" class="circle genomics-23andMe"  title="23andMe" ><span>23andMe</span></a>
+		{% endif%} 
+    	<!-- a href="#" class="circle genomics-23andMe"  title="23andMe" ><span>23andMe</span></a-->
         
     </div><!-- .inner-redes -->
     

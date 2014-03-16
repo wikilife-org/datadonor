@@ -32,7 +32,7 @@ class TwentyThreeAndMeBackend(OAuthBackend, GenomicsBackend):
         return {}
 
 
-class TwentyThreeAndMeAuth(BaseOAuth2):
+class TwentyThreeAndMeAuth(BaseOAuth2, GenomicsBackend):
     """23andMe OAuth2 support"""
     AUTHORIZATION_URL = TWENTYTHREEMEANDME_AUTHORIZATION_URL
     ACCESS_TOKEN_URL = TWENTYTHREEMEANDME_ACCESS_TOKEN_URL

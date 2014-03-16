@@ -159,11 +159,39 @@
 				<div class="overflow_icons" data-position="0">
 					<!--social_networks-->
 					<ul class="nav_big_social">
-						<li class="active"><a href="#" class="twitter">twitter</a></li>
-						<li><a href="#" class="facebook">facebook</a></li>
-						<li><a href="#" class="linkedin">linkedin</a></li>
-						<li><a href="#" class="gmail">gmail</a></li>
-						<li><a href="#" class="foursquare">foursquare</a></li>
+
+					{% if "twitter" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "twitter" %}" class="twitter" >Twitter</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "twitter" %}"  class="twitter" >Twitter</a>
+					{% endif%}
+
+					{% if "facebook" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "facebook" %}" class="facebook" >Facebook</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "facebook" %}"  class="facebook" >Facebook</a>
+					{% endif%}
+							
+
+					{% if "linkedin" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "linkedin" %}" class="linkedin" >Linkedin</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "linkedin" %}"  class="linkedin" >Linkedin</a>
+					{% endif%}					
+
+					{% if "google" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "google" %}" class="gmail" >Google +</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "google" %}"  class="gmail" >Google +</a>
+					{% endif%}					
+							
+					{% if "foursquare" in social_auth.social.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "foursquare" %}" class="foursquare" >Foursquare</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "foursquare" %}"  class="foursquare" >Foursquare</a>
+					{% endif%}	
+
+
 					</ul>
 					<!--/social_networks-->
 				</div>
@@ -774,15 +802,61 @@
 					
 					<!--social_networks-->
 					<ul class="nav_big_social physical_networks">
-						<li class="active"><a href="#" class="fatsecret">fatsecret</a></li>
-						<li><a href="#" class="myfitness">myfitness</a></li>
-					    <li><a href="#" class="bodymedia">bodymedia</a></li>
-                        <li><a href="#" class="dailymile">dailymile</a></li>
-                        <li><a href="#" class="runkeeper">runkeeper</a></li>
-                        <li><a href="#" class="nike">nike</a></li>
-                        <li><a href="#" class="fitbit">fitbit</a></li>
-                        <li><a href="#" class="jewbone">jewbone</a></li>
-                        <li><a href="#" class="ihealth">ihealth</a></li>
+					
+					{% if "fatsecret" in social_auth.physical.associated %}
+					<li class="active"><a href="javascript:void(0)" class="fatsecret" >Fatsecret</a></li>
+					{% else %}
+					<li><a href="javascript:void(0)"  class="fatsecret" >Fatsecret</a>
+					{% endif%}
+
+					{% if "myfitness" in social_auth.physical.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "myfitness" %}" class="myfitness" >myfitness</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "myfitness" %}"  class="myfitness" >myfitness</a>
+					{% endif%}
+							
+
+					{% if "bodymedia" in social_auth.physical.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "bodymedia" %}" class="bodymedia" >bodymedia</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "bodymedia" %}"  class="bodymedia" >bodymedia</a>
+					{% endif%}					
+
+					{% if "dailymile" in social_auth.physical.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "dailymile" %}" class="dailymile" >dailymile</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "dailymile" %}"  class="dailymile" >dailymile</a>
+					{% endif%}					
+							
+					{% if "runkeeper" in social_auth.physical.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "runkeeper" %}" class="runkeeper" >runkeeper</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "runkeeper" %}"  class="runkeeper" >runkeeper</a>
+					{% endif%}
+
+					{% if "nike" in social_auth.physical.associated %}
+					<li class="active"><a href="javascript:void(0)" class="nike" >nike</a></li>
+					{% else %}
+					<li><a href="javascript:void(0)"  class="nike" >nike</a>
+					{% endif%}
+
+					{% if "fitbit" in social_auth.physical.associated %}
+					<li class="active"><a href="javascript:void(0)" class="fitbit" >fitbit</a></li>
+					{% else %}
+					<li><a href="javascript:void(0)"  class="fitbit" >fitbit</a>
+					{% endif%}		
+
+					{% if "jawbone" in social_auth.physical.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "jawbone" %}" class="jawbone" >jawbone</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "jawbone" %}"  class="jawbone" >jawbone</a>
+					{% endif%}	
+
+					{% if "ihealth" in social_auth.physical.associated %}
+					<li class="active"><a href="javascript:void(0)" class="ihealth" >ihealth</a></li>
+					{% else %}
+					<li><a href="javascript:void(0)"  class="ihealth" >ihealth</a>
+					{% endif%}			
 					</ul>
 					<!--/social_networks-->
 										
@@ -1139,9 +1213,9 @@
 				<div class="overflow_icons" data-position="0">
 					<!--social_networks-->
 					<ul class="nav_big_social nutrition_networks">
-						<li class="active"><a href="#" class="fatsecret">fatsecret</a></li>
-						<li><a href="#" class="wikilife">wikilife</a></li>
-					    <li><a href="#" class="withings">withings</a></li>
+						<li><a href="javascript:void(0)" class="fatsecret">fatsecret</a></li>
+						<li><a href="javascript:void(0)" class="wikilife">wikilife</a></li>
+					    <li><a href="javascript:void(0)" class="withings">withings</a></li>
 					</ul>
 					<!--/social_networks-->	
 				</div>
@@ -1534,7 +1608,7 @@
 			<!--/preload_pyramid_img-->
 			
 			<!--BORRAR SOLO EJEMPLO DE MAQUETA-->
-			<div id="remove_class">
+			<!--div id="remove_class">
 				
 				<a href="#" id="remove_clas">Show user data logged</a>
 				
@@ -1545,7 +1619,7 @@
 					});
 				</script>
 				
-			</div>
+			</div--!>
 			<!--BORRAR SOLO EJEMPLO DE MAQUETA-->
 			
 		</div>
@@ -1943,12 +2017,17 @@
 				<div class="overflow_icons" data-position="0">
 					<!--social_networks-->
 					<ul class="nav_big_social nutrition_networks">
-						<li class="active"><a href="#" class="moodpanda">moodpanda</a></li>
-						<li><a href="#" class="fitbit">fitbit</a></li>
-					    <li><a href="#" class="jewbone">jewbone</a></li>
-					    <li><a href="#" class="ihealth">ihealth</a></li>
-					    <li><a href="#" class="withings">withings</a></li>
-					     <li><a href="#" class="wikilife">wikilife</a></li>
+						{% if "jawbone" in social_auth.physical.associated %}
+						<li class="active"><a href="{% url "socialauth_disconnect" "jawbone" %}" class="jawbone" >jawbone</a></li>
+						{% else %}
+						<li><a href="{% url "socialauth_begin" "jawbone" %}"  class="jawbone" >jawbone</a>
+						{% endif%}	
+						<li><a href="javascript:void(0)" class="moodpanda">moodpanda</a></li>
+						<li><a href="javascript:void(0)" class="fitbit">fitbit</a></li>
+					    
+					    <li><a href="javascript:void(0)" class="ihealth">ihealth</a></li>
+					    <li><a href="javascript:void(0)" class="withings">withings</a></li>
+					     <li><a href="javascript:void(0)" class="wikilife">wikilife</a></li>
 					</ul>
 					<!--/social_networks-->	
 				</div>
@@ -3388,7 +3467,11 @@
 				<div class="overflow_icons" data-position="0">
 					<!--social_networks-->
 					<ul class="nav_big_social geonetics_networks">
-						<li><a href="#" class="andme">moodpanda</a></li>
+					{% if "twentythreeandme" in social_auth.genomics.associated %}
+					<li class="active"><a href="{% url "socialauth_disconnect" "twentythreeandme" %}" class="andme" >andme</a></li>
+					{% else %}
+					<li><a href="{% url "socialauth_begin" "twentythreeandme" %}"  class="andme" >andme</a>
+					{% endif%}
 					</ul>
 					<!--/social_networks-->	
 				</div>

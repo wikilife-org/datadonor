@@ -81,13 +81,13 @@ def nutrition_weight(request):
         unit = request.POST["unit"]
         value = request.POST["value"]
         
-        request.user.profile.height = value
+        request.user.profile.weight = value
         request.user.profile.save()
         user_data = {"value":value, "unit":unit}
     else:
         user_data = {"value":request.user.profile.weight, "unit":"Lbs"}
         
-        global_data = global_weight()
+    global_data = global_weight()
     
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
@@ -192,8 +192,8 @@ def nutrition_bmi_mock(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def nutrition_bmi(request):
-    user_data = {"value":20}
-    global_data = {"men":{"value":20}, "women":{"value":26}}
+    user_data = {"value":get_bmi(request.user.profile.height, request.user.profile.weight)}
+    global_data = get_global_bmi()
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 

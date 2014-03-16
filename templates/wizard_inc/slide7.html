@@ -4,22 +4,26 @@
     <h3><br />LINK YOUR HEALTH DEVICES &#038; APPS</h3>
     
     <h4>
-        All data is always shared anonymously. <a href="#" class="learnmore">Learn more</a>
+        All data is always shared anonymously. <a href="javascript:void(0)" class="learnmore">Learn more</a>
     </h4>
     
     <div class="inner-redes">
     
-    	<a href="#" class="circle moodPanda"  title="MoodPanda" ><span>MoodPanda</span></a>
+    	<a href="javascript:void(0)" class="circle moodPanda"  title="MoodPanda" ><span>MoodPanda</span></a>
         
-        <a href="#" class="circle fitbit" title="Fitbit" ><span>Fitbit</span></a>
+        <a href="javascript:void(0)" class="circle fitbit" title="Fitbit" ><span>Fitbit</span></a>
         
-        <a href="#" class="circle jawbone" title="Jawbone" ><span>Jawbone</span></a>
+        {% if "jawbone" in social_auth.physical.associated %}
+			<a href="{% url "socialauth_disconnect" "jawbone" %}"class="circle jawbone checked"  title="Jawbone" ><span>Jawbone</span></a>
+		{% else %}
+			<a href="{% url "socialauth_begin" "jawbone" %}" class="circle jawbone"  title="Jawbone" ><span>Jawbone</span></a>
+		{% endif%} 
+		
+        <a href="javascript:void(0)" class="circle iHealth" title="iHealth" ><span>iHealth</span></a>
         
-        <a href="#" class="circle iHealth" title="iHealth" ><span>iHealth</span></a>
+        <a href="javascript:void(0)" class="circle withing" title="Withing" ><span>Withing</span></a>
         
-        <a href="#" class="circle withing" title="Withing" ><span>Withing</span></a>
-        
-        <a href="#" class="circle wikilfe" title="Wikilfe" ><span>Wikilfe</span></a>
+        <a href="javascript:void(0)" class="circle wikilfe" title="Wikilfe" ><span>Wikilfe</span></a>
     
     </div><!-- .inner-redes -->
     

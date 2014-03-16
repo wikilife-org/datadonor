@@ -13,32 +13,32 @@
     
     	<div class="cont-redes" >
         
-  					{% if "twitter" in social_auth.social.associated %}
-					<a href="{% url "socialauth_disconnect" "twitter" %}"class="circle twitter checked"  title="twitter" ><span>Twitter</span></a>
-					{% else %}
-					<a href="{% url "socialauth_begin" "twitter" %}" class="circle twitter"  title="twitter" ><span>Twitter</span></a>
-					{% endif%}
-					
-					{% if "facebook" in social_auth.social.associated %}
-					<a href="{% url "socialauth_disconnect" "facebook" %}" class="circle facebook checked" title="Facebook"><span>Facebook</span></a>
-					{% else %}
-					<a href="{% url "socialauth_begin" "facebook" %}" class="circle facebook" title="Facebook"><span>Facebook</span></a>
-					{% endif%}
-					{% if "linkedin" in social_auth.social.associated %}
-					<a href="{% url "socialauth_disconnect" "linkedin" %}" class="circle linkedin checked" title="linkedin"><span>Linkedin</span></a>
-					{% else %}
-					<a href="{% url "socialauth_begin" "linkedin" %}" class="circle linkedin" title="linkedin"><span>Linkedin</span></a>
-					{% endif%}
-					{% if "google" in social_auth.social.associated %}
-					<a href="{% url "socialauth_disconnect" "google" %}" class="circle gmail checked" title="google_+" ><span>Google +</span></a>
-					{% else %}
-					<a href="{% url "socialauth_begin" "google" %}" class="circle gmail" title="google_+" ><span>Google +</span></a>
-					{% endif%}
-					{% if "foursquare" in social_auth.social.associated %}
-					<a href="{% url "socialauth_disconnect" "foursquare" %}" class="circle foursquare checked" title="Foursquare" ><span>Foursquare</span></a>
-					{% else %}
-					<a href="{% url "socialauth_begin" "foursquare" %}" class="circle foursquare" title="Foursquare" ><span>Foursquare</span></a>
-					{% endif%}
+			{% if "twitter" in social_auth.social.associated %}
+			<a href="{% url "socialauth_disconnect" "twitter" %}"class="circle twitter checked"  title="twitter" ><span>Twitter</span></a>
+			{% else %}
+			<a href="{% url "socialauth_begin" "twitter" %}" class="circle twitter"  title="twitter" ><span>Twitter</span></a>
+			{% endif%}
+			
+			{% if "facebook" in social_auth.social.associated %}
+			<a href="{% url "socialauth_disconnect" "facebook" %}" class="circle facebook checked" title="Facebook"><span>Facebook</span></a>
+			{% else %}
+			<a href="{% url "socialauth_begin" "facebook" %}" class="circle facebook" title="Facebook"><span>Facebook</span></a>
+			{% endif%}
+			{% if "linkedin" in social_auth.social.associated %}
+			<a href="{% url "socialauth_disconnect" "linkedin" %}" class="circle linkedin checked" title="linkedin"><span>Linkedin</span></a>
+			{% else %}
+			<a href="{% url "socialauth_begin" "linkedin" %}" class="circle linkedin" title="linkedin"><span>Linkedin</span></a>
+			{% endif%}
+			{% if "google" in social_auth.social.associated %}
+			<a href="{% url "socialauth_disconnect" "google" %}" class="circle gmail checked" title="google_+" ><span>Google +</span></a>
+			{% else %}
+			<a href="{% url "socialauth_begin" "google" %}" class="circle gmail" title="google_+" ><span>Google +</span></a>
+			{% endif%}
+			{% if "foursquare" in social_auth.social.associated %}
+			<a href="{% url "socialauth_disconnect" "foursquare" %}" class="circle foursquare checked" title="Foursquare" ><span>Foursquare</span></a>
+			{% else %}
+			<a href="{% url "socialauth_begin" "foursquare" %}" class="circle foursquare" title="Foursquare" ><span>Foursquare</span></a>
+			{% endif%}
             
                  
         </div><!-- .cont-redes -->

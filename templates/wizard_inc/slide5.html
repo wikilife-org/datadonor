@@ -11,15 +11,42 @@
         <a href="#" id="redes-inner-left"><img src="/static/img/left.png" class="left"></a>
         <div class="container">
             <div class="scrollable">
-                <a href="#" class="circle fatsecret"  title="Fatsecret" ><span>Fatsecret</span></a>
-                <a href="#" class="circle myfitness" title="Myfitness" ><span>myfitnesspal</span></a>
-                <a href="#" class="circle bodymedia" title="Body Media" ><span>Body Media</span></a>
-                <a href="#" class="circle dailymile" title="Dailymile" ><span>Dailymile</span></a>
-                <a href="#" class="circle runkeeper" title="Runkeeper" ><span>Runkeeper</span></a>
-                <a href="#" class="circle nike" title="Nike+" ><span>Nike+</span></a>
-                <a href="#" class="circle fitbit" title="Fitbit" ><span>Fitbit</span></a>
-                <a href="#" class="circle jawbone" title="Jawbone" ><span>Jawbone</span></a>
-                <a href="#" class="circle iHealth" title="iHealth" ><span>iHealth</span></a>
+
+          		{% if "jawbone" in social_auth.physical.associated %}
+				<a href="{% url "socialauth_disconnect" "jawbone" %}"class="circle jawbone checked"  title="Jawbone" ><span>Jawbone</span></a>
+				{% else %}
+				<a href="{% url "socialauth_begin" "jawbone" %}" class="circle jawbone"  title="Jawbone" ><span>Jawbone</span></a>
+				{% endif%} 	
+             	<!-- a href="#" class="circle jawbone" title="Jawbone" ><span>Jawbone</span></a-->
+     
+             	
+             	{% if "bodymedia" in social_auth.physical.associated %}
+				<a href="{% url "socialauth_disconnect" "bodymedia" %}"class="circle bodymedia checked"  title="Body Media" ><span>Body Media</span></a>
+				{% else %}
+				<a href="{% url "socialauth_begin" "bodymedia" %}" class="circle bodymedia"  title="Body Media" ><span>Body Media</span></a>
+				{% endif%}
+                <!--  a href="#" class="circle bodymedia" title="Body Media" ><span>Body Media</span></a-->
+
+           		{% if "dailymile" in social_auth.physical.associated %}
+				<a href="{% url "socialauth_disconnect" "dailymile" %}"class="circle dailymile checked"  title="Dailymile" ><span>Dailymile</span></a>
+				{% else %}
+				<a href="{% url "socialauth_begin" "dailymile" %}" class="circle dailymile"  title="Dailymile" ><span>Dailymile</span></a>
+				{% endif%}
+                
+                <!-- a href="#" class="circle dailymile" title="Dailymile" ><span>Dailymile</span></a-->
+                
+             	{% if "runkeeper" in social_auth.physical.associated %}
+				<a href="{% url "socialauth_disconnect" "runkeeper" %}"class="circle runkeeper checked"  title="runkeeper" ><span>Runkeeper</span></a>
+				{% else %}
+				<a href="{% url "socialauth_begin" "runkeeper" %}" class="circle runkeeper"  title="runkeeper" ><span>Runkeeper</span></a>
+				{% endif%}
+                <!--  a href="#" class="circle runkeeper" title="Runkeeper" ><span>Runkeeper</span></a-->
+                
+                <a href="javascript:void(0)" class="circle nike" title="Nike+" ><span>Nike+</span></a>
+                <a href="javascript:void(0)" class="circle fitbit" title="Fitbit" ><span>Fitbit</span></a>
+                <a href="javascript:void(0)" class="circle fatsecret"  title="Fatsecret" ><span>Fatsecret</span></a>
+                <a href="javascript:void(0)" class="circle myfitness" title="Myfitness" ><span>myfitnesspal</span></a>
+                <a href="javascript:void(0)" class="circle iHealth" title="iHealth" ><span>iHealth</span></a>
             </div><!-- .inner-redes -->
         </div>
         <a href="#" id="redes-inner-right"><img src="/static/img/right.png" class="right"></a>

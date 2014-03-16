@@ -2,7 +2,7 @@ from urllib2 import Request, urlopen
 
 from django.utils import simplejson
 
-from social_auth.backends import BaseOAuth2, OAuthBackend
+from social_auth.backends import BaseOAuth2, OAuthBackend, PhysicalBackend
 from social_auth.exceptions import AuthCanceled, AuthUnknownError
 
 
@@ -37,7 +37,7 @@ class JawboneBackend(OAuthBackend):
                 'weight': weight}
 
 
-class JawboneAuth(BaseOAuth2):
+class JawboneAuth(BaseOAuth2, PhysicalBackend):
     """Jawbone OAuth mechanism"""
     AUTHORIZATION_URL = JAWBONE_AUTHORIZATION_URL
     ACCESS_TOKEN_URL = JAWBONE_ACCESS_TOKEN_URL

@@ -4,6 +4,8 @@ from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
+from utilities import *
+from health.models import *
 
 ONE_MINUTE = 60
 ONE_HOUR = ONE_MINUTE*60
@@ -286,9 +288,7 @@ def mood_avg_global_mock(request):
 def mood_avg_by_user_mock(request):
     if request.method == 'POST':
         mood_avg = int(request.POST["mood_avg"])
-        data = {"mood_avg":mood_avg}
-    else:
-        data = {"mood_avg":5}
+    data = {"mood_avg": 5}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
@@ -302,12 +302,23 @@ def mood_panda_activate_mock(request):
 
 
 def mood_avg_global(request):
-    data = []
+    data = global_mood_avg()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
 def mood_avg_by_user(request):
-    data = []
+    if request.method == 'POST':
+        avg_mood = int(request.POST["mood_avg"])
+        try:
+            UserMoodLastWeek.objects.get(user=request.user)
+        except:
+            UserMoodLastWeek.objects.create(user=request.user, avg_mood=avg_mood)
+
+    try:
+        avg = UserMoodLastWeek.objects.get(user=request.user).avg_mood
+    except:
+        avg = 5
+    data = {"mood_avg": avg}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
