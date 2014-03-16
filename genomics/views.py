@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response, redirect
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
-
+from genomics.utilities import *
  
 def genomics_traits_global_mock(request):
     data = [ {"name": "Alcohol Flush Reaction", 
@@ -161,11 +161,100 @@ def genomics_risks_by_user_mock(request):
 
 
 def genomics_traits_global(request):
-    data = {}
+    
+
+    data = [ get_traits_alcohol_distribution(),
+             get_traits_lactose_distribution(),
+             get_traits_smoking_distribution(),
+             get_traits_bitter_distribution(),
+            get_traits_earwax_distribution(),
+            {"name": "Muscle Performance", 
+              "id":5, 
+              "values":[{"name":"Likely sprinter", "percentage":95},
+                        {"name":"Unlikely sprinter", "percentage":05}],
+              },
+            {"name": "Eye Color", 
+              "id":6, 
+              "values":[{"name":"Likely blue", "percentage":60},
+                        {"name":"Likely brown","percentage":40}],
+              },
+            {"name": "Hair Curl", 
+              "id":7, 
+              "values":[{"name":"Slighty curlier hair", "percentage":65},
+                        {"name":"Straigher curlier hair","percentage":35}],
+              },
+            {"name": "Malaria Resistance", 
+              "id":8, 
+              "values":[{"name":"Possibly resistant", "percentage":15},
+                        {"name":"Resistant", "percentage":85}],
+              },
+            {"name": "Norovirus Resistance", 
+              "id":9, 
+              "values":[{"name":"Not resistant", "percentage":15},
+                        {"name":"Resistant","percentage":85}],
+              },
+            {"name": "Resistance to HIV/AIDS", 
+              "id":10, 
+              "values":[{"name":"Not resistant", "percentage":25},
+                        {"name":"Partially resistant", "percentage":75}],
+              }
+            ]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def genomics_traits_by_user(request):
-    data = {}
+    alcohol_trait = request.user.traits.get(user=request.user, report_id="alcoholflush").value
+    lactose = request.user.traits.get(user=request.user, report_id="lactose").value
+    smokingbehavior = request.user.traits.get(user=request.user, report_id="smokingbehavior").value
+    bittertaste = request.user.traits.get(user=request.user, report_id="bittertaste").value
+    earwax = request.user.traits.get(user=request.user, report_id="earwax").value
+    
+    
+    data = [ {
+              "id":0, 
+              "value":alcohol_trait,
+              },
+            {
+              "id":1, 
+              "value":lactose,
+              },
+            { 
+              "id":2, 
+              "value":smokingbehavior,
+              },
+            {
+              "id":3, 
+              "value":bittertaste,
+              }
+            ,
+            {
+              "id":4, 
+              "value":earwax,
+              },
+            { 
+              "id":5, 
+              "value":"Likely sprinter",
+              },
+            {
+              "id":6, 
+              "value":"Likely blue",
+              },
+            {
+              "id":7, 
+              "value":"Slighty curlier hair",
+              },
+            { 
+              "id":8, 
+              "value":"Possibly resistant",
+              },
+            {
+              "id":9, 
+              "value":"Not resistant",
+              },
+            { 
+              "id":10, 
+              "value":"Not resistant",
+              }
+            ]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 

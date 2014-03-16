@@ -74,7 +74,7 @@ def backends_data(user):
               'backends': available}
     # Beware of cyclical imports!
     key=lambda x: x
-    from social_auth.backends import SocialBackend, PhysicalBackend
+    from social_auth.backends import SocialBackend, PhysicalBackend, GenomicsBackend, NutritionBackend, HealthBackend
     # user comes from request.user usually, on /admin/ it will be an instance
     # of auth.User and this code will fail if a custom User model was defined
     if hasattr(user, 'is_authenticated') and user.is_authenticated():
@@ -92,6 +92,12 @@ def backends_data(user):
                 values['social']["associated"].append(item.provider)
             if issubclass(backend, PhysicalBackend):
                 values["physical"]["associated"].append(item.provider)
+            if issubclass(backend, GenomicsBackend):
+                values["genomics"]["associated"].append(item.provider)
+            if issubclass(backend, NutritionBackend):
+                values["physical"]["nutrition"].append(item.provider)
+            if issubclass(backend, HealthBackend):
+                values["physical"]["health"].append(item.provider)
         for item in not_associated:
             backend = backends[key(item)]
             if issubclass(backend, SocialBackend):

@@ -50,7 +50,7 @@ def social_education(request):
     if request.user.social_aggregated_data.education_level_manual is not None:
         level = request.user.social_aggregated_data.education_level_manual
     else:
-        level = request.user.social_aggregated_data.education_level
+        level = request.user.social_aggregated_data.education_level or 2
     
     user_data = {"user_level": EDUCATION_LEVELS[level]}
     global_data = global_education()

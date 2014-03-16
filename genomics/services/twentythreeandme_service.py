@@ -10,6 +10,7 @@ from wikilife_utils.logs.log_creator import LogCreator
 from wikilife_utils.parsers.date_parser import DateParser
 
 from genomics.models import UserTrait, UserDrugResponse, UserRisk
+from social_auth.db.django_models import UserSocialAuth
 
 
 TWENTY_THREE_AND_ME_API = "https://api.23andme.com/1/"
@@ -63,6 +64,7 @@ class TwentythreeandmeService(BaseDeviceService):
             profile_items["last_name"] = names["last_name"]
 
         self._update_profile(user_id, **profile_items)
+        
 
         risks = client.get_risks()
         self._save_user_risks(user, risks)
@@ -73,13 +75,15 @@ class TwentythreeandmeService(BaseDeviceService):
         drug_responses = client.get_drug_responses()
         self._save_user_drug_responses(user, drug_responses)
 
+        
+
     def _save_user_traits(self, user, traits):
         for trait in traits["traits"]:
             UserTrait.objects.create(user=user, report_id=trait["report_id"], value=trait["trait"])
 
     def _save_user_risks(self, user, risks):
         for risk in risks["risks"]:
-            UserRisk.objects.create(user=user, report_id=risk["report_id"], value=risk["risk"])
+            UserRisk.objects.create(user=user, report_id=risk["report_id"], value=risk["risk"], population_risk=risk["population_risk"])
 
     def _save_user_drug_responses(self, user, drug_responses):
         for drug_response in drug_responses["drug_responses"]:

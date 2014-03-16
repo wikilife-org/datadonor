@@ -1,6 +1,7 @@
 import requests
 from genomics.clients.base_device_client import BaseDeviceClient
 
+
 class TwentyThreeAndMeClient(BaseDeviceClient):
     PAGE_SIZE = 25
 
