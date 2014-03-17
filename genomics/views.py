@@ -161,117 +161,153 @@ def genomics_risks_by_user_mock(request):
 
 
 def genomics_traits_global(request):
-    
+    alcohol_trait = None
+    lactose = None
+    smokingbehavior = None
+    bittertaste = None
+    earwax = None
+    muscleperformance = None
+    eyecolor = None
+    haircurl = None
+    malariaduffy = None
+    norwalkvirus = None
+    hiv = None 
+    if request.user.traits:
+        alcohol_trait = request.user.traits.get(user=request.user, report_id="alcoholflush").value
+        lactose = request.user.traits.get(user=request.user, report_id="lactose").value
+        smokingbehavior = request.user.traits.get(user=request.user, report_id="smokingbehavior").value
+        bittertaste = request.user.traits.get(user=request.user, report_id="bittertaste").value
+        earwax = request.user.traits.get(user=request.user, report_id="earwax").value    
+        muscleperformance = request.user.traits.get(user=request.user, report_id="muscleperformance").value
+        eyecolor = request.user.traits.get(user=request.user, report_id="eyecolor").value
+        haircurl = request.user.traits.get(user=request.user, report_id="haircurl").value
+        malariaduffy = request.user.traits.get(user=request.user, report_id="malariaduffy").value
+        norwalkvirus = request.user.traits.get(user=request.user, report_id="norwalkvirus").value
+        hiv = request.user.traits.get(user=request.user, report_id="hiv").value
 
-    data = [ get_traits_alcohol_distribution(),
-             get_traits_lactose_distribution(),
-             get_traits_smoking_distribution(),
-             get_traits_bitter_distribution(),
-            get_traits_earwax_distribution(),
-            {"name": "Muscle Performance", 
-              "id":5, 
-              "values":[{"name":"Likely sprinter", "percentage":95},
-                        {"name":"Unlikely sprinter", "percentage":05}],
-              },
-            {"name": "Eye Color", 
-              "id":6, 
-              "values":[{"name":"Likely blue", "percentage":60},
-                        {"name":"Likely brown","percentage":40}],
-              },
-            {"name": "Hair Curl", 
-              "id":7, 
-              "values":[{"name":"Slighty curlier hair", "percentage":65},
-                        {"name":"Straigher curlier hair","percentage":35}],
-              },
-            {"name": "Malaria Resistance", 
-              "id":8, 
-              "values":[{"name":"Possibly resistant", "percentage":15},
-                        {"name":"Resistant", "percentage":85}],
-              },
-            {"name": "Norovirus Resistance", 
-              "id":9, 
-              "values":[{"name":"Not resistant", "percentage":15},
-                        {"name":"Resistant","percentage":85}],
-              },
-            {"name": "Resistance to HIV/AIDS", 
-              "id":10, 
-              "values":[{"name":"Not resistant", "percentage":25},
-                        {"name":"Partially resistant", "percentage":75}],
-              }
+    data = [ get_traits_alcohol_distribution(alcohol_trait),
+             get_traits_lactose_distribution(lactose),
+             get_traits_smoking_distribution(smokingbehavior),
+             get_traits_bitter_distribution(bittertaste),
+             get_traits_earwax_distribution(earwax),
+             get_traits_muscleperformance_distribution(muscleperformance),
+             get_traits_eyecolor_distribution(eyecolor),
+             get_traits_haircurl_distribution(haircurl),
+             get_traits_malariaduffy_distribution(malariaduffy),
+             get_traits_norwalkvirus_distribution(norwalkvirus),
+             get_traits_hiv_distribution(hiv),
+             
             ]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def genomics_traits_by_user(request):
-    alcohol_trait = request.user.traits.get(user=request.user, report_id="alcoholflush").value
-    lactose = request.user.traits.get(user=request.user, report_id="lactose").value
-    smokingbehavior = request.user.traits.get(user=request.user, report_id="smokingbehavior").value
-    bittertaste = request.user.traits.get(user=request.user, report_id="bittertaste").value
-    earwax = request.user.traits.get(user=request.user, report_id="earwax").value
-    
-    
-    data = [ {
-              "id":0, 
-              "value":alcohol_trait,
-              },
-            {
-              "id":1, 
-              "value":lactose,
-              },
-            { 
-              "id":2, 
-              "value":smokingbehavior,
-              },
-            {
-              "id":3, 
-              "value":bittertaste,
-              }
-            ,
-            {
-              "id":4, 
-              "value":earwax,
-              },
-            { 
-              "id":5, 
-              "value":"Likely sprinter",
-              },
-            {
-              "id":6, 
-              "value":"Likely blue",
-              },
-            {
-              "id":7, 
-              "value":"Slighty curlier hair",
-              },
-            { 
-              "id":8, 
-              "value":"Possibly resistant",
-              },
-            {
-              "id":9, 
-              "value":"Not resistant",
-              },
-            { 
-              "id":10, 
-              "value":"Not resistant",
-              }
-            ]
+    if request.user.traits:
+        alcohol_trait = request.user.traits.get(user=request.user, report_id="alcoholflush").value
+        lactose = request.user.traits.get(user=request.user, report_id="lactose").value
+        smokingbehavior = request.user.traits.get(user=request.user, report_id="smokingbehavior").value
+        bittertaste = request.user.traits.get(user=request.user, report_id="bittertaste").value
+        earwax = request.user.traits.get(user=request.user, report_id="earwax").value    
+        muscleperformance = request.user.traits.get(user=request.user, report_id="muscleperformance").value
+        eyecolor = request.user.traits.get(user=request.user, report_id="eyecolor").value
+        haircurl = request.user.traits.get(user=request.user, report_id="haircurl").value
+        malariaduffy = request.user.traits.get(user=request.user, report_id="malariaduffy").value
+        norwalkvirus = request.user.traits.get(user=request.user, report_id="norwalkvirus").value
+        hiv = request.user.traits.get(user=request.user, report_id="hiv").value
+        
+        
+        data = [ {
+                  "id":0, 
+                  "value":alcohol_trait,
+                  },
+                {
+                  "id":1, 
+                  "value":lactose,
+                  },
+                { 
+                  "id":2, 
+                  "value":smokingbehavior,
+                  },
+                {
+                  "id":3, 
+                  "value":bittertaste,
+                  }
+                ,
+                {
+                  "id":4, 
+                  "value":earwax,
+                  },
+                { 
+                  "id":5, 
+                  "value":muscleperformance,
+                  },
+                {
+                  "id":6, 
+                  "value":eyecolor,
+                  },
+                {
+                  "id":7, 
+                  "value":haircurl,
+                  },
+                { 
+                  "id":8, 
+                  "value":malariaduffy,
+                  },
+                {
+                  "id":9, 
+                  "value":norwalkvirus,
+                  },
+                { 
+                  "id":10, 
+                  "value":hiv,
+                  }
+                ]
+    else:
+        data = []
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
 def genomics_drugs_global(request):
-    data = {}
+
+    data = [get_drug_alcohol_distribution(), get_drug_conceptives_distribution()]
+
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+DRUGS_MSG = {"typical": "Typical", "increased":"Substantially increased risk","reduced":"Reduced risk"}
 def genomics_drugs_by_user(request):
-    data = {}
+    if request.user.drug_reponse:
+        alcohol = request.user.drug_reponse.get(user=request.user, report_id="alcohol_esophageal_pgx").value
+        conceptive = request.user.drug_reponse.get(user=request.user, report_id="contraceptives_vte").value
+        
+        data = [{"id":0, "value":DRUGS_MSG[alcohol]},
+            {"id":1, "value":DRUGS_MSG[conceptive]}]
+    else:
+        data = []
+    
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
 def genomics_risks_global(request):
-    data = {}
+    
+    data = get_global_risks()
+    
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
 def genomics_risks_by_user(request):
-    data = {}
+    if request.user.risks:
+        breastcancer = UserRisk.objects.filter(report_id="breastcancer", user= request.user)[0]
+        celiac = UserRisk.objects.filter(report_id="celiac", user= request.user)[0]
+        venousthromboembolism = UserRisk.objects.filter(report_id="venousthromboembolism", user= request.user)[0]
+        melanoma = UserRisk.objects.filter(report_id="melanoma", user= request.user)[0]
+        coronaryheartdisease = UserRisk.objects.filter(report_id="coronaryheartdisease", user= request.user)[0]
+        lungcancer = UserRisk.objects.filter(report_id="lungcancer", user= request.user)[0]
+        data = [
+                {"id":0, "percentage":round(breastcancer.value*100,1)},
+                {"id":1, "percentage":round(celiac.value*100,1)},
+                {"id":2, "percentage":round(venousthromboembolism.value*100,1)},
+                {"id":3, "percentage":round(melanoma.value*100,1)},
+                {"id":4, "percentage":round(coronaryheartdisease.value*100,1)},
+                {"id":5, "percentage":round(lungcancer.value*100,1)}]
+    else:
+        data = []
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")

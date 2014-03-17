@@ -42,10 +42,10 @@ var _api_urls = {
 	    mood_post: "/health/mood/user/avg/",
 	    genomics_traits: "/genomics/traits/global/",
 	    genomics_traits_user: "/genomics/traits/user/",
-	    genomics_drugs: "http://datadonors.org/genomics/drugs/global/mock/",
-	    genomics_drugs_user: "http://datadonors.org/genomics/drugs/user/mock/",
-	    genomics_risks: "http://datadonors.org/genomics/risks/global/mock/",
-	    genomics_risks_user: "http://datadonors.org/genomics/risks/user/mock/"
+	    genomics_drugs: "/genomics/drugs/global/",
+	    genomics_drugs_user: "/genomics/drugs/user/",
+	    genomics_risks: "/genomics/risks/global/",
+	    genomics_risks_user: "/genomics/risks/user/"
 	  },
   dev: {
     social_reach: "http://datadonors.org/social/reach/mock/",
