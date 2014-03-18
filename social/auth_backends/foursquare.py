@@ -4,7 +4,7 @@ from django.utils import simplejson
 
 from social_auth.backends import BaseOAuth2, OAuthBackend, SocialBackend
 from social_auth.utils import dsa_urlopen
-
+from datetime import date
 
 FOURSQUARE_SERVER = 'foursquare.com'
 FOURSQUARE_AUTHORIZATION_URL = 'https://foursquare.com/oauth2/authenticate'
@@ -39,7 +39,7 @@ class FoursquareAuth(BaseOAuth2, SocialBackend):
 
     def user_data(self, access_token, *args, **kwargs):
         """Loads user data from service"""
-        params = {'oauth_token': access_token}
+        params = {'oauth_token': access_token, 'v': date.today().strftime("%Y%m%d")}
         url = FOURSQUARE_CHECK_AUTH + '?' + urlencode(params)
         try:
             return simplejson.load(dsa_urlopen(url))
