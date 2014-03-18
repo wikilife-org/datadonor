@@ -131,6 +131,7 @@ INSTALLED_APPS = (
     'social',
     'genomics',
     'health',
+    'physical',
     'users'
     
 

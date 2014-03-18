@@ -27,17 +27,20 @@ class BaseSourceService(object):
         if len(kwargs) == 0:
             return
 
-        profile = Profile.objects.get(user_id=user_id)
-
-        for field_name in kwargs:
-            field_value = kwargs[field_name]
-            field_source = getattr(profile, field_name+"_source")
-
-            if field_value!=None and self._is_priority_source(field_source, self._profile_source):
-                setattr(profile, field_name, field_value)
-                setattr(profile, field_name+"_source", self._profile_source)
-
-        profile.save()
+        try:
+            profile = Profile.objects.get(user_id=user_id)
+            
+            for field_name in kwargs:
+                field_value = kwargs[field_name]
+                field_source = getattr(profile, field_name+"_source")
+    
+                if field_value!=None and self._is_priority_source(field_source, self._profile_source):
+                    setattr(profile, field_name, field_value)
+                    setattr(profile, field_name+"_source", self._profile_source)
+    
+            profile.save()
+        except:
+            pass
 
         def _get_wikilife_token(self, user_id):
             profile = Profile.objects.get(user_id=user_id)
