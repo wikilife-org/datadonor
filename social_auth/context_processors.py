@@ -95,9 +95,9 @@ def backends_data(user):
             if issubclass(backend, GenomicsBackend):
                 values["genomics"]["associated"].append(item.provider)
             if issubclass(backend, NutritionBackend):
-                values["physical"]["nutrition"].append(item.provider)
+                values["nutrition"]["associated"].append(item.provider)
             if issubclass(backend, HealthBackend):
-                values["physical"]["health"].append(item.provider)
+                values["health"]["associated"].append(item.provider)
         for item in not_associated:
             backend = backends[key(item)]
             if issubclass(backend, SocialBackend):

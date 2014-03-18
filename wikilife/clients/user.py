@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from wikilife.clients.base_wikilife_client import BaseWikilifeClient
-from wikilife_utils.formatters.date_formatter import DateFormatter
+#from wikilife_utils.formatters.date_formatter import DateFormatter
 
 
 class User(BaseWikilifeClient):

@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from urllib import urlencode
-from wikilife_utils.parsers.json_parser import JSONParser
+from utils.json_parser import JSONParser
 import urllib2
 import requests
 
