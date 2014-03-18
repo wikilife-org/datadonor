@@ -620,7 +620,7 @@ function drawVariableCircle(params, num, preffix){
       color: '#7737c7',
       size: '60',
       font: 'Omnes-Semibold',
-      text: params[0].percentage,
+      text: Math.round(params[0].percentage),
       xOffset: [0,0],
       unit: '%',
       unitFont: 'Omnes-Semibold',
@@ -814,7 +814,7 @@ function drawComplainsTop5Item(data, num){
   itemHtml = $('#complains_item_template').html();
   itemHtml = itemHtml.replace(/\[\[id\]\]/g, data.id);
   itemHtml = itemHtml.replace(/\[\[name\]\]/g, data.name);
-  itemHtml = itemHtml.replace(/\[\[perc\]\]/g, data.percentage);
+  itemHtml = itemHtml.replace(/\[\[perc\]\]/g, Math.round(data.percentage));
   $('#complains_top5').append(itemHtml);
   
   //Start graph
@@ -847,7 +847,7 @@ function drawComplainGraph(params, num, preffix){
       color: params[0].color,
       size: '52',
       font: 'Omnes-Semibold',
-      text: params[0].percentage,
+      text: Math.round(params[0].percentage),
       xOffset: [-10,-4],
       unit: '%',
       unitFont: 'Omnes-bold',

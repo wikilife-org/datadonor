@@ -38,14 +38,15 @@ class User(BaseWikilifeClient):
           "userName": user_name,
           "pin": pin,
           "gender": gender,
-          "birthdate": DateFormatter.to_datetime(birthdate) if birthdate else birthdate,
+          "birthdate": birthdate,
+          #"birthdate": DateFormatter.to_datetime(birthdate) if birthdate else birthdate,
           "height": height,
           "weight": weight,
           "deviceId": device_id,
           "timezone": timezone,
           "city": city,
           "region": region,
-          "country": country
+          "country": country,
         }
         response_code = self.rest_post("/4/user/account/", request_dto, False)[0]
         return response_code == 200

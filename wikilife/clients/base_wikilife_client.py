@@ -3,6 +3,7 @@
 from urllib import urlencode
 from wikilife_utils.parsers.json_parser import JSONParser
 import urllib2
+import requests
 
 
 class BaseWikilifeClient(object):
@@ -30,9 +31,11 @@ class BaseWikilifeClient(object):
         """
         url = self._build_url(service_path, params)
         request_body = JSONParser.to_json(request_dto)
-        request = urllib2.Request(url, request_body)
+        r = requests.post(url, data=request_body)
+        return r.json()
+        #request = urllib2.Request(url, request_body)
 
-        return self._rest(request, response_to_json)
+        #return self._rest(request, response_to_json)
 
     def rest_put(self, service_path, request_dto, params=None, response_to_json=True):
         """

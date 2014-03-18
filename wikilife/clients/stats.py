@@ -24,3 +24,15 @@ class Stats(BaseWikilifeClient):
     def get_global_physical_distribution_last_week(self, node_id):
         response_dto = self.rest_get("/4/stats/global/physical/distribution/last_week/"+str(node_id))[2]
         return response_dto
+    
+    def get_global_complaints(self):
+        response_dto = self.rest_get("/4/stats/global/health/complaints/mostpopular")[2]
+        return response_dto
+
+    def get_global_conditions(self):
+        response_dto = self.rest_get("/4/stats/global/health/conditions/mostpopular")[2]
+        return response_dto 
+
+    def get_global_emotions(self):
+        response_dto = self.rest_get("/4/stats/global/psychological/moods/mostpopular")[2]
+        return response_dto 

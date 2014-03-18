@@ -53,7 +53,7 @@ class UserComplaints(models.Model):
 
 
 class UserBloodType(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='blood_type')
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='blood_type')
     blood_type_id = models.IntegerField()
     metric_id = models.IntegerField()
     log_id = models.IntegerField()

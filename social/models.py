@@ -155,7 +155,41 @@ def create_user_social(sender, instance, **kwargs):
         social.user = instance
         social.save()"""
      
-    
+
+from wikilife.clients.user  import User
+
+def create_wikilife_user(profile):
+    client = User({"HOST":"http://api.wikilife.org"})
+    user_name = _create_user_name(profile.account_id)
+    pin = "0000"
+    gender = profile.gender or "m"
+    birthdate = profile.date_of_birth or "1970-01-01"
+    height = None
+    weight = None
+    device_id = None
+    timezone = None
+    city = None
+    region = None
+    country = None
+    success = client.create_account(user_name, pin, gender, birthdate, height, weight, device_id, timezone, city, region, country)
+
+    if not success:
+        raise UsersSyncException("Wikilife account creation failed for Datadonor profile.account_id: %s" %profile.account_id)
+
+    token = client.login(user_name, pin)
+    profile.wikilife_token = token
+    profile.save()
+
+def _create_user_name(self, unique_id):
+    base_user_name = "datadonor_"
+    user_name = "%s%s" %(base_user_name, unique_id)
+
+    i = 1
+    while not self._user_client.check_name(user_name):
+        user_name = "%s%s_$s" %(base_user_name, unique_id, i)
+        i += 1
+
+    return user_name    
 post_save.connect(create_user_social, sender=User, dispatch_uid="create_user_social")
 
 

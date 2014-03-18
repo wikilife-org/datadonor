@@ -68,16 +68,24 @@ def cronical_conditions_list_mock(request):
 
 
 def cronical_conditions_ranking_global(request):
-    data = []
+    data = get_conditions_rank()[:5]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
 def cronical_conditions_by_user(request):
-    data = []
+    if request.method == 'POST':
+        id_condition = request.POST["id_condition"]
+        id_type = request.POST["id_type"] 
+        c_name, t_name = get_conditions_name(id_condition, id_type)
+        #UserConditions.objects.get_or_create(user=request.user)
+    if request.method == 'DELETE':
+        id_condition =  request.GET["id_condition"]
+        
+    data = [{"id_condition": 4, "name":"Diabetes", "id_type":1, "type_name": "Type 2"}]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def cronical_conditions_list(request):
-    data = []
+    data = get_conditions()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
@@ -130,17 +138,14 @@ def complaints_by_user_mock(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
-@cache_page(ONE_HOUR)
 def complaints_ranking_global(request):
-    data = []
+    data = get_complaints_rank()[:5]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-@cache_page(ONE_HOUR)
 def complaints_list(request):
-    data = []
+    data = get_complaints()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-@cache_page(ONE_MINUTE)
 @csrf_exempt
 def complaints_by_user(request):
     data = []
@@ -182,12 +187,28 @@ def bood_type_by_user_mock(request):
 
 
 def bood_type_distribution_global(request):
-    data = []
+    data = global_blood_type()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
 def bood_type_by_user(request):
-    data = []
+    if request.method == 'POST':
+        id_blood_type = int(request.POST["id_blood_type"])
+        
+        try:
+            bt=UserBloodType.objects.get(user=request.user)
+            bt.blood_type_id=id_blood_type
+            bt.save()
+        except:
+            UserBloodType.objects.create(user=request.user, blood_type_id=id_blood_type, metric_id=0, log_id=0)
+        
+        data = global_blood_type_dict()[id_blood_type]
+    else:
+        try:
+            bt=UserBloodType.objects.get(user=request.user)
+            data= global_blood_type_dict()[bt.blood_type_id]
+        except:
+            data = {}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 #Sleep
@@ -266,7 +287,7 @@ def emotions_list_mock(request):
 
 
 def emotions_ranking_global(request):
-    data = []
+    data = get_emotions_rank()[:5]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
@@ -275,7 +296,7 @@ def emotions_by_user(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def emotions_list(request):
-    data = []
+    data = get_emotions()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 #Mood
