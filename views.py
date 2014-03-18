@@ -90,9 +90,9 @@ def dashboard(request):
     """Login complete view, displays user data"""
     if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
         return HttpResponseRedirect('/wizard/')
-    else:
-        if not request.user.profile.wikilife_token:
-            pass
+    #else:
+        #if not request.user.profile.wikilife_token:
+            #pass
             #create_wikilife_user(request.user.profile)
             
     ctx = {
