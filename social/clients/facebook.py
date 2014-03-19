@@ -48,7 +48,8 @@ class FacebookClient(BaseDeviceClient):
             except:
                 update_date = datetime.strptime(f_object["updated_time"][:10], "%Y-%m-%d").date()
             weeks = ((today - update_date).days or 7) / 7
-            avg_likes = int(math.ceil((index + 1) / weeks))
+            if weeks>0:
+                avg_likes = int(math.ceil((index + 1) / weeks))
         
         return avg_likes
     
