@@ -1,4 +1,4 @@
-/* 
+/*
 
 	DataDonor
 
@@ -155,7 +155,7 @@ section,article,aside,footer {
 #video-back-2 {
 	/*-webkit-filter: grayscale(100%);
 	 -webkit-filter: blur(10px);*/
-	
+
 }
 
 .watch-video {
@@ -465,7 +465,7 @@ body object {
 .vjs-control-bar {
 	display: none;
 }
-/*.vjs-default-skin .vjs-big-play-button 
+/*.vjs-default-skin .vjs-big-play-button
 {
 	display: block;
 	z-index: 2;
@@ -622,7 +622,7 @@ body #second h3 {
 
 @
 -webkit-keyframes backgroundmove {from { background-position:0%center;
-	
+
 }
 
 to {
@@ -1328,7 +1328,7 @@ to {
 
 #last {
 	/*padding-bottom:115px;*/
-	
+
 }
 
 /*  asdsd*/
@@ -1420,7 +1420,6 @@ to {
 	bottom: 0;
 	z-index: -2;
 	bottom: 0;
-	height: 115px;
 	position: fixed;
 	width: 100%;
 	z-index: -1;
@@ -1911,7 +1910,7 @@ to {
 }
 
 #thumb-0 {
-	
+
 }
 
 #thumb-1 {
@@ -1952,7 +1951,7 @@ to {
 }
 
 #timeline #controles #thumb-3 {
-	
+
 }
 
 #timeline #controles li.active span {
@@ -2855,7 +2854,7 @@ nav .active a {
 	background-color: rgb(255, 255, 255);
 }
 
-/*.flex-active-slide #circle-stadistic 
+/*.flex-active-slide #circle-stadistic
 {
 	-webkit-transition:  0.5s ease-out;
 	-moz-transition:  0.5s ease-out;
@@ -3323,7 +3322,7 @@ nav .active a {
 }
 
 .controles li {
-	
+
 }
 
 #last .bottom {
@@ -3462,7 +3461,7 @@ margin: -43px 0 0;*/
 
 @
 -webkit-keyframes friends {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3472,7 +3471,7 @@ to {
 }
 @
 -moz-keyframes friends {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3482,7 +3481,7 @@ to {
 }
 @
 -ms-keyframes friends {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3492,7 +3491,7 @@ to {
 }
 @
 -o-keyframes friends {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3502,7 +3501,7 @@ to {
 }
 @
 keyframes friends {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3512,7 +3511,7 @@ to {
 }
 @
 -webkit-keyframes play {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3522,7 +3521,7 @@ to {
 }
 @
 -moz-keyframes play {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3532,7 +3531,7 @@ to {
 }
 @
 -ms-keyframes play {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3542,7 +3541,7 @@ to {
 }
 @
 -o-keyframes play {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3552,7 +3551,7 @@ to {
 }
 @
 keyframes play {from { background-position:0px;
-	
+
 }
 
 to {
@@ -3637,116 +3636,116 @@ keyframes animate-you { 0% {
 {
 transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (5deg);
- 
+
 }
 40%
 {
 transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (-5deg);
- 
+
 }
 60%
 {
 transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (5deg);
- 
+
 }
 80%
 {
 transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (-5deg);
- 
+
 }
 100%
 {
 transform
 :
- 
+
 rotate
 (0deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (0deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (0deg);
- 
+
 }
 }
 @
@@ -3760,116 +3759,116 @@ rotate
 {
 transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (5deg);
- 
+
 }
 40%
 {
 transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (-5deg);
- 
+
 }
 60%
 {
 transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (5deg);
- 
+
 }
 80%
 {
 transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (-5deg);
- 
+
 }
 100%
 {
 transform
 :
- 
+
 rotate
 (0deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (0deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (0deg);
- 
+
 }
 }
 @
@@ -3883,116 +3882,116 @@ rotate
 {
 transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (5deg);
- 
+
 }
 40%
 {
 transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (-5deg);
- 
+
 }
 60%
 {
 transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (5deg);
- 
+
 }
 80%
 {
 transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (-5deg);
- 
+
 }
 100%
 {
 transform
 :
- 
+
 rotate
 (0deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (0deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (0deg);
- 
+
 }
 }
 @
@@ -4006,116 +4005,116 @@ rotate
 {
 transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (5deg);
- 
+
 }
 40%
 {
 transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (-5deg);
- 
+
 }
 60%
 {
 transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (5deg);
- 
+
 }
 80%
 {
 transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (-5deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (-5deg);
- 
+
 }
 100%
 {
 transform
 :
- 
+
 rotate
 (0deg);
 
-    
+
 -ms-transform
 :
- 
+
 rotate
 (0deg);
 
-    
+
 -webkit-transform
 :
- 
+
 rotate
 (0deg);
- 
+
 }
 }
 @
@@ -4128,7 +4127,7 @@ rotate
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4140,7 +4139,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4155,14 +4154,14 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4170,14 +4169,14 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4194,7 +4193,7 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4206,7 +4205,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4221,14 +4220,14 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4236,14 +4235,14 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4260,7 +4259,7 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4272,7 +4271,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4287,14 +4286,14 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4302,14 +4301,14 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4326,7 +4325,7 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4338,7 +4337,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4353,14 +4352,14 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4368,14 +4367,14 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4392,7 +4391,7 @@ keyframes start-sharing { 0%{
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4404,7 +4403,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4419,12 +4418,12 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 5
 px
- 
+
 rgba
 (239
 ,
@@ -4432,12 +4431,12 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 0
 5
 px
- 
+
 rgba239
 ,
 102,102,0)
@@ -4464,7 +4463,7 @@ margin
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4476,7 +4475,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4491,14 +4490,14 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4506,14 +4505,14 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4530,7 +4529,7 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4542,7 +4541,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4557,14 +4556,14 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4572,14 +4571,14 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4596,7 +4595,7 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4608,7 +4607,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4623,14 +4622,14 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4638,14 +4637,14 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 5
 px
- 
+
 6
 px
- 
+
 rgba
 (239
 ,
@@ -4662,7 +4661,7 @@ keyframes animate-circles { 0%{
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4674,7 +4673,7 @@ rgba
 );box-shadow
 :
 0
- 
+
 0
 0
 0
@@ -4689,12 +4688,12 @@ rgba
 -webkit-box-shadow
 :
 0
- 
+
 0
 0
 5
 px
- 
+
 rgba
 (239
 ,
@@ -4702,12 +4701,12 @@ rgba
 box-shadow
 :
 0
- 
+
 0
 0
 5
 px
- 
+
 rgba239
 ,
 102,102,0)
@@ -4759,7 +4758,7 @@ rgba239
 
 @
 keyframes scroll {from {
-	
+
 }
 
 to {
@@ -4769,7 +4768,7 @@ to {
 }
 @
 -webkit-keyframes rodar {from { -webkit-transform:translate(0, 0)rotate(360deg);
-	
+
 }
 
 to {
@@ -4975,7 +4974,7 @@ to {
 		right: 0;
 	}
 	body #about {
-		
+
 	}
 	#second .center-v,#second {
 		float: left;

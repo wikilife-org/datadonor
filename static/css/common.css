@@ -28,3 +28,12 @@
 #slide-4 .inner-redes .circle.gmail, .social-network-bubble.gmail {
 	background-image: url(../img/logo_g+.png);
 }
+
+.full_container {
+	width: 100%;
+	min-width: 1190px;
+}
+.full_container .centered_container {
+	width: 1190px;
+	margin: 0 auto;
+}

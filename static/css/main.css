@@ -270,7 +270,7 @@ a:hover {
 	transition: all 0.4s;
 	font-family: 'Omnes-Semibold';
 	background-image: url(../img/big_social_nav/arrow_networks.png);
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
 	text-indent: -9999px;
 	opacity: 1;
 }
@@ -754,10 +754,10 @@ ul.ui-autocomplete {
 }
 ul.ui-autocomplete .ui-menu-item {
 	border-top: 1px solid #EEEFF1;
-} 
+}
 ul.ui-autocomplete .ui-menu-item:first-child {
 	border-top: 0px none;
-} 
+}
 ul.ui-autocomplete .ui-menu-item a {
 	width: 196px;
 	font-size: 15px;
@@ -771,10 +771,10 @@ ul.ui-autocomplete .ui-menu-item a {
 	line-height: 17px;
 	font-family: 'Omnes-Semibold';
 	display: inline-block;
-} 
+}
 ul.ui-autocomplete .ui-menu-item a strong {
 	color: #555555;
-} 
+}
 ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
@@ -1072,29 +1072,29 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 
 .step_one .centered_container .nav_steps > ul li a.nav_two {
-	background-image: url(../img/step_1/nav_fixed.png);	
+	background-image: url(../img/step_1/nav_fixed.png);
 	background-position: left -59px;
 }
 .step_one .centered_container .nav_steps > ul li a.nav_two:hover {
-	background-image: url(../img/step_1/nav_fixed.png);	
+	background-image: url(../img/step_1/nav_fixed.png);
 	background-position: -96px -59px;
 }
 .step_one .centered_container .nav_steps > ul li.active a.nav_two {
-	background-image: url(../img/step_1/nav_fixed.png);	
+	background-image: url(../img/step_1/nav_fixed.png);
 	background-position: -96px -59px;
 }
 
 .step_one .centered_container .nav_steps > ul li a.nav_three {
-	background-image: url(../img/step_1/nav_fixed.png);	
-	background-position: left -118px;	
+	background-image: url(../img/step_1/nav_fixed.png);
+	background-position: left -118px;
 }
 .step_one .centered_container .nav_steps > ul li a.nav_three:hover {
-	background-image: url(../img/step_1/nav_fixed.png);	
-	background-position: -96px -118px;	
+	background-image: url(../img/step_1/nav_fixed.png);
+	background-position: -96px -118px;
 }
 .step_one .centered_container .nav_steps > ul li.active a.nav_three {
-	background-image: url(../img/step_1/nav_fixed.png);	
-	background-position: -96px -118px;	
+	background-image: url(../img/step_1/nav_fixed.png);
+	background-position: -96px -118px;
 }
 
 .step_one .centered_container .nav_steps > ul li a.nav_four {
@@ -1103,11 +1103,11 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container .nav_steps > ul li a.nav_four:hover {
 	background-image: url(../img/step_1/nav_fixed.png);
-	background-position: -96px -177px;	
+	background-position: -96px -177px;
 }
 .step_one .centered_container .nav_steps > ul li.active a.nav_four {
 	background-image: url(../img/step_1/nav_fixed.png);
-	background-position: -96px -177px;		
+	background-position: -96px -177px;
 }
 
 .step_one .centered_container .nav_steps > ul li.last{
@@ -1120,11 +1120,11 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 .step_one .centered_container .nav_steps > ul li a.nav_five:hover {
 	background-image: url(../img/step_1/nav_fixed.png);
-	background-position: -96px -237px;	
+	background-position: -96px -237px;
 }
 .step_one .centered_container .nav_steps > ul li.active a.nav_five {
 	background-image: url(../img/step_1/nav_fixed.png);
-	background-position: -96px -237px;		
+	background-position: -96px -237px;
 }
 
 /* --- social sharing */
@@ -2328,7 +2328,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 /* --- color_one */
 .step_seven .centered_container .bloq .text_container .stats.color_one > h2 {
 	color: #7737c7;
-} 
+}
 .step_seven .centered_container .bloq .text_container .stats.color_one .number_stat h2 {
 	color: #7737c7;
 }
@@ -2336,7 +2336,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 /* --- color_two */
 .step_seven .centered_container .bloq .text_container .stats.color_two > h2 {
 	color: #e56666;
-} 
+}
 .step_seven .centered_container .bloq .text_container .stats.color_two .number_stat h2 {
 	color: #e56666;
 }
@@ -2399,7 +2399,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	-webkit-transition: background-image 0.4s;
 	-moz-transition: background-image 0.4s;
 	transition: background-image 0.4s;
-} 
+}
 
 /* --- pre carga */
 .step_eight .centered_container .bottom .pre_back_purple {
@@ -2407,34 +2407,34 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	height: 0px;
 	overflow: hidden;
 	background-image: url(../img/step_8/piramide_morada.png);
-} 
+}
 .step_eight .centered_container .bottom .pre_back {
 	width: 0px;
 	height: 0px;
 	overflow: hidden;
 	background-image: url(../img/step_8/piramide.png);
-} 
+}
 
 /* --- shelfts */
 .step_eight .centered_container .bottom .shelf {
 	width: 100%;
 	position: relative;
-} 
+}
 .step_eight .centered_container .bottom .shelf.one {
-	height: 142px;	
-} 
+	height: 142px;
+}
 .step_eight .centered_container .bottom .shelf.two {
-	height: 114px;	
-} 
+	height: 114px;
+}
 .step_eight .centered_container .bottom .shelf.three {
 	height: 114px;
-} 
+}
 .step_eight .centered_container .bottom .shelf.four {
 	height: 114px;
-} 
+}
 .step_eight .centered_container .bottom .shelf.five {
 	height: 114px;
-} 
+}
 
 /* --- stasts food */
 
@@ -2528,7 +2528,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 /* --- one */
 .step_eight .centered_container .bottom .shelf.one .stat {
-	height: 142px;	
+	height: 142px;
 	top: 10px;
 }
 .step_eight .centered_container .bottom .shelf.one .stat.left {
@@ -2550,7 +2550,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 /* --- two */
 .step_eight .centered_container .bottom .shelf.two .stat {
-	height: 114px;	
+	height: 114px;
 }
 .step_eight .centered_container .bottom .shelf.two .stat.left {
 	left: 4px;
@@ -2570,7 +2570,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 /* --- three */
 .step_eight .centered_container .bottom .shelf.three .stat {
-	height: 114px;	
+	height: 114px;
 }
 .step_eight .centered_container .bottom .shelf.three .stat.left {
 	left: -52px;
@@ -2590,7 +2590,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 /* --- four */
 .step_eight .centered_container .bottom .shelf.four .stat {
-	height: 114px;	
+	height: 114px;
 }
 .step_eight .centered_container .bottom .shelf.four .stat.left {
 	left: -100px;
@@ -2610,7 +2610,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 /* --- five */
 .step_eight .centered_container .bottom .shelf.five .stat {
-	height: 114px;	
+	height: 114px;
 }
 .step_eight .centered_container .bottom .shelf.five .stat.left {
 	left: -150px;
@@ -2631,14 +2631,14 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 /* ------ without user */
 .step_eight .centered_container .bottom.without_user {
 	background-image: url(../img/step_8/piramide_morada.png);
-} 
+}
 .step_eight .centered_container .bottom.without_user .block.one,
 .step_eight .centered_container .bottom.without_user .block.two {
 	display: none;
-} 
+}
 .step_eight .centered_container .bottom.without_user .block.three h2 {
 	display: block!important;
-} 
+}
 
 #remove_class {
 	position: absolute;
@@ -2649,7 +2649,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	padding: 20px;
-} 
+}
 #remove_class a {
 	font-size: 25px;
 	color: #7737C7;
@@ -3336,19 +3336,19 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .Explorer.v8 .step_eleven .centered_container .bottom .graphs .condition .card .face.front,
 .Explorer.v9 .step_eleven .centered_container .bottom .graphs .condition .card .face.front {
     display: block!important;
-} 
+}
 .Explorer.v8 .step_eleven .centered_container .bottom .graphs .condition.active .card .face.front,
 .Explorer.v9 .step_eleven .centered_container .bottom .graphs .condition.active .card .face.front {
     display: none!important;
-} 
+}
 .Explorer.v8 .step_eleven .centered_container .bottom .graphs .condition .card .face.back,
 .Explorer.v9 .step_eleven .centered_container .bottom .graphs .condition .card .face.back {
     display: none!important;
-} 
+}
 .Explorer.v8 .step_eleven .centered_container .bottom .graphs .condition.active .card .face.back,
 .Explorer.v9 .step_eleven .centered_container .bottom .graphs .condition.active .card .face.back {
     display: block!important;
-} 
+}
 
 
 /* ------- cards */
@@ -3800,7 +3800,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 }
 
 .step_thirteen .centered_container .bottom ul li.active .graph_type .porcent_div {
-	background-color: #E56666;	
+	background-color: #E56666;
 	opacity: 1!important;
 }
 .step_thirteen .centered_container .bottom ul li.active .graph_type .your_type {
@@ -4157,19 +4157,19 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 .Explorer.v8 .step_fifteen .centered_container .bottom .graphs .condition .card .face.front,
 .Explorer.v9 .step_fifteen .centered_container .bottom .graphs .condition .card .face.front {
     display: block!important;
-} 
+}
 .Explorer.v8 .step_fifteen .centered_container .bottom .graphs .condition.active .card .face.front,
 .Explorer.v9 .step_fifteen .centered_container .bottom .graphs .condition.active .card .face.front {
     display: none!important;
-} 
+}
 .Explorer.v8 .step_fifteen .centered_container .bottom .graphs .condition .card .face.back,
 .Explorer.v9 .step_fifteen .centered_container .bottom .graphs .condition .card .face.back {
     display: none!important;
-} 
+}
 .Explorer.v8 .step_fifteen .centered_container .bottom .graphs .condition.active .card .face.back,
 .Explorer.v9 .step_fifteen .centered_container .bottom .graphs .condition.active .card .face.back {
     display: block!important;
-} 
+}
 
 
 /* ------- cards */
@@ -4536,7 +4536,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 
 
-/*	GENOMICS 
+/*	GENOMICS
 ------------------------------------------------------------
 ------------------------------------------------------------ */
 
