@@ -22,7 +22,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 {% block styles %}
 <link rel="stylesheet" href="/static/css/header.css" />
 <link rel="stylesheet" href="/static/css/common.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/reset-wizard.css"/> 
+<link rel="stylesheet" type="text/css" href="/static/css/reset-wizard.css"/>
 <link rel="stylesheet" type="text/css" href="/static/css/scroll-wizard.css"/>
 <link rel="stylesheet" type="text/css" href="/static/css/style-wizard.css?6548321"/>
 <link rel="stylesheet" type="text/css" href="/static/css/flexslider-wizard.css"/>
@@ -37,7 +37,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 {% endblock %}
 
 {% block scripts %}
-<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>	 
+<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
 <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -48,18 +48,18 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 <body>
 
 {% include "header.include.html" %}
-  
+
 <section id="disclaimer" class="scrollsections">
 
 
   {% include "wizard_inc/disclaimer.html" %}
 </section>
-      
+
 <section id="whatfor" class="scrollsections claro">
 {% include 'wizard_inc/what-for.html' %}
 </section>
-      
-      <script src="/static/js/jquery-2.0.3.min.js"></script>
+
+      <script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
       <script src="/static/js/plugins.js"></script>
       <script src="/static/js/jquery.scrollSections.js"></script>
       <script src="/static/js/flexcroll.js" ></script>
@@ -72,13 +72,13 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 $(document).ready(function(){
     var show_wizard = "{{ show_wizard }}" == "True";
     var assoc_type = "{{request.session.association.type}}";
-    
+
     console.log("Show wizard: " + show_wizard);
     if (show_wizard) {
         $("section#disclaimer").hide();
         $("#iagree").trigger("click");
     }
-    
+
     console.log("Association Type: ");
     if (assoc_type == "social")
         go_to_slide(0);

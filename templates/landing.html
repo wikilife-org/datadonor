@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" href="/static/css/reset.css"/> 
+<link rel="stylesheet" href="/static/css/reset.css"/>
 <link rel="stylesheet" href="/static/css/header.css" />
 <link rel="stylesheet" href="/static/css/common.css" />
 <link rel="stylesheet" href="/static/css/style.css?6548321"/>
@@ -17,7 +17,7 @@
 <link rel="stylesheet" media="screen and (min-height: 800px)" href="/static/css/max.css" />
 <link rel="stylesheet" media="screen and (min-height: 900px)" href="/static/css/highest.css" />
 <link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)" href="/static/css/ipad-h.css" />
-<link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)" href="/static/css/ipad-v.css" /> 
+<link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)" href="/static/css/ipad-v.css" />
 <link rel="stylesheet" href="/static/css/style2.css">
 <link rel="stylesheet" href="/static/css/jquery.scrollSections.css">
 <link rel="stylesheet" href="/static/css/footer.css" />
@@ -30,11 +30,11 @@
 
 {% block content %}
 <body>
-<script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
 {% include "landing_inc/videos.html" %}
 
 {% include "landing_inc/menu.html" %}
-        
+
 {% include "landing_inc/about.html" %}
 
 {% include "landing_inc/what_for.html" %}
@@ -48,7 +48,7 @@
 {% include "landing_inc/slogan.html" %}
 
 
-<script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery-migrate-1.2.0.min.js"></script>
 <script type="text/javascript" src="/static/js/plugins.js"></script>
 <script type="text/javascript" src="/static/js/jquery.scrollSections.js"></script>
@@ -57,15 +57,15 @@
 
 <!-- <script src="../build/js/jquery.scrollSections-0.4.1.min.js"></script> -->
 
-<script> 
+<script>
 
-	var myVideoback=document.getElementById("video-back-0"); 
-	var myVideoback2=document.getElementById("video-back-1"); 
-	
+	var myVideoback=document.getElementById("video-back-0");
+	var myVideoback2=document.getElementById("video-back-1");
+
 	function fgVideo() {
 		return $('#video-top').get(0);
 	}
-	
+
 	function bgVideo() {
         return $('#video-back-0').get(0);
     }
@@ -80,7 +80,7 @@
 			fgVideo().play();
 			fgVideo().addEventListener('ended', function () {
 					$( '.pause' ).hide();
-					$( '.videoback, #header-top img').show();	
+					$( '.videoback, #header-top img').show();
 					$( '.close-video' ).hide();
 					$( '.video-1,.box-scroll' ).show();
 					$( '#video-top, #video-top2' ).hide();
@@ -93,23 +93,23 @@
 
 	function close_video() {
 		if( video_slide == 1  )
-		{ 
-		
+		{
+
 			$( '.vidback-1' ).show();
-		
+
 		}
 
 		$( '.pause' ).hide();
-		$( '.videoback, #header-top img').show();	
+		$( '.videoback, #header-top img').show();
 		$( '.close-video' ).hide();
 		$( '.video-1,.box-scroll, #header-top .capa' ).show();
 		$( '#video-top, #video-top2' ).hide();
 		fgVideo().currentTime = 0;
 	}
-</script> 
-        
+</script>
 
-		
+
+
 <script type="text/javascript" >
 var slide_actual = 0;
 var press_enabled = true;
@@ -140,37 +140,37 @@ function move_slider() {
 		exampleSlider.flexAnimate(slide_actual);
 		$( '.nav-slider .active' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
-		
+
 	} else if( slide_actual == 1) {
 		exampleSlider.flexAnimate(slide_actual);
 		$( '.nav-slider #thumb-2, .nav-slider #thumb-3' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
-		
+
 	} else if( slide_actual == 2) {
 		exampleSlider.flexAnimate(slide_actual);
 		$( '.nav-slider #thumb-4' ).removeClass ( 'active' );
 		$( '.nav-slider #thumb-' + ( slide_actual ) ).addClass ( 'active' );
-		
+
 	}
 }
-      $( function() 
+      $( function()
 		{
         	var firsttime=false;
         	var first_sec = "home";
         	var interval =0;
-        		
+
         		$(function() {
         			//$('.goto').scrollSections();
         			//var interval = setInterval ( "move_slider()" , 8000 );
         			$('section.scrollsections').scrollSections({
         				createNavigation: false,
         				touch: false,
-        				 
+
         				navigation: true,
         				before: function($currentSection, $nextSection){
         					//alert( $($currentSection).attr('id') )
-        					
-        					
+
+
         				},
         				after: function($currentSection, $previousSection)
         				{
@@ -180,10 +180,10 @@ function move_slider() {
         						interval = setInterval ( "move_slider()" , 8000 );
         						//alert( "si" )
         						$( '#progress' ).css ( { 'width' : 0   } );
-        						$( '#progress' ).animate ( { 'width' : 500 } , 24000 ,"linear");					
+        						$( '#progress' ).animate ( { 'width' : 500 } , 24000 ,"linear");
         						$( "#controles #thumb-"+ slide_actual  ).addClass( 'active' );
         						firsttime =true;
-        						
+
         					}
         					else
         					{
@@ -196,7 +196,7 @@ function move_slider() {
 	        						// now you can access all the methods for example flexAnimate
 	        						exampleSlider.flexAnimate(slide_actual);
 	        						$('.link-counter').addClass("active-scrollsection");
-            						
+
             					}else{
 	        						slide_actual = 0;
 	        						clearInterval ( interval );
@@ -212,27 +212,27 @@ function move_slider() {
         					//document.location.href( );
         				}
         			});
-        			
+
         			img_footer( );
         		});
 			//$('#slider-logos .flexslider').flexslider({ animation: "slide", animationLoop: true, slideshow: false, controlNav: false , pauseOnHover: false ,  directionNav: true,  animationSpeed: 600, itemWidth: 96, itemMargin: 0, minItems: 1 , maxItems: 6, move: 6 });
-   
+
 			$( '.goto' ).click(function( e )
-		{	
+		{
 			e.preventDefault();
-			
+
 			var este = $( this ).attr( 'data-scroll' ) ;
 			topthis = $( '#'+este )
 	   		var scrollTop = $(window).scrollTop(),
 	        elementOffset = topthis.offset().top,
 	        distance1 = (elementOffset - scrollTop);
 	   		distance = (distance1 - 100);
-			
-	   		
+
+
 	        $('html, body').animate({
 	            scrollTop: $(window).scrollTop() + distance
 	         }, { duration: 500, queue: false });
-			
+
 		}
 	);
 			$( '#header-top .flexslider' ).flexslider
@@ -255,12 +255,12 @@ function move_slider() {
 						{
 							myVideoback.play();
 						}
-					
+
 					 },
 				  before: function(){				//Callback: function(slider) - Fires asynchronously with each slider animation
 					// Running through all of the video elements and telling them to pause
 					// This will only work with  HTML5 video. YouTube requires its own solution.
-					
+
 					$( ".video-1" ).addClass( "gototop" );
 					$('.slides > li > video').each( function(i) {
 						$(this).get(0).pause();
@@ -268,11 +268,11 @@ function move_slider() {
 					});
 				}
 					 ,
-					after: function(slider) 
+					after: function(slider)
 					{
 						$( ".video-1" ).removeClass( "gototop" );
 						video_slide = slider.currentSlide;
-	
+
 						if( video_slide == 1 )
 						{
 							myVideoback2.play();
@@ -281,18 +281,18 @@ function move_slider() {
 						{
 							myVideoback.play();
 						}
-					
+
 				  }
-			 
+
 			});
-			
-			
+
+
 			$('#header-top .next-video').on('click', function(){
 				$('#header-top .flexslider').flexslider('next')
 				return false;
 			})
-     	
-			
+
+
 			$( '#howtoshare .flexslider' ).flexslider
 			({
 				animation: "slide",
@@ -306,43 +306,43 @@ function move_slider() {
 				start: function(slider) {
 			//		slider.flexAnimate(slider.getTarget("next"));
 					$('.total-slides').text(slider.count);
-					
-					
+
+
       			},
 				  before: function(slider) {
-					  
+
 					  slide_actual = slider.animatingTo;
-					  
+
 					  $( "#controles #thumb-"+slide_actual  ).addClass( 'active' );
-					  
+
 					  if ( slider.animatingTo == 0 )
 						{
-							
+
 							$( '#progress' ).stop ( true , true ).animate ( { 'width' : slide_actual * 166.6 } , 0 );
-							
+
 							$( "#controles li" ).removeClass( 'active' );
-							
-							$( "#controles #thumb-"+ slide_actual  ).addClass( 'active' );  
-							
+
+							$( "#controles #thumb-"+ slide_actual  ).addClass( 'active' );
+
 						}
 						if ( slider.animatingTo == 2 )
 						{
-							$( "#controles #thumb-1").addClass( 'active' );  
+							$( "#controles #thumb-1").addClass( 'active' );
 						}
 
-					$( '#progress' ).stop ( true , true ).animate ( { 'width' : slide_actual * 166.6 } , 0 , function ( ) 
-					{ 
-						$( '#progress' ).animate ( { 'width' : 500 } , 24000 - slide_actual * 8000 ,"linear" ); 
+					$( '#progress' ).stop ( true , true ).animate ( { 'width' : slide_actual * 166.6 } , 0 , function ( )
+					{
+						$( '#progress' ).animate ( { 'width' : 500 } , 24000 - slide_actual * 8000 ,"linear" );
 					} );
 				  },
 				  end: function(){
 					  //alert ( 'finishs' )
 					}
 			});
-			
+
         });
-	
-	
+
+
         </script>
 
 <script type="text/javascript" src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
