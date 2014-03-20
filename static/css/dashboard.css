@@ -2,3 +2,31 @@
     line-height: 0.5;
     margin-bottom: 0.2em;
 }
+
+div.porcent_data.user_data {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+div.porcent_data.global_data {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+div.nutrient_data div.graph_html {
+  width: 100%;
+  text-align: center;
+}
+
+div.nutrient_data div.graph_html > div {
+  display: inline-block;
+}
+
+div.nutrient_data div.graph_html > div.label {
+  color: #8D99A6;
+  font-family: 'Omnes-Semibold';
+  font-size: 12px;
+  position: relative;
+  top: -14px;
+  width: 42px;
+}
