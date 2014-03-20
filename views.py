@@ -38,11 +38,15 @@ def privacy(request):
 def tos(request):
     return render_to_response('static/tos.html',{},
                                   RequestContext(request))
-    
+
+def learn_more(request):
+    return render_to_response('static/learn_more.html',{},
+                                  RequestContext(request))
+
 def home(request):
     """Home view, displays login mechanism"""
     videos = request.GET.get('videos', None)
-    ctx =  {'version': version}   
+    ctx =  {'version': version}
     return render_to_response('landing.html', {'can_share': True, 'version': version, 'videos':videos, "loop_times":range(1,79)},
                                   RequestContext(request))
 
@@ -60,7 +64,7 @@ def create_wikilife_user(profile):
     gender = profile.gender
     birthdate = None
     height = profile.height
-    weight = profile.weight 
+    weight = profile.weight
     device_id = profile.device_id or "datadonors"
     timezone = profile.timezone or None
     city = profile.city or None
@@ -84,7 +88,7 @@ def _create_user_name(client, unique_id):
         user_name = "%s%s_$s" %(base_user_name, unique_id, i)
         i += 1
 
-    return user_name 
+    return user_name
 
 def dashboard(request):
     """Login complete view, displays user data"""
@@ -94,7 +98,7 @@ def dashboard(request):
         #if not request.user.profile.wikilife_token:
             #pass
             #create_wikilife_user(request.user.profile)
-            
+
     ctx = {
         'user': request.user,
         #'user_social':request.user.social_aggregated_data.social_reach(),
@@ -116,7 +120,7 @@ def error(request):
 
 def user_account(request):
 
-    data = {"logged":request.user.is_authenticated(), 
+    data = {"logged":request.user.is_authenticated(),
     "accounts": [a.provider for a in request.user.social_auth.all()]}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 

@@ -25,7 +25,8 @@ urlpatterns = patterns('',
     url(r'^comming/', comming, name='comming'),
     url(r'^privacy/', privacy, name='privacy'),
     url(r'^terms-of-service/', tos, name='tos'),
-    
+    url(r'^learn-more/', learn_more, name='learn-more'),
+
     url(r'', include('social_auth.urls')),
     url(r'^genomics/', include('genomics.urls')),
     url(r'^nutrition/', include('nutrition.urls')),
@@ -33,7 +34,7 @@ urlpatterns = patterns('',
     url(r'^health/', include('health.urls')),
     url(r'^physical/', include('physical.urls')),
     url(r'^wikilife/', include('wikilife.urls')),
-    
+
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
