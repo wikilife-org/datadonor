@@ -133,7 +133,7 @@ INSTALLED_APPS = (
     'health',
     'physical',
     'users'
-    
+
 
 )
 
@@ -248,10 +248,10 @@ SOCIAL_AUTH_PIPELINE_old = (
 
 
 PROFILE_SOURCES_PRIORITY = {
-    "runkeeper": 8, 
-    "fitbit": 6, 
-    "fatsecret": 7, 
-    "facebook": 1, 
+    "runkeeper": 8,
+    "fitbit": 6,
+    "fatsecret": 7,
+    "facebook": 1,
     "twitter": 4 ,
     "google":2,
     "linkedin":3,
@@ -285,3 +285,5 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
     }
 }
+
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
