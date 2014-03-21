@@ -13,7 +13,7 @@ class User(BaseWikilifeClient):
 
     def login(self, user_name, pin):
         request_dto = {"userName": user_name, "pin": pin}
-        response_dto = self.rest_post("/4/user/login/", request_dto)[2]
+        response_dto = self.rest_post("/4/user/login/", request_dto)
         return response_dto["oauth_token"]
 
     def edit_name(self, oauth_token, new_user_name):
@@ -48,7 +48,7 @@ class User(BaseWikilifeClient):
           "region": region,
           "country": country,
         }
-        response_code = self.rest_post("/4/user/account/", request_dto, False)[0]
+        response_code = self.rest_post_account_creation("/4/user/account/", request_dto, False)
         return response_code == 200
 
     def delete_account(self, oauth_token):
