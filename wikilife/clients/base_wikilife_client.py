@@ -35,8 +35,19 @@ class BaseWikilifeClient(object):
         return r.json()
         #request = urllib2.Request(url, request_body)
 
-        #return self._rest(request, response_to_json)
+        #return self._rest(request, response_to_json)      
 
+    def rest_post_account_creation(self, service_path, request_dto, params=None, response_to_json=True):
+        """
+        service_path: String
+        request_dto: dict
+        params: Dict<String, String>
+        """
+        url = self._build_url(service_path, params)
+        request_body = JSONParser.to_json(request_dto)
+        r = requests.post(url, data=request_body)
+        return r.status_code
+    
     def rest_put(self, service_path, request_dto, params=None, response_to_json=True):
         """
         service_path: String

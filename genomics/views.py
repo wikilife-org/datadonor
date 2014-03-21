@@ -172,7 +172,7 @@ def genomics_traits_global(request):
     malariaduffy = None
     norwalkvirus = None
     hiv = None 
-    if request.user.traits:
+    try:
         alcohol_trait = request.user.traits.get(user=request.user, report_id="alcoholflush").value
         lactose = request.user.traits.get(user=request.user, report_id="lactose").value
         smokingbehavior = request.user.traits.get(user=request.user, report_id="smokingbehavior").value
@@ -184,6 +184,8 @@ def genomics_traits_global(request):
         malariaduffy = request.user.traits.get(user=request.user, report_id="malariaduffy").value
         norwalkvirus = request.user.traits.get(user=request.user, report_id="norwalkvirus").value
         hiv = request.user.traits.get(user=request.user, report_id="hiv").value
+    except:
+        pass
 
     data = [ get_traits_alcohol_distribution(alcohol_trait),
              get_traits_lactose_distribution(lactose),
@@ -201,7 +203,7 @@ def genomics_traits_global(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def genomics_traits_by_user(request):
-    if request.user.traits:
+    try:
         alcohol_trait = request.user.traits.get(user=request.user, report_id="alcoholflush").value
         lactose = request.user.traits.get(user=request.user, report_id="lactose").value
         smokingbehavior = request.user.traits.get(user=request.user, report_id="smokingbehavior").value
@@ -261,7 +263,7 @@ def genomics_traits_by_user(request):
                   "value":hiv,
                   }
                 ]
-    else:
+    except:
         data = []
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
@@ -274,13 +276,13 @@ def genomics_drugs_global(request):
 
 DRUGS_MSG = {"typical": "Typical", "increased":"Substantially increased risk","reduced":"Reduced risk"}
 def genomics_drugs_by_user(request):
-    if request.user.drug_reponse:
+    try:
         alcohol = request.user.drug_reponse.get(user=request.user, report_id="alcohol_esophageal_pgx").value
         conceptive = request.user.drug_reponse.get(user=request.user, report_id="contraceptives_vte").value
         
         data = [{"id":0, "value":DRUGS_MSG[alcohol]},
             {"id":1, "value":DRUGS_MSG[conceptive]}]
-    else:
+    except:
         data = []
     
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
@@ -294,7 +296,7 @@ def genomics_risks_global(request):
 
 
 def genomics_risks_by_user(request):
-    if request.user.risks:
+    try:
         breastcancer = UserRisk.objects.filter(report_id="breastcancer", user= request.user)[0]
         celiac = UserRisk.objects.filter(report_id="celiac", user= request.user)[0]
         venousthromboembolism = UserRisk.objects.filter(report_id="venousthromboembolism", user= request.user)[0]
@@ -308,6 +310,6 @@ def genomics_risks_by_user(request):
                 {"id":3, "percentage":round(melanoma.value*100,1)},
                 {"id":4, "percentage":round(coronaryheartdisease.value*100,1)},
                 {"id":5, "percentage":round(lungcancer.value*100,1)}]
-    else:
+    except:
         data = []
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")

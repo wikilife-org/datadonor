@@ -82,7 +82,8 @@
     margin: 0px 5px 0px 5px;
 }
 #login_container  .login-bubbles ul li a {
-    text-indent: 9999px;
+    /*text-indent: 9999px;*/
+    font-size: 0;
     width: 124px;
     height: 124px;
     display: inline-block;
