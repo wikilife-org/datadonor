@@ -26,7 +26,7 @@ $(document) .ready(function () {
     // NAVEGACION
 
     $('.nav_big_social a') .on('click', function (event) {
-        event.preventDefault();
+        //event.preventDefault();
     });
     // deslinkear red social
     $('.nav_big_social a') .on('click', function () {
