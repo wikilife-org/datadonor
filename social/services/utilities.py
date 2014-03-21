@@ -4,6 +4,7 @@ from utils.commons import percentage
 from social_auth.models import *
 from social.models import SocialUserAggregatedData, DegreeLevel
 from datetime import date
+from users.models import Profile
 
 
 def global_social_reach():
@@ -194,11 +195,16 @@ def global_work():
     for user_data in SocialUserAggregatedData.objects.all():
         years =  user_data.work_experience_years_manual or user_data.work_experience_years
         if years:
-            if  user_data.user and user_data.user.profile and user_data.user.profile.date_of_birth:
+            if  user_data.user:
+                try:
+                    profile = Profile.objects.get(user = user_data.user)
+                except:
+                    continue
+                db = profile.date_of_birth
                 total_user_count += 1
                 total_years_count += years
                 
-                age_range = get_age_range(user_data.user.profile.date_of_birth)
+                age_range = get_age_range(db)
                 age_range_dict[age_range]["sum"] += years
                 age_range_dict[age_range]["count"] += 1
     
