@@ -131,7 +131,7 @@ function drawEducationGraph(data) {
     });
     animatedQuarterPie.draw();
     for (var i in elements) {
-        $('li[ref=' + i + '] span.perc_number') .html(elements[i].percentage);
+        $('li[ref=' + i + '] span.perc_number') .html(Math.round(elements[i].percentage));
         $('li[ref=' + i + '] a span') .html(elements[i].text);
         if (elements[i].selected) {
             $('li[ref=' + i + ']') .addClass('active');
