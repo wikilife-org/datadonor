@@ -69,9 +69,15 @@ def backends_data(user):
     available = get_backends().keys()
     values = {"social": {'associated': [], 'not_associated':available},
               "physical": {'associated': [], 'not_associated':available},
+<<<<<<< HEAD
               "genomics": {'associated': [], 'not_associated':available},
               "nutrition": {'associated': [], 'not_associated':available},
               "health": {'associated': [], 'not_associated':available},
+=======
+              "nutrition": {'associated': [], 'not_associated':available},
+              "health": {'associated': [], 'not_associated':available},
+              "genomics": {'associated': [], 'not_associated':available},
+>>>>>>> dev
               'associated': [],
               'not_associated': available,
               'backends': available}
