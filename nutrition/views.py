@@ -85,7 +85,10 @@ def nutrition_weight(request):
         request.user.profile.save()
         user_data = {"value":value, "unit":unit}
     else:
-        user_data = {"value":request.user.profile.weight, "unit":"Lbs"}
+        w = 0
+        if request.user.profile and request.user.profile.weight:
+            w = request.user.profile.weight
+        user_data = {"value":w, "unit":"Lbs"}
         
     global_data = global_weight()
     
@@ -146,7 +149,10 @@ def nutrition_height(request):
         request.user.profile.save()
         user_data = {"value":value, "unit":unit}
     else:
-        user_data = {"value":request.user.profile.height, "unit":"Ft"}
+        h = 0
+        if request.user.profile and request.user.profile.height:
+            h = request.user.profile.height
+        user_data = {"value":h, "unit":"Ft"}
     global_data = global_height()
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
@@ -192,7 +198,15 @@ def nutrition_bmi_mock(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def nutrition_bmi(request):
-    user_data = {"value":get_bmi(request.user.profile.height, request.user.profile.weight)}
+    h = 0
+    w = 0
+    if request.user.profile and request.user.profile.height:
+        h =request.user.profile.height
+
+    if request.user.profile and request.user.profile.weight:
+        w =request.user.profile.weight
+        
+    user_data = {"value":get_bmi(h, w)}
     global_data = get_global_bmi()
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
