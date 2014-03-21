@@ -375,13 +375,13 @@ function drawNutrientProportionGraph(data) {
     ];
     data_keys = Object.keys(data.user_data);
     for (i = 0; i < data_keys.length; i++) {
-        console.log(data_keys[i]);
-        user_percent = data.user_data[data_keys[i]].percentage;
-        global_percent = data.global_data[data_keys[i]].percentage;
-        userColor = user_colors[i];
-        globalColor = global_colors[i];
+        var user_percent = data.user_data[data_keys[i]].percentage;
+        var global_percent = data.global_data[data_keys[i]].percentage;
+        var userColor = user_colors[i];
+        var globalColor = global_colors[i];
         var userWidth = (user_percent * 620) / 100;
         var globalWidth = (global_percent * 620) / 100;
+
         var content = $('#nutrient_template_data') .html();
         content = content.replace(/\[\[name\]\]/g, data.user_data[data_keys[i]].title);
         content = content.replace(/\[\[user_perc\]\]/g, user_percent);
@@ -390,6 +390,7 @@ function drawNutrientProportionGraph(data) {
         content = content.replace(/\[\[global_data_style\]\]/g, 'width:' + globalWidth + 'px; background-color:' + globalColor + ';');
         content = content.replace(/\[\[user_text_style\]\]/g, 'color:' + userColor + ';');
         content = content.replace(/\[\[global_text_style\]\]/g, 'color:' + globalColor + ';');
+
         $('.nutrient_data .block.right') .append(content);
     }
 }
