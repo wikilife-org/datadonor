@@ -68,9 +68,11 @@ def social_work(request):
             request.user.social_aggregated_data.save()
     
     years = request.user.social_aggregated_data.work_experience_years_manual or \
-                        request.user.social_aggregated_data.work_experience_years
-    
-    age_range = get_age_range(request.user.profile.date_of_birth)
+                        request.user.social_aggregated_data.work_experience_years or 0
+    db = None
+    if request.user.profile:
+        db = request.user.profile.date_of_birth
+    age_range = get_age_range(db)
     user_data = {"user_experience": {"key": age_range, "value":years}}
     
     """
