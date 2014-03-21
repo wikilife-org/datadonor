@@ -1141,18 +1141,25 @@ function drawGenomicsDrugs(data, user_data) {
     }
 }
 function drawGenomicsRisks(data, user_data) {
-    $('#step_nineteen .pages_container') .html('');
-    for (var i in data) {
-        itemHtml = $('#genomic_risks_item_template') .html();
-        itemHtml = itemHtml.replace(/\[\[name\]\]/g, data[i].name);
-        itemHtml = itemHtml.replace(/\[\[global_percent\]\]/g, data[i].percentage);
-        for (var j in user_data) {
-            if (data[i].id == user_data[j].id) {
-                itemHtml = itemHtml.replace(/\[\[user_percent\]\]/g, user_data[j].percentage);
-            }
-        }
-        $('#step_nineteen .pages_container') .append(itemHtml);
-    }
+	$('#step_nineteen .pages_container') .html('');
+	if (user_data.length > 0){
+	    for (var i in data) {
+	        itemHtml = $('#genomic_risks_item_template') .html();
+	        itemHtml = itemHtml.replace(/\[\[name\]\]/g, data[i].name);
+	        itemHtml = itemHtml.replace(/\[\[global_percent\]\]/g, data[i].percentage);
+	        for (var j in user_data) {
+	            if (data[i].id == user_data[j].id) {
+	                itemHtml = itemHtml.replace(/\[\[user_percent\]\]/g, user_data[j].percentage);
+	            }
+	        }
+	        $('#step_nineteen .pages_container') .append(itemHtml);
+	    }
+	}else{
+		$('#step_nineteen').hide();
+	}
+	
+    
+
 }
 function deleteUserData(url, param, value, callback) {
     $.ajax({
