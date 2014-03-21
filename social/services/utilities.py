@@ -194,7 +194,7 @@ def global_work():
     for user_data in SocialUserAggregatedData.objects.all():
         years =  user_data.work_experience_years_manual or user_data.work_experience_years
         if years:
-            if user_data.user.profile.date_of_birth:
+            if  user_data.user.profile and user_data.user.profile.date_of_birth:
                 total_user_count += 1
                 total_years_count += years
                 
