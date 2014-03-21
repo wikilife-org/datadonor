@@ -69,6 +69,9 @@ def backends_data(user):
     available = get_backends().keys()
     values = {"social": {'associated': [], 'not_associated':available},
               "physical": {'associated': [], 'not_associated':available},
+              "nutrition": {'associated': [], 'not_associated':available},
+              "health": {'associated': [], 'not_associated':available},
+              "genomics": {'associated': [], 'not_associated':available},
               'associated': [],
               'not_associated': available,
               'backends': available}
