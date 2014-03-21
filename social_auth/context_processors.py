@@ -81,6 +81,7 @@ def backends_data(user):
               'associated': [],
               'not_associated': available,
               'backends': available}
+    
     # Beware of cyclical imports!
     key=lambda x: x
     from social_auth.backends import SocialBackend, PhysicalBackend, GenomicsBackend, NutritionBackend, HealthBackend
@@ -93,12 +94,7 @@ def backends_data(user):
         
         
         backends = get_backends()
-        not_associated_s = []
-        not_associated_p = []
-        not_associated_g = []
-        not_associated_h = []
-        not_associated_n = []
-        
+
         for item in associated:
             backend = backends[key(item.provider)]
             if issubclass(backend, SocialBackend):
@@ -111,27 +107,7 @@ def backends_data(user):
                 values["nutrition"]["associated"].append(item.provider)
             if issubclass(backend, HealthBackend):
                 values["health"]["associated"].append(item.provider)
-        """        
-        for item in not_associated:
-            backend = backends[key(item)]
-            if issubclass(backend, SocialBackend):
-                not_associated_s.append(item)
-            if issubclass(backend, PhysicalBackend):
-                not_associated_p.append(item)
-            if issubclass(backend, GenomicsBackend):
-                not_associated_g.append(item)
-            if issubclass(backend, NutritionBackend):
-                not_associated_n.append(item)
-            if issubclass(backend, HealthBackend):
-                not_associated_h.append(item)"""
-        
-        """     
-        values['social']["not_associated"] = not_associated_s
-        values['physical']["not_associated"] = not_associated_p
-        values['genomics']["not_associated"] = not_associated_g
-        values['nutrition']["not_associated"] = not_associated_n
-        values['health']["not_associated"] = not_associated_h
-        """
+
         values['associated'] = associated
         values['not_associated'] = not_associated
     return values
