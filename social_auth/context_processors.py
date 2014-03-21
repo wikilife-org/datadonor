@@ -111,6 +111,7 @@ def backends_data(user):
                 values["nutrition"]["associated"].append(item.provider)
             if issubclass(backend, HealthBackend):
                 values["health"]["associated"].append(item.provider)
+        """        
         for item in not_associated:
             backend = backends[key(item)]
             if issubclass(backend, SocialBackend):
@@ -122,13 +123,15 @@ def backends_data(user):
             if issubclass(backend, NutritionBackend):
                 not_associated_n.append(item)
             if issubclass(backend, HealthBackend):
-                not_associated_h.append(item)
+                not_associated_h.append(item)"""
         
+        """     
         values['social']["not_associated"] = not_associated_s
         values['physical']["not_associated"] = not_associated_p
         values['genomics']["not_associated"] = not_associated_g
         values['nutrition']["not_associated"] = not_associated_n
         values['health']["not_associated"] = not_associated_h
+        """
         values['associated'] = associated
         values['not_associated'] = not_associated
     return values
