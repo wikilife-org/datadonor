@@ -1015,36 +1015,51 @@ function drawGenomicsTraits(data, user_data) {
             //console.log('REPLACE FIRST FALSE');
             itemHtml = itemHtml.replace(/\[\[hint_style\]\]/g, 'display:none;');
         }
-        for (var j in user_data) {
-            if (user_data[j].id == data[i].id) {
-                if (user_data[j].value == data[i].values[0]) {
-                    itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage);
-                    itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[0].name);
-                    itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage);
-                    itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[1].name);
-                    firstItem = {
-                        percentage: data[i].values[0].percentage,
-                        color: '#E56666'
-                    };
-                    secondItem = {
-                        percentage: data[i].values[1].percentage,
-                        color: '#7737C7'
-                    };
-                } else {
-                    itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
-                    itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
-                    itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
-                    itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
-                    firstItem = {
-                        percentage: data[i].values[0].percentage,
-                        color: '#7737C7'
-                    };
-                    secondItem = {
-                        percentage: data[i].values[1].percentage,
-                        color: '#E56666'
-                    };
-                }
-            }
+        if(user_data.length > 0){
+	        for (var j in user_data) {
+	            if (user_data[j].id == data[i].id) {
+	                if (user_data[j].value == data[i].values[0]) {
+	                    itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage);
+	                    itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[0].name);
+	                    itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage);
+	                    itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[1].name);
+	                    firstItem = {
+	                        percentage: data[i].values[0].percentage,
+	                        color: '#E56666'
+	                    };
+	                    secondItem = {
+	                        percentage: data[i].values[1].percentage,
+	                        color: '#7737C7'
+	                    };
+	                } else {
+	                    itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+	                    itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
+	                    itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+	                    itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
+	                    firstItem = {
+	                        percentage: data[i].values[0].percentage,
+	                        color: '#7737C7'
+	                    };
+	                    secondItem = {
+	                        percentage: data[i].values[1].percentage,
+	                        color: '#E56666'
+	                    };
+	                }
+	            }
+	        }
+        }else{
+            itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+            itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
+            itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+            itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
+            firstItem = {
+                percentage: data[i].values[0].percentage,
+                color: '#7737C7'
+            };
+            secondItem = {
+                percentage: data[i].values[1].percentage,
+                color: '#E56666'
+            };
         }
         if (c === 0) {
             itemsHtml += '<div class="container_graphs">' + itemHtml;
@@ -1141,8 +1156,9 @@ function drawGenomicsDrugs(data, user_data) {
     }
 }
 function drawGenomicsRisks(data, user_data) {
-	$('#step_nineteen .pages_container') .html('');
+	
 	if (user_data.length > 0){
+		$('#step_nineteen .pages_container') .html('');
 	    for (var i in data) {
 	        itemHtml = $('#genomic_risks_item_template') .html();
 	        itemHtml = itemHtml.replace(/\[\[name\]\]/g, data[i].name);

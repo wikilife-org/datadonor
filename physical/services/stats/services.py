@@ -10,20 +10,22 @@ from physical.models import RUNNING_WL_ACT_ID, WALKING_WL_ACT_ID,\
     UserDistributionLastWeek, GlobalDistributionLastWeek, STEPS_ACT_CODE,\
     MILES_ACT_CODE, HOURS_ACT_CODE
 
+from wikilife.clients.stats import Stats
+
 
 class PhysicalActivityDistributionService(object):
 
     def get_steps_distribution(self, user_id):
         return self._get_distribution(user_id, STEPS_ACT_CODE)
 
-    def get_miles_distribution(self, user_id):
-        return self._get_distribution(user_id, MILES_ACT_CODE)
+    def get_miles_distribution(self, user):
+        return self._get_distribution_distance(user)
 
     def get_hours_distribution(self, user_id):
         return self._get_distribution(user_id, HOURS_ACT_CODE)
 
-    def _get_distribution(self, user_id, act_code):
-        global_dist = self._get_global_distribution(act_code)
+    def _get_distribution_distance(self, user_id):
+        global_dist = self._get_global_distribution_steps()
         user_dist = self._get_user_distribution(user_id, act_code)
 
         r = {
@@ -38,18 +40,22 @@ class PhysicalActivityDistributionService(object):
         }
         return r
 
-    def _get_global_distribution(self, act_code):
-        act_dist = GlobalDistributionLastWeek.objects.get(act_code=act_code)
-
-        if act_dist==None or (datetime.datetime.now()-act_dist.update_time).days > 1:
-            #TODO get from WL
-            pass
-
+    def _get_global_distribution_steps(self):
+        client = Stats({"HOST":"http://api.wikilife.org"})
+        steps_days = client.get_global_steps_from_sunday()["data"]
+        result = {}
+        for day in steps_days:
+            d_index = datetime.datetime.strptime(day["date"], '%d-%m-%y').strftime("%a")
+            result[d_index] = day["avg"]
+            day["avg"]
+        result = {}
+        result["avg"] = steps
         return act_dist
 
-    def _get_user_distribution(self, user_id, act_code):
-        act_dist = UserDistributionLastWeek.objects.get(user_id=user_id, act_code=act_code)
-        if act_dist==None:
+    def _get_user_distribution(self, user, act_code):
+        try:
+            act_dist = UserDistributionLastWeek.objects.get(user=user, act_code=act_code)
+        except:
             act_dist = UserDistributionLastWeek()
 
         return act_dist

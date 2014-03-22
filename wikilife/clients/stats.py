@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from wikilife.clients.base_wikilife_client import BaseWikilifeClient
-
+from utils.date_util import get_last_sunday
 
 class Stats(BaseWikilifeClient):
 
@@ -36,3 +36,21 @@ class Stats(BaseWikilifeClient):
     def get_global_emotions(self):
         response_dto = self.rest_get("/4/stats/global/psychological/moods/mostpopular")[2]
         return response_dto 
+    
+    def get_global_steps_from_sunday(self):
+        date_info = get_last_sunday()
+        from_date = date_info[1]
+        to_date = date_info[2]
+        metric_id = 2345
+        params = {"metric_id": metric_id, "from": from_date, "to":to_date}
+        response_dto = self.rest_get("/4/stats/global/aggregation_by_day/", params)[2]
+        return response_dto
+
+    def get_global_distance_from_sunday(self):
+        date_info = get_last_sunday()
+        from_date = date_info[1]
+        to_date = date_info[2]
+        metric_id = 2344
+        params = {"metric_id": metric_id, "from": from_date, "to":to_date}
+        response_dto = self.rest_get("/4/stats/global/aggregation_by_day/")
+        return response_dto

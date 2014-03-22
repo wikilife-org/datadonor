@@ -242,8 +242,8 @@ def get_traits_haircurl_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Slightly Curlier Hair on Average", "percentage":a_p},
-                        {"name":"Straighter Hair on Average", "percentage":b_p}]
+    values = [{"name":"Slightly Curlier Hair", "percentage":a_p},
+                        {"name":"Straighter Hair", "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":7, 

@@ -67,8 +67,8 @@ def physical_miles_distribution(request):
             "global_avg_miles":30,
             "user_avg_miles": 20}
     """
-    user_id = request.user.id 
-    dto = PhysicalActivityDistributionService().get_steps_distribution(user_id)
+    user = request.user 
+    dto = PhysicalActivityDistributionService().get_miles_distribution(user)
     data = {
             "days": {
                      "sunday":    {"user_miles": dto["sun"]["user"], "global_miles": dto["sun"]["global"]}, 
