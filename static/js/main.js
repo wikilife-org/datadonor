@@ -1231,7 +1231,6 @@ window.onload = function () {
     $('.global_nutrient_data .block.right') .html('');
     $('.user_nutrient_data .block.right') .html('');
     $.getJSON(_api_urls[_api_env].nutrients, function (data) {
-        console.log('NUTRIENT PROPORTION!');
         drawNutrientProportionGraph(data);
     });
     $.getJSON(_api_urls[_api_env].weight, function (data) {
@@ -1262,7 +1261,6 @@ window.onload = function () {
         $.getJSON(_api_urls[_api_env].cronical_conditions_top5, function (data) {
             console.log(data);
             for (var i in data) {
-                console.log(i);
                 var num = parseInt(i) + 1;
                 drawCronicalConditionsGraph(data[i], num, user_data);
             }
@@ -1297,9 +1295,7 @@ window.onload = function () {
         });
     });
     $.getJSON(_api_urls[_api_env].emotions_user, function (user_data) {
-        //user_data = [user_data];
         $.getJSON(_api_urls[_api_env].emotions_top5, function (data) {
-            console.log(data);
             for (var i in data) {
                 var num = parseInt(i) + 1;
                 drawEmotionsGraph(data[i], num, user_data);
@@ -1310,7 +1306,6 @@ window.onload = function () {
         emotionsList = data;
         setupAddEmotions(data);
     });
-    console.log('MOODS FROM SERVER');
     $.getJSON(_api_urls[_api_env].mood_global, function (data) {
         $.getJSON(_api_urls[_api_env].mood_user, function (data_user) {
             $('#mood_2 .ui-slider-handle') .html('<span>' + data.mood_avg + '</span>');

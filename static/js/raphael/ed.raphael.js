@@ -136,7 +136,7 @@ EdAnimatedPie = function(r, elements, options){
   }
 
   this.drawReferences = function(){
-    console.log('drawing references!');
+    //console.log('drawing references!');
     var c = 0;
     for(var i in this.elements){
       el = elements[i];
@@ -164,10 +164,10 @@ EdAnimatedPie = function(r, elements, options){
     labelY = cy - (R+this.options.lineWidth+5) * Math.sin(((90-currentAngle)*(Math.PI/180)));
 
     /*console.log('RAD: '+R);
-    console.log('ANGLE: '+angle);
-    console.log('CENTER: '+cx+' - '+cy);
-    console.log('PREV ANGLE: '+prevAngle);
-    console.log('CURRENT ANGLE: '+currentAngle);
+    //console.log('ANGLE: '+angle);
+    //console.log('CENTER: '+cx+' - '+cy);
+    //console.log('PREV ANGLE: '+prevAngle);
+    //console.log('CURRENT ANGLE: '+currentAngle);
     console.log('COORDS: '+labelX+' - '+labelY);*/
 
     return [labelX, labelY];
@@ -264,7 +264,7 @@ EdQuarterAnimatedPie = function(r, elements, options){
   }
 
   this.drawLines = function(){
-    console.log('Drawing lines!');
+    //console.log('Drawing lines!');
     for(var i in elements){
       //console.log(elements[i]);
       var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
@@ -283,7 +283,7 @@ EdQuarterAnimatedPie = function(r, elements, options){
   }
 
   this.drawReferences = function(){
-    console.log('drawing references!');
+    //console.log('drawing references!');
     for(var i in this.elements){
       this.r.text(elements[i]['x'], elements[i]['y'], elements[i]['text']).attr({
         fill: elements[i]['color'],
@@ -341,7 +341,7 @@ EdBarChart = function(r, options){
 
   this.drawXAxis = function(){
     //Build x Axis
-    console.log('DRAWING X AXIS');
+    //console.log('DRAWING X AXIS');
     var xTarget = this.options.centerx + this.options.xAxis.length;
     this.r.path("M"+this.options.centerx+" "+this.options.centery+"L"+xTarget+" "+this.options.centery).attr({
       "stroke-width": this.options.xAxis["stroke-width"],
@@ -375,10 +375,10 @@ EdBarChart = function(r, options){
 
       }
 
-      console.log('SEND AVG TO FRONT!');
-      console.log(this.avg_lines);
+      //console.log('SEND AVG TO FRONT!');
+      //console.log(this.avg_lines);
       for(var j in this.avg_lines){
-        console.log('sending to front!');
+        //console.log('sending to front!');
         this.avg_lines[j].toFront();
       }
     }
@@ -408,7 +408,7 @@ EdBarChart = function(r, options){
       var line = this.r.path("M"+xTarget+" "+this.options.centery+"L"+xTarget+" "+yTarget).attr({"stroke-dasharray": '.', "stroke-width": label["stroke-width"], "stroke": label["color"], "font-family": 'Omnes-Semibold'}).toBack();
 
     }else{
-      console.log('IS AVG???');
+      //console.log('IS AVG???');
       var yTarget = this.options.centery + (label['pos']*this.multiplier);
       var xTarget = this.options.centerx + label['width'];
       var line = this.r.path("M"+this.options.centerx+" "+yTarget+"L"+xTarget+" "+yTarget).attr({"stroke-dasharray": '.', "stroke-width": label["stroke-width"], "stroke": label["color"], "font-family": 'Omnes-Semibold'}).toBack();
@@ -420,7 +420,7 @@ EdBarChart = function(r, options){
   }
 
   this.drawDottedLines = function(){
-    console.log('Drawing dotted lines!');
+    //console.log('Drawing dotted lines!');
     //paper.path("M 30 120 l 150 0 z").attr({"stroke-dasharray": '- '});
     //console.log(this.options.yAxis.labels);
     for(var i in this.options.yAxis.labels){
@@ -433,7 +433,7 @@ EdBarChart = function(r, options){
   }
 
   this.drawBars = function(){
-    console.log('Drawing bars!');
+    //console.log('Drawing bars!');
     for(var i in this.elements){
       //console.log('drawing item...');
       var item = this.elements[i];
@@ -450,8 +450,8 @@ EdBarChart = function(r, options){
         if(typeof(this.elements[i].callback === 'function' && typeof this.elements[i].callback_args != 'undefined')){
           bar.data('item-key', this.elements[i].key);
           bar.click(function(){
-            console.log("CALLBACK!!!");
-            console.log(item.callback);
+            //console.log("CALLBACK!!!");
+            //console.log(item.callback);
             item.callback([this.data('item-key')]);
           });
         }
@@ -688,7 +688,7 @@ EdSingleBarChart = function(r, elements, options){
   }
 
   this.drawMainLabel = function(x, width){
-    console.log('DRAWING MAIN LABEL!');
+    //console.log('DRAWING MAIN LABEL!');
     xPos = x + width;
     yPos = this.options.y+this.options.height/2;
     //this.r.circle(xPos, yPos, 30).attr({"fill": '#000000', "stroke-width": 0});
@@ -754,7 +754,7 @@ EdAnimatedPieLegacy = function(r, elements, options){
   }
 
   this.drawLines = function(){
-    console.log('Drawing lines!');
+    //console.log('Drawing lines!');
     var total = 0;
     for(var i in elements){
       //console.log(elements[i]);
@@ -772,7 +772,7 @@ EdAnimatedPieLegacy = function(r, elements, options){
   }
 
   this.drawReferences = function(){
-    console.log('drawing references!');
+    //console.log('drawing references!');
     for(var i in this.elements){
       //console.log('element percentage: '+elements[i]['percentage']);
     }
