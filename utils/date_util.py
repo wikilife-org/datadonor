@@ -4,6 +4,8 @@ from datetime import date, datetime, time, timedelta
 def get_last_sunday():
     today = date.today()
     offset = (today.weekday() - 6) % 7
+    if offset ==0:
+        offset = 7
     last_sunday = today - timedelta(days=offset)
     return (last_sunday, last_sunday.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 

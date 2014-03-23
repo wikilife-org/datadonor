@@ -267,8 +267,8 @@ function drawStepsGraph(data) {
     }
     doubleAxisBars2 = new EdBarChart(r_6_1, doubleAxisParams2);
     doubleAxisBars2.draw();
-    $('#data_6_1 .bloq.right .number_stat h2') .html(pad(data.global_avg_steps, 2));
-    $('#data_6_1 .bloq.left .number_stat h2') .html(pad(data.user_avg_steps, 2));
+    $('#data_6_1 .bloq.right .number_stat h2') .html(pad(data.user_avg_steps, 2));
+    $('#data_6_1 .bloq.left .number_stat h2') .html(pad(data.global_avg_steps, 2));
 }
 function drawMilesGraph(data) {
     var maxValue = 0;

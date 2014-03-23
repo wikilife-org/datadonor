@@ -41,8 +41,8 @@ def physical_steps_distribution(request):
             "global_avg_steps":3000,
             "user_avg_steps": 2000}
     """
-    user_id = request.user.id 
-    dto = PhysicalActivityDistributionService().get_steps_distribution(user_id)
+    user = request.user
+    dto = PhysicalActivityDistributionService().get_steps_distribution(user)
     data = {
             "days": {
                      "sunday":    {"user_steps": dto["sun"]["user"], "global_steps": dto["sun"]["global"]}, 
@@ -93,8 +93,8 @@ def physical_hours_distribution(request):
             "global_avg_hours":4,
             "user_avg_hours": 5}
     """
-    user_id = request.user.id 
-    dto = PhysicalActivityDistributionService().get_steps_distribution(user_id)
+    user = request.user
+    dto = PhysicalActivityDistributionService().get_hours_distribution(user)
     data = {
             "days": {
                      "sunday":    {"user_hours": dto["sun"]["user"], "global_hours": dto["sun"]["global"]}, 

@@ -15,43 +15,79 @@ from wikilife.clients.stats import Stats
 
 class PhysicalActivityDistributionService(object):
 
-    def get_steps_distribution(self, user_id):
-        return self._get_distribution(user_id, STEPS_ACT_CODE)
+    def get_steps_distribution(self, user):
+        return self._get_global_distribution_steps(user)
 
     def get_miles_distribution(self, user):
-        return self._get_distribution_distance(user)
+        return self._get_global_distribution_miles(user)
 
-    def get_hours_distribution(self, user_id):
-        return self._get_distribution(user_id, HOURS_ACT_CODE)
+    def get_hours_distribution(self, user):
+        return self._get_global_distribution_hours(user)
 
-    def _get_distribution_distance(self, user_id):
-        global_dist = self._get_global_distribution_steps()
-        user_dist = self._get_user_distribution(user_id, act_code)
 
-        r = {
-             "sun": {"user": user_dist.sun, "global": global_dist.sun},
-             "mon": {"user": user_dist.mon, "global": global_dist.mon},
-             "tue": {"user": user_dist.tue, "global": global_dist.tue},
-             "wed": {"user": user_dist.wed, "global": global_dist.wed},
-             "thu": {"user": user_dist.thu, "global": global_dist.thu},
-             "fri": {"user": user_dist.fri, "global": global_dist.fri},
-             "sat": {"user": user_dist.sat, "global": global_dist.sat},
-             "avg": {"user": user_dist.avg, "global": global_dist.avg}
-        }
-        return r
-
-    def _get_global_distribution_steps(self):
+    def _get_global_distribution_steps(self, user):
         client = Stats({"HOST":"http://api.wikilife.org"})
         steps_days = client.get_global_steps_from_sunday()["data"]
-        result = {}
+        result = {"sun":{"user":0, "global":0},"mon":{"user":0, "global":0},"tue":{"user":0, "global":0},"wed":{"user":0, "global":0},
+                  "thu":{"user":0, "global":0},"fri":{"user":0, "global":0},"sat":{"user":0, "global":0}, "avg":{"user":0, "global":0}}
+        total = 0
+        count = 0
+        avg = 0
         for day in steps_days:
-            d_index = datetime.datetime.strptime(day["date"], '%d-%m-%y').strftime("%a")
-            result[d_index] = day["avg"]
-            day["avg"]
-        result = {}
-        result["avg"] = steps
-        return act_dist
+            d_index = datetime.datetime.strptime(day["date"], '%Y-%m-%d').strftime("%a").lower()
+            result[d_index]["global"] = int(round(day["avg"]))
+            
+            total +=day["avg"]
+            count = count + 1
+        if count:
+            avg = total/ count
+        result["avg"]["global"] = int(round(avg))
+        return result
 
+    def _get_global_distribution_miles(self, user):
+        #Wikilife Retunrs KM, we should convert it to Miles
+        MILES_FACTOR = 0.621371192
+        client = Stats({"HOST":"http://api.wikilife.org"})
+        steps_days = client.get_global_distance_from_sunday()["data"]
+        result = {"sun":{"user":0, "global":0},"mon":{"user":0, "global":0},"tue":{"user":0, "global":0},"wed":{"user":0, "global":0},
+                  "thu":{"user":0, "global":0},"fri":{"user":0, "global":0},"sat":{"user":0, "global":0}, "avg":{"user":0, "global":0}}
+        total = 0
+        count = 0
+        avg = 0
+        for day in steps_days:
+            d_index = datetime.datetime.strptime(day["date"], '%Y-%m-%d').strftime("%a").lower()
+            result[d_index]["global"] = int(round(day["avg"] * MILES_FACTOR))
+            
+            total +=int(round(day["avg"] * MILES_FACTOR))
+            count = count + 1
+        if count:
+            avg = total/ count
+        result["avg"]["global"] = int(round(avg))
+        return result
+
+    def _get_global_distribution_hours(self, user):
+        client = Stats({"HOST":"http://api.wikilife.org"})
+        steps_days = client.get_global_steps_from_sunday()["data"]
+        result = {"sun":{"user":0, "global":0},"mon":{"user":0, "global":0},"tue":{"user":0, "global":0},"wed":{"user":0, "global":0},
+                  "thu":{"user":0, "global":0},"fri":{"user":0, "global":0},"sat":{"user":0, "global":0}, "avg":{"user":0, "global":0}}
+        
+        
+        return result
+    
+        """total = 0
+        count = 0
+        avg = 0
+        for day in steps_days:
+            d_index = datetime.datetime.strptime(day["date"], '%Y-%m-%d').strftime("%a").lower()
+            result[d_index]["global"] = int(round(day["avg"]))
+            
+            total +=day["avg"]
+            count = count + 1
+        if count:
+            avg = total/ count
+        result["avg"]["global"] = int(round(avg))
+        return result"""
+    
     def _get_user_distribution(self, user, act_code):
         try:
             act_dist = UserDistributionLastWeek.objects.get(user=user, act_code=act_code)
