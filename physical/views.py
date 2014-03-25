@@ -11,10 +11,15 @@ def physical_exercise(request):
     data = [{"title": "Running", "key":"running", "global_times":4, "user_times":5 }, 
      {"title": "Walking", "key":"walking", "global_times":3, "user_times":1 },
      {"title": "Eliptical", "key":"Eliptical", "global_times":1, "user_times": 2}]
+     Running: 814
+     Walking: 1011
+     Eliptical: 564
+     
+     
     """
 
-    user_id = request.user.id 
-    dto = PhysicalActivityService().get_top_activities(user_id)
+    user = request.user
+    dto = PhysicalActivityService().get_top_activities(user)
     data = [
             {"title": dto[0]["act_name"], "key": dto[0]["act_wl_id"], "global_times": dto[0]["global_tpw"], "user_times": dto[0]["user_tpw"]}, 
             {"title": dto[1]["act_name"], "key": dto[1]["act_wl_id"], "global_times": dto[1]["global_tpw"], "user_times": dto[1]["user_tpw"]}, 

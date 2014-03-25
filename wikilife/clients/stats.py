@@ -37,6 +37,14 @@ class Stats(BaseWikilifeClient):
         response_dto = self.rest_get("/4/stats/global/psychological/moods/mostpopular")[2]
         return response_dto 
     
+    def get_times_per_week_by_id(self, node_id):
+        date_info = get_last_sunday()
+        from_date = date_info[1]
+        to_date = date_info[2]
+        params = {"node_id": node_id, "from": from_date, "to":to_date}
+        response_dto = self.rest_get("/4/stats/global/exercise/times_per_week/avg", params)[2]
+        return response_dto
+    
     def get_global_steps_from_sunday(self):
         date_info = get_last_sunday()
         from_date = date_info[1]

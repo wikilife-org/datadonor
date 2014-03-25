@@ -2,10 +2,9 @@
 from django.conf import settings
 from django.db import models
 
-
-RUNNING_WL_ACT_ID = 0
-WALKING_WL_ACT_ID = 0
-ELLIPTICAL_WL_ACT_ID = 0
+RUNNING_WL_ACT_ID = 814
+WALKING_WL_ACT_ID = 1011
+ELLIPTICAL_WL_ACT_ID = 564
 
 STEPS_ACT_CODE = "steps"
 MILES_ACT_CODE = "miles"

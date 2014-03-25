@@ -99,7 +99,7 @@ class PhysicalActivityDistributionService(object):
 
 class PhysicalActivityService(object):
 
-    def get_top_activities(self, user_id):
+    def get_top_activities(self, user):
         """
         Returns first two top de facto global activities (Running, Walking), even if the user has no participation in them, 
         and a third activity representing the user top activity, unless is one of the first two 
@@ -124,17 +124,17 @@ class PhysicalActivityService(object):
             }
         ]
         """
-        running_act = self._get_global_activity(RUNNING_WL_ACT_ID)
-        walking_act = self._get_global_activity(WALKING_WL_ACT_ID)
-        eliptical_act = self._get_global_activity(ELLIPTICAL_WL_ACT_ID)
+        running_act = self._get_global_activity(RUNNING_WL_ACT_ID, "Running")
+        walking_act = self._get_global_activity(WALKING_WL_ACT_ID, "Walking")
+        eliptical_act = self._get_global_activity(ELLIPTICAL_WL_ACT_ID, "Eliptical")
 
-        running_act["user_tpw"] = self._get_user_tpw_by_act_id(user_id, RUNNING_WL_ACT_ID)
-        walking_act["user_tpw"] = self._get_user_tpw_by_act_id(user_id, WALKING_WL_ACT_ID)
-        eliptical_act["user_tpw"] = self._get_user_tpw_by_act_id(user_id, ELLIPTICAL_WL_ACT_ID)
+        running_act["user_tpw"] = self._get_user_tpw_by_act_id(user, RUNNING_WL_ACT_ID)
+        walking_act["user_tpw"] = self._get_user_tpw_by_act_id(user, WALKING_WL_ACT_ID)
+        eliptical_act["user_tpw"] = self._get_user_tpw_by_act_id(user, ELLIPTICAL_WL_ACT_ID)
 
-        top_activities = [running_act, walking_act]
+        top_activities = [running_act, walking_act, eliptical_act]
 
-        if running_act["user_tpw"]>0 or walking_act["user_tpw"]>0 or eliptical_act["user_tpw"]>0:
+        """if running_act["user_tpw"]>0 or walking_act["user_tpw"]>0 or eliptical_act["user_tpw"]>0:
             top_activities.append(eliptical_act)
         else:
             top_user_activity = self._get_user_top_activity(user_id)
@@ -143,7 +143,7 @@ class PhysicalActivityService(object):
                 top_user_act["user_tpw"] = top_user_activity.tpw 
                 top_activities.append(top_user_act)
             else:
-                top_activities.append(eliptical_act)
+                top_activities.append(eliptical_act)"""
 
         return top_activities
 
@@ -161,16 +161,28 @@ class PhysicalActivityService(object):
 
         return act
 
+
+    def _get_global_activity(self, act_wl_id, title):
+        client = Stats({"HOST":"http://localhost:7080"})
+        tpw = client.get_times_per_week_by_id(act_wl_id)["data"]
+        act = {}
+        act["act_name"] = title
+        act["act_wl_id"] = act_wl_id 
+        act["global_tpw"] = tpw
+
+        return act
+    
     def _get_wl_global_act_tpw(self, act_wl_id):
         #self._wl_stat_client.get_ ???
         return 0
 
-    def _get_user_tpw_by_act_id(self, user_id, act_id):
-        act = UserPhysicalActivity.objects.get(user_id=user_id, act_wl_id=act_id)
+    def _get_user_tpw_by_act_id(self, user, act_id):
+        return 0
+        """ act = UserPhysicalActivity.objects.get(user=user, act_wl_id=act_id)
         if act!=None:
             return act.tpw
 
-        return 0 
+        return 0 """
 
     def _get_user_top_activity(self, user_id):
         acts = UserPhysicalActivity.objects.filter(user_id=user_id).order_by("tpw")
