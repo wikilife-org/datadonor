@@ -223,8 +223,7 @@ def sleep_distribution_global_mock(request):
 
 @csrf_exempt
 def sleep_distribution_by_user_mock(request):
-    if request.method == 'POST':
-        pass
+
     data = {"days":{"sunday":{"hours": 9.2}, "monday":{"hours": 4.7 },
                     "tuesday":{"hours": 7 }, "wednesday":{"hours": 2 },
                     "thursday":{"hours": 6.8}, "friday":{"hours": 9.4},
@@ -234,12 +233,20 @@ def sleep_distribution_by_user_mock(request):
 
 
 def sleep_distribution_global(request):
-    data = []
+    data = {"days":{"sunday":{"hours": 0}, "monday":{"hours": 0 },
+                    "tuesday":{"hours": 0 }, "wednesday":{"hours": 0 },
+                    "thursday":{"hours": 0 }, "friday":{"hours": 0},
+                    "saturday":{"hours": 0}},
+            "avg_hours":0}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
 def sleep_distribution_by_user(request):
-    data = []
+    data = {"days":{"sunday":{"hours": 0}, "monday":{"hours": 0 },
+                    "tuesday":{"hours": 0 }, "wednesday":{"hours": 0 },
+                    "thursday":{"hours": 0 }, "friday":{"hours": 0},
+                    "saturday":{"hours": 0}},
+            "avg_hours":0}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
