@@ -163,7 +163,7 @@ class PhysicalActivityService(object):
 
 
     def _get_global_activity(self, act_wl_id, title):
-        client = Stats({"HOST":"http://localhost:7080"})
+        client = Stats({"HOST":"http://api.wikilife.org"})
         tpw = client.get_times_per_week_by_id(act_wl_id)["data"]
         act = {}
         act["act_name"] = title
