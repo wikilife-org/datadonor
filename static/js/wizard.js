@@ -198,6 +198,3 @@ $('#redes-inner-right') .click(function (e) {
         'margin-left': margin <= - 399 ? - 399 : margin + 'px'
     });
 });
-$('.learnmore') .click(function (e) {
-    e.preventDefault();
-});
