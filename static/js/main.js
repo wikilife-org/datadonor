@@ -836,6 +836,7 @@ function drawComplainGraph(params, num, preffix) {
 function createComplainsAutocompleter(data) {
     var complainOptions = '';
     for (var i in data) {
+        if (i == 5) break;
         complainOptions += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
     }
     var selectElem = $('#select_complaints .add_container.general_add select.select_stats');
@@ -849,6 +850,7 @@ function createComplainsAutocompleter(data) {
         addNewComplain(id, name, data);
     });
 }
+// XXX: Never used???
 function addNewComplain(id, name, data) {
     //content = content.replace(/{{name}}/g, elem.attr('data-title'));
     if (addedComplains.length < 5) {
@@ -1156,7 +1158,7 @@ function drawGenomicsDrugs(data, user_data) {
     }
 }
 function drawGenomicsRisks(data, user_data) {
-	
+
 	if (user_data.length > 0){
 		$('#step_nineteen .pages_container') .html('');
 	    for (var i in data) {
@@ -1173,8 +1175,8 @@ function drawGenomicsRisks(data, user_data) {
 	}else{
 		$('#step_nineteen').hide();
 	}
-	
-    
+
+
 
 }
 function deleteUserData(url, param, value, callback) {
