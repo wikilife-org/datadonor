@@ -40,7 +40,7 @@
   <script type="text/javascript" src="/static/js/main.js"></script>
 </head>
 
-<body>
+<body ng-app="app">
 
 <div id="container" class="scroll_fixed_trigger maqueta_new">
 
@@ -1684,7 +1684,8 @@
   <!--/step_nine-->
 
   <!--step_ten-->
-  <div class="full_container step_ten" id="step_ten">
+  {%verbatim%}
+  <div class="full_container step_ten" id="step_ten" ng-controller="weightHeightCtrl">
 
 
     <div class="centered_container">
@@ -1732,7 +1733,7 @@
 
           <!--top-->
           <div class="top">
-            <h2 id="weight_number">112</h2>
+            <h2 id="weight_number" ng-model="mass">112</h2>
             <p>Lbs</p>
           </div>
           <!--/top-->
@@ -1797,7 +1798,7 @@
 
           <!--top-->
           <div class="top">
-            <h2 id="height_number">0</h2>
+            <h2 id="height_number" ng-model="height">5</h2>
             <p>Ft</p>
           </div>
           <!--/top-->
@@ -1872,7 +1873,7 @@
 
             <!--top-->
             <div class="top your_bmi">
-              <h2>22</h2>
+              <h2>{{ bmi | number : 1 }}</h2>
               <p>BMI</p>
             </div>
             <!--/top-->
@@ -1899,6 +1900,7 @@
 
   </div>
   <!--/step_ten-->
+  {% endverbatim %}
 
 
   <!-- HEALT DEVICES -->

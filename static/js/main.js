@@ -1399,34 +1399,6 @@ $(document) .ready(function () {
         });
         return false;
     });
-    $('#weight_slider') .on('slidestop', function (event, ui) {
-        $.ajax({
-            dataType: 'json',
-            type: 'POST',
-            url: _api_urls[_api_env].weight,
-            data: {
-                unit: 'Lbs',
-                value: $('#weight_slider') .slider('value')
-            },
-            success: function (data) {
-                loadNewBmi();
-            }
-        });
-    });
-    $('#height_slider') .on('slidestop', function (event, ui) {
-        $.ajax({
-            dataType: 'json',
-            type: 'POST',
-            url: _api_urls[_api_env].height,
-            data: {
-                unit: 'Ft',
-                value: $('#height_slider') .slider('value')
-            },
-            success: function (data) {
-                loadNewBmi();
-            }
-        });
-    });
     $('#mood_1') .on('slidestop', function (event, ui) {
         $.ajax({
             dataType: 'json',
@@ -1487,4 +1459,48 @@ $(document) .ready(function () {
         }
         return false;
     });
+});
+
+
+
+var app = angular.module('app', []);
+
+app.controller('weightHeightCtrl', function ($scope, $http, $sce) {
+
+    $scope.height = 5;
+    $scope.mass = 112;
+    $scope.bmi = 0;
+
+    var calculateBMI = function () {
+        $scope.bmi = ($scope.mass/($scope.height*$scope.height*144))*703;
+    }
+    calculateBMI();
+
+    $('#weight_slider').on('slidestop', function (event, ui) {
+        $.ajax({
+            dataType: 'json',
+            type: 'POST',
+            url: _api_urls[_api_env].weight,
+            data: {
+                unit: 'Lbs',
+                value: $('#weight_slider') .slider('value')
+            }
+        });
+        $scope.mass = $('#weight_slider').slider('value');
+        $scope.$apply(calculateBMI);
+    });
+    $('#height_slider').on('slidestop', function (event, ui) {
+        $.ajax({
+            dataType: 'json',
+            type: 'POST',
+            url: _api_urls[_api_env].height,
+            data: {
+                unit: 'Ft',
+                value: $('#height_slider') .slider('value')
+            }
+        });
+        $scope.height = $('#height_slider') .slider('value');
+        $scope.$apply(calculateBMI);
+    });
+
 });
