@@ -62,8 +62,9 @@ class TwentythreeandmeService(BaseDeviceService):
 
         if "last_name" in names:
             profile_items["last_name"] = names["last_name"]
-
-        self._update_profile(user_id, **profile_items)
+        
+        user = User.objects.get(id=user_id)
+        self._update_profile(user, **profile_items)
         
 
         risks = client.get_risks()

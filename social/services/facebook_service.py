@@ -56,7 +56,8 @@ class FacebookService(BaseDeviceService):
         if email:
             profile_items["email"] = email
             
-        self._update_profile(user_id, **profile_items)
+        user = User.objects.get(id=user_id)
+        self._update_profile(user, **profile_items)
         
         friend_count = client.get_friend_count()
         avg_posts = client.get_avg_weekly_post()

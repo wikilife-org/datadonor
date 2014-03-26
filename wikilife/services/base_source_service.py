@@ -23,12 +23,12 @@ class BaseSourceService(object):
     def _is_priority_source(self, current_source, new_source):
         return current_source == None or settings.PROFILE_SOURCES_PRIORITY[current_source] > settings.PROFILE_SOURCES_PRIORITY[new_source]
 
-    def _update_profile(self, user_id, **kwargs):
+    def _update_profile(self, user, **kwargs):
         if len(kwargs) == 0:
             return
 
         try:
-            profile = Profile.objects.get(user_id=user_id)
+            profile = Profile.objects.get(user=user)
             
             for field_name in kwargs:
                 field_value = kwargs[field_name]

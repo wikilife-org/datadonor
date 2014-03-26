@@ -168,7 +168,7 @@ class PhysicalActivityService(object):
         act = {}
         act["act_name"] = title
         act["act_wl_id"] = act_wl_id 
-        act["global_tpw"] = tpw
+        act["global_tpw"] = int(round(tpw))
 
         return act
     

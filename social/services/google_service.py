@@ -47,7 +47,8 @@ class GoogleService(BaseDeviceService):
             if "familyName" in name:
                 profile_items["last_name"] = name["familyName"]
             
-        self._update_profile(user_id, **profile_items)
+        user = User.objects.get(id=user_id)
+        self._update_profile(user, **profile_items)
         
         contacts_count = client.get_contacts_count()
 

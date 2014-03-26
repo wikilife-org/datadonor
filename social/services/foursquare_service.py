@@ -40,7 +40,8 @@ class FoursquareService(BaseDeviceService):
         if gender:
             profile_items["gender"] = gender
             
-        self._update_profile(user_id, **profile_items)
+        user = User.objects.get(id=user_id)
+        self._update_profile(user, **profile_items)
         
         friends_count = client.get_friends_count()
 

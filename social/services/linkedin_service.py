@@ -38,7 +38,8 @@ class LinkedinService(BaseDeviceService):
         if last_name:
             profile_items["last_name"] = last_name
             
-        self._update_profile(user_id, **profile_items)
+        user = User.objects.get(id=user_id)
+        self._update_profile(user, **profile_items)
         
         connections_count = client.get_connections_count()
         education_level, degree = client.get_education_level()

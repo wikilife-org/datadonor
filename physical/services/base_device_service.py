@@ -2,6 +2,8 @@
 
 from wikilife.services.base_source_service import BaseSourceService
 
-
 class BaseDeviceService(BaseSourceService):
-    pass
+    
+    def _get_wikilife_token(self, user_id):
+        pass
+        

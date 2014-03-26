@@ -7,7 +7,9 @@ from wikilife_utils.formatters.date_formatter import DateFormatter
 from wikilife_utils.logs.log_creator import LogCreator
 from wikilife_utils.parsers.date_parser import DateParser
 from string import lower
-
+from physical.models import UserActivityLog
+from datetime import datetime
+from django.contrib.auth.models import User
 
 RUNKEEPER_API = "http://api.runkeeper.com"
 ACTIVITY_TYPE_NODE_ID_MAP = {
@@ -26,6 +28,9 @@ ACTIVITY_TYPE_NODE_ID_MAP = {
     "Elliptical": 0, 
     "Other": 0
 }
+
+METERS_TO_MILES = 0.000621371192
+SECONDS_TO_HOURS = 0.000277777778
 
 class RunkeeperService(BaseDeviceService):
 
@@ -47,9 +52,32 @@ class RunkeeperService(BaseDeviceService):
             profile_items["location"] = profile["location"]
         """
 
-        self._update_profile(user_id, **profile_items)
+        user = User.objects.get(id=user_id)
+        self._update_profile(user, **profile_items)
+        
+        activities = self.pull_user_activity(user_id, user_auth)
+        for item in activities["items"]:
+            activity = UserActivityLog.objects.get_or_create(user=user, device_log_id=item["uri"])
+            activity.type = item["type"].lower()
+            
+            activity.execute_time = datetime.strptime(item["start_time"], '%a, %d %b %Y %H:%M:%S')
+            acivity.provider = "runkeeper"
+            
+            if "duration" in item:
+                activity.hours = round(float(item["duration"]) * SECONDS_TO_HOURS,2)
+            if "total_distance" in item:
+                activity.miles =  round(float(item["total_distance"]) * METERS_TO_MILES,2)        
+                
+            activity.save()
 
     def pull_user_activity(self, user_id, user_auth):
+        #wikilife_token = self._get_wikilife_token(user_id)
+        client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
+        fitness_activities = client.get_user_fitness_activities()
+        #self._log_fitness_activities(wikilife_token, fitness_activities["items"])
+        return fitness_activities
+        
+    def pull_user_activity_(self, user_id, user_auth):
         wikilife_token = self._get_wikilife_token(user_id)
         client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
         fitness_activities = client.get_user_fitness_activities()

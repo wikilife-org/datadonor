@@ -50,3 +50,15 @@ class UserDistributionLastWeek(models.Model):
     sat=models.FloatField(null=False, default=0)
     avg=models.FloatField(null=False, default=0)
     update_time = models.DateTimeField("last updated on", auto_now=True)
+
+class UserActivityLog(models.Model):
+    user=models.ForeignKey(settings.AUTH_USER_MODEL, related_name='physical_activities')
+    execute_time = models.DateTimeField()
+    miles = models.FloatField(null=True)
+    hours = models.FloatField(null=True)
+    steps = models.FloatField(null=True)
+    type = models.CharField(null=True, max_length=256)
+    device_log_id = models.CharField(null=True, max_length=256)
+    provider = models.CharField(null=True, max_length=256)
+    update_time = models.DateTimeField("last updated on", auto_now=True)
+    
