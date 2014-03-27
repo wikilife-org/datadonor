@@ -21,9 +21,9 @@ class TwitterService(BaseDeviceService):
 
     _profile_source = "twitter"
 
-    def pull_user_info(self, user_id, user_auth, twitter_id):
+    def pull_user_info(self, user_id, user_auth):
         user = User.objects.get(id=user_id)
-        client = TwitterClient(TWITTER_API, user_auth["access_token"], twitter_id)
+        client = TwitterClient(TWITTER_API, user_auth["access_token"], user_auth["twitter_id"])
         
         followers = client.get_followers()
         tweets_last_week = client.get_tweets_last_week()

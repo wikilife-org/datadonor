@@ -20,9 +20,9 @@ class GoogleService(BaseDeviceService):
 
     _profile_source = "google"
 
-    def pull_user_info(self, user_id, user_auth, g_id):
+    def pull_user_info(self, user_id, user_auth):
         user = User.objects.get(id=user_id)
-        client = GoogleClient(GOOGLE_API, user_auth["access_token"], g_id)
+        client = GoogleClient(GOOGLE_API, user_auth["access_token"],user_auth["g_id"])
         profile = client.get_profile()
 
         emails = profile.get("emails", [])

@@ -55,11 +55,13 @@ def greg(request):
                                   RequestContext(request))
 
 
+from utils.user_linked_data import refresh_user_data
 def dashboard(request):
     """Login complete view, displays user data"""
     if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
         return HttpResponseRedirect('/wizard/')
-
+    
+    refresh_user_data(request.user)
     ctx = {
         'user': request.user,
         #'user_social':request.user.social_aggregated_data.social_reach(),

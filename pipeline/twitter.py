@@ -11,6 +11,7 @@ def twitter_info(request, *args, **kwargs):
     if backend.name == "twitter":
         data = kwargs.get('response')
         dd_user_id = social_user.user.id
-        twitter_id = data["id"]
+        social_user.extra_data["twitter_id"] = data["id"]
+        social_user.save()
         twitter_service = SocialServiceLocator.get_instane().build_service_by_name("twitter")
-        twitter_service.pull_user_info(dd_user_id, {"access_token": data["access_token"]}, twitter_id)
+        twitter_service.pull_user_info(dd_user_id, {"access_token": data["access_token"], "twitter_id":data["id"]})

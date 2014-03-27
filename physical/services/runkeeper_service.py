@@ -57,11 +57,11 @@ class RunkeeperService(BaseDeviceService):
         
         activities = self.pull_user_activity(user_id, user_auth)
         for item in activities["items"]:
-            activity = UserActivityLog.objects.get_or_create(user=user, device_log_id=item["uri"])
+            activity, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=item["uri"])
             activity.type = item["type"].lower()
             
             activity.execute_time = datetime.strptime(item["start_time"], '%a, %d %b %Y %H:%M:%S')
-            acivity.provider = "runkeeper"
+            activity.provider = "runkeeper"
             
             if "duration" in item:
                 activity.hours = round(float(item["duration"]) * SECONDS_TO_HOURS,2)
