@@ -13,9 +13,10 @@ def refresh_user_data(user):
         backend = backends[key(item.provider)]
         
         if issubclass(backend, SocialBackend):
-            service = SocialServiceLocator.get_instane().build_service_by_name(item.provider)
-            service.pull_user_info(user.id, item.extra_data)
-            
+            if item.provider != "google":
+                service = SocialServiceLocator.get_instane().build_service_by_name(item.provider)
+                service.pull_user_info(user.id, item.extra_data)
+                
         if issubclass(backend, PhysicalBackend):
             service = PhysicalServiceLocator.get_instane().get_service_by_name(item.provider)
             service.pull_user_info(user.id, item.extra_data)

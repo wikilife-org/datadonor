@@ -31,6 +31,7 @@ ACTIVITY_TYPE_NODE_ID_MAP = {
 
 METERS_TO_MILES = 0.000621371192
 SECONDS_TO_HOURS = 0.000277777778
+MILES_TO_STEPS = 2300
 
 class RunkeeperService(BaseDeviceService):
 
@@ -66,7 +67,10 @@ class RunkeeperService(BaseDeviceService):
             if "duration" in item:
                 activity.hours = round(float(item["duration"]) * SECONDS_TO_HOURS,2)
             if "total_distance" in item:
-                activity.miles =  round(float(item["total_distance"]) * METERS_TO_MILES,2)        
+                activity.miles =  round(float(item["total_distance"]) * METERS_TO_MILES,2) 
+            
+            if activity.type in ["walking", "running"]:
+                activity.steps = round(float(activity.miles * MILES_TO_STEPS))   
                 
             activity.save()
 

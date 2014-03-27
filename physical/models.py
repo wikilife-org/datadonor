@@ -53,7 +53,7 @@ class UserDistributionLastWeek(models.Model):
 
 class UserActivityLog(models.Model):
     user=models.ForeignKey(settings.AUTH_USER_MODEL, related_name='physical_activities')
-    execute_time = models.DateTimeField(null=True)
+    execute_time = models.DateField(null=True)
     miles = models.FloatField(null=True)
     hours = models.FloatField(null=True)
     steps = models.FloatField(null=True)

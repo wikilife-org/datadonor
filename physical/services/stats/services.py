@@ -11,7 +11,9 @@ from physical.models import RUNNING_WL_ACT_ID, WALKING_WL_ACT_ID,\
     MILES_ACT_CODE, HOURS_ACT_CODE
 
 from wikilife.clients.stats import Stats
-
+from physical.models import UserActivityLog
+from utils.date_util import get_last_sunday_list_days
+from django.db.models.aggregates import Sum, Avg
 
 class PhysicalActivityDistributionService(object):
 
@@ -24,8 +26,31 @@ class PhysicalActivityDistributionService(object):
     def get_hours_distribution(self, user):
         return self._get_global_distribution_hours(user)
 
+    
+    def _get_user_distribution_info(self, user, q, result):
+        total_user = 0 
+        count_user = 0
+        avg_user = 0
+        
+        sum_id = "%s__sum"%q
+        day_list = get_last_sunday_list_days()
+        for day in day_list:
+            
+            values = UserActivityLog.objects.filter(user=user, execute_time=day).aggregate(Sum(q))
+            value = values[sum_id] or 0
+            total_user +=value
+            count_user = count_user + 1
+            d_index = day.strftime("%a").lower()
+            result[d_index]["user"] = value
+        
+        if count_user:
+            avg_user = total_user/ count_user
+        result["avg"]["user"] = int(round(avg_user))
+        return result 
 
     def _get_global_distribution_steps(self, user):
+
+        
         client = Stats({"HOST":"http://api.wikilife.org"})
         steps_days = client.get_global_steps_from_sunday()["data"]
         result = {"sun":{"user":0, "global":0},"mon":{"user":0, "global":0},"tue":{"user":0, "global":0},"wed":{"user":0, "global":0},
@@ -33,6 +58,9 @@ class PhysicalActivityDistributionService(object):
         total = 0
         count = 0
         avg = 0
+        
+        result = self._get_user_distribution_info(user, "steps",result)
+
         for day in steps_days:
             d_index = datetime.datetime.strptime(day["date"], '%Y-%m-%d').strftime("%a").lower()
             result[d_index]["global"] = int(round(day["avg"]))
@@ -54,6 +82,9 @@ class PhysicalActivityDistributionService(object):
         total = 0
         count = 0
         avg = 0
+        
+        result = self._get_user_distribution_info(user, "miles",result)
+        
         for day in steps_days:
             d_index = datetime.datetime.strptime(day["date"], '%Y-%m-%d').strftime("%a").lower()
             result[d_index]["global"] = int(round(day["avg"] * MILES_FACTOR))
@@ -67,10 +98,30 @@ class PhysicalActivityDistributionService(object):
 
     def _get_global_distribution_hours(self, user):
         client = Stats({"HOST":"http://api.wikilife.org"})
-        steps_days = client.get_global_steps_from_sunday()["data"]
+        #steps_days = client.get_global_steps_from_sunday()["data"]
+        #aggregation in DD
+        
         result = {"sun":{"user":0, "global":0},"mon":{"user":0, "global":0},"tue":{"user":0, "global":0},"wed":{"user":0, "global":0},
                   "thu":{"user":0, "global":0},"fri":{"user":0, "global":0},"sat":{"user":0, "global":0}, "avg":{"user":0, "global":0}}
+        total = 0 
+        count = 0
+        avg = 0
         
+        h_id = "hours__avg"
+        day_list = get_last_sunday_list_days()
+        for day in day_list:
+            
+            values = UserActivityLog.objects.filter(execute_time=day).aggregate(Avg("hours"))
+            value = values[h_id] or 0
+            total +=value
+            count = count + 1
+            d_index = day.strftime("%a").lower()
+            result[d_index]["global"] = value
+        
+        if count:
+            avg = total/ count
+        result["avg"]["global"] = int(round(avg))
+        result = self._get_user_distribution_info(user, "hours",result)
         
         return result
     
@@ -128,9 +179,9 @@ class PhysicalActivityService(object):
         walking_act = self._get_global_activity(WALKING_WL_ACT_ID, "Walking")
         eliptical_act = self._get_global_activity(ELLIPTICAL_WL_ACT_ID, "Eliptical")
 
-        running_act["user_tpw"] = self._get_user_tpw_by_act_id(user, RUNNING_WL_ACT_ID)
-        walking_act["user_tpw"] = self._get_user_tpw_by_act_id(user, WALKING_WL_ACT_ID)
-        eliptical_act["user_tpw"] = self._get_user_tpw_by_act_id(user, ELLIPTICAL_WL_ACT_ID)
+        running_act["user_tpw"] = self._get_user_tpw_by_act_id(user, "running")
+        walking_act["user_tpw"] = self._get_user_tpw_by_act_id(user, "walking")
+        eliptical_act["user_tpw"] = self._get_user_tpw_by_act_id(user, "eliptical")
 
         top_activities = [running_act, walking_act, eliptical_act]
 
@@ -175,9 +226,14 @@ class PhysicalActivityService(object):
     def _get_wl_global_act_tpw(self, act_wl_id):
         #self._wl_stat_client.get_ ???
         return 0
-
+    
+    
+    
     def _get_user_tpw_by_act_id(self, user, act_id):
-        return 0
+        #filter by date today - 7
+        d=datetime.date.today()-datetime.timedelta(days=7)
+        total = UserActivityLog.objects.filter(user=user, type=act_id, execute_time__range=[d, datetime.date.today()]).count()
+        return total
         """ act = UserPhysicalActivity.objects.get(user=user, act_wl_id=act_id)
         if act!=None:
             return act.tpw

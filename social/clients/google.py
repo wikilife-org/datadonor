@@ -28,7 +28,10 @@ class GoogleClient(BaseDeviceClient):
         return self._get_resource(url)
  
     def get_contacts_count(self):
-        return int(self.get_contacts()["totalItems"])
+        info =  self.get_contacts()
+        if info:
+            return int(self.get_contacts()["totalItems"])
+        return 0
  
     def _get_resource(self, url):
         request_url = self._api_host + url

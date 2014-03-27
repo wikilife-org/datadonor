@@ -151,7 +151,7 @@ class GoogleOAuth(BaseGoogleOAuth):
         extra_params = extra_params or {}
         scope = GOOGLE_OAUTH_SCOPE + setting('GOOGLE_OAUTH_EXTRA_SCOPE', [])
         extra_params.update({
-            'scope': ' '.join(scope),
+            'scope': ' '.join(scope), "access_type":"offline"
         })
         if not self.registered():
             xoauth_displayname = setting('GOOGLE_DISPLAY_NAME', 'Social Auth')
