@@ -20,10 +20,9 @@
             </h1>
             <div id="center-nav">
                 <nav class="nav" id="">
-                    <a href="/" title="Home">Home</a>
 
                     {% if request.user.is_authenticated %}
-                    <a href="/dashboard" title="Dashboard">Dashboard</a>
+                    <a href="/about-us" title="About Us">About Us</a>
                     <a href="/logout" title="logout">logout</a>
                     {% else %}
                     <a href="#" title="login" data-reveal-id="login_container">login</a>

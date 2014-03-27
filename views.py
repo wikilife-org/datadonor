@@ -8,6 +8,7 @@ from social_auth import __version__ as version
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
+from utils.user_linked_data import refresh_user_data
 
 
 def comming(request):
@@ -21,6 +22,8 @@ def demo(request):
 def wizard(request):
     agent = request.META['HTTP_USER_AGENT']
     show_wizard =  request.user.is_authenticated() or request.session.get("user_agree", False)
+    if request.user.is_authenticated() and not request.session.get("wizard_mode", False):
+        return HttpResponseRedirect('/')
     return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
                                   RequestContext(request))
 
@@ -43,10 +46,28 @@ def learn_more(request):
     return render_to_response('static/learn_more.html',{},
                                   RequestContext(request))
 
+def about(request):
+    if  not request.user.is_authenticated():
+        return HttpResponseRedirect('/')
+    videos = request.GET.get('videos', None)
+    return render_to_response('landing.html', {'can_share': True, 'version': version, 'videos':videos, "loop_times":range(1,79)},
+                              RequestContext(request))
 def home(request):
     """Home view, displays login mechanism"""
     videos = request.GET.get('videos', None)
     ctx =  {'version': version}
+    if request.user.is_authenticated():
+        refresh_user_data(request.user)
+        ctx = {
+            'user': request.user,
+            #'user_social':request.user.social_aggregated_data.social_reach(),
+            'version': version,
+            'last_login': request.session.get('social_auth_last_login_backend')
+        }
+        return render_to_response('dashboard/index.html', ctx, context_instance=RequestContext(request))
+    if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
+        return HttpResponseRedirect('/wizard/')
+     
     return render_to_response('landing.html', {'can_share': True, 'version': version, 'videos':videos, "loop_times":range(1,79)},
                                   RequestContext(request))
 
@@ -55,24 +76,12 @@ def greg(request):
                                   RequestContext(request))
 
 
-from utils.user_linked_data import refresh_user_data
 def dashboard(request):
-    """Login complete view, displays user data"""
-    if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
-        return HttpResponseRedirect('/wizard/')
-    
-    refresh_user_data(request.user)
-    ctx = {
-        'user': request.user,
-        #'user_social':request.user.social_aggregated_data.social_reach(),
-        'version': version,
-        'last_login': request.session.get('social_auth_last_login_backend')
-    }
-    return render_to_response('dashboard/index.html', ctx, context_instance=RequestContext(request))
+    return HttpResponseRedirect('/')
 
 def end_wizard(request):
     request.session["wizard_mode"] = False
-    return HttpResponseRedirect('/dashboard/')
+    return HttpResponseRedirect('/')
 
 def error(request):
     """Error view"""

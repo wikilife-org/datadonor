@@ -48,7 +48,7 @@ def complete(request, backend, *args, **kwargs):
         if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
             return HttpResponseRedirect('/wizard/')
         else:
-            return HttpResponseRedirect('/dashboard/')
+            return HttpResponseRedirect('/')
 
 
 @login_required
