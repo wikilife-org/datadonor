@@ -74,14 +74,24 @@ def cronical_conditions_ranking_global(request):
 @csrf_exempt
 def cronical_conditions_by_user(request):
     if request.method == 'POST':
-        id_condition = request.POST["id_condition"]
-        id_type = request.POST["id_type"] 
+        id_condition = int(request.POST["id_condition"])
+        id_type = request.POST.get("id_type", None) 
         c_name, t_name = get_conditions_name(id_condition, id_type)
-        #UserConditions.objects.get_or_create(user=request.user)
+        UserConditions.objects.get_or_create(user=request.user, condition_id=id_condition, type_id=id_type)
     if request.method == 'DELETE':
-        id_condition =  request.GET["id_condition"]
-        
-    data = [{"id_condition": 4, "name":"Diabetes", "id_type":1, "type_name": "Type 2"}]
+        id_condition =  int(request.GET["id_condition"])
+        condition = UserConditions.objects.get_or_create(user=request.user, condition_id=id_condition)
+        condition.delete()
+    
+    data = []
+    user_conditions = UserConditions.objects.filter(user=request.user)
+    for user_condition in user_conditions:
+        c_name, t_name = get_conditions_name(user_condition.condition_id, user_condition.type_id)
+        if user_condition.type_id:
+            data.append({"id_condition": user_condition.condition_id, "name":c_name, "id_type":user_condition.type_id, "type_name": t_name})
+        else:
+            data.append({"id_condition": user_condition.condition_id, "name":c_name})
+            
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def cronical_conditions_list(request):
@@ -148,7 +158,21 @@ def complaints_list(request):
 
 @csrf_exempt
 def complaints_by_user(request):
+    if request.method == 'POST':
+        id_complaint = int(request.POST["id_complaint"])
+        c_name = get_complaints_name(id_complaint)
+        UserComplaints.objects.get_or_create(user=request.user, complaint_id=id_complaint)
+    if request.method == 'DELETE':
+        id_complaint =  int(request.GET["id_complaint"])
+        complaint = UserComplaints.objects.get_or_create(user=request.user, complaint_id=id_complaint)
+        complaint.delete()
+    
     data = []
+    user_complaints = UserComplaints.objects.filter(user=request.user)
+    for user_complaint in user_complaints:
+        c_name = get_complaints_name(user_complaint.complaint_id)
+        data.append({"id": user_complaint.complaint_id, "name":c_name, "percentage":get_complaint_percentage(user_complaint.complaint_id)})
+            
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 
@@ -299,7 +323,21 @@ def emotions_ranking_global(request):
 
 @csrf_exempt
 def emotions_by_user(request):
+    if request.method == 'POST':
+        id_emotion = int(request.POST["id_emotion"])
+        c_name = get_emotions_name(id_emotion)
+        UserEmotions.objects.get_or_create(user=request.user, emotion_id=id_emotion)
+    if request.method == 'DELETE':
+        id_emotion =  int(request.GET["id_emotion"])
+        emotion = UserEmotions.objects.get_or_create(user=request.user, emotion_id=id_emotion)
+        emotion.delete()
+    
     data = []
+    user_emotions = UserEmotions.objects.filter(user=request.user)
+    for user_emotion in user_emotions:
+        c_name = get_emotions_name(user_emotion.emotion_id)
+        data.append({"id_emotion": user_emotion.emotion_id, "name":c_name})
+          
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def emotions_list(request):

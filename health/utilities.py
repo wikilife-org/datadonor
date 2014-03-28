@@ -6,6 +6,9 @@ from datetime import date
 from users.models import Profile
 from health.models import *
 from wikilife.clients.stats import  Stats
+from conditions import conditions
+from complaints import complaints
+from emotions import emotions
 
 
 def global_mood_avg():
@@ -112,7 +115,7 @@ def global_blood_type_dict():
             8:{"name": "0-", "id":8, "percentage":cero__p}}
 
 
-def get_complaints():
+"""def get_complaints():
     stats = Stats({"HOST":"http://api.wikilife.org"})
     conditions = stats.get_global_complaints()["data"]
     return conditions
@@ -122,30 +125,94 @@ def get_complaints_rank():
     conditions = stats.get_global_complaints()["data"]
     newlist = sorted(conditions, key=lambda k: k['percentage'])
     newlist.reverse()
+    return newlist"""
+
+
+def get_complaints():
+    total_complaints = UserComplaints.objects.count()
+    result = []
+    for c in complaints:
+        count = UserComplaints.objects.filter(complaint_id=c["id"]).count()
+        c["percentage"] = percentage(count, total_complaints)
+        result.append(c)
+        
+    newlist = sorted(result, key=lambda k: k['name'])
+    
     return newlist
 
-def get_conditions():
-    stats = Stats({"HOST":"http://api.wikilife.org"})
-    conditions = stats.get_global_conditions()["data"]
-    return conditions
-    
-def get_conditions_rank():
-    stats = Stats({"HOST":"http://api.wikilife.org"})
-    conditions = stats.get_global_conditions()["data"]
-    newlist = sorted(conditions, key=lambda k: k['percentage'])
+def get_complaint_percentage(id_complaint):
+    total_complaints = UserComplaints.objects.count()
+    count = UserComplaints.objects.filter(complaint_id=id_complaint).count()
+    return percentage(count, total_complaints)
+
+
+def get_complaints_rank():
+    total_complaints = UserComplaints.objects.count()
+    result = []
+    for c in complaints:
+        count = UserComplaints.objects.filter(complaint_id=c["id"]).count()
+        c["percentage"] = percentage(count, total_complaints)
+        result.append(c)
+        
+    newlist = sorted(result, key=lambda k: k['percentage'])
     newlist.reverse() 
     
     return newlist
 
-from conditions import conditions
 
+def get_conditions():
+    total_conditions = UserConditions.objects.count()
+    result = []
+    for c in conditions:
+        count = UserConditions.objects.filter(condition_id=c["id"]).count()
+        c["percentage"] = percentage(count, total_conditions)
+        result.append(c)
+        
+    newlist = sorted(result, key=lambda k: k['name'])
+    
+    return newlist
+
+
+def get_conditions_rank():
+    total_conditions = UserConditions.objects.count()
+    result = []
+    for c in conditions:
+        count = UserConditions.objects.filter(condition_id=c["id"]).count()
+        c["percentage"] = percentage(count, total_conditions)
+        result.append(c)
+        
+    newlist = sorted(result, key=lambda k: k['percentage'])
+    newlist.reverse() 
+    
+    return newlist
+
+
+def get_emotions_name(id_emotions):
+    c_name = ""
+    
+    for c in emotions:
+        if c["id"] == id_emotions:
+            c_name = c["name"]
+            break
+        
+    return c_name
+
+def get_complaints_name(id_complaint):
+    c_name = ""
+    
+    for c in complaints:
+        if c["id"] == id_complaint:
+            c_name = c["name"]
+            break
+        
+    return c_name
 def get_conditions_name(id_condition, id_type=None):
     c_name = ""
     t_name = ""
     
     for c in conditions:
         if c["id"] == id_condition:
-            t_name = c["name"]
+            c_name = c["name"]
             if id_type:
                 for t in type:
                     if t["id"] == id_type:
@@ -153,7 +220,7 @@ def get_conditions_name(id_condition, id_type=None):
         
     return c_name, t_name
 
-def get_emotions_rank():
+"""def get_emotions_rank():
     stats = Stats({"HOST":"http://api.wikilife.org"})
     conditions = stats.get_global_emotions()["data"]
     newlist = sorted(conditions, key=lambda k: k['percentage'])
@@ -163,4 +230,33 @@ def get_emotions_rank():
 def get_emotions():
     stats = Stats({"HOST":"http://api.wikilife.org"})
     conditions = stats.get_global_emotions()["data"]
-    return conditions
+    return conditions"""
+    
+
+def get_emotions():
+    total_emotions = UserEmotions.objects.count()
+    result = []
+    for c in emotions:
+        count = UserEmotions.objects.filter(emotion_id=c["id"]).count()
+        c["percentage"] = percentage(count, total_emotions)
+        result.append(c)
+        
+    newlist = sorted(result, key=lambda k: k['name'])
+    newlist.reverse() 
+    
+    return newlist
+
+
+def get_emotions_rank():
+    total_emotions = UserEmotions.objects.count()
+    result = []
+    for c in emotions:
+        count = UserEmotions.objects.filter(emotion_id=c["id"]).count()
+        c["percentage"] = percentage(count, total_emotions)
+        result.append(c)
+        
+    newlist = sorted(result, key=lambda k: k['percentage'])
+    newlist.reverse() 
+    
+    return newlist
+    

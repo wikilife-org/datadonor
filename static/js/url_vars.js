@@ -30,6 +30,7 @@ var _api_urls = {
         complains_delete: '/health/complaints/user/',
         blood_list: '/health/blood_type/global/distribution/',
         blood_post: '/health/blood_type/user/',
+        blood_user: '/health/blood_type/user/',
         sleep_global: '/health/sleep/global/distribution/',
         sleep_user: '/health/sleep/user/distribution/',
         emotions_top5: '/health/emotions/global/top_5/',

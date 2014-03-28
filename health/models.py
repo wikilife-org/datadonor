@@ -40,15 +40,16 @@ class UserSleepDistributionLastWeek(models.Model):
 class UserConditions(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='conditions')
     condition_id = models.IntegerField()
-    metric_id = models.IntegerField()
-    log_id = models.IntegerField()
+    type_id = models.IntegerField(null=True)
+    metric_id = models.IntegerField(null=True)
+    log_id = models.IntegerField(null=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
 class UserComplaints(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='complaints')
     complaint_id = models.IntegerField()
-    metric_id = models.IntegerField()
-    log_id = models.IntegerField()
+    metric_id = models.IntegerField(null=True)
+    log_id = models.IntegerField(null=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
 
@@ -62,7 +63,7 @@ class UserBloodType(models.Model):
 class UserEmotions(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='emotions')
     emotion_id = models.IntegerField()
-    metric_id = models.IntegerField()
-    log_id = models.IntegerField()
+    metric_id = models.IntegerField(null=True)
+    log_id = models.IntegerField(null=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
       

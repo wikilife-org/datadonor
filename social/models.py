@@ -187,8 +187,8 @@ def create_user_social(sender, instance, **kwargs):
         profile.account_id = generated_uid
         profile.save()
     
-    if created or not profile.wikilife_token:
-        create_wikilife_user(profile)
+    #if created or not profile.wikilife_token:
+    #    create_wikilife_user(profile)
      
     
     """social, created = SocialUserAggregatedData.objects.get_or_create(user=instance)
