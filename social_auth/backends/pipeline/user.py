@@ -8,14 +8,26 @@ slugify = module_member(setting('SOCIAL_AUTH_SLUGIFY_FUNCTION',
                                 'django.template.defaultfilters.slugify'))
 
 
+class LoginException(Exception):
+    pass
+
 def get_username(details, user=None,
                  user_exists=UserSocialAuth.simple_user_exists,
                  *args, **kwargs):
     """Return an username for new user. Return current user username
     if user was given.
     """
+    if "uid" in kwargs:
+        uid = kwargs["uid"]
+        backend = kwargs["backend"].name
+        try:
+            social_user = UserSocialAuth.objects.get(provider=backend, uid=uid)
+            user = social_user.user
+        except:
+            if kwargs["request"].session.get("login_process", False):
+                raise LoginException("No account")
     if user:
-        return {'username': UserSocialAuth.user_username(user)}
+        return {'username': UserSocialAuth.user_username(user), 'user':user}
 
     email_as_username = setting('SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL', False)
     uuid_length = setting('SOCIAL_AUTH_UUID_LENGTH', 16)
@@ -50,7 +62,7 @@ def create_user(backend, details, response, uid, username, user=None, *args,
                 **kwargs):
     """Create user. Depends on get_username pipeline."""
     if user:
-        return {'user': user}
+        return {'user': user, 'is_new': False}
     if not username:
         return None
 

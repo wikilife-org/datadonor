@@ -16,8 +16,9 @@ from social_auth.exceptions import AuthCanceled, AuthFailed
 from social_auth.utils import sanitize_redirect, setting, \
                               backend_setting, clean_partial_pipeline
 from social_auth.decorators import dsa_view, disconnect_view
-from social_auth.backends import SocialBackend, PhysicalBackend
+from social_auth.backends import SocialBackend, PhysicalBackend, GenomicsBackend, NutritionBackend, HealthBackend
 from pipeline.meta_association import Associantion
+from social_auth.backends.pipeline.user import LoginException
 
 DEFAULT_REDIRECT = setting('SOCIAL_AUTH_LOGIN_REDIRECT_URL',
                            setting('LOGIN_REDIRECT_URL'))
@@ -28,6 +29,8 @@ PIPELINE_KEY = setting('SOCIAL_AUTH_PARTIAL_PIPELINE_KEY', 'partial_pipeline')
 @dsa_view(setting('SOCIAL_AUTH_COMPLETE_URL_NAME', 'socialauth_complete'))
 def auth(request, backend):
     """Start authentication process"""
+    if "from_login" in request.GET:
+        request.session["login_process"] = True
     return auth_process(request, backend)
 
 
@@ -43,12 +46,25 @@ def complete(request, backend, *args, **kwargs):
             return complete_process(request, backend, *args, **kwargs)
     except (AuthCanceled, AuthFailed):
         request.session["association"] = Associantion()
-        if isinstance(backend, SocialBackend):
+            
+        if issubclass(backend, SocialBackend):
             request.session["association"].type = "social"
+        if issubclass(backend, PhysicalBackend):
+            request.session["association"].type = "physical"
+        if issubclass(backend, GenomicsBackend):
+            request.session["association"].type = "genomics"
+        if issubclass(backend, NutritionBackend):
+            request.session["association"].type = "nutrition"
+        if issubclass(backend, HealthBackend):
+            request.session["association"].type = "health"
         if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
             return HttpResponseRedirect('/wizard/')
         else:
             return HttpResponseRedirect('/')
+    except LoginException:
+        #Add Message to User
+        del request.session["login_process"]
+        return HttpResponseRedirect('/')
 
 
 @login_required

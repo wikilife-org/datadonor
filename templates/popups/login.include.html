@@ -14,9 +14,9 @@
 
 	<div class="login-bubbles">
 		<ul>
-			<li><a href="{% url "socialauth_begin" "twitter" %}" class="twitter">twitter</a></li>
-			<li><a href="{% url "socialauth_begin" "facebook" %}" class="facebook">facebook</a></li>
-			<li><a href="{% url "socialauth_begin" "google" %}" class="gmail">gmail</a></li>
+			<li><a href="{% url "socialauth_begin" "twitter" %}?from_login=true" class="twitter">twitter</a></li>
+			<li><a href="{% url "socialauth_begin" "facebook" %}?from_login=true" class="facebook">facebook</a></li>
+			<li><a href="{% url "socialauth_begin" "google" %}?from_login=true" class="gmail">gmail</a></li>
 
 		</ul>
 

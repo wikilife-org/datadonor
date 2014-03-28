@@ -18,9 +18,9 @@
     <h2>Welcome Back!</h2>
     <span>use any of these services to log in.</span>
     <div style="clear: both;"></div>
-    <a href="{% url "socialauth_begin" "twitter" %}" class="social-network-bubble circle twitter"  title="twitter" ><span>Twitter</span></a>
-    <a href="{% url "socialauth_begin" "facebook" %}" class="social-network-bubble circle facebook" title="Facebook"><span>Facebook</span></a>
-    <a href="{% url "socialauth_begin" "google" %}" class="social-network-bubble circle gmail" title="google_+" ><span>Google +</span></a>
+    <a href="{% url "socialauth_begin" "twitter" %}?from_login=true" class="social-network-bubble circle twitter"  title="twitter" ><span>Twitter</span></a>
+    <a href="{% url "socialauth_begin" "facebook" %}?from_login=true" class="social-network-bubble circle facebook" title="Facebook"><span>Facebook</span></a>
+    <a href="{% url "socialauth_begin" "google" %}?from_login=true" class="social-network-bubble circle gmail" title="google_+" ><span>Google +</span></a>
     
     <div style="clear: both;"></div>
     <a class="close-reveal-modal">&#215;</a>

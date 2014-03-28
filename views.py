@@ -65,7 +65,7 @@ def home(request):
             'last_login': request.session.get('social_auth_last_login_backend')
         }
         return render_to_response('dashboard/index.html', ctx, context_instance=RequestContext(request))
-    if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
+    if request.session.get("wizard_mode", False):
         return HttpResponseRedirect('/wizard/')
      
     return render_to_response('landing.html', {'can_share': True, 'version': version, 'videos':videos, "loop_times":range(1,79)},
