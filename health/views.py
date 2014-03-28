@@ -76,7 +76,7 @@ def cronical_conditions_by_user(request):
     if request.method == 'POST':
         id_condition = int(request.POST["id_condition"])
         id_type = request.POST.get("id_type", None)
-        if id_type == ""
+        if id_type == "":
             id_type = None
         c_name, t_name = get_conditions_name(id_condition, id_type)
         UserConditions.objects.get_or_create(user=request.user, condition_id=id_condition, type_id=id_type)
