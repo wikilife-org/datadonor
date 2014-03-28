@@ -1314,6 +1314,12 @@ window.onload = function () {
             $('#mood_1 .ui-slider-handle') .html('<span>' + data_user.mood_avg + '</span>');
             $('#mood_1') .slider('option', 'value', data_user.mood_avg);
             $('#mood_2') .slider('option', 'value', data.mood_avg);
+
+            // FIXME: Use CSS classes
+            if(data.mood_avg < data_user.mood_avg)
+                $('#mood_2').css({ "z-index": 1000 })
+            else
+                $('#mood_1').css({ "z-index": 1000 })
         });
     });
     $.getJSON(_api_urls[_api_env].genomics_traits, function (data) {
