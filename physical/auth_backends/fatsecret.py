@@ -8,11 +8,11 @@ http://platform.fatsecret.com/api/Default.aspx?screen=rapiauth#correctly_signing
 from oauth2 import Consumer as OAuthConsumer, Token, Request as OAuthRequest, \
                    SignatureMethod_HMAC_SHA1, HTTP_METHOD, Client, SignatureMethod_PLAINTEXT
                    
-from social_auth.backends import OAuthBackend, PhysicalBackend, BaseOAuth,\
+from social_auth.backends import OAuthBackend, NutritionBackend, BaseOAuth,\
     ConsumerBasedOAuth
 
 
-class FatsecretBackend(OAuthBackend, PhysicalBackend):
+class FatsecretBackend(OAuthBackend, NutritionBackend):
     """Fatsecret OAuth 1.0 authentication backend"""
 
     name = 'fatsecret'
@@ -26,7 +26,7 @@ class FatsecretBackend(OAuthBackend, PhysicalBackend):
         return {}
 
 
-class FatsecretAuth(ConsumerBasedOAuth):
+class FatsecretAuth(ConsumerBasedOAuth, NutritionBackend):
     """Fatsecret OAuth support"""
     AUTH_BACKEND = FatsecretBackend
     SETTINGS_KEY_NAME = 'FATSECRET_REST_API_ACCESS_KEY'
@@ -38,8 +38,11 @@ class FatsecretAuth(ConsumerBasedOAuth):
 
     def oauth_request(self, token, url, extra_params=None):
 
-        params = {'oauth_callback': self.redirect_uri,
-                  "method": "profile.request_script_session_key"}
+        if not token:
+            params = {'oauth_callback': self.redirect_uri,
+                  "method": "profile.get_auth"}
+        else:
+            params = {"method": "profile.get_auth"}
         if extra_params:
             params.update(extra_params)
         
@@ -63,7 +66,7 @@ class FatsecretAuth(ConsumerBasedOAuth):
         params.update(self.get_scope_argument())
         params.update({"oauth_nonce":OAuthRequest.make_nonce()})
         params.update({"oauth_timestamp":OAuthRequest.make_timestamp()})
-        params.update({"method": "profile.request_script_session_key"})
+        params.update({"method": "profile.get_auth"})
         
         request =  OAuthRequest.from_token_and_callback(
             token=token,
@@ -118,7 +121,85 @@ class FatsecretAuth(ConsumerBasedOAuth):
         # Calculate the digest base 64.
         return binascii.b2a_base64(hashed.digest())[:-1]
     """
+
+
+class FatBackend(OAuthBackend, NutritionBackend):
+    """Twitter OAuth authentication backend"""
+    name = 'fatsecret'
+    EXTRA_DATA = [('id', 'id')]
+
+    def get_user_details(self, response):
+        """Return user details from Twitter account"""
+        try:
+            first_name, last_name = response['name'].split(' ', 1)
+        except:
+            first_name = response['name']
+            last_name = ''
+        return {'username': response['screen_name'],
+                'email': '',  # not supplied
+                'fullname': response['name'],
+                'first_name': first_name,
+                'last_name': last_name}
+
+    @classmethod
+    def tokens(cls, instance):
+        """Return the tokens needed to authenticate the access to any API the
+        service might provide. Twitter uses a pair of OAuthToken consisting of
+        an oauth_token and oauth_token_secret.
+
+        instance must be a UserSocialAuth instance.
+        """
+        token = super(FatBackend, cls).tokens(instance)
+        if token and 'access_token' in token:
+            token = dict(tok.split('=')
+                            for tok in token['access_token'].split('&'))
+        return token
+
+from urllib import urlopen
+
+from oauth2 import Request as OAuthRequest, Token as OAuthToken, \
+                   SignatureMethod_HMAC_SHA1
+
+from django.utils import simplejson
+
+from social_auth.backends import ConsumerBasedOAuth
+from social_auth.backends import OAuthBackend
+
+class FatAuth(ConsumerBasedOAuth, NutritionBackend):
+
+    AUTH_BACKEND = FatBackend
+    SETTINGS_KEY_NAME = 'FATSECRET_REST_API_ACCESS_KEY'
+    SETTINGS_SECRET_NAME = 'FATSECRET_REST_API_SHARED_SECRET'
+    AUTHORIZATION_URL = 'http://www.fatsecret.com/oauth/authorize'
+    REQUEST_TOKEN_URL = 'http://www.fatsecret.com/oauth/request_token'
+    ACCESS_TOKEN_URL = 'http://www.fatsecret.com/oauth/access_token'
     
+    
+    def oauth_request(self, token, url, extra_params=None):
+        params = {
+            'oauth_callback': self.redirect_uri,
+        }
+
+        if extra_params:
+            params.update(extra_params)
+
+        if 'oauth_verifier' in self.data:
+            params['oauth_verifier'] = self.data['oauth_verifier']
+
+        request = OAuthRequest.from_consumer_and_token(self.consumer,
+                                                       token=token,
+                                                       http_url=url,
+                                                       parameters=params)
+        request.sign_request(SignatureMethod_HMAC_SHA1(), self.consumer, token)
+        request.pop("oauth_body_hash")
+        return request
+
+    def fetch_response(self, request):
+        """Executes request and fetchs service response"""
+        response = urlopen(request.to_url())
+        return response.read()
+#
+
 # Backend definition
 BACKENDS = {
     'fatsecret': FatsecretAuth,

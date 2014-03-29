@@ -47,15 +47,15 @@ def complete(request, backend, *args, **kwargs):
     except (AuthCanceled, AuthFailed):
         request.session["association"] = Associantion()
             
-        if issubclass(backend, SocialBackend):
+        if isinstance(backend, SocialBackend):
             request.session["association"].type = "social"
-        if issubclass(backend, PhysicalBackend):
+        if isinstance(backend, PhysicalBackend):
             request.session["association"].type = "physical"
-        if issubclass(backend, GenomicsBackend):
+        if isinstance(backend, GenomicsBackend):
             request.session["association"].type = "genomics"
-        if issubclass(backend, NutritionBackend):
+        if isinstance(backend, NutritionBackend):
             request.session["association"].type = "nutrition"
-        if issubclass(backend, HealthBackend):
+        if isinstance(backend, HealthBackend):
             request.session["association"].type = "health"
         if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
             return HttpResponseRedirect('/wizard/')

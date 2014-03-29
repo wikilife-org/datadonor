@@ -9,3 +9,4 @@ def fatsecret_info(request, *args, **kwargs):
     result = {}
     if backend.name == "fatsecret":
         data = kwargs.get('response')
+        print data
