@@ -249,8 +249,6 @@ function drawStepsGraph(data) {
     }
     var adapter = new StepsAdapter();
     var result = adapter.getParameters(data, 380, maxValue);
-    console.log('MISSING CHART');
-    console.log(result);
     var r_6_1 = Raphael('canvas_6_1', 1093, 423);
     doubleAxisParams2 = {
         axis: 'both',
@@ -409,6 +407,18 @@ function drawNutrientProportionGraph(data) {
         $('.nutrient_data .block.right') .append(content);
     }
 }
+
+function doCronicalConditionsSection() {
+    $.getJSON(_api_urls[_api_env].cronical_conditions_user, function (user_data) {
+        $.getJSON(_api_urls[_api_env].cronical_conditions_top5, function (data) {
+            for (var i in data) {
+                var num = parseInt(i) + 1;
+                drawCronicalConditionsGraph(data[i], num, user_data);
+            }
+        });
+    });
+}
+
 function drawCronicalConditionsGraph(data, num, user_data) {
     var adapter = new CronicalConditionsAdapter();
     var params = adapter.getParameters(data, '#7737c7');
@@ -464,9 +474,10 @@ function drawCronicalConditionsGraph(data, num, user_data) {
             cronicalTypes += '<option value="' + data.types[i].id + '">' + data.types[i].name + '</option>';
         }
         $($('.cronical_container') [np]) .click(function (event) {
-            event.preventDefault
+            event.preventDefault();
             $('#graphs_conditions .condition') .removeClass('active');
             $(this) .addClass('active');
+            doCronicalConditionsSection();
         });
         $($('.cronical_container') [np]) .find('.done_condition') .on('click', {
             id_condition: data.id,
@@ -795,7 +806,6 @@ function drawComplainsTop5Item(data, num) {
     var params = adapter.getParameters(data, '#7737c7');
     var np = num - 1;
     var preffix = 'canvas_12_';
-    console.log('COMPLAINS DYNAMIC');
     var itemHtml = '';
     itemHtml = $('#complains_item_template') .html();
     itemHtml = itemHtml.replace(/\[\[id\]\]/g, data.id);
@@ -914,12 +924,12 @@ function addNewComplain(id, name, data) {
         }
     }
 }
-function drawBloodDrops(data) {
-    //console.log('drawing blood drops!');
-    //console.log(data);
+function drawBloodDrops(data, user_data) {
     var content,
     blood,
     height;
+    var user_type = user_data.id || 0;
+
     for (var i in data) {
         blood = data[i];
         var heightPercentage = blood.percentage;
@@ -946,6 +956,7 @@ function drawBloodDrops(data) {
             id_blood_type: typeId
         });
     });
+    $('#chose_type #blood_type_' + user_type).addClass("active");
 }
 function drawSleepGraph(data, data_user) {
     var maxValue = 0;
@@ -1266,15 +1277,7 @@ window.onload = function () {
             $($('.you_cards ul li') [i]) .html('<p><span>' + data[i - 1].title + '</span><br />' + data[i - 1].message + '</p>');
         }
     });
-    $.getJSON(_api_urls[_api_env].cronical_conditions_user, function (user_data) {
-        $.getJSON(_api_urls[_api_env].cronical_conditions_top5, function (data) {
-            console.log(data);
-            for (var i in data) {
-                var num = parseInt(i) + 1;
-                drawCronicalConditionsGraph(data[i], num, user_data);
-            }
-        });
-    });
+    doCronicalConditionsSection();
     $.getJSON(_api_urls[_api_env].cronical_conditions_list, function (data) {
         cronicalsList = data;
         setupAddCronicals(data);
@@ -1295,7 +1298,9 @@ window.onload = function () {
         createComplainsAutocompleter(data);
     });
     $.getJSON(_api_urls[_api_env].blood_list, function (data) {
-        drawBloodDrops(data);
+        $.getJSON(_api_urls[_api_env].blood_user, function (data_user) {
+            drawBloodDrops(data, data_user);
+        });
     });
     $.getJSON(_api_urls[_api_env].sleep_global, function (data) {
         $.getJSON(_api_urls[_api_env].sleep_user, function (data_user) {
