@@ -991,13 +991,6 @@ function drawSleepGraph(data, data_user) {
     $('#step_fourteen .bloq.left .number_stat h2') .html(pad(data.avg_hours, 2));
     $('#step_fourteen .bloq.right .number_stat h2') .html(pad(data_user.avg_hours, 2));
 }
-function loadNewBmi() {
-    $.getJSON(_api_urls[_api_env].bmi, function (data) {
-        $('.bmi_values .man .value') .html(data.global_data.men.value);
-        $('.bmi_values .woman .value') .html(data.global_data.women.value);
-        $('.your_bmi h2') .html(data.user_data.value);
-    });
-}
 function drawGenomicsTraits(data, user_data) {
     $('#genomic_traits_container') .html('');
     var c = 0;
@@ -1252,7 +1245,6 @@ window.onload = function () {
         //console.log('WEIGHT!');
         $('.bmi_values .man .value') .html(data.global_data.men.value);
         $('.bmi_values .woman .value') .html(data.global_data.women.value);
-        $('.your_bmi h2') .html(data.user_data.value);
     });
     $.getJSON(_api_urls[_api_env].user_exercise, function (data) {
         for (var i = 1; i <= data.length; i++) {
