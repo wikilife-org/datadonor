@@ -365,7 +365,6 @@ WorkAdapter = function(){
     var yLabels = [];
     result = {};
     this.barsCallback = barsCallback;
-    console.log('WORK ADAPTER PRAMS');
 
     elements = this.addElements(json, totalHeight, maxValue);
     yLabels = this.getYLabels(json, totalHeight, maxValue);
@@ -393,7 +392,6 @@ WorkAdapter = function(){
     if(typeof json.user_data.user_experience != 'undefined') userXp = json.user_data.user_experience.key;
 
     for(var prop in json.global_data){
-      console.log(json.global_data[prop]["key"]);
       var item = {
         pos: currentPos,
         color: globalColor,
@@ -857,10 +855,6 @@ SleepAdapter = function(){
     var labels = [];
     var currentY = 1;
 
-    console.log('SLEEP AVG PARAMS');
-    console.log(json);
-    console.log(json_user);
-
     var gloabalAvgLabel = {
       pos: this.getValueHeight(json.avg_hours, totalHeight, maxValue),
       text: '',
@@ -905,7 +899,6 @@ SleepAdapter = function(){
   }
 
   this.getXLabels = function(json){
-    console.log(json);
     xLabels = [];
     currentPos = 132;
     for(var i in json){
