@@ -76,8 +76,18 @@ function drawShareGraphs(data) {
         }
     };
     var maxPercentage = 80;
-    var elements1 = adapter.getParameters([data.global_data.facebook.posts,
-    data.user_data.facebook.posts], maxPercentage, 100);
+    var elements1 = adapter.getParameters(
+        [
+            data.global_data.facebook.posts,
+            data.user_data.facebook.posts
+        ],
+        maxPercentage,
+        100
+    );
+
+    console.log("elements:" + elements1)
+    console.log("==========================")
+
     var r_2_1 = Raphael('canvas_2_1', 210, 210);
     if (maxPercentage < 100) graphConfig.perimeter.display = true;
     $('#data_2_1 .global_data') .html(pad(data.global_data.facebook.posts, 2));
@@ -85,8 +95,18 @@ function drawShareGraphs(data) {
     dotChart = new EdDotChart(r_2_1, elements1, graphConfig);
     dotChart.draw();
     var maxPercentage = 100;
-    var elements1 = adapter.getParameters([data.global_data.twitter.tweets,
-    data.user_data.twitter.tweets], maxPercentage, 100);
+    var elements1 = adapter.getParameters(
+        [
+            data.global_data.twitter.tweets,
+            data.user_data.twitter.tweets
+        ],
+        maxPercentage,
+        100
+    );
+
+    console.log("elements:" + elements1)
+    console.log("==========================")
+
     var r_2_2 = Raphael('canvas_2_2', 210, 210);
     if (maxPercentage < 100) graphConfig.perimeter.display = true;
     $('#data_2_2 .global_data') .html(pad(data.global_data.twitter.tweets, 2));
@@ -96,6 +116,11 @@ function drawShareGraphs(data) {
     var maxPercentage = 100;
     var elements1 = adapter.getParameters([data.global_data.facebook.likes,
     data.user_data.facebook.likes], maxPercentage, 100);
+
+    console.log("elements:" + elements1)
+    console.log("==========================")
+
+
     var r_2_3 = Raphael('canvas_2_3', 210, 210);
     if (maxPercentage < 100) graphConfig.perimeter.display = true;
     $('#data_2_3 .global_data') .html(pad(data.global_data.facebook.likes, 2));

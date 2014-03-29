@@ -45,7 +45,11 @@ SocialShareAdapter = function(){
 
   this.getParameters = function(values, maxPerc, radius){
     var elements = [];
-    //console.log(values);
+    if (values[0] == values[1] && Number.isFinite(values[0]) && Number.isFinite(values[1])) {
+      values[0] *= 0.9;
+      values[1] *= 1.1;
+    }
+
     var radius1 = this.getElementRadius(values[0], maxPerc, radius, values);
     var radius2 = this.getElementRadius(values[1], maxPerc, radius, values);
 
@@ -60,15 +64,15 @@ SocialShareAdapter = function(){
                 };
 
     if (radius1 > radius2)
-      return [radius1, radius2]
+      return [elem1, elem2]
     else
-      return [radius2, radius1]
-    // TODO: What happens when they're the same size?
+      return [elem2, elem1]
   }
 
   this.getElementRadius = function(value, maxPerc, radius, values){
     var maxRad = (maxPerc*radius)/100;
     var totalPx = values[0]+values[1];
+    if (totalPx === 0) return 0;
     var finalRadius = (value*maxRad)/totalPx;
     return finalRadius;
   }
