@@ -1,4 +1,4 @@
-/* 
+/*
 
     DataDonor
 
@@ -131,7 +131,7 @@ header,nav,section,article,aside,footer {
 }
 
 .container-header {
-	
+
 }
 
 #header-top {
@@ -170,7 +170,7 @@ header,nav,section,article,aside,footer {
 #video-back-2 {
 	/*-webkit-filter: grayscale(100%);
      -webkit-filter: blur(10px);*/
-	
+
 }
 
 .watch-video {
@@ -525,6 +525,11 @@ body object {
 body #slider .inner-redes .circle:hover {
 	color: #fff;
 	opacity: 1;
+}
+
+body #slider .inner-redes .circle.disabled:hover {
+  opacity: 0.2;
+  cursor: not-allowed;
 }
 
 /* DISCRAIMER */
