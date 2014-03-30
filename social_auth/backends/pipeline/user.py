@@ -11,6 +11,9 @@ slugify = module_member(setting('SOCIAL_AUTH_SLUGIFY_FUNCTION',
 class LoginException(Exception):
     pass
 
+def get_fatsecert_uid(token):
+    return 0
+
 def get_username(details, user=None,
                  user_exists=UserSocialAuth.simple_user_exists,
                  *args, **kwargs):
@@ -19,7 +22,10 @@ def get_username(details, user=None,
     """
     if "uid" in kwargs:
         uid = kwargs["uid"]
+        
         backend = kwargs["backend"].name
+        if uid == None and backend == "fatsecret":
+            uid = kwargs["auth_secret"]
         try:
             social_user = UserSocialAuth.objects.get(provider=backend, uid=uid)
             user = social_user.user

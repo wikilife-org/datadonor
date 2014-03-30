@@ -1,6 +1,7 @@
 # coding=utf-8
 
 from nutrition.util.nutrition_service_builder import NutritionServiceBuilder
+from wikilife.util.wikilife_service_builder import WikilifeServiceBuilder
 
 #TODO singletons sucks 
 
@@ -13,12 +14,12 @@ class NutritionServiceLocator(object):
         if self.__instance != None:
             raise Exception("Singleton exception")
 
-        self._service_builder = NutritionServiceBuilder()
+        self._service_builder = NutritionServiceBuilder(WikilifeServiceBuilder())
 
     @classmethod
     def get_instane(cls):
         if cls.__instance == None:
-            cls.__instance = NutritionServiceBuilder()
+            cls.__instance = NutritionServiceBuilder(WikilifeServiceBuilder())
 
         return cls.__instance
 

@@ -7,6 +7,17 @@ from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from nutrition.services.utilities import *
 
+from nutrition.services.stats.services import NutritionDistributionService
+
+def nutrition_nutrients(request):
+    user = request.user
+    global_data = NutritionDistributionService().get_nutrients_global_distribution()
+    user_data = NutritionDistributionService().get_nutrients_user_distribution(user)
+    
+    data = {"user_data":user_data, "global_data":global_data}
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+
 # Nutrients
 def nutrition_nutrients_mock(request):
 
@@ -37,19 +48,6 @@ def nutrition_user_nutrients_mock(request):
                  "fiber":{"title":"Fiber", "key":"fiber", "percentage":7}}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
-def nutrition_nutrients(request):
-
-    user_data = {"protein":{"title":"Protein", "key":"protein", "percentage":0}, 
-                 "fat":{"title":"Fat", "key":"fat", "percentage":0},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":0},
-                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":0}}
-    
-    global_data = {"protein":{"title":"Protein", "key":"protein", "percentage":0}, 
-                 "fat":{"title":"Fat", "key":"fat", "percentage":0},
-                 "carbs":{"title":"Carbs", "key":"carbs", "percentage":0},
-                 "fiber":{"title":"Fiber", "key":"fiber", "percentage":0}}
-    data = {"user_data":user_data, "global_data":global_data}
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def nutrition_user_nutrients(request):
     data = {}

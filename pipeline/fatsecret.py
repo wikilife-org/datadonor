@@ -1,6 +1,6 @@
 
 import requests
-#from physical.util.physical_service_locator import PhysicalServiceLocator
+from nutrition.util.nutrition_service_locator import NutritionServiceLocator
 
 
 def fatsecret_info(request, *args, **kwargs):
@@ -9,4 +9,9 @@ def fatsecret_info(request, *args, **kwargs):
     result = {}
     if backend.name == "fatsecret":
         data = kwargs.get('response')
-        print data
+        dd_user_id = social_user.user.id
+        #social_user.extra_data["twitter_id"] = data["id"]
+        #social_user.save()
+        fatsecret_service = NutritionServiceLocator.get_instane().build_service_by_name("fatsecret")
+        fatsecret_service.pull_user_info(dd_user_id, {"access_token": data["access_token"]})
+

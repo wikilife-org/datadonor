@@ -37,15 +37,6 @@ MEDIA_URL = '/media/'
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = ""
 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = "social_auth.backends.contrib.django_smtp_ssl.SSLEmailBackend"
-#EMAIL_BACKEND = 'django_ses.SESBackend'
-EMAIL_HOST= "email-smtp.us-east-1.amazonaws.com"
-EMAIL_PORT = 465
-#EMAIL_PORT = 25
-EMAIL_HOST_USER = "AKIAJJ6TL3UOOPCI4KSA"
-EMAIL_HOST_PASSWORD = "AkkJOCCddBKok7n/EBmJw2bIvpnIDsbgGeZdz3TPDfO0"
-#EMAIL_USE_TLS = True
 
 WELCOME_EMAIL_FROM = "no-reply@wikilife.org"
 
@@ -132,7 +123,8 @@ INSTALLED_APPS = (
     'genomics',
     'health',
     'physical',
-    'users'
+    'users',
+    'nutrition'
 
 
 )
@@ -170,7 +162,7 @@ AUTHENTICATION_BACKENDS = (
 #    'social_auth.backends.contrib.evernote.EvernoteBackend',
     'physical.auth_backends.fitbit.FitbitBackend',
     'physical.auth_backends.runkeeper.RunkeeperBackend',
-    'physical.auth_backends.fatsecret.FatsecretBackend',
+    'nutrition.auth_backends.fatsecret.FatsecretBackend',
     'health.auth_backends.withings.WithingsBackend',
     'genomics.auth_backends.twentythreeandme.TwentyThreeAndMeBackend',
     'social_auth.backends.contrib.dailymile.DailyMileBackend',

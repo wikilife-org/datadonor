@@ -9,8 +9,11 @@
 
     <div class="inner-redes">
 
-        <a href="javascript:void(0)" class="circle fatsecret disabled" title="Fatsecret" ><span>Fatsecret</span></a>
-
+        {% if "fatsecret" in social_auth.nutrition.associated %}
+		<a href="{% url "socialauth_disconnect" "fatsecret" %}"class="circle fatsecret checked"  title="fatsecret" ><span>Fatsecret</span></a>
+		{% else %}
+		<a href="{% url "socialauth_begin" "fatsecret" %}" class="circle fatsecret"  title="fatsecret" ><span>Fatsecret</span></a>
+		{% endif%}
         <a href="javascript:void(0)" class="circle wikilife disabled" title="Wikilife" ><span>Wikilife</span></a>
 
         <a href="javascript:void(0)" class="circle withings disabled" title="Withings" ><span>Withings</span></a>

@@ -18,8 +18,7 @@ class FatsecretBackend(OAuthBackend, NutritionBackend):
     name = 'fatsecret'
 
     def get_user_id(self, details, response):
-        print details
-        print response
+        return response["access_token"]
 
     def get_user_details(self, response):
         print response

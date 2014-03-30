@@ -41,6 +41,17 @@ def get_days_list(days_count):
     
     return result
 
+def get_days_list_int_tuple(days_count):
+    result = []
+    from_date = date(1970,01,01)
+    today = date.today()
+    for i in range(days_count):
+        td = timedelta(days=i)
+        e_day = today - td
+        result.append((e_day, (e_day- from_date).days))
+    
+    return result
+
 def get_days_twitter(days_count):
     result = []
     today = date.today()

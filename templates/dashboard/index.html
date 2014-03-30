@@ -803,11 +803,6 @@
           <!--social_networks-->
           <ul class="nav_big_social physical_networks">
 
-          {% if "fatsecret" in social_auth.physical.associated %}
-          <li class="active"><a href="javascript:void(0)" class="fatsecret" >Fatsecret</a></li>
-          {% else %}
-          <li><a href="javascript:void(0)"  class="fatsecret" >Fatsecret</a>
-          {% endif%}
 
           {% if "myfitness" in social_auth.physical.associated %}
           <li class="active"><a href="{% url "socialauth_disconnect" "myfitness" %}" class="myfitness" >myfitness</a></li>
@@ -1213,7 +1208,12 @@
         <div class="overflow_icons" data-position="0">
           <!--social_networks-->
           <ul class="nav_big_social nutrition_networks">
-            <li><a href="javascript:void(0)" class="fatsecret">fatsecret</a></li>
+          {% if "fatsecret" in social_auth.nutrition.associated %}
+          <li class="active"><a href="{% url "socialauth_disconnect" "fatsecret" %}" class="fatsecret" >Fatsecret</a></li>
+          {% else %}
+          <li><a href="{% url "socialauth_begin" "fatsecret" %}"  class="fatsecret" >Fatsecret</a>
+          {% endif%}
+          
             <li><a href="javascript:void(0)" class="wikilife">wikilife</a></li>
               <li><a href="javascript:void(0)" class="withings">withings</a></li>
           </ul>
