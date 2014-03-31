@@ -1262,8 +1262,8 @@ window.onload = function () {
     });
     $.getJSON(_api_urls[_api_env].height, function (data) {
         //console.log('WEIGHT!');
-        $('.height_values .man .value') .html(data.global_data.men.value);
-        $('.height_values .woman .value') .html(data.global_data.women.value);
+        $('.height_values .man .value') .html(Math.round(data.global_data.men.value * 100)/100);
+        $('.height_values .woman .value') .html(Math.round(data.global_data.women.value * 100)/100);
         //console.log('HEIGHT USER: '+data.user_data.value);
         $('#height_number') .html(data.user_data.value);
     });
