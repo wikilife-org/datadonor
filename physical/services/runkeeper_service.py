@@ -8,6 +8,7 @@ from wikilife_utils.logs.log_creator import LogCreator
 from wikilife_utils.parsers.date_parser import DateParser
 from string import lower
 from physical.models import UserActivityLog
+from health.models import UserSleepLog
 from datetime import datetime
 from django.contrib.auth.models import User
 
@@ -56,7 +57,8 @@ class RunkeeperService(BaseDeviceService):
         user = User.objects.get(id=user_id)
         self._update_profile(user, **profile_items)
         
-        activities = self.pull_user_activity(user_id, user_auth)
+        client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
+        activities = client.get_user_fitness_activities()
         for item in activities["items"]:
             activity, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=item["uri"])
             activity.type = item["type"].lower()
@@ -72,6 +74,15 @@ class RunkeeperService(BaseDeviceService):
             if activity.type in ["walking", "running"]:
                 activity.steps = round(float(activity.miles * MILES_TO_STEPS))   
                 
+            activity.save()
+        
+        sleeps = client.get_user_sleep()
+        for item in sleeps["items"]:
+            activity, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=item["uri"])
+            
+            activity.execute_time = datetime.strptime(item["timestamp"], '%a, %d %b %Y %H:%M:%S')
+            activity.provider = "runkeeper"
+            activity.minutes = round(float(item["total_sleep"]),2)  
             activity.save()
 
     def pull_user_activity(self, user_id, user_auth):

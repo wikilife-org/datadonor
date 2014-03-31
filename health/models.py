@@ -66,4 +66,11 @@ class UserEmotions(models.Model):
     metric_id = models.IntegerField(null=True)
     log_id = models.IntegerField(null=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
-      
+
+class UserSleepLog(models.Model): 
+    user=models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sleeps')
+    execute_time = models.DateField(null=True)
+    minutes = models.FloatField(null=True)
+    device_log_id = models.CharField(null=True, max_length=256)
+    provider = models.CharField(null=True, max_length=256)
+    update_time = models.DateTimeField("last updated on", auto_now=True)
