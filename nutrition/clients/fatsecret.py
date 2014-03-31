@@ -70,8 +70,8 @@ class FatsecretClient(BaseDeviceClient):
         if oauth_verifier:
             params['oauth_verifier'] = oauth_verifier
         """
-        key = setting("FATSECRET_CONSUMER_KEY")
-        secret = setting("FATSECREET_CONSUMER_SECRET")
+        key = setting("FATSECRET_REST_API_ACCESS_KEY")
+        secret = setting("FATSECRET_REST_API_SHARED_SECRET")
         consumer = OAuthConsumer(key, secret)
         token = Token.from_string(self._access_token)
         request = OAuthRequest.from_consumer_and_token(consumer,
