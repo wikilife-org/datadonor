@@ -31,6 +31,7 @@ def auth(request, backend):
     """Start authentication process"""
     if "from_login" in request.GET:
         request.session["login_process"] = True
+        request.session.modified = True
     return auth_process(request, backend)
 
 
@@ -63,7 +64,8 @@ def complete(request, backend, *args, **kwargs):
             return HttpResponseRedirect('/')
     except LoginException:
         #Add Message to User
-        del request.session["login_process"]
+        if "login_process" in request.session:
+            del request.session["login_process"]
         return HttpResponseRedirect('/')
 
 
