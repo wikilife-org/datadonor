@@ -1256,8 +1256,8 @@ window.onload = function () {
     });
     $.getJSON(_api_urls[_api_env].weight, function (data) {
         //console.log('WEIGHT!');
-        $('.weight_values .man .value') .html(data.global_data.men.value);
-        $('.weight_values .woman .value') .html(data.global_data.women.value);
+        $('.weight_values .man .value') .html(Math.round(data.global_data.men.value * 100)/100);
+        $('.weight_values .woman .value') .html(data.global_data.women.value * 100)/100);
         $('#weight_number') .html(data.user_data.value);
     });
     $.getJSON(_api_urls[_api_env].height, function (data) {
