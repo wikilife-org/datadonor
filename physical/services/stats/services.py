@@ -116,7 +116,9 @@ class PhysicalActivityDistributionService(object):
             value = values[h_id] or 0
             
             d_index = day.strftime("%a").lower()
-            avg_ = round(value / count)
+            avg_ = 0
+            if count:
+                avg_ = round(value / count)
             total +=avg_
             result[d_index]["global"] = avg_
         

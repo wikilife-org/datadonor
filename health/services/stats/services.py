@@ -59,7 +59,9 @@ class HealthActivityDistributionService(object):
             
             count_user = UserSleepLog.objects.filter(execute_time=day).values_list('user', flat=True).distinct().count()
             d_index = day.strftime("%A").lower()
-            global_avg =  round((value/60) /count_user, 1)
+            global_avg = 0
+            if count_user:
+                global_avg =  round((value/60) /count_user, 1)
             result["days"][d_index]["hours"] = global_avg
             total_user +=global_avg
         
