@@ -6,6 +6,7 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 from utilities import *
 from health.models import *
+from health.services.stats.services import HealthActivityDistributionService
 
 ONE_MINUTE = 60
 ONE_HOUR = ONE_MINUTE*60
@@ -259,20 +260,12 @@ def sleep_distribution_by_user_mock(request):
 
 
 def sleep_distribution_global(request):
-    data = {"days":{"sunday":{"hours": 0}, "monday":{"hours": 0 },
-                    "tuesday":{"hours": 0 }, "wednesday":{"hours": 0 },
-                    "thursday":{"hours": 0 }, "friday":{"hours": 0},
-                    "saturday":{"hours": 0}},
-            "avg_hours":0}
+    data = data = HealthActivityDistributionService().get_global_distribution_sleep()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
 def sleep_distribution_by_user(request):
-    data = {"days":{"sunday":{"hours": 0}, "monday":{"hours": 0 },
-                    "tuesday":{"hours": 0 }, "wednesday":{"hours": 0 },
-                    "thursday":{"hours": 0 }, "friday":{"hours": 0},
-                    "saturday":{"hours": 0}},
-            "avg_hours":0}
+    data = HealthActivityDistributionService().get_user_distribution_sleep(request.user)
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 

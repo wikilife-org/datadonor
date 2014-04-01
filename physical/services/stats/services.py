@@ -112,14 +112,16 @@ class PhysicalActivityDistributionService(object):
         for day in day_list:
             
             values = UserActivityLog.objects.filter(execute_time=day).aggregate(Avg("hours"))
+            count = UserActivityLog.objects.filter(execute_time=day).values_list('user', flat=True).distinct().count()
             value = values[h_id] or 0
-            total +=value
-            count = count + 1
+            
             d_index = day.strftime("%a").lower()
-            result[d_index]["global"] = value
+            avg_ = round(value / count)
+            total +=avg_
+            result[d_index]["global"] = avg_
         
-        if count:
-            avg = total/ count
+        if len(day_list):
+            avg = total/ len(day_list)
         result["avg"]["global"] = int(round(avg))
         result = self._get_user_distribution_info(user, "hours",result)
         

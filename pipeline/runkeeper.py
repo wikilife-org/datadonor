@@ -1,5 +1,4 @@
 
-import requests
 from physical.util.physical_service_locator import PhysicalServiceLocator
 
 

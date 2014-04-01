@@ -159,16 +159,17 @@ AUTHENTICATION_BACKENDS = (
     'social.auth_backends.google.GoogleOAuth2Backend',
     'social.auth_backends.linkedin.LinkedinOAuth2Backend',
     'social.auth_backends.foursquare.FoursquareBackend',
-#    'social_auth.backends.contrib.evernote.EvernoteBackend',
-    'physical.auth_backends.fitbit.FitbitBackend',
     'physical.auth_backends.runkeeper.RunkeeperBackend',
     'nutrition.auth_backends.fatsecret.FatsecretBackend',
-    'health.auth_backends.withings.WithingsBackend',
     'genomics.auth_backends.twentythreeandme.TwentyThreeAndMeBackend',
-    'social_auth.backends.contrib.dailymile.DailyMileBackend',
+    'physical.auth_backends.dailymile.DailyMileBackend',
+    'physical.auth_backends.bodymedia.BodymediaBackend',
+
+    'physical.auth_backends.fitbit.FitbitBackend',
+    'health.auth_backends.withings.WithingsBackend',    
     'social_auth.backends.contrib.ihealth.IhealthBackend',
     'social_auth.backends.contrib.jawbone.JawboneBackend',
-    'social_auth.backends.contrib.bodymedia.BodymediaBackend',
+
     'django.contrib.auth.backends.ModelBackend',
 )
 

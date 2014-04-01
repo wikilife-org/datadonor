@@ -33,6 +33,9 @@ def get_username(details, user=None,
             if kwargs["request"].session.get("login_process", False):
                 del kwargs["request"].session["login_process"]
                 raise LoginException("No account")
+            
+    if kwargs["request"].session.get("login_process", False):
+        del kwargs["request"].session["login_process"]
     if user:
         return {'username': UserSocialAuth.user_username(user), 'user':user}
 

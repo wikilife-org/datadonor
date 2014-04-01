@@ -3,6 +3,7 @@
 
 SERVICES = {
     "runkeeper": "physical.services.runkeeper_service.RunkeeperService",
+    "bodymedia": "physical.services.bodymedia_service.BodymediaService"
 }
 
 

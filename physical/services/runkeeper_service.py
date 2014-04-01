@@ -57,7 +57,6 @@ class RunkeeperService(BaseDeviceService):
         user = User.objects.get(id=user_id)
         self._update_profile(user, **profile_items)
         
-        client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
         activities = client.get_user_fitness_activities()
         for item in activities["items"]:
             activity, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=item["uri"])
@@ -78,7 +77,7 @@ class RunkeeperService(BaseDeviceService):
         
         sleeps = client.get_user_sleep()
         for item in sleeps["items"]:
-            activity, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=item["uri"])
+            activity, created = UserSleepLog.objects.get_or_create(user=user, device_log_id=item["uri"])
             
             activity.execute_time = datetime.strptime(item["timestamp"], '%a, %d %b %Y %H:%M:%S')
             activity.provider = "runkeeper"
