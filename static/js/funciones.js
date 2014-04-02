@@ -31,7 +31,6 @@ $(document) .ready(function () {
     // deslinkear red social
     $('.nav_big_social a') .on('click', function (event) {
         var href = $(this).attr("href");
-        console.log(href);
         if ($(this).parent().hasClass('active')) {
             event.preventDefault();
             $('#disconect_network').fadeIn(function () {
@@ -39,6 +38,12 @@ $(document) .ready(function () {
                     window.location = href;
                 })
                 $(this).addClass('active');
+            });
+        }
+        if (href.indexOf("ajax:") == 0) {
+            event.preventDefault();
+            $.get(href.substring(5), function () {
+                window.location.reload();
             });
         }
     });

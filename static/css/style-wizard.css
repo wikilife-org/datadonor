@@ -1631,6 +1631,6 @@ div.inner-redes a.circle {
 
 div.inner-redes a.circle img {
 	position:absolute;
-	top: 0;
+	top: -2px;
 	right: 0;
 }

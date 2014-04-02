@@ -9,15 +9,19 @@
 
     <div class="inner-redes">
 
-    	<a href="javascript:void(0)" class="circle moodPanda disabled"  title="MoodPanda disabled" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>MoodPanda</span></a>
+        <a href="/health/mood/activate/mood_panda/" class="ajax circle moodPanda"  title="MoodPanda" >
+            <span>MoodPanda</span>
+        </a>
 
-        <a href="javascript:void(0)" class="circle fitbit" title="Fitbit" ><span>Fitbit</span></a>
+        <a href="javascript:void(0)" class="circle fitbit" title="Fitbit" >
+            <span>Fitbit</span>
+        </a>
 
         {% if "jawbone" in social_auth.physical.associated %}
-			<a href="{% url "socialauth_disconnect" "jawbone" %}"class="circle jawbone checked"  title="Jawbone" ><span>Jawbone</span></a>
-		{% else %}
-			<a href="{% url "socialauth_begin" "jawbone" %}" class="circle jawbone"  title="Jawbone" ><span>Jawbone</span></a>
-		{% endif%}
+            <a href="{% url "socialauth_disconnect" "jawbone" %}"class="circle jawbone checked"  title="Jawbone" ><span>Jawbone</span></a>
+        {% else %}
+            <a href="{% url "socialauth_begin" "jawbone" %}" class="circle jawbone"  title="Jawbone" ><span>Jawbone</span></a>
+        {% endif%}
 
         <a href="javascript:void(0)" class="circle iHealth disabled" title="iHealth" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>iHealth</span></a>
 
@@ -29,9 +33,9 @@
 
     <div class="cont-next">
 
-    	<a href="#" class="back" title="Back">Back</a>
+        <a href="#" class="back" title="Back">Back</a>
 
-    	<a href="#" class="next" title="next">Next</a>
+        <a href="#" class="next" title="next">Next</a>
 
     </div><!-- .cont-next -->
 
