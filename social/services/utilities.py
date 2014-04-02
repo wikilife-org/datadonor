@@ -154,7 +154,10 @@ def global_education():
     phd_total = 0
     
     for user_data in SocialUserAggregatedData.objects.all():
-        education_level = user_data.education_level_manual or user_data.education_level
+        if user_data.education_level_manual is not None:
+            education_level = user_data.education_level_manual
+        elif  user_data.education_level  is not None:
+            education_level = user_data.education_level
         if education_level == 0:
             elementary_total += 1
         elif education_level == 1:

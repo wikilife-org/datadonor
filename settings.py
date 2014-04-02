@@ -167,7 +167,7 @@ AUTHENTICATION_BACKENDS = (
 
     'physical.auth_backends.fitbit.FitbitBackend',
     'health.auth_backends.withings.WithingsBackend',    
-    'social_auth.backends.contrib.ihealth.IhealthBackend',
+    'health.auth_backends.ihealth.IhealthBackend',
     'social_auth.backends.contrib.jawbone.JawboneBackend',
 
     'django.contrib.auth.backends.ModelBackend',

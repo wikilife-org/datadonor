@@ -48,8 +48,13 @@ class BodymediaClient(BaseDeviceClient):
         return self._get_user_activity_last_7_days("/sleep/day/")
 
     def get_user_nutrition(self):
-        return self._get_user_activity_last_7_days("nutrition")
+        return self._get_user_activity_last_6_days("/consumption/day/micro/")
 
+
+    def _get_user_activity_last_6_days(self, activity_code):
+        date_to = DateUtils.get_date_utc()
+        date_from = DateUtils.add_days(date_to, -6)
+        return self._get_user_activity(activity_code, date_from, date_to)
 
     def _get_user_activity_last_7_days(self, activity_code):
         date_to = DateUtils.get_date_utc()

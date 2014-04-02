@@ -11,6 +11,8 @@ from physical.models import UserActivityLog
 from health.models import UserSleepLog
 from datetime import datetime
 from django.contrib.auth.models import User
+from nutrition.models import *
+
 
 BODYMEDIA_API = 'http://api.bodymedia.com/v2/json'
 ACTIVITY_TYPE_NODE_ID_MAP = {
@@ -64,6 +66,34 @@ class BodymediaService(BaseDeviceService):
             activity.provider = "bodymedia"
             activity.minutes = round(float(item["totalSleep"]),2)  
             activity.save()
+        
+        nutrients = client.get_user_nutrition()
+        for items in nutrients["items"]:
+            food_date = datetime.strptime(item["mealDay"]["date"], '%Y%m%d')
+            food_entry_id = self._profile_source +"_nutrients_" +item["mealDay"]["date"]
+            carbs = 0.0
+            protein = 0.0
+            fat = 0.0
+            fiber = 0.0
+            for food in item["mealDay"]["nutrients"]:
+                if food["code"] == "CARBOHYDRATE":
+                    carbs = food["totalAmount"]
+                if food["code"] == "DIETARY_FIBER,_TOTAL":
+                    fiber = food["totalAmount"]
+                if food["code"] == "FAT,_TOTAL":
+                    fat = food["totalAmount"]
+                if food["code"] == "PROTEIN":
+                    protein = food["totalAmount"]
+
+            
+            food_log, created = UserFoodLog.objects.get_or_create(user=user, device_log_id=food_entry_id, provider=self._profile_source)
+            food_log.provider = self._profile_source
+            food_log.protein = float(protein)
+            food_log.carbs = float(carbs)
+            food_log.fat = float(fat)
+            food_log.fiber = float(fiber)
+            food_log.execute_time = food_date
+            food_log.save()
             
     def pull_user_activity(self, user_id, user_auth):
         pass
