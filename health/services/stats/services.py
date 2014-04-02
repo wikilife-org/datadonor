@@ -5,8 +5,8 @@ This services are used by the views
 """
 
 import datetime
-from health.models import UserSleepLog
-
+from health.models import UserSleepLog, UserMoodLastWeek
+from health.clients.mood_panda import MoodPandaClient
 from utils.date_util import get_last_sunday_list_days
 from django.db.models.aggregates import Sum, Avg
 
@@ -69,4 +69,18 @@ class HealthActivityDistributionService(object):
             avg_user = total_user/ len(day_list)
         result["avg_hours"] = round(avg_user, 1)
         return result 
- 
+    
+    def get_mood_from_moodpanda(self, user):
+
+        user_email = user.profile.email
+        client = MoodPandaClient(user_email=user_email)
+        mood = client.get_avg_mood_last_30_days()
+        try:
+            obj = UserMoodLastWeek.objects.get(user=user)
+        except:
+            obj = UserMoodLastWeek.objects.create(user=user, avg_mood=mood)
+
+
+            
+        
+        

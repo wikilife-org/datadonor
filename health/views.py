@@ -384,6 +384,6 @@ def mood_avg_by_user(request):
 
 @csrf_exempt
 def mood_panda_activate(request):
-    data = []
+    data = HealthActivityDistributionService().get_mood_from_moodpanda(request.user)
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 

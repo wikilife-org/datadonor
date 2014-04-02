@@ -21,10 +21,10 @@ class MoodPandaClient(BaseDeviceClient):
     _user_info = None
     _user_id = None
 
-    def __init__(self, api_host, api_key, user_email=None, user_id=None):
+    def __init__(self, user_email=None, user_id=None):
         
-        self._api_host = api_host
-        self._api_key = api_key
+        self._api_host = "http://www.moodpanda.com/api"
+        self._api_key = "b88cc222-216c-47d2-9577-829e3ea662ac"
         
         if user_id != None:
             self._user_id = user_id
@@ -53,7 +53,7 @@ class MoodPandaClient(BaseDeviceClient):
         date_from = DateUtils.add_days(date_to, -30)
         return self._get_user_mood(date_from, date_to)
     
-    def _get_avg_mood_last_30_days(self):
+    def get_avg_mood_last_30_days(self):
         result = self._get_user_mood_last_30_days()
         sum_mood = 0
         count_mood = 0
