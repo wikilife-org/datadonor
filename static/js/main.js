@@ -794,6 +794,7 @@ function addCronicalCard(label, typeLabel, id) {
             el.html(el.html() + '<li id="cronical_id_' + id + '" data-id="' + id + '" data-param="id_condition"><p><span>' + label + '</span><br /></p><a href="#" class="close_tab close_cronical_card">close</a></li>');
         }
     }
+    doCronicalConditionsSection();
 }
 function addEmotionCard(label, typeLabel, id) {
     if ($('#emotion_id_' + id) .length == 0) {
@@ -880,7 +881,7 @@ function doComplaintsSection() {
 
     console.log("REDRAWING ALL THE COMLPAINTS STUFF");
 
-    $('#select_complaints ul').empty();
+    //$('#select_complaints ul').empty();
     addedComplains = [];
 
     $.getJSON(_api_urls[_api_env].complains_user, function (user_data) {
@@ -939,7 +940,7 @@ function addNewComplain(id, name, data) {
             $.post(_api_urls[_api_env].complains_post, {
                     id_complaint: id
                 }, function (data) {
-                    doComplaintsSection();
+                    //doComplaintsSection();
                 });
             if (addedComplains.length == 5) {
                 $('#complains_adder_container') .hide();
@@ -1366,7 +1367,7 @@ window.onload = function () {
         $.getJSON(_api_urls[_api_env].genomics_traits_user, function (user_data) {
             drawGenomicsTraits(data, user_data);
         });
-    }, function () { console.log("asdf"); });
+    });
     $.getJSON(_api_urls[_api_env].genomics_drugs, function (data) {
         $.getJSON(_api_urls[_api_env].genomics_drugs_user, function (user_data) {
             drawGenomicsDrugs(data, user_data);
@@ -1457,7 +1458,9 @@ $(document) .ready(function () {
             }
         });
     });
-    $('.close_cronical_card') .on('click', function () {
+
+    $(document).on('click', 'a.close_cronical_card', function (event) {
+            event.preventDefault();
         $(this) .parent() .remove();
         var id = $(this) .parent() .attr('data-id');
         //console.log('DELETING CRONICAL ID: '+id);
