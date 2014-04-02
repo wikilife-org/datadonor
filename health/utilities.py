@@ -129,8 +129,9 @@ def get_complaints_rank():
 
 
 def get_complaints():
-    total_complaints = UserComplaints.objects.count()
     result = []
+    total_complaints = UserComplaints.objects.all().values_list('user', flat=True).distinct().count()
+    
     for c in complaints:
         count = UserComplaints.objects.filter(complaint_id=c["id"]).count()
         c["percentage"] = percentage(count, total_complaints)
@@ -141,13 +142,13 @@ def get_complaints():
     return newlist
 
 def get_complaint_percentage(id_complaint):
-    total_complaints = UserComplaints.objects.count()
+    total_complaints = UserComplaints.objects.all().values_list('user', flat=True).distinct().count()
     count = UserComplaints.objects.filter(complaint_id=id_complaint).count()
     return percentage(count, total_complaints)
 
 
 def get_complaints_rank():
-    total_complaints = UserComplaints.objects.count()
+    total_complaints = UserComplaints.objects.all().values_list('user', flat=True).distinct().count()
     result = []
     for c in complaints:
         count = UserComplaints.objects.filter(complaint_id=c["id"]).count()
@@ -161,7 +162,7 @@ def get_complaints_rank():
 
 
 def get_conditions():
-    total_conditions = UserConditions.objects.count()
+    total_conditions = UserConditions.objects.all().values_list('user', flat=True).distinct().count()
     result = []
     for c in conditions:
         count = UserConditions.objects.filter(condition_id=c["id"]).count()
@@ -174,7 +175,7 @@ def get_conditions():
 
 
 def get_conditions_rank():
-    total_conditions = UserConditions.objects.count()
+    total_conditions = UserConditions.objects.all().values_list('user', flat=True).distinct().count()
     result = []
     for c in conditions:
         count = UserConditions.objects.filter(condition_id=c["id"]).count()
@@ -234,7 +235,7 @@ def get_emotions():
     
 
 def get_emotions():
-    total_emotions = UserEmotions.objects.count()
+    total_emotions = UserEmotions.objects.all().values_list('user', flat=True).distinct().count()
     result = []
     for c in emotions:
         count = UserEmotions.objects.filter(emotion_id=c["id"]).count()
@@ -248,7 +249,7 @@ def get_emotions():
 
 
 def get_emotions_rank():
-    total_emotions = UserEmotions.objects.count()
+    total_emotions = UserEmotions.objects.all().values_list('user', flat=True).distinct().count()
     result = []
     for c in emotions:
         count = UserEmotions.objects.filter(emotion_id=c["id"]).count()

@@ -12,25 +12,11 @@ def fitbit_info(request, *args, **kwargs):
     social_user = kwargs.get('social_user')
     result = {}
     if backend.name == "fitbit":
-        data = kwargs.get('response')
-        fitbit_id = data["id"]
-        access_token = data["access_token"]
-        profile = get_user_profile(backend, access_token, fitbit_id)
-        result.update(profile["user"])
-        result["profile_img"] = result["avatar150"]
-        del result["avatar150"]
-        activity = get_user_activity(backend, access_token, fitbit_id)
-        #food = get_user_food(backend, access_token, fitbit_id)
-        #f_dict = dict(activity.items() + food.items())
-        result.update(activity)
-        social_user.extra_data.update(result)
-        social_user.save()
-          
-        return result
-
+        pass
+    
 def get_user_profile(backend, access_token, fitbit_id):
     url = "http://api.fitbit.com/1/user/%s/profile.json" %fitbit_id
-    request = build_consumer_oauth_request(backend,access_token, url)
+    request = build_consumer_oauth_request(backend.name,access_token, url)
     response = requests.request("GET", url, headers=request.to_header())
     return response.json()
 

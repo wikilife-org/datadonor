@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Fitbit OAuth support.
 
@@ -7,6 +9,14 @@ given by Fitbit application registration process.
 
 By default account id, username and token expiration time are stored in
 extra_data field, check OAuthBackend class for details on how to extend it.
+OAuth oauth_consumer_key="b54a8e0fe4314969b52505768c5f1d08",
+        oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1396467353",
+        oauth_nonce="2226742294",
+        oauth_version="1.0",
+        oauth_token="8ccb38077b9b95269bbd4d6e02e48991",
+        oauth_signature="ifNNy1XhmVow5xCy%2FmYMrWho8MU%3D"
+
 """
 try:
     from urlparse import parse_qs
@@ -15,6 +25,7 @@ except ImportError:
     # fall back for Python 2.5
     from cgi import parse_qs
 
+from django.contrib.auth import authenticate
 from oauth2 import Consumer as OAuthConsumer, Token, Request as OAuthRequest, \
                    SignatureMethod_HMAC_SHA1, HTTP_METHOD, Client, SignatureMethod_PLAINTEXT, urllib
                    
@@ -23,6 +34,17 @@ from social_auth.backends import OAuthBackend, NutritionBackend, BaseOAuth,\
 from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, PhysicalBackend
 from social_auth.utils import setting, dsa_urlopen
 import oauth2 as oauth
+
+
+import oauth2 as oauth
+import requests
+import json
+import datetime
+import urllib
+
+from requests_oauthlib import OAuth1Session
+
+                               
 
 
 # Fitbit configuration
@@ -64,7 +86,35 @@ class FitbitAuth(ConsumerBasedOAuth, PhysicalBackend):
     SETTINGS_KEY_NAME = 'FITBIT_CONSUMER_KEY'
     SETTINGS_SECRET_NAME = 'FITBIT_CONSUMER_SECRET'
 
-    def access_token(self, token):
+    def _request(self, method, url, **kwargs):
+        """
+        A simple wrapper around requests.
+        """
+        return requests.request(method, url, **kwargs)
+
+    def access_token(self, token, verifier):
+        """Step 4: Given the token from step 1, and the verifier from step 3 (see step 2),
+        calls fitbit again and returns an access token object.  Extract .key and .secret
+        from that and save them, then pass them as user_key and user_secret in future
+        API calls to fitbit to get this user's data.
+        """
+        client = OAuth1Session(
+            self.consumer.key,
+            client_secret=self.consumer.secret,
+            resource_owner_key=token.key,
+            resource_owner_secret=token.secret,
+            verifier=verifier)
+        response = client.fetch_access_token(self.ACCESS_TOKEN_URL)
+
+        user_id = response['encoded_user_id']
+        token = oauth.Token(
+            key=response['oauth_token'],
+            secret=response['oauth_token_secret'])
+        token.user_id = user_id
+
+        return token
+    
+    def access_token_(self, token):
         """Return request for access token value"""
         # Fitbit is a bit different - it passes user information along with
         # the access token, so temporarily store it to vie the user_data
@@ -82,91 +132,125 @@ class FitbitAuth(ConsumerBasedOAuth, PhysicalBackend):
     def user_data(self, access_token, *args, **kwargs):
         """Loads user data from service"""
         return {
-            'id': access_token.encoded_user_id,
-            'username': access_token.username,
-            'fullname': access_token.fullname,
+            'id': access_token.user_id,
         }
 
     
     def oauth_request(self, token, url, extra_params=None):
-        """if token:
-            token = Token.from_string(token)"""
-        params = self.auth_extra_arguments() or {}
-        params.update(self.get_scope_argument())
-        params.update({"oauth_nonce":OAuthRequest.make_nonce()})
-        params.update({"oauth_timestamp":OAuthRequest.make_timestamp()})
-        params.update({"oauth_version": "1.0"})
-        if not token:
-            params.update({'oauth_callback': self.redirect_uri})
         consumer = OAuthConsumer(*self.get_key_and_secret())
-        client = oauth.Client(consumer, token)
-        body = urllib.urlencode(params)
-        client.set_signature_method(oauth.SignatureMethod_HMAC_SHA1())
- 
-        auth_header = "OAuth oauth_consumer_key=%s&%s"%(setting(self.SETTINGS_KEY_NAME), body)
-        # and launch the request
-        resp, content = client.request(url, "POST", body=body, headers={'Authorization': auth_header})
-        if resp['status'] != '200':
-            print content
-            raise Exception("Invalid response from Fitbit.")
-
-        # return the interpreted data
-        return content
+        """if not method:
+            method = 'POST' if data else 'GET'"""
+        headers = {}
+        request = oauth.Request.from_consumer_and_token(consumer, token, http_method="POST", http_url=url, parameters=extra_params)
+        request.sign_request(oauth.SignatureMethod_HMAC_SHA1(), consumer,
+                             token)
+        headers.update(request.to_header())
+        response = self._request("POST", url, data=extra_params,
+                                 headers=headers)
+        return response.content
     
-    def oauth_request_(self, token, url, extra_params=None):
-
-
-
-        if extra_params:
-            params.update(extra_params)
-        
-        oauth_verifier = self.data.get('oauth_verifier')
-        if oauth_verifier:
-            params['oauth_verifier'] = oauth_verifier
     
-        consumer = OAuthConsumer(*self.get_key_and_secret())
-        request = OAuthRequest.from_consumer_and_token(consumer,
-                                                       token=token,
-                                                       http_method="POST",
-                                                       http_url=url,
-                                                       parameters=params,
-                                                       is_form_encoded=True)
-        request.sign_request(SignatureMethod_HMAC_SHA1(), consumer, token)
-        
-        return request
-
-    def unauthorized_token(self):
-        """Return request for unauthorized token (first stage)"""
-        response = self.oauth_request(
-            token=None,
-            url=self.REQUEST_TOKEN_URL,
-            extra_params=self.request_token_extra_arguments()
-        )
-        return Token.from_string(response)
-
-    def fetch_response(self, request):
-        """Executes request and fetchs service response"""
-        response = dsa_urlopen(request.to_postdata())
-        return '\n'.join(response.readlines())
-    
-    def oauth_authorization_request(self, token):
+    def oauth_authorization_request_(self, token):
         """Generate OAuth request to authorize token."""
-        params = self.auth_extra_arguments() or {}
-        params.update(self.get_scope_argument())
-        params.update({"oauth_nonce":OAuthRequest.make_nonce()})
-        params.update({"oauth_timestamp":OAuthRequest.make_timestamp()})
-        params.update({"oauth_version": "1.0"})
         
         request =  OAuthRequest.from_token_and_callback(
             token=token,
-            callback=self.redirect_uri,
             http_url=self.AUTHORIZATION_URL,
-            parameters=params
         )
         request.is_form_encoded = True
         consumer = OAuthConsumer(*self.get_key_and_secret())
         request.sign_request(SignatureMethod_HMAC_SHA1(), consumer, token)
         return request
+    
+    def auth_url(self):
+        """Return redirect url"""
+        token = self.unauthorized_token()
+        name = self.AUTH_BACKEND.name + 'unauthorized_token_name'
+        if not isinstance(self.request.session.get(name), list):
+            self.request.session[name] = []
+        self.request.session[name].append(token.to_string())
+        self.request.session.modified = True
+        return self.oauth_authorization_request(token).to_url()
+
+    def auth_complete(self, *args, **kwargs):
+        """Return user, might be logged in"""
+        # Multiple unauthorized tokens are supported (see #521)
+        name = self.AUTH_BACKEND.name + 'unauthorized_token_name'
+        token = None
+        verifier = self.request.GET.get("oauth_verifier") or None
+        unauthed_tokens = self.request.session.get(name) or []
+        if not unauthed_tokens:
+            raise AuthTokenError(self, 'Missing unauthorized token')
+        for unauthed_token in unauthed_tokens:
+            token = Token.from_string(unauthed_token)
+            if token.key == self.data.get('oauth_token', 'no-token'):
+                unauthed_tokens = list(set(unauthed_tokens) -
+                                       set([unauthed_token]))
+                self.request.session[name] = unauthed_tokens
+                self.request.session.modified = True
+                break
+        else:
+            raise AuthTokenError(self, 'Incorrect tokens')
+
+        try:
+            access_token = self.access_token(token ,verifier)
+        except HTTPError, e:
+            if e.code == 400:
+                raise AuthCanceled(self)
+            else:
+                raise
+        return self.do_auth(access_token, *args, **kwargs)
+
+    def do_auth(self, access_token, *args, **kwargs):
+        """Finish the auth process once the access_token was retrieved"""
+        if isinstance(access_token, basestring):
+            access_token = Token.from_string(access_token)
+
+        data = self.user_data(access_token)
+        if data is not None:
+            data['access_token'] = access_token.to_string()
+
+        kwargs.update({
+            'auth': self,
+            'response': data,
+            self.AUTH_BACKEND.name: True
+        })
+        return authenticate(*args, **kwargs)
+
+    def unauthorized_token(self):
+        """Return request for unauthorized token (first stage)"""
+        request = self.oauth_request(
+            token=None,
+            url=self.REQUEST_TOKEN_URL,
+            extra_params=self.request_token_extra_arguments()
+        )
+        return Token.from_string(request)
+
+    def oauth_authorization_request(self, token):
+        """Generate OAuth request to authorize token."""
+        params = self.auth_extra_arguments() or {}
+        params.update(self.get_scope_argument())
+        return OAuthRequest.from_token_and_callback(
+            token=token,
+            callback=self.redirect_uri,
+            http_url=self.AUTHORIZATION_URL,
+            parameters=params
+        )
+
+
+    def fetch_response(self, request):
+        """Executes request and fetchs service response"""
+        response = dsa_urlopen(request.to_url())
+        return '\n'.join(response.readlines())
+
+    """def access_token(self, token):
+        request = self.oauth_request(token, self.ACCESS_TOKEN_URL)
+        return Token.from_string(self.fetch_response(request))"""
+
+    @property
+    def consumer(self):
+        """Setups consumer"""
+        return OAuthConsumer(*self.get_key_and_secret())
 # Backend definition
 BACKENDS = {
     'fitbit': FitbitAuth,
