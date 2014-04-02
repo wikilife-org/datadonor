@@ -550,7 +550,6 @@ function drawEmotionsGraph(data, num, user_data) {
     var np = num - 1;
     var preffix = 'canvas_15_';
     var animatedPie = drawVariableCircle(params, num, preffix);
-    //cronicalGraphs[data.id] = animatedPie;
     emotionGraphs[data.id] = animatedPie;
     var selectedGraphs = [];
     for (var i in user_data) {
@@ -769,6 +768,8 @@ function setupAddEmotions(data) {
             //Envio los datos por POST y agrego la CARD
             $.post(_api_urls[_api_env].emotions_post, {
                 id_emotion: $('.select_stats.add_more_emo_1') .val()
+            }, function() {
+                doEmotionsSection();
             });
             addEmotionCard($('.select_stats.add_more_emo_1 option:selected') .text(), $('.select_stats.add_more_emo_2 option:selected') .text(), $('.select_stats.add_more_emo_1') .val());
             setTimeout(function () {
@@ -1495,6 +1496,7 @@ $(document) .ready(function () {
         deleteUserData(_api_urls[_api_env].emotions_delete, $(this) .parent() .attr('data-param'), id,function (result) {
             doEmotionsSection();
         });
+        $('li#emotion_id_' + id  + ' a.close_emotion_card').removeClass('sent');
         for (var i in emotionGraphs) {
             //console.log('looping emotion graphs: '+i);
             if (i == id) {
