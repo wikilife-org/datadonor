@@ -29,17 +29,28 @@ $(document) .ready(function () {
         //event.preventDefault();
     });
     // deslinkear red social
-    $('.nav_big_social a') .on('click', function () {
-        if ($(this) .parent() .hasClass('active')) {
-            $('#disconect_network') .fadeIn(function () {
-                $(this) .addClass('active');
+    $('.nav_big_social a') .on('click', function (event) {
+        event.preventDefault();
+        var href = $(this).attr("href");
+        console.log(href);
+        if ($(this) .parent().hasClass('active')) {
+            $('#disconect_network').fadeIn(function () {
+                $('#disconect_network').find('a.quit').click(function () {
+                    window.location = href;
+                })
+                $(this).addClass('active');
             });
         }
     });
-    $('#close_network') .on('click', function (event) {
+    $('a.keep').on('click', function (event) {
         event.preventDefault();
-        $('#disconect_network') .fadeOut();
-        $('#disconect_network') .removeClass('active');
+        $('#disconect_network').fadeOut();
+        $('#disconect_network').removeClass('active');
+    });
+    $('#close_network').on('click', function (event) {
+        event.preventDefault();
+        $('#disconect_network').fadeOut();
+        $('#disconect_network').removeClass('active');
     });
     // NAVEGACION
     // SECTOR FIXED NAV
