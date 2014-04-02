@@ -4971,3 +4971,7 @@ li.user_complain div.stat.right:hover img {
 ul#complains_top5 li {
 	cursor: pointer
 }
+
+ul.ui-autocomplete {
+    max-height: 12em;
+}

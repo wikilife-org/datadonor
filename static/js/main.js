@@ -863,7 +863,7 @@ function drawComplainGraph(params, num, preffix) {
 function createComplainsAutocompleter(data) {
     var complainOptions = '';
     for (var i in data) {
-        if (i == 5) break;
+        //if (i == 5) break;
         complainOptions += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
     }
     var selectElem = $('#select_complaints .add_container.general_add select.select_stats');
@@ -875,7 +875,6 @@ function createComplainsAutocompleter(data) {
         var id = selectElem.val();
         var name = $('#select_complaints .add_container.general_add select.select_stats option:selected') .text();
         addNewComplain(id, name, data);
-
         doComplaintsSection();
     });
 }
