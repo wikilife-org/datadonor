@@ -550,7 +550,6 @@ function drawEmotionsGraph(data, num, user_data) {
     var np = num - 1;
     var preffix = 'canvas_15_';
     var animatedPie = drawVariableCircle(params, num, preffix);
-    //cronicalGraphs[data.id] = animatedPie;
     emotionGraphs[data.id] = animatedPie;
     var selectedGraphs = [];
     for (var i in user_data) {
@@ -769,6 +768,8 @@ function setupAddEmotions(data) {
             //Envio los datos por POST y agrego la CARD
             $.post(_api_urls[_api_env].emotions_post, {
                 id_emotion: $('.select_stats.add_more_emo_1') .val()
+            }, function() {
+                doEmotionsSection();
             });
             addEmotionCard($('.select_stats.add_more_emo_1 option:selected') .text(), $('.select_stats.add_more_emo_2 option:selected') .text(), $('.select_stats.add_more_emo_1') .val());
             setTimeout(function () {
@@ -975,7 +976,7 @@ function drawBloodDrops(data, user_data) {
         content = '';
         content = $('#blood_template') .html();
         content = content.replace(/\[\[name\]\]/g, blood.name);
-        content = content.replace(/\[\[percentage\]\]/g, blood.percentage);
+        content = content.replace(/\[\[percentage\]\]/g, Math.round(blood.percentage));
         content = content.replace(/\[\[id\]\]/g, blood.id);
         content = content.replace(/\[\[height\]\]/g, 0);
         $('#chose_type') .append(content);
@@ -997,12 +998,12 @@ function drawBloodDrops(data, user_data) {
 function drawSleepGraph(data, data_user) {
     var maxValue = 0;
     for (var i in data.days) {
-        if (data.days[i].hours > maxValue) maxValue = data.days[i].hours;
+        maxValue = Math.max(data.days[i].hours, maxValue)
     }
     for (var i in data_user.days) {
-        if (data_user.days[i].hours > maxValue) maxValue = data_user.days[i].hours;
+        maxValue = Math.max(data_user.days[i].hours, maxValue)
     }
-    maxValue = Math.ceil(maxValue);
+    maxValue = Math.max(Math.ceil(maxValue), 12);
     var adapter = new SleepAdapter();
     var result = adapter.getParameters(data, data_user, 684, maxValue, [
         2,
@@ -1018,7 +1019,13 @@ function drawSleepGraph(data, data_user) {
         22,
         24
     ]);
-    //console.log(result);
+
+    // Replace zero values with 0.1, so we see a very tiny bar
+    var elements = result.elements;
+    $(elements).each(function (index, elem) {
+        elem.value = Math.max(0.1 / maxValue * 750, elem.value);
+    });
+
     var r_14_1 = Raphael('canvas_14_1', 1103, 767);
     doubleAxisParams2 = {
         axis: 'both',
@@ -1026,7 +1033,7 @@ function drawSleepGraph(data, data_user) {
         drawAxis: true,
         drawLabels: true,
         rotateBarLabels: false,
-        elements: result.elements,
+        elements: elements,
         xAxis: {
             length: 1103,
             'stroke-width': 2,
@@ -1495,6 +1502,7 @@ $(document) .ready(function () {
         deleteUserData(_api_urls[_api_env].emotions_delete, $(this) .parent() .attr('data-param'), id,function (result) {
             doEmotionsSection();
         });
+        $('li#emotion_id_' + id  + ' a.close_emotion_card').removeClass('sent');
         for (var i in emotionGraphs) {
             //console.log('looping emotion graphs: '+i);
             if (i == id) {
