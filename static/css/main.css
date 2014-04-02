@@ -4960,3 +4960,14 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 
 
+li.user_complain div.stat.right img {
+	opacity: 0.1;
+}
+
+li.user_complain div.stat.right:hover img {
+	opacity: 1
+}
+
+ul#complains_top5 li {
+	cursor: pointer
+}

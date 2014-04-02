@@ -914,7 +914,6 @@ function addNewComplain(id, name, data) {
             }
         }
         if (!repeated) {
-            console.log('adding complain');
             var content = $('#complain_template') .html();
             content = content.replace(/\[\[name\]\]/g, name);
             content = content.replace(/\[\[id\]\]/g, id);
@@ -928,7 +927,6 @@ function addNewComplain(id, name, data) {
                     break;
                 }
             }
-            console.log("complaint added");
 
             var adapter = new CronicalConditionsAdapter();
             var params = adapter.getParameters(itemData, '#E56666');
@@ -1387,14 +1385,6 @@ $(document) .ready(function () {
         $('#complains_adder_container') .removeClass('active');
         return false;
     });
-    $('.user_complain') .on('click', function () {
-        deleteUserComplain($(this) .attr('data-id'));
-        $('#complains_adder_container') .click();
-    });
-    $('#complains_top5 li') .on('click', function () {
-        addNewComplain($(this) .attr('data-id'), $(this) .attr('data-name'), complainsList
-        );
-    });
     $('#age_select_value') .jStepper({
         minValue: 0,
         maxValue: 60,
@@ -1455,7 +1445,11 @@ $(document) .ready(function () {
             }
         });
     });
-
+    $(document).on('click', '#complains_top5 li', function (event) {
+        addNewComplain($(this) .attr('data-id'), $(this) .attr('data-name'),
+                       complainsList);
+        doComplaintsSection();
+    });
     $(document).on('click', 'a.close_cronical_card', function (event) {
             event.preventDefault();
         $(this) .parent() .remove();
@@ -1481,6 +1475,13 @@ $(document) .ready(function () {
         }
         return false;
     });
+
+    $(document).on('click', 'li.user_complain div.stat.right img', function (event) {
+        var id = $(this).parents('li.user_complain').attr('data-id');
+        deleteUserComplain(id);
+        doComplaintsSection();
+    });
+
     $('.close_emotion_card') .on('click', function () {
         $(this) .parent() .remove();
         var id = $(this) .parent() .attr('data-id');
