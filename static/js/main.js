@@ -875,6 +875,27 @@ function createComplainsAutocompleter(data) {
         addNewComplain(id, name, data);
     });
 }
+
+function doComplaintsSection() {
+
+    console.log("REDRAWING ALL THE COMLPAINTS STUFF");
+
+    $('#select_complaints ul').empty();
+    addedComplains = [];
+
+    $.getJSON(_api_urls[_api_env].complains_user, function (user_data) {
+        $.getJSON(_api_urls[_api_env].complains_top5, function (data) {
+            for (var i in data) {
+                var num = parseInt(i) + 1;
+                drawComplainsTop5Item(data[i], num);
+            }
+        });
+        for (var j in user_data) {
+            addNewComplain(user_data[j].id, user_data[j].name, user_data);
+        }
+    });
+}
+
 // XXX: Never used???
 function addNewComplain(id, name, data) {
     //content = content.replace(/{{name}}/g, elem.attr('data-title'));
@@ -916,8 +937,10 @@ function addNewComplain(id, name, data) {
             //Start graph
             drawComplainGraph(params, id, preffix);
             $.post(_api_urls[_api_env].complains_post, {
-                id_complaint: id
-            });
+                    id_complaint: id
+                }, function (data) {
+                    doComplaintsSection();
+                });
             if (addedComplains.length == 5) {
                 $('#complains_adder_container') .hide();
             }
@@ -1018,11 +1041,13 @@ function drawSleepGraph(data, data_user) {
     $('#step_fourteen .bloq.right .number_stat h2') .html(pad(data_user.avg_hours, 2));
 }
 function drawGenomicsTraits(data, user_data) {
+    console.log("drawing genomics")
     $('#genomic_traits_container') .html('');
     var c = 0;
     itemsHtml = '';
     var finalData = [
     ];
+
     var first = true;
     for (var i in data) {
         var itemHtml = $('#genomics_traits_graph_template') .html();
@@ -1037,37 +1062,37 @@ function drawGenomicsTraits(data, user_data) {
             itemHtml = itemHtml.replace(/\[\[hint_style\]\]/g, 'display:none;');
         }
         if(user_data.length > 0){
-	        for (var j in user_data) {
-	            if (user_data[j].id == data[i].id) {
-	                if (user_data[j].value == data[i].values[0]) {
-	                    itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage);
-	                    itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[0].name);
-	                    itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage);
-	                    itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[1].name);
-	                    firstItem = {
-	                        percentage: data[i].values[0].percentage,
-	                        color: '#E56666'
-	                    };
-	                    secondItem = {
-	                        percentage: data[i].values[1].percentage,
-	                        color: '#7737C7'
-	                    };
-	                } else {
-	                    itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
-	                    itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
-	                    itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
-	                    itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
-	                    firstItem = {
-	                        percentage: data[i].values[0].percentage,
-	                        color: '#7737C7'
-	                    };
-	                    secondItem = {
-	                        percentage: data[i].values[1].percentage,
-	                        color: '#E56666'
-	                    };
-	                }
-	            }
-	        }
+          for (var j in user_data) {
+              if (user_data[j].id == data[i].id) {
+                  if (user_data[j].value == data[i].values[0]) {
+                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage);
+                      itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[0].name);
+                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage);
+                      itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[1].name);
+                      firstItem = {
+                          percentage: data[i].values[0].percentage,
+                          color: '#E56666'
+                      };
+                      secondItem = {
+                          percentage: data[i].values[1].percentage,
+                          color: '#7737C7'
+                      };
+                  } else {
+                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+                      itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
+                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+                      itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
+                      firstItem = {
+                          percentage: data[i].values[0].percentage,
+                          color: '#7737C7'
+                      };
+                      secondItem = {
+                          percentage: data[i].values[1].percentage,
+                          color: '#E56666'
+                      };
+                  }
+              }
+          }
         }else{
             itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
             itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
@@ -1100,6 +1125,16 @@ function drawGenomicsTraits(data, user_data) {
         }
         finalData.push(finalDataItem);
     }
+
+console.log("============")
+    if (user_data.length == 0) {
+        console.log("no user genomics data")
+        setTimeout(function () {
+            $('div#genomic_traits_container li > p > span').hide();
+        }, 10);
+    } else
+    console.log("user genomics data")
+
     $('#genomic_traits_container') .html(itemsHtml);
     //console.log('FINAL DATA ARRAY');
     //console.log(finalData);
@@ -1178,22 +1213,22 @@ function drawGenomicsDrugs(data, user_data) {
 }
 function drawGenomicsRisks(data, user_data) {
 
-	if (user_data.length > 0){
-		$('#step_nineteen .pages_container') .html('');
-	    for (var i in data) {
-	        itemHtml = $('#genomic_risks_item_template') .html();
-	        itemHtml = itemHtml.replace(/\[\[name\]\]/g, data[i].name);
-	        itemHtml = itemHtml.replace(/\[\[global_percent\]\]/g, data[i].percentage);
-	        for (var j in user_data) {
-	            if (data[i].id == user_data[j].id) {
-	                itemHtml = itemHtml.replace(/\[\[user_percent\]\]/g, user_data[j].percentage);
-	            }
-	        }
-	        $('#step_nineteen .pages_container') .append(itemHtml);
-	    }
-	}else{
-		$('#step_nineteen').hide();
-	}
+  if (user_data.length > 0){
+    $('#step_nineteen .pages_container') .html('');
+      for (var i in data) {
+          itemHtml = $('#genomic_risks_item_template') .html();
+          itemHtml = itemHtml.replace(/\[\[name\]\]/g, data[i].name);
+          itemHtml = itemHtml.replace(/\[\[global_percent\]\]/g, data[i].percentage);
+          for (var j in user_data) {
+              if (data[i].id == user_data[j].id) {
+                  itemHtml = itemHtml.replace(/\[\[user_percent\]\]/g, user_data[j].percentage);
+              }
+          }
+          $('#step_nineteen .pages_container') .append(itemHtml);
+      }
+  }else{
+    $('#step_nineteen').hide();
+  }
 
 
 
@@ -1228,7 +1263,9 @@ window.onload = function () {
     $.getJSON(_api_urls[_api_env].share, function (data) {
         drawShareGraphs(data);
     });
+    _api_urls[_api_env].education = 'http://datadonors.org/social/education/mock/';
     $.getJSON(_api_urls[_api_env].education, function (data) {
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
         drawEducationGraph(data);
     });
     $.getJSON(_api_urls[_api_env].work, function (data) {
@@ -1282,17 +1319,7 @@ window.onload = function () {
         cronicalsList = data;
         setupAddCronicals(data);
     });
-    $.getJSON(_api_urls[_api_env].complains_user, function (user_data) {
-        $.getJSON(_api_urls[_api_env].complains_top5, function (data) {
-            for (var i in data) {
-                var num = parseInt(i) + 1;
-                drawComplainsTop5Item(data[i], num);
-            }
-        });
-        for (var j in user_data) {
-            addNewComplain(user_data[j].id, user_data[j].name, user_data);
-        }
-    });
+    doComplaintsSection();
     $.getJSON(_api_urls[_api_env].complains_list, function (data) {
         complainsList = data;
         createComplainsAutocompleter(data);
@@ -1335,10 +1362,11 @@ window.onload = function () {
         });
     });
     $.getJSON(_api_urls[_api_env].genomics_traits, function (data) {
+        console.log("got genomics stuff");
         $.getJSON(_api_urls[_api_env].genomics_traits_user, function (user_data) {
             drawGenomicsTraits(data, user_data);
         });
-    });
+    }, function () { console.log("asdf"); });
     $.getJSON(_api_urls[_api_env].genomics_drugs, function (data) {
         $.getJSON(_api_urls[_api_env].genomics_drugs_user, function (user_data) {
             drawGenomicsDrugs(data, user_data);
