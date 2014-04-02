@@ -4975,3 +4975,18 @@ ul#complains_top5 li {
 ul.ui-autocomplete {
     max-height: 12em;
 }
+
+a.disabled, a.disabled * {
+  cursor: not-allowed !important;
+}
+
+ul.nav_big_social li img.disabled-ribbon {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	cursor: not-allowed !important;
+}
+
+ul.nav_big_social li {
+	position: relative;
+}

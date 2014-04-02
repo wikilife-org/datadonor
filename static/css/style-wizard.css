@@ -1624,3 +1624,13 @@ section#whatfor {
 a.learnmore {
 	font-size: 0.88em;
 }
+
+div.inner-redes a.circle {
+	position:relative;
+}
+
+div.inner-redes a.circle img {
+	position:absolute;
+	top: 0;
+	right: 0;
+}
