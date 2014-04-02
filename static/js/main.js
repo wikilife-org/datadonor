@@ -145,6 +145,7 @@ function drawEducationGraph(data) {
         drawReferences: false
     });
     animatedQuarterPie.draw();
+    $('ul#your_lvl_c li').removeClass('active');
     for (var i in elements) {
         $('li[ref=' + i + '] span.perc_number') .html(Math.round(elements[i].percentage));
         $('li[ref=' + i + '] a span') .html(elements[i].text);
@@ -874,12 +875,16 @@ function createComplainsAutocompleter(data) {
         var id = selectElem.val();
         var name = $('#select_complaints .add_container.general_add select.select_stats option:selected') .text();
         addNewComplain(id, name, data);
+
+        doComplaintsSection();
     });
 }
 
 function doComplaintsSection() {
+    $('#select_complaints ul li.user_complain').remove();
+    $('ul#complains_top5 li').remove();
 
-    console.log("REDRAWING ALL THE COMLPAINTS STUFF");
+    addedComplains = [];
 
     //$('#select_complaints ul').empty();
     addedComplains = [];
@@ -911,15 +916,11 @@ function addNewComplain(id, name, data) {
         if (!repeated) {
             console.log('adding complain');
             var content = $('#complain_template') .html();
-            //content = content.replace(/{{name}}/g, name);
-            //content = content.replace(/{{id}}/g, id);
             content = content.replace(/\[\[name\]\]/g, name);
             content = content.replace(/\[\[id\]\]/g, id);
-            //console.log(content);
             var ulElem = $('#select_complaints ul');
             ulElem.prepend(content);
-            var itemData = {
-            };
+            var itemData = {};
             for (var i in data) {
                 if (data[i].id == id) {
                     itemData = data[i];
@@ -927,8 +928,7 @@ function addNewComplain(id, name, data) {
                     break;
                 }
             }
-            //console.log('ITEM DATA');
-            ///console.log(itemData);
+            console.log("complaint added");
 
             var adapter = new CronicalConditionsAdapter();
             var params = adapter.getParameters(itemData, '#E56666');
@@ -1129,7 +1129,6 @@ function drawGenomicsTraits(data, user_data) {
 
 console.log("============")
     if (user_data.length == 0) {
-        console.log("no user genomics data")
         setTimeout(function () {
             $('div#genomic_traits_container li > p > span').hide();
         }, 10);
@@ -1403,7 +1402,6 @@ $(document) .ready(function () {
     });
     $('#your_lvl_c li') .click(function (event) {
         var pos = $(this) .attr('ref');
-        //line = animatedQuarterPie.lines[pos];
         for (var i in animatedQuarterPie.lines) {
             line = animatedQuarterPie.lines[i];
             if (pos == i) {
@@ -1411,7 +1409,6 @@ $(document) .ready(function () {
                     'stroke': '#E56666'
                 }, 500);
             } else {
-                //line.animate({"stroke": animatedQuarterPie.colors[i]}, 500);
                 line.animate({
                     'stroke': '#7737c7'
                 }, 500);
