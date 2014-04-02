@@ -83,7 +83,7 @@ def cronical_conditions_by_user(request):
         UserConditions.objects.get_or_create(user=request.user, condition_id=id_condition, type_id=id_type)
     if request.method == 'DELETE':
         id_condition =  int(request.GET["id_condition"])
-        condition = UserConditions.objects.get_or_create(user=request.user, condition_id=id_condition)
+        condition, created = UserConditions.objects.get_or_create(user=request.user, condition_id=id_condition)
         condition.delete()
     
     data = []
@@ -167,7 +167,7 @@ def complaints_by_user(request):
         UserComplaints.objects.get_or_create(user=request.user, complaint_id=id_complaint)
     if request.method == 'DELETE':
         id_complaint =  int(request.GET["id_complaint"])
-        complaint = UserComplaints.objects.get_or_create(user=request.user, complaint_id=id_complaint)
+        complaint, created = UserComplaints.objects.get_or_create(user=request.user, complaint_id=id_complaint)
         complaint.delete()
     
     data = []
@@ -324,7 +324,7 @@ def emotions_by_user(request):
         UserEmotions.objects.get_or_create(user=request.user, emotion_id=id_emotion)
     if request.method == 'DELETE':
         id_emotion =  int(request.GET["id_emotion"])
-        emotion = UserEmotions.objects.get_or_create(user=request.user, emotion_id=id_emotion)
+        emotion, created = UserEmotions.objects.get_or_create(user=request.user, emotion_id=id_emotion)
         emotion.delete()
     
     data = []
