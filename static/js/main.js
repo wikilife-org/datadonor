@@ -410,6 +410,7 @@ function drawNutrientProportionGraph(data) {
 }
 
 function doCronicalConditionsSection() {
+    cronicalGraphs = [];
     $.getJSON(_api_urls[_api_env].cronical_conditions_user, function (user_data) {
         $.getJSON(_api_urls[_api_env].cronical_conditions_top5, function (data) {
             for (var i in data) {
@@ -548,11 +549,10 @@ function drawEmotionsGraph(data, num, user_data) {
     var params = adapter.getParameters(data, '#7737c7');
     var np = num - 1;
     var preffix = 'canvas_15_';
-    animatedPie = drawVariableCircle(params, num, preffix);
+    var animatedPie = drawVariableCircle(params, num, preffix);
     //cronicalGraphs[data.id] = animatedPie;
     emotionGraphs[data.id] = animatedPie;
-    var selectedGraphs = [
-    ];
+    var selectedGraphs = [];
     for (var i in user_data) {
         //console.log('user emotion? '+data.id+' = '+user_data[i].id_emotion);
         if (data.id == user_data[i].id_emotion) {
@@ -592,7 +592,7 @@ function drawEmotionsGraph(data, num, user_data) {
     }, function (event) {
         event.preventDefault
         if (!$(this) .hasClass('sent')) {
-            //Send data... change color
+            // Send data... change color
             $.post(_api_urls[_api_env].emotions_post, {
                 id_emotion: event.data.id_emotion
             });
@@ -607,13 +607,16 @@ function drawEmotionsGraph(data, num, user_data) {
                 'fill': '#E56666'
             }, 500);
             $(this) .addClass('sent');
+            doEmotionsSection();
         }
     });
     $($('.emotion_container') [np]) .find('.face.back .select_stats') .html(cronicalTypes);
     $($('.emotion_container') [np]) .find('.face.back .select_stats') .combobox();
 }
 function drawVariableCircle(params, num, preffix) {
-    var r = Raphael(preffix + num, 310, 310);
+    var container = preffix + num;
+    $("#" + container).empty();
+    var r = Raphael(container, 310, 310);
     var animatedPie = new EdAnimatedPie(r, params, {
         animationTime: 900,
         easing: '<',
@@ -876,6 +879,18 @@ function createComplainsAutocompleter(data) {
         var name = $('#select_complaints .add_container.general_add select.select_stats option:selected') .text();
         addNewComplain(id, name, data);
         doComplaintsSection();
+    });
+}
+
+function doEmotionsSection() {
+    var emotionGraphs = [];
+    $.getJSON(_api_urls[_api_env].emotions_user, function (user_data) {
+        $.getJSON(_api_urls[_api_env].emotions_top5, function (data) {
+            for (var i in data) {
+                var num = parseInt(i) + 1;
+                drawEmotionsGraph(data[i], num, user_data);
+            }
+        });
     });
 }
 
@@ -1332,14 +1347,7 @@ window.onload = function () {
             drawSleepGraph(data, data_user);
         });
     });
-    $.getJSON(_api_urls[_api_env].emotions_user, function (user_data) {
-        $.getJSON(_api_urls[_api_env].emotions_top5, function (data) {
-            for (var i in data) {
-                var num = parseInt(i) + 1;
-                drawEmotionsGraph(data[i], num, user_data);
-            }
-        });
-    });
+    doEmotionsSection();
     $.getJSON(_api_urls[_api_env].emotions_list, function (data) {
         emotionsList = data;
         setupAddEmotions(data);
@@ -1481,11 +1489,11 @@ $(document) .ready(function () {
         doComplaintsSection();
     });
 
-    $('.close_emotion_card') .on('click', function () {
+    $(document).on('click', 'a.close_emotion_card', function (event) {
         $(this) .parent() .remove();
         var id = $(this) .parent() .attr('data-id');
-        //console.log('DELETING EMOTION ID: '+id);
-        deleteUserData(_api_urls[_api_env].emotions_delete, $(this) .parent() .attr('data-param'), id, function (result) {
+        deleteUserData(_api_urls[_api_env].emotions_delete, $(this) .parent() .attr('data-param'), id,function (result) {
+            doEmotionsSection();
         });
         for (var i in emotionGraphs) {
             //console.log('looping emotion graphs: '+i);
