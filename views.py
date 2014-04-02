@@ -57,7 +57,7 @@ def home(request):
     videos = request.GET.get('videos', None)
     ctx =  {'version': version}
     if request.user.is_authenticated():
-        refresh_user_data(request.user)
+        #refresh_user_data(request.user)
         ctx = {
             'user': request.user,
             #'user_social':request.user.social_aggregated_data.social_reach(),
