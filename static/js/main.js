@@ -998,12 +998,12 @@ function drawBloodDrops(data, user_data) {
 function drawSleepGraph(data, data_user) {
     var maxValue = 0;
     for (var i in data.days) {
-        if (data.days[i].hours > maxValue) maxValue = data.days[i].hours;
+        maxValue = Math.max(data.days[i].hours, maxValue)
     }
     for (var i in data_user.days) {
-        if (data_user.days[i].hours > maxValue) maxValue = data_user.days[i].hours;
+        maxValue = Math.max(data_user.days[i].hours, maxValue)
     }
-    maxValue = Math.ceil(maxValue);
+    maxValue = Math.max(Math.ceil(maxValue), 12);
     var adapter = new SleepAdapter();
     var result = adapter.getParameters(data, data_user, 684, maxValue, [
         2,
@@ -1019,7 +1019,13 @@ function drawSleepGraph(data, data_user) {
         22,
         24
     ]);
-    //console.log(result);
+
+    // Replace zero values with 0.1, so we see a very tiny bar
+    var elements = result.elements;
+    $(elements).each(function (index, elem) {
+        elem.value = Math.max(0.1 / maxValue * 750, elem.value);
+    });
+
     var r_14_1 = Raphael('canvas_14_1', 1103, 767);
     doubleAxisParams2 = {
         axis: 'both',
@@ -1027,7 +1033,7 @@ function drawSleepGraph(data, data_user) {
         drawAxis: true,
         drawLabels: true,
         rotateBarLabels: false,
-        elements: result.elements,
+        elements: elements,
         xAxis: {
             length: 1103,
             'stroke-width': 2,
