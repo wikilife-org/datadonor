@@ -1,45 +1,46 @@
     <section id="home" class="scrollsections">
-    
-	                            
+
+
         <div class="wrapper section-top" id="header-top">
         	<a href="#" class="close-video" onClick="close_video(); return false;"></a>
             <div class="video-1">
                 <h2>WATCH HOW WE COULD ALL SAVE LIVES</h2>
        			<a href="#" id="video-01" onClick="playPause(); return false;" class="watch-video" >Watch video</a>
+                <a href="#" id="video-02" onClick="playPause(2); return false;" class="watch-video2" >How it works</a>
             </div>
-            
+
             <a href="#" class="pause" onClick="playPause(); return false;"></a>
           	<div class="flexslider">
           	{% if not videos %}
                 <ul class="slides">
-                
+
 	                <li>
                         <div class="capa"></div>
-                        
+
                         <video width="640" id="video-back-0" class="vidback-0 videoback" preload="auto" muted loop autoplay>
                             <source src="http://static.wikilife.org/blur.webm" type='video/webm'>
                             <source src="http://static.wikilife.org/blur.ogv" type="video/ogg">
                             <source src="http://static.wikilife.org/blur.mp4" type="video/mp4">
- 
+
                         </video>
-                        
+
                         <video width="640" id="video-top" class="vid-0" preload="auto" >
                             <source src="http://static.wikilife.org/DataDonors.m4v" type='video/mp4;'>
                             <source src="http://static.wikilife.org/DataDonors.webmhd.webm" type='video/webm; codecs="vp8.0, vorbis"'>
                             <source src="http://static.wikilife.org/DataDonors.ogv" type='video/ogg; codecs="theora, vorbis"'>
                         </video>
 
-                   </li>     
+                   </li>
 
 				</ul>
                 {% endif %}
             </div>
-        
+
         	<div class="box-scroll">
-            	
+
             	<span>Scroll</span>
                 <div class="tip"></div>
             </div>
-        
-        </div>    
+
+        </div>
     </section>
