@@ -976,7 +976,7 @@ function drawBloodDrops(data, user_data) {
         content = '';
         content = $('#blood_template') .html();
         content = content.replace(/\[\[name\]\]/g, blood.name);
-        content = content.replace(/\[\[percentage\]\]/g, blood.percentage);
+        content = content.replace(/\[\[percentage\]\]/g, Math.round(blood.percentage));
         content = content.replace(/\[\[id\]\]/g, blood.id);
         content = content.replace(/\[\[height\]\]/g, 0);
         $('#chose_type') .append(content);
