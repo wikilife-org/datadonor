@@ -30,3 +30,7 @@ div.nutrient_data div.graph_html > div.label {
   top: -14px;
   width: 42px;
 }
+
+.hidden {
+  display: none;
+}

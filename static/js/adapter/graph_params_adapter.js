@@ -465,12 +465,17 @@ WorkAdapter = function(){
 
 MilesAdapter = function(){
 
-  this.getParameters = function(json, totalHeight, maxValue, yLabelsValues){
+  this.getParameters = function(json, totalHeight, maxValue, yLabelAmount){
 
     var elements = [];
     var xLabels = [];
     var yLabels = [];
     result = {};
+
+    yLabelsValues = [];
+    var yStep = maxValue / yLabelAmount;
+    for (var i = 0; i <= yLabelAmount; i++)
+      yLabelsValues.push(Math.floor(yStep * i));
 
     var ordered = [];
     ordered.push([json.days.sunday,'Sunday']);
@@ -480,11 +485,6 @@ MilesAdapter = function(){
     ordered.push([json.days.thursday,'Thursday']);
     ordered.push([json.days.friday,'Friday']);
     ordered.push([json.days.saturday,'Saturday']);
-
-//    elements = this.addElements(json, totalHeight, maxValue);
-//    elements = this.addElements(json, totalHeight, maxValue);
-//    yLabels = this.getYLabels(json, totalHeight, maxValue, yLabelsValues);
-//    xLabels = this.getXLabels(json);
 
     elements = this.addElements(ordered, totalHeight, maxValue);
     yLabels = this.getYLabels(ordered, json, totalHeight, maxValue, yLabelsValues);
@@ -537,7 +537,7 @@ MilesAdapter = function(){
   this.getYLabels = function(json, orig_json, totalHeight, maxValue, yLabels){
     //console.log(yLabels);
     var labels = [];
-    var currentY = 10;
+    var currentY = 0;
 
     var gloabalAvgLabel = {
       pos: this.getValueHeight(orig_json.global_avg_miles, totalHeight, maxValue),
@@ -561,24 +561,38 @@ MilesAdapter = function(){
     }
     labels.push(userAvgLabel);
 
-    //for(var i = 0; i < 6; i++){
-    //for(var i in yLabels){
-    while(currentY <= maxValue){
+    that = this;
+    $(yLabels).each(function (index, elem) {
+      var pos = that.getValueHeight(elem, totalHeight, maxValue);
       var label = {
-        pos: this.getValueHeight(currentY, totalHeight, maxValue),
-        text: '',
+        pos: pos,
+        text : Math.round(elem).toString(),
         width: 1090,
         type: 'dotted',
         "stroke-width": 3,
         color: '#ADB6BF',
         "text-color": "#ADB6BF"
       }
+      if (index == 0) label.text = '';
+      if (index < yLabels.length - 2) labels.push(label);
 
-      if($.inArray(currentY, yLabels) != '-1') label.text = currentY.toString();
-
-      labels.push(label);
-      currentY = currentY + 10;
-    }
+      if (index > 0) {
+        var yValue = (elem + yLabels[index - 1]);
+        console.log("yValue " + yValue)
+        pos = that.getValueHeight(yValue / 2, totalHeight, maxValue);
+        console.log(pos);
+        var lineBelow = {
+          pos: pos,
+          text: '',
+          width: 1090,
+          type: 'dotted',
+          "stroke-width": 3,
+          color: '#ADB6BF',
+          "text-color": "#ADB6BF"
+        }
+        labels.push(lineBelow);
+      }
+    });
 
     return labels;
   }
@@ -597,12 +611,17 @@ MilesAdapter = function(){
 
 HoursAdapter = function(){
 
-  this.getParameters = function(json, totalHeight, maxValue, yLabelsValues){
+  this.getParameters = function(json, totalHeight, maxValue, yLabelAmount){
 
     var elements = [];
     var xLabels = [];
     var yLabels = [];
     result = {};
+
+    yLabelsValues = [];
+    var yStep = maxValue / yLabelAmount;
+    for (var i = 0; i <= yLabelAmount; i++)
+      yLabelsValues.push(Math.floor(yStep * i));
 
     var ordered = [];
     ordered.push([json.days.sunday,'Sunday']);
@@ -664,7 +683,7 @@ HoursAdapter = function(){
   this.getYLabels = function(json, orig_json, totalHeight, maxValue, yLabels){
     //console.log(yLabels);
     var labels = [];
-    var currentY = 1;
+    var currentY = 0;
 
     var gloabalAvgLabel = {
       pos: this.getValueHeight(orig_json.global_avg_hours, totalHeight, maxValue),
@@ -688,25 +707,38 @@ HoursAdapter = function(){
     }
     labels.push(userAvgLabel);
 
-    //for(var i = 0; i < 6; i++){
-    //for(var i in yLabels){
-    while(currentY <= maxValue){
-      console.log('CURRENT Y HOURS '+currentY+' - '+maxValue);
+    that = this;
+    $(yLabels).each(function (index, elem) {
+      var pos = that.getValueHeight(elem, totalHeight, maxValue);
       var label = {
-        pos: this.getValueHeight(currentY, totalHeight, maxValue),
-        text: '',
+        pos: pos,
+        text : Math.round(elem).toString(),
         width: 1090,
         type: 'dotted',
         "stroke-width": 3,
         color: '#ADB6BF',
         "text-color": "#ADB6BF"
       }
+      if (index == 0) label.text = '';
+      if (index < yLabels.length - 2) labels.push(label);
 
-      if($.inArray(currentY, yLabels) != '-1') label.text = currentY.toString();
-
-      labels.push(label);
-      currentY = currentY + 1;
-    }
+      if (index > 0) {
+        var yValue = (elem + yLabels[index - 1]);
+        console.log("yValue " + yValue)
+        pos = that.getValueHeight(yValue / 2, totalHeight, maxValue);
+        console.log(pos);
+        var lineBelow = {
+          pos: pos,
+          text: '',
+          width: 1090,
+          type: 'dotted',
+          "stroke-width": 3,
+          color: '#ADB6BF',
+          "text-color": "#ADB6BF"
+        }
+        labels.push(lineBelow);
+      }
+    });
 
     return labels;
   }
