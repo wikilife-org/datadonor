@@ -45,6 +45,7 @@ def complete(request, backend, *args, **kwargs):
             return associate_complete(request, backend, *args, **kwargs)
         else:
             return complete_process(request, backend, *args, **kwargs)
+        
     except (AuthCanceled, AuthFailed):
         request.session["association"] = Associantion()
             

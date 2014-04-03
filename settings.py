@@ -201,7 +201,6 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.load_extra_data',
     'social_auth.backends.pipeline.user.update_user_details',
     'pipeline.auth.first_name',
-    'pipeline.auth.social_aggretated_data',
 
     'pipeline.facebook.facebook_info',
     'pipeline.foursquare.foursquare_info',
