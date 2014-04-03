@@ -64,8 +64,10 @@ def complete(request, backend, *args, **kwargs):
             return HttpResponseRedirect('/')
     except LoginException:
         #Add Message to User
+        request.session["login_error"] = True
         if "login_process" in request.session:
             del request.session["login_process"]
+        request.session.modified = True
         return HttpResponseRedirect('/')
 
 
