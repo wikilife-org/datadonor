@@ -180,7 +180,10 @@ def complete_process(request, backend, *args, **kwargs):
             # account, send him to the new-users-page if defined.
             new_user_redirect = backend_setting(backend,
                                            'SOCIAL_AUTH_NEW_USER_REDIRECT_URL')
-            if new_user_redirect and is_new:
+            if request.session.get("wizard_mode", False):
+                url = "/wizard/"
+            
+            elif new_user_redirect and is_new:
                 url = new_user_redirect
             else:
                 url = redirect_value or \

@@ -87,6 +87,7 @@ def dashboard(request):
 
 def end_wizard(request):
     request.session["wizard_mode"] = False
+    request.session.modified = True
     return HttpResponseRedirect('/')
 
 def error(request):
@@ -113,5 +114,6 @@ def iagree(request):
     if request.method == 'POST':
         request.session["user_agree"] = True
         request.session["wizard_mode"] = True
+        request.session.modified = True
         return HttpResponse(simplejson.dumps({}), mimetype="application/json")
     return HttpResponseRedirect('/wizard/')
