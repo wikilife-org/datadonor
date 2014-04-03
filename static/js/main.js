@@ -332,9 +332,11 @@ function drawMilesGraph(data) {
 function drawHoursGraph(data) {
     var maxValue = 0;
     for (var i in data.days) {
-        if (data.days[i].global_hours > maxValue) maxValue = data.days[i].global_hours;
-        if (data.days[i].user_hours > maxValue) maxValue = data.days[i].user_hours;
+        maxValue = Math.max(data.days[i].global_hours, maxValue);
+        maxValue = Math.max(data.days[i].user_hours, maxValue);
     }
+    maxValue = Math.max(Math.ceil(maxValue), 10);
+
     var adapter = new HoursAdapter();
     var result = adapter.getParameters(data, 340, maxValue, [
         1,
