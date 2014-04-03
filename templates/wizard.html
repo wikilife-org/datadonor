@@ -1,10 +1,4 @@
 {% extends "base.html"%}
-{% debug %}
-{% comment %}
-<?php
-if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 8.0') !== FALSE){ header('Location: http://www.browsehappy.com/');}
-?>
-{% endcomment %}
 
 
 {% block meta %}
@@ -34,10 +28,16 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 <link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)" href="/static/css/ipad-h-wizard.css" />
 <link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)" href="/static/css/ipad-v-wizard.css" />
 <link rel="stylesheet" href="/static/css/jquery.scrollSections-wizard.css">
+<link rel="stylesheet" href="/static/css/login.css" />
 {% endblock %}
 
+
+
+
 {% block scripts %}
+<script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
 <script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
+
 <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -47,7 +47,6 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 {% block content %}
 <body>
 
-{% include "header.include.html" %}
 
 <section id="disclaimer" class="scrollsections">
 
@@ -59,14 +58,30 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') !== FALSE || strpos($_SERVER
 {% include 'wizard_inc/what-for.html' %}
 </section>
 
-      <script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
-      <script src="/static/js/plugins.js"></script>
-      <script src="/static/js/jquery.scrollSections.js"></script>
-      <script src="/static/js/flexcroll.js" ></script>
-      <script src="/static/js/flexslider.js" ></script>
-      <script src="/static/js/script-wizard.js" ></script>
-      <script src="/static/js/wizard.js" ></script>
+<script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
 
+<script src="/static/js/plugins.js"></script>
+<script src="/static/js/jquery.scrollSections.js"></script>
+<script src="/static/js/flexcroll.js" ></script>
+<script src="/static/js/flexslider.js" ></script>
+<script src="/static/js/script-wizard.js" ></script>
+<script src="/static/js/wizard.js" ></script>
+
+<script>
+  $(function() {
+    $('a#gender').on('click', function(event) {
+      event.preventDefault();
+          var href = $(this).attr("href");
+              $.get(href, function () {
+                  window.location= "/end-wizard/";
+              });
+
+      });
+    });
+
+</script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -92,6 +107,10 @@ $(document).ready(function(){
         go_to_slide(4);
 });
 </script>
+
+
+{% include "popups/gender.include.html" %}
+{% include "header.include.html" %}
 
 </body>
 {% endblock %}

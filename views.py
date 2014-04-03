@@ -24,7 +24,10 @@ def wizard(request):
     show_wizard =  request.user.is_authenticated() or request.session.get("user_agree", False)
     if request.user.is_authenticated() and not request.session.get("wizard_mode", False):
         return HttpResponseRedirect('/')
-    return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
+    ctx = {'version': version, 'show_wizard':show_wizard, 'agent':agent}
+    if request.user.is_authenticated() and (request.user.profile.gender == None or request.user.profile.gender == "") :
+        ctx["no_gender"] = True
+    return render_to_response('wizard.html',ctx ,
                                   RequestContext(request))
 
 def terms(request):

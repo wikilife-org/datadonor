@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^education/mock/', social_education_mock, name='education_mock'),
     url(r'^work/mock/', social_work_mock, name='work_mock'),
 
-
+    url(r'^user/gender/(?P<gender>.+)/', user_gender, name='gender'),
     url(r'^reach/', social_reach, name='reach'),
     url(r'^sharing/', social_sharing, name='sharing'),
     url(r'^education/', social_education, name='education'),

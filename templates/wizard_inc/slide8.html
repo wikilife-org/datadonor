@@ -1,3 +1,4 @@
+
 <div id="slide-8" class="slide" >
 
 <!-- <h2>How does it work?</h2> -->    
@@ -20,7 +21,7 @@
     <div class="cont-next">
     
 	    <a href="#" class="back" title="Back">Back</a>
-	    <a href="/end-wizard/" class="done" title="done">Done!</a>
+	    <a href="{% if no_gender %}#{% else%}/end-wizard/{%endif%}" class="done" {% if no_gender %}data-reveal-id="gender_container"{% endif %} title="done">Done!</a>
 
     
     </div><!-- .cont-next -->

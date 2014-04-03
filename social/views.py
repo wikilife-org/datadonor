@@ -13,6 +13,11 @@ from social.services.utilities import *
 from social.models import GlobalWorkExperinceDistribution
 
 
+def user_gender(request, gender):
+    request.user.profile.gender = gender
+    request.user.profile.save()
+    return HttpResponse(simplejson.dumps("ok"), mimetype="application/json")
+
 def social_reach(request):
     user_data = request.user.social_aggregated_data.social_reach()
     global_data = global_social_reach()
