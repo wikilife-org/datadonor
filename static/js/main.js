@@ -392,10 +392,6 @@ function drawNutrientProportionGraph(data) {
         var user_percent = data.user_data[data_keys[i]].percentage;
         var global_percent = data.global_data[data_keys[i]].percentage;
 
-        user_percent = 66;
-        global_percent = 50;
-
-
         var userColor = user_colors[i];
         var globalColor = global_colors[i];
         var userWidth = (user_percent * 350) / 100;
@@ -1289,7 +1285,6 @@ window.onload = function () {
     $.getJSON(_api_urls[_api_env].share, function (data) {
         drawShareGraphs(data);
     });
-    _api_urls[_api_env].education = 'http://datadonors.org/social/education/mock/';
     $.getJSON(_api_urls[_api_env].education, function (data) {
         console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
         drawEducationGraph(data);
