@@ -55,7 +55,7 @@ FITBIT_ACCESS_TOKEN_URL = '%s/oauth/access_token' % FITBIT_SERVER
 FITBIT_USERINFO = 'http://api.fitbit.com/1/user/-/profile.json'
 
 
-class FitbitBackend(OAuthBackend):
+class FitbitBackend(OAuthBackend, PhysicalBackend):
     """Fitbit OAuth authentication backend"""
     name = 'fitbit'
     # Default extra data to store

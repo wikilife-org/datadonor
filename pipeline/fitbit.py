@@ -9,8 +9,8 @@ def fitbit_info(request, *args, **kwargs):
     if backend.name == "fitbit":
         data = kwargs.get('response')
         dd_user_id = request.user.id
-        runkeeper_service = PhysicalServiceLocator.get_instane().get_service_by_name("fitbit")
-        runkeeper_service.pull_user_info(dd_user_id, {"access_token": data["access_token"]})
+        fitbit_service = PhysicalServiceLocator.get_instane().get_service_by_name("fitbit")
+        fitbit_service.pull_user_info(dd_user_id, {"access_token": data["access_token"]})
 
     
 def get_user_profile(backend, access_token, fitbit_id):

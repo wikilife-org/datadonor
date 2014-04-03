@@ -37,8 +37,10 @@ MILES_TO_STEPS = 2300
 class FitbitService(BaseDeviceService):
 
     _profile_source = "fitbit"
-
     def pull_user_info(self, user_id, user_auth):
+        pass
+    
+    def pull_user_info_(self, user_id, user_auth):
         client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
         profile = client.get_user_profile()
         profile_items = {}

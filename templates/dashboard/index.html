@@ -842,11 +842,11 @@
 
           {% if "fitbit" in social_auth.physical.associated %}
           <li class="active">
-            <a href="javascript:void(0)" class="fitbit" >fitbit</a>
+            <a href="{% url "socialauth_disconnect" "fitbit" %}" class="fitbit" >fitbit</a>
           </li>
           {% else %}
           <li>
-            <a href="javascript:void(0)"  class="fitbit" >fitbit</a>
+            <a href="{% url "socialauth_begin" "fitbit" %}"  class="fitbit" >fitbit</a>
           </li>
           {% endif%}
 
@@ -1943,10 +1943,18 @@
             <li><a href="{% url "socialauth_begin" "jawbone" %}"  class="jewbone" >jawbone</a>
             {% endif%}
             <li>
-              <a href="ajax:/health/mood/activate/mood_panda/" class="moodpanda">moodpanda</a></li>
-            <li>
-              <a href="javascript:void(0)" class="fitbit">fitbit</a></li>
-            <li>
+              <a href="ajax:/health/mood/activate/mood_panda/" class="moodpanda">moodpanda</a>
+             </li>
+	          {% if "fitbit" in social_auth.physical.associated %}
+	          <li class="active">
+	            <a href="{% url "socialauth_disconnect" "fitbit" %}" class="fitbit" >fitbit</a>
+	          </li>
+	          {% else %}
+	          <li>
+	            <a href="{% url "socialauth_begin" "fitbit" %}"  class="fitbit" >fitbit</a>
+	          </li>
+	          {% endif%}
+	          <li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
               <a href="javascript:void(0)" class="ihealth disabled">ihealth</a></li>
             <li>

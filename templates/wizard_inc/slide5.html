@@ -41,12 +41,18 @@
 				<a href="{% url "socialauth_begin" "runkeeper" %}" class="circle runkeeper"  title="runkeeper" ><span>Runkeeper</span></a>
 				{% endif%}
                 <!--  a href="#" class="circle runkeeper" title="Runkeeper" ><span>Runkeeper</span></a-->
-
+             	
+             	{% if "fitbit" in social_auth.physical.associated %}
+				<a href="{% url "socialauth_disconnect" "fitbit" %}"class="circle fitbit checked"  title="fitbit" ><span>Fitbit</span></a>
+				{% else %}
+				<a href="{% url "socialauth_begin" "fitbit" %}" class="circle fitbit"  title="fitbit" ><span>Fitbit</span></a>
+				{% endif%}
+                
                 <a href="javascript:void(0)" class="circle nike disabled" title="Nike+" >
                     <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
                     <span>Nike+</span>
                 </a>
-                <a href="javascript:void(0)" class="circle fitbit" title="Fitbit" ><span>Fitbit</span></a>
+                
                 <a href="javascript:void(0)" class="circle myfitness" title="Myfitness" ><span>myfitnesspal</span></a>
                 <a href="javascript:void(0)" class="circle iHealth disabled" title="iHealth" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>iHealth</span></a>
             </div><!-- .inner-redes -->
