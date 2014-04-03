@@ -72,6 +72,7 @@ def home(request):
     if request.session.get("login_error", False):
         context["login_error"] = True
         del request.session["login_error"]
+        request.session.modified = True
         
     return render_to_response('landing.html', context,
                                   RequestContext(request))
