@@ -830,9 +830,11 @@
           {% endif%}
 
           {% if "nike" in social_auth.physical.associated %}
-          <li class="active"><a href="javascript:void(0)" class="nike" >nike</a></li>
+          <li class="active"><a href="javascript:void(0)" class="nike disabled" >nike</a></li>
           {% else %}
-          <li><a href="javascript:void(0)"  class="nike" >nike</a>
+          <li>
+            <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+            <a href="javascript:void(0)"  class="nike" >nike</a>
           {% endif%}
 
           {% if "fitbit" in social_auth.physical.associated %}
@@ -848,9 +850,10 @@
           {% endif%}
 
           {% if "ihealth" in social_auth.physical.associated %}
-          <li class="active"><a href="javascript:void(0)" class="ihealth" >ihealth</a></li>
+          <li class="active"><a href="javascript:void(0)" class="ihealth disabled" >ihealth</a></li>
           {% else %}
-          <li><a href="javascript:void(0)"  class="ihealth" >ihealth</a>
+          <li>
+          <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><a href="javascript:void(0)"  class="ihealth disabled" >ihealth</a>
           {% endif%}
           </ul>
           <!--/social_networks-->
@@ -1214,8 +1217,12 @@
           <li><a href="{% url "socialauth_begin" "fatsecret" %}"  class="fatsecret" >Fatsecret</a>
           {% endif%}
 
-            <li><a href="javascript:void(0)" class="wikilife">wikilife</a></li>
-              <li><a href="javascript:void(0)" class="withings">withings</a></li>
+          <li>
+            <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+            <a href="javascript:void(0)" class="wikilife disabled">wikilife</a></li>
+          <li>
+            <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+            <a href="javascript:void(0)" class="withings disabled">withings</a></li>
           </ul>
           <!--/social_networks-->
         </div>
@@ -1924,12 +1931,20 @@
             {% else %}
             <li><a href="{% url "socialauth_begin" "jawbone" %}"  class="jewbone" >jawbone</a>
             {% endif%}
-            <li><a href="javascript:void(0)" class="moodpanda">moodpanda</a></li>
-            <li><a href="javascript:void(0)" class="fitbit">fitbit</a></li>
-
-              <li><a href="javascript:void(0)" class="ihealth">ihealth</a></li>
-              <li><a href="javascript:void(0)" class="withings">withings</a></li>
-               <li><a href="javascript:void(0)" class="wikilife">wikilife</a></li>
+            <li>
+              <a href="ajax:/health/mood/activate/mood_panda/" class="moodpanda">moodpanda</a></li>
+            <li>
+              <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+              <a href="javascript:void(0)" class="fitbit">fitbit</a></li>
+            <li>
+              <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+              <a href="javascript:void(0)" class="ihealth disabled">ihealth</a></li>
+            <li>
+              <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+              <a href="javascript:void(0)" class="withings disabled">withings</a></li>
+            <li>
+              <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+              <a href="javascript:void(0)" class="wikilife disabled">wikilife</a></li>
           </ul>
           <!--/social_networks-->
         </div>

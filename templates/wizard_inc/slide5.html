@@ -1,8 +1,8 @@
 <div id="slide-5" class="slide" >
 
-<!-- <h2>How does it work?</h2> -->    
+<!-- <h2>How does it work?</h2> -->
     <h3><br />LINK YOUR FITNESS TRACKERS</h3>
-    
+
     <h4>
         Remember, your identity is protected and information is always shared anonymously. <a href="#" class="learnmore">Learn more</a>
     </h4>
@@ -16,10 +16,10 @@
 				<a href="{% url "socialauth_disconnect" "jawbone" %}"class="circle jawbone checked"  title="Jawbone" ><span>Jawbone</span></a>
 				{% else %}
 				<a href="{% url "socialauth_begin" "jawbone" %}" class="circle jawbone"  title="Jawbone" ><span>Jawbone</span></a>
-				{% endif%} 	
+				{% endif%}
              	<!-- a href="#" class="circle jawbone" title="Jawbone" ><span>Jawbone</span></a-->
-     
-             	
+
+
              	{% if "bodymedia" in social_auth.physical.associated %}
 				<a href="{% url "socialauth_disconnect" "bodymedia" %}"class="circle bodymedia checked"  title="Body Media" ><span>Body Media</span></a>
 				{% else %}
@@ -32,31 +32,34 @@
 				{% else %}
 				<a href="{% url "socialauth_begin" "dailymile" %}" class="circle dailymile"  title="Dailymile" ><span>Dailymile</span></a>
 				{% endif%}
-                
+
                 <!-- a href="#" class="circle dailymile" title="Dailymile" ><span>Dailymile</span></a-->
-                
+
              	{% if "runkeeper" in social_auth.physical.associated %}
 				<a href="{% url "socialauth_disconnect" "runkeeper" %}"class="circle runkeeper checked"  title="runkeeper" ><span>Runkeeper</span></a>
 				{% else %}
 				<a href="{% url "socialauth_begin" "runkeeper" %}" class="circle runkeeper"  title="runkeeper" ><span>Runkeeper</span></a>
 				{% endif%}
                 <!--  a href="#" class="circle runkeeper" title="Runkeeper" ><span>Runkeeper</span></a-->
-                
-                <a href="javascript:void(0)" class="circle nike" title="Nike+" ><span>Nike+</span></a>
+
+                <a href="javascript:void(0)" class="circle nike disabled" title="Nike+" >
+                    <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+                    <span>Nike+</span>
+                </a>
                 <a href="javascript:void(0)" class="circle fitbit" title="Fitbit" ><span>Fitbit</span></a>
                 <a href="javascript:void(0)" class="circle myfitness" title="Myfitness" ><span>myfitnesspal</span></a>
-                <a href="javascript:void(0)" class="circle iHealth" title="iHealth" ><span>iHealth</span></a>
+                <a href="javascript:void(0)" class="circle iHealth disabled" title="iHealth" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>iHealth</span></a>
             </div><!-- .inner-redes -->
         </div>
         <a href="#" id="redes-inner-right"><img src="/static/img/right.png" class="right"></a>
     </div>
-    
+
     <div class="cont-next">
-    
+
     	<a href="#" class="back" title="Back">Back</a>
-    
+
     	<a href="#" class="next" title="next" >Next</a>
-    
+
     </div><!-- .cont-next -->
-    
+
 </div><!-- .slide-5 -->
