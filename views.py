@@ -8,7 +8,7 @@ from social_auth import __version__ as version
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
-from utils.user_linked_data import refresh_user_data
+from user_linked_data import refresh_user_data
 
 
 def comming(request):

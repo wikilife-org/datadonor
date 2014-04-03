@@ -1,3 +1,4 @@
+# coding=utf-8
 
 from social.util.social_service_locator import SocialServiceLocator
 from physical.util.physical_service_locator import PhysicalServiceLocator
@@ -15,6 +16,7 @@ def refresh_user_data(user):
     backends = get_backends()
     for item in items:
         try:
+            print "Getting user info"
             backend = backends[key(item.provider)]
             
             if issubclass(backend, SocialBackend):
