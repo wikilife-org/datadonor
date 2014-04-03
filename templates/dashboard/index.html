@@ -830,23 +830,34 @@
           {% endif%}
 
           {% if "nike" in social_auth.physical.associated %}
-          <li class="active"><a href="javascript:void(0)" class="nike disabled" >nike</a></li>
+          <li class="active">
+            <a href="javascript:void(0)" class="nike disabled" >nike</a>
+          </li>
           {% else %}
           <li>
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
             <a href="javascript:void(0)"  class="nike" >nike</a>
+          </li>
           {% endif%}
 
           {% if "fitbit" in social_auth.physical.associated %}
-          <li class="active"><a href="javascript:void(0)" class="fitbit" >fitbit</a></li>
+          <li class="active">
+            <a href="javascript:void(0)" class="fitbit" >fitbit</a>
+          </li>
           {% else %}
-          <li><a href="javascript:void(0)"  class="fitbit" >fitbit</a>
+          <li>
+            <a href="javascript:void(0)"  class="fitbit" >fitbit</a>
+          </li>
           {% endif%}
 
           {% if "jawbone" in social_auth.physical.associated %}
-          <li class="active"><a href="{% url "socialauth_disconnect" "jawbone" %}" class="jewbone" >jawbone</a></li>
+          <li class="active">
+            <a href="{% url "socialauth_disconnect" "jawbone" %}" class="jewbone" >jawbone</a>
+          </li>
           {% else %}
-          <li><a href="{% url "socialauth_begin" "jawbone" %}"  class="jewbone" >jawbone</a>
+          <li>
+            <a href="{% url "socialauth_begin" "jawbone" %}"  class="jewbone" >jawbone</a>
+          </li>
           {% endif%}
 
           {% if "ihealth" in social_auth.physical.associated %}
@@ -1934,7 +1945,6 @@
             <li>
               <a href="ajax:/health/mood/activate/mood_panda/" class="moodpanda">moodpanda</a></li>
             <li>
-              <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
               <a href="javascript:void(0)" class="fitbit">fitbit</a></li>
             <li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
