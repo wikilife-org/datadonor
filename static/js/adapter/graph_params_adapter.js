@@ -691,7 +691,6 @@ HoursAdapter = function(){
     //for(var i = 0; i < 6; i++){
     //for(var i in yLabels){
     while(currentY <= maxValue){
-      console.log('CURRENT Y HOURS '+currentY+' - '+maxValue);
       var label = {
         pos: this.getValueHeight(currentY, totalHeight, maxValue),
         text: '',
