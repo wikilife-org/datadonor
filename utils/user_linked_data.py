@@ -16,7 +16,6 @@ def refresh_user_data(user):
     backends = get_backends()
     for item in items:
         try:
-            print "Getting user info"
             backend = backends[key(item.provider)]
             
             if issubclass(backend, SocialBackend):
@@ -37,8 +36,3 @@ def refresh_user_data(user):
                 service.pull_user_info(user.id, item.extra_data)
         except:
             continue
-
-if __name__ == '__main__':
-    users = User.objects.all()
-    for user in users:
-        refresh_user_data(user)
