@@ -18,6 +18,11 @@ OAuth oauth_consumer_key="b54a8e0fe4314969b52505768c5f1d08",
         oauth_signature="ifNNy1XhmVow5xCy%2FmYMrWho8MU%3D"
 
 """
+from social_auth.exceptions import StopPipeline, AuthException, AuthFailed, \
+                                   AuthCanceled, AuthUnknownError, \
+                                   AuthTokenError, AuthMissingParameter, \
+                                   AuthStateMissing, AuthStateForbidden, \
+                                   NotAllowedToDisconnect
 try:
     from urlparse import parse_qs
     parse_qs  # placate pyflakes
