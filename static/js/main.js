@@ -982,6 +982,15 @@ function addNewComplain(id, name, data) {
         }
     }
 }
+
+function doBloodDrops() {
+    $.getJSON(_api_urls[_api_env].blood_list, function (data) {
+        $.getJSON(_api_urls[_api_env].blood_user, function (data_user) {
+            drawBloodDrops(data, data_user);
+        });
+    });
+}
+
 function drawBloodDrops(data, user_data) {
     var content,
     blood,
@@ -1012,6 +1021,9 @@ function drawBloodDrops(data, user_data) {
         var typeId = $(this) .attr('data-id');
         $.post(_api_urls[_api_env].blood_post, {
             id_blood_type: typeId
+        }, function () {
+            $('#chose_type').empty();
+            doBloodDrops();
         });
     });
     $('#chose_type #blood_type_' + user_type).addClass("active");
@@ -1362,11 +1374,7 @@ window.onload = function () {
         complainsList = data;
         createComplainsAutocompleter(data);
     });
-    $.getJSON(_api_urls[_api_env].blood_list, function (data) {
-        $.getJSON(_api_urls[_api_env].blood_user, function (data_user) {
-            drawBloodDrops(data, data_user);
-        });
-    });
+    doBloodDrops();
     $.getJSON(_api_urls[_api_env].sleep_global, function (data) {
         $.getJSON(_api_urls[_api_env].sleep_user, function (data_user) {
             //console.log('STEPS!');

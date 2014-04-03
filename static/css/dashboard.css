@@ -34,3 +34,16 @@ div.nutrient_data div.graph_html > div.label {
 .hidden {
   display: none;
 }
+
+div.sector_icon {
+  position: relative;
+  width: 104px;
+}
+
+div.sector_icon a {
+  position: absolute;
+  bottom: -10px;
+  left: -44px;
+  color: #3FD1CA;
+  font-family: 'Omnes-Semibold';
+}

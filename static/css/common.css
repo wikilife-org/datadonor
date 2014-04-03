@@ -37,3 +37,7 @@
 	width: 1190px;
 	margin: 0 auto;
 }
+
+.error {
+	color: #f06664 !important;
+}

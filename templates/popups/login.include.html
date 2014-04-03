@@ -1,6 +1,19 @@
+{% if login_error %}
+<script type="text/javascript">
+console.log("accocioation failed.")
+$(function () {
+    $('#login_container').reveal({
+         animation: 'fadeAndPop',                   //fade, fadeAndPop, none
+         animationspeed: 300,                       //how fast animtions are
+         closeonbackgroundclick: true,              //if you click background will modal close?
+         dismissmodalclass: 'close_login'    //the class of a button or element that will close an open modal
+    });
+});
+</script>
+{% endif %}
+
 <!--login_container-->
 <div id="login_container" class="reveal-modal">
-
 
 	<h1>Login</h1>
 	<h2>Welcome back</h2>
@@ -10,7 +23,11 @@
 		<a href="#" id="close_login">close</a>
 	</div>
 
-	<p>use any of these services to login</p>
+{% if login_error %}
+  <p class="error">Sorry, this account is not related to DataDonors.<br>Please, try another or <a href="wizard" style="color: white">create one</a>.</p>
+{% else %}
+  <p>use any of these services to login</p>
+{% endif %}
 
 	<div class="login-bubbles">
 		<ul>
