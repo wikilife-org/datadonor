@@ -553,6 +553,9 @@ function drawEmotionsGraph(data, num, user_data) {
     var np = num - 1;
     var preffix = 'canvas_15_';
     var animatedPie = drawVariableCircle(params, num, preffix);
+
+    $("#" + preffix + num).attr('data-emotion', data.id);
+
     emotionGraphs[data.id] = animatedPie;
     var selectedGraphs = [];
     for (var i in user_data) {
@@ -1504,6 +1507,15 @@ $(document) .ready(function () {
         deleteUserData(_api_urls[_api_env].emotions_delete, $(this) .parent() .attr('data-param'), id,function (result) {
             doEmotionsSection();
         });
+
+        var container_selector = '.emotion-chart[data-emotion="' + id + '"]';
+        // console.log(container_selector);
+        // console.log($(container_selector));
+        // console.log($(container_selector).parents(".emotion_container"));
+
+        $(container_selector).parents(".emotion_container").removeClass("sent");
+
+
         $('li#emotion_id_' + id  + ' a.close_emotion_card').removeClass('sent');
         for (var i in emotionGraphs) {
             //console.log('looping emotion graphs: '+i);
