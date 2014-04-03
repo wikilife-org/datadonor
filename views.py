@@ -67,13 +67,13 @@ def home(request):
         return render_to_response('dashboard/index.html', ctx, context_instance=RequestContext(request))
     if request.session.get("wizard_mode", False):
         return HttpResponseRedirect('/wizard/')
-    
+
     context = {'can_share': True, 'version': version, 'videos':videos, "loop_times":range(1,79)}
     if request.session.get("login_error", False):
         context["login_error"] = True
         del request.session["login_error"]
         request.session.modified = True
-        
+
     return render_to_response('landing.html', context,
                                   RequestContext(request))
 
