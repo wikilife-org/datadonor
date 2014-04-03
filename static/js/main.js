@@ -290,6 +290,9 @@ function drawMilesGraph(data) {
         if (data.days[i].global_miles > maxValue) maxValue = data.days[i].global_miles;
         if (data.days[i].user_miles > maxValue) maxValue = data.days[i].user_miles;
     }
+ 
+    maxValue = Math.max(Math.ceil(maxValue), 10);
+
     var adapter = new MilesAdapter();
     var result = adapter.getParameters(data, 350, maxValue, [
         10,
@@ -297,13 +300,21 @@ function drawMilesGraph(data) {
         50,
         70
     ]);
+    // Replace zero values with 0.1, so we see a very tiny bar
+    var elements = result.elements;
+    $(elements).each(function (index, elem) {
+    	
+        elem.value = Math.max(0.1 / maxValue * 423, elem.value);
+    });    
+    
+    
     var r_7_1 = Raphael('canvas_7_1', 530, 400);
     doubleAxisParams3 = {
         axis: 'both',
         barsAxis: 'x',
         drawAxis: true,
         drawLabels: true,
-        elements: result.elements,
+        elements: elements,
         xAxis: {
             length: 1093,
             'stroke-width': 2,
@@ -342,15 +353,21 @@ function drawHoursGraph(data) {
         1,
         3,
         5,
-        7
+        7,
+        9,
     ]);
+    // Replace zero values with 0.1, so we see a very tiny bar
+    var elements = result.elements;
+    $(elements).each(function (index, elem) {
+        elem.value = Math.max(0.1 / maxValue * 423, elem.value);
+    });
     var r_7_2 = Raphael('canvas_7_2', 530, 400);
     doubleAxisParams4 = {
         axis: 'both',
         barsAxis: 'x',
         drawAxis: true,
         drawLabels: true,
-        elements: result.elements,
+        elements: elements,
         xAxis: {
             length: 1093,
             'stroke-width': 2,

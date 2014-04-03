@@ -2255,11 +2255,11 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-focus {
 
 /* --- stats */
 .step_seven .centered_container .bloq.left .text_container  {
-	float: right;
+	float: left;
 	margin-right: 0px;
 }
 .step_seven .centered_container .bloq.right .text_container  {
-	float: left;
+	float: right;
 	margin-left: 10px;
 }
 .step_seven .centered_container .bloq .text_container {
