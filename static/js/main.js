@@ -287,27 +287,28 @@ function drawStepsGraph(data) {
 function drawMilesGraph(data) {
     var maxValue = 0;
     for (var i in data.days) {
-        if (data.days[i].global_miles > maxValue) maxValue = data.days[i].global_miles;
-        if (data.days[i].user_miles > maxValue) maxValue = data.days[i].user_miles;
+        maxValue = Math.max(data.days[i].global_miles, maxValue);
+        maxValue = Math.max(data.days[i].user_miles, maxValue);
     }
- 
-    maxValue = Math.max(Math.ceil(maxValue), 10);
+
+    maxValue = Math.max(Math.ceil(maxValue), 90);
 
     var adapter = new MilesAdapter();
-    var result = adapter.getParameters(data, 350, maxValue, [
-        10,
-        30,
-        50,
-        70
+    var result = adapter.getParameters(data, 423, maxValue, [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140
     ]);
     // Replace zero values with 0.1, so we see a very tiny bar
     var elements = result.elements;
     $(elements).each(function (index, elem) {
-    	
-        elem.value = Math.max(0.1 / maxValue * 423, elem.value);
-    });    
-    
-    
+        elem.value = Math.max(2 / maxValue * 423, elem.value);
+    });
+
     var r_7_1 = Raphael('canvas_7_1', 530, 400);
     doubleAxisParams3 = {
         axis: 'both',
@@ -359,7 +360,7 @@ function drawHoursGraph(data) {
     // Replace zero values with 0.1, so we see a very tiny bar
     var elements = result.elements;
     $(elements).each(function (index, elem) {
-        elem.value = Math.max(0.1 / maxValue * 423, elem.value);
+        elem.value = Math.max(0.2 / maxValue * 423, elem.value);
     });
     var r_7_2 = Raphael('canvas_7_2', 530, 400);
     doubleAxisParams4 = {
@@ -1045,7 +1046,6 @@ function drawSleepGraph(data, data_user) {
         24
     ]);
 
-    // Replace zero values with 0.1, so we see a very tiny bar
     var elements = result.elements;
     $(elements).each(function (index, elem) {
         elem.value = Math.max(0.1 / maxValue * 750, elem.value);
