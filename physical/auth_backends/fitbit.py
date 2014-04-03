@@ -25,6 +25,7 @@ except ImportError:
     # fall back for Python 2.5
     from cgi import parse_qs
 
+from urllib2 import Request, HTTPError
 from django.contrib.auth import authenticate
 from oauth2 import Consumer as OAuthConsumer, Token, Request as OAuthRequest, \
                    SignatureMethod_HMAC_SHA1, HTTP_METHOD, Client, SignatureMethod_PLAINTEXT, urllib

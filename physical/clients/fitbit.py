@@ -4,15 +4,205 @@ import requests
 import json
 import datetime
 import urllib
+from physical.clients.base_device_client import BaseDeviceClient
+from social_auth.utils import dsa_urlopen, setting
+from utils.date_util import get_days_list
 
 from requests_oauthlib import OAuth1Session
+import json
+
+class BadResponse(Exception):
+    """
+    Currently used if the response can't be json encoded, despite a .json extension
+    """
+    pass
+
+class DeleteError(Exception):
+    """
+    Used when a delete request did not return a 204
+    """
+    pass
+
+class HTTPException(Exception):
+    def __init__(self, response, *args, **kwargs):
+        try:
+            errors = json.loads(response.content)['errors']
+            message = '\n'.join([error['message'] for error in errors])
+        except Exception:
+            message = response
+        super(HTTPException, self).__init__(message, *args, **kwargs)
+
+class HTTPBadRequest(HTTPException):
+    pass
+
+
+class HTTPUnauthorized(HTTPException):
+    pass
+
+
+class HTTPForbidden(HTTPException):
+    pass
+
+
+class HTTPServerError(HTTPException):
+    pass
+
+
+class HTTPConflict(HTTPException):
+    """
+    Used by Fitbit as rate limiter
+    """
+    pass
+
+
+class HTTPNotFound(HTTPException):
+    pass
 
 def curry(_curried_func, *args, **kwargs):
     def _curried(*moreargs, **morekwargs):
         return _curried_func(*(args+moreargs), **dict(kwargs, **morekwargs))
     return _curried
 
-class Fitbit(object):
+
+class FitbitConsumer(oauth.Consumer):
+    pass
+
+
+# example client using httplib with headers
+class FitbitOauthClient(oauth.Client):
+    API_ENDPOINT = "https://api.fitbit.com"
+    AUTHORIZE_ENDPOINT = "https://www.fitbit.com"
+    API_VERSION = 1
+    _signature_method = oauth.SignatureMethod_HMAC_SHA1()
+
+    request_token_url = "%s/oauth/request_token" % API_ENDPOINT
+    access_token_url = "%s/oauth/access_token" % API_ENDPOINT
+    authorization_url = "%s/oauth/authorize" % AUTHORIZE_ENDPOINT
+
+    def __init__(self, host, consumer_key, consumer_secret, token_str, user_id=None, *args, **kwargs):
+        if token_str:
+            self._token = oauth.Token.from_string(token_str)
+        else:
+            # This allows public calls to be made
+            self._token = None
+        if user_id:
+            self.user_id = user_id
+        self._consumer = FitbitConsumer(consumer_key, consumer_secret)
+        super(FitbitOauthClient, self).__init__(self._consumer, *args, **kwargs)
+
+    def _request(self, method, url, **kwargs):
+        """
+        A simple wrapper around requests.
+        """
+        return requests.request(method, url, **kwargs)
+
+    def make_request(self, url, data={}, method=None, **kwargs):
+        """
+        Builds and makes the Oauth Request, catches errors
+
+        https://wiki.fitbit.com/display/API/API+Response+Format+And+Errors
+        """
+        if not method:
+            method = 'POST' if data else 'GET'
+        headers = kwargs.pop('headers', {})
+        request = oauth.Request.from_consumer_and_token(self._consumer, self._token, http_method=method, http_url=url, parameters=data)
+        request.sign_request(self._signature_method, self._consumer,
+                             self._token)
+        headers.update(request.to_header())
+        response = self._request(method, url, data=data,
+                                 headers=headers)
+
+        if response.status_code == 401:
+            raise HTTPUnauthorized(response)
+        elif response.status_code == 403:
+            raise HTTPForbidden(response)
+        elif response.status_code == 404:
+            raise HTTPNotFound(response)
+        elif response.status_code == 409:
+            raise HTTPConflict(response)
+        elif response.status_code >= 500:
+            raise HTTPServerError(response)
+        elif response.status_code >= 400:
+            raise HTTPBadRequest(response)
+        return response
+
+    def fetch_request_token(self, parameters=None):
+        """
+        Step 1 of getting authorized to access a user's data at fitbit: this
+        makes a signed request to fitbit to get a token to use in the next
+        step.  Returns that token.
+
+        Set parameters['oauth_callback'] to a URL and when the user has
+        granted us access at the fitbit site, fitbit will redirect them to the URL
+        you passed.  This is how we get back the magic verifier string from fitbit
+        if we're a web app. If we don't pass it, then fitbit will just display
+        the verifier string for the user to copy and we'll have to ask them to
+        paste it for us and read it that way.
+        """
+
+        """
+        via headers
+        -> OAuthToken
+
+        Providing 'oauth_callback' parameter in the Authorization header of
+        request_token_url request, will have priority over the dev.fitbit.com
+        settings, ie. parameters = {'oauth_callback': 'callback_url'}
+        """
+
+        request = oauth.Request.from_consumer_and_token(
+            self._consumer,
+            http_url=self.request_token_url,
+            parameters=parameters
+        )
+        request.sign_request(self._signature_method, self._consumer, None)
+        response = self._request(request.method, self.request_token_url,
+                                 headers=request.to_header())
+        return oauth.Token.from_string(response.content)
+
+    def authorize_token_url(self, token):
+        """Step 2: Given the token returned by fetch_request_token(), return
+        the URL the user needs to go to in order to grant us authorization
+        to look at their data.  Then redirect the user to that URL, open their
+        browser to it, or tell them to copy the URL into their browser.
+        """
+        request = oauth.Request.from_token_and_callback(
+            token=token,
+            http_url=self.authorization_url
+        )
+        return request.to_url()
+
+    #def authorize_token(self, token):
+    #    # via url
+    #    # -> typically just some okay response
+    #    request = oauth.Request.from_token_and_callback(token=token,
+    #                                         http_url=self.authorization_url)
+    #    response = self._request(request.method, request.to_url(),
+    #                                             headers=request.to_header())
+    #    return response.content
+
+    def fetch_access_token(self, token, verifier):
+        """Step 4: Given the token from step 1, and the verifier from step 3 (see step 2),
+        calls fitbit again and returns an access token object.  Extract .key and .secret
+        from that and save them, then pass them as user_key and user_secret in future
+        API calls to fitbit to get this user's data.
+        """
+        client = OAuth1Session(
+            self._consumer.key,
+            client_secret=self._consumer.secret,
+            resource_owner_key=token.key,
+            resource_owner_secret=token.secret,
+            verifier=verifier)
+        response = client.fetch_access_token(self.access_token_url)
+
+        self.user_id = response['encoded_user_id']
+        self._token = oauth.Token(
+            key=response['oauth_token'],
+            secret=response['oauth_token_secret'])
+        return self._token
+
+
+
+class FitbitClient(BaseDeviceClient):
     US = 'en_US'
     METRIC = 'en_UK'
 
@@ -37,8 +227,13 @@ class Fitbit(object):
         'frequent',
     ]
 
-    def __init__(self, consumer_key, consumer_secret, system=US, **kwargs):
-        self.client = FitbitOauthClient(consumer_key, consumer_secret, **kwargs)
+    def __init__(self, host, user_token, system=US, **kwargs):
+
+        self.consumer_key = setting("FITBIT_CONSUMER_KEY")
+        self.consumer_secret = setting("FITBIT_CONSUMER_SECRET")
+        self.token = user_token
+        self.host = host
+        self.client = FitbitOauthClient(self.host, self.consumer_key, self.consumer_secret, self.token,**kwargs)
         self.SYSTEM = system
 
         # All of these use the same patterns, define the method for accessing
@@ -81,7 +276,7 @@ class Fitbit(object):
 
         return rep
 
-    def user_profile_get(self, user_id=None):
+    def get_user_profile(self, user_id=None):
         """
         Get a user profile. You can get other user's profile information
         by passing user_id, or you can get the current user's by not passing
@@ -163,6 +358,57 @@ class Fitbit(object):
             )
         return self.make_request(url, data)
 
+    def get_foods(self, date):
+        
+        if not date:
+            date = datetime.date.today()
+ 
+        user_id = '-'
+        if not isinstance(date, basestring):
+            date = date.strftime('%Y-%m-%d')
+
+        url = "%s/%s/user/%s/foods/log/date/%s.json" % (
+                self.API_ENDPOINT,
+                self.API_VERSION,
+                user_id,
+                date,
+            )
+        
+        return self.make_request(url)
+    
+    def get_user_foods(self):
+        return self._get_user_foods_last_7_days()
+
+    def _get_user_foods_last_7_days(self):
+
+        day_list = get_days_list(7)
+        result = []
+        for day in day_list:
+            result.append(self.get_foods(date=day))
+        return result
+
+    def get_user_sleep(self):
+        return self._get_user_sleep_last_7_days()
+
+    def _get_user_sleep_last_7_days(self):
+
+        day_list = get_days_list(7)
+        result = []
+        for day in day_list:
+            result.append(self.sleep(date=day))
+        return result
+    
+    def get_user_fitness_activities(self):
+        return self._get_user_activity_last_7_days()
+
+    def _get_user_activity_last_7_days(self):
+
+        day_list = get_days_list(7)
+        result = []
+        for day in day_list:
+            result.append(self.activities(date=day))
+        return result
+    
     def _DELETE_COLLECTION_RESOURCE(self, resource, log_id):
         """
         deleting each type of collection data

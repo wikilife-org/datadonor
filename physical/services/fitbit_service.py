@@ -1,6 +1,6 @@
 # coding=utf-8
 
-from physical.clients.runkeeper import RunkeeperClient
+from physical.clients.fitbit import FitbitClient
 from physical.services.base_device_service import BaseDeviceService
 from wikilife_utils.date_utils import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
@@ -11,8 +11,9 @@ from physical.models import UserActivityLog
 from health.models import UserSleepLog
 from datetime import datetime
 from django.contrib.auth.models import User
+from nutrition.models import UserFoodLog
 
-RUNKEEPER_API = "https://api.fitbit.com"
+FITBIT_API = "https://api.fitbit.com"
 ACTIVITY_TYPE_NODE_ID_MAP = {
     "Running": 0, 
     "Cycling": 0, 
@@ -31,25 +32,40 @@ ACTIVITY_TYPE_NODE_ID_MAP = {
 }
 
 METERS_TO_MILES = 0.000621371192
-SECONDS_TO_HOURS = 0.000277777778
+MILISECONDS_TO_HOURS =  3600000
 MILES_TO_STEPS = 2300
 
 class FitbitService(BaseDeviceService):
 
     _profile_source = "fitbit"
-    def pull_user_info(self, user_id, user_auth):
+    def pull_user_info_(self, user_id, user_auth):
         pass
     
-    def pull_user_info_(self, user_id, user_auth):
-        client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
-        profile = client.get_user_profile()
+    def pull_user_info(self, user_id, user_auth):
+        client = FitbitClient(FITBIT_API,user_auth["access_token"])
+        profile = client.get_user_profile()["user"]
         profile_items = {}
-
+        
+        #TODO: Se puede sacar mucha mas info para el profile
+        #dict: {u'user': {u'weight': 188.4, u'memberSince': u'2011-07-18', 
+        #u'locale': u'es_ES', u'strideLengthWalking': 29.881889763779526, 
+        #u'height': 72.00787401574803, u'strideLengthRunning': 37.48031496062992, 
+        #u'glucoseUnit': u'METRIC', u'timezone': u'America/Argentina/Buenos_Aires', 
+        #u'avatar150': u'https://d6y8z.png', u'city': u'Buenos Aires',
+        # u'dateOfBirth': u'1984-04-20', u'foodsLocale': u'en_US',
+        # u'distanceUnit': u'en_US', u'heightUnit': u'en_US',
+        # u'offsetFromUTCMillis': -10800000, u'fullName': u'Joaquin Quintas',
+        # u'nickname': u'joa_q', u'displayName': u'Joaquin',
+        # u'gender': u'MALE', u'weightUnit': u'METRIC',
+        # u'avatar': u'https://d6y32Dsquare.png',
+        # u'waterUnit': u'en_US', u'country': u'AR', u'encodedId': u'226ZXF'}}
         if "gender" in profile:
-            profile_items["gender"] = lower(profile["gender"])
+            if "male" == lower(profile["gender"]):
+                profile_items["gender"] = "m"
+            elif "female" == lower(profile["gender"]):
+                profile_items["gender"] = "f"
+                
 
-        if "birthday" in profile:
-            profile_items["birthday"] = DateParser.from_datetime(profile["birthday"])
 
         """
         if "location" in profile:
@@ -58,33 +74,61 @@ class FitbitService(BaseDeviceService):
 
         user = User.objects.get(id=user_id)
         self._update_profile(user, **profile_items)
-        
-        activities = client.get_user_fitness_activities()
-        for item in activities["items"]:
-            activity, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=item["uri"])
-            activity.type = item["type"].lower()
-            
-            activity.execute_time = datetime.strptime(item["start_time"], '%a, %d %b %Y %H:%M:%S')
-            activity.provider = "fitbit"
-            
-            if "duration" in item:
-                activity.hours = round(float(item["duration"]) * SECONDS_TO_HOURS,2)
-            if "total_distance" in item:
-                activity.miles =  round(float(item["total_distance"]) * METERS_TO_MILES,2) 
-            
-            if activity.type in ["walking", "running"]:
-                activity.steps = round(float(activity.miles * MILES_TO_STEPS))   
+
+        foods = client.get_user_foods()
+        for item in foods:
+            for food in item["foods"]:
+                food_entry_id = food["logId"]
+                fdate = food["logDate"]
+                carbs = food["nutritionalValues"]["carbs"]
+                protein = food["nutritionalValues"]["protein"]
+                fat = food["nutritionalValues"]["fat"]
+                fiber = food["nutritionalValues"]["fiber"]
                 
-            activity.save()
-        
+                food_log, created = UserFoodLog.objects.get_or_create(user=user, device_log_id=food_entry_id, provider=self._profile_source)
+                food_log.provider = self._profile_source
+                food_log.device_log_id = food_entry_id
+                food_log.protein = float(protein)
+                food_log.carbs = float(carbs)
+                food_log.fat = float(fat)
+                food_log.fiber = float(fiber)
+                food_log.execute_time = datetime.strptime(fdate, '%Y-%m-%d')
+                food_log.save()
+                
         sleeps = client.get_user_sleep()
-        for item in sleeps["items"]:
-            activity, created = UserSleepLog.objects.get_or_create(user=user, device_log_id=item["uri"])
-            
-            activity.execute_time = datetime.strptime(item["timestamp"], '%a, %d %b %Y %H:%M:%S')
-            activity.provider = "fitbit"
-            activity.minutes = round(float(item["total_sleep"]),2)  
-            activity.save()
+        for item in sleeps:
+            for sleep in item["sleep"]:
+                activity, created = UserSleepLog.objects.get_or_create(user=user, device_log_id=sleep["logId"])
+                
+                activity.execute_time = datetime.strptime(sleep["startTime"][:10], '%Y-%m-%d')
+                activity.provider = "fitbit"
+                activity.minutes = round(float(sleep["duration"]/ 60000),2)  
+                activity.save()
+                 
+        activities = client.get_user_fitness_activities()
+        for item in activities:
+            for activity in item["activities"]:
+                #{u'activityParentName': u'Walking', u'description': u'5.0 mph, speed walking', 
+                #u'isFavorite': False, u'distance': 20, 
+                #u'lastModified': u'2014-04-03T14:36:46.000-03:00', u'logId': 64346624, 
+                #u'hasStartTime': True, u'calories': 641, u'activityParentId': 90013,
+                # u'activityId': 17231,
+                # u'steps': 42407, u'startTime': u'00:00', u'duration': 3720000, 
+                #u'startDate': u'2014-04-02', u'name': u'Walking'}
+                activity_obj, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=activity["logId"])
+                activity_obj.type = activity["name"].lower()
+                
+                activity_obj.execute_time = datetime.strptime(activity["startDate"], '%Y-%m-%d')
+                activity_obj.provider = "fitbit"
+                
+                if "duration" in activity:
+                    activity_obj.hours = round(float(activity["duration"]) / MILISECONDS_TO_HOURS,2)
+                if "distance" in activity:
+                    activity_obj.miles =  round(float(activity["distance"]),2) 
+                if "steps" in activity:
+                    activity_obj.steps =  round(float(activity["steps"])) 
+
+                activity_obj.save()
 
     def pull_user_activity(self, user_id, user_auth):
         #wikilife_token = self._get_wikilife_token(user_id)
