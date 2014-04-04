@@ -3,13 +3,12 @@ from physical.clients.base_device_client import BaseDeviceClient
 
 
 class JawboneClient(BaseDeviceClient):
-    def __init__(self, authorization_token):
+    def __init__(self, api_host, authorization_token):
         self.username = '@me'
         self.token = authorization_token
         self.auth_header = {'Authorization': 'Bearer %s' % self.token}
         self.content_header = {'Content-Type': 'multipart/form-data'}
-        self.version = 'v.1.0/'
-        self.api_url_base = 'https://jawbone.com/nudge/api/%s' % self.version
+        self.api_url_base = api_host
 
 
     # USER REQUESTS

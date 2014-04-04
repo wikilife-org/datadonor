@@ -10,7 +10,7 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from nutrition.models import UserFoodLog
 
-JAWBONE_API = "https://api.fitbit.com"
+JAWBONE_API = 'https://jawbone.com/nudge/api/v.1.1/' 
 ACTIVITY_TYPE_NODE_ID_MAP = {
     "Running": 0, 
     "Cycling": 0, 
@@ -36,11 +36,11 @@ class JawboneService(BaseDeviceService):
 
     _profile_source = "jawbone"
     def pull_user_info(self, user_id, user_auth):
-        pass
+        client = JawboneClient(JAWBONE_API,user_auth["access_token"])
+        profile = client.get_user_information()
     
     def pull_user_info_(self, user_id, user_auth):
-        client = JawboneClient(JAWBONE_API,user_auth["access_token"])
-        profile = client.get_user_profile()["user"]
+        profile = client.get_user_information()
         profile_items = {}
         
         if "gender" in profile:

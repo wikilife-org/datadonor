@@ -164,11 +164,11 @@ AUTHENTICATION_BACKENDS = (
     'genomics.auth_backends.twentythreeandme.TwentyThreeAndMeBackend',
     'physical.auth_backends.dailymile.DailyMileBackend',
     'physical.auth_backends.bodymedia.BodymediaBackend',
+    'physical.auth_backends.jawbone.JawboneBackend',
 
     'physical.auth_backends.fitbit.FitbitBackend',
     'health.auth_backends.withings.WithingsBackend',    
     'health.auth_backends.ihealth.IhealthBackend',
-    'social_auth.backends.contrib.jawbone.JawboneBackend',
 
     'django.contrib.auth.backends.ModelBackend',
 )

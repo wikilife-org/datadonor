@@ -5,7 +5,9 @@ SERVICES = {
     "runkeeper": "physical.services.runkeeper_service.RunkeeperService",
     "bodymedia": "physical.services.bodymedia_service.BodymediaService",
     "fitbit": "physical.services.fitbit_service.FitbitService",
-    "jawbone": "physical.services.jawbone_service.JawboneService"
+    "jawbone": "physical.services.jawbone_service.JawboneService",
+    "dailymile": "physical.services.dailymile_service.DailymileService"
+
 }
 
 

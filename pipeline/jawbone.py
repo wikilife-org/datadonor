@@ -1,6 +1,23 @@
 """
 Jawbone
 """
+
+from physical.util.physical_service_locator import PhysicalServiceLocator
+
+
+def jawbone_info(request, *args, **kwargs):
+    backend = kwargs.get('backend')
+    social_user = kwargs.get('social_user')
+    result = {}
+    if backend.name == "jawbone":
+        data = kwargs.get('response')
+        dd_user_id = request.user.id
+        runkeeper_service = PhysicalServiceLocator.get_instane().get_service_by_name("jawbone")
+        runkeeper_service.pull_user_info(dd_user_id, {"access_token": data["access_token"]})
+
+
+
+#Remove after jawbone full integration
 import requests
 import json
 from datetime import date
@@ -12,7 +29,7 @@ from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
 from utils.date_util import get_days_list
 
 
-def jawbone_info(request, *args, **kwargs):
+def jawbone_info_(request, *args, **kwargs):
     backend = kwargs.get('backend')
     social_user = kwargs.get('social_user')
     result = {}
@@ -26,7 +43,7 @@ def jawbone_info(request, *args, **kwargs):
         print data
         
     
-class JawboneClient():
+class JawboneClient_():
     PAGE_SIZE = 25
 
     def __init__(self, access_token):
