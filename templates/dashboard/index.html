@@ -809,9 +809,15 @@
 
 
           {% if "myfitness" in social_auth.physical.associated %}
-          <li class="active"><a href="{% url "socialauth_disconnect" "myfitness" %}" class="myfitness" >myfitness</a></li>
+          <li class="active">
+            <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+            <a href="{% url "socialauth_disconnect" "myfitness" %}" class="myfitness" >myfitness</a>
+          </li>
           {% else %}
-          <li><a href="{% url "socialauth_begin" "myfitness" %}"  class="myfitness" >myfitness</a>
+          <li>
+            <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+            <a href="{% url "socialauth_begin" "myfitness" %}"  class="myfitness" >myfitness</a>
+          </li>
           {% endif%}
 
 
