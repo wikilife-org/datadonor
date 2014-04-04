@@ -1879,7 +1879,7 @@ to {
 	background: #e3e3e3;
 }
 
-#timeline #controles {
+#timeline #controles, #timeline #controlesa {
 	position: absolute;
 	z-index: 16;
 	height: 20px;
@@ -1887,18 +1887,18 @@ to {
 	width: 355px;
 }
 
-#timeline #controles li {
+#timeline #controles li, #timeline #controlesa li {
 	position: absolute;
 	height: 50px;
 	margin-top: 8px;
 	width: 50px;
 }
 
-#timeline #controles li.active a {
+#timeline #controles li.active a, #timeline #controlesa li.active a {
 	border: 10px solid #ed6666;
 }
 
-#timeline #controles li a {
+#timeline #controles li a, #timeline #controlesa li a {
 	background: #fff;
 	border: 10px solid #ccc;
 	position: absolute;
@@ -1925,11 +1925,11 @@ to {
 	margin-left: 498px;
 }
 
-#timeline #controles li span {
+#timeline #controles li span, #timeline #controlesa li span {
 	opacity: 0.6;
 }
 
-#timeline #controles li .icon {
+#timeline #controles li .icon, #timeline #controlesa li .icon {
 	background: url(/static/img/bg-thumb-0.png) no-repeat center;
 	position: absolute;
 	height: 32px;
@@ -1938,23 +1938,23 @@ to {
 	width: 38px;
 }
 
-#timeline #controles #thumb-1 .icon {
+#timeline #controles #thumb-1 .icon, #timeline #controlesa #thumb-1 .icon {
 	background: url(/static/img/bg-thumb-1.png) no-repeat center;
 }
 
-#timeline #controles #thumb-2 .icon {
+#timeline #controles #thumb-2 .icon, #timeline #controlesa #thumb-2 .icon {
 	background: url(/static/img/bg-thumb-2.png) no-repeat center;
 }
 
-#timeline #controles #thumb-3 .icon {
+#timeline #controles #thumb-3 .icon, #timeline #controlesa #thumb-3 .icon {
 	background: url(/static/img/bg-thumb-4.png) no-repeat 5px center;
 }
 
-#timeline #controles #thumb-3 {
+#timeline #controles #thumb-3, #timeline #controlesa #thumb-3 {
 
 }
 
-#timeline #controles li.active span {
+#timeline #controles li.active span, #timeline #controlesa li.active span {
 	opacity: 1;
 }
 
@@ -3295,7 +3295,7 @@ nav .active a {
 	border-bottom-right-radius: 125px;
 }
 
-.controles {
+.controles, .controlesa {
 	bottom: 0px;
 	width: 100%;
 	position: absolute;
@@ -3303,11 +3303,11 @@ nav .active a {
 	z-index: 60;
 }
 
-.controles ol {
+.controles ol, .controlesa ol {
 	background: none !important;
 }
 
-#social .controles .cap-facebook {
+#social .controles .cap-facebook, #social .controlesa .cap-facebook {
 	height: 20px;
 	width: 20px;
 }
@@ -3321,7 +3321,7 @@ nav .active a {
 	width: 40px;
 }
 
-.controles li {
+.controles li, .controlesa li {
 
 }
 

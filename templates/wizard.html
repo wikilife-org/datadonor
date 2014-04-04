@@ -29,18 +29,20 @@
 <link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)" href="/static/css/ipad-v-wizard.css" />
 <link rel="stylesheet" href="/static/css/jquery.scrollSections-wizard.css">
 <link rel="stylesheet" href="/static/css/login.css" />
+<script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+
 {% endblock %}
 
 
 
 
 {% block scripts %}
-<script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
 <script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
 
 <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
 {% endblock %}
 
 
@@ -83,6 +85,7 @@
 
 </script>
 
+
 <script type="text/javascript">
 $(document).ready(function(){
     var show_wizard = "{{ show_wizard }}" == "True";
@@ -110,6 +113,7 @@ $(document).ready(function(){
 
 
 {% include "popups/gender.include.html" %}
+{% include "popups/error.wizard.include.html" %}
 {% include "header.include.html" %}
 
 </body>

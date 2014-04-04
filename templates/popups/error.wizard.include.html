@@ -1,0 +1,26 @@
+<!--login_container-->
+<link rel="stylesheet" href="/static/css/error_wizard.css" />
+<div id="wizard_error_container" class="reveal-modal">
+
+	<h1>Oops!</h1>
+	<h2>Select one to continue</h2>
+
+  <p>We use these accounts for sign-in</p>
+
+	<div class="login-bubbles">
+		<ul>
+			<li><a href="{% url "socialauth_begin" "twitter" %}" class="twitter">twitter</a></li>
+			<li><a href="{% url "socialauth_begin" "facebook" %}" class="facebook">facebook</a></li>
+			<li><a href="{% url "socialauth_begin" "google" %}" class="gmail">gmail</a></li>
+
+		</ul>
+
+		<div style="clear: both;"></div>
+	</div>
+	<!-- End: login-bubbles-->
+
+	<div style="clear: both;"></div>
+</div>
+<!--/login_container-->
+
+

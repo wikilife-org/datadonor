@@ -1,0 +1,131 @@
+/* @group LOGIN CONTAINER
+--------------------------------------- */
+
+#wizard_error_container {
+    padding: 0 !important;
+    background-color: #3f4a5a;
+    width: 800px;
+    margin-left: -400px;
+    height: 440px;
+    top: 50%;
+    margin-top: -220px;
+}
+
+#wizard_error_container p {
+	text-align: center;
+	color: #9c9ea1;
+	font-weight: bold;
+	font-size: 1.6em;
+}
+
+/* close */
+#wizard_error_container .close_login {
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    top: 30px;
+    right: 30px;
+}
+#wizard_error_container .close_login a {
+    display: inline-block;
+    width: 57px;
+    height: 57px;
+    text-indent: -9999px;
+    background-image: url(../img/header/exit.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+#wizard_error_container .close_login a:hover {
+    opacity: 0.5;
+}
+
+#wizard_error_container .social_center .top {
+    text-align: center;
+    width: 100%;
+}
+#wizard_error_container h1 {
+    color: rgb(63, 209, 202);
+    font-family: "gothamultra";
+    margin-bottom: 1.1em;
+    margin-top: 5em;
+    font-size: 18px;
+    text-align: center;
+    float: none;
+}
+#wizard_error_container h2 {
+    color: #fff;
+    font-family: "gothamultra";
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 40px;
+    text-align: center;
+}
+#wizard_error_container .social_center .top p {
+    font-family: 'Omnes-Semibold';
+    font-size: 18px;
+}
+
+#wizard_error_container .login-bubbles {
+    width: 100%;
+    margin-top: 50px;
+}
+#wizard_error_container .login-bubbles ul {
+    width: 100%;
+    text-align: center;
+}
+#wizard_error_container .login-bubbles ul li {
+    width: 124px;
+    line-height: 124px;
+    display: inline-table;
+    margin: 0px 5px 0px 5px;
+}
+#wizard_error_container  .login-bubbles ul li a {
+    /*text-indent: 9999px;*/
+    font-size: 0;
+    width: 124px;
+    height: 124px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+#wizard_error_container  .login-bubbles ul li a.twitter {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: left bottom;
+}
+#wizard_error_container  .login-bubbles ul li a.twitter:hover {
+    background-position: left 3px;
+}
+#wizard_error_container  .login-bubbles ul li.active a.twitter {
+    background-position: left 3px;
+}
+
+#wizard_error_container  .login-bubbles ul li a.facebook {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -140px bottom;
+}
+#wizard_error_container  .login-bubbles ul li a.facebook:hover {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -140px 3px;
+}
+#wizard_error_container  .login-bubbles ul li.active a.facebook {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -140px 3px;
+}
+
+#wizard_error_container  .login-bubbles ul li a.gmail {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -420px bottom;
+}
+#wizard_error_container  .login-bubbles ul li a.gmail:hover {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -420px 3px;
+}
+#wizard_error_container  .login-bubbles ul li.active a.gmail {
+    background-image: url(../img/big_social_nav/social.png);
+    background-position: -420px 3px;
+}
+
+/* @end */

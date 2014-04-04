@@ -66,7 +66,7 @@ header,nav,section,article,aside,footer {
 	width: 252px;
 }
 
-.cont-next .next,.cont-next .done {
+.cont-next .next,.cont-next .done, .cont-next .nexta {
 	float: right;
 	color: #2f3947
 }
@@ -1047,6 +1047,51 @@ body #slider .slide .inner-redes {
 	opacity: 0.8;
 }
 
+
+
+
+.cont-next .nexta {
+	background: #3fd1ca;
+}
+
+.cont-next .nexta {
+	background: #3fd1ca url(../img/bg-next.png) no-repeat 90px center;
+}
+
+.cont-next .nexta:hover {
+	background: #3fd1ca url(../img/bg-next.png) no-repeat 95px center;
+}
+
+.nexta{
+	background: #3fd1ca;
+	padding: 15px 51px 15px 35px;
+	display: block;
+	color: #fff;
+	font-family: 'Omnes-Semibold';
+	font-size: 20px;
+	margin: 10px auto 0px auto;
+	width: 40px;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	-webkit-border-top-right-radius: 225px;
+	-webkit-border-bottom-right-radius: 225px;
+	-moz-border-radius-topright: 225px;
+	-moz-border-radius-bottomright: 225px;
+	border-top-right-radius: 225px;
+	border-bottom-right-radius: 225px;
+	-webkit-box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.nexta:hover,.done:hover {
+	opacity: 0.8;
+}
+
+
+
 #slide-4 #form-input {
 	background: url(../img/bg-mail.jpg) no-repeat left 20px;
 	float: left;
@@ -1455,7 +1500,7 @@ body #slider .slide .inner-redes {
 	left: 50%;
 }
 
-#timeline #controles {
+#timeline #controles, #timeline #controlesa {
 	position: absolute;
 	z-index: 16;
 	height: 20px;
@@ -1463,19 +1508,19 @@ body #slider .slide .inner-redes {
 	width: 355px;
 }
 
-#timeline #controles li {
+#timeline #controles li, #timeline #controlesa li {
 	position: absolute;
 	height: 50px;
 	margin-top: 12px;
 	width: 50px;
 }
 
-.claro #timeline #controles li a {
+.claro #timeline #controles li a, .claro #timeline #controlesa li a {
 	background: #3e495a;
 	border: 8px solid #5b6d7e;
 }
 
-#timeline #controles li a {
+#timeline #controles li a, #timeline #controlesa li a  {
 	background: #fff;
 	border: 8px solid #71dad5;
 	position: absolute;
@@ -1491,7 +1536,7 @@ body #slider .slide .inner-redes {
 	transition: all .8s ease-in-out;
 }
 
-#timeline #controles li.active a {
+#timeline #controles li.active a, #timeline #controlesa li.active a {
 	background: #3fd1ca;
 	border: 8px solid #fff;
 	-webkit-transition: all .1s ease-in-out;
@@ -1499,7 +1544,7 @@ body #slider .slide .inner-redes {
 	transition: all .1s ease-in-out;
 }
 
-.claro #timeline #controles li.active a {
+.claro #timeline #controles li.active a, .claro #timeline #controlesa li.active a {
 	background: #3f4a5a;
 	border: 8px solid #fff;
 }
@@ -1535,23 +1580,23 @@ body #slider .slide .inner-redes {
 	z-index: 1000;
 }
 
-#timeline #controles li#thumb-1 {
+#timeline #controles li#thumb-1, #timeline #controlesa li#thumb-1 {
 	margin-left: 82px;
 }
 
-#timeline #controles li#thumb-2 {
+#timeline #controles li#thumb-2, #timeline #controlesa li#thumb-2 {
 	margin-left: 164px;
 }
 
-#timeline #controles li#thumb-3 {
+#timeline #controles li#thumb-3, #timeline #controlesa li#thumb-3 {
 	margin-left: 246px;
 }
 
-#timeline #controles li#thumb-4 {
+#timeline #controles li#thumb-4, #timeline #controlesa li#thumb-4 {
 	margin-left: 328px;
 }
 
-#timeline #controles li .icon {
+#timeline #controles li .icon, #timeline #controlesa li .icon {
 	height: 50px;
 	margin-left: -13px;
 	margin-top: 35px;

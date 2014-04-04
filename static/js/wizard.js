@@ -116,15 +116,20 @@ $('.back') .click(function (event) {
 );
 $('.next') .click(function (event) {
     event.preventDefault();
+    
+
     var slidee = $('#slider .flexslider') .data('flexslider');
     var actual = slidee.currentSlide;
+    
     slidee.flexAnimate(actual + 1);
+
     thumb_actual = actual + 1;
     $('#controles #thumb-' + thumb_actual) .addClass('active');
     progres_ancho = 80 * (thumb_actual);
     $('#progress') .css({
         'width': progres_ancho
     });
+
 }
 );
 function move_slider() {
