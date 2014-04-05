@@ -382,8 +382,21 @@ def mood_avg_by_user(request):
     data = {"mood_avg": avg}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+from social_auth.models import UserSocialAuth
 @csrf_exempt
 def mood_panda_activate(request):
-    data = HealthActivityDistributionService().get_mood_from_moodpanda(request.user)
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+    try:
+        data = HealthActivityDistributionService().get_mood_from_moodpanda(request.user)
+        UserSocialAuth.objects.create(user=request.user, uid=request.user.profile.email, provider="moodpanda")
+    except Exception, e:
+        raise Exception("Invalid mood panda credentials")
+    return HttpResponse(simplejson.dumps({}), mimetype="application/json")
 
+@csrf_exempt
+def mood_panda_deactivate(request):
+    try:
+        obj = UserSocialAuth.objects.get(user=request.user, uid=request.user.profile.email, provider="moodpanda")
+        obj.delete()
+    except Exception, e:
+        raise Exception("Invalid mood panda credentials")
+    return HttpResponse(simplejson.dumps({}), mimetype="application/json")

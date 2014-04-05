@@ -165,7 +165,7 @@ AUTHENTICATION_BACKENDS = (
     'physical.auth_backends.dailymile.DailyMileBackend',
     'physical.auth_backends.bodymedia.BodymediaBackend',
     'physical.auth_backends.jawbone.JawboneBackend',
-
+    'health.auth_backends.moodpanda.MoodPandaBackend',
     'physical.auth_backends.fitbit.FitbitBackend',
     'health.auth_backends.withings.WithingsBackend',    
     'health.auth_backends.ihealth.IhealthBackend',

@@ -1956,9 +1956,14 @@
             {% else %}
             <li><a href="{% url "socialauth_begin" "jawbone" %}"  class="jewbone" >jawbone</a>
             {% endif%}
-            <li>
+	          {% if "moodpanda" in social_auth.health.associated %}
+	          <li class="active"><a href="ajax:/health/mood/deactivate/mood_panda/" class="moodpanda" >moodpanda</a></li>
+	          {% else %}
+	          <li><a href="ajax:/health/mood/activate/mood_panda/"  class="moodpanda" >moodpanda</a></li>
+	          {% endif%}
+            <!-- li>
               <a href="ajax:/health/mood/activate/mood_panda/" class="moodpanda">moodpanda</a>
-             </li>
+             </li-->
 	          {% if "fitbit" in social_auth.physical.associated %}
 	          <li class="active">
 	            <a href="{% url "socialauth_disconnect" "fitbit" %}" class="fitbit" >fitbit</a>
@@ -1971,7 +1976,7 @@
 	          {% if "withings" in social_auth.health.associated %}
 	          <li class="active"><a href="{% url "socialauth_disconnect" "withings" %}" class="withings" >withings</a></li>
 	          {% else %}
-	          <li><a href="{% url "socialauth_begin" "withings" %}"  class="withings" >withings</a>
+	          <li><a href="{% url "socialauth_begin" "withings" %}"  class="withings" >withings</a></li>
 	          {% endif%}
 	          <li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">

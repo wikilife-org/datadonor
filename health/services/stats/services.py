@@ -71,15 +71,16 @@ class HealthActivityDistributionService(object):
         return result 
     
     def get_mood_from_moodpanda(self, user):
-
+        
         user_email = user.profile.email
         client = MoodPandaClient(user_email=user_email)
         mood = client.get_avg_mood_last_30_days()
         try:
             obj = UserMoodLastWeek.objects.get(user=user)
+            obj.avg_mood = mood
+            obj.save()
         except:
             obj = UserMoodLastWeek.objects.create(user=user, avg_mood=mood)
-
 
             
         

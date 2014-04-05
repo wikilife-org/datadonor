@@ -63,5 +63,7 @@ urlpatterns = patterns('',
     url(r'^mood/global/avg/', mood_avg_global, name='mood_avg_global'),
     url(r'^mood/user/avg/', mood_avg_by_user, name='mood_avg_by_user'),
     url(r'^mood/activate/mood_panda/', mood_panda_activate, name='mood_panda_activate'),
+    url(r'^mood/deactivate/mood_panda/', mood_panda_deactivate, name='mood_panda_deactivate'),
+
     
 )

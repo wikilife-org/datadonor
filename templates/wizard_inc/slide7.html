@@ -8,11 +8,15 @@
     </h4>
 
     <div class="inner-redes">
-
+		{% if "moodpanda" in social_auth.health.associated %}
+        <a href="/health/mood/deactivate/mood_panda/" class="ajax circle moodPanda checked"  title="MoodPanda" >
+            <span>MoodPanda</span>
+        </a>
+		{% else %}
         <a href="/health/mood/activate/mood_panda/" class="ajax circle moodPanda"  title="MoodPanda" >
             <span>MoodPanda</span>
         </a>
-
+		{% endif %}
         <a href="javascript:void(0)" class="circle fitbit" title="Fitbit" >
             <span>Fitbit</span>
         </a>
