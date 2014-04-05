@@ -1343,6 +1343,9 @@ body #slider .slide .inner-redes {
 	background-position: center 30px;
 }
 
+
+
+
 /* SLIDE 7 */
 #slide-7 {
 	height: 600px;
@@ -1420,10 +1423,11 @@ body #slider .slide .inner-redes {
 	background-position: center 38px;
 }
 
-#slide-7 .inner-redes .circle.withing {
-	background-image: url(../img/health-withing.png);
+#slide-7 .inner-redes .circle.withings {
+	background-image: url(../img/nutrition-withings.png);
 	background-position: center 30px;
 }
+
 
 #slide-7 .inner-redes .circle.wikilfe {
 	background-image: url(../img/health-wikilfe.png);

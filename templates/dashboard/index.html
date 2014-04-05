@@ -1240,12 +1240,19 @@
           <li><a href="{% url "socialauth_begin" "fatsecret" %}"  class="fatsecret" >Fatsecret</a>
           {% endif%}
 
+          {% if "withings" in social_auth.health.associated %}
+          <li class="active"><a href="{% url "socialauth_disconnect" "withings" %}" class="withings" >withings</a></li>
+          {% else %}
+          <li><a href="{% url "socialauth_begin" "withings" %}"  class="withings" >withings</a>
+          {% endif%}
+
           <li>
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
             <a href="javascript:void(0)" class="wikilife disabled">wikilife</a></li>
-          <li>
+          <!-- li>
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
-            <a href="javascript:void(0)" class="withings disabled">withings</a></li>
+            <a href="javascript:void(0)" class="withings disabled">withings</a></li-->
+            
           </ul>
           <!--/social_networks-->
         </div>
@@ -1961,12 +1968,17 @@
 	            <a href="{% url "socialauth_begin" "fitbit" %}"  class="fitbit" >fitbit</a>
 	          </li>
 	          {% endif%}
+	          {% if "withings" in social_auth.health.associated %}
+	          <li class="active"><a href="{% url "socialauth_disconnect" "withings" %}" class="withings" >withings</a></li>
+	          {% else %}
+	          <li><a href="{% url "socialauth_begin" "withings" %}"  class="withings" >withings</a>
+	          {% endif%}
 	          <li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
               <a href="javascript:void(0)" class="ihealth disabled">ihealth</a></li>
-            <li>
+            <!--li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
-              <a href="javascript:void(0)" class="withings disabled">withings</a></li>
+              <a href="javascript:void(0)" class="withings disabled">withings</a></li-->
             <li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
               <a href="javascript:void(0)" class="wikilife disabled">wikilife</a></li>

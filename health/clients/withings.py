@@ -2,6 +2,8 @@ import requests
 from requests_oauthlib import OAuth1, OAuth1Session
 import json
 import datetime
+import oauth2 as oauth
+from social_auth.utils import setting
 
 from health.clients.base_device_client import BaseDeviceClient
 
@@ -52,28 +54,34 @@ class WithingsAuth(object):
 # obtener token y token secret del user y user_id
 # crear credentials en el init
 class WithingsClient(BaseDeviceClient):
-    URL = 'http://wbsapi.withings.net'
     
     _api_host = None
     _access_token = None
     _access_token_secret = None
+    _consumer_key = None
+    _consumer_secret = None
     
-    def __init__(self, credentials):
-        self.credentials = credentials
-        self.oauth = OAuth1(unicode(credentials.consumer_key),
-                            unicode(credentials.consumer_secret),
-                            unicode(credentials.access_token),
-                            unicode(credentials.access_token_secret),
+    _host = None
+    
+    def __init__(self, api_host, access_token):
+        self._host = api_host
+        self._consumer_key = setting("WITHINGS_CONSUMER_KEY")
+        self._consumer_secret = setting("WITHINGS_CONSUMER_SECRET")
+        self._token = oauth.Token.from_string(access_token)
+        self.oauth = OAuth1(unicode(self._consumer_key),
+                            unicode(self._consumer_secret),
+                            unicode(self._token.key),
+                            unicode(self._token.secret),
                             signature_type='query')
         self.client = requests.Session()
         self.client.auth = self.oauth
-        self.client.params.update({'userid': credentials.user_id})
+        #self.client.params.update({'userid': credentials.user_id})
 
     def request(self, service, action, params=None, method='GET'):
         if params is None:
             params = {}
         params['action'] = action
-        r = self.client.request(method, '%s/%s' % (self.URL, service), params=params)
+        r = self.client.request(method, '%s/%s' % (self._host, service), params=params)
         response = json.loads(r.content)
         if response['status'] != 0:
             raise Exception("Error code %s" % response['status'])

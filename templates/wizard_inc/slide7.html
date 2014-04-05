@@ -22,10 +22,16 @@
         {% else %}
             <a href="{% url "socialauth_begin" "jawbone" %}" class="circle jawbone"  title="Jawbone" ><span>Jawbone</span></a>
         {% endif%}
-
+        
+        {% if "withings" in social_auth.health.associated %}
+		<a href="{% url "socialauth_disconnect" "withings" %}"class="circle withings checked"  title="withings" ><span>Withings</span></a>
+		{% else %}
+		<a href="{% url "socialauth_begin" "withings" %}" class="circle withings"  title="withings" ><span>Withings</span></a>
+		{% endif%}
+		
         <a href="javascript:void(0)" class="circle iHealth disabled" title="iHealth" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>iHealth</span></a>
 
-        <a href="javascript:void(0)" class="circle withing disabled" title="Withing" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>Withing</span></a>
+        <!-- a href="javascript:void(0)" class="circle withing disabled" title="Withing" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>Withing</span></a-->
 
         <a href="javascript:void(0)" class="circle wikilfe disabled" title="Wikilfe" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>Wikilfe</span></a>
 

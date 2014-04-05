@@ -27,5 +27,5 @@ if setting('SOCIAL_AUTH_MODELS') in (None, 'social_auth.db.django_models'):
         search_fields = ('server_url',)
 
     admin.site.register(UserSocialAuth, UserSocialAuthOption)
-    admin.site.register(Nonce, NonceOption)
-    admin.site.register(Association, AssociationOption)
+#    admin.site.register(Nonce, NonceOption)
+#    admin.site.register(Association, AssociationOption)
