@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'gotham-med';
+    src: url('/static/fonts/Gotham-Medium.eot');
+    src: local('☺'), url('/static/css/fonts/Gotham-Medium.woff') format('woff'),
+        url('/static/css/fonts/Gotham-Medium.ttf') format('truetype'),
+        url('/static/css/fonts/Gotham-Medium.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gotham-bold';
+    src: url('/static/css/fonts/gotham-bold.eot');
+    src: url('/static/css/fonts/gotham-bold.eot?#iefix') format('embedded-opentype'),
+        url('/static/css/fonts/gotham-bold.woff') format('woff'),
+        url('/static/css/fonts/gotham-bold.ttf') format('truetype'),
+        url('/static/css/fonts/gotham-bold.svg#gotham-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothamultra';
+    src: url('/static/css/fonts/GothamUltra.eot');
+    src: url('/static/css/fonts/GothamUltra.eot?#iefix') format('embedded-opentype'),
+        url('/static/css/fonts/GothamUltra.woff') format('woff'),
+        url('/static/css/fonts/GothamUltra.ttf') format('truetype'),
+        url('/static/css/fonts/GothamUltra.svg#GothamUltra') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container{
+	background-color: #3FD1CA;
+	height: auto !important;
+	min-width: 1190px;
+    width: 100%;
+    background-image: url("../img/BETA-BIG.png");
+}
+
+header .nav {
+	margin-bottom: -14px;
+	margin-top: 40px;
+}
+
+header .nav a {
+	display: inline;
+	margin: 0 10px;
+	font-size: 1.6em;
+	font-family: 'gothamultra';
+	text-transform: uppercase;
+	color: #8E929C;
+	/*  text-transform:uppercase;*/
+}
+
+header .nav a:active {
+	color: ##424858;
+}
+
+header #top {
+	height: 5px;
+	width: 100%;
+}
+
+
+.container-header {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	font-size: 10px;
+}
+
+#beta {
+	background: #3FD1CA;
+	height: 154%;
+	width: 100%;
+	z-index: 600;
+}
+
+header.fixed {
+	position: fixed;
+	top: 0;
+}
+
+header,nav {
+	display: block;
+}
+
+#beta h1 {
+	float: left;
+    margin: 3% 0 2% 32%;
+}
+
+#beta h1:hover {
+	float: left;
+    margin: 3% 0 2% 32%;
+    opacity: 0.8;
+}
+
+header #center-nav {
+	position: absolute;
+	right: 25px;
+}

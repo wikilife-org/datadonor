@@ -17,9 +17,12 @@
             <span>MoodPanda</span>
         </a>
 		{% endif %}
-        <a href="javascript:void(0)" class="circle fitbit" title="Fitbit" >
-            <span>Fitbit</span>
-        </a>
+        
+        {% if "fitbit" in social_auth.physical.associated %}
+		<a href="{% url "socialauth_disconnect" "fitbit" %}"class="circle fitbit checked"  title="fitbit" ><span>Fitbit</span></a>
+		{% else %}
+		<a href="{% url "socialauth_begin" "fitbit" %}" class="circle fitbit"  title="fitbit" ><span>Fitbit</span></a>
+		{% endif%}
 
         {% if "jawbone" in social_auth.physical.associated %}
             <a href="{% url "socialauth_disconnect" "jawbone" %}"class="circle jawbone checked"  title="Jawbone" ><span>Jawbone</span></a>
