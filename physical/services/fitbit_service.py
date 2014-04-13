@@ -34,6 +34,7 @@ ACTIVITY_TYPE_NODE_ID_MAP = {
 METERS_TO_MILES = 0.000621371192
 MILISECONDS_TO_HOURS =  3600000
 MILES_TO_STEPS = 2300
+KILOMETROS_TO_MILES = 0.621371192
 
 class FitbitService(BaseDeviceService):
 
@@ -74,16 +75,16 @@ class FitbitService(BaseDeviceService):
 
         user = User.objects.get(id=user_id)
         self._update_profile(user, **profile_items)
-
+        distanceUnit = profile.get("distanceUnit", "METRIC")
         foods = client.get_user_foods()
         for item in foods:
             for food in item["foods"]:
                 food_entry_id = food["logId"]
                 fdate = food["logDate"]
-                carbs = food["nutritionalValues"]["carbs"]
-                protein = food["nutritionalValues"]["protein"]
-                fat = food["nutritionalValues"]["fat"]
-                fiber = food["nutritionalValues"]["fiber"]
+                carbs = food["nutritionalValues"].get("carbs", 0)
+                protein = food["nutritionalValues"].get("protein", 0)
+                fat = food["nutritionalValues"].get("fat", 0)
+                fiber = food["nutritionalValues"].get("fiber",0)
                 
                 food_log, created = UserFoodLog.objects.get_or_create(user=user, device_log_id=food_entry_id, provider=self._profile_source)
                 food_log.provider = self._profile_source
@@ -124,7 +125,10 @@ class FitbitService(BaseDeviceService):
                 if "duration" in activity:
                     activity_obj.hours = round(float(activity["duration"]) / MILISECONDS_TO_HOURS,2)
                 if "distance" in activity:
-                    activity_obj.miles =  round(float(activity["distance"]),2) 
+                    if distanceUnit == "en_GB":
+                        activity_obj.miles =  round(float(activity["distance"] * KILOMETROS_TO_MILES),2) 
+                    else:
+                        activity_obj.miles =  round(float(activity["distance"]),2) 
                 if "steps" in activity:
                     activity_obj.steps =  round(float(activity["steps"])) 
 

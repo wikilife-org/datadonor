@@ -23,10 +23,10 @@ class FatsecretService(BaseDeviceService):
             #datetime.strptime(item["start_time"], '%a, %d %b %Y %H:%M:%S')
             for food in log["food_entries"]["food_entry"]:
                 food_entry_id = food["food_entry_id"]
-                carbs = food["carbohydrate"]
-                protein = food["protein"]
-                fat = food["fat"]
-                fiber = food["fiber"]
+                carbs = food.get("carbohydrate", 0)
+                protein = food.get("protein", 0)
+                fat = food.get("fat", 0)
+                fiber = food.get("fiber",0)
                 
                 food_log, created = UserFoodLog.objects.get_or_create(user=user, device_log_id=food_entry_id, provider=self._profile_source)
                 food_log.provider = self._profile_source

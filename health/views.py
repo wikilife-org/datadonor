@@ -371,7 +371,9 @@ def mood_avg_by_user(request):
     if request.method == 'POST':
         avg_mood = int(request.POST["mood_avg"])
         try:
-            UserMoodLastWeek.objects.get(user=request.user)
+            avg_user_mood = UserMoodLastWeek.objects.get(user=request.user)
+            avg_user_mood.avg_mood = avg_mood
+            avg_user_mood.save()
         except:
             UserMoodLastWeek.objects.create(user=request.user, avg_mood=avg_mood)
 
