@@ -103,5 +103,8 @@ header #center-nav {
 }
 
 #banner {
-    margin-left: 15.5%;
+    float: left;
+    margin-left: 15.5% !important;
+    margin-top: 20px;
+    width: 474px;
 }
