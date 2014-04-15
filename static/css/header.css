@@ -101,3 +101,7 @@ header #center-nav {
 	position: absolute;
 	right: 25px;
 }
+
+#banner {
+    margin-left: 200px;
+}

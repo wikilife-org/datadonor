@@ -46,7 +46,7 @@ def complete(request, backend, *args, **kwargs):
         else:
             return complete_process(request, backend, *args, **kwargs)
         
-    except (AuthCanceled, AuthFailed):
+    except (AuthCanceled, AuthFailed), e:
         request.session["association"] = Associantion()
             
         if isinstance(backend, SocialBackend):
