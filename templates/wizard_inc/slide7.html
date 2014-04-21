@@ -36,8 +36,11 @@
 		<a href="{% url "socialauth_begin" "withings" %}" class="circle withings"  title="withings" ><span>Withings</span></a>
 		{% endif%}
 		
-        <a href="javascript:void(0)" class="circle iHealth disabled" title="iHealth" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>iHealth</span></a>
-
+        {% if "ihealth" in social_auth.physical.associated %}
+		<a href="{% url "socialauth_disconnect" "ihealth" %}"class="circle iHealth checked"  title="ihealth" ><span>Ihealth</span></a>
+		{% else %}
+		<a href="{% url "socialauth_begin" "ihealth" %}" class="circle iHealth"  title="ihealth" ><span>Ihealth</span></a>
+		{% endif%}
         <!-- a href="javascript:void(0)" class="circle withing disabled" title="Withing" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>Withing</span></a-->
 
         <a href="javascript:void(0)" class="circle wikilfe disabled" title="Wikilfe" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>Wikilfe</span></a>

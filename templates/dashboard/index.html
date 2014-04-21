@@ -872,10 +872,11 @@
           {% endif%}
 
           {% if "ihealth" in social_auth.physical.associated %}
-          <li class="active"><a href="javascript:void(0)" class="ihealth disabled" >ihealth</a></li>
+          <li class="active"><a href="{% url "socialauth_disconnect" "ihealth" %}" class="ihealth" >ihealth</a></li>
           {% else %}
           <li>
-          <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><a href="javascript:void(0)"  class="ihealth disabled" >ihealth</a>
+          <a href="{% url "socialauth_begin" "ihealth" %}"  class="ihealth" >ihealth</a>
+          </li>
           {% endif%}
           </ul>
           <!--/social_networks-->
@@ -1955,7 +1956,7 @@
             {% if "jawbone" in social_auth.physical.associated %}
             <li class="active"><a href="{% url "socialauth_disconnect" "jawbone" %}" class="jewbone" >jawbone</a></li>
             {% else %}
-            <li><a href="{% url "socialauth_begin" "jawbone" %}"  class="jewbone" >jawbone</a>
+            <li><a href="{% url "socialauth_begin" "jawbone" %}"  class="jewbone" >jawbone</a></li>
             {% endif%}
 	          {% if "moodpanda" in social_auth.health.associated %}
 	          <li class="active"><a href="ajax:/health/mood/deactivate/mood_panda/" class="moodpanda" >moodpanda</a></li>
@@ -1979,9 +1980,11 @@
 	          {% else %}
 	          <li><a href="{% url "socialauth_begin" "withings" %}"  class="withings" >withings</a></li>
 	          {% endif%}
-	          <li>
-              <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
-              <a href="javascript:void(0)" class="ihealth disabled">ihealth</a></li>
+	          {% if "ihealth" in social_auth.physical.associated %}
+	          <li class="active"><a href="{% url "socialauth_disconnect" "ihealth" %}" class="ihealth" >ihealth</a></li>
+	          {% else %}
+	          <li><a href="{% url "socialauth_begin" "ihealth" %}"  class="ihealth" >ihealth</a></li>
+	          {% endif%}
             <!--li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
               <a href="javascript:void(0)" class="withings disabled">withings</a></li-->

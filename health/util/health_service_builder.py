@@ -7,7 +7,8 @@ from wikilife.clients.user import User
 
 SERVICES = {
     "withings": "health.services.withings_service.WithingsService",
-    "moodpanda": "health.services.moodpanda_service.MoodPandaService"
+    "moodpanda": "health.services.moodpanda_service.MoodPandaService",
+    "ihealth": "health.services.ihealth_service.IhealthService"
 }
 
 
