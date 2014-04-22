@@ -73,7 +73,7 @@ $(document) .ready(function ()
         else
         {
             $('#header-top video') .hide();
-            $('#video-top2') .fadeIn();
+            $('#video-how') .fadeIn();
         }
         //$( this ).hide();
         //playPause();

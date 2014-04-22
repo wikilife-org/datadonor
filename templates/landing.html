@@ -59,14 +59,22 @@
 <!-- <script src="../build/js/jquery.scrollSections-0.4.1.min.js"></script> -->
 
 <script>
+
 var myVideoback = document.getElementById('video-back-0');
-var myVideoback2 = document.getElementById('video-back-1');
+var myVideoback2 = document.getElementById('video-top');
+var myVideoback3 = document.getElementById('video-how');
+
 function fgVideo() {
-    return $('#video-top') .get(0);
+    return $('#video-top').get(0);
 }
 function bgVideo() {
-    return $('#video-back-0') .get(0);
+    return $('#video-back-0').get(0);
 }
+
+function sgVideo() {
+    return $('#video-how').get(0);
+}
+
 var video_slide = 0;
 function playPause() {
     if (fgVideo() .paused) {
@@ -80,13 +88,41 @@ function playPause() {
             $('.videoback, #header-top img') .show();
             $('.close-video') .hide();
             $('.video-1,.box-scroll') .show();
-            $('#video-top, #video-top2') .hide();
+            $('#video-top, #video-how') .hide();
         }, false);
     } else {
         fgVideo() .pause();
+        sgVideo() .pause();
         $('.close-video') .show();
     }
 }
+
+function pause(){
+	fgVideo() .pause();
+    sgVideo() .pause();
+    $('.close-video') .show();
+}
+
+function play2Pause() {
+    if (sgVideo() .paused) {
+        $('.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa') .hide();
+        $('.pause') .show();
+        $('video') .hide();
+        $('#video-how') .show();
+        sgVideo() .play();
+        sgVideo() .addEventListener('ended', function () {
+            $('.pause') .hide();
+            $('.videoback, #header-top img') .show();
+            $('.close-video') .hide();
+            $('.video-1,.box-scroll') .show();
+            $('#video-top, #video-how') .hide();
+        }, false);
+    } else {
+    	sgVideo() .pause();
+        $('.close-video') .show();
+    }
+}
+
 function close_video() {
     if (video_slide == 1)
     {
@@ -96,8 +132,9 @@ function close_video() {
     $('.videoback, #header-top img') .show();
     $('.close-video') .hide();
     $('.video-1,.box-scroll, #header-top .capa') .show();
-    $('#video-top, #video-top2') .hide();
+    $('#video-top, #video-how') .hide();
     fgVideo() .currentTime = 0;
+    sgVideo().currentTime = 0;
 }
 </script>
 
@@ -220,6 +257,7 @@ $(function () {
         });
     }
     );
+    
     $('#header-top .flexslider') .flexslider({
         animation: 'slide',
         useCSS: false,
@@ -253,6 +291,7 @@ $(function () {
         {
             $('.video-1') .removeClass('gototop');
             video_slide = slider.currentSlide;
+            console.log(video_slide);
             if (video_slide == 1)
             {
                 myVideoback2.play();
@@ -263,6 +302,8 @@ $(function () {
             }
         }
     });
+    
+    
     $('#header-top .next-video') .on('click', function () {
         $('#header-top .flexslider') .flexslider('next')
         return false;

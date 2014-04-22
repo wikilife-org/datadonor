@@ -6,10 +6,10 @@
             <div class="video-1">
                 <h2>WATCH HOW WE COULD ALL SAVE LIVES</h2>
        			<a href="#" id="video-01" onClick="playPause(); return false;" class="watch-video" >Watch video</a>
-                <!--a href="#" id="video-02" onClick="playPause(2); return false;" class="watch-video2" >How it works</a-->
+                <!-- a href="#" id="video-02" onClick="play2Pause(); return false;" class="watch-video next-video" >How it works</a-->
             </div>
 
-            <a href="#" class="pause" onClick="playPause(); return false;"></a>
+            <a href="#" class="pause" onClick="pause(); return false;"></a>
           	<div class="flexslider">
           	{% if not videos %}
                 <ul class="slides">
@@ -28,6 +28,12 @@
                             <source src="http://static.wikilife.org/DataDonors.m4v" type='video/mp4;'>
                             <source src="http://static.wikilife.org/DataDonors.webmhd.webm" type='video/webm; codecs="vp8.0, vorbis"'>
                             <source src="http://static.wikilife.org/DataDonors.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                        </video>
+                        
+                        <video width="640" id="video-how" class="vid-0" preload="auto" >
+                            <source src="http://static.wikilife.org/datadonors_final_low.mp4.mp4" type='video/mp4;'>
+                            <source src="http://static.wikilife.org/datadonors_final_low.webmhd.webm" type='video/webm; codecs="vp8.0, vorbis"'>
+                            <source src="http://static.wikilife.org/datadonors_final_low.oggtheora.ogv" type='video/ogg; codecs="theora, vorbis"'>
                         </video>
 
                    </li>
