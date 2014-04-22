@@ -62,23 +62,23 @@ $(document) .ready(function ()
             video_1 = true;
         }
     });
-    $('#header-top .watch-video') .click(function (e)
-    {
-        e.preventDefault();
-        if (video_1 == true)
-        {
-            $('#header-top video') .hide();
-            $('#video-top') .fadeIn();
-        }
-        else
-        {
-            $('#header-top video') .hide();
-            $('#video-how') .fadeIn();
-        }
+    //$('#header-top .watch-video') .click(function (e)
+    //{
+      //  e.preventDefault();
+    //    if (video_1 == true)
+    //    {
+   //         $('#header-top video') .hide();
+   //         $('#video-top') .fadeIn();
+    //    }
+    //    else
+    //    {
+    //        $('#header-top video') .hide();
+    //        $('#video-how') .fadeIn();
+    //    }
         //$( this ).hide();
         //playPause();
 
-    });
+    //});
     //centrar_row2 ( );
     $(window) .resize(function ()
     {
