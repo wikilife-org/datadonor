@@ -1117,9 +1117,9 @@ function drawGenomicsTraits(data, user_data) {
           for (var j in user_data) {
               if (user_data[j].id == data[i].id) {
                   if (user_data[j].value == data[i].values[0]) {
-                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[0].name);
-                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[1].name);
                       firstItem = {
                           percentage: data[i].values[0].percentage,
@@ -1130,9 +1130,9 @@ function drawGenomicsTraits(data, user_data) {
                           color: '#7737C7'
                       };
                   } else {
-                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
-                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
                       firstItem = {
                           percentage: data[i].values[0].percentage,
@@ -1146,9 +1146,9 @@ function drawGenomicsTraits(data, user_data) {
               }
           }
         }else{
-            itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+            itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage.toFixed(1));
             itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
-            itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+            itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage.toFixed(1));
             itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
             firstItem = {
                 percentage: data[i].values[0].percentage,
