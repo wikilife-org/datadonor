@@ -1348,10 +1348,10 @@ window.onload = function () {
         $('#weight_number') .html(data.user_data.value);
     });
     $.getJSON(_api_urls[_api_env].height, function (data) {
-        //console.log('WEIGHT!');
-        $('.height_values .man .value') .html(Math.round(data.global_data.men.value * 100)/100);
-        $('.height_values .woman .value') .html(Math.round(data.global_data.women.value * 100)/100);
-        //console.log('HEIGHT USER: '+data.user_data.value);
+        var men = Math.round(data.global_data.men.value * 100) / 100;
+        var women = Math.round(data.global_data.women.value * 100) / 100;
+        $('.height_values .man .value') .html(men.toFixed(1));
+        $('.height_values .woman .value') .html(women.toFixed(1));
         $('#height_number') .html(data.user_data.value);
     });
     $.getJSON(_api_urls[_api_env].bmi, function (data) {
