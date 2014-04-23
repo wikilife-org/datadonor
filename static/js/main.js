@@ -499,6 +499,8 @@ function drawCronicalConditionsGraph(data, num, user_data) {
             $(this) .addClass('active');
             doCronicalConditionsSection();
         });
+
+        // When a brand new condition is added...
         $($('.cronical_container') [np]) .find('.done_condition') .on('click', {
             id_condition: data.id,
             container: $($('.cronical_container') [np]),
@@ -530,6 +532,8 @@ function drawCronicalConditionsGraph(data, num, user_data) {
                     'fill': '#E56666'
                 }, 500);
                 $(this) .addClass('sent');
+
+                //doCronicalConditionsSection();
             }
         });
     } else {
@@ -544,6 +548,8 @@ function drawCronicalConditionsGraph(data, num, user_data) {
                 //Send data... change color
                 $.post(_api_urls[_api_env].cronical_conditions_post, {
                     id_condition: event.data.id_condition
+                }, function () {
+                    doCronicalConditionsSection();
                 });
                 addCronicalCard(event.data.json.name, '', event.data.id_condition);
                 event.data.graph.lines[0].animate({
@@ -820,7 +826,7 @@ function addCronicalCard(label, typeLabel, id) {
             el.html(el.html() + '<li id="cronical_id_' + id + '" data-id="' + id + '" data-param="id_condition"><p><span>' + label + '</span><br /></p><a href="#" class="close_tab close_cronical_card">close</a></li>');
         }
     }
-    doCronicalConditionsSection();
+    //doCronicalConditionsSection();
 }
 function addEmotionCard(label, typeLabel, id) {
     if ($('#emotion_id_' + id) .length == 0) {
@@ -1497,6 +1503,7 @@ $(document) .ready(function () {
         var id = $(this) .parent() .attr('data-id');
         //console.log('DELETING CRONICAL ID: '+id);
         deleteUserData(_api_urls[_api_env].cronical_conditions_delete, $(this) .parent() .attr('data-param'), id, function (result) {
+                doCronicalConditionsSection();
         });
         for (var i in cronicalGraphs) {
             //console.log('looping cronical graphs: '+i);
