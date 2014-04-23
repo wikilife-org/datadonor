@@ -146,8 +146,8 @@ def change_user(to_user, from_user):
         if not from_user_condition:
             condition.user = from_user
             condition.save()
-
-        condition.delete()
+        else:
+            condition.delete()
     
     for complaint in UserComplaints.objects.filter(user=to_user):
         #NO puede haber dos complaints iguales para el mismo usuario
@@ -161,8 +161,8 @@ def change_user(to_user, from_user):
         if not from_user_complaint:
             complaint.user = from_user
             complaint.save()
-
-        complaint.delete()
+        else:
+            complaint.delete()
     
     #Emotions
     for emotion in UserEmotions.objects.filter(user=to_user):
@@ -177,8 +177,8 @@ def change_user(to_user, from_user):
         if not from_user_emotion:
             emotion.user = from_user
             emotion.save()
-
-        emotion.delete()
+        else:
+            emotion.delete()
 
     #Blood Type
     to_user_blood_type = None
