@@ -1254,7 +1254,7 @@
           <!-- li>
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
             <a href="javascript:void(0)" class="withings disabled">withings</a></li-->
-            
+
           </ul>
           <!--/social_networks-->
         </div>
@@ -1683,12 +1683,20 @@
 
         <div id="nutrient_template_data" style="display:none;">
           <div class="graph_container color_four">
-            <div class="graph_html" style="margin-left: [[parent_width]]px;">
-              <div class="porcent_text" style="[[user_text_style]]"><p>[[user_perc]]<strong>%</strong></p></div>
-              <div class="porcent_data user_data" style="[[user_data_style]]"></div>
+            <div class="graph_html" style="text-align: center;">
+              <div style="width: 480px; text-align: right;">
+                <div class="porcent_text" style="[[user_text_style]];">
+                  <p>[[user_perc]]<strong>%</strong></p>
+                </div>
+                <div class="porcent_data user_data" style="[[user_data_style]];"></div>
+              </div>
               <div class="label">[[name]]</div>
-              <div class="porcent_data global_data" style="[[global_data_style]]"></div>
-              <div class="porcent_text" style="[[global_text_style]]"><p>[[global_perc]]<strong>%</strong></p></div>
+              <div style="width: 480px; text-align: left;">
+                <div class="porcent_data global_data" style="[[global_data_style]];"></div>
+                <div class="porcent_text" style="[[global_text_style]];">
+                  <p>[[global_perc]]<strong>%</strong></p>
+                </div>
+              </div>
               <div class="clear"></div>
             </div>
           </div>
