@@ -23,12 +23,11 @@
             </div>
             <div id="center-nav">
                 <nav class="nav" id="">
-
                     {% if request.user.is_authenticated %}
-                    <a href="/about-us" title="About Us">About Us</a>
-                    <a href="/logout" title="logout">logout</a>
+                        <a href="/about-us" title="About Us">About Us</a>
+                        <a href="/logout" title="logout">logout</a>
                     {% else %}
-                    <a href="#" title="login" data-reveal-id="login_container">login</a>
+                        <a href="#" title="login" data-reveal-id="login_container">login</a>
                     {% endif %}
                 </nav>
             </div>
