@@ -53,7 +53,9 @@
     margin-top: 5em;
     font-size: 18px;
     text-align: center;
+    float: none;
 }
+
 #login_container h2 {
     color: #fff;
     font-family: "gothamultra";

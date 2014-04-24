@@ -50,6 +50,7 @@
 <body>
 
 
+{% include "wizard_inc/header.include.html" %}
 <section id="disclaimer" class="scrollsections">
 
 
@@ -61,8 +62,7 @@
 </section>
 
 <script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
-<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
+
 
 <script src="/static/js/plugins.js"></script>
 <script src="/static/js/jquery.scrollSections.js"></script>
@@ -108,12 +108,15 @@ $(document).ready(function(){
         go_to_slide(3);
     if (assoc_type == "genomics")
         go_to_slide(4);
+
 });
 </script>
 
 
 {% include "popups/gender.include.html" %}
 {% include "popups/error.wizard.include.html" %}
-{% include "wizard_inc/header.include.html" %}
+<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
+       
 </body>
 {% endblock %}
