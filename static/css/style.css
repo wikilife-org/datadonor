@@ -1241,7 +1241,7 @@ to {
 #four ul li {
 	height: 390px;
 	float: left;
-	width: 25%;
+	width: 26%;
 	background-color: #ff826e;
 }
 
@@ -1304,7 +1304,7 @@ to {
 
 #four .contenido {
 	margin: 50px auto 0 auto;
-	width: 230px;
+	width: 100%;
 }
 
 #four .contenido h3 {
