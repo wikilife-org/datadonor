@@ -102,9 +102,15 @@ header #center-nav {
 	right: 25px;
 }
 
-#banner {
+header#header {
+  position: relative;
+}
+
+a#banner {
     float: left;
-    margin-left: 15.5% !important;
+    margin-left: -15%;
+    position: absolute;
+    left: 50%;
     margin-top: 20px;
-    width: 60%;
+    width: 30%;
 }
