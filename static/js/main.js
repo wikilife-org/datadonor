@@ -1267,7 +1267,7 @@ function drawGenomicsDrugs(data, user_data) {
         $('div[data-name="' + user_data[z].value + '"]') .addClass('active');
     }
 }
-function drawGenomicsRisks(data, user_data) {
+function drawGenomicsRisks(user_data, data) {
 
   if (user_data.length > 0){
     $('#step_nineteen .pages_container') .html('');
