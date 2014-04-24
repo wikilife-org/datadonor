@@ -1117,9 +1117,9 @@ function drawGenomicsTraits(data, user_data) {
           for (var j in user_data) {
               if (user_data[j].id == data[i].id) {
                   if (user_data[j].value == data[i].values[0]) {
-                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[0].name);
-                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[1].name);
                       firstItem = {
                           percentage: data[i].values[0].percentage,
@@ -1130,9 +1130,9 @@ function drawGenomicsTraits(data, user_data) {
                           color: '#7737C7'
                       };
                   } else {
-                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
-                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
                       firstItem = {
                           percentage: data[i].values[0].percentage,
@@ -1146,9 +1146,9 @@ function drawGenomicsTraits(data, user_data) {
               }
           }
         }else{
-            itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+            itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage.toFixed(1));
             itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
-            itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+            itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage.toFixed(1));
             itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
             firstItem = {
                 percentage: data[i].values[0].percentage,
@@ -1348,10 +1348,10 @@ window.onload = function () {
         $('#weight_number') .html(data.user_data.value);
     });
     $.getJSON(_api_urls[_api_env].height, function (data) {
-        //console.log('WEIGHT!');
-        $('.height_values .man .value') .html(Math.round(data.global_data.men.value * 100)/100);
-        $('.height_values .woman .value') .html(Math.round(data.global_data.women.value * 100)/100);
-        //console.log('HEIGHT USER: '+data.user_data.value);
+        var men = Math.round(data.global_data.men.value * 100) / 100;
+        var women = Math.round(data.global_data.women.value * 100) / 100;
+        $('.height_values .man .value') .html(men.toFixed(1));
+        $('.height_values .woman .value') .html(women.toFixed(1));
         $('#height_number') .html(data.user_data.value);
     });
     $.getJSON(_api_urls[_api_env].bmi, function (data) {
