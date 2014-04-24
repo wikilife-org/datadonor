@@ -412,16 +412,15 @@ function drawNutrientProportionGraph(data) {
         var userWidth = (user_percent * 350) / 100;
         var globalWidth = (global_percent * 350) / 100;
 
-        var content = $('#nutrient_template_data') .html();
+      var content = $('#nutrient_template_data') .html();
         content = content.replace(/\[\[name\]\]/g, data.user_data[data_keys[i]].title);
         content = content.replace(/\[\[user_perc\]\]/g, user_percent);
         content = content.replace(/\[\[global_perc\]\]/g, global_percent);
-        content = content.replace(/\[\[user_data_style\]\]/g, 'width:' + userWidth + 'px; background-color:' + userColor + ';');
-        content = content.replace(/\[\[global_data_style\]\]/g, 'width:' + globalWidth + 'px; background-color:' + globalColor + ';');
+        content = content.replace(/\[\[user_data_style\]\]/g, 'width:' + userWidth + 'px; background-color:' + userColor);
+        content = content.replace(/\[\[global_data_style\]\]/g, 'width:' + globalWidth + 'px; background-color:' + globalColor);
         content = content.replace(/\[\[user_text_style\]\]/g, 'color:' + userColor + ';');
         content = content.replace(/\[\[global_text_style\]\]/g, 'color:' + globalColor + ';');
         var margin = (-userWidth + globalWidth) / 2;
-        content = content.replace(/\[\[parent_width\]\]/g, margin);
 
         $('.nutrient_data .block.right') .append(content);
     }
