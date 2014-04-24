@@ -1269,7 +1269,7 @@ function drawGenomicsDrugs(data, user_data) {
 }
 function drawGenomicsRisks(user_data, data) {
 
-  if (user_data.length > 0){
+  if (data.length > 0){
     $('#step_nineteen .pages_container') .html('');
       for (var i in data) {
           itemHtml = $('#genomic_risks_item_template') .html();
