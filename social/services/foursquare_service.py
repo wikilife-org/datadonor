@@ -2,18 +2,12 @@
 
 from django.contrib.auth.models import User
 from social.clients.foursquare import FoursquareClient
+from social.models import SocialUserAggregatedData
 from social.services.base_device_service import BaseDeviceService
 from wikilife_utils.date_utils import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
 from wikilife_utils.logs.log_creator import LogCreator
-from wikilife_utils.parsers.date_parser import DateParser
-from social.models import SocialUserAggregatedData
-
 
 FOURSQUARE_API = "https://api.foursquare.com/v2/"
-
-NODE_ID_MAP = {
-}
 
 
 class FoursquareService(BaseDeviceService):
@@ -41,14 +35,29 @@ class FoursquareService(BaseDeviceService):
             profile_items["gender"] = gender
             
         user = User.objects.get(id=user_id)
-        self._update_profile(user, **profile_items)
+        dd_user_profile = self._update_profile(user, **profile_items)
         
         friends_count = client.get_friends_count()
 
         aggregated, created = SocialUserAggregatedData.objects.get_or_create(user=user)
         aggregated.user = user
         aggregated.foursquare_friends_count = friends_count
-        aggregated.save()  
+        aggregated.save()
+
+        if created:
+            start = DateUtils.get_datetime_utc()
+            end = start
+            text = "Foursquare"
+            source = "datadonor.foursquare"
+            nodes = []
+            node_id = 278339
+
+            metric_id = 278316
+            value = friends_count 
+            nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
+
+            wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+            self._send_logs_to_wl(dd_user_profile, [wl_log])
 
     def pull_user_activity(self, user_id, user_auth):
         pass

@@ -2,18 +2,12 @@
 
 from django.contrib.auth.models import User
 from social.clients.linkedin import LinkedinClient
+from social.models import SocialUserAggregatedData
 from social.services.base_device_service import BaseDeviceService
 from wikilife_utils.date_utils import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
 from wikilife_utils.logs.log_creator import LogCreator
-from wikilife_utils.parsers.date_parser import DateParser
-from social.models import SocialUserAggregatedData
-
 
 LINKEDIN_API = "https://api.linkedin.com/v1/"
-
-NODE_ID_MAP = {
-}
 
 
 class LinkedinService(BaseDeviceService):
@@ -39,7 +33,7 @@ class LinkedinService(BaseDeviceService):
             profile_items["last_name"] = last_name
             
         user = User.objects.get(id=user_id)
-        self._update_profile(user, **profile_items)
+        dd_user_profile = self._update_profile(user, **profile_items)
         
         connections_count = client.get_connections_count()
         education_level, degree = client.get_education_level()
@@ -51,7 +45,40 @@ class LinkedinService(BaseDeviceService):
         aggregated.work_experience_years = work_experince
         aggregated.education_level = education_level
         aggregated.education_degree = degree
-        aggregated.save()  
+        aggregated.save()
+        
+        if created:
+            wl_logs = []
+            start = DateUtils.get_datetime_utc()
+            end = start
+            text = "Linkedin"
+            source = "datadonor.linkedin"
+
+            nodes = []
+            node_id = 278340
+            metric_id = 278329
+            value = connections_count 
+            nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
+            wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+            wl_logs.append(wl_log)
+            
+            nodes = []
+            node_id = 2
+            metric_id = 278326
+            value = education_level 
+            nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
+            wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+            wl_logs.append(wl_log)
+
+            nodes = []
+            node_id = 278333
+            metric_id = 278323
+            value = work_experince 
+            nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
+            wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+            wl_logs.append(wl_log)
+
+            self._send_logs_to_wl(dd_user_profile, wl_logs)
 
     def pull_user_activity(self, user_id, user_auth):
         pass

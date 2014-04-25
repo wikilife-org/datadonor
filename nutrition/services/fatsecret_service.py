@@ -4,6 +4,7 @@ from nutrition.services.base_device_service import BaseDeviceService
 from nutrition.clients.fatsecret import FatsecretClient
 from datetime import datetime
 from nutrition.models import *
+from users.models import Profile
 from django.contrib.auth.models import User
 
 
@@ -15,8 +16,12 @@ class FatsecretService(BaseDeviceService):
 
     def pull_user_info(self, user_id, user_auth):
         client = FatsecretClient(FATSECRET_API, user_auth["access_token"])
+        
+        wl_logs = []
+        
         foods_logs = client.get_user_food_last_7_days()
         user = User.objects.get(id=user_id)
+        dd_user_profile = Profile.objects.get(user=user)
         
         for log in foods_logs:
             food_date = log["food_entries"]["date"]
@@ -37,6 +42,22 @@ class FatsecretService(BaseDeviceService):
                 food_log.fiber = float(fiber)
                 food_log.execute_time = food_date
                 food_log.save()
+
+                """
+                if created:
+                    wl_log = self._create_food_log(item)
+                    wl_logs.append(wl_log)
+                """
+
+        if len(wl_logs) > 0:
+            self._send_logs_to_wl(dd_user_profile, wl_logs)
+
+    def _create_food_log(self, food):
+        """
+        wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+        return wl_log 
+        """
+        pass
                 
     def pull_user_activity(self, user_id, user_auth):
         pass

@@ -2,18 +2,12 @@
 
 from django.contrib.auth.models import User
 from social.clients.google import GoogleClient
+from social.models import SocialUserAggregatedData
 from social.services.base_device_service import BaseDeviceService
 from wikilife_utils.date_utils import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
 from wikilife_utils.logs.log_creator import LogCreator
-from wikilife_utils.parsers.date_parser import DateParser
-from social.models import SocialUserAggregatedData
-
 
 GOOGLE_API = "https://www.googleapis.com/plus/v1/"
-
-NODE_ID_MAP = {
-}
 
 
 class GoogleService(BaseDeviceService):
@@ -48,7 +42,7 @@ class GoogleService(BaseDeviceService):
                 profile_items["last_name"] = name["familyName"]
             
         user = User.objects.get(id=user_id)
-        self._update_profile(user, **profile_items)
+        dd_user_profile = self._update_profile(user, **profile_items)
         
         contacts_count = client.get_contacts_count()
 
@@ -56,6 +50,21 @@ class GoogleService(BaseDeviceService):
         aggregated.user = user
         aggregated.gplus_contacts_count = contacts_count
         aggregated.save()  
+
+        if created:
+            start = DateUtils.get_datetime_utc()
+            end = start
+            text = "Foursquare"
+            source = "datadonor.google"
+            nodes = []
+            node_id = 278338
+
+            metric_id = 278318
+            value = contacts_count 
+            nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
+
+            wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+            self._send_logs_to_wl(dd_user_profile, [wl_log])
 
     def pull_user_activity(self, user_id, user_auth):
         pass

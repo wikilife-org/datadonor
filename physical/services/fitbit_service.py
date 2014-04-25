@@ -1,34 +1,34 @@
 # coding=utf-8
 
+from datetime import datetime
+from django.contrib.auth.models import User
+from health.models import UserSleepLog
+from nutrition.models import UserFoodLog
 from physical.clients.fitbit import FitbitClient
+from physical.models import UserActivityLog
 from physical.services.base_device_service import BaseDeviceService
+from string import lower
 from wikilife_utils.date_utils import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
 from wikilife_utils.logs.log_creator import LogCreator
 from wikilife_utils.parsers.date_parser import DateParser
-from string import lower
-from physical.models import UserActivityLog
-from health.models import UserSleepLog
-from datetime import datetime
-from django.contrib.auth.models import User
-from nutrition.models import UserFoodLog
+from wikilife_utils.tests.date_utils_tests import DateUtilsTests
 
 FITBIT_API = "https://api.fitbit.com"
 ACTIVITY_TYPE_NODE_ID_MAP = {
-    "Running": 0, 
-    "Cycling": 0, 
-    "Mountain Biking": 0, 
-    "Walking": 0, 
-    "Hiking": 0, 
-    "Downhill Skiing": 0, 
-    "Cross-Country Skiing": 0, 
-    "Snowboarding": 0, 
-    "Skating": 0, 
-    "Swimming": 0, 
-    "Wheelchair": 0, 
-    "Rowing": 0, 
-    "Elliptical": 0, 
-    "Other": 0
+    "running": 814, 
+    "run": 814,
+    "cycling": 536, 
+    "mountain biking": 731, 
+    "walking": 1011, 
+    "hiking": 620, 
+    "downhill skiing": 559, 
+    "cross-country skiing": 518, 
+    "snowboarding": 878, 
+    "skating": 796,  
+    "swimming": 921, 
+    "rowing": 801, 
+    "elliptical": 564
 }
 
 METERS_TO_MILES = 0.000621371192
@@ -65,16 +65,16 @@ class FitbitService(BaseDeviceService):
                 profile_items["gender"] = "m"
             elif "female" == lower(profile["gender"]):
                 profile_items["gender"] = "f"
-                
-
 
         """
         if "location" in profile:
             profile_items["location"] = profile["location"]
         """
 
+        wl_logs = []
+
         user = User.objects.get(id=user_id)
-        self._update_profile(user, **profile_items)
+        dd_user_profile = self._update_profile(user, **profile_items)
         distanceUnit = profile.get("distanceUnit", "METRIC")
         foods = client.get_user_foods()
         for item in foods:
@@ -96,16 +96,26 @@ class FitbitService(BaseDeviceService):
                 food_log.execute_time = datetime.strptime(fdate, '%Y-%m-%d')
                 food_log.save()
                 
+                """
+                if created:
+                    wl_log = self._create_food_log(food)
+                    wl_logs.append(wl_log)
+                """
+
         sleeps = client.get_user_sleep()
         for item in sleeps:
             for sleep in item["sleep"]:
                 activity, created = UserSleepLog.objects.get_or_create(user=user, device_log_id=sleep["logId"])
-                
+
                 activity.execute_time = datetime.strptime(sleep["startTime"][:10], '%Y-%m-%d')
                 activity.provider = "fitbit"
                 activity.minutes = round(float(sleep["duration"]/ 60000),2)  
                 activity.save()
-                 
+
+                if created:
+                    wl_log = self._create_sleep_log(sleep)
+                    wl_logs.append(wl_log)
+
         activities = client.get_user_fitness_activities()
         for item in activities:
             for activity in item["activities"]:
@@ -134,34 +144,71 @@ class FitbitService(BaseDeviceService):
 
                 activity_obj.save()
 
+                if created:
+                    wl_log = self._create_activity_log(activity, distanceUnit)
+                    wl_logs.append(wl_log)
+
+        if len(wl_logs) > 0:
+            self._send_logs_to_wl(dd_user_profile, wl_logs)
+
+    def _create_food_log(self, food):
+        """
+        wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+        return wl_log 
+        """
+        pass
+
+    def _create_sleep_log(self, sleep):
+        start = DateParser.from_datetime( sleep["startDate"] + " " + sleep["startTime"] )
+        duration_minutes = float(sleep["duration"])
+        end = DateUtils.add_seconds(start, duration_minutes*60)
+        text = "Sleep"
+        source = "datadonor.fitbit"
+        nodes = []
+        node_id = 271229
+        metric_id = 271233 #TODO Duration metric is deprecated
+        nodes.append(LogCreator.create_log_node(node_id, metric_id, duration_minutes))
+        wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+        return wl_log 
+
+    def _create_activity_log(self, activity, distance_unit):
+        act_name = activity["name"].lower()
+        text = "%s" %activity["name"]
+        source = "datadonor.fitbit"
+        start = DateParser.from_datetime( activity["startDate"] + " " + activity["startTime"] )
+
+        if "duration" in activity: 
+            end = DateUtils.add_seconds(start, (float(activity["duration"])/1000))
+        else:
+            end = start
+
+        nodes = []
+        node_id = ACTIVITY_TYPE_NODE_ID_MAP[act_name]
+
+        if "distance" in activity:
+            if distance_unit == "en_GB":
+                value = round(float(activity["distance"]), 2) 
+            else:
+                value = round(float(activity["distance"])/KILOMETROS_TO_MILES, 2) 
+
+            metric_id = 2344
+            nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
+            text = "%s, %s" %(text, ("%s km" %value))
+
+        if act_name=="walking" and "steps" in activity:
+            metric_id = 2345
+            value = int(activity["steps"])
+            nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
+            text = "%s, %s" %(text, ("%s steps" %value))
+    
+        if "calories" in activity:
+            metric_id = 394
+            value = int(activity["calories"])
+            nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
+            text = "%s, %s" %(text, ("%s cal" %value))
+
+        wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
+        return wl_log 
+
     def pull_user_activity(self, user_id, user_auth):
-        #wikilife_token = self._get_wikilife_token(user_id)
-        client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
-        fitness_activities = client.get_user_fitness_activities()
-        #self._log_fitness_activities(wikilife_token, fitness_activities["items"])
-        return fitness_activities
-        
-    def pull_user_activity_(self, user_id, user_auth):
-        wikilife_token = self._get_wikilife_token(user_id)
-        client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
-        fitness_activities = client.get_user_fitness_activities()
-        self._log_fitness_activities(wikilife_token, fitness_activities["items"])
- 
-    def _log_fitness_activities(self, wikilife_token, items):
-        for item in items:
-            start_time = DateParser.from_datetime(item["start_time"])
-            end_time = DateUtils.add_seconds(start_time, item["duration"])
-            start = DateFormatter.to_datetime(start_time)
-            end = DateFormatter.to_datetime(end_time)
-            node_id = ACTIVITY_TYPE_NODE_ID_MAP[item["type"]]
-            distance_km = item["total_distance"] * 1000
-            calories = item["total_calories"]
-            text = "%s %s km, %s calories" %(item["type"], distance_km, calories)
-            source = "datadonor.runkeeper.%s" %item["source"]
-
-            nodes = []
-            nodes.append(LogCreator.create_log_node(self, node_id, 0, distance_km))
-            nodes.append(LogCreator.create_log_node(self, node_id, 0, calories))
-
-            log = LogCreator.create_log(self, 0, start, end, text, source, nodes)
-            self._log_client.add_log(wikilife_token, log)
+        pass
