@@ -31,43 +31,33 @@ ACTIVITY_TYPE_NODE_ID_MAP = {
 METERS_TO_MILES = 0.000621371192
 MILISECONDS_TO_HOURS =  3600000
 MILES_TO_STEPS = 2300
+KILOMETROS_TO_MILES = 0.621371192
 
 class JawboneService(BaseDeviceService):
 
     _profile_source = "jawbone"
     def pull_user_info(self, user_id, user_auth):
         client = JawboneClient(JAWBONE_API,user_auth["access_token"])
-        profile = client.get_user_information()
-    
-    def pull_user_info_(self, user_id, user_auth):
-        profile = client.get_user_information()
-        profile_items = {}
-        
-        if "gender" in profile:
-            if "male" == lower(profile["gender"]):
-                profile_items["gender"] = "m"
-            elif "female" == lower(profile["gender"]):
-                profile_items["gender"] = "f"
-                
-
-
         """
-        if "location" in profile:
-            profile_items["location"] = profile["location"]
+        {u'meta': {u'code': 200, u'message': u'OK', u'user_xid': u'0GV2QrCjzTS1s1O-CtgPEQ', u'time': 1398451930},
+         u'data': {u'xid': u'0GV2QrCjzTS1s1O-CtgPEQ', 
+                    u'weight': 57.0, u'gender': True, 
+                    u'image': u'', u'height': 1.66, 
+                    u'last': u'Macgibbon', u'first': u'Romina'}}
         """
+        profile = client.get_user_information()
 
         user = User.objects.get(id=user_id)
-        self._update_profile(user, **profile_items)
-
-        foods = client.get_user_foods()
-        for item in foods:
-            for food in item["foods"]:
-                food_entry_id = food["logId"]
-                fdate = food["logDate"]
-                carbs = food["nutritionalValues"]["carbs"]
-                protein = food["nutritionalValues"]["protein"]
-                fat = food["nutritionalValues"]["fat"]
-                fiber = food["nutritionalValues"]["fiber"]
+        
+        foods = client.get_user_meals()
+        if foods["data"]["size"]>0:
+            for food in foods["data"]["items"]:
+                food_entry_id = food["xid"]
+                fdate = "%s"%food["date"]
+                carbs = food["details"]["carbohydrate"]
+                protein = food["details"]["protein"]
+                fat = food["details"]["fat"]
+                fiber = food["details"]["fiber"]
                 
                 food_log, created = UserFoodLog.objects.get_or_create(user=user, device_log_id=food_entry_id, provider=self._profile_source)
                 food_log.provider = self._profile_source
@@ -76,38 +66,33 @@ class JawboneService(BaseDeviceService):
                 food_log.carbs = float(carbs)
                 food_log.fat = float(fat)
                 food_log.fiber = float(fiber)
-                food_log.execute_time = datetime.strptime(fdate, '%Y-%m-%d')
+                food_log.execute_time = datetime.strptime(fdate, '%Y%m%d')
                 food_log.save()
                 
-        sleeps = client.get_user_sleep()
-        for item in sleeps:
-            for sleep in item["sleep"]:
-                activity, created = UserSleepLog.objects.get_or_create(user=user, device_log_id=sleep["logId"])
-                
-                activity.execute_time = datetime.strptime(sleep["startTime"][:10], '%Y-%m-%d')
-                activity.provider = "fitbit"
-                activity.minutes = round(float(sleep["duration"]/ 60000),2)  
+        sleeps = client.get_user_sleep_list()
+        if sleeps["data"]["size"]>0:
+            for sleep in sleeps["data"]["items"]:
+                activity, created = UserSleepLog.objects.get_or_create(user=user, device_log_id=sleep["xid"])
+                activity.execute_time = datetime.strptime("%s"%sleep["date"], '%Y%m%d')
+                activity.provider = "jawbone"
+                activity.minutes = round(float(sleep["details"]["duration"]/ 60),2)  
                 activity.save()
                  
-        activities = client.get_user_fitness_activities()
-        for item in activities:
-            for activity in item["activities"]:
-
-                activity_obj, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=activity["logId"])
-                activity_obj.type = activity["name"].lower()
+        activities = client.get_user_moves()
+        if activities["data"]["size"]>0:
+            for activity in activities["data"]["items"]:
+                activity_obj, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=activity["xid"])
+                activity_obj.type = activity["type"].lower()
                 
-                activity_obj.execute_time = datetime.strptime(activity["startDate"], '%Y-%m-%d')
-                activity_obj.provider = "fitbit"
+                activity_obj.execute_time = datetime.strptime("%s"%activity["date"], '%Y%m%d')
+                activity_obj.provider = "jawbone"
                 
-                if "duration" in activity:
-                    activity_obj.hours = round(float(activity["duration"]) / MILISECONDS_TO_HOURS,2)
-                if "distance" in activity:
-                    activity_obj.miles =  round(float(activity["distance"]),2) 
-                if "steps" in activity:
-                    activity_obj.steps =  round(float(activity["steps"])) 
+                if "active_time" in activity["details"]:
+                    activity_obj.hours = round((float(activity["details"]["active_time"]) / 60) /60,2)
+                if "km" in activity["details"]:
+                    activity_obj.miles =  round(float(activity["details"]["km"] * KILOMETROS_TO_MILES),2) 
+                if "steps" in activity["details"]:
+                    activity_obj.steps =  round(float(activity["details"]["steps"])) 
 
                 activity_obj.save()
-
-        
-    def pull_user_activity(self, user_id, user_auth):
-        pass
+    
