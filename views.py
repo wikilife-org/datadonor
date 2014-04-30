@@ -27,6 +27,10 @@ def wizard(request):
     ctx = {'version': version, 'show_wizard':show_wizard, 'agent':agent}
     if request.user.is_authenticated() and (request.user.profile.gender == None or request.user.profile.gender == "") :
         ctx["no_gender"] = True
+    if request.session.get("login_error", False):
+        ctx["login_error"] = True
+        del request.session["login_error"]
+        request.session.modified = True
     return render_to_response('wizard.html',ctx ,
                                   RequestContext(request))
 

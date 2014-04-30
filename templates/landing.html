@@ -9,7 +9,6 @@
 
 {% block styles %}
 <link rel="stylesheet" href="/static/css/reset.css"/>
-<link rel="stylesheet" href="/static/css/header.css" />
 <link rel="stylesheet" href="/static/css/common.css" />
 <link rel="stylesheet" href="/static/css/style.css?6548321"/>
 <link rel="stylesheet" href="/static/css/flexslider.css"/>
@@ -59,14 +58,22 @@
 <!-- <script src="../build/js/jquery.scrollSections-0.4.1.min.js"></script> -->
 
 <script>
-var myVideoback = document.getElementById('video-back-0');
-var myVideoback2 = document.getElementById('video-back-1');
+
+//var myVideoback = document.getElementById('video-back-0');
+//var myVideoback2 = document.getElementById('video-top');
+//var myVideoback3 = document.getElementById('video-how');
+
 function fgVideo() {
-    return $('#video-top') .get(0);
+    return $('#video-top').get(0);
 }
 function bgVideo() {
-    return $('#video-back-0') .get(0);
+    return $('#video-back-0').get(0);
 }
+
+function sgVideo() {
+    return $('#video-how').get(0);
+}
+
 var video_slide = 0;
 function playPause() {
     if (fgVideo() .paused) {
@@ -80,13 +87,42 @@ function playPause() {
             $('.videoback, #header-top img') .show();
             $('.close-video') .hide();
             $('.video-1,.box-scroll') .show();
-            $('#video-top, #video-top2') .hide();
+            $('#video-top, #video-how') .hide();
         }, false);
     } else {
         fgVideo() .pause();
+        sgVideo() .pause();
         $('.close-video') .show();
     }
 }
+
+function pause(){
+	fgVideo() .pause();
+    sgVideo() .pause();
+    $('.close-video') .show();
+}
+
+function play2Pause() {
+    if (sgVideo() .paused) {
+        $('.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa') .hide();
+        $('.pause') .show();
+        $('video') .hide();
+        $('#video-top') .hide();
+        $('#video-how') .show();
+        sgVideo() .play();
+        sgVideo() .addEventListener('ended', function () {
+            $('.pause') .hide();
+            $('.videoback, #header-top img') .show();
+            $('.close-video') .hide();
+            $('.video-1,.box-scroll') .show();
+            $('#video-top, #video-how') .hide();
+        }, false);
+    } else {
+    	sgVideo() .pause();
+        $('.close-video') .show();
+    }
+}
+
 function close_video() {
     if (video_slide == 1)
     {
@@ -96,8 +132,9 @@ function close_video() {
     $('.videoback, #header-top img') .show();
     $('.close-video') .hide();
     $('.video-1,.box-scroll, #header-top .capa') .show();
-    $('#video-top, #video-top2') .hide();
+    $('#video-top, #video-how') .hide();
     fgVideo() .currentTime = 0;
+    sgVideo().currentTime = 0;
 }
 </script>
 
@@ -220,53 +257,7 @@ $(function () {
         });
     }
     );
-    $('#header-top .flexslider') .flexslider({
-        animation: 'slide',
-        useCSS: false,
-        multipleKeyboard: true,
-        pauseOnHover: true,
-        slideshow: false,
-        directionNav: false,
-        video: true,
-        animationSpeed: 800,
-        animationLoop: true,
-        start: function (slider) {
-            //myVideoback.play();
-            video_slide = slider.currentSlide;
-            ///myVideo1.pause();
-            if (video_slide == 0)
-            {
-                myVideoback.play();
-            }
-        },
-        before: function () {
-            //Callback: function(slider) - Fires asynchronously with each slider animation
-            // Running through all of the video elements and telling them to pause
-            // This will only work with  HTML5 video. YouTube requires its own solution.
-            $('.video-1') .addClass('gototop');
-            $('.slides > li > video') .each(function (i) {
-                $(this) .get(0) .pause();
-                // Note the get(0) part. That turns an array into a sinle element, which we need in order to call the pause() method.
-            });
-        },
-        after: function (slider)
-        {
-            $('.video-1') .removeClass('gototop');
-            video_slide = slider.currentSlide;
-            if (video_slide == 1)
-            {
-                myVideoback2.play();
-            }
-            else
-            {
-                myVideoback.play();
-            }
-        }
-    });
-    $('#header-top .next-video') .on('click', function () {
-        $('#header-top .flexslider') .flexslider('next')
-        return false;
-    })
+
     $('#howtoshare .flexslider') .flexslider({
         animation: 'slide',
         multipleKeyboard: false,

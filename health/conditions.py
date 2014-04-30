@@ -1,4 +1,10 @@
-conditions = [
+conditions =   [
+        {
+            "percentage": 0,
+            "id": 32581,
+            "types": [],
+            "name": "Insulin-dependent diabetes mellitus"
+        },
         {
             "percentage": 0,
             "id": 3194,
@@ -205,8 +211,8 @@ conditions = [
             "id": 3198,
             "types": [
                 {
-                    "id": 27179,
-                    "name": "Alcoholic liver disease"
+                    "id": 27163,
+                    "name": "Alcoholic cardiomyopathy"
                 },
                 {
                     "id": 27365,
@@ -476,9 +482,9 @@ conditions = [
         },
         {
             "percentage": 0,
-            "id": 26779,
+            "id": 26733,
             "types": [],
-            "name": "Acute allergic conjunctivitis"
+            "name": "Acromegaly"
         },
         {
             "percentage": 0,
@@ -494,6 +500,12 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 41019,
+            "types": [],
+            "name": "AIDS"
+        },
+        {
+            "percentage": 0,
             "id": 27155,
             "types": [],
             "name": "Albinism"
@@ -506,9 +518,21 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 27163,
+            "types": [],
+            "name": "Alcoholic cardiomyopathy"
+        },
+        {
+            "percentage": 0,
             "id": 27179,
             "types": [],
             "name": "Alcoholic liver disease"
+        },
+        {
+            "percentage": 0,
+            "id": 37202,
+            "types": [],
+            "name": "Allergic bronchopulmonary aspergillosis"
         },
         {
             "percentage": 0,
@@ -536,15 +560,87 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 33389,
+            "types": [],
+            "name": "Anal cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 27365,
+            "types": [],
+            "name": "Angina pectoris"
+        },
+        {
+            "percentage": 0,
+            "id": 27453,
+            "types": [],
+            "name": "Aortic heart valve disease"
+        },
+        {
+            "percentage": 0,
+            "id": 27457,
+            "types": [],
+            "name": "Aortic heart valve insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 27459,
+            "types": [],
+            "name": "Aortic heart valve stenosis"
+        },
+        {
+            "percentage": 0,
+            "id": 27461,
+            "types": [],
+            "name": "Aortic heart valve stenosis with insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 29343,
+            "types": [],
+            "name": "Aortic or mitral valve disease at birth"
+        },
+        {
+            "percentage": 0,
+            "id": 27573,
+            "types": [],
+            "name": "Asthma"
+        },
+        {
+            "percentage": 0,
+            "id": 27615,
+            "types": [],
+            "name": "Atrial fibrillation"
+        },
+        {
+            "percentage": 0,
+            "id": 40339,
+            "types": [],
+            "name": "Atrial tachycardia"
+        },
+        {
+            "percentage": 0,
             "id": 27667,
             "types": [],
             "name": "Autoimmune hepatitis"
         },
         {
             "percentage": 0,
+            "id": 27845,
+            "types": [],
+            "name": "Benign cardiac tumor"
+        },
+        {
+            "percentage": 0,
             "id": 33093,
             "types": [],
             "name": "Benign tumor of uterus"
+        },
+        {
+            "percentage": 0,
+            "id": 33405,
+            "types": [],
+            "name": "Bladder cancer"
         },
         {
             "percentage": 0,
@@ -566,6 +662,42 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 33423,
+            "types": [],
+            "name": "Brain cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 33427,
+            "types": [],
+            "name": "Breast cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 28201,
+            "types": [],
+            "name": "Bronchiectasis"
+        },
+        {
+            "percentage": 0,
+            "id": 33557,
+            "types": [],
+            "name": "Cardiac cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 28469,
+            "types": [],
+            "name": "Cardiomyopathy"
+        },
+        {
+            "percentage": 0,
+            "id": 33455,
+            "types": [],
+            "name": "Cervical cancer"
+        },
+        {
+            "percentage": 0,
             "id": 28781,
             "types": [],
             "name": "Chronic allergic conjunctivitis"
@@ -578,15 +710,33 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 40961,
+            "types": [],
+            "name": "Chronic bronchitis"
+        },
+        {
+            "percentage": 0,
             "id": 28643,
             "types": [],
             "name": "Chronic Chagas disease with digestive system involvement"
         },
         {
             "percentage": 0,
+            "id": 28645,
+            "types": [],
+            "name": "Chronic Chagas disease with heart involvement"
+        },
+        {
+            "percentage": 0,
             "id": 28325,
             "types": [],
             "name": "Chronic mucocutaneous candidiasis"
+        },
+        {
+            "percentage": 0,
+            "id": 28881,
+            "types": [],
+            "name": "Chronic obstructive pulmonary disease"
         },
         {
             "percentage": 0,
@@ -620,6 +770,12 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 33467,
+            "types": [],
+            "name": "Colon cancer"
+        },
+        {
+            "percentage": 0,
             "id": 29073,
             "types": [],
             "name": "Common variable immunodeficiency"
@@ -629,6 +785,18 @@ conditions = [
             "id": 39755,
             "types": [],
             "name": "Congenital deafness"
+        },
+        {
+            "percentage": 0,
+            "id": 39061,
+            "types": [],
+            "name": "Cor pulmonale"
+        },
+        {
+            "percentage": 0,
+            "id": 27593,
+            "types": [],
+            "name": "Coronary artery atherosclerosis"
         },
         {
             "percentage": 0,
@@ -650,9 +818,45 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 40993,
+            "types": [],
+            "name": "Diabetes mellitus"
+        },
+        {
+            "percentage": 0,
+            "id": 30101,
+            "types": [],
+            "name": "Dilated cardiomyopathy"
+        },
+        {
+            "percentage": 0,
+            "id": 30881,
+            "types": [],
+            "name": "Emphysema"
+        },
+        {
+            "percentage": 0,
+            "id": 30945,
+            "types": [],
+            "name": "Endomyocardial fibrosis"
+        },
+        {
+            "percentage": 0,
+            "id": 33679,
+            "types": [],
+            "name": "Esophageal cancer"
+        },
+        {
+            "percentage": 0,
             "id": 31211,
             "types": [],
             "name": "Fatty liver"
+        },
+        {
+            "percentage": 0,
+            "id": 34560,
+            "types": [],
+            "name": "Floppy mitral valve"
         },
         {
             "percentage": 0,
@@ -665,6 +869,18 @@ conditions = [
             "id": 30391,
             "types": [],
             "name": "Galactokinase deficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 33711,
+            "types": [],
+            "name": "Gallbladder cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 34055,
+            "types": [],
+            "name": "Gastric cancer"
         },
         {
             "percentage": 0,
@@ -704,9 +920,45 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 33745,
+            "types": [],
+            "name": "Head and neck cancer"
+        },
+        {
+            "percentage": 0,
             "id": 3182,
             "types": [],
             "name": "Hearing loss"
+        },
+        {
+            "percentage": 0,
+            "id": 26911,
+            "types": [],
+            "name": "Heart attack"
+        },
+        {
+            "percentage": 0,
+            "id": 35734,
+            "types": [],
+            "name": "Heart block"
+        },
+        {
+            "percentage": 0,
+            "id": 31933,
+            "types": [],
+            "name": "Heart failure"
+        },
+        {
+            "percentage": 0,
+            "id": 28441,
+            "types": [],
+            "name": "Heart rhythm problems"
+        },
+        {
+            "percentage": 0,
+            "id": 30915,
+            "types": [],
+            "name": "Heart valve disease"
         },
         {
             "percentage": 0,
@@ -719,6 +971,30 @@ conditions = [
             "id": 31991,
             "types": [],
             "name": "Hereditary hypogammaglobulinemia"
+        },
+        {
+            "percentage": 0,
+            "id": 31079,
+            "types": [],
+            "name": "High blood pressure"
+        },
+        {
+            "percentage": 0,
+            "id": 38927,
+            "types": [],
+            "name": "High blood pressure within the pulmonary arteries"
+        },
+        {
+            "percentage": 0,
+            "id": 3217,
+            "types": [],
+            "name": "HIV positive"
+        },
+        {
+            "percentage": 0,
+            "id": 32075,
+            "types": [],
+            "name": "Hodgkin's lymphoma"
         },
         {
             "percentage": 0,
@@ -752,6 +1028,24 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 33135,
+            "types": [],
+            "name": "Leukemia cutis"
+        },
+        {
+            "percentage": 0,
+            "id": 33487,
+            "types": [],
+            "name": "Liposarcoma"
+        },
+        {
+            "percentage": 0,
+            "id": 33607,
+            "types": [],
+            "name": "Liver cancer"
+        },
+        {
+            "percentage": 0,
             "id": 31945,
             "types": [],
             "name": "Liver failure"
@@ -761,6 +1055,12 @@ conditions = [
             "id": 3207,
             "types": [],
             "name": "Liver transplantation"
+        },
+        {
+            "percentage": 0,
+            "id": 37422,
+            "types": [],
+            "name": "Long QT syndrome"
         },
         {
             "percentage": 0,
@@ -776,15 +1076,51 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 33431,
+            "types": [],
+            "name": "Lung cancer"
+        },
+        {
+            "percentage": 0,
             "id": 40395,
             "types": [],
             "name": "Lupus"
         },
         {
             "percentage": 0,
+            "id": 33299,
+            "types": [],
+            "name": "Lymphoid leukemia"
+        },
+        {
+            "percentage": 0,
+            "id": 33641,
+            "types": [],
+            "name": "Melanoma"
+        },
+        {
+            "percentage": 0,
             "id": 28687,
             "types": [],
             "name": "Melasma"
+        },
+        {
+            "percentage": 0,
+            "id": 35290,
+            "types": [],
+            "name": "Mitral heart valve disease"
+        },
+        {
+            "percentage": 0,
+            "id": 34558,
+            "types": [],
+            "name": "Mitral heart valve insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 35294,
+            "types": [],
+            "name": "Mitral heart valve stenosis"
         },
         {
             "percentage": 0,
@@ -800,9 +1136,21 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 33667,
+            "types": [],
+            "name": "Mouth cancer"
+        },
+        {
+            "percentage": 0,
             "id": 34662,
             "types": [],
             "name": "Mucopolysaccharidosis"
+        },
+        {
+            "percentage": 0,
+            "id": 34704,
+            "types": [],
+            "name": "Multiple myeloma"
         },
         {
             "percentage": 0,
@@ -812,9 +1160,33 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 34764,
+            "types": [],
+            "name": "Myeloid leukemia"
+        },
+        {
+            "percentage": 0,
+            "id": 35222,
+            "types": [],
+            "name": "Non Hodgkin lymphoma"
+        },
+        {
+            "percentage": 0,
+            "id": 35224,
+            "types": [],
+            "name": "Non-insulin-dependent diabetes mellitus"
+        },
+        {
+            "percentage": 0,
             "id": 35254,
             "types": [],
             "name": "Nonfamilial hypogammaglobulinaemia"
+        },
+        {
+            "percentage": 0,
+            "id": 36770,
+            "types": [],
+            "name": "Nonobstructive hypertrophic cardiomyopathy"
         },
         {
             "percentage": 0,
@@ -824,9 +1196,51 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 35438,
+            "types": [],
+            "name": "Obstructive hypertrophic cardiomyopathy"
+        },
+        {
+            "percentage": 0,
+            "id": 33781,
+            "types": [],
+            "name": "Ovarian cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 3221,
+            "types": [],
+            "name": "Pacemaker in place"
+        },
+        {
+            "percentage": 0,
+            "id": 33675,
+            "types": [],
+            "name": "Paget disease of the breast"
+        },
+        {
+            "percentage": 0,
+            "id": 33939,
+            "types": [],
+            "name": "Pancreatic cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 38264,
+            "types": [],
+            "name": "Pericardial disease"
+        },
+        {
+            "percentage": 0,
             "id": 38290,
             "types": [],
             "name": "Periodontal disease"
+        },
+        {
+            "percentage": 0,
+            "id": 33971,
+            "types": [],
+            "name": "Peritoneal cancer"
         },
         {
             "percentage": 0,
@@ -836,9 +1250,21 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 3223,
+            "types": [],
+            "name": "Presence of prosthetic heart valve"
+        },
+        {
+            "percentage": 0,
             "id": 38897,
             "types": [],
             "name": "Primary biliary cirrhosis"
+        },
+        {
+            "percentage": 0,
+            "id": 33797,
+            "types": [],
+            "name": "Prostate cancer"
         },
         {
             "percentage": 0,
@@ -854,6 +1280,48 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 39087,
+            "types": [],
+            "name": "Pulmonary heart valve disease"
+        },
+        {
+            "percentage": 0,
+            "id": 36154,
+            "types": [],
+            "name": "Pulmonary heart valve disease at birth"
+        },
+        {
+            "percentage": 0,
+            "id": 39093,
+            "types": [],
+            "name": "Pulmonary heart valve insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 39095,
+            "types": [],
+            "name": "Pulmonary heart valve stenosis"
+        },
+        {
+            "percentage": 0,
+            "id": 39097,
+            "types": [],
+            "name": "Pulmonary heart valve stenosis with insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 3225,
+            "types": [],
+            "name": "Rectal cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 33719,
+            "types": [],
+            "name": "Renal cancer"
+        },
+        {
+            "percentage": 0,
             "id": 3210,
             "types": [],
             "name": "Renal failure on dyalisis"
@@ -866,9 +1334,99 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 37242,
+            "types": [],
+            "name": "Restrictive cardiomyopathy"
+        },
+        {
+            "percentage": 0,
+            "id": 39443,
+            "types": [],
+            "name": "Rheumatic aortic heart valve disease"
+        },
+        {
+            "percentage": 0,
+            "id": 39437,
+            "types": [],
+            "name": "Rheumatic aortic heart valve insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 39439,
+            "types": [],
+            "name": "Rheumatic aortic heart valve stenosis"
+        },
+        {
+            "percentage": 0,
+            "id": 39441,
+            "types": [],
+            "name": "Rheumatic aortic heart valve stenosis with insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 39457,
+            "types": [],
+            "name": "Rheumatic fever"
+        },
+        {
+            "percentage": 0,
+            "id": 34554,
+            "types": [],
+            "name": "Rheumatic mitral heart valve disease"
+        },
+        {
+            "percentage": 0,
+            "id": 39461,
+            "types": [],
+            "name": "Rheumatic mitral heart valve insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 34550,
+            "types": [],
+            "name": "Rheumatic mitral heart valve stenosis"
+        },
+        {
+            "percentage": 0,
+            "id": 37820,
+            "types": [],
+            "name": "Rheumatic pulmonary heart valve disease"
+        },
+        {
+            "percentage": 0,
+            "id": 40701,
+            "types": [],
+            "name": "Rheumatic tricuspid heart valve disease"
+        },
+        {
+            "percentage": 0,
+            "id": 40695,
+            "types": [],
+            "name": "Rheumatic tricuspid heart valve insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 40697,
+            "types": [],
+            "name": "Rheumatic tricuspid heart valve stenosis"
+        },
+        {
+            "percentage": 0,
+            "id": 40699,
+            "types": [],
+            "name": "Rheumatic tricuspid heart valve stenosis with insufficiency"
+        },
+        {
+            "percentage": 0,
             "id": 39509,
             "types": [],
             "name": "Rosacea"
+        },
+        {
+            "percentage": 0,
+            "id": 33625,
+            "types": [],
+            "name": "Salivary gland cancer"
         },
         {
             "percentage": 0,
@@ -896,9 +1454,63 @@ conditions = [
         },
         {
             "percentage": 0,
+            "id": 34071,
+            "types": [],
+            "name": "Testicular cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 33817,
+            "types": [],
+            "name": "Thyroid cancer"
+        },
+        {
+            "percentage": 0,
             "id": 40565,
             "types": [],
             "name": "Toxic liver disease"
+        },
+        {
+            "percentage": 0,
+            "id": 3227,
+            "types": [],
+            "name": "Transplantation of heart"
+        },
+        {
+            "percentage": 0,
+            "id": 3229,
+            "types": [],
+            "name": "Transplantation of heart-lung"
+        },
+        {
+            "percentage": 0,
+            "id": 35296,
+            "types": [],
+            "name": "Tricuspid heart valve disease"
+        },
+        {
+            "percentage": 0,
+            "id": 29427,
+            "types": [],
+            "name": "Tricuspid heart valve disease at birth"
+        },
+        {
+            "percentage": 0,
+            "id": 35300,
+            "types": [],
+            "name": "Tricuspid heart valve insufficiency"
+        },
+        {
+            "percentage": 0,
+            "id": 35302,
+            "types": [],
+            "name": "Tricuspid heart valve stenosis"
+        },
+        {
+            "percentage": 0,
+            "id": 35304,
+            "types": [],
+            "name": "Tricuspid heart valve stenosis with insufficiency"
         },
         {
             "percentage": 0,
@@ -911,6 +1523,24 @@ conditions = [
             "id": 40887,
             "types": [],
             "name": "Umbilical hernia"
+        },
+        {
+            "percentage": 0,
+            "id": 33825,
+            "types": [],
+            "name": "Uterine cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 33827,
+            "types": [],
+            "name": "Vaginal cancer"
+        },
+        {
+            "percentage": 0,
+            "id": 41241,
+            "types": [],
+            "name": "Venous insufficiency"
         },
         {
             "percentage": 0,
@@ -947,6 +1577,12 @@ conditions = [
             "id": 29043,
             "types": [],
             "name": "Gluten-sensitive enteropathy"
+        },
+        {
+            "percentage": 0,
+            "id": 30867,
+            "types": [],
+            "name": "Embolism and thrombosis"
         },
         {
             "percentage": 0,

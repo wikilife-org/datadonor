@@ -22,7 +22,6 @@
   </ul>
 </div>
 </div>
-    
      <div id="timeline">
             <div id="controles{% if not request.user.is_authenticated %}a{% endif%}">
                 <ul>
@@ -30,32 +29,32 @@
                         <a href="#" data-link="0" {% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated %}data-reveal-id="wizard_error_container"{% endif%}></a>
                         <span class="icon"></span>
                     </li>
-                    
+
                     <li id="thumb-1" >
                         <a href="#" data-link="1" {% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated %}data-reveal-id="wizard_error_container"{% endif%}></a>
                         <span class="icon"></span>
                     </li>
-                    
+
                     <li id="thumb-2" >
                         <a href="#" data-link="2" {% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated %}data-reveal-id="wizard_error_container"{% endif%}></a>
                         <span class="icon"></span>
                     </li>
-                    
+
                     <li id="thumb-3" >
                         <a href="#" data-link="3" {% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated%}data-reveal-id="wizard_error_container"{% endif%}></a>
                         <span class="icon"></span>
                     </li>
-                    
+
                     <li id="thumb-4" >
                         <a href="#" data-link="4" {% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated %}data-reveal-id="wizard_error_container"{% endif%}></a>
                         <span class="icon"></span>
                     </li>
-                    
+
                 </ul>
             </div>
             <div class="cont-progress">
                 <div id="progress" style="overflow: hidden;"></div>
             </div>
         </div>
-    
+
 </div><!-- .centrar-v -->

@@ -412,16 +412,15 @@ function drawNutrientProportionGraph(data) {
         var userWidth = (user_percent * 350) / 100;
         var globalWidth = (global_percent * 350) / 100;
 
-        var content = $('#nutrient_template_data') .html();
+      var content = $('#nutrient_template_data') .html();
         content = content.replace(/\[\[name\]\]/g, data.user_data[data_keys[i]].title);
         content = content.replace(/\[\[user_perc\]\]/g, user_percent);
         content = content.replace(/\[\[global_perc\]\]/g, global_percent);
-        content = content.replace(/\[\[user_data_style\]\]/g, 'width:' + userWidth + 'px; background-color:' + userColor + ';');
-        content = content.replace(/\[\[global_data_style\]\]/g, 'width:' + globalWidth + 'px; background-color:' + globalColor + ';');
+        content = content.replace(/\[\[user_data_style\]\]/g, 'width:' + userWidth + 'px; background-color:' + userColor);
+        content = content.replace(/\[\[global_data_style\]\]/g, 'width:' + globalWidth + 'px; background-color:' + globalColor);
         content = content.replace(/\[\[user_text_style\]\]/g, 'color:' + userColor + ';');
         content = content.replace(/\[\[global_text_style\]\]/g, 'color:' + globalColor + ';');
         var margin = (-userWidth + globalWidth) / 2;
-        content = content.replace(/\[\[parent_width\]\]/g, margin);
 
         $('.nutrient_data .block.right') .append(content);
     }
@@ -499,6 +498,8 @@ function drawCronicalConditionsGraph(data, num, user_data) {
             $(this) .addClass('active');
             doCronicalConditionsSection();
         });
+
+        // When a brand new condition is added...
         $($('.cronical_container') [np]) .find('.done_condition') .on('click', {
             id_condition: data.id,
             container: $($('.cronical_container') [np]),
@@ -530,6 +531,8 @@ function drawCronicalConditionsGraph(data, num, user_data) {
                     'fill': '#E56666'
                 }, 500);
                 $(this) .addClass('sent');
+
+                //doCronicalConditionsSection();
             }
         });
     } else {
@@ -544,6 +547,8 @@ function drawCronicalConditionsGraph(data, num, user_data) {
                 //Send data... change color
                 $.post(_api_urls[_api_env].cronical_conditions_post, {
                     id_condition: event.data.id_condition
+                }, function () {
+                    doCronicalConditionsSection();
                 });
                 addCronicalCard(event.data.json.name, '', event.data.id_condition);
                 event.data.graph.lines[0].animate({
@@ -820,7 +825,7 @@ function addCronicalCard(label, typeLabel, id) {
             el.html(el.html() + '<li id="cronical_id_' + id + '" data-id="' + id + '" data-param="id_condition"><p><span>' + label + '</span><br /></p><a href="#" class="close_tab close_cronical_card">close</a></li>');
         }
     }
-    doCronicalConditionsSection();
+    //doCronicalConditionsSection();
 }
 function addEmotionCard(label, typeLabel, id) {
     if ($('#emotion_id_' + id) .length == 0) {
@@ -1117,9 +1122,9 @@ function drawGenomicsTraits(data, user_data) {
           for (var j in user_data) {
               if (user_data[j].id == data[i].id) {
                   if (user_data[j].value == data[i].values[0]) {
-                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[0].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[0].name);
-                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[1].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[1].name);
                       firstItem = {
                           percentage: data[i].values[0].percentage,
@@ -1130,9 +1135,9 @@ function drawGenomicsTraits(data, user_data) {
                           color: '#7737C7'
                       };
                   } else {
-                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
-                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+                      itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage.toFixed(1));
                       itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
                       firstItem = {
                           percentage: data[i].values[0].percentage,
@@ -1146,9 +1151,9 @@ function drawGenomicsTraits(data, user_data) {
               }
           }
         }else{
-            itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage);
+            itemHtml = itemHtml.replace(/\[\[porcent_user\]\]/g, data[i].values[1].percentage.toFixed(1));
             itemHtml = itemHtml.replace(/\[\[user_trait_name\]\]/g, data[i].values[1].name);
-            itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage);
+            itemHtml = itemHtml.replace(/\[\[porcent_global\]\]/g, data[i].values[0].percentage.toFixed(1));
             itemHtml = itemHtml.replace(/\[\[global_trait_name\]\]/g, data[i].values[0].name);
             firstItem = {
                 percentage: data[i].values[0].percentage,
@@ -1262,9 +1267,9 @@ function drawGenomicsDrugs(data, user_data) {
         $('div[data-name="' + user_data[z].value + '"]') .addClass('active');
     }
 }
-function drawGenomicsRisks(data, user_data) {
+function drawGenomicsRisks(user_data, data) {
 
-  if (user_data.length > 0){
+  if (data.length > 0){
     $('#step_nineteen .pages_container') .html('');
       for (var i in data) {
           itemHtml = $('#genomic_risks_item_template') .html();
@@ -1348,10 +1353,10 @@ window.onload = function () {
         $('#weight_number') .html(data.user_data.value);
     });
     $.getJSON(_api_urls[_api_env].height, function (data) {
-        //console.log('WEIGHT!');
-        $('.height_values .man .value') .html(Math.round(data.global_data.men.value * 100)/100);
-        $('.height_values .woman .value') .html(Math.round(data.global_data.women.value * 100)/100);
-        //console.log('HEIGHT USER: '+data.user_data.value);
+        var men = Math.round(data.global_data.men.value * 100) / 100;
+        var women = Math.round(data.global_data.women.value * 100) / 100;
+        $('.height_values .man .value') .html(men.toFixed(1));
+        $('.height_values .woman .value') .html(women.toFixed(1));
         $('#height_number') .html(data.user_data.value);
     });
     $.getJSON(_api_urls[_api_env].bmi, function (data) {
@@ -1497,6 +1502,7 @@ $(document) .ready(function () {
         var id = $(this) .parent() .attr('data-id');
         //console.log('DELETING CRONICAL ID: '+id);
         deleteUserData(_api_urls[_api_env].cronical_conditions_delete, $(this) .parent() .attr('data-param'), id, function (result) {
+                doCronicalConditionsSection();
         });
         for (var i in cronicalGraphs) {
             //console.log('looping cronical graphs: '+i);

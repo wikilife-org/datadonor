@@ -2,11 +2,6 @@
 
 
 {% block meta %}
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -20,100 +15,50 @@
 <link rel="stylesheet" type="text/css" href="/static/css/scroll-wizard.css"/>
 <link rel="stylesheet" type="text/css" href="/static/css/style-wizard.css?6548321"/>
 <link rel="stylesheet" type="text/css" href="/static/css/flexslider-wizard.css"/>
-<link rel="stylesheet" media="screen and (max-height: 630px)" href="/static/css/small-wizard.css?546879" />
-<link rel="stylesheet" media="screen and (max-height: 680px)" href="/static/css/min-wizard.css?546879" />
-<link rel="stylesheet" media="screen and (max-height: 680px)" href="/static/css/normal-wizard.css?546879" />
-<link rel="stylesheet" media="screen and (min-height: 800px)" href="/static/css/max-wizard.css?546879" />
-<link rel="stylesheet" media="screen and (min-height: 900px)" href="/static/css/highest-wizard.css?14532423456" />
+<link rel="stylesheet" media="screen and (max-height: 630px)" href="/static/css/small-wizard.css" />
+<link rel="stylesheet" media="screen and (max-height: 680px)" href="/static/css/min-wizard.css" />
+<link rel="stylesheet" media="screen and (max-height: 680px)" href="/static/css/normal-wizard.css" />
+<link rel="stylesheet" media="screen and (min-height: 800px)" href="/static/css/max-wizard.css" />
+<link rel="stylesheet" media="screen and (min-height: 900px)" href="/static/css/highest-wizard.css" />
 <link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)" href="/static/css/ipad-h-wizard.css" />
 <link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)" href="/static/css/ipad-v-wizard.css" />
 <link rel="stylesheet" href="/static/css/jquery.scrollSections-wizard.css">
 <link rel="stylesheet" href="/static/css/login.css" />
-<script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
-
 {% endblock %}
-
-
-
 
 {% block scripts %}
+<script>
+  var show_wizard = '{{ show_wizard }}' == 'True'
+  var assoc_type = '{{request.session.association.type}}'
+</script>
+
+<script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
 <script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
 
-<!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+<script src="/static/js/plugins.js"></script>
+<script src="/static/js/jquery.scrollSections.js"></script>
+<script src="/static/js/flexslider.js" ></script>
 
+<script src="/static/js/script-wizard.js" ></script>
+<script src="/static/js/wizard.js" ></script>
 {% endblock %}
-
 
 {% block content %}
 <body>
 
+{% include "wizard_inc/header.include.html" %}
+{% include "popups/gender.include.html" %}
+{% include "popups/error.wizard.include.html" %}
+
 
 <section id="disclaimer" class="scrollsections">
-
-
   {% include "wizard_inc/disclaimer.html" %}
 </section>
 
 <section id="whatfor" class="scrollsections claro">
-{% include 'wizard_inc/what-for.html' %}
+  {% include 'wizard_inc/what-for.html' %}
 </section>
 
-<script src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
-<script src="/static/js/vendor/modernizr-2.5.3.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery.reveal.js"></script>
-
-<script src="/static/js/plugins.js"></script>
-<script src="/static/js/jquery.scrollSections.js"></script>
-<script src="/static/js/flexcroll.js" ></script>
-<script src="/static/js/flexslider.js" ></script>
-<script src="/static/js/script-wizard.js" ></script>
-<script src="/static/js/wizard.js" ></script>
-
-<script>
-  $(function() {
-    $('a#gender').on('click', function(event) {
-      event.preventDefault();
-          var href = $(this).attr("href");
-              $.get(href, function () {
-                  window.location= "/end-wizard/";
-              });
-
-      });
-    });
-
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){
-    var show_wizard = "{{ show_wizard }}" == "True";
-    var assoc_type = "{{request.session.association.type}}";
-
-    console.log("Show wizard: " + show_wizard);
-    if (show_wizard) {
-        $("section#disclaimer").hide();
-        $("#iagree").trigger("click");
-    }
-
-    console.log("Association Type: ");
-    if (assoc_type == "social")
-        go_to_slide(0);
-    if (assoc_type == "physical")
-        go_to_slide(1);
-    if (assoc_type == "nutrition")
-        go_to_slide(2);
-    if (assoc_type == "health")
-        go_to_slide(3);
-    if (assoc_type == "genomics")
-        go_to_slide(4);
-});
-</script>
-
-
-{% include "popups/gender.include.html" %}
-{% include "popups/error.wizard.include.html" %}
-{% include "wizard_inc/header.include.html" %}
+<script src="/static/js/jquery.reveal.js"></script>
 </body>
 {% endblock %}

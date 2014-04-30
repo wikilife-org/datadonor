@@ -23,7 +23,8 @@ from urllib import urlencode
 from django.utils import simplejson
 import requests
 import json
-
+from urllib2 import Request, HTTPError
+from  social_auth.utils import dsa_urlopen
 
 IHEALTH_SERVER = 'https://api.ihealthlabs.com:8443/OpenApiV2/OAuthv2'
 IHEALTH_REQUEST_TOKEN_URL = '%s/userauthorization' % IHEALTH_SERVER
@@ -38,11 +39,11 @@ class IhealthBackend(OAuthBackend):
     
     
     def get_user_id(self, details, response):
-        return response['id']
+        return response['UserID']
 
     def get_user_details(self, response):
         """Return user details from ihealth account"""
-        return {'username': response['username']}
+        return {'username': response['UserID']}
 
 
 class IhealthAuth(BaseOAuth2, PhysicalBackend):
@@ -56,7 +57,7 @@ class IhealthAuth(BaseOAuth2, PhysicalBackend):
     STATE_PARAMETER = False
 
 
-    def user_data(self, access_token, *args, **kwargs):
+    def user_data_(self, access_token, *args, **kwargs):
         """Loads user data from service"""
         url = DAILYMILE_USERINFO + '?oauth_token=%s' % access_token
         res = requests.get(url)
@@ -65,7 +66,27 @@ class IhealthAuth(BaseOAuth2, PhysicalBackend):
         except ValueError:
             return None
         
-    
+    def auth_complete(self, *args, **kwargs):
+        """Completes loging process, must return user instance"""
+        self.process_error(self.data)
+        params = self.auth_complete_params(self.validate_state())
+        response = requests.request("GET", self.ACCESS_TOKEN_URL, params=params )
+        #request = Request(self.ACCESS_TOKEN_URL, data=urlencode(params), headers=self.auth_headers())
+
+        try:
+            response = response.json()
+        except HTTPError, e:
+            if e.code == 400:
+                raise AuthCanceled(self)
+            else:
+                raise
+        except (ValueError, KeyError):
+            raise AuthUnknownError(self)
+
+        self.process_error(response)
+        return self.do_auth(response['AccessToken'], response=response,
+                            *args, **kwargs)
+        
     def auth_url(self):
         """Return redirect url"""
         if self.STATE_PARAMETER or self.REDIRECT_STATE:
@@ -89,9 +110,10 @@ class IhealthAuth(BaseOAuth2, PhysicalBackend):
         else:
             query_string = ''
             
-        params['APINAME'] = 'datadonor'
-        return self.AUTHORIZATION_URL + '?' + urlencode(params) + query_string
+        #params['APIName'] = 'OpenApiBP OpenApiActivity OpenApiBG OpenApiSleep OpenApiUserInfo OpenApiWeight'
+        aPIName = 'OpenApiBP OpenApiActivity OpenApiBG OpenApiSleep OpenApiUserInfo OpenApiWeight'
 
+        return self.AUTHORIZATION_URL + '?' + urlencode(params) + query_string + "&APIName=" + aPIName
 
 # Backend definition
 BACKENDS = {

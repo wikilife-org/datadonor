@@ -48,13 +48,22 @@
 				<a href="{% url "socialauth_begin" "fitbit" %}" class="circle fitbit"  title="fitbit" ><span>Fitbit</span></a>
 				{% endif%}
 
+             	{% if "ihealth" in social_auth.physical.associated %}
+				<a href="{% url "socialauth_disconnect" "ihealth" %}"class="circle iHealth checked"  title="iHealth" ><span>Ihealth</span></a>
+				{% else %}
+				<a href="{% url "socialauth_begin" "ihealth" %}" class="circle iHealth"  title="iHealth" ><span>Ihealth</span></a>
+				{% endif%}
+
                 <a href="javascript:void(0)" class="circle nike disabled" title="Nike+" >
-                    <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
+                    
                     <span>Nike+</span>
                 </a>
-
-                <a href="javascript:void(0)" class="circle myfitness" title="Myfitness" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>myfitnesspal</span></a>
-                <a href="javascript:void(0)" class="circle iHealth disabled" title="iHealth" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>iHealth</span></a>
+				
+				<a href="javascript:void(0)" class="circle nike-ribbon" title="Nike+" >
+                </a>
+                
+                <a href="javascript:void(0)" class="circle myfitness disabled" title="Myfitness" ><img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon"><span>myfitnesspal</span></a>
+				<a href="javascript:void(0)" class="circle myfitness-ribbon" title="myfitness" ></a>
             </div><!-- .inner-redes -->
         </div>
         <a href="#" id="redes-inner-right"><img src="/static/img/right.png" class="right"></a>

@@ -1,29 +1,29 @@
 {% if login_error %}
-<script>
-  console.log("accocioation failed.")
-  $(function () {
-      $('#login_container').reveal({
-           animation: 'fadeAndPop',
-           animationspeed: 300,
-           closeonbackgroundclick: true,
-           dismissmodalclass: 'close_login'
-      });
-  });
-</script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#login_container').reveal({
+             animation: 'fadeAndPop',                   //fade, fadeAndPop, none
+             animationspeed: 300,                       //how fast animtions are
+             closeonbackgroundclick: true,              //if you click background will modal close?
+             dismissmodalclass: 'close_login'    //the class of a button or element that will close an open modal
+        });
+    });
+    </script>
 {% endif %}
-
+<link rel="stylesheet" href="/static/css/login.css" />
 <!--login_container-->
 <div id="login_container" class="reveal-modal">
 
 	<h1>Login</h1>
 	<h2>Welcome back</h2>
 
-	<div class="close_login">
+
+	<!--div class="close_login">
 		<a href="#" id="close_login">close</a>
-	</div>
+	</div-->
 
 {% if login_error %}
-  <p class="error">Sorry, this account is not related to DataDonors.<br>Please, try another or <a href="wizard" style="color: white">create one</a>.</p>
+  <p class="error">Sorry, this account is not related to DataDonors.<br>Please, try another or <a href="/wizard" style="color: white">create one</a>.</p>
 {% else %}
   <p>use any of these services to login</p>
 {% endif %}
@@ -44,7 +44,7 @@
 </div>
 <!--/login_container-->
 
-<link rel="stylesheet" href="/static/css/login.css" />
+
 
 <script>
   $(function() {

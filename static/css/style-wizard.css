@@ -1237,6 +1237,16 @@ body #slider .slide .inner-redes {
 	background-position: center 20px;
 }
 
+#slide-5 .inner-redes .circle.myfitness-ribbon {
+   background-color: rgba(0, 0, 0, 0);
+    background-image: url("../img/big_social_nav/ribbon.png");
+    background-position: right -3px;
+    margin-left: -131px;
+    opacity: 1;
+    border-radius:0;
+}
+
+
 #slide-5 .inner-redes .circle.bodymedia {
 	background-image: url(../img/device-bodymedia.png);
 	background-position: center 19px;
@@ -1256,6 +1266,17 @@ body #slider .slide .inner-redes {
 	background-image: url(../img/device-nike.png);
 	background-position: center 37px;
 }
+
+#slide-5 .inner-redes .circle.nike-ribbon {
+   background-color: rgba(0, 0, 0, 0);
+    background-image: url("../img/big_social_nav/ribbon.png");
+    background-position: right -3px;
+    margin-left: -131px;
+    opacity: 1;
+    border-radius:0;
+}
+
+
 
 #slide-5 .inner-redes .circle.jawbone {
 	background-image: url(../img/health-jawbone.png);
@@ -1336,6 +1357,15 @@ body #slider .slide .inner-redes {
 #slide-6 .inner-redes .circle.wikilife {
 	background-image: url(../img/nutrition-wikilife.png);
 	background-position: center 25px;
+}
+
+#slide-6 .inner-redes .circle.wikilife-ribbon {
+   background-color: rgba(0, 0, 0, 0);
+    background-image: url("../img/big_social_nav/ribbon.png");
+    background-position: right -3px;
+    margin-left: -138px;
+    opacity: 1;
+    border-radius:0;
 }
 
 #slide-6 .inner-redes .circle.withings {
@@ -1432,6 +1462,15 @@ body #slider .slide .inner-redes {
 #slide-7 .inner-redes .circle.wikilfe {
 	background-image: url(../img/health-wikilfe.png);
 	background-position: center 30px;
+}
+
+#slide-7 .inner-redes .circle.wikilife-ribbon {
+   background-color: rgba(0, 0, 0, 0);
+    background-image: url("../img/big_social_nav/ribbon.png");
+    background-position: right -3px;
+    margin-left: -138px;
+    opacity: 1;
+    border-radius:0;
 }
 
 /* SLIDE 8 */
@@ -1682,4 +1721,9 @@ div.inner-redes a.circle img {
 	position:absolute;
 	top: -2px;
 	right: 0;
+}
+
+.disabled-ribbon{
+	display: inline !important;
+    width: auto !important;
 }

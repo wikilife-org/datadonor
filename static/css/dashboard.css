@@ -15,10 +15,10 @@ div.porcent_data.global_data {
 
 div.nutrient_data div.graph_html {
   width: 100%;
-  text-align: center;
 }
 
-div.nutrient_data div.graph_html > div {
+div.nutrient_data div.graph_html > div,
+div.nutrient_data div.graph_html > div > div {
   display: inline-block;
 }
 

@@ -100,6 +100,16 @@ def disconnect(request, backend, association_id=None):
     request.session["association"] = Associantion()
     if isinstance(backend, SocialBackend):
         request.session["association"].type = "social"
+    if isinstance(backend, PhysicalBackend):
+        request.session["association"].type = "physical"
+    if isinstance(backend, GenomicsBackend):
+        request.session["association"].type = "genomics"
+    if isinstance(backend, NutritionBackend):
+        request.session["association"].type = "nutrition"
+    if isinstance(backend, HealthBackend):
+        request.session["association"].type = "health"
+    if not request.user.is_authenticated() or request.session.get("wizard_mode", False):
+        return HttpResponseRedirect('/wizard/')
     url = request.REQUEST.get(REDIRECT_FIELD_NAME, '') or \
           backend_setting(backend, 'SOCIAL_AUTH_DISCONNECT_REDIRECT_URL') or \
           DEFAULT_REDIRECT
