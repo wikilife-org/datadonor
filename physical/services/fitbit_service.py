@@ -159,7 +159,7 @@ class FitbitService(BaseDeviceService):
         pass
 
     def _create_sleep_log(self, sleep):
-        start = DateParser.from_datetime( sleep["startDate"] + " " + sleep["startTime"] )
+        start = DateParser.from_datetime( sleep["startDate"] + " " + sleep["startTime"])
         duration_minutes = float(sleep["duration"])
         end = DateUtils.add_seconds(start, duration_minutes*60)
         text = "Sleep"

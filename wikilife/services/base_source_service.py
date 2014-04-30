@@ -84,15 +84,16 @@ class BaseSourceService(object):
         user_name = "%s%s" %(base_user_name, unique_id)
 
         i = 1
-        while not self._user_client.check_name(user_name):
+        while not self._wl_user_client.check_name(user_name):
             user_name = "%s%s_$s" %(base_user_name, unique_id, i)
             i += 1
 
         return user_name
 
     def _send_logs_to_wl(self, dd_user_profile, wl_logs):
-        wl_token = self._ensure_wl_user(dd_user_profile)
-        self._wl_logs_client.add_logs(wl_token, wl_logs)
+        #wl_token = self._ensure_wl_user(dd_user_profile)
+        #self._wl_logs_client.add_logs(wl_token, wl_logs)
+        pass
 
     @abstractmethod
     def pull_user_info(self, user_id, user_auth):

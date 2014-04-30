@@ -3,7 +3,7 @@
 from urllib import urlencode
 from utils.json_parser import JSONParser
 import urllib2
-import requests
+#import requests
 
 
 class BaseWikilifeClient(object):
@@ -31,6 +31,19 @@ class BaseWikilifeClient(object):
         """
         url = self._build_url(service_path, params)
         request_body = JSONParser.to_json(request_dto)
+        request = urllib2.Request(url, request_body)
+        return self._rest(request, response_to_json)      
+
+    '''
+    Why in the name of Odin ???    
+    def rest_post(self, service_path, request_dto, params=None, response_to_json=True):
+        """
+        service_path: String
+        request_dto: dict
+        params: Dict<String, String>
+        """
+        url = self._build_url(service_path, params)
+        request_body = JSONParser.to_json(request_dto)
         r = requests.post(url, data=request_body)
         return r.json()
         #request = urllib2.Request(url, request_body)
@@ -47,6 +60,7 @@ class BaseWikilifeClient(object):
         request_body = JSONParser.to_json(request_dto)
         r = requests.post(url, data=request_body)
         return r.status_code
+    '''
     
     def rest_put(self, service_path, request_dto, params=None, response_to_json=True):
         """

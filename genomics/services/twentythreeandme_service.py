@@ -80,15 +80,18 @@ class TwentythreeandmeService(BaseDeviceService):
 
     def _save_user_traits(self, user, traits):
         for trait in traits["traits"]:
-            UserTrait.objects.create(user=user, report_id=trait["report_id"], value=trait["trait"])
+            #UserTrait.objects.create(user=user, report_id=trait["report_id"], value=trait["trait"])
+            UserTrait.objects.get_or_create(user=user, report_id=trait["report_id"], value=trait["trait"])
 
     def _save_user_risks(self, user, risks):
         for risk in risks["risks"]:
-            UserRisk.objects.create(user=user, report_id=risk["report_id"], value=risk["risk"], population_risk=risk["population_risk"])
+            #UserRisk.objects.create(user=user, report_id=risk["report_id"], value=risk["risk"], population_risk=risk["population_risk"])
+            UserRisk.objects.get_or_create(user=user, report_id=risk["report_id"], value=risk["risk"], population_risk=risk["population_risk"])
 
     def _save_user_drug_responses(self, user, drug_responses):
         for drug_response in drug_responses["drug_responses"]:
-            UserDrugResponse.objects.create(user=user, report_id=drug_response["report_id"], value=drug_response["status"])
+            #UserDrugResponse.objects.create(user=user, report_id=drug_response["report_id"], value=drug_response["status"])
+            UserDrugResponse.objects.get_or_create(user=user, report_id=drug_response["report_id"], value=drug_response["status"])
 
     def pull_user_activity(self, user_id, user_auth):
         wikilife_token = self._get_wikilife_token(user_id)
