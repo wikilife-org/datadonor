@@ -809,18 +809,14 @@
           <ul class="nav_big_social physical_networks">
 
 
-          {% if "myfitness" in social_auth.physical.associated %}
-          <li class="active">
+          <!--li class="active">
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
             <a href="{% url "socialauth_disconnect" "myfitness" %}" class="myfitness" >myfitness</a>
           </li>
-          {% else %}
           <li>
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
             <a href="{% url "socialauth_begin" "myfitness" %}"  class="myfitness" >myfitness</a>
-          </li>
-          {% endif%}
-
+          </li-->
 
           {% if "bodymedia" in social_auth.physical.associated %}
           <li class="active"><a href="{% url "socialauth_disconnect" "bodymedia" %}" class="bodymedia" >bodymedia</a></li>
@@ -1248,10 +1244,10 @@
           <li><a href="{% url "socialauth_begin" "withings" %}"  class="withings" >withings</a>
           {% endif%}
 
-          <li>
+          <!--li>
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
             <a href="javascript:void(0)" class="wikilife disabled">wikilife</a></li>
-          <!-- li>
+          < li>
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
             <a href="javascript:void(0)" class="withings disabled">withings</a></li-->
 
@@ -1996,9 +1992,9 @@
             <!--li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
               <a href="javascript:void(0)" class="withings disabled">withings</a></li-->
-            <li>
+            <!--li>
               <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
-              <a href="javascript:void(0)" class="wikilife disabled">wikilife</a></li>
+              <a href="javascript:void(0)" class="wikilife disabled">wikilife</a></li-->
           </ul>
           <!--/social_networks-->
         </div>

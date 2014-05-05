@@ -11,7 +11,7 @@
             <div class="col-3 center"></div>
             <div class="col-3 right"></div>
             <h1>
-	            <a href="/">
+	            <a href="http://datadonors.org/">
 	               <img src="/static/img/logo_landing.png" width="186" height="65" alt="DataDonors Logo"
 	                    title="DataDonors" />
 	            </a>
@@ -20,8 +20,8 @@
                 <nav class="nav" id="">
 
                     {% if request.user.is_authenticated %}
-                    <a href="/about-us" title="About Us">About Us</a>
-                    <a href="/logout" title="logout">logout</a>
+                    <a href="http://datadonors.org/about-us" title="About Us">About Us</a>
+                    <a href="http://datadonors.org//logout" title="logout">logout</a>
                     {% else %}
                     <a href="#" title="login" data-reveal-id="login_container">login</a>
                     {% endif %}
@@ -29,7 +29,7 @@
             </div>
             <!-- #preloader-copy-wrapper -->
             {% if can_share %}
-            <a href="/wizard" title="Start Sharing" id="start-sharing">Start Sharing</a>
+            <a href="http://datadonors.org/wizard" title="Start Sharing" id="start-sharing">Start Sharing</a>
             {% endif %}
         </div>
         <div class="bottom"></div>
