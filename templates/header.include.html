@@ -1,7 +1,7 @@
 {% include "popups/login.include.html" %}
 
-<link rel="stylesheet" href="/static/css/header-landing.css" />
-<link rel="stylesheet" href="/static/css/reveal.css">
+<link rel="stylesheet" href="http://datadonors.org/static/css/header-landing.css" />
+<link rel="stylesheet" href="http://datadonors.org/static/css/reveal.css">
 
 
 <div class="container-header">
@@ -12,7 +12,7 @@
             <div class="col-3 right"></div>
             <h1>
 	            <a href="http://datadonors.org/">
-	               <img src="/static/img/logo_landing.png" width="186" height="65" alt="DataDonors Logo"
+	               <img src="http://datadonors.org/static/img/logo_landing.png" width="186" height="65" alt="DataDonors Logo"
 	                    title="DataDonors" />
 	            </a>
             </h1>
@@ -21,7 +21,7 @@
 
                     {% if request.user.is_authenticated %}
                     <a href="http://datadonors.org/about-us" title="About Us">About Us</a>
-                    <a href="http://datadonors.org//logout" title="logout">logout</a>
+                    <a href="http://datadonors.org/logout" title="logout">logout</a>
                     {% else %}
                     <a href="#" title="login" data-reveal-id="login_container">login</a>
                     {% endif %}
