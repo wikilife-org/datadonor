@@ -22,6 +22,7 @@ class MovesService(BaseDeviceService):
     _profile_source = "moves"
     def pull_user_info(self, user_id, user_auth):
         client = MovesClient(MOVES_API,user_auth["access_token"])
+        
         """
         duration: duration of the activity in seconds
         distance (optional): distance for the activity in meters (if applicable)

@@ -36,7 +36,7 @@ class PhysicalActivityDistributionService(object):
         day_list = get_last_sunday_list_days()
         for day in day_list:
             
-            values = UserActivityLog.objects.filter(user=user, execute_time=day).aggregate(Sum(q))
+            values = UserActivityLog.objects.filter(user=user, type__in=["walking", "running", "cycling"], execute_time=day).aggregate(Sum(q))
             value = values[sum_id] or 0
             total_user +=value
             count_user = count_user + 1
@@ -111,8 +111,8 @@ class PhysicalActivityDistributionService(object):
         day_list = get_last_sunday_list_days()
         for day in day_list:
             
-            values = UserActivityLog.objects.filter(execute_time=day).aggregate(Avg("hours"))
-            count = UserActivityLog.objects.filter(execute_time=day).values_list('user', flat=True).distinct().count()
+            values = UserActivityLog.objects.filter(execute_time=day, type__in=["walking", "running", "cycling"]).aggregate(Avg("hours"))
+            count = UserActivityLog.objects.filter(execute_time=day, type__in=["walking", "running", "cycling"]).values_list('user', flat=True).distinct().count()
             value = values[h_id] or 0
             
             d_index = day.strftime("%a").lower()
