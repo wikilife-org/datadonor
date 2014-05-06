@@ -18,11 +18,24 @@ from django.utils import simplejson
 import requests
 import json
 
-# Dailymile configuration
+# Nike configuration
 NIKE_SERVER = 'https://developer.nike.com'
 NIKE_USERINFO = 'https://developer.nike.com/me/sport'
+NIKE_AUTHORIZATION_URL = "https://api.nike.com/oauth/2.0/authorize"
+#NIKE_REQUEST_TOKEN_URL = ""
+NIKE_ACCESS_TOKEN_URL= "https://api.nike.com/oauth/2.0/token"
 
+"""
+REQUEST PARAMETERS
 
+Parameter    Required    Description
+client_id    Yes    The client credentials provided by Nike+ for the application
+redirect_uri    Yes    The URI that the user will be redirected back to after authentication (Note: this URI must be whitelisted by Nike+)
+response_type    Yes    Should always be set to the value code
+state        Any value that will be passed back when the user is redirected back to the application
+locale         The locale of the user. The only locale supported currently is EN_US.
+
+"""
 class NikeBackend(OAuthBackend):
     """Nike OAuth authentication backend"""
     name = 'nike'
@@ -47,12 +60,12 @@ class NikeBackend(OAuthBackend):
 
 
 class NikeAuth(BaseOAuth2, PhysicalBackend):
-    AUTHORIZATION_URL = DAILYMILE_AUTHORIZATION_URL
-    REQUEST_TOKEN_URL = DAILYMILE_REQUEST_TOKEN_URL
-    ACCESS_TOKEN_URL = DAILYMILE_ACCESS_TOKEN_URL
-    AUTH_BACKEND = DailyMileBackend
-    SETTINGS_KEY_NAME = 'DAILYMILE_CONSUMER_KEY'
-    SETTINGS_SECRET_NAME = 'DAILYMILE_CONSUMER_SECRET'
+    AUTHORIZATION_URL = NIKE_AUTHORIZATION_URL
+    REQUEST_TOKEN_URL = NIKE_AUTHORIZATION_URL
+    ACCESS_TOKEN_URL = NIKE_ACCESS_TOKEN_URL
+    AUTH_BACKEND = NikeBackend
+    SETTINGS_KEY_NAME = 'NIKE_CONSUMER_KEY'
+    SETTINGS_SECRET_NAME = 'NIKE_CONSUMER_SECRET'
     REDIRECT_STATE = False
 
 
@@ -90,3 +103,8 @@ class NikeAuth(BaseOAuth2, PhysicalBackend):
             query_string = ''
 
         return self.AUTHORIZATION_URL + '?' + urlencode(params) + query_string
+
+# Backend definition
+BACKENDS = {
+    'nike': NikeAuth,
+}

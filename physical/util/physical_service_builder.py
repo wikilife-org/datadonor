@@ -6,7 +6,8 @@ SERVICES = {
     "bodymedia": "physical.services.bodymedia_service.BodymediaService",
     "fitbit": "physical.services.fitbit_service.FitbitService",
     "jawbone": "physical.services.jawbone_service.JawboneService",
-    "dailymile": "physical.services.dailymile_service.DailymileService"
+    "dailymile": "physical.services.dailymile_service.DailymileService",
+    "moves": "physical.services.moves_service.MovesService"
 
 }
 
