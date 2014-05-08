@@ -32,6 +32,15 @@ div.learn-more h3 {
     width: 100%;
 }
 
+.plain_text .centered_container h2.team-section {
+	color: #5B6C7E;
+    font-family: "Gotham-Ultra";
+    font-size: 32px;
+    text-align: left;
+    text-transform: uppercase;
+    width: 100%;
+}
+
 .info{
 	font-size: 15px !important;
 }
@@ -50,7 +59,7 @@ div.learn-more div.col.span_1_of_3 {
 
 .group{
 	margin-bottom: 60px !important;
-	margin-top: 10px !important;
+	margin-top: 30px !important;
 }
 .last{
 	margin-bottom: -60px !important;
