@@ -115,6 +115,6 @@ header #center-nav {
 	position: absolute;
 	opacity: 0.2;
 	filter: alpha(opacity = 20); /* For IE8 and earlier */
-	margin-top: 499px;
 	width: 100%;
+	z-index: 1;
 }
