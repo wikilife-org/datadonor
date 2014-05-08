@@ -108,3 +108,12 @@ header #center-nav {
     margin-top: 20px;
     width: 474px;
 }
+.bottom {
+	background: #000;
+	height: 5px;
+	position: absolute;
+	opacity: 0.2;
+	filter: alpha(opacity = 20); /* For IE8 and earlier */
+	margin-top: 499px;
+	width: 100%;
+}

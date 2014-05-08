@@ -11,6 +11,18 @@ from django.views.decorators.csrf import csrf_exempt
 from utils.user_linked_data import refresh_user_data
 
 
+def mission(request):
+    return render_to_response('static/mission.html',{},
+                                  RequestContext(request))
+
+def team(request):
+    return render_to_response('static/team.html',{},
+                                  RequestContext(request))
+    
+def contact(request):
+    return render_to_response('static/contact.html',{},
+                                  RequestContext(request))
+    
 def comming(request):
     return render_to_response('splash/index.html', {'version': version},
                                   RequestContext(request))

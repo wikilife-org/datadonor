@@ -817,6 +817,11 @@
             <img src="/static/img/big_social_nav/ribbon.png" class="disabled-ribbon">
             <a href="{% url "socialauth_begin" "myfitness" %}"  class="myfitness" >myfitness</a>
           </li-->
+          {% if "moves" in social_auth.physical.associated %}
+          <li class="active"><a href="{% url "socialauth_disconnect" "moves" %}" class="myfitness" >moves</a></li>
+          {% else %}
+          <li><a href="{% url "socialauth_begin" "moves" %}"  class="myfitness" >moves</a>
+          {% endif%}
 
           {% if "bodymedia" in social_auth.physical.associated %}
           <li class="active"><a href="{% url "socialauth_disconnect" "bodymedia" %}" class="bodymedia" >bodymedia</a></li>
