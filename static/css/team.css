@@ -73,3 +73,11 @@ div.learn-more img {
   border-radius: 225px;
   margin-right: 15px;
 }
+
+.group a{
+    text-decoration: none;
+	font-family: 'Omnes-Semibold' !important;
+    font-size: 14px !important !important;
+    color: #5B6C7E !important;
+    font-weight: bold !important;
+}
