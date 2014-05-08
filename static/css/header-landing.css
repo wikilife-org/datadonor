@@ -109,6 +109,7 @@ header #center-nav {
     width: 474px;
 }
 .bottom {
+	margin-top: 95px;
 	background: #000;
 	height: 5px;
 	position: absolute;
