@@ -102,6 +102,21 @@ header #center-nav {
 	right: 25px;
 }
 
+header #wiki-nav {
+    color: #8E929C !important;
+    font-family: 'gotham-bold';
+    font-size: 13px;
+    margin-top: 40px;
+    position: absolute;
+    right: 514px;
+    width: 210px;
+    z-index: 66;
+}
+
+header .wiki-nav {
+	margin-bottom: -14px;
+}
+
 #banner {
     float: left;
     margin-left: 15.5% !important;
