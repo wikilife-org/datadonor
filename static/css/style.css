@@ -1025,15 +1025,15 @@ to {
 
 .box-wikilife {
    bottom: 20px;
-    height: 1px;
+    font-family: 'gotham-bold';
+    font-size: 13px;
+    height: 15px;
     left: 50%;
-    margin-left: 500px;
+    margin-left: 430px;
     position: absolute;
     width: 210px;
     z-index: 66;
-    font-family: 'gotham-bold';
-    font-size: 13px;
-    color: #F0F0F0;
+    fron-color: #F0F0F0;
 }
 
 @
