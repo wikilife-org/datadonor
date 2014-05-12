@@ -127,6 +127,10 @@ class FitbitService(BaseDeviceService):
                 # u'steps': 42407, u'startTime': u'00:00', u'duration': 3720000, 
                 #u'startDate': u'2014-04-02', u'name': u'Walking'}
                 activity_obj, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=activity["logId"])
+                
+                if activity["name"].lower() == "walk":
+                    activity["name"] = "walking"
+                
                 activity_obj.type = activity["name"].lower()
                 
                 activity_obj.execute_time = datetime.strptime(activity["startDate"], '%Y-%m-%d')
