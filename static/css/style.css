@@ -1022,6 +1022,20 @@ to {
 	z-index: 66
 }
 
+
+.box-wikilife {
+   bottom: 20px;
+    font-family: 'gotham-bold';
+    font-size: 13px;
+    height: 15px;
+    left: 50%;
+    margin-left: 430px;
+    position: absolute;
+    width: 210px;
+    z-index: 66;
+    color: #F0F0F0;
+}
+
 @
 keyframes mymove {
 	from {bottom: 20px;
