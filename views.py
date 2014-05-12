@@ -9,6 +9,14 @@ from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from utils.user_linked_data import refresh_user_data
+from utils.commons import send_email
+
+
+
+def send_test_email(request):
+    send_email("joako84@gmail.com")
+    return render_to_response('static/mission.html',{},
+                                  RequestContext(request))
 
 
 def mission(request):

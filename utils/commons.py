@@ -12,21 +12,21 @@ def percentage(value, total):
     return (value * 100) /float(total)
 
 
-def send_email(to_email, template_html, template_txt):
+def send_email(to_email):
 
-    plaintext = get_template('email/welcome.txt')
-    htmly     = get_template('email/welcome.html')
+    #plaintext = get_template('email/welcome.txt')
+    #htmly     = get_template('email/welcome.html')
     
     d = Context({})
     
     subject = 'Welcome to Datadonors!'
     from_email = setting("WELCOME_EMAIL_FROM", "no-reply@wikilife.org")
-#    text_content = plaintext.render(d)
-#    html_content = htmly.render(d)
+    #text_content = plaintext.render(d)
+    #html_content = htmly.render(d)
     msg = EMail( [to_email], subject)
     msg.html("email/welcome.html", d)
     msg.text("email/welcome.txt", d)
- #   msg.attach_alternative(html_content, "text/html")
+    #msg.attach_alternative(html_content, "text/html")
     msg.send(from_email)
     
 DEFAULT_EDUCATION_LEVEL = 2

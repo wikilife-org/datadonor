@@ -1,5 +1,5 @@
 from django.conf import settings
-#from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
 class EMail(object):
