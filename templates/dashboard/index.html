@@ -820,7 +820,7 @@
           {% if "moves" in social_auth.physical.associated %}
           <li class="active"><a href="{% url "socialauth_disconnect" "moves" %}" class="myfitness" >moves</a></li>
           {% else %}
-          <li><a href="{% url "socialauth_begin" "moves" %}"  class="myfitness" >moves</a>
+          <li><a href="{% url "socialauth_begin" "moves" %}"  class="myfitness" >moves</a></li>
           {% endif%}
 
           {% if "bodymedia" in social_auth.physical.associated %}
