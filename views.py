@@ -14,7 +14,7 @@ from utils.commons import send_email
 
 
 def send_test_email(request):
-    send_email("jgargiulo@wikilife.org")
+    send_email("jquintas@wikilife.org")
     return render_to_response('static/mission.html',{},
                                   RequestContext(request))
 
