@@ -28,9 +28,9 @@ body {
 
 @font-face {
 	font-family: 'gotham-med';
-	src: url('/static/fonts/Gotham-Medium.eot');
-	src: local('☺'), url('/static/fonts/Gotham-Medium.woff') format('woff'),
-		url('/static/fonts/Gotham-Medium.ttf') format('truetype'),
+	src: url('fonts/Gotham-Medium.eot');
+	src: local('☺'), url('fonts/Gotham-Medium.woff') format('woff'),
+		url('fonts/Gotham-Medium.ttf') format('truetype'),
 		url('fonts/Gotham-Medium.svg') format('svg');
 	font-weight: normal;
 	font-style: normal;

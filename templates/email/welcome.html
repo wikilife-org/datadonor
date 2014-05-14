@@ -16,6 +16,9 @@
 	table[class=w15],td[class=w15],img[class=w15] {
 		width: 5px !important;
 	}
+	table[class=w33],td[class=w33],img[class=w33] {
+		width: 33% !important;
+	}
 	table[class=w30],td[class=w30],img[class=w30] {
 		width: 10px !important;
 	}
@@ -113,6 +116,8 @@ body {
 	width: 100% !important;
 }
 
+
+
 .ReadMsgBody {
 	width: 100%;
 }
@@ -135,6 +140,20 @@ img {
 	display: block;
 }
 
+#colors1{
+
+height:5px;
+background-color: #8B44E8;
+}
+#colors2{
+height:5px;
+background-color: #3FD1CA;
+}
+#colors3{
+height:5px;
+background-color: #EE6867;
+
+}
 br,strong br,b br,em br,i br {
 	line-height: 100%;
 }
@@ -305,11 +324,13 @@ body,td {
 }
 
 .footer-content-left {
-	font-size: 12px;
-	line-height: 15px;
-	color: #888888;
-	margin-top: 0px;
-	margin-bottom: 15px;
+	color: #FFFFFF;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 0;
+    margin-top: 15px;
+    width: 500px;
+    margin-left: 10px
 }
 
 .footer-content-left a {
@@ -333,7 +354,7 @@ body,td {
 }
 
 #footer {
-	background-color: #000000;
+	background-color: #9400E8;
 	color: #888888;
 }
 
@@ -356,9 +377,32 @@ body,td {
 	margin-left: 70px;
 	margin-right: 70px;
 	text-align: center;
+	font-weight: bold;
+	color: #A2A6A9;
+	line-height: 23px;
+	 font-size: 18px;
+}
+
+#simple-content-row-title2 {
+	font-weight: bold !important;
+	color: #D4D4D4 !important;
+	font-size: 30px !important;
 }
 #simple-content-row-title {
-	font-weight: bold;
+	font-weight: bold !important;
+	font-size: 40px !important;
+	color: #5B6C81 !important;
+}
+
+#simple-content-row-text{
+	font-size: 20px !important;
+	color: #5B6C81 !important;
+	margin-top: -25px;
+	font-weight: bold !important;
+}
+
+#image-cont img{
+	margin-left: 40%;
 }
 </style>
 <!--[if gte mso 9]>
@@ -390,53 +434,11 @@ body,td {
 										cellspacing="0" border="0" bgcolor="#FFFFFF">
 										<tbody>
 											<tr>
-												<td class="w15" width="15"></td>
-												<td class="w325" width="350" valign="middle" align="left">
-													<table class="w325" width="350" cellpadding="0"
-														cellspacing="0" border="0">
-														<tbody>
-															<tr>
-																<td class="w325" width="350" height="8"></td>
-															</tr>
-														</tbody>
-													</table>
-													<table class="w325" width="350" cellpadding="0"
-														cellspacing="0" border="0">
-														<tbody>
-															<tr>
-																<td class="w325" width="350" height="8"></td>
-															</tr>
-														</tbody>
-													</table></td>
-												<td class="w30" width="30"></td>
-												<td class="w255" width="255" valign="middle" align="right">
-													<table class="w255" width="255" cellpadding="0"
-														cellspacing="0" border="0">
-														<tbody>
-															<tr>
-																<td class="w255" width="255" height="8"></td>
-															</tr>
-														</tbody>
-													</table>
-													<table cellpadding="0" cellspacing="0" border="0">
-														<tbody>
-															<tr>
-
-
-
-															</tr>
-														</tbody>
-													</table>
-													<table class="w255" width="255" cellpadding="0"
-														cellspacing="0" border="0">
-														<tbody>
-															<tr>
-																<td class="w255" width="255" height="8"></td>
-															</tr>
-														</tbody>
-													</table></td>
-												<td class="w15" width="15"></td>
-											</tr>
+												<td id="colors1" class="w15" width="33%"></td>
+												<td id="colors2" class="w15" width="33%"></td>
+												<td id="colors3" class="w15" width="33%"></td>
+	
+										</tr>
 										</tbody>
 									</table></td>
 							</tr>
@@ -448,18 +450,18 @@ body,td {
 
 							<tr id="simple-content-row">
 								<td class="w640" width="640" bgcolor="#ffffff">
-									<p id="simple-content-row-title">DATADONORS</p>
+									<p id="simple-content-row-title2">DATADONORS</p>
 									</td>
 							</tr>
 							<tr>
-								<td class="w640" width="640" height="30" bgcolor="#ffffff">
-								<img src="htt://datadonors.org/static/img/logo_email.png"/>
+								<td class="w640" id="image-cont" width="640" height="30" bgcolor="#ffffff">
+								<img src="http://datadonors.org/static/img/logo_email.png"/>
 								</td>
 							</tr>
 							<tr id="simple-content-row">
 								<td class="w640" width="640" bgcolor="#ffffff">
 									<p id="simple-content-row-title">Congratulations</p>
-									<p>and thank you for becoming a data donor!</p></td>
+									<p id="simple-content-row-text">and thank you for becoming a data donor!</p></td>
 							</tr>
 							<tr id="simple-content-row">
 								<td class="w640" width="640" bgcolor="#ffffff">
@@ -477,6 +479,13 @@ body,td {
 										list. If you don't want to receive our emails you can request
 										to unsubscribe by replying to this email.</p></td>
 							</tr>
+													<tr id="simple-content-row">
+								<td class="w640" width="640" bgcolor="#ffffff">
+
+									<p>Sincerely,<br/>
+									DATADONORS<br/>
+									Share for good.</p></td>
+							</tr>
 							<tr>
 								<td class="w640" width="640" height="15" bgcolor="#ffffff"></td>
 							</tr>
@@ -486,22 +495,14 @@ body,td {
 									<table id="footer" class="w640" width="640" cellpadding="0"
 										cellspacing="0" border="0" bgcolor="#000000">
 										<tbody>
-											<tr>
-												<td class="w30" width="30"></td>
-												<td class="w580 h0" width="360" height="30"></td>
-												<td class="w0" width="60"></td>
-												<td class="w0" width="160"></td>
-												<td class="w30" width="30"></td>
-											</tr>
+
 											<tr>
 												<td class="w30" width="30"></td>
 												<td class="w580" width="500" valign="top"><span
-													class="hide"><p id="permission-reminder"
+													class="hide">
+													<p id="permission-reminder"
 															align="left" class="footer-content-left">
-															<span>a campaign by The Wikilife Foundation</span><br>
-															<span>If you don't want to recive our emails you
-																can always unsubscribe <unsubscribe>here.</unsubscribe>
-															</span>
+															<span>DataDonors is a campaign by The Wikilife Foundation 501(C)(3) a non profit organization.</span>
 														</p>
 												</span></td>
 												<td class="hide w0" width="60"></td>
