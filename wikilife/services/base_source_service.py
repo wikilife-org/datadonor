@@ -3,6 +3,7 @@
 from abc import abstractmethod
 from django.conf import settings
 from users.models import Profile
+from utils.commons import send_email
 
 
 class SourceServiceException(Exception):
@@ -37,9 +38,12 @@ class BaseSourceService(object):
             for field_name in kwargs:
                 field_value = kwargs[field_name]
                 field_source = getattr(profile, field_name+"_source")
-    
+                
+                
                 if field_value!=None and self._is_priority_source(field_source, self._profile_source):
                     setattr(profile, field_name, field_value)
+                    if field_name == "email" and not profile.sent_welcome_email:
+                        send_email(field_value)
                     setattr(profile, field_name+"_source", self._profile_source)
     
             profile.save()
