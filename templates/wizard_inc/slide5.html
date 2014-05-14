@@ -17,6 +17,12 @@
 				{% else %}
 				<a href="{% url "socialauth_begin" "jawbone" %}" class="circle jawbone"  title="Jawbone" ><span>Jawbone</span></a>
 				{% endif%}
+				
+				{% if "moves" in social_auth.physical.associated %}
+				<a href="{% url "socialauth_disconnect" "moves" %}"class="circle moves checked"  title="Moves" ><span>Moves</span></a>
+				{% else %}
+				<a href="{% url "socialauth_begin" "moves" %}" class="circle moves"  title="Moves" ><span>Moves</span></a>
+				{% endif%}
              	<!-- a href="#" class="circle jawbone" title="Jawbone" ><span>Jawbone</span></a-->
 
 
