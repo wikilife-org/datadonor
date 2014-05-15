@@ -44,9 +44,9 @@ class MovesClient():
     def get_activities(self):
 
         first_date = datetime.strptime(self.user_profile["profile"]["firstDate"], "%Y%m%d").date()
-        
+        today = date.today().strftime("%Y%m%d")
         if (date.today() - first_date).days > 7:
-            today = date.today().strftime("%Y%m%d")
+            
             delta_date = timedelta(days=10)
             from_date = (date.today() - delta_date).strftime("%Y%m%d")
         else:
