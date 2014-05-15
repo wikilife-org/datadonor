@@ -38,7 +38,7 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = ""
 
 
-WELCOME_EMAIL_FROM = "no-reply@wikilife.org"
+WELCOME_EMAIL_FROM = "hello@datadonors.org"
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
