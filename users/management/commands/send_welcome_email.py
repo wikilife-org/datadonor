@@ -1,6 +1,5 @@
 # coding=utf-8
 
-from utils.user_linked_data import refresh_user_data
 from django.core.management.base import BaseCommand, CommandError
 from users.models import Profile
 from utils.commons import send_email
