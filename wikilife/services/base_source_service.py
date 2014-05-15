@@ -44,6 +44,7 @@ class BaseSourceService(object):
                     setattr(profile, field_name, field_value)
                     if field_name == "email" and not profile.sent_welcome_email:
                         #send_email(field_value)
+                        pass
                     setattr(profile, field_name+"_source", self._profile_source)
     
             profile.save()
