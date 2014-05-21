@@ -9,14 +9,15 @@ from django.http.response import HttpResponse
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from utils.user_linked_data import refresh_user_data
-from reports.services.internal import get_new_users_distribution
+from reports.services.internal import get_new_users_distribution, get_device_by_users_distribution
 from utils.commons import send_email_report, send_email_report
 
 
 def new_users_report(request):
     result = get_new_users_distribution()
-    send_email_report("jquintas@wikilife.org", result)
-    return render_to_response('email/new_users_report.html',{"result":result},
+    result_devices = get_device_by_users_distribution()
+    #send_email_report("jquintas@wikilife.org", result)
+    return render_to_response('email/new_users_report.html',{"result_user":result, "result_devices":result_devices},
                                   RequestContext(request))
     
 def send_test_email(request):
