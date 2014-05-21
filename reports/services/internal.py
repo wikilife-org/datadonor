@@ -13,5 +13,5 @@ def get_new_users_distribution():
         d_index = day.strftime("%b %d")
         result.append([d_index, values])
     result.reverse()
-    result.insert( ['Date', 'New Users'])
+    result.insert(0, ['Date', 'New Users'])
     return result
