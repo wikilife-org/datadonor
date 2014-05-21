@@ -14,10 +14,10 @@ from utils.commons import send_email_report, send_email_report
 
 
 def new_users_report(request):
-    result = get_new_users_distribution()
-    result_devices = get_device_by_users_distribution()
+    total, result = get_new_users_distribution()
+    total_user, result_devices = get_device_by_users_distribution()
     #send_email_report("jquintas@wikilife.org", result)
-    return render_to_response('email/new_users_report.html',{"result_user":result, "result_devices":result_devices},
+    return render_to_response('email/new_users_report.html',{"result_user":result, "result_devices":result_devices, "total_users":total_user},
                                   RequestContext(request))
     
 def send_test_email(request):

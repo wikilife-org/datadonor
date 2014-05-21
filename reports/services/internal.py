@@ -15,7 +15,8 @@ def get_new_users_distribution():
         result.append([d_index, values])
     result.reverse()
     result.insert(0, ['Date', 'New Users'])
-    return result
+    total = User.objects.filter().count()
+    return total, result
 
 def get_device_by_users_distribution():
     result = []
@@ -25,4 +26,5 @@ def get_device_by_users_distribution():
         result.append([str(device.title()), values])
     result.reverse()
     result.insert(0, ['Devices', 'Users'])
-    return result
+    total = User.objects.filter().count()
+    return total, result

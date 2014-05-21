@@ -1,5 +1,6 @@
 <html>
   <head>
+  <title>Datadonors | Reports</title>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -9,24 +10,13 @@
         var data = google.visualization.arrayToDataTable({{result_user}});
         {% endautoescape %}
         var options = {
-          title: 'New Users in Datadonors',
+          title: 'New Users in Datadonors / total users: {{total_users}}',
           hAxis: {title: 'Date', titleTextStyle: {color: 'red'}}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
         chart.draw(data, options);
         
-        
-    	{% autoescape off %}
-        var data = google.visualization.arrayToDataTable({{result_devices}});
-        {% endautoescape %}
-        var options = {
-          title: 'Devices by Users',
-          hAxis: {title: 'Devices', titleTextStyle: {color: 'red'}}
-        };
-
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_devices'));
-      chart.draw(data, options);
 
       }
 
@@ -38,7 +28,7 @@
         var data = google.visualization.arrayToDataTable({{result_devices}});
         {% endautoescape %}
         var options = {
-          title: 'Devices by Users',
+          title: 'Devices by Users / based on {{total_users}} users',
           hAxis: {title: 'Devices', titleTextStyle: {color: 'red'}}
         };
 
