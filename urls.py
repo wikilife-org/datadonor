@@ -39,6 +39,8 @@ urlpatterns = patterns('',
     url(r'^health/', include('health.urls')),
     url(r'^physical/', include('physical.urls')),
     url(r'^wikilife/', include('wikilife.urls')),
+    
+    url(r'^reports/internal/new_users/',  new_users_report, name='new_users_report'),
 
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
