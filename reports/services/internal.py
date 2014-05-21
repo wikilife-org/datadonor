@@ -9,7 +9,7 @@ def get_new_users_distribution():
     day_list = get_days_list(8)
     for day in day_list:
         
-        values = User.objects.filter(date_joined=day).count()
+        values = User.objects.filter(date_joined__day=day).count()
         d_index = day.strftime("%b %d")
         result.append([d_index, values])
     print result
