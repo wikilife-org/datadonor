@@ -28,6 +28,23 @@ def send_email(to_email):
     msg.text("email/welcome.txt", d)
     #msg.attach_alternative(html_content, "text/html")
     msg.send(from_email)
+
+def send_email_report(to_email, report):
+
+    #plaintext = get_template('email/welcome.txt')
+    #htmly     = get_template('email/welcome.html')
+    
+    d = Context({"result":report})
+    
+    subject = 'Datadonors: Daily Report'
+    from_email = setting("WELCOME_EMAIL_FROM", "no-reply@wikilife.org")
+    #text_content = plaintext.render(d)
+    #html_content = htmly.render(d)
+    msg = EMail( [to_email], subject)
+    msg.html("email/new_users_report.html", d)
+    msg.text("email/new_users_report.txt", d)
+    #msg.attach_alternative(html_content, "text/html")
+    msg.send(from_email)
     
 DEFAULT_EDUCATION_LEVEL = 2
 

@@ -12,5 +12,4 @@ def get_new_users_distribution():
         values = User.objects.filter(date_joined__year=day.strftime("%Y"), date_joined__month=day.strftime("%m"), date_joined__day=day.strftime("%d")).count()
         d_index = day.strftime("%b %d")
         result.append([d_index, values])
-    print result
-    return result
+    return result.reserve()
