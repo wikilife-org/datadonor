@@ -25,6 +25,9 @@ def send_test_email(request):
     return render_to_response('static/mission.html',{},
                                   RequestContext(request))
 
+def support_us(request):
+    return render_to_response('static/support.html',{},
+                                  RequestContext(request))
 
 def mission(request):
     return render_to_response('static/mission.html',{},

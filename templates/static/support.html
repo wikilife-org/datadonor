@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Datadonors | Support Us</title>
+
+  <!-- Metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=1024, initial-scale=1.0">
+
+  <!-- Iconos -->
+  <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"/>
+
+  <!-- Styles -->
+  <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+  <link href="/static/css/footer.css" rel="stylesheet" />
+  <link href="/static/css/support.css" rel="stylesheet" />
+
+  <!-- Javascript -->
+<script type="text/javascript" src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript" src="/static/js/funciones.js"></script>
+
+</head>
+
+<body>
+
+<div id="container">
+
+  <!--header-->
+  {% include "header.include.html" %}
+  <!--/header-->
+
+  <div class="full_container plain_text learn-more">
+    <div class="centered_container">
+
+      <h2>HELP KEEP DATADONORS FREE AND OPEN</h2>
+
+      <div class="section group">
+		<p>We aren't in the business of making millions of dollars in revenue- we're in the business of helping people live healthier, 
+		happier, and more productive lives through innovation. Since it's inception, DataDonors has remained committed to it's altruistic principles: 
+		we believe in free, open-source, software and data that helps improve the lives of people around the globe.
+		</p>
+
+		<p>After more than a year and a half of development, the DataDonors platform is making it's public debut as an
+		 web app which provides individuals a revolutionary new perspective on the human condition. Through this technology, users are able to become conscious of
+		 their lifestyles, how it can impact their mental and physical health, and alternatively promote healthier living.
+		</p>
+
+		<p>We promise to never sell your lifestyle information or to bombard our users with advertising. But unfortunately, 
+		all organizations require revenue to sustain themselves.
+		</p>
+
+		<p>The DataDonors platform is supported by donations from medical research companies, pharmaceutical labs, universities, non-profits and generous individuals. 
+		Funds directly support our development, science and communication teams, as well as server upkeep.
+		</p>
+		
+		<p>From all of us at DataDonors, thank you.</p>
+		
+		
+		
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="UV99F38BYBHW6">
+			<input style="width: 147px; background: transparent; border: 0px solid #CCC; height: 47px;" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+
+        </div>
+
+     
+          
+    </div>
+  </div>
+
+  {% include "footer.include.html" %}
+</div>
+</body>
+</html>

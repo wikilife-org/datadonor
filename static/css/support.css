@@ -1,0 +1,43 @@
+.learn-more {
+  background-color: #8A45E5;
+  position: relative;
+}
+
+div.learn-more p {
+  font-size: 19px !important;
+  line-height: 26px;
+}
+
+div.learn-more h3 {
+  font-size: 21px !important;
+  margin-top: 60px !important;
+}
+
+
+
+
+
+div.learn-more ul  li:before{
+  content: "·";
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+div.learn-more div.col.span_1_of_3 {
+  padding-left: 81px;
+  margin-right: -81px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.group span{
+	 font-family: 'Omnes-Semibold';
+    font-size: 14px !important;
+    color: #FFFFFF;
+    line-height: 24px;
+}
+
+.plain_text .centered_container {
+    padding: 100px 0;
+    width: 800px;
+}
