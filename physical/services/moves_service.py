@@ -31,13 +31,17 @@ class MovesService(BaseDeviceService):
         
         user = User.objects.get(id=user_id)              
         activities = client.get_activities()
-
         for day in activities:
             if day["summary"]:
                 for activity in day["summary"]:
-                    device_log_id = activity["group"] + "_" + day["date"]
+                    if "group" in activity:
+                        act = activity["group"].lower()
+                    else:
+                        act = activity["activity"].lower()
+                    
+                    device_log_id = act + "_" + day["date"]
                     activity_obj, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=device_log_id)
-                    activity_obj.type = activity["group"].lower()
+                    activity_obj.type = act
                     
                     activity_obj.execute_time = datetime.strptime(day["date"], '%Y%m%d')
                     activity_obj.provider = "moves"
