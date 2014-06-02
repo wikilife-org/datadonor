@@ -21,7 +21,7 @@ def url_screengrab(user_id, **kwargs):
     
     user_id = int(user_id)
     #cmd = '''export DISPLAY=:0;/usr/local/bin/CutyCapt --url=http://datadonors.org/reports/user/physical/{u}/  --out=/home/datadonor/static/tmp/physical_report_{u}.png '''.format(u = user_id)
-    cmd = '''xvfb-run --server-args "-screen 1, 1100x800x24"
+    cmd = '''export DISPLAY=:0
             /usr/local/bin/CutyCapt --url=http://www.datadonors.org/reports/user/physical/{u}/ --out=/home/datadonor/static/tmp/physical_report_{u}.png'''.format(u=user_id)
     proc = subprocess.Popen(shlex.split(cmd))
     proc.communicate()
