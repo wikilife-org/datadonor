@@ -12,6 +12,13 @@ def report_for_user_exercise(request, user_id):
     user = User.objects.get(id=user_id)
     user.backend = 'django.contrib.auth.backends.ModelBackend'
     login(request, user)
-    return render_to_response('dashboard/physical_steps.html',{},
+    return render_to_response('dashboard/physical.html',{},
+                                  RequestContext(request))
+
+def report_for_user_social(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
+    return render_to_response('dashboard/social.html',{},
                                   RequestContext(request))
   
