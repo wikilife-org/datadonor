@@ -21,4 +21,25 @@ def report_for_user_social(request, user_id):
     login(request, user)
     return render_to_response('dashboard/social.html',{},
                                   RequestContext(request))
+
+def report_for_user_nutrition(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
+    return render_to_response('dashboard/nutrition.html',{},
+                                  RequestContext(request))
+
+def report_for_user_genomics(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
+    return render_to_response('dashboard/genomics.html',{},
+                                  RequestContext(request))
+
+def report_for_user_health(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
+    return render_to_response('dashboard/health.html',{},
+                                  RequestContext(request))
   
