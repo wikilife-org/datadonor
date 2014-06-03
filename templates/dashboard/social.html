@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<!-- Styles -->
+<link rel="stylesheet" href="/static/css/reset.css" />
+<link href="/static/css/jquery-ui-1.10.3.custom.css" rel="stylesheet"
+	type="text/css" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/dashboard.css" rel="stylesheet" type="text/css" />
+
+<!-- Javascript -->
+<script type="text/javascript"
+	src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+<script type="text/javascript"
+	src="/static/js/thirdparty/jquery-ui.min-1.10.4.js"></script>
+<script type="text/javascript"
+	src="/static/js/thirdparty/angular-1.2.14.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.ui.combobox.js"></script>
+<script type="text/javascript" src="/static/js/jstepper.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/raphael-min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
+<script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/static/js/ed.eventListeners.js"></script>
+<script type="text/javascript" src="/static/js/ed.stickyHeader.js"></script>
+<script type="text/javascript"
+	src="/static/js/adapter/graph_params_adapter.js"></script>
+<script type="text/javascript" src="/static/js/url_vars.js"></script>
+<script type="text/javascript" src="/static/js/funciones.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+</head>
+
+<body ng-app="app">
+
+	<div id="container" class="scroll_fixed_trigger maqueta_new">
+
+
+
+		<!-- SOCIAL NETWORKS -->
+
+
+
+		<!--step_one-->
+		<div class="full_container step_one" id="step_one">
+			<div class="centered_container">
+
+
+
+				<!--top-->
+				<div class="top">
+					<img src="/static/img/step_1/number_1.png" alt="1" />
+					<h2>
+						Social influence<br />and reach
+					</h2>
+					<p>Number of people you reach on social networks</p>
+				</div>
+				<!--/top-->
+
+				<!--bottom-->
+				<div class="bottom">
+
+					<!--block_stat-->
+					<div class="block reference">
+
+						<!--top-->
+						<div class="tittle">
+							<h2>References:</h2>
+						</div>
+						<!--top-->
+
+						<!--bottom-->
+						<div class="stats_graph">
+							<p class="stats all">All</p>
+							<p class="stats you">You</p>
+						</div>
+						<!--bottom-->
+
+					</div>
+					<!--/block_stat-->
+
+					<!--block_stat-->
+					<div class="block twitter">
+
+						<!--top-->
+						<div class="tittle">
+							<h2>Twitter</h2>
+						</div>
+						<!--top-->
+
+						<!--bottom-->
+						<div class="stats_graph">
+							<ul>
+								<li><h2 class="color_two">
+										<span class="user_data">98</span><br />
+										<span>You</span>
+									</h2>
+								</li>
+								<li><h2 class="color_one">
+										<span class="global_data">55</span><br />
+										<span>All</span>
+									</h2>
+								</li>
+							</ul>
+						</div>
+						<!--bottom-->
+
+					</div>
+					<!--/block_stat-->
+
+					<!--block_stat-->
+					<div class="block facebook">
+
+						<!--top-->
+						<div class="tittle">
+							<h2>Facebook</h2>
+						</div>
+						<!--top-->
+
+						<!--bottom-->
+						<div class="stats_graph">
+							<ul>
+								<li><h2 class="color_two">
+										<span class="user_data">342</span><br />
+										<span>You</span>
+									</h2>
+								</li>
+								<li><h2 class="color_one">
+										<span class="global_data">650</span><br />
+										<span>All</span>
+									</h2>
+								</li>
+							</ul>
+						</div>
+						<!--bottom-->
+
+					</div>
+					<!--/block_stat-->
+
+					<!--block_stat-->
+					<div class="block google_plus">
+
+						<!--top-->
+						<div class="tittle">
+							<h2>Google +</h2>
+						</div>
+						<!--top-->
+
+						<!--bottom-->
+						<div class="stats_graph">
+							<ul>
+								<li><h2 class="color_two">
+										<span class="user_data">05</span><br />
+										<span>You</span>
+									</h2>
+								</li>
+								<li><h2 class="color_one">
+										<span class="global_data">15</span><br />
+										<span>All</span>
+									</h2>
+								</li>
+							</ul>
+						</div>
+						<!--bottom-->
+
+					</div>
+					<!--/block_stat-->
+
+					<!--block_stat-->
+					<div class="block linkedin">
+
+						<!--top-->
+						<div class="tittle">
+							<h2>Linkedin</h2>
+						</div>
+						<!--top-->
+
+						<!--bottom-->
+						<div class="stats_graph">
+							<ul>
+								<li><h2 class="color_two">
+										<span class="user_data">20</span><br />
+										<span>You</span>
+									</h2>
+								</li>
+								<li><h2 class="color_one">
+										<span class="global_data">20</span><br />
+										<span>All</span>
+									</h2>
+								</li>
+							</ul>
+						</div>
+						<!--bottom-->
+
+					</div>
+					<!--/block_stat-->
+
+					<!--block_stat-->
+					<div class="block foursquare">
+
+						<!--top-->
+						<div class="tittle">
+							<h2>Foursquare</h2>
+						</div>
+						<!--top-->
+
+						<!--bottom-->
+						<div class="stats_graph">
+							<ul>
+								<li><h2 class="color_two">
+										<span class="user_data">0</span><br />
+										<span>You</span>
+									</h2>
+								</li>
+								<li><h2 class="color_one">
+										<span class="global_data">05</span><br />
+										<span>All</span>
+									</h2>
+								</li>
+							</ul>
+						</div>
+						<!--bottom-->
+
+					</div>
+					<!--/block_stat-->
+
+					<div class="clear"></div>
+
+
+				</div>
+				<!--bottom-->
+
+			</div>
+		</div>
+		<!--/step_one-->
+
+		<!--step_two-->
+		<div class="full_container step_two" id="step_two">
+			<div class="centered_container">
+
+				<!--top-->
+				<div class="top">
+					<h2>Social sharing numbers</h2>
+					<p>Let's see how much you post, tweet and retweet per week.</p>
+				</div>
+				<!--/top-->
+
+				<!--bottom-->
+				<div class="bottom">
+
+					<!--left-->
+					<div class="block left">
+
+						<!--title-->
+						<div class="title_graph">
+							<h2>Avg posts per week</h2>
+						</div>
+						<!--title-->
+
+						<!--graph_one-->
+						<div class="graph left">
+
+							<!--img_top-->
+							<div class="img_top">
+
+								<!--social_title-->
+								<div class="social_t_p">
+									<h2>Posts</h2>
+									<img src="/static/img/step_2/facebook.png" alt="facebook" />
+								</div>
+								<!--/social_title-->
+
+								<div id="canvas_2_1"></div>
+
+							</div>
+							<!--/img_top-->
+
+							<!--data-->
+							<div class="text_graph" id="data_2_1">
+								<ul>
+									<li><h2 class="color_one">
+											<span class="global_data">134</span><br />
+											<span>All</span>
+										</h2>
+									</li>
+									<li><h2 class="color_two">
+											<span class="user_data">225</span><br />
+											<span>You</span>
+										</h2>
+									</li>
+								</ul>
+							</div>
+							<!--data-->
+
+						</div>
+						<!--/graph_one-->
+
+						<!--graph_two-->
+						<div class="graph right">
+
+							<div class="graph">
+
+								<!--img_top-->
+								<div class="img_top">
+
+									<!--social_title-->
+									<div class="social_t_p">
+										<h2>Tweets</h2>
+										<img src="/static/img/step_2/twitter.png" alt="twitter" />
+									</div>
+									<!--/social_title-->
+
+									<div id="canvas_2_2"></div>
+
+								</div>
+								<!--/img_top-->
+
+								<!--data-->
+								<div class="text_graph" id="data_2_2">
+									<ul>
+										<li><h2 class="color_one">
+												<span class="global_data">99</span><br />
+												<span>All</span>
+											</h2>
+										</li>
+										<li><h2 class="color_two">
+												<span class="user_data">22</span><br />
+												<span>You</span>
+											</h2>
+										</li>
+									</ul>
+								</div>
+								<!--data-->
+
+							</div>
+
+						</div>
+						<!--/graph_two-->
+
+						<div class="clear"></div>
+
+					</div>
+					<!--/left-->
+
+					<!--right-->
+					<div class="block right">
+
+						<!--title-->
+						<div class="title_graph">
+							<h2>Avg likes and retweets per week</h2>
+						</div>
+						<!--title-->
+
+						<!--graph_three-->
+						<div class="graph left">
+
+							<!--img_top-->
+							<div class="img_top">
+
+								<!--social_title-->
+								<div class="social_t_p">
+									<h2>Likes</h2>
+									<img src="/static/img/step_2/facebook.png" alt="facebook" />
+								</div>
+								<!--/social_title-->
+
+								<div id="canvas_2_3"></div>
+
+							</div>
+							<!--/img_top-->
+
+							<!--data-->
+							<div class="text_graph" id="data_2_3">
+								<ul>
+									<li><h2 class="color_one">
+											<span class="global_data">44</span><br />
+											<span>All</span>
+										</h2>
+									</li>
+									<li><h2 class="color_two">
+											<span class="user_data">80</span><br />
+											<span>You</span>
+										</h2>
+									</li>
+								</ul>
+							</div>
+							<!--data-->
+
+						</div>
+						<!--/graph_one-->
+
+						<!--graph_four-->
+						<div class="graph right">
+
+							<div class="graph">
+
+								<!--img_top-->
+								<div class="img_top">
+
+									<!--social_title-->
+									<div class="social_t_p">
+										<h2>Retweets</h2>
+										<img src="/static/img/step_2/twitter.png" alt="twitter" />
+									</div>
+									<!--/social_title-->
+
+									<div id="canvas_2_4"></div>
+
+								</div>
+								<!--/img_top-->
+
+								<!--data-->
+								<div class="text_graph" id="data_2_4">
+									<ul>
+										<li><h2 class="color_one">
+												<span class="global_data">12</span><br />
+												<span>All</span>
+											</h2>
+										</li>
+										<li><h2 class="color_two">
+												<span class="user_data">11</span><br />
+												<span>You</span>
+											</h2>
+										</li>
+									</ul>
+								</div>
+								<!--data-->
+
+							</div>
+
+						</div>
+						<!--/graph_two-->
+
+					</div>
+					<!--/right-->
+
+					<div class="clear"></div>
+
+				</div>
+				<!--/bottom-->
+
+			</div>
+		</div>
+		<!--/step_two-->
+
+		<!--step_three-->
+		<div class="full_container step_three" id="step_three">
+			<div class="centered_container">
+
+				<!--top-->
+				<div class="top">
+					<h2>
+						Share your level<br />of education
+					</h2>
+					<p>Tap or select the highest level of education</p>
+				</div>
+				<!--/top-->
+
+				<!--bottom-->
+				<div class="bottom">
+
+					<!--graph-->
+					<div class="block left">
+						<div id="canvas_3_1"></div>
+						<div class="clear"></div>
+					</div>
+					<!--/graph-->
+
+					<!--text-->
+					<div class="block right">
+						<ul id="your_lvl_c">
+							<li ref="0">
+								<h2 class="color_one">
+									<span class="perc_number">8</span><span>%</span>
+								</h2> <a href="#" ref="0"> <span>PhD</span>
+									<div class="this_lvl">
+										<h2>This is your level</h2>
+									</div> </a></li>
+							<li ref="1">
+								<h2 class="color_one">
+									<span class="perc_number">10</span><span>%</span>
+								</h2> <a href="#" ref="1"> <span>Master</span>
+									<div class="this_lvl">
+										<h2>This is your level</h2>
+									</div> </a></li>
+							<li ref="2">
+								<h2 class="color_one">
+									<span class="perc_number">23</span><span>%</span>
+								</h2> <a href="#" ref="2"> <span>University</span>
+									<div class="this_lvl">
+										<h2>This is your level</h2>
+									</div> </a></li>
+							<li ref="3">
+								<h2 class="color_one">
+									<span class="perc_number">5</span><span>%</span>
+								</h2> <a href="#" ref="3"> <span>Technical Insitute</span>
+									<div class="this_lvl">
+										<h2>This is your level</h2>
+									</div> </a></li>
+							<li ref="4">
+								<h2 class="color_one">
+									<span class="perc_number">3</span><span>%</span>
+								</h2> <a href="#" ref="4"> <span>High School</span>
+									<div class="this_lvl">
+										<h2>This is your level</h2>
+									</div> </a></li>
+							<li ref="5">
+								<h2 class="color_one">
+									<span class="perc_number">57</span><span>%</span>
+								</h2> <a href="#" ref="5"> <span>Junior College</span>
+									<div class="this_lvl">
+										<h2>This is your level</h2>
+									</div> </a></li>
+							<li ref="6">
+								<h2 class="color_one">
+									<span class="perc_number">3</span></span><span>%</span>
+								</h2> <a href="#" ref="6"> <span>Elementary School</span>
+									<div class="this_lvl">
+										<h2>This is your level</h2>
+									</div> </a></li>
+						</ul>
+						<div class="clear"></div>
+					</div>
+					<!--/text-->
+
+					<!--icono_bottom-->
+					<div class="hat_bottom">
+						<div class="pre_load_red"></div>
+					</div>
+					<!--/icono_bottom-->
+
+					<div class="clear"></div>
+
+				</div>
+				<!--/bottom-->
+
+			</div>
+		</div>
+		<!--/step_three-->
+
+		<!--step_four-->
+		<div class="full_container step_four" id="step_four">
+			<div class="centered_container">
+
+				<!--top-->
+				<div class="top">
+					<h2>
+						Share your work<br />experience
+					</h2>
+					<p>How long have you been working for?</p>
+				</div>
+				<!--/top-->
+
+				<!--bottom-->
+				<div class="bottom">
+					<div id="canvas_4_1"></div>
+				</div>
+				<!--/bottom-->
+
+				<!--datos_bottom-->
+				<div class="datos_graph">
+
+					<!--lista_edades-->
+					<ul id="age_input">
+						<li class="first"><a href="#" data-key="15-25">15-25</a></li>
+						<li><a href="#" data-key="26-35">26-35</a></li>
+						<li><a href="#" data-key="36-45">36-45</a></li>
+						<li><a href="#" data-key="46-55">46-55</a></li>
+						<li class="last"><a href="#" data-key="56-65">56-65</a></li>
+					</ul>
+					<!--lista_edades-->
+
+					<!--input-->
+					<div class="age_input" id="age_select">
+
+						<div class="age_centered">
+							<h2>total years working:</h2>
+							<form id="age_select_form" action="#">
+								<input type="text" id="age_select_value" name="age" />
+							</form>
+						</div>
+
+						<div class="arrow_bottom_age"></div>
+
+					</div>
+					<!--/input-->
+
+					<div class="age_bottom">
+						<h2>age</h2>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+				<!--datos_bottom-->
+
+				<!--stats_bottom-->
+				<div class="stats_bottom" id="data_1_4">
+
+					<!--bloque-->
+					<div class="bloq left">
+
+						<h2>Overall avg</h2>
+
+						<!--stat-->
+						<div class="number_stat">
+
+							<h2>10</h2>
+
+							<!--ico_right-->
+							<div class="ico_right">
+								<p>
+									years of<br />experience
+								</p>
+							</div>
+							<!--/ico_right-->
+						</div>
+						<!--/stat-->
+
+					</div>
+					<!--/bloque-->
+
+					<!--bloque-->
+					<div class="bloq right">
+
+						<h2>You</h2>
+
+						<!--stat-->
+						<div class="number_stat">
+
+							<h2>24</h2>
+
+							<!--ico_right-->
+							<div class="ico_right">
+								<p>
+									years of<br />experience
+								</p>
+							</div>
+							<!--/ico_right-->
+						</div>
+						<!--/stat-->
+
+					</div>
+					<!--/bloque-->
+
+					<div class="clear"></div>
+
+				</div>
+				<!--/stats_bottom-->
+
+			</div>
+		</div>
+		<!--/step_four-->
+
+	</div>
+
+</body>
+
+</html>
