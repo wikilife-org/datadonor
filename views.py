@@ -19,7 +19,11 @@ def new_users_report(request):
     #send_email_report("jquintas@wikilife.org", result)
     return render_to_response('email/new_users_report.html',{"result_user":result, "result_devices":result_devices, "total_users":total_user},
                                   RequestContext(request))
-    
+
+def test_report(request):
+    return render_to_response('email/report.html',{},
+                                  RequestContext(request))
+       
 def send_test_email(request):
     send_email("jquintas@wikilife.org")
     return render_to_response('static/mission.html',{},

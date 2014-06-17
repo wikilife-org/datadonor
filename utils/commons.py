@@ -29,7 +29,18 @@ def send_email(to_email):
     #msg.attach_alternative(html_content, "text/html")
     msg.send(from_email)
 
-def send_email_report(to_email, report):
+def send_email_report(to_email, subject, context):
+    """
+    Report Emails to users sender
+    """
+    d = Context(context)
+    from_email = setting("WELCOME_EMAIL_FROM", "no-reply@wikilife.org")
+    msg = EMail( [to_email], subject)
+    msg.html("email/report.html", d)
+    msg.text("email/report.txt", d)
+    msg.send(from_email)
+    
+def send_email_internal_report(to_email, report):
 
     #plaintext = get_template('email/welcome.txt')
     #htmly     = get_template('email/welcome.html')
@@ -69,4 +80,52 @@ def calculate_age(born):
         return today.year - born.year - 1
     else:
         return today.year - born.year
+
+
+from django.contrib.auth.models import User
+from physical.models import UserActivityLog
+from datetime import date, datetime, time, timedelta
+import time
+
+def last_week_user_actions(user):
+    ctx = {"show_social":True}
+    
+    today = date.today()
+    last_sunday = today - timedelta(days=6)
+    
+    act_logs = UserActivityLog.objects.filter(execute_time__range=(last_sunday, today), \
+                                           type__in=["walking", "running", "cycling"], user=user)
+    
+    if len(act_logs) > 0:
+        ctx["show_physical"] = True
+    else:
+        ctx["show_physical"] = False
+        
+
+    act_logs = UserActivityLog.objects.filter(execute_time__range=(last_sunday, today), \
+                                           type__in=["walking", "running", "cycling"], user=user)
+    
+    if len(act_logs) > 0:
+        ctx["show_physical"] = True
+    else:
+        ctx["show_physical"] = False
+    
+    if len(user.conditions.all()) > 0 or len(user.complaints.all()) or len(user.blood_type.all()) > 0 or len(user.emotions.all()) > 0 :
+        ctx["show_health"] = True
+    else:
+        ctx["show_health"] = False
+    
+    if len(user.food.filter(execute_time__range=(last_sunday, today)) > 0):
+        ctx["show_nutrition"] = True
+    else:
+        ctx["show_nutrition"] = False
+
+    if len(user.traits.all()) > 0 or len(user.drug_reponse.all()) or len(user.risks.all()) > 0 :
+        ctx["show_genomics"] = True
+    else:
+        ctx["show_genomics"] = False
+      
+    
+    return ctx
+                                           
     

@@ -7,7 +7,16 @@ from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+from utils.commons import last_week_user_actions
 
+
+def report_for_user_full(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
+    ctx = last_week_user_actions(user)
+    return render_to_response('dashboard/user_report.html',ctx,
+                                  RequestContext(request))
 def report_for_user_exercise(request, user_id):
     user = User.objects.get(id=user_id)
     user.backend = 'django.contrib.auth.backends.ModelBackend'

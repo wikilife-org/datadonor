@@ -42,6 +42,8 @@ urlpatterns = patterns('',
     url(r'^wikilife/', include('wikilife.urls')),
     url(r'^reports/', include('reports.urls')),
     url(r'^reports/internal/new_users/',  new_users_report, name='new_users_report'),
+    url(r'^test/',  test_report, name='test_report'),
+    
 
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),

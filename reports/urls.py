@@ -8,6 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     
+    url(r'^user/full/(?P<user_id>.+)/', report_for_user_full, name='report_for_user_full'),
     url(r'^user/physical/(?P<user_id>.+)/', report_for_user_exercise, name='report_for_user_exercise'),
     url(r'^user/social/(?P<user_id>.+)/', report_for_user_social, name='report_for_user_social'),
     url(r'^user/health/(?P<user_id>.+)/', report_for_user_health, name='report_for_user_health'),
