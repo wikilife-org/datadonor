@@ -115,7 +115,7 @@ def last_week_user_actions(user):
     else:
         ctx["show_health"] = False
     
-    if len(user.food.filter(execute_time__range=(last_sunday, today)) > 0):
+    if len(user.foods.filter(execute_time__range=(last_sunday, today)) > 0):
         ctx["show_nutrition"] = True
     else:
         ctx["show_nutrition"] = False
