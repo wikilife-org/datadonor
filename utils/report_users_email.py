@@ -26,5 +26,5 @@ def user_weekly_report():
         if user_obj.profile.email:
             url_screengrab(user)
             image = "report_{u}.png".format(u = user)
-            send_email_report(user_obj.profile.email, "Datadonors Weekly Report", {"image": image})
+            #send_email_report(user_obj.profile.email, "Datadonors Weekly Report", {"image": image})
                     
