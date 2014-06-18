@@ -19,7 +19,7 @@ def url_screengrab(user_id, **kwargs):
 
 def user_weekly_report():
     
-    emails = User.objects.all()
+    users = User.objects.all()
     for user in users:
         user = int(user)
         user_obj= User.objects.get(id=user)
