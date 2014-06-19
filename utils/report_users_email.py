@@ -13,7 +13,7 @@ from xvfbwrapper import Xvfb
 
 
 def url_screengrab(user_id, **kwargs):
-    cmd = "export DISPLAY=:0;/usr/local/bin/CutyCapt  --auto-load-images=on --delay=1500 --max-wait=60000  --url=http://datadonors.org/reports/user/full/{u}/  --out=/home/datadonor/static/tmp/report_{u}.png".format(u = user_id)
+    cmd = "export DISPLAY=:0;/usr/local/bin/CutyCapt  --auto-load-images=on --delay=15000 --max-wait=60000  --url=http://datadonors.org/reports/user/full/{u}/  --out=/home/datadonor/static/tmp/report_{u}.png".format(u = user_id)
     os.system(cmd)
     
 
