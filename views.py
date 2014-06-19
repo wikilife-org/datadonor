@@ -10,7 +10,7 @@ from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from utils.user_linked_data import refresh_user_data
 from reports.services.internal import get_new_users_distribution, get_device_by_users_distribution
-from utils.commons import send_email_report, send_email_report
+from utils.commons import send_email_report
 
 
 def new_users_report(request):
@@ -25,7 +25,7 @@ def test_report(request):
                                   RequestContext(request))
        
 def send_test_email(request):
-    send_email("jquintas@wikilife.org")
+    send_email_report("jquintas@wikilife.org")
     return render_to_response('static/mission.html',{},
                                   RequestContext(request))
 

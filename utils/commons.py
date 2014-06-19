@@ -110,7 +110,7 @@ def last_week_user_actions(user):
     else:
         ctx["show_physical"] = False
     
-    if len(user.conditions.all()) > 0 or len(user.complaints.all()) or len(user.blood_type.all()) > 0 or len(user.emotions.all()) > 0 :
+    if len(user.conditions.all()) > 0 or len(user.complaints.all()) or len(user.emotions.all()) > 0 :
         ctx["show_health"] = True
     else:
         ctx["show_health"] = False
