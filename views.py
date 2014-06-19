@@ -25,7 +25,7 @@ def test_report(request):
                                   RequestContext(request))
        
 def send_test_email(request):
-    send_email_report("jquintas@wikilife.org")
+    send_email_report("jquintas@wikilife.org", "Datadonors: Weekly Report", {})
     return render_to_response('static/mission.html',{},
                                   RequestContext(request))
 
