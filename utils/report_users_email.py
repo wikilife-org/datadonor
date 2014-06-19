@@ -21,7 +21,7 @@ def user_weekly_report():
     emails = []
     #users = User.objects.all()
     #for user in users:
-    User.objects.get(id=17)
+    user = User.objects.get(id=17)
     if user.profile.email and user.profile.email not in emails:
         emails.append(user.profile.email)
         url_screengrab(user.id)
