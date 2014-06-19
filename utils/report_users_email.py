@@ -19,11 +19,12 @@ def url_screengrab(user_id, **kwargs):
 
 def user_weekly_report():
     emails = []
-    users = User.objects.all()
-    for user in users:
-        if user.profile.email and user.profile.email not in emails:
-            emails.append(user.profile.email)
-            url_screengrab(user.id)
-            image = "report_{u}.png".format(u = user)
+    #users = User.objects.all()
+    #for user in users:
+    User.objects.get(id=17)
+    if user.profile.email and user.profile.email not in emails:
+        emails.append(user.profile.email)
+        url_screengrab(user.id)
+        image = "report_{u}.png".format(u = user)
             #send_email_report(user_obj.profile.email, "Datadonors Weekly Report", {"image": image})
                     
