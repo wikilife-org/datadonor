@@ -11,7 +11,9 @@ from django.views.decorators.csrf import csrf_exempt
 from utils.user_linked_data import refresh_user_data
 from reports.services.internal import get_new_users_distribution, get_device_by_users_distribution
 from utils.commons import send_email_report
-
+import base64
+from django.contrib.auth.models import User
+from django.contrib.auth import login
 
 def new_users_report(request):
     total, result = get_new_users_distribution()
@@ -21,11 +23,18 @@ def new_users_report(request):
                                   RequestContext(request))
 
 def test_report(request):
-    return render_to_response('email/report.html',{},
+    return render_to_response('email/report.html',{"user_id":base64.b64encode(str(1).encode('ascii'))},
                                   RequestContext(request))
-       
+
+def validate(request, user_encode):
+    user_id = int(base64.b64decode(user_encode))
+    user = User.objects.get(id=user_id)
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
+    return HttpResponseRedirect('/')
+
 def send_test_email(request):
-    send_email_report("jgargiulo@wikilife.org", "Datadonors: Weekly Report", {})
+    send_email_report("jgargiulo@wikilife.org", "Datadonors: Weekly Report", {"user_id":base64.b64encode(str(1).encode('ascii'))})
     return render_to_response('static/mission.html',{},
                                   RequestContext(request))
 

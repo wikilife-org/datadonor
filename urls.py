@@ -43,6 +43,7 @@ urlpatterns = patterns('',
     url(r'^reports/', include('reports.urls')),
     url(r'^reports/internal/new_users/',  new_users_report, name='new_users_report'),
     url(r'^test/',  test_report, name='test_report'),
+    url(r'^email/validate/(?P<user_id>.+)/',  test_report, name='test_report'),
     
 
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
