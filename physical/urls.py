@@ -16,6 +16,9 @@ urlpatterns = patterns('',
 
     url(r'^exercise/top/', physical_exercise, name='physical_exercise'),
     url(r'^exercise/user/', physical_user_exercise, name='physical_user_exercise'),
+    
+    url(r'^exercise/steps/distribution/global/', physical_steps_distribution_global, name='physical_steps_distribution_global'),
+    
     url(r'^exercise/steps/distribution/', physical_steps_distribution, name='physical_steps_distribution'),
     url(r'^exercise/miles/distribution/', physical_miles_distribution, name='physical_miles_distribution'),
     url(r'^exercise/hours/distribution/', physical_hours_distribution, name='physical_hours_distribution'),

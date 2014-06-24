@@ -63,6 +63,26 @@ def physical_steps_distribution(request):
     }
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+
+def physical_steps_distribution_global(request):
+
+
+    dto = PhysicalActivityDistributionService().get_steps_distribution_global()
+    data = {
+            "days": {
+                     "sunday":     dto["sun"], 
+                     "monday":    dto["mon"],
+                     "tuesday":    dto["tue"], 
+                     "wednesday": dto["wed"],
+                     "thursday":  dto["thu"], 
+                     "friday":    dto["fri"],
+                     "saturday":  dto["sat"]
+                     },
+            "avg": dto["avg"],
+
+    }
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
 def physical_miles_distribution(request):
     """
     data = {"days":{"sunday":{"user_miles": 30, "global_miles":50}, "monday":{"user_miles": 20, "global_miles":30},

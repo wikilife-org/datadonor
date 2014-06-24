@@ -19,7 +19,10 @@ class PhysicalActivityDistributionService(object):
 
     def get_steps_distribution(self, user):
         return self._get_global_distribution_steps(user)
-
+    
+    def get_steps_distribution_global(self):
+        return self._get_global_distribution_steps_report()
+    
     def get_miles_distribution(self, user):
         return self._get_global_distribution_miles(user)
 
@@ -48,6 +51,28 @@ class PhysicalActivityDistributionService(object):
         result["avg"]["user"] = int(round(avg_user))
         return result 
 
+    def _get_global_distribution_steps_report(self):
+
+        
+        client = Stats({"HOST":"http://api.wikilife.org"})
+        steps_days = client.get_global_steps_from_sunday()["data"]
+        result = {"sun":None,"mon":None,"tue":None,"wed":None,
+                  "thu":None,"fri":None,"sat":None, "avg":None}
+        total = 0
+        count = 0
+        avg = 0
+        
+        for day in steps_days:
+            d_index = datetime.datetime.strptime(day["date"], '%Y-%m-%d').strftime("%a").lower()
+            result[d_index] = int(round(day["avg"]))
+            
+            total +=day["avg"]
+            count = count + 1
+        if count:
+            avg = total/ count
+        result["avg"] = int(round(avg))
+        return result
+    
     def _get_global_distribution_steps(self, user):
 
         
