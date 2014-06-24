@@ -125,7 +125,8 @@ INSTALLED_APPS = (
     'physical',
     'users',
     'nutrition',
-    'reports'
+    'reports',
+    'data'
 
 
 )

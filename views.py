@@ -34,7 +34,7 @@ def validate(request, user_encode):
     return HttpResponseRedirect('/')
 
 def send_test_email(request):
-    send_email_report("jgargiulo@wikilife.org", "Datadonors: Weekly Report", {"user_id":base64.b64encode(str(1).encode('ascii'))})
+    send_email_report("jgargiulo@wikilife.org", "DataDonors Weekly Report", {"user_id":base64.b64encode(str(1).encode('ascii'))})
     return render_to_response('static/mission.html',{},
                                   RequestContext(request))
 
