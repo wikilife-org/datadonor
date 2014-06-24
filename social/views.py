@@ -24,11 +24,21 @@ def social_reach(request):
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+def social_reach_global(request):
+    user_data = request.user.social_aggregated_data.social_reach()
+    global_data = global_social_reach()
+    return HttpResponse(simplejson.dumps(global_data), mimetype="application/json")
+
 def social_sharing(request):
     user_data = request.user.social_aggregated_data.social_sharing()
     global_data = global_social_sharing()
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def social_sharing_global(request):
+    user_data = request.user.social_aggregated_data.social_sharing()
+    global_data = global_social_sharing()
+    return HttpResponse(simplejson.dumps(global_data), mimetype="application/json")
 
 
 EDUCATION_LEVELS = {6:"phd",
@@ -62,6 +72,10 @@ def social_education(request):
     data = {"user_data":user_data, "global_data":global_data}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+def social_education_global(request):
+    global_data = global_education()
+    return HttpResponse(simplejson.dumps(global_data), mimetype="application/json")
+
 @csrf_exempt
 def social_work(request):
     if request.method == 'POST':
@@ -93,6 +107,12 @@ def social_work(request):
     global_data, avg = global_work()
     data = {"user_data":user_data, "global_data":global_data, "avg":avg}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+def social_work_global(request):
+
+    global_data, avg = global_work()
+    global_data["avg"] = avg
+    return HttpResponse(simplejson.dumps(global_data), mimetype="application/json")
 
 def social_reach_mock(request):
     data = get_social_reach_mock()
