@@ -109,6 +109,45 @@ def physical_miles_distribution(request):
     }
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
+def physical_hours_distribution_global(request):
+
+
+    dto = PhysicalActivityDistributionService().get_hours_distribution_global()
+    data = {
+            "days": {
+                     "sunday":     dto["sun"], 
+                     "monday":    dto["mon"],
+                     "tuesday":    dto["tue"], 
+                     "wednesday": dto["wed"],
+                     "thursday":  dto["thu"], 
+                     "friday":    dto["fri"],
+                     "saturday":  dto["sat"]
+                     },
+            "avg": dto["avg"],
+
+    }
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
+
+def physical_miles_distribution_global(request):
+
+
+    dto = PhysicalActivityDistributionService().get_miles_distribution_global()
+    data = {
+            "days": {
+                     "sunday":     dto["sun"], 
+                     "monday":    dto["mon"],
+                     "tuesday":    dto["tue"], 
+                     "wednesday": dto["wed"],
+                     "thursday":  dto["thu"], 
+                     "friday":    dto["fri"],
+                     "saturday":  dto["sat"]
+                     },
+            "avg": dto["avg"],
+
+    }
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+
 def physical_hours_distribution(request):
     """
     data = {"days":{"sunday":{"user_hours": 7, "global_hours":7}, "monday":{"user_hours": 3, "global_hours":5},

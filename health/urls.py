@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 
 
     url(r'^cronical_conditions/global/top_5/', cronical_conditions_ranking_global, name='cronical_conditions_ranking_global'),
+    url(r'^cronical_conditions/global/all/', cronical_conditions_ranking_global_all, name='cronical_conditions_ranking_global_all'),
     url(r'^cronical_conditions/user/', cronical_conditions_by_user, name='cronical_conditions_by_user'),
     url(r'^cronical_conditions/list/', cronical_conditions_list, name='cronical_conditions_list'),
 
@@ -26,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^complaints/user/mock/', complaints_by_user_mock, name='complaints_by_user_mock'),
   
     url(r'^complaints/global/top_5/', complaints_ranking_global, name='complaints_ranking_global'),
+    url(r'^complaints/global/all/', complaints_ranking_global_all, name='complaints_ranking_global_all'),
     url(r'^complaints/list/', complaints_list, name='complaints_list'),
     url(r'^complaints/user/', complaints_by_user, name='complaints_by_user'),
    
@@ -51,6 +53,7 @@ urlpatterns = patterns('',
     url(r'^emotions/user/mock/', emotions_by_user_mock, name='emotions_by_user_mock'),
   
     url(r'^emotions/global/top_5/', emotions_ranking_global, name='emotions_ranking_global'),
+    url(r'^emotions/global/all/', emotions_ranking_global_all, name='emotions_ranking_global_all'),
     url(r'^emotions/list/', emotions_list, name='emotions_list'),
     url(r'^emotions/user/', emotions_by_user, name='emotions_by_user'),
       

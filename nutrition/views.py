@@ -54,7 +54,7 @@ def nutrition_user_nutrients(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def nutrition_global_nutrients(request):
-    data = {}
+    data = NutritionDistributionService().get_nutrients_global_distribution()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 #End Nutrients
