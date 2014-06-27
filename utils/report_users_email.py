@@ -27,5 +27,5 @@ def user_weekly_report():
             emails.append(user.profile.email)
             url_screengrab(user.id)
             image = "report_{u}.png".format(u = user.id)
-            send_email_report(user_obj.profile.email, "DataDonors Weekly Report", {"user_id":base64.b64encode(str(user.id).encode('ascii')), "image": image})
+            send_email_report(user.profile.email, "DataDonors Weekly Report", {"user_id":base64.b64encode(str(user.id).encode('ascii')), "image": image})
                     
