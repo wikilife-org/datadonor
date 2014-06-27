@@ -10,6 +10,7 @@ import os
 from utils.commons import send_email_report
 from users.models import Profile
 from xvfbwrapper import Xvfb
+import base64
 
 
 def url_screengrab(user_id, **kwargs):
@@ -20,11 +21,11 @@ def url_screengrab(user_id, **kwargs):
 def user_weekly_report():
     emails = []
     #users = User.objects.all()
-    #for user in users:
-    user = User.objects.get(id=17)
-    if user.profile.email and user.profile.email not in emails:
-        emails.append(user.profile.email)
-        url_screengrab(user.id)
-        image = "report_{u}.png".format(u = user)
-            #send_email_report(user_obj.profile.email, "DataDonors Weekly Report", {"image": image})
+    users = [User.objects.get(id= 1)]
+    for user in users:
+        if user.profile.email and user.profile.email not in emails:
+            emails.append(user.profile.email)
+            url_screengrab(user.id)
+            image = "report_{u}.png".format(u = user.id)
+            send_email_report(user_obj.profile.email, "DataDonors Weekly Report", {"user_id":base64.b64encode(str(user.id).encode('ascii')), "image": image})
                     
