@@ -20,8 +20,7 @@ def url_screengrab(user_id, **kwargs):
 
 def user_weekly_report():
     emails = []
-    #users = User.objects.all()
-    users = [User.objects.get(id= 1)]
+    users = User.objects.all()
     for user in users:
         if user.profile.email and user.profile.email not in emails:
             emails.append(user.profile.email)
