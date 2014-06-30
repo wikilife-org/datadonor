@@ -1,5 +1,5 @@
 from os.path import abspath, dirname, basename, join
-
+from django.utils.translation import ugettext_lazy as _
 
 try:
     import social_auth
@@ -25,7 +25,7 @@ PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 # Example: "/home/media/media.lawrence.com/media/"
 #MEDIA_ROOT = '/var/www/media/elearning/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, "media").replace('\\','/')
-
+LOCALE_PATHS = (os.path.join(PROJECT_DIR, "locale").replace('\\','/'),)
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -37,6 +37,10 @@ MEDIA_URL = '/media/'
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = ""
 
+LANGUAGES = (
+  ('es', _('Spanish')),
+  ('en', _('English')),
+)
 
 WELCOME_EMAIL_FROM = "hello@datadonors.org"
 
@@ -61,7 +65,7 @@ DATABASES = {
 }
 
 TIME_ZONE = 'America/Chicago'
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
@@ -96,6 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'middleware.XsSharing',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',

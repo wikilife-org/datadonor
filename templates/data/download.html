@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 
@@ -32,24 +33,25 @@
   <!--/header-->
 
   <div class="full_container plain_text learn-more">
+
     <div class="centered_container">
 
-      <h2>Datadonors Stats</h2>
+      <h2>{% trans "Datadonors Stats" %}</h2>
 
-		<p>Datadonors aggregates and shares all collected data by making it
+		<p>{% blocktrans %}Datadonors aggregates and shares all collected data by making it
 			available to the general public. In this page you can download
 			statistics currently available only in JSON format. More formats
-			will be supported in the near future.</p>
+			will be supported in the near future. {% endblocktrans %}</p>
 
 		<ul class="list_variables">
 		<li class="variables_card">
-			<h3>Level of Education</h3>
+			<h3>{% trans "Level of Education" %}</h3>
 			<div class="detail">
-			<span>Source:</span> manual input, Linkedin<br/>
-			<span>Type:</span> percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/social/education/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>{% trans " manual input, Linkedin" %}<br/>
+			<span>{% trans "Type:" %}</span>{% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span>{% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %} <br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/social/education/global/">JSON</a><br/>
 			</div>
 		</li>
 		

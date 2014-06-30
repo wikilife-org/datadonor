@@ -25,7 +25,6 @@ def social_reach(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_reach_global(request):
-    user_data = request.user.social_aggregated_data.social_reach()
     global_data = global_social_reach()
     return HttpResponse(simplejson.dumps(global_data), mimetype="application/json")
 
@@ -36,7 +35,6 @@ def social_sharing(request):
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def social_sharing_global(request):
-    user_data = request.user.social_aggregated_data.social_sharing()
     global_data = global_social_sharing()
     return HttpResponse(simplejson.dumps(global_data), mimetype="application/json")
 

@@ -26,9 +26,9 @@ urlpatterns = patterns('',
     url(r'^bmi/user/mock/', nutrition_user_bmi_mock, name='nutrition_user_bmi_mock'),
 
 
-    url(r'^nutrients/', nutrition_nutrients, name='nutrition_nutrients'),
     url(r'^nutrients/global/distribution/', nutrition_global_nutrients, name='nutrition_global_nutrients'),
     url(r'^nutrients/user/distribution/', nutrition_user_nutrients, name='nutrition_user_nutrients'),
+    url(r'^nutrients/', nutrition_nutrients, name='nutrition_nutrients'),
 
     url(r'^weight/', nutrition_weight, name='nutrition_weight'),
     url(r'^weight/global/', nutrition_global_weight, name='nutrition_global_weight'),

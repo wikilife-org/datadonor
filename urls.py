@@ -45,7 +45,7 @@ urlpatterns = patterns('',
     url(r'^reports/internal/new_users/',  new_users_report, name='new_users_report'),
     url(r'^test/',  test_report, name='test_report'),
     url(r'^email/validate/(?P<user_encode>.+)/',  validate, name='test_report'),
-    
+    (r'^i18n/', include('django.conf.urls.i18n')),
 
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
