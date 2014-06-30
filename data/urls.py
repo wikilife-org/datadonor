@@ -8,6 +8,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     
-    url(r'^download/', download, name='download'),
+    url(r'^', download, name='download'),
 
 )

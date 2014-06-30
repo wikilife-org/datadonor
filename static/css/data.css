@@ -9,7 +9,7 @@ div.learn-more p {
 }
 
 div.learn-more h3 {
-color: #e46666 !important;
+	//color: #e46666 !important;
     font-size: 21px !important;
     margin-bottom: 15px !important;
     margin-left: 5px !important;
@@ -18,7 +18,7 @@ color: #e46666 !important;
 
 
 .plain_text .centered_container ul li a{
-    color: #e46666 !important;
+    color: #fff !important;
     font-family: 'Omnes-Semibold';
     font-size: 14px;
     line-height: 22px;
@@ -32,7 +32,7 @@ color: #e46666 !important;
     line-height: 20px !important;
     margin-bottom: 20px !important;
     padding-left: 0px !important;
-    background-color: #ffffff;
+    //background-color: #ffffff;
 
 
 
@@ -44,7 +44,8 @@ span{
 	font-weight: bold;
 }
 .plain_text .centered_container ul li {
-	color: #e46666;
+	//color: #e46666;
+	width: 243px !important;
     font-family: 'Omnes-Semibold';
     font-size: 14px;
     line-height: 22px;
