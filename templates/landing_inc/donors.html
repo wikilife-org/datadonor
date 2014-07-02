@@ -1,3 +1,4 @@
+{% load i18n %}
 <section id="donors" class="scrollsections">
 
 	<section id="section-counter" class="row full-screen seccion">
@@ -8,7 +9,7 @@
 
 
 			<h2>
-				<em>DONATIONS SO FAR</em>
+				<em>{% blocktrans %}DONATIONS SO FAR{% endblocktrans %}</em>
 			</h2>
 
 		</div>
@@ -23,8 +24,8 @@
 				</h3>
 
 				<h4>
-					 Are donating data<br> right now, and
-					you  <br> can join them!
+					 {% blocktrans %}Are donating data<br> right now, and
+					you  <br> can join them!{% endblocktrans %}
 				</h4>
 
 				<div class="clear"></div>
@@ -42,7 +43,7 @@
 
 
 
-					<h4>Data items have been donated so far.</h4>
+					<h4>{% blocktrans %}Data items have been donated so far.{% endblocktrans %}</h4>
 
 				</div>
 				<!-- .left -->

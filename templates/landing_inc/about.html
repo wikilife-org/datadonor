@@ -1,9 +1,10 @@
+{% load i18n %}
 <section id="about" class="scrollsections">
 	<section id="second" class="row section-about full-screen seccion">
     <img src="http://datadonors.org/static/img/landing/goto1.png" class="goto">
 
 		<h3>
-			WHAT IS <br /> DATADONORS?
+			{% trans "WHAT IS" %} <br /> DATADONORS?
 		</h3>
 
 
@@ -21,18 +22,12 @@
 
 				<!--  img src="http://datadonors.org/static/img/texto-row-right.jpg" width="750" /-->
 				<p>
-					We're used to sharing everything online. It's what we do everyday.
-
-					Using Facebook, Twitter, Runkeeper, Fitbit or whatever platform, we
-					share all the time. But does that really help anyone?<br />
-					<br /> In most cases, it doesn't. And that's ok. But what if we
-					could save lives with that same sharing? By connecting any of these
-					devices and apps and sharing your information, you can help us to
-					create an extensive database that can be used by researchers to improve
-					health and eradicate illness.
+					{% trans "We're used to sharing everything online. It's what we do everyday. Using Facebook, Twitter, Runkeeper, Fitbit or whatever platform, we share all the time. But does that really help anyone?" %}<br />
+					<br />
+					{% trans "In most cases, it doesn't. And that's ok. But what if we could save lives with that same sharing? By connecting any of these devices and apps and sharing your information, you can help us to create an extensive database that can be used by researchers to improve health and eradicate illness."%}
 				</p>
 				<p>
-				 A campaign by <a href="http://wikilife.org/" class="wikilife">The Wikilife Foundation</a>, a non-profit §501(c)(3) organization.
+				 {% trans "A campaign by" %} <a href="http://wikilife.org/" class="wikilife">The Wikilife Foundation</a>, {% trans "a non-profit §501(c)(3) organization"%}.
 				 </p>
 				<div class="clear"></div>
 

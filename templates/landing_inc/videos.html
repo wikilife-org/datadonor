@@ -1,12 +1,13 @@
+ {% load i18n %}
     <section id="home" class="scrollsections">
 
 
         <div class="wrapper section-top" id="header-top">
         	<a href="#" class="close-video" onClick="close_video(); return false;"></a>
             <div class="video-1">
-                <h2>HOW WE COULD ALL SAVE LIVES</h2>
-       			<a href="#" id="video-01" onClick="playPause(); return false;" class="watch-video" >Watch intro</a>
-                <a href="#" id="video-02" onClick="play2Pause(); return false;" class="watch-video" >Watch overview</a>
+                <h2>{% trans "HOW WE COULD ALL SAVE LIVES" %}</h2>
+       			<a href="#" id="video-01" onClick="playPause(); return false;" class="watch-video" >{% trans "Watch intro" %}</a>
+                <a href="#" id="video-02" onClick="play2Pause(); return false;" class="watch-video" >{% trans "Watch overview" %}</a>
             </div>
 
             <a href="#" class="pause" onClick="pause(); return false;"></a>
@@ -49,7 +50,7 @@
             </div>
         	<div class="box-wikilife">
 
-            	<span>by The Wikilife Foundation</span>
+            	<span>{% trans "by The Wikilife Foundation" %}</span>
                 <div class="tip"></div>
             </div>
         </div>

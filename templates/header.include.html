@@ -19,8 +19,9 @@
             
             <div id="wiki-nav">
                 <nav class="wiki-nav" id="">
-                    by The Wikilife Foundation
-                      <!--form action="{% url 'set_language' %}" method="post">
+                    
+                    {% trans "by The Wikilife Foundation" %}
+                      <form action="{% url 'set_language' %}" method="post">
 						{% csrf_token %}
 						<input name="next" type="hidden" value="{{ redirect_to }}" />
 						<select name="language">
@@ -32,26 +33,26 @@
 						{% endfor %}
 						</select>
 						<input type="submit" value="Go" />
-						</form-->
+						</form>
                 </nav>
             </div>
             <div id="center-nav">
                 <nav class="nav" id="">
-                	<a href="http://datadonors.org/data" title="Data">Data</a>
-                    <a href="http://datadonors.org/mission" title="Mission">Mission</a>
-                    <a href="http://datadonors.org/learn-more" title="Learn More">Learn More</a>
-                    <a href="http://datadonors.org/support-us" title="Support Us">Support Us</a>
+                	<a href="http://datadonors.org/data" title="{% trans "Data" %}">{% trans "Data" %}</a>
+                    <a href="http://datadonors.org/mission" title="{% trans "Mission" %}">{% trans "Mission" %}</a>
+                    <a href="http://datadonors.org/learn-more" title="{% trans "Learn More" %}">{% trans "Learn More" %}</a>
+                    <a href="http://datadonors.org/support-us" title="{% trans "Support Us" %}">{% trans "Support Us" %}</a>
                     {% if request.user.is_authenticated %}
-                    <a href="http://datadonors.org/about-us" title="About Us">About Us</a>
-                    <a href="http://datadonors.org/logout" title="logout">logout</a>
+                    <a href="http://datadonors.org/about-us" title="{% trans "About Us" %}">{% trans "About Us" %}</a>
+                    <a href="http://datadonors.org/logout" title="{% trans "logout" %}">{% trans "logout" %}</a>
                     {% else %}
-                    <a href="#" title="login" data-reveal-id="login_container">login</a>
+                    <a href="#" title="{% trans "login" %}" data-reveal-id="login_container">{% trans "login" %}</a>
                     {% endif %}
                 </nav>
             </div>
             <!-- #preloader-copy-wrapper -->
             {% if can_share %}
-            <a href="http://datadonors.org/wizard" title="Start Sharing" id="start-sharing">Start Sharing</a>
+            <a href="http://datadonors.org/wizard" title="{% trans "Start Sharing" %}" id="start-sharing">{% trans "Start Sharing" %}</a>
             {% endif %}
         </div>
         <div class="bottom-h"></div>

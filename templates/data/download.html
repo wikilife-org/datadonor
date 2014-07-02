@@ -38,10 +38,7 @@
 
       <h2>{% trans "Datadonors Stats" %}</h2>
 
-		<p>{% blocktrans %}Datadonors aggregates and shares all collected data by making it
-			available to the general public. In this page you can download
-			statistics currently available only in JSON format. More formats
-			will be supported in the near future. {% endblocktrans %}</p>
+		<p>{% trans "Datadonors aggregates and shares all collected data by making it available to the general public. In this page you can download statistics currently available only in JSON format. More formats will be supported in the near future." %}</p>
 
 		<ul class="list_variables">
 		<li class="variables_card">
@@ -56,164 +53,164 @@
 		</li>
 		
 		<li class="variables_card">
-			<h3>Work Experience</h3>
+			<h3>{% trans "Work Experience" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  manual input, Linkedin<br/>
-			<span>Type:</span> count, sum and average<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/social/work/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>{% trans " manual input, Linkedin" %}<br/>
+			<span>{% trans "Type:" %}</span> {% trans " count, sum and average"%}<br/>
+			<span>{% trans "Time:" %}</span> {% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %}s <br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/social/work/global/">JSON</a><br/>
 			</div>
 		</li>
         <li class="variables_card">
-			<h3>Virtual life Reach</h3>
+			<h3>{% trans "Virtual life Reach" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Twitter, Facebook, LinkedIn, Foursquare, Gmail<br/>
-			<span>Type:</span> count, sum and percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/social/reach/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  Twitter, Facebook, LinkedIn, Foursquare, Gmail<br/>
+			<span>{% trans "Type:" %}</span> {% trans " count, sum and percentage"%}<br/>
+			<span>{% trans "Time:" %}</span> {% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %}<br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/social/reach/global/">JSON</a><br/>
 			</div>
 		</li>
 		<li class="variables_card">
-			<h3>Virtual life Sharing</h3>
+			<h3>{% trans "Virtual life Sharing" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Twitter, Facebook<br/>
-			<span>Type:</span> average <br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/social/sharing/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  Twitter, Facebook<br/>
+			<span>{% trans "Type:" %}</span> {% trans " average" %} <br/>
+			<span>{% trans "Time:" %}</span> {% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %}<br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/social/sharing/global/">JSON</a><br/>
 			</div>
 		</li>
 		<li class="variables_card">
-			<h3>Steps</h3>
+			<h3>{% trans "Steps" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Runkepper, Nike+, Fitbit, Moves<br/>
-			<span>Type:</span> average from last Sunday and daily<br/>
-			<span>Time:</span>  since {{last_sunday}}<br/>
-			<span>Population:</span>  registered Wikilife users (Twitter Crawler) <br/>
-			<span>Format:</span>  <a target="_blank" href="/physical/exercise/steps/distribution/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  Runkepper, Nike+, Fitbit, Moves<br/>
+			<span>{% trans "Type:" %}</span>{% trans " average from last Sunday and daily"%}<br/>
+			<span>{% trans "Time:" %}</span> {% trans " since"%} {{last_sunday}}<br/>
+			<span>{% trans "Population:" %}</span>  registered Wikilife users (Twitter Crawler) <br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/physical/exercise/steps/distribution/global/">JSON</a><br/>
 			</div>
 		</li>    
 
 		<li class="variables_card">
-			<h3>Hours of exercise</h3>
+			<h3>{% trans "Hours of exercise" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Runkepper, Nike+, Fitbit<br/>
-			<span>Type:</span> average from last Sunday and daily<br/>
-			<span>Time:</span>  since {{last_sunday}}<br/>
-			<span>Population:</span>  registered Wikilife users (Twitter Crawler) <br/>
-			<span>Format:</span>  <a target="_blank" href="/physical/exercise/hours/distribution/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  Runkepper, Nike+, Fitbit<br/>
+			<span>{% trans "Type:" %}</span>{% trans " average from last Sunday and daily"%}<br/>
+			<span>{% trans "Time:" %}</span>  {% trans " since"%} {{last_sunday}}<br/>
+			<span>{% trans "Population:" %}</span> {% trans "  registered Wikilife users (Twitter Crawler)"%} <br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/physical/exercise/hours/distribution/global/">JSON</a><br/>
 			</div>
 		</li>
 
 		<li class="variables_card">
-			<h3>Distance</h3>
+			<h3>{% trans "Distance" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Runkepper, Nike+, Fitbit<br/>
-			<span>Type:</span> average from last Sunday and daily<br/>
-			<span>Time:</span>  since {{last_sunday}}<br/>
-			<span>Population:</span>  registered Wikilife users (Twitter Crawler) <br/>
-			<span>Format:</span>  <a target="_blank" href="/physical/exercise/miles/distribution/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  Runkepper, Nike+, Fitbit<br/>
+			<span>{% trans "Type:" %}</span> {% trans " average from last Sunday and daily"%}<br/>
+			<span>{% trans "Time:" %}</span>  {% trans " since"%} {{last_sunday}}<br/>
+			<span>{% trans "Population:" %}</span>  {% trans "  registered Wikilife users (Twitter Crawler)"%}<br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/physical/exercise/miles/distribution/global/">JSON</a><br/>
 			</div>
 		</li>
 
 		<li class="variables_card">
-			<h3>Nutrients</h3>
+			<h3>{% trans "Nutrients" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Fatsecret, Withings, Fitbit<br/>
-			<span>Type:</span>  percentage<br/>
-			<span>Time:</span>  since {{last_sunday}}<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/nutrition/nutrients/global/distribution/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  Fatsecret, Withings, Fitbit<br/>
+			<span>{% trans "Type:" %}</span>  {% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span>   {% trans " since"%} {{last_sunday}}<br/>
+			<span>{% trans "Population:" %}</span>  {% trans "  registered Datadonors" %} <br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/nutrition/nutrients/global/distribution/">JSON</a><br/>
 			</div>
 		</li> 
 		
 		<li class="variables_card">
-			<h3>Conditions</h3>
+			<h3>{% trans "Conditions" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Manual input<br/>
-			<span>Type:</span>  percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/health/cronical_conditions/global/all/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  {% trans " manual input" %}<br/>
+			<span>{% trans "Type:" %}</span>  {% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span>{% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %}<br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/health/cronical_conditions/global/all/">JSON</a><br/>
 			</div>
 		</li>
 
 		<li class="variables_card">
-			<h3>Complaints</h3>
+			<h3>{% trans "Complaints" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Manual input<br/>
-			<span>Type:</span>  percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/health/complaints/global/all/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span> {% trans " manual input" %}<br/>
+			<span>{% trans "Type:" %}</span>  {% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span>{% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %}<br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/health/complaints/global/all/">JSON</a><br/>
 			</div>
 		</li>
 		
 		<li class="variables_card">
-			<h3>Blood Type</h3>
+			<h3>{% trans "Blood Type" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Manual input<br/>
-			<span>Type:</span>  percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/health/blood_type/global/distribution/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  {% trans " manual input" %}<br/>
+			<span>{% trans "Type:" %}</span>  {% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span>{% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span> {% trans "  registered Datadonors" %}<br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/health/blood_type/global/distribution/">JSON</a><br/>
 			</div>
 		</li>
 
 		<li class="variables_card">
-			<h3>Emotions</h3>
+			<h3>{% trans "Emotions" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Manual input<br/>
-			<span>Type:</span>  percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/health/emotions/global/all/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  {% trans " manual input" %}<br/>
+			<span>{% trans "Type:" %}</span>  {% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span>{% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %}<br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/health/emotions/global/all/">JSON</a><br/>
 			</div>
 		</li>
 		
 		<li class="variables_card">
-			<h3>Sleep</h3>
+			<h3>{% trans "Sleep" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  Runkeeper, Withings, Fitbit<br/>
-			<span>Type:</span> average  from last Sunday and daily<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/health/sleep/global/distribution/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  Runkeeper, Withings, Fitbit<br/>
+			<span>{% trans "Type:" %}</span>{% trans " average from last Sunday and daily"%}<br/>
+			<span>{% trans "Time:" %}</span>{% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %}<br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/health/sleep/global/distribution/">JSON</a><br/>
 			</div>
 		</li>
 		
 		<li class="variables_card">
-			<h3>Health Risks</h3>
+			<h3>{% trans "Health Risks" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  23 and Me<br/>
-			<span>Type:</span>  percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/genomics/risks/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  23 and Me<br/>
+			<span>{% trans "Type:" %}</span>  {% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span>{% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %} <br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/genomics/risks/global/">JSON</a><br/>
 			</div>
 		</li>
 
 		<li class="variables_card">
-			<h3>Drugs Response</h3>
+			<h3>{% trans "Drugs Response" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  23 and Me<br/>
-			<span>Type:</span>  percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/genomics/drugs/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  23 and Me<br/>
+			<span>{% trans "Type:" %}</span>  {% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span> {% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>{% trans "  registered Datadonors" %} <br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/genomics/drugs/global/">JSON</a><br/>
 			</div>
 		</li>
 		
 		<li class="variables_card">
-			<h3>Traits</h3>
+			<h3>{% trans "Traits" %}</h3>
 			<div class="detail">
-			<span>Source:</span>  23 and Me<br/>
-			<span>Type:</span>  percentage<br/>
-			<span>Time:</span>  since 2014-01-01<br/>
-			<span>Population:</span>  registered Datadonors <br/>
-			<span>Format:</span>  <a target="_blank" href="/genomics/traits/global/">JSON</a><br/>
+			<span>{% trans "Source:" %}</span>  23 and Me<br/>
+			<span>{% trans "Type:" %}</span>  {% trans " percentage" %}<br/>
+			<span>{% trans "Time:" %}</span>{% trans "  since 2014-01-01" %}<br/>
+			<span>{% trans "Population:" %}</span>  {% trans "  registered Datadonors" %} <br/>
+			<span>{% trans "Format:" %}</span>  <a target="_blank" href="/genomics/traits/global/">JSON</a><br/>
 			</div>
 		</li>        
         </ul>

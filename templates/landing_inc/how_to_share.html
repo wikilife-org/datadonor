@@ -1,3 +1,4 @@
+{% load i18n %}
 <section id="howtoshare" class="scrollsections">
   <section id="five" class="row section-for-what seccion full-screen">
     <img src="http://datadonors.org/static/img/landing/goto2.png" class="goto">
@@ -13,7 +14,7 @@
 <!-- 				<h2>Time to link your social life</h2>
  -->
 				<h3>
-					DONATE YOUR DATA, <br>IT WON&#146;T TAKE LONG
+					{% blocktrans %}DONATE YOUR DATA, <br>IT WON&#146;T TAKE LONG{% endblocktrans %}
 				</h3>
 
 				<div class="inner container-bubbles">
@@ -33,23 +34,23 @@
 
 							<li class="social">
 
-								<div class="circulo"></div> <span>Social</span></li>
+								<div class="circulo"></div> <span>{% trans "Social" %}</span></li>
 
 							<li class="physical">
 
-								<div class="circulo"></div> <span>Physical</span></li>
+								<div class="circulo"></div> <span>{% trans "Physical" %}</span></li>
 
 							<li class="nutrition">
 
-								<div class="circulo"></div> <span>Nutrition</span></li>
+								<div class="circulo"></div> <span>{% trans "Nutrition" %}</span></li>
 
 							<li class="health">
 
-								<div class="circulo"></div> <span>Health</span></li>
+								<div class="circulo"></div> <span>{% trans "Health" %}</span></li>
 
 							<li class="genomics">
 
-								<div class="circulo"></div> <span>Genomics</span></li>
+								<div class="circulo"></div> <span>{% trans "Genomics" %}</span></li>
 
 						</ul>
 
@@ -65,12 +66,12 @@
 
 				<!-- <h2>Simple stats to share</h2> -->
 
-				<h3>PERSONAL STATISTICS</h3>
+				<h3>{% trans "PERSONAL STATISTICS" %}</h3>
 
 				<div class="inner">
 
 					<h4>
-						GET NEW <br>INSIGHT INTO <br>YOUR HEALTH
+						{% blocktrans %}GET NEW <br>INSIGHT INTO <br>YOUR HEALTH{% endblocktrans %}
 					</h4>
 
 					<div class="bubles-cont">
@@ -146,7 +147,7 @@
 					</div>
 
 					<h5>
-						FIND NEW <br> CORRELATIONS <br>IN YOUR DATA
+						{% blocktrans %}FIND NEW <br> CORRELATIONS <br>IN YOUR DATA{% endblocktrans %}
 					</h5>
 
 				</div></li>
@@ -156,31 +157,31 @@
 				<!-- <h2>A quick look at numbers</h2> -->
 
 				<h3>
-					COMPARE YOUR DATA WITH <br> OTHER DONORS
+					{% blocktrans %}COMPARE YOUR DATA WITH <br> OTHER DONORS{% endblocktrans %}
 				</h3>
 
 				<div class="inner">
 
-					<h4 class="title-left">WE AGGREGATE <br />DONORS DATA</h4>
+					<h4 class="title-left">{% blocktrans %}WE AGGREGATE <br />DONORS DATA{% endblocktrans %}</h4>
 
 					<div class="cont-circles">
 
 						<div class="circle">
 
-							<h5>Overall avg</h5>
+							<h5>{% trans "Overall avg" %}</h5>
 
 						</div>
 
 						<div class="circle right">
 
-							<h5>Your avg</h5>
+							<h5>{% trans "Your avg" %}</h5>
 
 						</div>
 
 					</div>
 					<!-- .cont-circles -->
 
-					<h4 class="titleright">SO YOU CAN SEE<br /> HOW TO COMPARE</h4>
+					<h4 class="titleright">{% blocktrans %}SO YOU CAN SEE<br /> HOW TO COMPARE{% endblocktrans %}</h4>
 
 					<div class="clear"></div>
 
