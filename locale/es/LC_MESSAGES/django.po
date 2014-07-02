@@ -1,0 +1,877 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-02 14:58-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: settings.py:41
+msgid "Spanish"
+msgstr "Español"
+
+#: settings.py:42
+msgid "English"
+msgstr "Inglés"
+
+#: social_auth/exceptions.py:14
+#, python-format
+msgid "Incorrect authentication service \"%s\""
+msgstr ""
+
+#: social_auth/exceptions.py:28
+msgid "Stop pipeline"
+msgstr ""
+
+#: social_auth/exceptions.py:42
+msgid "Authentication process was cancelled"
+msgstr ""
+
+#: social_auth/exceptions.py:44
+#, python-format
+msgid "Authentication failed: %s"
+msgstr ""
+
+#: social_auth/exceptions.py:51
+msgid "Authentication process canceled"
+msgstr ""
+
+#: social_auth/exceptions.py:65
+#, python-format
+msgid "Token error: %s"
+msgstr ""
+
+#: social_auth/exceptions.py:75
+#, python-format
+msgid "Missing needed parameter %s"
+msgstr ""
+
+#: social_auth/exceptions.py:81
+msgid "Session value state missing."
+msgstr ""
+
+#: social_auth/exceptions.py:87
+msgid "Wrong state parameter given."
+msgstr ""
+
+#: social_auth/exceptions.py:98
+msgid "User revoke access to the token"
+msgstr ""
+
+#: templates/footer.include.html:11 templates/header.include.html:43
+#: templates/static/learn_more.html:7
+msgid "Learn More"
+msgstr "Más info"
+
+#: templates/footer.include.html:13
+msgid "Team"
+msgstr "Equipo"
+
+#: templates/footer.include.html:15 templates/static/contact.html:7
+msgid "Contact"
+msgstr "Contacto"
+
+#: templates/footer.include.html:17
+msgid "Privacy"
+msgstr "Privacidad"
+
+#: templates/footer.include.html:19
+msgid "Terms of Service"
+msgstr "Términos y Condiciones"
+
+#: templates/footer.include.html:21
+msgid "The Wikilife Foundation"
+msgstr "La Fundación"
+
+#: templates/header.include.html:23 templates/landing_inc/videos.html:53
+msgid "by The Wikilife Foundation"
+msgstr "Creado por The WikiLife Foundation"
+
+#: templates/header.include.html:41
+msgid "Data"
+msgstr "Datos"
+
+#: templates/header.include.html:42 templates/static/mission.html:7
+msgid "Mission"
+msgstr "Misión"
+
+#: templates/header.include.html:44 templates/static/support.html:7
+msgid "Support Us"
+msgstr "Cómo ayudar"
+
+#: templates/header.include.html:46
+msgid "About Us"
+msgstr "Nosotros"
+
+#: templates/header.include.html:47
+msgid "logout"
+msgstr "Salir"
+
+#: templates/header.include.html:49
+msgid "login"
+msgstr "Entrar"
+
+#: templates/header.include.html:55
+msgid "Start Sharing"
+msgstr "Empezá a donar"
+
+#: templates/data/download.html:39
+msgid "Datadonors Stats"
+msgstr "Estadísticas de Datadonors"
+
+#: templates/data/download.html:41
+msgid ""
+"Datadonors aggregates and shares all collected data by making it available "
+"to the general public. In this page you can download statistics currently "
+"available only in JSON format. More formats will be supported in the near "
+"future."
+msgstr ""
+"Datadonors agrega y comparte todos los datos obtenidos haciendolos "
+"disponibles para el público en general. En esta página puedes descargar "
+"estadísiticas, disponible en formato JSON. Más formatos estarán disponibles "
+"pronto."
+
+#: templates/data/download.html:45
+msgid "Level of Education"
+msgstr "Nivel de Educación"
+
+#: templates/data/download.html:47 templates/data/download.html.py:58
+#: templates/data/download.html:68 templates/data/download.html.py:78
+#: templates/data/download.html:88 templates/data/download.html.py:99
+#: templates/data/download.html:110 templates/data/download.html.py:121
+#: templates/data/download.html:132 templates/data/download.html.py:143
+#: templates/data/download.html:154 templates/data/download.html.py:165
+#: templates/data/download.html:176 templates/data/download.html.py:187
+#: templates/data/download.html:198 templates/data/download.html.py:209
+msgid "Source:"
+msgstr "Fuente:"
+
+#: templates/data/download.html:47 templates/data/download.html.py:58
+msgid " manual input, Linkedin"
+msgstr " ingreso manual, Linkedin"
+
+#: templates/data/download.html:48 templates/data/download.html.py:59
+#: templates/data/download.html:69 templates/data/download.html.py:79
+#: templates/data/download.html:89 templates/data/download.html.py:100
+#: templates/data/download.html:111 templates/data/download.html.py:122
+#: templates/data/download.html:133 templates/data/download.html.py:144
+#: templates/data/download.html:155 templates/data/download.html.py:166
+#: templates/data/download.html:177 templates/data/download.html.py:188
+#: templates/data/download.html:199 templates/data/download.html.py:210
+msgid "Type:"
+msgstr "Tipo:"
+
+#: templates/data/download.html:48 templates/data/download.html.py:122
+#: templates/data/download.html:133 templates/data/download.html.py:144
+#: templates/data/download.html:155 templates/data/download.html.py:166
+#: templates/data/download.html:188 templates/data/download.html.py:199
+#: templates/data/download.html:210
+msgid " percentage"
+msgstr " porcentaje"
+
+#: templates/data/download.html:49 templates/data/download.html.py:60
+#: templates/data/download.html:70 templates/data/download.html.py:80
+#: templates/data/download.html:90 templates/data/download.html.py:101
+#: templates/data/download.html:112 templates/data/download.html.py:123
+#: templates/data/download.html:134 templates/data/download.html.py:145
+#: templates/data/download.html:156 templates/data/download.html.py:167
+#: templates/data/download.html:178 templates/data/download.html.py:189
+#: templates/data/download.html:200 templates/data/download.html.py:211
+msgid "Time:"
+msgstr "Tiempo:"
+
+#: templates/data/download.html:49 templates/data/download.html.py:60
+#: templates/data/download.html:70 templates/data/download.html.py:80
+#: templates/data/download.html:134 templates/data/download.html.py:145
+#: templates/data/download.html:156 templates/data/download.html.py:167
+#: templates/data/download.html:178 templates/data/download.html.py:189
+#: templates/data/download.html:200 templates/data/download.html.py:211
+msgid "  since 2014-01-01"
+msgstr " desde 01/01/2014"
+
+#: templates/data/download.html:50 templates/data/download.html.py:61
+#: templates/data/download.html:71 templates/data/download.html.py:81
+#: templates/data/download.html:91 templates/data/download.html.py:102
+#: templates/data/download.html:113 templates/data/download.html.py:124
+#: templates/data/download.html:135 templates/data/download.html.py:146
+#: templates/data/download.html:157 templates/data/download.html.py:168
+#: templates/data/download.html:179 templates/data/download.html.py:190
+#: templates/data/download.html:201 templates/data/download.html.py:212
+msgid "Population:"
+msgstr "Población:"
+
+#: templates/data/download.html:50 templates/data/download.html.py:61
+#: templates/data/download.html:71 templates/data/download.html.py:81
+#: templates/data/download.html:124 templates/data/download.html.py:135
+#: templates/data/download.html:146 templates/data/download.html.py:157
+#: templates/data/download.html:168 templates/data/download.html.py:179
+#: templates/data/download.html:190 templates/data/download.html.py:201
+#: templates/data/download.html:212
+msgid "  registered Datadonors"
+msgstr " Datadonors registrados"
+
+#: templates/data/download.html:51 templates/data/download.html.py:62
+#: templates/data/download.html:72 templates/data/download.html.py:82
+#: templates/data/download.html:92 templates/data/download.html.py:103
+#: templates/data/download.html:114 templates/data/download.html.py:125
+#: templates/data/download.html:136 templates/data/download.html.py:147
+#: templates/data/download.html:158 templates/data/download.html.py:169
+#: templates/data/download.html:180 templates/data/download.html.py:191
+#: templates/data/download.html:202 templates/data/download.html.py:213
+msgid "Format:"
+msgstr "Formato"
+
+#: templates/data/download.html:56
+msgid "Work Experience"
+msgstr "Experiencia laboral"
+
+#: templates/data/download.html:59
+msgid " count, sum and average"
+msgstr " cantidad, suma y promedio"
+
+#: templates/data/download.html:66
+msgid "Virtual life Reach"
+msgstr "Alcance en la vida virtual"
+
+#: templates/data/download.html:69
+msgid " count, sum and percentage"
+msgstr " cantidad, suma y porcentaje"
+
+#: templates/data/download.html:76
+msgid "Virtual life Sharing"
+msgstr "Actividad en la vida virtual"
+
+#: templates/data/download.html:79
+msgid " average"
+msgstr " promedio"
+
+#: templates/data/download.html:86 templates/static/learn_more.html:122
+#: templates/static/learn_more.html:135 templates/static/learn_more.html:183
+msgid "Steps"
+msgstr "Pasos"
+
+#: templates/data/download.html:89 templates/data/download.html.py:100
+#: templates/data/download.html:111 templates/data/download.html.py:177
+msgid " average from last Sunday and daily"
+msgstr " promedio desde el ultimo Domingo y diariamente"
+
+#: templates/data/download.html:90 templates/data/download.html.py:101
+#: templates/data/download.html:112 templates/data/download.html.py:123
+msgid " since"
+msgstr " desde"
+
+#: templates/data/download.html:97
+msgid "Hours of exercise"
+msgstr "Horas de ejercicio"
+
+#: templates/data/download.html:102 templates/data/download.html.py:113
+msgid "  registered Wikilife users (Twitter Crawler)"
+msgstr " usuarios Wikilife registrados (Datos leidos de Twitter)"
+
+#: templates/data/download.html:108
+msgid "Distance"
+msgstr "Distancia"
+
+#: templates/data/download.html:119 templates/static/learn_more.html:205
+#: templates/static/learn_more.html:213
+msgid "Nutrients"
+msgstr "Nutrientes"
+
+#: templates/data/download.html:130
+msgid "Conditions"
+msgstr "Condiciones"
+
+#: templates/data/download.html:132 templates/data/download.html.py:143
+#: templates/data/download.html:154 templates/data/download.html.py:165
+msgid " manual input"
+msgstr " ingreso manual"
+
+#: templates/data/download.html:141 templates/static/learn_more.html:263
+msgid "Complaints"
+msgstr "Dolencias"
+
+#: templates/data/download.html:152 templates/static/learn_more.html:264
+msgid "Blood Type"
+msgstr "Grupo Sanguineo"
+
+#: templates/data/download.html:163 templates/static/learn_more.html:267
+msgid "Emotions"
+msgstr "Emociones"
+
+#: templates/data/download.html:174 templates/static/learn_more.html:152
+#: templates/static/learn_more.html:266
+msgid "Sleep"
+msgstr "Sueño"
+
+#: templates/data/download.html:185
+msgid "Health Risks"
+msgstr "Riesgos de Salud"
+
+#: templates/data/download.html:196
+msgid "Drugs Response"
+msgstr "Respuesta a Drogas"
+
+#: templates/data/download.html:207 templates/static/learn_more.html:279
+msgid "Traits"
+msgstr "Rasgos"
+
+#: templates/landing_inc/about.html:7
+msgid "WHAT IS"
+msgstr "QUÉ ES"
+
+#: templates/landing_inc/about.html:25
+msgid ""
+"We're used to sharing everything online. It's what we do everyday. Using "
+"Facebook, Twitter, Runkeeper, Fitbit or whatever platform, we share all the "
+"time. But does that really help anyone?"
+msgstr ""
+"Hoy en día usando Facebook, Twitter, Runkeeper, Fitbit u otras aplicaciones "
+"similares compartimos todo (nuestra información?) online. Haciendo esto  "
+"ayudamos a alguien?"
+
+#: templates/landing_inc/about.html:27
+msgid ""
+"In most cases, it doesn't. And that's ok. But what if we could save lives "
+"with that same sharing? By connecting any of these devices and apps and "
+"sharing your information, you can help us to create an extensive database "
+"that can be used by researchers to improve health and eradicate illness."
+msgstr ""
+"En la mayoría de los casos, no. ¿Les gustaría salvar vidas compartiendo su "
+"información?. Ayúdanos a crear una gran base de datos contactando tus "
+"dispositivos móviles, aplicaciones y compartiendo tu información para que "
+"sea usada por científicos para entender nuestra salud y erradicar la "
+"enfermedad."
+
+#: templates/landing_inc/about.html:30
+msgid "A campaign by"
+msgstr "Una campaña creada por"
+
+#: templates/landing_inc/about.html:30
+msgid "a non-profit §501(c)(3) organization"
+msgstr "una fundación sin fines de lucro (§501(c)(3))."
+
+#: templates/landing_inc/donate.html:30
+msgid ""
+"You will find different aspects of your life\n"
+"\t\t\t\t\t\t\trepresented in numbers and charts."
+msgstr "Los diferentes aspectos de tu vida serán representados en infografías."
+
+#: templates/landing_inc/donate.html:33
+msgid ""
+"With every bit of data you share you &#146;ll\n"
+"\t\t\t\t\t\t\tbe helping others and perhaps even one day, yourself."
+msgstr ""
+"Con cada dato compartido podrás ayudar al resto del mundo e incluso a ti "
+"mismo."
+
+#: templates/landing_inc/donate.html:43
+msgid "Donate"
+msgstr "Doná"
+
+#: templates/landing_inc/donors.html:12
+msgid "DONATIONS SO FAR"
+msgstr "DATOS DONADOS HASTA EL MOMENTO"
+
+#: templates/landing_inc/donors.html:27
+msgid ""
+"Are donating data<br> right now, and\n"
+"\t\t\t\t\tyou  <br> can join them!"
+msgstr "Personas están<br>  donando este momento,<br>  únete!"
+
+#: templates/landing_inc/donors.html:46
+msgid "Data items have been donated so far."
+msgstr "Datos donados hasta el momento"
+
+#: templates/landing_inc/how_to_share.html:17
+msgid "DONATE YOUR DATA, <br>IT WON&#146;T TAKE LONG"
+msgstr "DONÁ TUS DATOS  <br> DE FORMA RÁPIDA Y SIMPLE"
+
+#: templates/landing_inc/how_to_share.html:37
+msgid "Social"
+msgstr "Social"
+
+#: templates/landing_inc/how_to_share.html:41
+msgid "Physical"
+msgstr "Act. Física"
+
+#: templates/landing_inc/how_to_share.html:45
+msgid "Nutrition"
+msgstr "Nutrición"
+
+#: templates/landing_inc/how_to_share.html:49
+msgid "Health"
+msgstr "Salud"
+
+#: templates/landing_inc/how_to_share.html:53
+msgid "Genomics"
+msgstr "Genómica"
+
+#: templates/landing_inc/how_to_share.html:69
+msgid "PERSONAL STATISTICS"
+msgstr "ESTADÍSTICAS PERSONALES"
+
+#: templates/landing_inc/how_to_share.html:74
+msgid "GET NEW <br>INSIGHT INTO <br>YOUR HEALTH"
+msgstr "VISUALIZA <br>TU INFO"
+
+#: templates/landing_inc/how_to_share.html:150
+msgid "FIND NEW <br> CORRELATIONS <br>IN YOUR DATA"
+msgstr "ENCONTRÁ <br>CORRELACIONES<br> EN TUS DATOS"
+
+#: templates/landing_inc/how_to_share.html:160
+msgid "COMPARE YOUR DATA WITH <br> OTHER DONORS"
+msgstr "COMPARÁ TUS DATOS  CON <br> OTROS DATADONORS"
+
+#: templates/landing_inc/how_to_share.html:165
+msgid "WE AGGREGATE <br />DONORS DATA"
+msgstr "TODOS LOS DATOS <br />SON AGREGADOS"
+
+#: templates/landing_inc/how_to_share.html:171
+msgid "Overall avg"
+msgstr "Promedio general"
+
+#: templates/landing_inc/how_to_share.html:177
+msgid "Your avg"
+msgstr "Tu promedio"
+
+#: templates/landing_inc/how_to_share.html:184
+msgid "SO YOU CAN SEE<br /> HOW TO COMPARE"
+msgstr "ASÍ PUEDES <br />COMPARARTE CON OTROS"
+
+#: templates/landing_inc/slogan.html:310
+msgid ""
+"Today we share everything.<br />What if that same sharing could\n"
+"\t\t\t\t\tsave lives?"
+msgstr "Y si todo lo que compartimos<br /> nos ayudara a salvar vidas?"
+
+#: templates/landing_inc/videos.html:8
+msgid "HOW WE COULD ALL SAVE LIVES"
+msgstr "CÓMO SALVAR MILES DE VIDAS"
+
+#: templates/landing_inc/videos.html:9
+msgid "Watch intro"
+msgstr "Mirá la intro"
+
+#: templates/landing_inc/videos.html:10
+msgid "Watch overview"
+msgstr "Mirá de qué se trata"
+
+#: templates/landing_inc/what_for.html:5
+msgid "WHY SHOULD YOU SHARE?"
+msgstr "POR QUÉ DONAR?"
+
+#: templates/landing_inc/what_for.html:21
+msgid "For the Research<br /> Community"
+msgstr "Comunidad Científica"
+
+#: templates/landing_inc/what_for.html:23
+msgid ""
+"Help them discover and create new hypotheses to understand and improve our "
+"health."
+msgstr ""
+"Ayudá a la comunidad científica a descubrir y crear nuevas hipótesis para "
+"entender y mejorar nuestra salud."
+
+#: templates/landing_inc/what_for.html:57
+msgid "For the <br />World"
+msgstr "El Mundo"
+
+#: templates/landing_inc/what_for.html:59
+msgid ""
+"Your health data is a piece of the puzzle that helps us to see the picture "
+"of global health."
+msgstr ""
+"El aporte de datos sobre salud y estilo de vida de cada persona es muy "
+"valiosa para entender la salud mundial."
+
+#: templates/landing_inc/what_for.html:72
+msgid "For <br />Yourself"
+msgstr "Usuario"
+
+#: templates/landing_inc/what_for.html:74
+msgid ""
+"Get all your health and lifestyle information in one simple and secure place "
+"and compare with others."
+msgstr ""
+"No solo podrás analizar e integrar en un solo lugar toda tu información, "
+"sino que además podrás compararte con otros."
+
+#: templates/static/contact.html:38
+msgid "CONTACT"
+msgstr "CONTACTO"
+
+#: templates/static/contact.html:40
+msgid "A HEALTHY OUTSIDE STARTS FROM THE INSIDE"
+msgstr ""
+
+#: templates/static/contact.html:42
+msgid ""
+"Please contact us directly with any questions regarding DataDonors, our app "
+"or about working with\n"
+"\t\tus to help raise global health awareness."
+msgstr "Ante cualquier consulta de DataDonors, por favor comunicarse con nosotros directamente."
+
+#: templates/static/contact.html:46
+msgid ""
+"Sincerely,<br/>\n"
+"\t\tThe DataDonors Team"
+msgstr "Desde ya muchas gracias,<br/> El equipode de DataDonors"
+
+#: templates/static/contact.html:51
+msgid "ADDRESS: "
+msgstr "Dirección: "
+
+#: templates/static/contact.html:53
+msgid "PHONE: "
+msgstr "Número telefónico: "
+
+#: templates/static/learn_more.html:38
+msgid "WHAT DATA ARE YOU DONATING?"
+msgstr "QUE DATOS ESTÁS DONANDO?"
+
+#: templates/static/learn_more.html:40
+msgid ""
+"When you choose among any of the linkable services in our app set-up wizard "
+"we have access to certain kind of information through the apps and devices "
+"APIs. Within the linkable service, at this moment, it is not possible to "
+"customize what information to share. In the future this level of access will "
+"be fully customizable.\n"
+"      <br>\n"
+"      Here we list the data from each app and device that at the moment we "
+"have access to:"
+msgstr ""
+
+#: templates/static/learn_more.html:44
+#, fuzzy
+msgid "Social Section"
+msgstr "Sección Social"
+
+#: templates/static/learn_more.html:49
+msgid "Friend count"
+msgstr "Número de amigos"
+
+#: templates/static/learn_more.html:50
+msgid "Total likes"
+msgstr "Total de 'Me Gusta'"
+
+#: templates/static/learn_more.html:51
+msgid "Total posts"
+msgstr "Total de 'Posts'"
+
+#: templates/static/learn_more.html:52 templates/static/learn_more.html:69
+#: templates/static/learn_more.html:80 templates/static/learn_more.html:90
+msgid "Email"
+msgstr ""
+
+#: templates/static/learn_more.html:53 templates/static/learn_more.html:70
+#: templates/static/learn_more.html:82 templates/static/learn_more.html:91
+#: templates/static/learn_more.html:113 templates/static/learn_more.html:128
+#: templates/static/learn_more.html:178 templates/static/learn_more.html:229
+#: templates/static/learn_more.html:254
+msgid "Gender"
+msgstr "Género"
+
+#: templates/static/learn_more.html:54 templates/static/learn_more.html:63
+#: templates/static/learn_more.html:83 templates/static/learn_more.html:92
+#: templates/static/learn_more.html:102 templates/static/learn_more.html:114
+#: templates/static/learn_more.html:129 templates/static/learn_more.html:230
+#: templates/static/learn_more.html:255
+msgid "Age"
+msgstr "Edad"
+
+#: templates/static/learn_more.html:60 templates/static/learn_more.html:81
+msgid "Followers count"
+msgstr "Número de seguidores"
+
+#: templates/static/learn_more.html:61
+msgid "Total retweets"
+msgstr "Número de retweets"
+
+#: templates/static/learn_more.html:62
+msgid "Total tweets"
+msgstr "Número de tweets"
+
+#: templates/static/learn_more.html:71
+msgid "Years of experience"
+msgstr "Años de experiencia laboral"
+
+#: templates/static/learn_more.html:72
+msgid "Level of education"
+msgstr "Nivel de Educación"
+
+#: templates/static/learn_more.html:89
+msgid "Contacts count"
+msgstr "Número de contactos"
+
+#: templates/static/learn_more.html:97
+#, fuzzy
+msgid "Physical Section"
+msgstr "Sección Actividad Física"
+
+#: templates/static/learn_more.html:103 templates/static/learn_more.html:169
+#: templates/static/learn_more.html:232 templates/static/learn_more.html:256
+msgid "Weight"
+msgstr "Peso"
+
+#: templates/static/learn_more.html:104 templates/static/learn_more.html:117
+#: templates/static/learn_more.html:132 templates/static/learn_more.html:170
+#: templates/static/learn_more.html:190 templates/static/learn_more.html:233
+#: templates/static/learn_more.html:257
+msgid "Height"
+msgstr "Altura"
+
+#: templates/static/learn_more.html:105 templates/static/learn_more.html:171
+msgid "Exercise name"
+msgstr "Tipo de ejercicio"
+
+#: templates/static/learn_more.html:106 templates/static/learn_more.html:172
+msgid "Exercise duration"
+msgstr "Duración del ejercicio"
+
+#: templates/static/learn_more.html:107
+msgid "Exercise calories burnt"
+msgstr "Cantidad de calorías quemadas"
+
+#: templates/static/learn_more.html:115 templates/static/learn_more.html:130
+#: templates/static/learn_more.html:143 templates/static/learn_more.html:231
+#, fuzzy
+msgid "Location"
+msgstr "Población:"
+
+#: templates/static/learn_more.html:116 templates/static/learn_more.html:131
+#: templates/static/learn_more.html:189
+msgid "Weight "
+msgstr "Peso"
+
+#: templates/static/learn_more.html:118 templates/static/learn_more.html:179
+#: templates/static/learn_more.html:191
+msgid "Exercise Name "
+msgstr "Tipo de ejercicio"
+
+#: templates/static/learn_more.html:119 templates/static/learn_more.html:133
+#: templates/static/learn_more.html:145 templates/static/learn_more.html:180
+#: templates/static/learn_more.html:192
+msgid "Exercise Duration"
+msgstr "Duración del ejercicio"
+
+#: templates/static/learn_more.html:120 templates/static/learn_more.html:134
+#: templates/static/learn_more.html:181 templates/static/learn_more.html:193
+msgid "Exercise Calories Burned"
+msgstr "Cantidad de calorías quemadas"
+
+#: templates/static/learn_more.html:121 templates/static/learn_more.html:182
+msgid "Exercise Distance"
+msgstr "Distancia"
+
+#: templates/static/learn_more.html:144
+msgid "Exercise Name"
+msgstr "Tipo de ejercicio"
+
+#: templates/static/learn_more.html:146
+msgid "Exercise Calories Burnt"
+msgstr "Cantidad de calorías quemadas"
+
+#: templates/static/learn_more.html:153
+msgid "Fitness Activities"
+msgstr "Actividades físicas"
+
+#: templates/static/learn_more.html:154 templates/static/learn_more.html:223
+#: templates/static/learn_more.html:268
+msgid "Mood"
+msgstr "Estado de ánimo"
+
+#: templates/static/learn_more.html:155
+msgid "Food"
+msgstr "Comidas"
+
+#: templates/static/learn_more.html:161 templates/static/learn_more.html:240
+#: templates/static/learn_more.html:248
+msgid "Coming soon"
+msgstr "Proximamente"
+
+#: templates/static/learn_more.html:198
+#, fuzzy
+msgid "Nutritional Section"
+msgstr "Sección Nutrición"
+
+#: templates/static/learn_more.html:203 templates/static/learn_more.html:211
+msgid "Foods"
+msgstr "Comidas"
+
+#: templates/static/learn_more.html:204
+msgid "Meal Type (lunch, etc.)"
+msgstr "Tipo de comida"
+
+#: templates/static/learn_more.html:212
+msgid "Food Category"
+msgstr "Categoría de comida"
+
+#: templates/static/learn_more.html:218
+#, fuzzy
+msgid "Health Section"
+msgstr "Sección Salud"
+
+#: templates/static/learn_more.html:265
+msgid "Chronic Conditions"
+msgstr "Condiciones médicas"
+
+#: templates/static/learn_more.html:273
+#, fuzzy
+msgid "Genomic Section"
+msgstr "Sección Genómica"
+
+#: templates/static/learn_more.html:278
+msgid "Drug Response"
+msgstr "Respuesta a Drogas"
+
+#: templates/static/learn_more.html:280
+msgid "Risks"
+msgstr "Riesgo a enfermedades"
+
+#: templates/static/mission.html:38
+msgid "OUR MISSION"
+msgstr ""
+
+#: templates/static/mission.html:41
+msgid ""
+"Wikilife through DataDonors provides a platform that collects and "
+"distributes health data over entire lifetimes, providing \n"
+"\t\tindividuals and the global scientiﬁc community with unprecedented access "
+"to detailed records \n"
+"\t\tof health and lifestyle activity. The recorded data includes a detailed, "
+"extensive health and \n"
+"\t\tlifestyle information about nutrition, physical activity, mood, "
+"sleeping, healthcare conditions \n"
+"\t\tand treatments, laboratory analysis, medical imaging, psychological "
+"tests, IQ tests, and even \n"
+"\t\tDNA information."
+msgstr ""
+
+#: templates/static/mission.html:48
+msgid "Our Vision"
+msgstr ""
+
+#: templates/static/mission.html:50
+msgid ""
+"We are only beginning to understand how lifestyle choices affect individual "
+"health and well-being. DataDonors provides the global \n"
+"\t\thealth community a database that can be used by researchers, scientists "
+"and physicians around the globe to help discover new \n"
+"\t\tscientiﬁc research behind healthy living. \n"
+"\t\tWe hope to collaborate with other organizations and developers to help "
+"expand our audience and provide insight into healthy \n"
+"\t\tliving for millions of people around the world. This project can "
+"profoundly impact advancements in health and wellness research,\n"
+"\t\tand ultimately yield a healthier global community thanks to the "
+"contribution of individual participants."
+msgstr ""
+
+#: templates/static/mission.html:59
+msgid "Reference Database"
+msgstr ""
+
+#: templates/static/mission.html:61
+msgid ""
+"DataDonors provides the most extensive and comprehensive database of real-"
+"time health and lifestyle information\n"
+"\t\tavailable anywhere in the world.\n"
+"\t\tHealth history, lifestyle choices, major life events, nutritional "
+"habits, spiritual practices and many other factors contribute to\n"
+"\t\tindividual health and well-being. The DataDonors database provides "
+"unlimited access to information on a global scale, information\n"
+"\t\tthat is invaluable to the medical community, researchers, educators, "
+"students, sociologists, psychologists, nutritionists and\n"
+"\t\tanyone else in interested in their own health. The possibilities for "
+"advancing research in health and lifestyle sciences are virtually\n"
+"\t\tlimitless."
+msgstr ""
+
+#: templates/static/mission.html:71
+msgid "Platform For Research"
+msgstr ""
+
+#: templates/static/mission.html:73
+msgid ""
+"The DataDonors database is an indispensable research platform for the global "
+"medical science community, giving project teams,\n"
+"\t\tresearchers and user groups access to an always expanding database of "
+"invaluable health and lifestyle information.\n"
+"\t\tPhysicians, scientists and other experts in the medical and health "
+"research fields are now provided an invaluable resource that\n"
+"\t\tprovides free, unlimited access to global health information in an "
+"intuitive, real-time platform."
+msgstr ""
+
+#: templates/static/mission.html:80
+#, fuzzy
+msgid "Open Data"
+msgstr "Datos"
+
+#: templates/static/mission.html:82
+msgid ""
+"DataDonors is committed to providing open and FREE access to its resources. "
+"Any individual can export aggregate data,\n"
+"\t\tstatistics, studies and team collaborations to any personal computer or "
+"browser-enabled device.\n"
+"\t\tUsers with iOS devices are encouraged to use our Wikilife app for an "
+"even more fluid user experience. The Wikilife database is\n"
+"\t\tavailable to everyone and serves to further the health, well-being and "
+"education of the global community."
+msgstr ""
+
+#: templates/static/support.html:38
+msgid "HELP KEEP DATADONORS FREE AND OPEN"
+msgstr "AYUDANOS A MANTENER DATADONORS ABIERTA Y GRATUITA"
+
+#: templates/static/support.html:41
+msgid ""
+"We aren't in the business of making millions of dollars in revenue- we're in "
+"the business of helping people live healthier, \n"
+"\t\thappier, and more productive lives through innovation. Since it's "
+"inception, DataDonors has remained committed to it's altruistic "
+"principles: \n"
+"\t\twe believe in free, open-source, software and data that helps improve "
+"the lives of people around the globe."
+msgstr "No nos interesa hacer un negocio con DataDonors. Nuestro objetivo principal es ayudar a las personas a llevar una vida más saludable, feliz y productiva mediante el uso de la tecnología. Desde sus comienzos DataDonors se mantuvo comprometido a sus principios: ser una plataforma abierta y gratuita que ayude a mejorar la vida de las personas."
+
+#: templates/static/support.html:46
+msgid ""
+"After more than a year and a half of development, the DataDonors platform is "
+"making it's public debut providing individuals a revolutionary \n"
+"\t\tnew perspective on the human condition. \n"
+"\t\tThrough this technology, users are able to become conscious of\n"
+"\t\ttheir lifestyles, how it can impact their mental and physical health, "
+"and alternatively promote healthier living."
+msgstr "A principios del 2013 comenzó el desarrollo de la plataforma de DataDonors. La misma ya se encuentra en funcionamiento proporcionando a los individuos una perspectiva revolucionaria sobre la condición humana. A través de esta plataforma, los usuarios pueden tomar consciencia sobre cómo sus hábitos de vida y su genoma afectan su salud. Por otro lado, esta tecnología permite promover una vida más sana."
+
+#: templates/static/support.html:52
+msgid ""
+"We promise to never sell your lifestyle information or to bombard our users "
+"with advertising. But unfortunately, \n"
+"\t\tall organizations require revenue to sustain themselves."
+msgstr "Nunca venderemos tu información. Tampoco la usaremos con fines publicitarios. Sin embargo, todas las fundaciones requieren fondos para su sustento."
+
+#: templates/static/support.html:56
+msgid ""
+"The DataDonors platform is supported by donations from medical research "
+"companies, pharmaceutical labs, universities, non-profits and generous "
+"individuals. \n"
+"\t\tFunds directly support our development, science and communication teams, "
+"as well as server upkeep."
+msgstr "DataDonors acepta donaciones provenientes de la comunidad científica, compañías farmacéuticas, laboratorios, universidades, fundaciones sin fines de lucro e individuos particulares. Los fondos nos permiten financiar el desarrollo y mantenimiento de DataDonors."
+
+#: templates/static/support.html:60
+msgid "From all of us at DataDonors, thank you."
+msgstr "Desde ya muchas gracias, DataDonors."
