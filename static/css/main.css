@@ -225,6 +225,9 @@ a:hover {
     text-decoration: none;
     width: 45px;
 }
+#lan a{
+	color: #8ea4c4;
+
 }
 /* --- social icons */
 .big_social_login .social_icons {
