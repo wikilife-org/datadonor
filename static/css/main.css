@@ -216,7 +216,16 @@ a:hover {
 	background-image: url(../img/big_social_nav/genomics_icon.png);
 }
 
-
+#lan{
+	color: #8ea4c4;
+    float: right;
+    font-family: gotham-ultra;
+    font-size: 11px;
+    margin-top: 17px;
+    text-decoration: none;
+    width: 45px;
+}
+}
 /* --- social icons */
 .big_social_login .social_icons {
 	float: right;
