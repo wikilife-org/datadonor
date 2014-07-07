@@ -1,3 +1,4 @@
+{% load i18n %}
 {% if login_error %}
     <script type="text/javascript">
     $(document).ready(function(){
@@ -14,8 +15,8 @@
 <!--login_container-->
 <div id="login_container" class="reveal-modal">
 
-	<h1>Login</h1>
-	<h2>Welcome back</h2>
+	<h1>{% blocktrans%}Login{% endblocktrans%}</h1>
+	<h2>{% blocktrans%}Welcome back{% endblocktrans%}</h2>
 
 
 	<!--div class="close_login">
@@ -23,9 +24,9 @@
 	</div-->
 
 {% if login_error %}
-  <p class="error">Sorry, this account is not related to DataDonors.<br>Please, try another or <a href="/wizard" style="color: white">create one</a>.</p>
+  <p class="error">{% blocktrans%}Sorry, this account is not related to DataDonors.<br>Please, try another or <a href="/wizard" style="color: white">create one{% endblocktrans%}</a>.</p>
 {% else %}
-  <p>use any of these services to login</p>
+  <p>{% blocktrans%}use any of these services to login{% endblocktrans%}</p>
 {% endif %}
 
 	<div class="login-bubbles">

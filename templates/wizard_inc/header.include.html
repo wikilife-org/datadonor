@@ -1,4 +1,4 @@
-
+{% load i18n %}
 <link rel="stylesheet" href="/static/css/header.css" />
 <link rel="stylesheet" href="/static/css/reveal.css">
 
@@ -21,21 +21,21 @@
 	            </a>
             <div id="center-nav">
                 <nav class="nav" id="">
-                	<a href="/data" title="Data">Data</a>
-                    <a href="/mission" title="Mission">Mission</a>
-                    <a href="/learn-more" title="Learn More">Learn More</a>
-                    <a href="/support-us" title="Support Us">Support Us</a>
+                	<a href="/data" title="{% blocktrans%}Data{% endblocktrans%}">{% blocktrans%}Data{% endblocktrans%}</a>
+                    <a href="/mission" title="{% blocktrans%}Mission{% endblocktrans%}">{% blocktrans%}Mission{% endblocktrans%}</a>
+                    <a href="/learn-more" title="{% blocktrans%}Learn More{% endblocktrans%}">{% blocktrans%}Learn More{% endblocktrans%}</a>
+                    <a href="/support-us" title="{% blocktrans%}Support Us{% endblocktrans%}">{% blocktrans%}Support Us{% endblocktrans%}</a>
                     {% if request.user.is_authenticated %}
-                        <a href="/about-us" title="About Us">About Us</a>
-                        <a href="/logout" title="logout">logout</a>
+                        <a href="/about-us" title="{% blocktrans%About Us{% endblocktrans%}">{% blocktrans%}About Us{% endblocktrans%}</a>
+                        <a href="/logout" title="{% blocktrans%logout{% endblocktrans%}">{% blocktrans%}logout{% endblocktrans%}</a>
                     {% else %}
-                        <a href="#" title="login" data-reveal-id="login_container">login</a>
+                        <a href="#" title="login" data-reveal-id="login_container">{% blocktrans%}login{% endblocktrans%}</a>
                     {% endif %}
                 </nav>
             </div>
             <!-- #preloader-copy-wrapper -->
             {% if can_share %}
-            <a href="/wizard" title="Start Sharing" id="start-sharing">Start Sharing</a>
+            <a href="/wizard" title="Start Sharing" id="start-sharing">{% blocktrans%}Start Sharing{% endblocktrans%}</a>
             {% endif %}
         </div>
     </header>

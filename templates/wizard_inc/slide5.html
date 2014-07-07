@@ -1,10 +1,11 @@
+{% load i18n %}
 <div id="slide-5" class="slide" >
 
 <!-- <h2>How does it work?</h2> -->
-    <h3><br />LINK YOUR FITNESS TRACKERS</h3>
+    <h3><br />{% blocktrans%}LINK YOUR FITNESS TRACKERS{% endblocktrans%}</h3>
 
     <h4>
-        Remember, your identity is protected and information is always shared anonymously. <a href="#" class="learnmore">Learn more</a>
+        {% blocktrans%}Remember, your identity is protected and information is always shared anonymously. <a href="/learn-more/" class="learnmore">Learn more</a>{% endblocktrans%}
     </h4>
 
     <div class="inner-redes">
@@ -77,9 +78,9 @@
 
     <div class="cont-next">
 
-    	<a href="#" class="back" title="Back">Back</a>
+    	<a href="#" class="back" title="Back">{% blocktrans%}Back{% endblocktrans%}</a>
 
-    	<a href="#" class="next" title="next" >Next</a>
+    	<a href="#" class="next" title="next" >{% blocktrans%}Next{% endblocktrans%}</a>
 
     </div><!-- .cont-next -->
 

@@ -1,8 +1,9 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
 
-  <title>Datadonors | Dashboard </title>
+  <title>Datadonors | {% blocktrans%}Dashboard {% endblocktrans%}</title>
 
   <!-- Metatags -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -52,9 +53,9 @@
 
       <!--top-->
       <div class="top">
-        <h2>Share with your friends</h2>
+        <h2>{% blocktrans%}Share with your friends{% endblocktrans%}</h2>
         <div class="close_email">
-          <a href="#" id="close_email">close</a>
+          <a href="#" id="close_email">{% blocktrans%}close{% endblocktrans%}</a>
         </div>
       </div>
       <!--/top-->
@@ -66,7 +67,7 @@
 
             <!--input-->
             <div class="estante">
-              <p>To:</p>
+              <p>{% blocktrans%}To:{% endblocktrans%}</p>
               <div class="input">
                 <input type="text" name="to" value="" />
               </div>
@@ -76,7 +77,7 @@
 
             <!--input-->
             <div class="estante">
-              <p>From:</p>
+              <p>{% blocktrans%}From:{% endblocktrans%}</p>
               <div class="input">
                 <input type="text" name="from" value="" />
               </div>
@@ -86,7 +87,7 @@
 
             <!--input-->
             <div class="estante">
-              <p>Message:</p>
+              <p>{% blocktrans%}Message:{% endblocktrans%}</p>
               <div class="input">
                 <textarea name="comentario"></textarea>
               </div>
@@ -120,17 +121,17 @@
 
       <!--close-->
       <div class="close_network">
-        <a href="#" id="close_network">close</a>
+        <a href="#" id="close_network">{% blocktrans%}close{% endblocktrans%}</a>
       </div>
       <!--/close-->
 
       <!--chose-->
       <div class="choose_network">
-        <h2>Are you sure to quit the link?</h2>
-        <p>Do you want to keep donating or want to<br /> disconnect?</p>
+        <h2>{% blocktrans%}Are you sure to quit the link?{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Do you want to keep donating or want to<br /> disconnect?{% endblocktrans%}</p>
         <ul>
-          <li><a class="quit" href="#">Quit</a></li>
-          <li><a class="keep" href="#">Keep</a></li>
+          <li><a class="quit" href="#">{% blocktrans%}Quit{% endblocktrans%}</a></li>
+          <li><a class="keep" href="#">{% blocktrans%}Keep{% endblocktrans%}</a></li>
         </ul>
       </div>
       <!--/chose-->
@@ -152,7 +153,7 @@
 
       <!--sector_icon-->
       <div class="sector_icon">
-        <a href="/learn-more">What data are you donating?</a>
+        <a href="/learn-more">{% blocktrans%}What data are you donating?{% endblocktrans%}</a>
       </div>
       <!--/sector_icon-->
 
@@ -244,8 +245,8 @@
       <!--top-->
       <div class="top">
         <img src="/static/img/step_1/number_1.png" alt="1" />
-        <h2>Social influence<br />and reach</h2>
-        <p>Number of people you reach on social networks</p>
+        <h2>{% blocktrans%}Social influence<br />and reach{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Number of people you reach on social networks{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -257,14 +258,14 @@
 
           <!--top-->
           <div class="tittle">
-            <h2>References:</h2>
+            <h2>{% blocktrans%}References:{% endblocktrans%}</h2>
           </div>
           <!--top-->
 
           <!--bottom-->
           <div class="stats_graph">
-            <p class="stats all">All</p>
-            <p class="stats you">You</p>
+            <p class="stats all">{% blocktrans%}All{% endblocktrans%}</p>
+            <p class="stats you">{% blocktrans%}You{% endblocktrans%}</p>
           </div>
           <!--bottom-->
 
@@ -283,8 +284,8 @@
           <!--bottom-->
           <div class="stats_graph">
             <ul>
-              <li><h2 class="color_two"><span class="user_data">98</span><br /><span>You</span></h2></li>
-              <li><h2 class="color_one"><span class="global_data">55</span><br /><span>All</span></h2></li>
+              <li><h2 class="color_two"><span class="user_data">98</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
+              <li><h2 class="color_one"><span class="global_data">55</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
             </ul>
           </div>
           <!--bottom-->
@@ -304,8 +305,8 @@
           <!--bottom-->
           <div class="stats_graph">
             <ul>
-              <li><h2 class="color_two"><span class="user_data">342</span><br /><span>You</span></h2></li>
-              <li><h2 class="color_one"><span class="global_data">650</span><br /><span>All</span></h2></li>
+              <li><h2 class="color_two"><span class="user_data">342</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
+              <li><h2 class="color_one"><span class="global_data">650</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
             </ul>
           </div>
           <!--bottom-->
@@ -325,8 +326,8 @@
           <!--bottom-->
           <div class="stats_graph">
             <ul>
-              <li><h2 class="color_two"><span class="user_data">05</span><br /><span>You</span></h2></li>
-              <li><h2 class="color_one"><span class="global_data">15</span><br /><span>All</span></h2></li>
+              <li><h2 class="color_two"><span class="user_data">05</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
+              <li><h2 class="color_one"><span class="global_data">15</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
             </ul>
           </div>
           <!--bottom-->
@@ -346,8 +347,8 @@
           <!--bottom-->
           <div class="stats_graph">
             <ul>
-              <li><h2 class="color_two"><span class="user_data">20</span><br /><span>You</span></h2></li>
-              <li><h2 class="color_one"><span class="global_data">20</span><br /><span>All</span></h2></li>
+              <li><h2 class="color_two"><span class="user_data">20</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
+              <li><h2 class="color_one"><span class="global_data">20</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
             </ul>
           </div>
           <!--bottom-->
@@ -367,8 +368,8 @@
           <!--bottom-->
           <div class="stats_graph">
             <ul>
-              <li><h2 class="color_two"><span class="user_data">0</span><br /><span>You</span></h2></li>
-              <li><h2 class="color_one"><span class="global_data">05</span><br /><span>All</span></h2></li>
+              <li><h2 class="color_two"><span class="user_data">0</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
+              <li><h2 class="color_one"><span class="global_data">05</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
             </ul>
           </div>
           <!--bottom-->
@@ -392,8 +393,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>Social sharing numbers</h2>
-        <p>Let's see how much you post, tweet and retweet per week.</p>
+        <h2>{% blocktrans%}Social sharing numbers{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Let's see how much you post, tweet and retweet per week.{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -405,7 +406,7 @@
 
           <!--title-->
           <div class="title_graph">
-            <h2>Avg posts per week</h2>
+            <h2>{% blocktrans%}Avg posts per week{% endblocktrans%}</h2>
           </div>
           <!--title-->
 
@@ -430,8 +431,8 @@
             <!--data-->
             <div class="text_graph" id="data_2_1">
               <ul>
-                <li><h2 class="color_one"><span class="global_data">134</span><br /><span>All</span></h2></li>
-                <li><h2 class="color_two"><span class="user_data">225</span><br /><span>You</span></h2></li>
+                <li><h2 class="color_one"><span class="global_data">134</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
+                <li><h2 class="color_two"><span class="user_data">225</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
               </ul>
             </div>
             <!--data-->
@@ -462,8 +463,8 @@
               <!--data-->
               <div class="text_graph" id="data_2_2">
                 <ul>
-                  <li><h2 class="color_one"><span class="global_data">99</span><br /><span>All</span></h2></li>
-                  <li><h2 class="color_two"><span class="user_data">22</span><br /><span>You</span></h2></li>
+                  <li><h2 class="color_one"><span class="global_data">99</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
+                  <li><h2 class="color_two"><span class="user_data">22</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
                 </ul>
               </div>
               <!--data-->
@@ -483,7 +484,7 @@
 
           <!--title-->
           <div class="title_graph">
-            <h2>Avg likes and retweets per week</h2>
+            <h2>{% blocktrans%}Avg likes and retweets per week{% endblocktrans%}</h2>
           </div>
           <!--title-->
 
@@ -508,8 +509,8 @@
             <!--data-->
             <div class="text_graph" id="data_2_3">
               <ul>
-                <li><h2 class="color_one"><span class="global_data">44</span><br /><span>All</span></h2></li>
-                <li><h2 class="color_two"><span class="user_data">80</span><br /><span>You</span></h2></li>
+                <li><h2 class="color_one"><span class="global_data">44</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
+                <li><h2 class="color_two"><span class="user_data">80</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
               </ul>
             </div>
             <!--data-->
@@ -540,8 +541,8 @@
               <!--data-->
               <div class="text_graph" id="data_2_4">
                 <ul>
-                  <li><h2 class="color_one"><span class="global_data">12</span><br /><span>All</span></h2></li>
-                  <li><h2 class="color_two"><span class="user_data">11</span><br /><span>You</span></h2></li>
+                  <li><h2 class="color_one"><span class="global_data">12</span><br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
+                  <li><h2 class="color_two"><span class="user_data">11</span><br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
                 </ul>
               </div>
               <!--data-->
@@ -569,8 +570,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>Share your level<br />of education</h2>
-        <p>Tap or select the highest level of education</p>
+        <h2>{% blocktrans %}Share your level<br />of education{% endblocktrans%}</h2>
+        <p>{% blocktrans %}Tap or select the highest level of education{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -590,63 +591,63 @@
             <li ref="0">
               <h2 class="color_one"><span class="perc_number">8</span><span>%</span></h2>
               <a href="#" ref="0">
-                <span>PhD</span>
+                <span>{% blocktrans%}PhD{% endblocktrans%}</span>
                 <div class="this_lvl">
-                  <h2>This is your level</h2>
+                  <h2>{% blocktrans%}This is your level{% endblocktrans%}</h2>
                 </div>
               </a>
             </li>
             <li ref="1">
               <h2 class="color_one"><span class="perc_number">10</span><span>%</span></h2>
               <a href="#" ref="1">
-                <span>Master</span>
+                <span>{% blocktrans%}Master{% endblocktrans%}</span>
                 <div class="this_lvl">
-                  <h2>This is your level</h2>
+                  <h2>{% blocktrans%}This is your level{% endblocktrans%}</h2>
                 </div>
               </a>
             </li>
             <li ref="2">
               <h2 class="color_one"><span class="perc_number">23</span><span>%</span></h2>
               <a href="#" ref="2">
-                <span>University</span>
+                <span>{% blocktrans%}University{% endblocktrans%}</span>
                 <div class="this_lvl">
-                  <h2>This is your level</h2>
+                  <h2>{% blocktrans%}This is your level{% endblocktrans%}</h2>
                 </div>
               </a>
             </li>
             <li ref="3">
               <h2 class="color_one"><span class="perc_number">5</span><span>%</span></h2>
               <a href="#" ref="3">
-                <span>Technical Insitute</span>
+                <span>{% blocktrans%}Technical Insitute{% endblocktrans%}</span>
                 <div class="this_lvl">
-                  <h2>This is your level</h2>
+                  <h2>{% blocktrans%}This is your level{% endblocktrans%}</h2>
                 </div>
               </a>
             </li>
             <li ref="4">
               <h2 class="color_one"><span class="perc_number">3</span><span>%</span></h2>
               <a href="#" ref="4">
-                <span>High School</span>
+                <span>{% blocktrans%}High School{% endblocktrans%}</span>
                 <div class="this_lvl">
-                  <h2>This is your level</h2>
+                  <h2>{% blocktrans%}This is your level{% endblocktrans%}</h2>
                 </div>
               </a>
             </li>
             <li ref="5">
               <h2 class="color_one"><span class="perc_number">57</span><span>%</span></h2>
               <a href="#" ref="5">
-                <span>Junior College</span>
+                <span>{% blocktrans%}Junior College{% endblocktrans%}</span>
                 <div class="this_lvl">
-                  <h2>This is your level</h2>
+                  <h2>{% blocktrans%}This is your level{% endblocktrans%}</h2>
                 </div>
               </a>
             </li>
             <li ref="6">
               <h2 class="color_one"><span class="perc_number">3</span></span><span>%</span></h2>
               <a href="#" ref="6">
-                <span>Elementary School</span>
+                <span>{% blocktrans%}Elementary School{% endblocktrans%}</span>
                 <div class="this_lvl">
-                  <h2>This is your level</h2>
+                  <h2>{% blocktrans%}This is your level{% endblocktrans%}</h2>
                 </div>
               </a>
             </li>
@@ -676,8 +677,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>Share your work<br />experience</h2>
-        <p>How long have you been working for?</p>
+        <h2>{% blocktrans%}Share your work<br />experience{% endblocktrans%}</h2>
+        <p>{% blocktrans%}How long have you been working for?{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -714,7 +715,7 @@
         <div class="age_input" id="age_select">
 
           <div class="age_centered">
-            <h2>total years working:</h2>
+            <h2>{% blocktrans%}total years working:{% endblocktrans%}</h2>
                   <form id="age_select_form" action="#">
                     <input type="text" id="age_select_value" name="age"/>
                   </form>
@@ -726,7 +727,7 @@
         <!--/input-->
 
         <div class="age_bottom">
-          <h2>age</h2>
+          <h2>{% blocktrans%}age{% endblocktrans%}</h2>
         </div>
 
         <div class="clear"></div>
@@ -739,7 +740,7 @@
         <!--bloque-->
         <div class="bloq left">
 
-          <h2>Overall avg</h2>
+          <h2>{% blocktrans%}Overall avg{% endblocktrans%}</h2>
 
           <!--stat-->
           <div class="number_stat">
@@ -748,7 +749,7 @@
 
             <!--ico_right-->
             <div class="ico_right">
-              <p>years of<br />experience</p>
+              <p>{% blocktrans%}years of<br />experience{% endblocktrans%}</p>
             </div>
             <!--/ico_right-->
           </div>
@@ -760,7 +761,7 @@
         <!--bloque-->
         <div class="bloq right">
 
-          <h2>You</h2>
+          <h2>{% blocktrans%}You{% endblocktrans%}</h2>
 
           <!--stat-->
           <div class="number_stat">
@@ -769,7 +770,7 @@
 
             <!--ico_right-->
             <div class="ico_right">
-              <p>years of<br />experience</p>
+              <p>{% blocktrans%}years of<br />experience{% endblocktrans%}</p>
             </div>
             <!--/ico_right-->
           </div>
@@ -796,7 +797,7 @@
 
       <!--sector_icon-->
       <div class="sector_icon">
-        <a href="/learn-more">What data are you donating?</a>
+        <a href="/learn-more">{% blocktrans%}What data are you donating?{% endblocktrans%}</a>
       </div>
       <!--/sector_icon-->
 
@@ -905,8 +906,8 @@
       <!--top-->
       <div class="top">
         <img src="/static/img/step_5/num_2.png" alt="1" />
-        <h2>Exercise is worth<br />sharing too</h2>
-        <p>Keep track of what you've been doing and compare with others.<br />(Times per week)</p>
+        <h2>{% blocktrans%}Exercise is worth<br />sharing too{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Keep track of what you've been doing and compare with others.<br />(Times per week){% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -924,10 +925,10 @@
 
           <!--text-->
                   <div class="text_container" id="data_5_1">
-                    <h2>Running</h2>
+                    <h2>{% blocktrans%}Running{% endblocktrans%}</h2>
                     <ul>
-              <li><h2 class="color_one"><span class="global_data">04</span><br><span>All</span></h2></li>
-              <li><h2 class="color_two"><span class="user_data">05</span><br><span>You</span></h2></li>
+              <li><h2 class="color_one"><span class="global_data">04</span><br><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
+              <li><h2 class="color_two"><span class="user_data">05</span><br><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
             </ul>
                   </div>
                   <!--text-->
@@ -946,10 +947,10 @@
 
                 <!--text-->
                   <div class="text_container" id="data_5_2">
-                    <h2>Walking</h2>
+                    <h2>{% blocktrans%}Walking{% endblocktrans%}</h2>
                     <ul>
-                    <li><h2 class="color_one"><span class="global_data">03</span><br><span>All</span></h2></li>
-                    <li><h2 class="color_two"><span class="user_data">01</span><br><span>You</span></h2></li>
+                    <li><h2 class="color_one"><span class="global_data">03</span><br><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
+                    <li><h2 class="color_two"><span class="user_data">01</span><br><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
                   </ul>
                   </div>
                   <!--text-->
@@ -968,10 +969,10 @@
 
                 <!--text-->
                   <div class="text_container" id="data_5_3">
-                    <h2>Elliptical</h2>
+                    <h2>{% blocktrans%}Elliptical{% endblocktrans%}</h2>
                     <ul>
-                    <li><h2 class="color_one"><span class="global_data">01</span><br><span>All</span></h2></li>
-                    <li><h2 class="color_two"><span class="user_data">02</span><br><span>You</span></h2></li>
+                    <li><h2 class="color_one"><span class="global_data">01</span><br><span>{% blocktrans%}All{% endblocktrans%}</span></h2></li>
+                    <li><h2 class="color_two"><span class="user_data">02</span><br><span>{% blocktrans%}You{% endblocktrans%}</span></h2></li>
                   </ul>
                   </div>
                   <!--text-->
@@ -985,11 +986,11 @@
       <!--you_cards-->
       <div class="you_cards">
         <ul>
-          <li><p>you</p></li>
-          <li><p><span>Bike riding</span><br />every day</p></li>
-          <li><p><span>Snowboard</span><br />1 time per week</p></li>
-          <li><p><span>Downhill Skiing</span><br />1 times per year</p></li>
-          <li><p><span>Weight lifting</span><br />4 per year</p></li>
+          <li><p>{% blocktrans%}you{% endblocktrans%}</p></li>
+          <li><p><span>{% blocktrans%}Bike riding{% endblocktrans%}</span><br />{% blocktrans%}every day{% endblocktrans%}</p></li>
+          <li><p><span>{% blocktrans%}Snowboard{% endblocktrans%}</span><br />{% blocktrans%}1 time per week{% endblocktrans%}</p></li>
+          <li><p><span>{% blocktrans%}Downhill Skiing{% endblocktrans%}</span><br />{% blocktrans%}1 times per year{% endblocktrans%}</p></li>
+          <li><p><span>{% blocktrans%}Weight lifting{% endblocktrans%}</span><br />{% blocktrans%}4 per year{% endblocktrans%}</p></li>
         </ul>
         <div class="clear"></div>
       </div>
@@ -1005,8 +1006,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>Steps you walked<br />last week</h2>
-        <p>Compared to all users in our database</p>
+        <h2>{% blocktrans%}Steps you walked<br />last week{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Compared to all users in our database{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -1022,7 +1023,7 @@
         <!--bloque-->
         <div class="bloq left">
 
-          <h2>Overall avg</h2>
+          <h2>{% blocktrans%}Overall avg{% endblocktrans%}</h2>
 
           <!--stat-->
           <div class="number_stat">
@@ -1031,7 +1032,7 @@
 
             <!--ico_right-->
             <div class="ico_right">
-              <p>steps/day</p>
+              <p>{% blocktrans%}steps/day{% endblocktrans%}</p>
             </div>
             <!--/ico_right-->
           </div>
@@ -1043,7 +1044,7 @@
         <!--bloque-->
         <div class="bloq right">
 
-          <h2>Your avg</h2>
+          <h2>{% blocktrans%}Your avg{% endblocktrans%}</h2>
 
           <!--stat-->
           <div class="number_stat">
@@ -1052,7 +1053,7 @@
 
             <!--ico_right-->
             <div class="ico_right">
-              <p>steps/day</p>
+              <p>{% blocktrans%}steps/day{% endblocktrans%}</p>
             </div>
             <!--/ico_right-->
           </div>
@@ -1079,8 +1080,8 @@
 
         <!--top-->
         <div class="top">
-          <h2>Miles you traveled<br />last week</h2>
-          <p>Compared to all users in our database</p>
+          <h2>{% blocktrans%}Miles you traveled<br />last week{% endblocktrans%}</h2>
+          <p>{% blocktrans%}Compared to all users in our database{% endblocktrans%}</p>
         </div>
         <!--/top-->
 
@@ -1096,7 +1097,7 @@
           <!--left-->
           <div class="stats left color_one">
 
-            <h2>Overall avg</h2>
+            <h2>{% blocktrans%}Overall avg{% endblocktrans%}</h2>
 
             <!--stat-->
             <div class="number_stat">
@@ -1105,7 +1106,7 @@
 
               <!--ico_right-->
               <div class="ico_right one">
-                <p>Mi/week</p>
+                <p>{% blocktrans%}Mi/week{% endblocktrans%}</p>
               </div>
               <!--/ico_right-->
             </div>
@@ -1117,7 +1118,7 @@
           <!--right-->
           <div class="stats right color_two">
 
-            <h2>Your avg</h2>
+            <h2>{% blocktrans%}Your avg{% endblocktrans%}</h2>
 
             <!--stat-->
             <div class="number_stat">
@@ -1126,7 +1127,7 @@
 
               <!--ico_right-->
               <div class="ico_right two">
-                <p>Mi/week</p>
+                <p>{% blocktrans%}Mi/week{% endblocktrans%}</p>
               </div>
               <!--/ico_right-->
             </div>
@@ -1148,8 +1149,8 @@
 
         <!--top-->
         <div class="top">
-          <h2>Hours of exercise<br />last week</h2>
-          <p>Compared to all users in our database</p>
+          <h2>{% blocktrans%}Hours of exercise<br />last week{% endblocktrans%}</h2>
+          <p>{% blocktrans%}Compared to all users in our database{% endblocktrans%}</p>
         </div>
         <!--/top-->
 
@@ -1165,7 +1166,7 @@
           <!--left-->
           <div class="stats left color_one">
 
-            <h2>Overall avg</h2>
+            <h2>{% blocktrans%}Overall avg{% endblocktrans%}</h2>
 
             <!--stat-->
             <div class="number_stat">
@@ -1174,7 +1175,7 @@
 
               <!--ico_right-->
               <div class="ico_right three">
-                <p>h/week</p>
+                <p>{% blocktrans%}h/week{% endblocktrans%}</p>
               </div>
               <!--/ico_right-->
             </div>
@@ -1186,7 +1187,7 @@
           <!--right-->
           <div class="stats right color_two">
 
-            <h2>Your avg</h2>
+            <h2>{% blocktrans%}Your avg{% endblocktrans%}</h2>
 
             <!--stat-->
             <div class="number_stat">
@@ -1195,7 +1196,7 @@
 
               <!--ico_right-->
               <div class="ico_right four">
-                <p>h/week</p>
+                <p>{% blocktrans%}h/week{% endblocktrans%}</p>
               </div>
               <!--/ico_right-->
             </div>
@@ -1227,7 +1228,7 @@
 
       <!--sector_icon-->
       <div class="sector_icon">
-        <a href="/learn-more">What data are you donating?</a>
+        <a href="/learn-more">{% blocktrans%}What data are you donating?{% endblocktrans%}</a>
       </div>
       <!--/sector_icon-->
 
@@ -1280,8 +1281,8 @@
 
     <!--top-->
     <div class="top">
-      <h2>Food group consumption</h2>
-      <p>How many times of each<br />food group you consumed per week?</p>
+      <h2>{% blocktrans%}Food group consumption{% endblocktrans%}</h2>
+      <p>{% blocktrans%}How many times of each<br />food group you consumed per week?{% endblocktrans%}</p>
     </div>
     <!--/top-->
 
@@ -1306,17 +1307,17 @@
           <div class="numbers">
             <!--one-->
             <div class="block one">
-              <h2>05<br /><span>You</span></h2>
+              <h2>05<br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2>
             </div>
             <!--/one-->
             <!--two-->
             <div class="block two">
-              <h2>04<br /><span>All</span></h2>
+              <h2>04<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/two-->
             <!--three_without_user-->
             <div class="block three">
-              <h2>05<br /><span>All</span></h2>
+              <h2>05<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/three_without_user-->
             <div class="clear"></div>
@@ -1326,7 +1327,7 @@
           <!--icon_stat-->
           <div class="icon_stat">
             <img src="/static/img/step_8/sweets.png" alt="sweet" />
-            <p>Sweet</p>
+            <p>{% blocktrans%}Sweet{% endblocktrans%}</p>
           </div>
           <!--icon_stat-->
 
@@ -1347,19 +1348,19 @@
 
             <!--one-->
             <div class="block one">
-              <h2>12<br /><span>You</span></h2>
+              <h2>12<br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2>
             </div>
             <!--/one-->
 
             <!--two-->
             <div class="block two">
-              <h2>07<br /><span>All</span></h2>
+              <h2>07<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/two-->
 
             <!--three_without_user-->
             <div class="block three">
-              <h2>12<br /><span>All</span></h2>
+              <h2>12<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/three_without_user-->
 
@@ -1371,7 +1372,7 @@
           <!--icon_stat-->
           <div class="icon_stat">
             <img src="/static/img/step_8/fats.png" alt="fats" />
-            <p>Fats</p>
+            <p>{% blocktrans%}Fats{% endblocktrans%}</p>
           </div>
           <!--icon_stat-->
 
@@ -1392,19 +1393,19 @@
 
             <!--one-->
             <div class="block one">
-              <h2>21<br /><span>You</span></h2>
+              <h2>21<br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2>
             </div>
             <!--/one-->
 
             <!--two-->
             <div class="block two">
-              <h2>23<br /><span>All</span></h2>
+              <h2>23<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/two-->
 
             <!--three_without_user-->
             <div class="block three">
-              <h2>21<br /><span>All</span></h2>
+              <h2>21<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/three_without_user-->
 
@@ -1416,7 +1417,7 @@
           <!--icon_stat-->
           <div class="icon_stat">
             <img src="/static/img/step_8/dairy.png" alt="dairy" />
-            <p>Dairy</p>
+            <p>{% blocktrans%}Dairy{% endblocktrans%}</p>
           </div>
           <!--icon_stat-->
 
@@ -1431,19 +1432,19 @@
 
             <!--one-->
             <div class="block one">
-              <h2>02<br /><span>You</span></h2>
+              <h2>02<br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2>
             </div>
             <!--/one-->
 
             <!--two-->
             <div class="block two">
-              <h2>03<br /><span>All</span></h2>
+              <h2>03<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/two-->
 
             <!--three_without_user-->
             <div class="block three">
-              <h2>02<br /><span>All</span></h2>
+              <h2>02<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/three_without_user-->
 
@@ -1455,7 +1456,7 @@
           <!--icon_stat-->
           <div class="icon_stat">
             <img src="/static/img/step_8/meat.png" alt="meat" />
-            <p>Meat</p>
+            <p>{% blocktrans%}Meat{% endblocktrans%}</p>
           </div>
           <!--icon_stat-->
 
@@ -1476,19 +1477,19 @@
 
             <!--one-->
             <div class="block one">
-              <h2>23<br /><span>You</span></h2>
+              <h2>23<br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2>
             </div>
             <!--/one-->
 
             <!--two-->
             <div class="block two">
-              <h2>17<br /><span>All</span></h2>
+              <h2>17<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/two-->
 
             <!--three_without_user-->
             <div class="block three">
-              <h2>23<br /><span>All</span></h2>
+              <h2>23<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/three_without_user-->
 
@@ -1500,7 +1501,7 @@
           <!--icon_stat-->
           <div class="icon_stat">
             <img src="/static/img/step_8/fruit.png" alt="fruit" />
-            <p>Fruit</p>
+            <p>{% blocktrans%}Fruit{% endblocktrans%}</p>
           </div>
           <!--icon_stat-->
 
@@ -1515,19 +1516,19 @@
 
             <!--one-->
             <div class="block one">
-              <h2>14<br /><span>You</span></h2>
+              <h2>14<br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2>
             </div>
             <!--/one-->
 
             <!--two-->
             <div class="block two">
-              <h2>12<br /><span>All</span></h2>
+              <h2>12<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/two-->
 
             <!--three_without_user-->
             <div class="block three">
-              <h2>14<br /><span>All</span></h2>
+              <h2>14<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/three_without_user-->
 
@@ -1539,7 +1540,7 @@
           <!--icon_stat-->
           <div class="icon_stat">
             <img src="/static/img/step_8/vegetables.png" alt="vegetables" />
-            <p>Vegetables</p>
+            <p>{% blocktrans%}Vegetables{% endblocktrans%}</p>
           </div>
           <!--icon_stat-->
 
@@ -1560,19 +1561,19 @@
 
             <!--one-->
             <div class="block one">
-              <h2>38<br /><span>You</span></h2>
+              <h2>38<br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2>
             </div>
             <!--/one-->
 
             <!--two-->
             <div class="block two">
-              <h2>36<br /><span>All</span></h2>
+              <h2>36<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/two-->
 
             <!--three_without_user-->
             <div class="block three">
-              <h2>36<br /><span>All</span></h2>
+              <h2>36<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/three_without_user-->
 
@@ -1584,7 +1585,7 @@
           <!--icon_stat-->
           <div class="icon_stat">
             <img src="/static/img/step_8/berverages.png" alt="berverages" />
-            <p>Berverages</p>
+            <p>{% blocktrans%}Berverages{% endblocktrans%}</p>
           </div>
           <!--icon_stat-->
 
@@ -1599,19 +1600,19 @@
 
             <!--one-->
             <div class="block one">
-              <h2>07<br /><span>You</span></h2>
+              <h2>07<br /><span>{% blocktrans%}You{% endblocktrans%}</span></h2>
             </div>
             <!--/one-->
 
             <!--two-->
             <div class="block two">
-              <h2>03<br /><span>All</span></h2>
+              <h2>03<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/two-->
 
             <!--three_without_user-->
             <div class="block three">
-              <h2>07<br /><span>All</span></h2>
+              <h2>07<br /><span>{% blocktrans%}All{% endblocktrans%}</span></h2>
             </div>
             <!--/three_without_user-->
 
@@ -1623,7 +1624,7 @@
           <!--icon_stat-->
           <div class="icon_stat">
             <img src="/static/img/step_8/grains.png" alt="grains" />
-            <p>Grains</p>
+            <p>{% blocktrans%}Grains{% endblocktrans%}</p>
           </div>
           <!--icon_stat-->
 
@@ -1668,8 +1669,8 @@
       <!--top-->
       <div class="top">
         <img src="/static/img/step_8/number.png" class="number" alt="3" />
-        <h2>Weekly nutrient<br />proportion</h2>
-        <p>How much you consumed per week</p>
+        <h2>{% blocktrans%}Weekly nutrient<br />proportion{% endblocktrans%}</h2>
+        <p>{% blocktrans%}How much you consumed per week{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -1738,8 +1739,8 @@
 
         <!--description-->
         <div class="block one">
-          <h2>Weight</h2>
-          <p>Compare your weight<br />to all users in our database</p>
+          <h2>{% blocktrans%}Weight{% endblocktrans%}</h2>
+          <p>{% blocktrans%}Compare your weight<br />to all users in our database{% endblocktrans%}</p>
         </div>
         <!--/description-->
 
@@ -1762,7 +1763,7 @@
 
           <!--bottom-->
           <div class="bottom">
-            <h2>Overall avg</h2>
+            <h2>{% blocktrans%}Overall avg{% endblocktrans%}</h2>
           </div>
           <!--/bottom-->
 
@@ -1787,7 +1788,7 @@
 
           <!--bottom-->
           <div class="bottom">
-            <h2>Indicate your weight</h2>
+            <h2>{% blocktrans%}Indicate your weight{% endblocktrans%}</h2>
           </div>
           <!--/bottom-->
 
@@ -1803,8 +1804,8 @@
 
         <!--description-->
         <div class="block one">
-          <h2>Height</h2>
-          <p>Compare your height<br />to all users in our database</p>
+          <h2>{% blocktrans%}Height{% endblocktrans%}</h2>
+          <p>{% blocktrans%}Compare your height<br />to all users in our database{% endblocktrans%}</p>
         </div>
         <!--/description-->
 
@@ -1827,7 +1828,7 @@
 
           <!--bottom-->
           <div class="bottom">
-            <h2>Overall avg</h2>
+            <h2>{% blocktrans%}Overall avg{% endblocktrans%}</h2>
           </div>
           <!--/bottom-->
 
@@ -1852,7 +1853,7 @@
 
           <!--bottom-->
           <div class="bottom">
-            <h2>Indicate your height</h2>
+            <h2>{% blocktrans%}Indicate your height{% endblocktrans%}</h2>
           </div>
           <!--/bottom-->
 
@@ -1877,9 +1878,8 @@
 
           <!--description-->
           <div class="block one">
-            <h2>BMI</h2>
-            <p>Compare your BMI<br />
-               to all users in our database</p>
+            <h2>{% blocktrans%}BMI{% endblocktrans%}</h2>
+            <p>{% blocktrans%}Compare your BMI<br />to all users in our database{% endblocktrans%}</p>
           </div>
           <!--/description-->
 
@@ -1890,10 +1890,10 @@
             <div class="top bmi_values">
               <ul>
                 <li class="man">
-                  <h2><span class="value">20</span><br /><span>BMI</span></h2>
+                  <h2><span class="value">20</span><br /><span>{% blocktrans%}BMI{% endblocktrans%}</span></h2>
                 </li>
                 <li class="woman">
-                  <h2><span class="value">26</span><br /><span>BMI</span></h2>
+                  <h2><span class="value">26</span><br /><span>{% blocktrans%}BMI{% endblocktrans%}</span></h2>
                 </li>
               </ul>
               <div class="clear"></div>
@@ -1902,7 +1902,7 @@
 
             <!--bottom-->
             <div class="bottom">
-              <h2>Overall avg</h2>
+              <h2>{% blocktrans%}Overall avg{% endblocktrans%}</h2>
             </div>
             <!--/bottom-->
 
@@ -1915,13 +1915,13 @@
             <!--top-->
             <div class="top your_bmi">
               <h2>{{ bmi | number : 1 }}</h2>
-              <p>BMI</p>
+              <p>{% blocktrans%}BMI{% endblocktrans%}</p>
             </div>
             <!--/top-->
 
             <!--bottom-->
             <div class="bottom">
-              <h2>Your BMI</h2>
+              <h2>{% blocktrans%}Your BMI{% endblocktrans%}</h2>
             </div>
             <!--/bottom-->
 
@@ -1952,7 +1952,7 @@
 
       <!--sector_icon-->
       <div class="sector_icon">
-        <a href="/learn-more">What data are you donating?</a>
+        <a href="/learn-more">{% blocktrans%}What data are you donating?{% endblocktrans%}</a>
       </div>
       <!--/sector_icon-->
 
@@ -2025,8 +2025,8 @@
       <!--top-->
       <div class="top">
         <img src="/static/img/step_11/number_4.png" alt="4" />
-        <h2>HEALTH &amp; BODY CONDITIONS</h2>
-        <p>Select your chronic conditions or add more</p>
+        <h2>{% blocktrans%}HEALTH &amp; BODY CONDITIONS{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Select your chronic conditions or add more{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -2070,7 +2070,7 @@
                       <!--chose_subcategory-->
                       <div class="container_data">
 
-                        <p>Choose according to <br /> your condition</p>
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                         <h2></h2>
 
                         <!--select-->
@@ -2080,7 +2080,7 @@
                           <div class="container_select">
 
                             <select class="select_stats">
-                              <option value="Type">Type</option>
+                              <option value="Type">{% blocktrans%}Type{% endblocktrans%}</option>
                               <option value="ActionScript">ActionScript</option>
                               <option value="AppleScript">AppleScript</option>
                               <option value="Asp">Asp</option>
@@ -2102,7 +2102,7 @@
 
                     <!--message-->
                     <div class="bubble_msj">
-                      <h2 class="done_condition">Done!</h2>
+                      <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                       <div class="arrow"></div>
                     </div>
                     <!--/message-->
@@ -2150,7 +2150,7 @@
                       <!--chose_subcategory-->
                       <div class="container_data">
 
-                        <p>Choose according to <br /> your condition</p>
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                         <h2>Cancer</h2>
 
                         <!--select-->
@@ -2159,7 +2159,7 @@
                           <div class="container_select">
 
                             <select class="select_stats">
-                              <option value="Type">Type</option>
+                              <option value="Type">{% blocktrans%}Type{% endblocktrans%}</option>
                               <option value="ActionScript">ActionScript</option>
                               <option value="AppleScript">AppleScript</option>
                               <option value="Asp">Asp</option>
@@ -2180,7 +2180,7 @@
 
                     <!--message-->
                     <div class="bubble_msj">
-                      <h2 class="done_condition">Done!</h2>
+                      <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                       <div class="arrow"></div>
                     </div>
                     <!--/message-->
@@ -2228,7 +2228,7 @@
                       <!--chose_subcategory-->
                       <div class="container_data">
 
-                        <p>Choose according to <br /> your condition</p>
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                         <h2>Cancer</h2>
 
                         <!--select-->
@@ -2306,7 +2306,7 @@
                       <!--chose_subcategory-->
                       <div class="container_data">
 
-                        <p>Choose according to <br /> your condition</p>
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                         <h2>Cancer</h2>
 
                         <!--select-->
@@ -2336,7 +2336,7 @@
 
                     <!--message-->
                     <div class="bubble_msj">
-                      <h2 class="done_condition">Done!</h2>
+                      <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                       <div class="arrow"></div>
                     </div>
                     <!--/message-->
@@ -2384,7 +2384,7 @@
                       <!--chose_subcategory-->
                       <div class="container_data">
 
-                        <p>Choose according to <br /> your condition</p>
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                         <h2>Cancer</h2>
 
                         <!--select-->
@@ -2414,7 +2414,7 @@
 
                     <!--message-->
                     <div class="bubble_msj">
-                      <h2 class="done_condition">Done!</h2>
+                      <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                       <div class="arrow"></div>
                     </div>
                     <!--/message-->
@@ -2444,7 +2444,7 @@
 
                    <!--message-->
                    <div class="bubble_msj">
-                       <p>Add another<br />chronic condition</p>
+                       <p>{% blocktrans%}Add another<br />chronic condition{% endblocktrans%}</p>
                    </div>
                    <!--/message-->
 
@@ -2460,7 +2460,7 @@
                       <!--chose_subcategory-->
                       <div class="container_data first_condition">
 
-                        <p>Choose according to <br /> your condition</p>
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
 
                         <!--select-->
                         <div class="select_space">
@@ -2487,7 +2487,7 @@
                       <!--chose_subcategory-->
                       <div class="container_data second_condition">
 
-                        <p>Choose according to <br /> your condition</p>
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                         <h2>Cancer</h2>
 
                         <!--select-->
@@ -2517,7 +2517,7 @@
 
                     <!--message-->
                     <div class="bubble_msj">
-                      <h2 class="done_condition next_subsector"><span>Next!</span></h2>
+                      <h2 class="done_condition next_subsector"><span>{% blocktrans%}Next!{% endblocktrans%}</span></h2>
                       <div class="arrow"></div>
                     </div>
                     <!--/message-->
@@ -2538,7 +2538,7 @@
         <div class="cards">
           <div class="you_cards cronical_conditions_cards">
             <ul>
-              <li><p>you</p></li>
+              <li><p>{% blocktrans%}you{% endblocktrans%}</p></li>
             </ul>
             <div class="clear"></div>
           </div>
@@ -2558,8 +2558,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>Recurring Complaints</h2>
-        <p>Click or add complaints you habitually experience (at least more than 6 times a year)</p>
+        <h2>{% blocktrans%}Recurring Complaints{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Click or add complaints you habitually experience (at least more than 6 times a year){% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -2610,7 +2610,7 @@
 
           <!--sector_logo-->
           <div class="logo_sector all">
-            <p>you</p>
+            <p>{% blocktrans%}you{% endblocktrans%}</p>
           </div>
           <!--/sector_logo-->
 
@@ -2646,7 +2646,7 @@
                   </div>
                 </div>
 
-                <a href="#" class="done_stat">Done!</a>
+                <a href="#" class="done_stat">{% blocktrans%}Done!{% endblocktrans%}</a>
 
                 <div class="clear"></div>
               </div>
@@ -2672,7 +2672,7 @@
 
               <!--tittle-->
               <div class="stat right">
-                <p><a href="#">Add your<br />complaints</a></p>
+                <p><a href="#">{% blocktrans%}Add your<br />complaints{% endblocktrans%}</a></p>
               </div>
               <!--/tittle-->
 
@@ -2690,8 +2690,8 @@
                   </div>
                 </div>
 
-                <a href="#" class="boton_add_stat done_stat">Done</a>
-                <a href="#" class="boton_add_stat delete_stat">Delete</a>
+                <a href="#" class="boton_add_stat done_stat">{% blocktrans%}Done{% endblocktrans%}</a>
+                <a href="#" class="boton_add_stat delete_stat">{% blocktrans%}Delete{% endblocktrans%}</a>
 
                 <div class="clear"></div>
               </div>
@@ -2721,8 +2721,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>Blood Type</h2>
-        <p>Click or tap to select yours</p>
+        <h2>{% blocktrans%}Blood Type{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Click or tap to select yours{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -2755,7 +2755,7 @@
 
               <!--your_type-->
               <div class="your_type">
-                <h2>Your type</h2>
+                <h2>{% blocktrans%}Your type{% endblocktrans%}</h2>
                 <div class="arrow"></div>
               </div>
               <!--/your_type-->
@@ -2787,8 +2787,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>Sleep Patterns</h2>
-        <p>Track your hours of sleep per week</p>
+        <h2>{% blocktrans%}Sleep Patterns{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Track your hours of sleep per week{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -2804,7 +2804,7 @@
         <!--bloque-->
         <div class="bloq left">
 
-          <h2>Overall average</h2>
+          <h2>{% blocktrans%}Overall average{% endblocktrans%}</h2>
 
           <!--stat-->
           <div class="number_stat">
@@ -2813,7 +2813,7 @@
 
             <!--ico_right-->
             <div class="ico_right">
-              <p>h/day</p>
+              <p>{% blocktrans%}h/day{% endblocktrans%}</p>
             </div>
             <!--/ico_right-->
           </div>
@@ -2825,7 +2825,7 @@
         <!--bloque-->
         <div class="bloq right">
 
-          <h2>Your average</h2>
+          <h2>{% blocktrans%}Your average{% endblocktrans%}</h2>
 
           <!--stat-->
           <div class="number_stat">
@@ -2834,7 +2834,7 @@
 
             <!--ico_right-->
             <div class="ico_right">
-              <p>h/day</p>
+              <p>{% blocktrans%}h/day{% endblocktrans%}</p>
             </div>
             <!--/ico_right-->
           </div>
@@ -2860,8 +2860,8 @@
 
             <!--top-->
             <div class="top">
-              <h2>Emotional Health</h2>
-              <p>Add the feelings you register most frequently</p>
+              <h2>{% blocktrans%}Emotional Health{% endblocktrans%}</h2>
+              <p>{% blocktrans%}Add the feelings you register most frequently{% endblocktrans%}</p>
             </div>
             <!--/top-->
 
@@ -2888,7 +2888,7 @@
 
                          <!--message-->
                          <div class="bubble_msj">
-                             <h2>Disappointed</h2>
+                             <h2>{% blocktrans%}Disappointed{% endblocktrans%}</h2>
                              <div class="arrow"></div>
                          </div>
                          <!--/message-->
@@ -2905,7 +2905,7 @@
                             <!--chose_subcategory-->
                             <div class="container_data">
 
-                              <p>Choose according to <br /> your condition</p>
+                              <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                               <h2>Cancer</h2>
 
                               <!--select-->
@@ -2929,7 +2929,7 @@
 
                           <!--message-->
                           <div class="bubble_msj">
-                            <h2 class="done_condition">Done!</h2>
+                            <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                             <div class="arrow"></div>
                           </div>
                           <!--/message-->
@@ -2960,7 +2960,7 @@
 
                          <!--message-->
                          <div class="bubble_msj">
-                             <h2>Stressed</h2>
+                             <h2>{% blocktrans%}Stressed{% endblocktrans%}</h2>
                              <div class="arrow"></div>
                          </div>
                          <!--/message-->
@@ -2977,7 +2977,7 @@
                             <!--chose_subcategory-->
                             <div class="container_data">
 
-                              <p>Choose according to <br /> your condition</p>
+                              <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                               <h2>Cancer</h2>
 
                               <!--select-->
@@ -3001,7 +3001,7 @@
 
                           <!--message-->
                           <div class="bubble_msj">
-                            <h2 class="done_condition">Done!</h2>
+                            <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                             <div class="arrow"></div>
                           </div>
                           <!--/message-->
@@ -3032,7 +3032,7 @@
 
                          <!--message-->
                          <div class="bubble_msj">
-                             <h2>Sad</h2>
+                             <h2>{% blocktrans%}Sad{% endblocktrans%}</h2>
                              <div class="arrow"></div>
                          </div>
                          <!--/message-->
@@ -3049,7 +3049,7 @@
                             <!--chose_subcategory-->
                             <div class="container_data">
 
-                              <p>Choose according to <br /> your condition</p>
+                              <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                               <h2>Cancer</h2>
 
                               <!--select-->
@@ -3073,7 +3073,7 @@
 
                           <!--message-->
                           <div class="bubble_msj">
-                            <h2 class="done_condition">Done!</h2>
+                            <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                             <div class="arrow"></div>
                           </div>
                           <!--/message-->
@@ -3104,7 +3104,7 @@
 
                          <!--message-->
                          <div class="bubble_msj">
-                             <h2>Angry</h2>
+                             <h2>{% blocktrans%}Angry{% endblocktrans%}</h2>
                              <div class="arrow"></div>
                          </div>
                          <!--/message-->
@@ -3121,7 +3121,7 @@
                             <!--chose_subcategory-->
                             <div class="container_data">
 
-                              <p>Choose according to <br /> your condition</p>
+                              <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                               <h2>Cancer</h2>
 
                               <!--select-->
@@ -3145,7 +3145,7 @@
 
                           <!--message-->
                           <div class="bubble_msj">
-                            <h2 class="done_condition">Done!</h2>
+                            <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                             <div class="arrow"></div>
                           </div>
                           <!--/message-->
@@ -3176,7 +3176,7 @@
 
                          <!--message-->
                          <div class="bubble_msj">
-                             <h2>Euphoric</h2>
+                             <h2>{% blocktrans%}Euphoric{% endblocktrans%}</h2>
                              <div class="arrow"></div>
                          </div>
                          <!--/message-->
@@ -3193,7 +3193,7 @@
                             <!--chose_subcategory-->
                             <div class="container_data">
 
-                              <p>Choose according to <br /> your condition</p>
+                              <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                               <h2>Cancer</h2>
 
                               <!--select-->
@@ -3217,7 +3217,7 @@
 
                           <!--message-->
                           <div class="bubble_msj">
-                            <h2 class="done_condition">Done!</h2>
+                            <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
                             <div class="arrow"></div>
                           </div>
                           <!--/message-->
@@ -3247,7 +3247,7 @@
 
                          <!--message-->
                          <div class="bubble_msj">
-                             <p>Add another<br />emotion</p>
+                             <p>{% blocktrans%}Add another<br />emotion{% endblocktrans%}</p>
                          </div>
                          <!--/message-->
 
@@ -3263,7 +3263,7 @@
                             <!--chose_subcategory-->
                             <div class="container_data">
 
-                              <p>Choose according to <br /> your condition</p>
+                              <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
 
                               <!--select-->
                               <div class="select_space">
@@ -3284,7 +3284,7 @@
                             <!--chose_subcategory-->
                             <div class="container_data second_condition">
 
-                              <p>Choose according to <br /> your condition</p>
+                              <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
                               <h2>Cancer</h2>
 
                               <!--select-->
@@ -3308,7 +3308,7 @@
 
                           <!--message-->
                           <div class="bubble_msj">
-                            <h2 class="done_condition next_subsector"><span>Next!</span></h2>
+                            <h2 class="done_condition next_subsector"><span>{% blocktrans%}Next!{% endblocktrans%}</span></h2>
                             <div class="arrow"></div>
                           </div>
                           <!--/message-->
@@ -3329,7 +3329,7 @@
               <div class="cards emotion_cards">
                 <div class="you_cards">
                   <ul>
-                    <li><p>you</p></li>
+                    <li><p>{% blocktrans%}you{% endblocktrans%}</p></li>
                   </ul>
                   <div class="clear"></div>
                 </div>
@@ -3351,8 +3351,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>Typical Mood</h2>
-        <p>How you feel in general over a one month period</p>
+        <h2>{% blocktrans%}Typical Mood{% endblocktrans%}</h2>
+        <p>{% blocktrans%}How you feel in general over a one month period{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -3432,7 +3432,7 @@
 
       <!--sector_icon-->
       <div class="sector_icon">
-        <a href="/learn-more">What data are you donating?</a>
+        <a href="/learn-more">{% blocktrans%}What data are you donating?{% endblocktrans%}</a>
       </div>
       <!--/sector_icon-->
 
@@ -3472,8 +3472,8 @@
       <!--top-->
       <div class="top">
         <img src="/static/img/step_17/number_5.png" alt="5" />
-        <h2>GENOMICS TRAITS</h2>
-        <p>Your DNA shows these traits. We only show data with four stars of confidence.</p>
+        <h2>{% blocktrans%}GENOMICS TRAITS{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Your DNA shows these traits. We only show data with four stars of confidence.{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -3502,8 +3502,8 @@
           <!--info_graph-->
           <div class="info_graph">
             <ul>
-              <li class="color_one"><span class="porcent">[[porcent_user]]<strong>%</strong></span><p>[[user_trait_name]] <span style="[[hint_style]]">You</span></p></li>
-              <li class="color_two"><span class="porcent">[[porcent_global]]<strong>%</strong></span><p>[[global_trait_name]] <span style="[[hint_style]]">All</span></p></li>
+              <li class="color_one"><span class="porcent">[[porcent_user]]<strong>%</strong></span><p>[[user_trait_name]] <span style="[[hint_style]]">{% blocktrans%}You{% endblocktrans%}</span></p></li>
+              <li class="color_two"><span class="porcent">[[porcent_global]]<strong>%</strong></span><p>[[global_trait_name]] <span style="[[hint_style]]">{% blocktrans%}All{% endblocktrans%}</span></p></li>
             </ul>
             <div class="clear"></div>
           </div>
@@ -3531,8 +3531,8 @@
             <!--info_graph-->
             <div class="info_graph">
               <ul>
-                <li class="color_one"><span class="porcent">60<strong>%</strong></span><p>flushes <span>You</span></p></li>
-                <li class="color_two"><span class="porcent">40<strong>%</strong></span><p>Does not flush <span>All</span></p></li>
+                <li class="color_one"><span class="porcent">60<strong>%</strong></span><p>flushes <span>{% blocktrans%}You{% endblocktrans%}</span></p></li>
+                <li class="color_two"><span class="porcent">40<strong>%</strong></span><p>Does not flush <span>{% blocktrans%}All{% endblocktrans%}</span></p></li>
               </ul>
               <div class="clear"></div>
             </div>
@@ -3553,8 +3553,8 @@
             <!--info_graph-->
             <div class="info_graph">
               <ul>
-                <li class="color_one"><span class="porcent">80<strong>%</strong></span><p>Likely intolerant</p></li>
-                <li class="color_two"><span class="porcent">20<strong>%</strong></span><p>Likely tolerant</p></li>
+                <li class="color_one"><span class="porcent">80<strong>%</strong></span><p>{% blocktrans%}Likely intolerant{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">20<strong>%</strong></span><p>{% blocktrans%}Likely tolerant{% endblocktrans%}</p></li>
               </ul>
               <div class="clear"></div>
             </div>
@@ -3575,84 +3575,8 @@
             <!--info_graph-->
             <div class="info_graph">
               <ul>
-                <li class="color_one"><span class="porcent">10<strong>%</strong></span><p>Likely to smoke more</p></li>
-                <li class="color_two"><span class="porcent">90<strong>%</strong></span><p>typical</p></li>
-              </ul>
-              <div class="clear"></div>
-            </div>
-            <!--/info_graph-->
-
-          </div>
-          <!--/graph-->
-
-          <!--divisor-->
-          <div class="divisor"></div>
-          <!--/divisor-->
-
-        </div>
-        <!--graphs-->
-
-        <!--graphs-->
-        <div class="container_graphs">
-
-          <!--graph-->
-          <div class="graph">
-
-            <!--container_graph-->
-            <div class="top_graph">
-              <img src="/static/img/step_17/graph.png" alt="graph" />
-            </div>
-            <!--/container_graph-->
-
-            <!--info_graph-->
-            <div class="info_graph">
-              <ul>
-                <li class="color_one"><span class="porcent">15<strong>%</strong></span><p>Can taste</p></li>
-                <li class="color_two"><span class="porcent">85<strong>%</strong></span><p>unlikely to taste</p></li>
-              </ul>
-              <div class="clear"></div>
-            </div>
-            <!--/info_graph-->
-
-          </div>
-          <!--/graph-->
-
-          <!--graph-->
-          <div class="graph">
-
-            <!--container_graph-->
-            <div class="top_graph">
-              <img src="/static/img/step_17/graph.png" alt="graph" />
-            </div>
-            <!--/container_graph-->
-
-            <!--info_graph-->
-            <div class="info_graph">
-              <ul>
-                <li class="color_one"><span class="porcent">20<strong>%</strong></span><p>Dry</p></li>
-                <li class="color_two"><span class="porcent">80<strong>%</strong></span><p>Wet</p></li>
-              </ul>
-              <div class="clear"></div>
-            </div>
-            <!--/info_graph-->
-
-          </div>
-          <!--/graph-->
-
-          <!--graph-->
-          <div class="graph">
-
-            <!--container_graph-->
-            <div class="top_graph">
-              <img src="/static/img/step_17/graph.png" alt="graph" />
-            </div>
-            <!--/container_graph-->
-
-            <!--info_graph-->
-            <div class="info_graph">
-              <ul>
-                <li class="color_one"><span class="porcent">95<strong>%</strong></span><p>Likely sprinter</p></li>
-                <li class="color_two"><span class="porcent">05<strong>%</strong></span><p>Unlikely sprinter</p></li>
+                <li class="color_one"><span class="porcent">10<strong>%</strong></span><p>{% blocktrans%}Likely to smoke more{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">90<strong>%</strong></span><p>{% blocktrans%}typical{% endblocktrans%}</p></li>
               </ul>
               <div class="clear"></div>
             </div>
@@ -3683,8 +3607,8 @@
             <!--info_graph-->
             <div class="info_graph">
               <ul>
-                <li class="color_one"><span class="porcent">60<strong>%</strong></span><p>Likely blue</p></li>
-                <li class="color_two"><span class="porcent">40<strong>%</strong></span><p>Likely brown</p></li>
+                <li class="color_one"><span class="porcent">15<strong>%</strong></span><p>{% blocktrans%}Can taste{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">85<strong>%</strong></span><p>{% blocktrans%}Unlikely to taste{% endblocktrans%}</p></li>
               </ul>
               <div class="clear"></div>
             </div>
@@ -3705,8 +3629,8 @@
             <!--info_graph-->
             <div class="info_graph">
               <ul>
-                <li class="color_one"><span class="porcent">20<strong>%</strong></span><p>Sligthy curlier hair</p></li>
-                <li class="color_two"><span class="porcent">35<strong>%</strong></span><p>Straigher curlier hair</p></li>
+                <li class="color_one"><span class="porcent">20<strong>%</strong></span><p>{% blocktrans%}Dry{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">80<strong>%</strong></span><p>{% blocktrans%}Wet{% endblocktrans%}</p></li>
               </ul>
               <div class="clear"></div>
             </div>
@@ -3727,8 +3651,84 @@
             <!--info_graph-->
             <div class="info_graph">
               <ul>
-                <li class="color_one"><span class="porcent">15<strong>%</strong></span><p>Possibly resistant</p></li>
-                <li class="color_two"><span class="porcent">85<strong>%</strong></span><p>Possibly resistant</p></li>
+                <li class="color_one"><span class="porcent">95<strong>%</strong></span><p>{% blocktrans%}Likely sprinter{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">05<strong>%</strong></span><p>{% blocktrans%}Unlikely sprinter{% endblocktrans%}</p></li>
+              </ul>
+              <div class="clear"></div>
+            </div>
+            <!--/info_graph-->
+
+          </div>
+          <!--/graph-->
+
+          <!--divisor-->
+          <div class="divisor"></div>
+          <!--/divisor-->
+
+        </div>
+        <!--graphs-->
+
+        <!--graphs-->
+        <div class="container_graphs">
+
+          <!--graph-->
+          <div class="graph">
+
+            <!--container_graph-->
+            <div class="top_graph">
+              <img src="/static/img/step_17/graph.png" alt="graph" />
+            </div>
+            <!--/container_graph-->
+
+            <!--info_graph-->
+            <div class="info_graph">
+              <ul>
+                <li class="color_one"><span class="porcent">60<strong>%</strong></span><p>{% blocktrans%}Likely blue{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">40<strong>%</strong></span><p>{% blocktrans%}Likely brown{% endblocktrans%}</p></li>
+              </ul>
+              <div class="clear"></div>
+            </div>
+            <!--/info_graph-->
+
+          </div>
+          <!--/graph-->
+
+          <!--graph-->
+          <div class="graph">
+
+            <!--container_graph-->
+            <div class="top_graph">
+              <img src="/static/img/step_17/graph.png" alt="graph" />
+            </div>
+            <!--/container_graph-->
+
+            <!--info_graph-->
+            <div class="info_graph">
+              <ul>
+                <li class="color_one"><span class="porcent">20<strong>%</strong></span><p>{% blocktrans%}Sligthy curlier hair{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">35<strong>%</strong></span><p>{% blocktrans%}Straigher curlier hair{% endblocktrans%}</p></li>
+              </ul>
+              <div class="clear"></div>
+            </div>
+            <!--/info_graph-->
+
+          </div>
+          <!--/graph-->
+
+          <!--graph-->
+          <div class="graph">
+
+            <!--container_graph-->
+            <div class="top_graph">
+              <img src="/static/img/step_17/graph.png" alt="graph" />
+            </div>
+            <!--/container_graph-->
+
+            <!--info_graph-->
+            <div class="info_graph">
+              <ul>
+                <li class="color_one"><span class="porcent">15<strong>%</strong></span><p>{% blocktrans%}Possibly resistant{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">85<strong>%</strong></span><p>{% blocktrans%}Possibly resistant{% endblocktrans%}</p></li>
               </ul>
               <div class="clear"></div>
             </div>
@@ -3755,8 +3755,8 @@
             <!--info_graph-->
             <div class="info_graph">
               <ul>
-                <li class="color_one"><span class="porcent">15<strong>%</strong></span><p>Likely blue</p></li>
-                <li class="color_two"><span class="porcent">85<strong>%</strong></span><p>Likely brown</p></li>
+                <li class="color_one"><span class="porcent">15<strong>%</strong></span><p>{% blocktrans%}Likely blue{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">85<strong>%</strong></span><p>{% blocktrans%}Likely brown{% endblocktrans%}</p></li>
               </ul>
               <div class="clear"></div>
             </div>
@@ -3777,8 +3777,8 @@
             <!--info_graph-->
             <div class="info_graph">
               <ul>
-                <li class="color_one"><span class="porcent">20<strong>%</strong></span><p>Sligthy curlier hair</p></li>
-                <li class="color_two"><span class="porcent">35<strong>%</strong></span><p>Straigher curlier hair</p></li>
+                <li class="color_one"><span class="porcent">20<strong>%</strong></span><p>{% blocktrans%}Sligthy curlier hair{% endblocktrans%}</p></li>
+                <li class="color_two"><span class="porcent">35<strong>%</strong></span><p>{% blocktrans%}Straigher curlier hair{% endblocktrans%}</p></li>
               </ul>
               <div class="clear"></div>
             </div>
@@ -3803,8 +3803,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>DRUG RESPONSE</h2>
-        <p>Compared to all users in our database</p>
+        <h2>{% blocktrans%}DRUG RESPONSE{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Compared to all users in our database{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -3829,7 +3829,7 @@
 
             <!--text-->
             <div class="text_sector">
-              <p>Alcohol consumption,<br />smoking and <strong>risk of<br />esophageal cancer:</strong></p>
+              <p>{% blocktrans%}Alcohol consumption,<br />smoking and <strong>risk of<br />esophageal cancer:{% endblocktrans%}</strong></p>
             </div>
             <!--/text-->
 
@@ -3841,7 +3841,7 @@
 
             <!--graph-->
             <div class="graph_container color_one alcohol_1">
-              <p>Typical risk</p>
+              <p>{% blocktrans%}Typical risk{% endblocktrans%}</p>
               <div class="graph_html">
                 <div class="porcent_data" style="width: 0px;"></div>
                 <div class="porcent_text"><p>0<strong>%</strong></p></div>
@@ -3852,7 +3852,7 @@
 
             <!--graph-->
             <div class="graph_container color_two alcohol_2">
-              <p>Substantially increased risk</p>
+              <p>{% blocktrans%}Substantially increased risk{% endblocktrans%}</p>
               <div class="graph_html">
                 <div class="porcent_data" style="width: 0px;"></div>
                 <div class="porcent_text"><p>0<strong>%</strong></p></div>
@@ -3863,7 +3863,7 @@
 
             <!--graph-->
             <div class="graph_container color_three alcohol_3">
-              <p>Greatly increased risk</p>
+              <p>{% blocktrans%}Greatly increased risk{% endblocktrans%}</p>
               <div class="graph_html">
                 <div class="porcent_data" style="width: 00px;"></div>
                 <div class="porcent_text"><p>0<strong>%</strong></p></div>
@@ -3892,7 +3892,7 @@
 
             <!--text-->
             <div class="text_sector">
-              <p>Oral contraceptives, <br />hormone replacement<br />therapy and risk of <br /><strong>venous <br />thromboembolism:</strong></p>
+              <p>{% blocktrans%}Oral contraceptives, <br />hormone replacement<br />therapy and risk of <br /><strong>venous <br />thromboembolism:{% endblocktrans%}</strong></p>
             </div>
             <!--/text-->
 
@@ -3904,7 +3904,7 @@
 
             <!--graph-->
             <div class="graph_container color_one pills_1">
-              <p>Normal</p>
+              <p>{% blocktrans%}Normal{% endblocktrans%}</p>
               <div class="graph_html">
                 <div class="porcent_data" style="width: 0px;"></div>
                 <div class="porcent_text"><p>0<strong>%</strong></p></div>
@@ -3915,7 +3915,7 @@
 
             <!--graph-->
             <div class="graph_container color_two pills_2">
-              <p>Reduced</p>
+              <p>{% blocktrans%}Reduced{% endblocktrans%}</p>
               <div class="graph_html">
                 <div class="porcent_data" style="width: 0px;"></div>
                 <div class="porcent_text"><p>0<strong>%</strong></p></div>
@@ -3926,7 +3926,7 @@
 
             <!--graph-->
             <div class="graph_container color_three pills_3">
-              <p>Unable</p>
+              <p>{% blocktrans%}Unable{% endblocktrans%}</p>
               <div class="graph_html">
                 <div class="porcent_data" style="width: 0px;"></div>
                 <div class="porcent_text"><p>0<strong>%</strong></p></div>
@@ -3956,8 +3956,8 @@
 
       <!--top-->
       <div class="top">
-        <h2>HEALTH RISKS</h2>
-        <p>Compare your <strong>risk</strong> with 23andme average population</p>
+        <h2>{% blocktrans%}HEALTH RISKS{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Compare your <strong>risk</strong> with 23andme average population{% endblocktrans%}</p>
       </div>
       <!--/top-->
 
@@ -3984,7 +3984,7 @@
           <!--page-->
           <div class="pages">
             <div class="centered">
-              <h2>Breast Cancer</h2>
+              <h2>{% blocktrans%}Breast Cancer{% endblocktrans%}</h2>
               <ul>
                 <li class="color_one"><span class="porcent">60<strong>%</strong></span></li>
                 <li class="color_two"><span class="porcent">90<strong>%</strong></span></li>
@@ -3996,7 +3996,7 @@
           <!--page-->
           <div class="pages">
             <div class="centered">
-              <h2>Celiac Disease</h2>
+              <h2>{% blocktrans%}Celiac Disease{% endblocktrans%}</h2>
               <ul>
                 <li class="color_one"><span class="porcent">08<strong>%</strong></span></li>
                 <li class="color_two"><span class="porcent">13<strong>%</strong></span></li>
@@ -4008,7 +4008,7 @@
           <!--page-->
           <div class="pages">
             <div class="centered">
-              <h2>Venous Thromb.</h2>
+              <h2>{% blocktrans%}Venous Thromb.{% endblocktrans%}</h2>
               <ul>
                 <li class="color_one"><span class="porcent">60<strong>%</strong></span></li>
                 <li class="color_two"><span class="porcent">20<strong>%</strong></span></li>
@@ -4020,7 +4020,7 @@
           <!--page-->
           <div class="pages">
             <div class="centered">
-              <h2>Melanoma</h2>
+              <h2>{% blocktrans%}Melanoma{% endblocktrans%}</h2>
               <ul>
                 <li class="color_one"><span class="porcent">16<strong>%</strong></span></li>
                 <li class="color_two"><span class="porcent">32<strong>%</strong></span></li>
@@ -4032,7 +4032,7 @@
           <!--page-->
           <div class="pages">
             <div class="centered">
-              <h2>Coronary Heart Dis.</h2>
+              <h2>{% blocktrans%}Coronary Heart Dis.{% endblocktrans%}</h2>
               <ul>
                 <li class="color_one"><span class="porcent">06<strong>%</strong></span></li>
                 <li class="color_two"><span class="porcent">02<strong>%</strong></span></li>
@@ -4044,7 +4044,7 @@
           <!--page-->
           <div class="pages">
             <div class="centered">
-              <h2>Lung Cancer</h2>
+              <h2>{% blocktrans%}Lung Cancer{% endblocktrans%}</h2>
               <ul>
                 <li class="color_one"><span class="porcent">01<strong>%</strong></span></li>
                 <li class="color_two"><span class="porcent">05<strong>%</strong></span></li>
@@ -4062,8 +4062,8 @@
       <!--list_page-->
       <div class="list_page">
         <ul>
-          <li class="color_one">The group where you belong according 23andme information</li>
-          <li class="color_two">Other people  in the 23andme population</li>
+          <li class="color_one">{% blocktrans%}The group where you belong according 23andme information{% endblocktrans%}</li>
+          <li class="color_two">{% blocktrans%}Other people  in the 23andme population{% endblocktrans%}</li>
         </ul>
       </div>
       <!--list_page-->

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 14:58-0500\n"
+"POT-Creation-Date: 2014-07-03 13:09-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,6 +72,7 @@ msgstr ""
 
 #: templates/footer.include.html:11 templates/header.include.html:43
 #: templates/static/learn_more.html:7
+#: templates/wizard_inc/header.include.html:26
 msgid "Learn More"
 msgstr "Más info"
 
@@ -100,32 +101,658 @@ msgid "by The Wikilife Foundation"
 msgstr "Creado por The WikiLife Foundation"
 
 #: templates/header.include.html:41
+#: templates/wizard_inc/header.include.html:24
 msgid "Data"
 msgstr "Datos"
 
 #: templates/header.include.html:42 templates/static/mission.html:7
+#: templates/wizard_inc/header.include.html:25
 msgid "Mission"
 msgstr "Misión"
 
 #: templates/header.include.html:44 templates/static/support.html:7
+#: templates/wizard_inc/header.include.html:27
 msgid "Support Us"
 msgstr "Cómo ayudar"
 
 #: templates/header.include.html:46
+#: templates/wizard_inc/header.include.html:29
 msgid "About Us"
 msgstr "Nosotros"
 
 #: templates/header.include.html:47
+#: templates/wizard_inc/header.include.html:30
 msgid "logout"
 msgstr "Salir"
 
 #: templates/header.include.html:49
+#: templates/wizard_inc/header.include.html:32
 msgid "login"
 msgstr "Entrar"
 
 #: templates/header.include.html:55
+#: templates/wizard_inc/header.include.html:38
 msgid "Start Sharing"
 msgstr "Empezá a donar"
+
+#: templates/dashboard/index.html:6
+msgid "Dashboard "
+msgstr ""
+
+#: templates/dashboard/index.html:56
+msgid "Share with your friends"
+msgstr ""
+
+#: templates/dashboard/index.html:58 templates/dashboard/index.html.py:124
+#: templates/popups/login.include.html:23
+msgid "close"
+msgstr "cerrar"
+
+#: templates/dashboard/index.html:70
+msgid "To:"
+msgstr ""
+
+#: templates/dashboard/index.html:80
+msgid "From:"
+msgstr ""
+
+#: templates/dashboard/index.html:90
+msgid "Message:"
+msgstr ""
+
+#: templates/dashboard/index.html:130
+msgid "Are you sure to quit the link?"
+msgstr ""
+
+#: templates/dashboard/index.html:131
+msgid "Do you want to keep donating or want to<br /> disconnect?"
+msgstr ""
+
+#: templates/dashboard/index.html:133
+msgid "Quit"
+msgstr ""
+
+#: templates/dashboard/index.html:134
+msgid "Keep"
+msgstr ""
+
+#: templates/dashboard/index.html:156 templates/dashboard/index.html.py:800
+#: templates/dashboard/index.html:1231 templates/dashboard/index.html:1955
+#: templates/dashboard/index.html:3435
+msgid "What data are you donating?"
+msgstr ""
+
+#: templates/dashboard/index.html:248
+msgid "Social influence<br />and reach"
+msgstr ""
+
+#: templates/dashboard/index.html:249
+msgid "Number of people you reach on social networks"
+msgstr ""
+
+#: templates/dashboard/index.html:261
+#, fuzzy
+msgid "References:"
+msgstr "Base de Datos"
+
+#: templates/dashboard/index.html:267 templates/dashboard/index.html.py:288
+#: templates/dashboard/index.html:309 templates/dashboard/index.html.py:330
+#: templates/dashboard/index.html:351 templates/dashboard/index.html.py:372
+#: templates/dashboard/index.html:434 templates/dashboard/index.html.py:466
+#: templates/dashboard/index.html:512 templates/dashboard/index.html.py:544
+#: templates/dashboard/index.html:930 templates/dashboard/index.html.py:952
+#: templates/dashboard/index.html:974 templates/dashboard/index.html:1315
+#: templates/dashboard/index.html:1320 templates/dashboard/index.html:1357
+#: templates/dashboard/index.html:1363 templates/dashboard/index.html:1402
+#: templates/dashboard/index.html:1408 templates/dashboard/index.html:1441
+#: templates/dashboard/index.html:1447 templates/dashboard/index.html:1486
+#: templates/dashboard/index.html:1492 templates/dashboard/index.html:1525
+#: templates/dashboard/index.html:1531 templates/dashboard/index.html:1570
+#: templates/dashboard/index.html:1576 templates/dashboard/index.html:1609
+#: templates/dashboard/index.html:1615 templates/dashboard/index.html:3506
+#: templates/dashboard/index.html:3535
+msgid "All"
+msgstr ""
+
+#: templates/dashboard/index.html:268 templates/dashboard/index.html.py:287
+#: templates/dashboard/index.html:308 templates/dashboard/index.html.py:329
+#: templates/dashboard/index.html:350 templates/dashboard/index.html.py:371
+#: templates/dashboard/index.html:435 templates/dashboard/index.html.py:467
+#: templates/dashboard/index.html:513 templates/dashboard/index.html.py:545
+#: templates/dashboard/index.html:764 templates/dashboard/index.html.py:931
+#: templates/dashboard/index.html:953 templates/dashboard/index.html.py:975
+#: templates/dashboard/index.html:1310 templates/dashboard/index.html:1351
+#: templates/dashboard/index.html:1396 templates/dashboard/index.html:1435
+#: templates/dashboard/index.html:1480 templates/dashboard/index.html:1519
+#: templates/dashboard/index.html:1564 templates/dashboard/index.html:1603
+#: templates/dashboard/index.html:3505 templates/dashboard/index.html:3534
+msgid "You"
+msgstr ""
+
+#: templates/dashboard/index.html:396
+msgid "Social sharing numbers"
+msgstr ""
+
+#: templates/dashboard/index.html:397
+msgid "Let's see how much you post, tweet and retweet per week."
+msgstr ""
+
+#: templates/dashboard/index.html:409
+msgid "Avg posts per week"
+msgstr ""
+
+#: templates/dashboard/index.html:487
+msgid "Avg likes and retweets per week"
+msgstr ""
+
+#: templates/dashboard/index.html:573
+#, fuzzy
+msgid "Share your level<br />of education"
+msgstr "Nivel de Educación"
+
+#: templates/dashboard/index.html:574
+msgid "Tap or select the highest level of education"
+msgstr ""
+
+#: templates/dashboard/index.html:594
+msgid "PhD"
+msgstr ""
+
+#: templates/dashboard/index.html:596 templates/dashboard/index.html.py:605
+#: templates/dashboard/index.html:614 templates/dashboard/index.html.py:623
+#: templates/dashboard/index.html:632 templates/dashboard/index.html.py:641
+#: templates/dashboard/index.html:650
+msgid "This is your level"
+msgstr ""
+
+#: templates/dashboard/index.html:603
+msgid "Master"
+msgstr ""
+
+#: templates/dashboard/index.html:612
+msgid "University"
+msgstr ""
+
+#: templates/dashboard/index.html:621
+msgid "Technical Insitute"
+msgstr ""
+
+#: templates/dashboard/index.html:630
+msgid "High School"
+msgstr ""
+
+#: templates/dashboard/index.html:639
+msgid "Junior College"
+msgstr ""
+
+#: templates/dashboard/index.html:648
+msgid "Elementary School"
+msgstr ""
+
+#: templates/dashboard/index.html:680
+#, fuzzy
+msgid "Share your work<br />experience"
+msgstr "Años de experiencia laboral"
+
+#: templates/dashboard/index.html:681
+msgid "How long have you been working for?"
+msgstr ""
+
+#: templates/dashboard/index.html:718
+msgid "total years working:"
+msgstr ""
+
+#: templates/dashboard/index.html:730
+#, fuzzy
+msgid "age"
+msgstr "Edad"
+
+#: templates/dashboard/index.html:743 templates/dashboard/index.html:1026
+#: templates/dashboard/index.html:1100 templates/dashboard/index.html:1169
+#: templates/landing_inc/how_to_share.html:171
+msgid "Overall avg"
+msgstr "Promedio general"
+
+#: templates/dashboard/index.html:752 templates/dashboard/index.html.py:773
+#, fuzzy
+msgid "years of<br />experience"
+msgstr "Años de experiencia laboral"
+
+#: templates/dashboard/index.html:909
+msgid "Exercise is worth<br />sharing too"
+msgstr ""
+
+#: templates/dashboard/index.html:910
+msgid ""
+"Keep track of what you've been doing and compare with others.<br />(Times "
+"per week)"
+msgstr ""
+
+#: templates/dashboard/index.html:928
+msgid "Running"
+msgstr ""
+
+#: templates/dashboard/index.html:950
+msgid "Walking"
+msgstr ""
+
+#: templates/dashboard/index.html:972
+msgid "Elliptical"
+msgstr ""
+
+#: templates/dashboard/index.html:989 templates/dashboard/index.html:2541
+#: templates/dashboard/index.html:2613 templates/dashboard/index.html:3332
+msgid "you"
+msgstr ""
+
+#: templates/dashboard/index.html:990
+msgid "Bike riding"
+msgstr ""
+
+#: templates/dashboard/index.html:990
+msgid "every day"
+msgstr ""
+
+#: templates/dashboard/index.html:991
+msgid "Snowboard"
+msgstr ""
+
+#: templates/dashboard/index.html:991
+msgid "1 time per week"
+msgstr ""
+
+#: templates/dashboard/index.html:992
+msgid "Downhill Skiing"
+msgstr ""
+
+#: templates/dashboard/index.html:992
+msgid "1 times per year"
+msgstr ""
+
+#: templates/dashboard/index.html:993
+#, fuzzy
+msgid "Weight lifting"
+msgstr "Peso"
+
+#: templates/dashboard/index.html:993
+msgid "4 per year"
+msgstr ""
+
+#: templates/dashboard/index.html:1009
+msgid "Steps you walked<br />last week"
+msgstr ""
+
+#: templates/dashboard/index.html:1010 templates/dashboard/index.html:1084
+#: templates/dashboard/index.html:1153 templates/dashboard/index.html:3807
+msgid "Compared to all users in our database"
+msgstr ""
+
+#: templates/dashboard/index.html:1035 templates/dashboard/index.html:1056
+msgid "steps/day"
+msgstr ""
+
+#: templates/dashboard/index.html:1047 templates/dashboard/index.html:1121
+#: templates/dashboard/index.html:1190
+#: templates/landing_inc/how_to_share.html:177
+msgid "Your avg"
+msgstr "Tu promedio"
+
+#: templates/dashboard/index.html:1083
+msgid "Miles you traveled<br />last week"
+msgstr ""
+
+#: templates/dashboard/index.html:1109 templates/dashboard/index.html:1130
+msgid "Mi/week"
+msgstr ""
+
+#: templates/dashboard/index.html:1152
+#, fuzzy
+msgid "Hours of exercise<br />last week"
+msgstr "Horas de ejercicio"
+
+#: templates/dashboard/index.html:1178 templates/dashboard/index.html:1199
+msgid "h/week"
+msgstr ""
+
+#: templates/dashboard/index.html:1284
+msgid "Food group consumption"
+msgstr ""
+
+#: templates/dashboard/index.html:1285
+msgid "How many times of each<br />food group you consumed per week?"
+msgstr ""
+
+#: templates/dashboard/index.html:1330
+msgid "Sweet"
+msgstr ""
+
+#: templates/dashboard/index.html:1375
+msgid "Fats"
+msgstr ""
+
+#: templates/dashboard/index.html:1420
+msgid "Dairy"
+msgstr ""
+
+#: templates/dashboard/index.html:1459
+msgid "Meat"
+msgstr ""
+
+#: templates/dashboard/index.html:1504
+msgid "Fruit"
+msgstr ""
+
+#: templates/dashboard/index.html:1543
+msgid "Vegetables"
+msgstr ""
+
+#: templates/dashboard/index.html:1588
+#, fuzzy
+msgid "Berverages"
+msgstr " promedio"
+
+#: templates/dashboard/index.html:1627
+msgid "Grains"
+msgstr ""
+
+#: templates/dashboard/index.html:1672
+msgid "Weekly nutrient<br />proportion"
+msgstr ""
+
+#: templates/dashboard/index.html:1673
+msgid "How much you consumed per week"
+msgstr ""
+
+#: templates/dashboard/index.html:2028
+msgid "HEALTH &amp; BODY CONDITIONS"
+msgstr ""
+
+#: templates/dashboard/index.html:2029
+msgid "Select your chronic conditions or add more"
+msgstr ""
+
+#: templates/dashboard/index.html:2073 templates/dashboard/index.html:2153
+#: templates/dashboard/index.html:2231 templates/dashboard/index.html:2309
+#: templates/dashboard/index.html:2387 templates/dashboard/index.html:2463
+#: templates/dashboard/index.html:2490 templates/dashboard/index.html:2908
+#: templates/dashboard/index.html:2980 templates/dashboard/index.html:3052
+#: templates/dashboard/index.html:3124 templates/dashboard/index.html:3196
+#: templates/dashboard/index.html:3266 templates/dashboard/index.html:3287
+msgid "Choose according to <br /> your condition"
+msgstr ""
+
+#: templates/dashboard/index.html:2083 templates/dashboard/index.html:2162
+#, fuzzy
+msgid "Type"
+msgstr "Tipo:"
+
+#: templates/dashboard/index.html:2105 templates/dashboard/index.html:2183
+#: templates/dashboard/index.html:2339 templates/dashboard/index.html:2417
+#: templates/dashboard/index.html:2649 templates/dashboard/index.html:2932
+#: templates/dashboard/index.html:3004 templates/dashboard/index.html:3076
+#: templates/dashboard/index.html:3148 templates/dashboard/index.html:3220
+#: templates/wizard_inc/slide8.html:24
+msgid "Done!"
+msgstr "Listo!"
+
+#: templates/dashboard/index.html:2447
+msgid "Add another<br />chronic condition"
+msgstr ""
+
+#: templates/dashboard/index.html:2520 templates/dashboard/index.html:3311
+#, fuzzy
+msgid "Next!"
+msgstr "Siguiente"
+
+#: templates/dashboard/index.html:2561
+#, fuzzy
+msgid "Recurring Complaints"
+msgstr "Dolencias"
+
+#: templates/dashboard/index.html:2562
+msgid ""
+"Click or add complaints you habitually experience (at least more than 6 "
+"times a year)"
+msgstr ""
+
+#: templates/dashboard/index.html:2675
+msgid "Add your<br />complaints"
+msgstr ""
+
+#: templates/dashboard/index.html:2693
+#, fuzzy
+msgid "Done"
+msgstr "Listo!"
+
+#: templates/dashboard/index.html:2694
+msgid "Delete"
+msgstr ""
+
+#: templates/dashboard/index.html:2724 templates/data/download.html:152
+#: templates/static/learn_more.html:264
+msgid "Blood Type"
+msgstr "Grupo Sanguineo"
+
+#: templates/dashboard/index.html:2725
+msgid "Click or tap to select yours"
+msgstr ""
+
+#: templates/dashboard/index.html:2758
+msgid "Your type"
+msgstr "Tu tipo"
+
+#: templates/dashboard/index.html:2790
+msgid "Sleep Patterns"
+msgstr "Patrones de sueño"
+
+#: templates/dashboard/index.html:2791
+msgid "Track your hours of sleep per week"
+msgstr ""
+
+#: templates/dashboard/index.html:2807
+#, fuzzy
+msgid "Overall average"
+msgstr "Promedio general"
+
+#: templates/dashboard/index.html:2816 templates/dashboard/index.html:2837
+msgid "h/day"
+msgstr "horas/día"
+
+#: templates/dashboard/index.html:2828
+#, fuzzy
+msgid "Your average"
+msgstr "Tu promedio"
+
+#: templates/dashboard/index.html:2863
+msgid "Emotional Health"
+msgstr "Salud emocional"
+
+#: templates/dashboard/index.html:2864
+msgid "Add the feelings you register most frequently"
+msgstr ""
+
+#: templates/dashboard/index.html:2891
+msgid "Disappointed"
+msgstr ""
+
+#: templates/dashboard/index.html:2963
+msgid "Stressed"
+msgstr ""
+
+#: templates/dashboard/index.html:3035
+msgid "Sad"
+msgstr "Triste"
+
+#: templates/dashboard/index.html:3107
+msgid "Angry"
+msgstr ""
+
+#: templates/dashboard/index.html:3179
+msgid "Euphoric"
+msgstr ""
+
+#: templates/dashboard/index.html:3250
+msgid "Add another<br />emotion"
+msgstr ""
+
+#: templates/dashboard/index.html:3354
+msgid "Typical Mood"
+msgstr ""
+
+#: templates/dashboard/index.html:3355
+msgid "How you feel in general over a one month period"
+msgstr ""
+
+#: templates/dashboard/index.html:3475
+msgid "GENOMICS TRAITS"
+msgstr ""
+
+#: templates/dashboard/index.html:3476
+msgid ""
+"Your DNA shows these traits. We only show data with four stars of confidence."
+msgstr ""
+
+#: templates/dashboard/index.html:3556
+msgid "Likely intolerant"
+msgstr ""
+
+#: templates/dashboard/index.html:3557
+msgid "Likely tolerant"
+msgstr ""
+
+#: templates/dashboard/index.html:3578
+msgid "Likely to smoke more"
+msgstr ""
+
+#: templates/dashboard/index.html:3579
+#, fuzzy
+msgid "typical"
+msgstr "Act. Física"
+
+#: templates/dashboard/index.html:3610
+msgid "Can taste"
+msgstr ""
+
+#: templates/dashboard/index.html:3611
+msgid "Unlikely to taste"
+msgstr ""
+
+#: templates/dashboard/index.html:3632
+msgid "Dry"
+msgstr ""
+
+#: templates/dashboard/index.html:3633
+#, fuzzy
+msgid "Wet"
+msgstr "Peso"
+
+#: templates/dashboard/index.html:3654
+msgid "Likely sprinter"
+msgstr ""
+
+#: templates/dashboard/index.html:3655
+msgid "Unlikely sprinter"
+msgstr ""
+
+#: templates/dashboard/index.html:3686 templates/dashboard/index.html:3758
+msgid "Likely blue"
+msgstr ""
+
+#: templates/dashboard/index.html:3687 templates/dashboard/index.html:3759
+msgid "Likely brown"
+msgstr ""
+
+#: templates/dashboard/index.html:3708 templates/dashboard/index.html:3780
+msgid "Sligthy curlier hair"
+msgstr ""
+
+#: templates/dashboard/index.html:3709 templates/dashboard/index.html:3781
+msgid "Straigher curlier hair"
+msgstr ""
+
+#: templates/dashboard/index.html:3730 templates/dashboard/index.html:3731
+msgid "Possibly resistant"
+msgstr ""
+
+#: templates/dashboard/index.html:3806
+msgid "DRUG RESPONSE"
+msgstr ""
+
+#: templates/dashboard/index.html:3832
+msgid ""
+"Alcohol consumption,<br />smoking and <strong>risk of<br />esophageal cancer:"
+msgstr ""
+
+#: templates/dashboard/index.html:3844
+msgid "Typical risk"
+msgstr ""
+
+#: templates/dashboard/index.html:3855
+msgid "Substantially increased risk"
+msgstr ""
+
+#: templates/dashboard/index.html:3866
+msgid "Greatly increased risk"
+msgstr ""
+
+#: templates/dashboard/index.html:3895
+msgid ""
+"Oral contraceptives, <br />hormone replacement<br />therapy and risk of <br /"
+"><strong>venous <br />thromboembolism:"
+msgstr ""
+
+#: templates/dashboard/index.html:3907
+#, fuzzy
+msgid "Normal"
+msgstr "Normal"
+
+#: templates/dashboard/index.html:3918
+msgid "Reduced"
+msgstr ""
+
+#: templates/dashboard/index.html:3929
+msgid "Unable"
+msgstr ""
+
+#: templates/dashboard/index.html:3959
+msgid "HEALTH RISKS"
+msgstr ""
+
+#: templates/dashboard/index.html:3960
+msgid "Compare your <strong>risk</strong> with 23andme average population"
+msgstr "Comparará tu <strong>riesgo</strong> con el promedio de la población de 23andme"
+
+#: templates/dashboard/index.html:3987
+msgid "Breast Cancer"
+msgstr ""
+
+#: templates/dashboard/index.html:3999
+msgid "Celiac Disease"
+msgstr ""
+
+#: templates/dashboard/index.html:4011
+msgid "Venous Thromb."
+msgstr ""
+
+#: templates/dashboard/index.html:4023
+msgid "Melanoma"
+msgstr ""
+
+#: templates/dashboard/index.html:4035
+msgid "Coronary Heart Dis."
+msgstr ""
+
+#: templates/dashboard/index.html:4047
+msgid "Lung Cancer"
+msgstr ""
+
+#: templates/dashboard/index.html:4065
+msgid "The group where you belong according 23andme information"
+msgstr ""
+
+#: templates/dashboard/index.html:4066
+msgid "Other people  in the 23andme population"
+msgstr ""
 
 #: templates/data/download.html:39
 msgid "Datadonors Stats"
@@ -302,10 +929,6 @@ msgstr " ingreso manual"
 msgid "Complaints"
 msgstr "Dolencias"
 
-#: templates/data/download.html:152 templates/static/learn_more.html:264
-msgid "Blood Type"
-msgstr "Grupo Sanguineo"
-
 #: templates/data/download.html:163 templates/static/learn_more.html:267
 msgid "Emotions"
 msgstr "Emociones"
@@ -338,7 +961,7 @@ msgid ""
 "time. But does that really help anyone?"
 msgstr ""
 "Hoy en día usando Facebook, Twitter, Runkeeper, Fitbit u otras aplicaciones "
-"similares compartimos todo (nuestra información?) online. Haciendo esto  "
+"similares compartimos todo (nuestra información) online. Haciendo esto  "
 "ayudamos a alguien?"
 
 #: templates/landing_inc/about.html:27
@@ -438,14 +1061,6 @@ msgstr "COMPARÁ TUS DATOS  CON <br> OTROS DATADONORS"
 msgid "WE AGGREGATE <br />DONORS DATA"
 msgstr "TODOS LOS DATOS <br />SON AGREGADOS"
 
-#: templates/landing_inc/how_to_share.html:171
-msgid "Overall avg"
-msgstr "Promedio general"
-
-#: templates/landing_inc/how_to_share.html:177
-msgid "Your avg"
-msgstr "Tu promedio"
-
 #: templates/landing_inc/how_to_share.html:184
 msgid "SO YOU CAN SEE<br /> HOW TO COMPARE"
 msgstr "ASÍ PUEDES <br />COMPARARTE CON OTROS"
@@ -508,6 +1123,45 @@ msgstr ""
 "No solo podrás analizar e integrar en un solo lugar toda tu información, "
 "sino que además podrás compararte con otros."
 
+#: templates/popups/gender.include.html:9
+msgid "select your gender"
+msgstr "selecione su género"
+
+#: templates/popups/gender.include.html:11
+msgid "We didn't get it form your linked accounts"
+msgstr "No hemos podido obtenerlo de sus cuentas"
+
+#: templates/popups/gender.include.html:15
+msgid "female"
+msgstr "mujer"
+
+#: templates/popups/gender.include.html:16
+msgid "male"
+msgstr "hombre"
+
+#: templates/popups/login.include.html:19
+#: templates/wizard_inc/login.include.html:18
+msgid "Login"
+msgstr "Entrar"
+
+#: templates/popups/login.include.html:20
+#: templates/wizard_inc/login.include.html:19
+msgid "Welcome back"
+msgstr "Bienvenido"
+
+#: templates/popups/login.include.html:27
+msgid ""
+"Sorry, this account is not related to DataDonors.<br>Please, try another or "
+"<a href=\"wizard\" style=\"color: white\">create one</a>."
+msgstr ""
+"Lo siento, esta cuenta no esta relaciona a DataDonors.<br>Por favor, intente "
+"con otra o <a href=\"wizard\" style=\"color: white\">crea una</a>."
+
+#: templates/popups/login.include.html:29
+#: templates/wizard_inc/login.include.html:29
+msgid "use any of these services to login"
+msgstr "Use alguno de estos servicios para entrar"
+
 #: templates/static/contact.html:38
 msgid "CONTACT"
 msgstr "CONTACTO"
@@ -521,7 +1175,9 @@ msgid ""
 "Please contact us directly with any questions regarding DataDonors, our app "
 "or about working with\n"
 "\t\tus to help raise global health awareness."
-msgstr "Ante cualquier consulta de DataDonors, por favor comunicarse con nosotros directamente."
+msgstr ""
+"Ante cualquier consulta de DataDonors, por favor comunicarse con nosotros "
+"directamente."
 
 #: templates/static/contact.html:46
 msgid ""
@@ -552,9 +1208,13 @@ msgid ""
 "      Here we list the data from each app and device that at the moment we "
 "have access to:"
 msgstr ""
+"Cuando integras desde nuestro website cualquiera de los servicios "
+"(dispositivos y/o aplicaciones) DataDonors tendrá acceso a determinada "
+"información. Actualmente no se puede customizar que información se comparte, "
+"pero en un futuro cercano si será posible.<br> La información a donar es la "
+"siguiente:"
 
 #: templates/static/learn_more.html:44
-#, fuzzy
 msgid "Social Section"
 msgstr "Sección Social"
 
@@ -616,7 +1276,6 @@ msgid "Contacts count"
 msgstr "Número de contactos"
 
 #: templates/static/learn_more.html:97
-#, fuzzy
 msgid "Physical Section"
 msgstr "Sección Actividad Física"
 
@@ -646,9 +1305,8 @@ msgstr "Cantidad de calorías quemadas"
 
 #: templates/static/learn_more.html:115 templates/static/learn_more.html:130
 #: templates/static/learn_more.html:143 templates/static/learn_more.html:231
-#, fuzzy
 msgid "Location"
-msgstr "Población:"
+msgstr "Ubicación:"
 
 #: templates/static/learn_more.html:116 templates/static/learn_more.html:131
 #: templates/static/learn_more.html:189
@@ -702,7 +1360,6 @@ msgid "Coming soon"
 msgstr "Proximamente"
 
 #: templates/static/learn_more.html:198
-#, fuzzy
 msgid "Nutritional Section"
 msgstr "Sección Nutrición"
 
@@ -719,7 +1376,6 @@ msgid "Food Category"
 msgstr "Categoría de comida"
 
 #: templates/static/learn_more.html:218
-#, fuzzy
 msgid "Health Section"
 msgstr "Sección Salud"
 
@@ -728,7 +1384,6 @@ msgid "Chronic Conditions"
 msgstr "Condiciones médicas"
 
 #: templates/static/learn_more.html:273
-#, fuzzy
 msgid "Genomic Section"
 msgstr "Sección Genómica"
 
@@ -742,7 +1397,7 @@ msgstr "Riesgo a enfermedades"
 
 #: templates/static/mission.html:38
 msgid "OUR MISSION"
-msgstr ""
+msgstr "NUESTRA MISIÓN"
 
 #: templates/static/mission.html:41
 msgid ""
@@ -758,10 +1413,17 @@ msgid ""
 "tests, IQ tests, and even \n"
 "\t\tDNA information."
 msgstr ""
+"A través del programa DataDonors, Wikilife provee una plataforma que reúne y "
+"distribuye información relacionada a la salud, proporcionando a los "
+"individuos y a la comunidad científica acceso a una base de datos detallada "
+"de salud y estilo de vida. La base de datos incluye información sobre "
+"nutrición, actividad física, estados de ánimos, sueño, condiciones y "
+"tratamientos médicos, análisis clínicos, hasta inclusive información "
+"genética."
 
 #: templates/static/mission.html:48
 msgid "Our Vision"
-msgstr ""
+msgstr "Nuestra Visión"
 
 #: templates/static/mission.html:50
 msgid ""
@@ -777,10 +1439,19 @@ msgid ""
 "\t\tand ultimately yield a healthier global community thanks to the "
 "contribution of individual participants."
 msgstr ""
+"Poco a poco estamos empezando a entender cómo nuestros hábitos afectan la "
+"salud y el bien estar. DataDonors provee a la comunidad científica una base "
+"de datos que puede ser usada por investigadores, científicos y médicos de "
+"todo el mundo para ayudar a encontrar nuevas hipótesis relacionadas al bien "
+"estar. Esperamos colaborar con otras organizaciones y desarrolladores de "
+"software para ampliar nuestra comunidad de usuarios y para proveer nuevos "
+"descubrimientos. Este proyecto puede tener un impacto grande en la "
+"investigación de la salud y a largo plazo contribuir a que la población "
+"mundial tenga una vida más sana."
 
 #: templates/static/mission.html:59
 msgid "Reference Database"
-msgstr ""
+msgstr "Base de Datos"
 
 #: templates/static/mission.html:61
 msgid ""
@@ -797,10 +1468,19 @@ msgid ""
 "advancing research in health and lifestyle sciences are virtually\n"
 "\t\tlimitless."
 msgstr ""
+"DataDonors proporciona una base de datos extensa de información sobre salud "
+"y estilo de vida actualizada. El estilo de vida, los hábitos alimenticios, "
+"los antecedentes familiares y muchos otros factores contribuyen a la salud y "
+"el bienestar de los individuos. DataDonors proporciona un acceso ilimitado a "
+"datos de salud y estilo de vida global. Esta base es muy valiosa para la "
+"comunidad médica, investigadores, educadores, estudiantes, sociólogos, "
+"psicólogos, nutricionistas y cualquier otra persona con interés en el ámbito "
+"de la salud. Las posibilidades de avanzar en la investigación en ciencias de "
+"la salud y estilo de vida son prácticamente ilimitadas."
 
 #: templates/static/mission.html:71
 msgid "Platform For Research"
-msgstr ""
+msgstr "Plataforma Científica"
 
 #: templates/static/mission.html:73
 msgid ""
@@ -813,11 +1493,14 @@ msgid ""
 "\t\tprovides free, unlimited access to global health information in an "
 "intuitive, real-time platform."
 msgstr ""
+"La base de datos DataDonors es una plataforma de investigación muy valiosa "
+"para la comunidad científica, ya que provee a investigadores, grupos "
+"científicos y académicos acceso abierto y gratuito a una base de datos con "
+"información invaluable sobre salud y estilo de vida que crece constantemente."
 
 #: templates/static/mission.html:80
-#, fuzzy
 msgid "Open Data"
-msgstr "Datos"
+msgstr "Datos Abiertos"
 
 #: templates/static/mission.html:82
 msgid ""
@@ -830,6 +1513,12 @@ msgid ""
 "\t\tavailable to everyone and serves to further the health, well-being and "
 "education of the global community."
 msgstr ""
+"DataDonors proporciona acceso gratuito y abierto a su plataforma. Cualquier "
+"individuo puede exportar data agregada, estadísticas y estudios. Los "
+"usuarios con dispositivos que soportan el sistema operativo iOS son "
+"incentivados a usar la aplicación de Wikilife para la carga de datos. Esta "
+"información está disponible para todos y su objetivo principal es entender y "
+"promoveer la salud mundial."
 
 #: templates/static/support.html:38
 msgid "HELP KEEP DATADONORS FREE AND OPEN"
@@ -844,7 +1533,12 @@ msgid ""
 "principles: \n"
 "\t\twe believe in free, open-source, software and data that helps improve "
 "the lives of people around the globe."
-msgstr "No nos interesa hacer un negocio con DataDonors. Nuestro objetivo principal es ayudar a las personas a llevar una vida más saludable, feliz y productiva mediante el uso de la tecnología. Desde sus comienzos DataDonors se mantuvo comprometido a sus principios: ser una plataforma abierta y gratuita que ayude a mejorar la vida de las personas."
+msgstr ""
+"No nos interesa hacer un negocio con DataDonors. Nuestro objetivo principal "
+"es ayudar a las personas a llevar una vida más saludable, feliz y productiva "
+"mediante el uso de la tecnología. Desde sus comienzos DataDonors se mantuvo "
+"comprometido a sus principios: ser una plataforma abierta y gratuita que "
+"ayude a mejorar la vida de las personas."
 
 #: templates/static/support.html:46
 msgid ""
@@ -854,14 +1548,23 @@ msgid ""
 "\t\tThrough this technology, users are able to become conscious of\n"
 "\t\ttheir lifestyles, how it can impact their mental and physical health, "
 "and alternatively promote healthier living."
-msgstr "A principios del 2013 comenzó el desarrollo de la plataforma de DataDonors. La misma ya se encuentra en funcionamiento proporcionando a los individuos una perspectiva revolucionaria sobre la condición humana. A través de esta plataforma, los usuarios pueden tomar consciencia sobre cómo sus hábitos de vida y su genoma afectan su salud. Por otro lado, esta tecnología permite promover una vida más sana."
+msgstr ""
+"A principios del 2013 comenzó el desarrollo de la plataforma de DataDonors. "
+"La misma ya se encuentra en funcionamiento proporcionando a los individuos "
+"una perspectiva revolucionaria sobre la condición humana. A través de esta "
+"plataforma, los usuarios pueden tomar consciencia sobre cómo sus hábitos de "
+"vida y su genoma afectan su salud. Por otro lado, esta tecnología permite "
+"promover una vida más sana."
 
 #: templates/static/support.html:52
 msgid ""
 "We promise to never sell your lifestyle information or to bombard our users "
 "with advertising. But unfortunately, \n"
 "\t\tall organizations require revenue to sustain themselves."
-msgstr "Nunca venderemos tu información. Tampoco la usaremos con fines publicitarios. Sin embargo, todas las fundaciones requieren fondos para su sustento."
+msgstr ""
+"Nunca venderemos tu información. Tampoco la usaremos con fines "
+"publicitarios. Sin embargo, todas las fundaciones requieren fondos para su "
+"sustento."
 
 #: templates/static/support.html:56
 msgid ""
@@ -870,8 +1573,79 @@ msgid ""
 "individuals. \n"
 "\t\tFunds directly support our development, science and communication teams, "
 "as well as server upkeep."
-msgstr "DataDonors acepta donaciones provenientes de la comunidad científica, compañías farmacéuticas, laboratorios, universidades, fundaciones sin fines de lucro e individuos particulares. Los fondos nos permiten financiar el desarrollo y mantenimiento de DataDonors."
+msgstr ""
+"DataDonors acepta donaciones provenientes de la comunidad científica, "
+"compañías farmacéuticas, laboratorios, universidades, fundaciones sin fines "
+"de lucro e individuos particulares. Los fondos nos permiten financiar el "
+"desarrollo y mantenimiento de DataDonors."
 
 #: templates/static/support.html:60
 msgid "From all of us at DataDonors, thank you."
 msgstr "Desde ya muchas gracias, DataDonors."
+
+#: templates/wizard_inc/login.include.html:27
+msgid ""
+"Sorry, this account is not related to DataDonors.<br>Please, try another or "
+"<a href=\"/wizard\" style=\"color: white\">create one"
+msgstr ""
+"Lo siento, esta cuenta no esta relacionada con DataDonors.<br>Por favor, "
+"intenta con otra or <a href=\"/wizard\" style=\"color: white\">crea una"
+
+#: templates/wizard_inc/slide4.html:5
+msgid "LINK YOUR SOCIAL NETWORKS"
+msgstr "AGREGA TUS REDES SOCIALES"
+
+#: templates/wizard_inc/slide4.html:8
+msgid ""
+" We will never post on your behalf. All data is always shared anonymously. "
+"<a href=\"/learn-more/\" class=\"learnmore\">Learn more</a>"
+msgstr ""
+"Nunca postearemos sin tu consentimiento. Toda la informacion es compartida "
+"en forma anónima"
+
+#: templates/wizard_inc/slide4.html:51
+msgid "Send"
+msgstr "Enviar"
+
+#: templates/wizard_inc/slide4.html:59 templates/wizard_inc/slide5.html:83
+#: templates/wizard_inc/slide6.html:35 templates/wizard_inc/slide7.html:56
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/wizard_inc/slide5.html:5
+msgid "LINK YOUR FITNESS TRACKERS"
+msgstr "AGREGA TUS DISPOSITIVOS DE EJERCICIO"
+
+#: templates/wizard_inc/slide5.html:8
+msgid ""
+"Remember, your identity is protected and information is always shared "
+"anonymously. <a href=\"/learn-more/\" class=\"learnmore\">Learn more</a>"
+msgstr ""
+"Recuerda, tu identidad está  protegida y tu información es compartida en "
+"forma anónima. <a href=\"/learn-more/\" class=\"learnmore\">Más info</a>"
+
+#: templates/wizard_inc/slide5.html:81 templates/wizard_inc/slide6.html:33
+#: templates/wizard_inc/slide7.html:54 templates/wizard_inc/slide8.html:23
+msgid "Back"
+msgstr "Atrás"
+
+#: templates/wizard_inc/slide6.html:5
+msgid "LINK YOUR NUTRITION DATA"
+msgstr "AGREGA TUS DATOS DE NUTRICIÓN"
+
+#: templates/wizard_inc/slide6.html:8 templates/wizard_inc/slide7.html:8
+#: templates/wizard_inc/slide8.html:8
+msgid ""
+"All data is always shared anonymously. <a href=\"/learn-more/\" class="
+"\"learnmore\">Learn more</a>"
+msgstr ""
+"Toda la información es compartida en forma anónima. <a href=\"/learn-more/\" "
+"class=\"learnmore\">Más info</a>"
+
+#: templates/wizard_inc/slide7.html:5
+msgid "LINK YOUR HEALTH DEVICES"
+msgstr "AGREGA TUS DISPOSITIVOS DE SALUD"
+
+#: templates/wizard_inc/slide8.html:5
+msgid "LINK YOUR GENETIC REPORT"
+msgstr "AGREGA TU REPORTE DE GENÉTICA"

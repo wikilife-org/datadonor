@@ -1,10 +1,11 @@
+{% load i18n %}
 <div id="slide-4" class="slide" >
 
 <!-- <h2>How does it work?</h2> -->
-    <h3><br />LINK YOUR SOCIAL NETWORKS</h3>
+    <h3><br />{% blocktrans%}LINK YOUR SOCIAL NETWORKS{% endblocktrans%}</h3>
 
     <h4>
-        We will never post on your behalf. All data is always shared anonymously. <a href="/learn-more" class="learnmore">Learn more</a>
+       {% blocktrans%} We will never post on your behalf. All data is always shared anonymously. <a href="/learn-more/" class="learnmore">Learn more</a>{% endblocktrans%}
     </h4>
 
     <h4 class="wizard-tap">Click or tap to select</h4>
@@ -47,7 +48,7 @@
 
             <input type="text" class="form-input" id="mail" name="mail"  />
 
-            <a href="#" title="send" class="send">Send</a>
+            <a href="#" title="send" class="send">{% blocktrans%}Send{% endblocktrans%}</a>
 
 		</form>
 
@@ -55,7 +56,7 @@
 
     <div class="cont-next">
 
-	    <a href="#" class="next{% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated%}a{% endif%} nextAlone" {% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated%}data-reveal-id="wizard_error_container"{% endif%} title="next">Next</a>
+	    <a href="#" class="next{% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated%}a{% endif%} nextAlone" {% if "google"  not in social_auth.social.associated and "twitter"  not in social_auth.social.associated and "facebook"  not in social_auth.social.associated%}data-reveal-id="wizard_error_container"{% endif%} title="next">{% blocktrans%}Next{% endblocktrans%}</a>
 
     </div><!-- .cont-next -->
 

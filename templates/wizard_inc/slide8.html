@@ -1,11 +1,11 @@
-
+{% load i18n %}
 <div id="slide-8" class="slide" >
 
 <!-- <h2>How does it work?</h2> -->    
-    <h3><br />LINK YOUR GENETIC REPORT</h3>
+    <h3><br />{% blocktrans%}LINK YOUR GENETIC REPORT{% endblocktrans%}</h3>
     
     <h4>
-        All data is always shared anonymously. <a href="#" class="learnmore">Learn more</a>
+        {% blocktrans%}All data is always shared anonymously. <a href="/learn-more/" class="learnmore">Learn more</a>{% endblocktrans%}
     </h4>
 
     <div class="inner-redes">
@@ -20,8 +20,8 @@
     
     <div class="cont-next">
     
-	    <a href="#" class="back" title="Back">Back</a>
-	    <a href="{% if no_gender %}#{% else%}/end-wizard/{%endif%}" class="done" {% if no_gender %}data-reveal-id="gender_container"{% endif %} title="done">Done!</a>
+	    <a href="#" class="back" title="Back">{% blocktrans%}Back{% endblocktrans%}</a>
+	    <a href="{% if no_gender %}#{% else%}/end-wizard/{%endif%}" class="done" {% if no_gender %}data-reveal-id="gender_container"{% endif %} title="done">{% blocktrans%}Done!{% endblocktrans%}</a>
 
     
     </div><!-- .cont-next -->

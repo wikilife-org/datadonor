@@ -2,7 +2,44 @@
 {% load i18n %}
 <link rel="stylesheet" href="http://datadonors.org/static/css/header-landing.css" />
 <link rel="stylesheet" href="http://datadonors.org/static/css/reveal.css">
+<script type="text/javascript" src="http://datadonors.org/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" >
 
+$(function () {
+
+    $('.lan_es') .click(function (e)
+    {
+
+			e.preventDefault();
+			var content = $.post("{% url 'set_language' %}", {
+				"language" : "es",
+				"next" : "{{ redirect_to }}",
+				"csrfmiddlewaretoken" : "Cl1uRPuS7UrFKTsVaZaJ7ZECwlqplYz0"
+			}, function(text) {
+				document.open();
+				document.write(text);
+				document.close();
+			}).responseText;
+
+		});
+
+		$('.lan_en').click(function(e)     {
+
+			e.preventDefault();
+			var content = $.post("{% url 'set_language' %}", {
+				"language" : "en",
+				"next" : "{{ redirect_to }}",
+				"csrfmiddlewaretoken" : "Cl1uRPuS7UrFKTsVaZaJ7ZECwlqplYz0"
+			}, function(text) {
+				document.open();
+				document.write(text);
+				document.close();
+			}).responseText;
+
+		});
+
+	});
+</script>
 
 <div class="container-header">
     <header id="header">
@@ -21,7 +58,7 @@
                 <nav class="wiki-nav" id="">
                     
                     {% trans "by The Wikilife Foundation" %}
-                      <form action="{% url 'set_language' %}" method="post">
+                      <!-- form action="{% url 'set_language' %}" method="post">
 						{% csrf_token %}
 						<input name="next" type="hidden" value="{{ redirect_to }}" />
 						<select name="language">
@@ -33,7 +70,8 @@
 						{% endfor %}
 						</select>
 						<input type="submit" value="Go" />
-						</form>
+						</form-->
+						<a  class="lan_es" href="#">ES</a> | <a class="lan_en" href="#">EN</a>
                 </nav>
             </div>
             <div id="center-nav">
