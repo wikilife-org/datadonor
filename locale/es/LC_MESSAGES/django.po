@@ -133,7 +133,7 @@ msgstr "Entrar"
 #: templates/header.include.html:55
 #: templates/wizard_inc/header.include.html:38
 msgid "Start Sharing"
-msgstr "Empezá a donar"
+msgstr "Quiero a donar"
 
 #: templates/dashboard/index.html:6
 msgid "Dashboard "
@@ -971,7 +971,7 @@ msgid ""
 "sharing your information, you can help us to create an extensive database "
 "that can be used by researchers to improve health and eradicate illness."
 msgstr ""
-"En la mayoría de los casos, no. ¿Les gustaría salvar vidas compartiendo su "
+"En la mayoría de los casos, no. ¿Te gustaría salvar vidas compartiendo su "
 "información?. Ayúdanos a crear una gran base de datos contactando tus "
 "dispositivos móviles, aplicaciones y compartiendo tu información para que "
 "sea usada por científicos para entender nuestra salud y erradicar la "
@@ -1001,7 +1001,7 @@ msgstr ""
 
 #: templates/landing_inc/donate.html:43
 msgid "Donate"
-msgstr "Doná"
+msgstr "Quiero Donar"
 
 #: templates/landing_inc/donors.html:12
 msgid "DONATIONS SO FAR"
@@ -1109,7 +1109,7 @@ msgid ""
 "of global health."
 msgstr ""
 "El aporte de datos sobre salud y estilo de vida de cada persona es muy "
-"valiosa para entender la salud mundial."
+"valioso para entender la salud mundial."
 
 #: templates/landing_inc/what_for.html:72
 msgid "For <br />Yourself"
