@@ -14,11 +14,9 @@ $(function () {
 			var content = $.post("{% url 'set_language' %}", {
 				"language" : "es",
 				"next" : "{{ redirect_to }}",
-				"csrfmiddlewaretoken" : "Cl1uRPuS7UrFKTsVaZaJ7ZECwlqplYz0"
+				"csrfmiddlewaretoken" : '{{ csrf_token }}'
 			}, function(text) {
-				document.open();
-				document.write(text);
-				document.close();
+				location.reload();
 			}).responseText;
 
 		});
@@ -29,11 +27,9 @@ $(function () {
 			var content = $.post("{% url 'set_language' %}", {
 				"language" : "en",
 				"next" : "{{ redirect_to }}",
-				"csrfmiddlewaretoken" : "Cl1uRPuS7UrFKTsVaZaJ7ZECwlqplYz0"
+				"csrfmiddlewaretoken" : '{{ csrf_token }}'
 			}, function(text) {
-				document.open();
-				document.write(text);
-				document.close();
+				location.reload();
 			}).responseText;
 
 		});
