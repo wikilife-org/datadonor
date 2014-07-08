@@ -55,13 +55,15 @@ header #top {
 }
 
 #lan{
-	color: #8e929c;
+color: #8e929c;
     float: right;
     font-family: gothamultra;
     font-size: 11px;
-    margin-top: 17px;
+    margin-top: 13px;
     text-decoration: none;
-    width: 45px;
+    width: 63px;
+    cursor: pointer; 
+    cursor: hand; 
 }
 #lan a{
 	color: #8e929c;
