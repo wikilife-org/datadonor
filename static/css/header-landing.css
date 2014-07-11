@@ -62,6 +62,7 @@ header #top {
     margin-top: 12px;
     text-decoration: none;
     width: 65px;
+    cursor: pointer;
 }
 #lan a{
 	color: #8e929c;
