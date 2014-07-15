@@ -1,2502 +1,2504 @@
-complaints = [
+from django.utils.translation import ugettext_lazy as _
+
+complaints=[
     {
         "percentage": 0,
         "id": 3180,
-        "name": "Headache"
+        "name": _("Headache")
     },
     {
         "percentage": 0,
         "id": 2868,
-        "name": "Cough"
+        "name": _("Cough")
     },
     {
         "percentage": 0,
         "id": 3096,
-        "name": "Flu Like Symptoms"
+        "name": _("Flu Like Symptoms")
     },
     {
         "percentage": 0,
         "id": 2896,
-        "name": "Diarrhea"
+        "name": _("Diarrhea")
     },
     {
         "percentage": 0,
         "id": 3451,
-        "name": "Neck Pain"
+        "name": _("Neck Pain")
     },
     {
         "percentage": 0,
         "id": 3790,
-        "name": "Tiredness"
+        "name": _("Tiredness")
     },
     {
         "percentage": 0,
         "id": 2510,
-        "name": "Abdominal Pain"
+        "name": _("Abdominal Pain")
     },
     {
         "percentage": 0,
         "id": 3446,
-        "name": "Nausea"
+        "name": _("Nausea")
     },
     {
         "percentage": 0,
         "id": 3680,
-        "name": "Sore Throat"
+        "name": _("Sore Throat")
     },
     {
         "percentage": 0,
         "id": 2671,
-        "name": "Ankle Pain"
+        "name": _("Ankle Pain")
     },
     {
         "percentage": 0,
         "id": 2673,
-        "name": "Ankle Stiffness"
+        "name": _("Ankle Stiffness")
     },
     {
         "percentage": 0,
         "id": 3079,
-        "name": "Fever"
+        "name": _("Fever")
     },
     {
         "percentage": 0,
         "id": 2712,
-        "name": "Back Pain"
+        "name": _("Back Pain")
     },
     {
         "percentage": 0,
         "id": 3399,
-        "name": "Lumbago With Sciatica"
+        "name": _("Lumbago With Sciatica")
     },
     {
         "percentage": 0,
         "id": 3427,
-        "name": "Migraine"
+        "name": _("Migraine")
     },
     {
         "percentage": 0,
         "id": 3449,
-        "name": "Nausea And Vomiting"
+        "name": _("Nausea And Vomiting")
     },
     {
         "percentage": 0,
         "id": 3719,
-        "name": "Stomach Distention"
+        "name": _("Stomach Distention")
     },
     {
         "percentage": 0,
         "id": 2512,
-        "name": "Abdominal Rigidity"
+        "name": _("Abdominal Rigidity")
     },
     {
         "percentage": 0,
         "id": 2514,
-        "name": "Abdominal Tenderness"
+        "name": _("Abdominal Tenderness")
     },
     {
         "percentage": 0,
         "id": 2516,
-        "name": "Abnormal Belly Sounds"
+        "name": _("Abnormal Belly Sounds")
     },
     {
         "percentage": 0,
         "id": 2518,
-        "name": "Abnormal Breathing"
+        "name": _("Abnormal Breathing")
     },
     {
         "percentage": 0,
         "id": 2520,
-        "name": "Abnormal Head Movements"
+        "name": _("Abnormal Head Movements")
     },
     {
         "percentage": 0,
         "id": 2522,
-        "name": "Abnormal Heartbeat"
+        "name": _("Abnormal Heartbeat")
     },
     {
         "percentage": 0,
         "id": 2524,
-        "name": "Abnormal Involuntary Movements"
+        "name": _("Abnormal Involuntary Movements")
     },
     {
         "percentage": 0,
         "id": 2528,
-        "name": "Abnormal Reflex"
+        "name": _("Abnormal Reflex")
     },
     {
         "percentage": 0,
         "id": 2530,
-        "name": "Abnormal Sputum"
+        "name": _("Abnormal Sputum")
     },
     {
         "percentage": 0,
         "id": 2532,
-        "name": "Abnormal Stool Color"
+        "name": _("Abnormal Stool Color")
     },
     {
         "percentage": 0,
         "id": 2536,
-        "name": "Abnormal Tummy Sounds"
+        "name": _("Abnormal Tummy Sounds")
     },
     {
         "percentage": 0,
         "id": 2538,
-        "name": "Abnormal Weight Gain"
+        "name": _("Abnormal Weight Gain")
     },
     {
         "percentage": 0,
         "id": 2540,
-        "name": "Abnormal Weight Loss"
+        "name": _("Abnormal Weight Loss")
     },
     {
         "percentage": 0,
         "id": 2542,
-        "name": "Absence Of Skin Sensation"
+        "name": _("Absence Of Skin Sensation")
     },
     {
         "percentage": 0,
         "id": 2544,
-        "name": "Absence Of Sperm From The Semen"
+        "name": _("Absence Of Sperm From The Semen")
     },
     {
         "percentage": 0,
         "id": 2550,
-        "name": "Absence Of Urine"
+        "name": _("Absence Of Urine")
     },
     {
         "percentage": 0,
         "id": 2552,
-        "name": "Absent Belly Sounds"
+        "name": _("Absent Belly Sounds")
     },
     {
         "percentage": 0,
         "id": 2554,
-        "name": "Absent Bowel Sounds"
+        "name": _("Absent Bowel Sounds")
     },
     {
         "percentage": 0,
         "id": 2556,
-        "name": "Absent Tummy Sounds"
+        "name": _("Absent Tummy Sounds")
     },
     {
         "percentage": 0,
         "id": 2562,
-        "name": "Acute Abdomen"
+        "name": _("Acute Abdomen")
     },
     {
         "percentage": 0,
         "id": 2564,
-        "name": "Acute Inflammation Of Lymph Nodes"
+        "name": _("Acute Inflammation Of Lymph Nodes")
     },
     {
         "percentage": 0,
         "id": 2567,
-        "name": "Acute Inflammation Of Lymph Nodes In Face"
+        "name": _("Acute Inflammation Of Lymph Nodes In Face")
     },
     {
         "percentage": 0,
         "id": 2570,
-        "name": "Acute Inflammation Of Lymph Nodes Of Axilla"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Axilla")
     },
     {
         "percentage": 0,
         "id": 2573,
-        "name": "Acute Inflammation Of Lymph Nodes Of Genital Area"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Genital Area")
     },
     {
         "percentage": 0,
         "id": 2576,
-        "name": "Acute Inflammation Of Lymph Nodes Of Groin"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Groin")
     },
     {
         "percentage": 0,
         "id": 2579,
-        "name": "Acute Inflammation Of Lymph Nodes Of Head"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Head")
     },
     {
         "percentage": 0,
         "id": 2582,
-        "name": "Acute Inflammation Of Lymph Nodes Of Hip"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Hip")
     },
     {
         "percentage": 0,
         "id": 2585,
-        "name": "Acute Inflammation Of Lymph Nodes Of Lower Limb"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Lower Limb")
     },
     {
         "percentage": 0,
         "id": 2588,
-        "name": "Acute Inflammation Of Lymph Nodes Of Neck"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Neck")
     },
     {
         "percentage": 0,
         "id": 2591,
-        "name": "Acute Inflammation Of Lymph Nodes Of Other Sites"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Other Sites")
     },
     {
         "percentage": 0,
         "id": 2594,
-        "name": "Acute Inflammation Of Lymph Nodes Of Perineum"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Perineum")
     },
     {
         "percentage": 0,
         "id": 2597,
-        "name": "Acute Inflammation Of Lymph Nodes Of Shoulder"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Shoulder")
     },
     {
         "percentage": 0,
         "id": 2600,
-        "name": "Acute Inflammation Of Lymph Nodes Of Trunk"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Trunk")
     },
     {
         "percentage": 0,
         "id": 2603,
-        "name": "Acute Inflammation Of Lymph Nodes Of Upper Limb"
+        "name": _("Acute Inflammation Of Lymph Nodes Of Upper Limb")
     },
     {
         "percentage": 0,
         "id": 2606,
-        "name": "Acute Inflammation Of Vagina"
+        "name": _("Acute Inflammation Of Vagina")
     },
     {
         "percentage": 0,
         "id": 2608,
-        "name": "Acute Lymphadenitis"
+        "name": _("Acute Lymphadenitis")
     },
     {
         "percentage": 0,
         "id": 2611,
-        "name": "Acute Lymphadenitis Of Axilla"
+        "name": _("Acute Lymphadenitis Of Axilla")
     },
     {
         "percentage": 0,
         "id": 2614,
-        "name": "Acute Lymphadenitis Of Face"
+        "name": _("Acute Lymphadenitis Of Face")
     },
     {
         "percentage": 0,
         "id": 2617,
-        "name": "Acute Lymphadenitis Of Genital Area"
+        "name": _("Acute Lymphadenitis Of Genital Area")
     },
     {
         "percentage": 0,
         "id": 2620,
-        "name": "Acute Lymphadenitis Of Groin"
+        "name": _("Acute Lymphadenitis Of Groin")
     },
     {
         "percentage": 0,
         "id": 2623,
-        "name": "Acute Lymphadenitis Of Head"
+        "name": _("Acute Lymphadenitis Of Head")
     },
     {
         "percentage": 0,
         "id": 2626,
-        "name": "Acute Lymphadenitis Of Hip"
+        "name": _("Acute Lymphadenitis Of Hip")
     },
     {
         "percentage": 0,
         "id": 2629,
-        "name": "Acute Lymphadenitis Of Lower Limb"
+        "name": _("Acute Lymphadenitis Of Lower Limb")
     },
     {
         "percentage": 0,
         "id": 2632,
-        "name": "Acute Lymphadenitis Of Neck"
+        "name": _("Acute Lymphadenitis Of Neck")
     },
     {
         "percentage": 0,
         "id": 2635,
-        "name": "Acute Lymphadenitis Of Other Sites"
+        "name": _("Acute Lymphadenitis Of Other Sites")
     },
     {
         "percentage": 0,
         "id": 2638,
-        "name": "Acute Lymphadenitis Of Perineum"
+        "name": _("Acute Lymphadenitis Of Perineum")
     },
     {
         "percentage": 0,
         "id": 2641,
-        "name": "Acute Lymphadenitis Of Shoulder"
+        "name": _("Acute Lymphadenitis Of Shoulder")
     },
     {
         "percentage": 0,
         "id": 2644,
-        "name": "Acute Lymphadenitis Of Trunk"
+        "name": _("Acute Lymphadenitis Of Trunk")
     },
     {
         "percentage": 0,
         "id": 2647,
-        "name": "Acute Lymphadenitis Of Upper Limb"
+        "name": _("Acute Lymphadenitis Of Upper Limb")
     },
     {
         "percentage": 0,
         "id": 2650,
-        "name": "Acute Pain"
+        "name": _("Acute Pain")
     },
     {
         "percentage": 0,
         "id": 2652,
-        "name": "Acute Vaginitis"
+        "name": _("Acute Vaginitis")
     },
     {
         "percentage": 0,
         "id": 2654,
-        "name": "Acute Vulvovaginitis"
+        "name": _("Acute Vulvovaginitis")
     },
     {
         "percentage": 0,
         "id": 2656,
-        "name": "Adherent Prepuce"
+        "name": _("Adherent Prepuce")
     },
     {
         "percentage": 0,
         "id": 2675,
-        "name": "Anogenital Herpesviral Infection"
+        "name": _("Anogenital Herpesviral Infection")
     },
     {
         "percentage": 0,
         "id": 2678,
-        "name": "Anogenital Warts"
+        "name": _("Anogenital Warts")
     },
     {
         "percentage": 0,
         "id": 2680,
-        "name": "Anorexia"
+        "name": _("Anorexia")
     },
     {
         "percentage": 0,
         "id": 2682,
-        "name": "Anterior Chest  Wall Pain"
+        "name": _("Anterior Chest  Wall Pain")
     },
     {
         "percentage": 0,
         "id": 2684,
-        "name": "Anuria"
+        "name": _("Anuria")
     },
     {
         "percentage": 0,
         "id": 2686,
-        "name": "Aphasia"
+        "name": _("Aphasia")
     },
     {
         "percentage": 0,
         "id": 2691,
-        "name": "Apraxia"
+        "name": _("Apraxia")
     },
     {
         "percentage": 0,
         "id": 2694,
-        "name": "Arm Pain"
+        "name": _("Arm Pain")
     },
     {
         "percentage": 0,
         "id": 2696,
-        "name": "Ascites"
+        "name": _("Ascites")
     },
     {
         "percentage": 0,
         "id": 2700,
-        "name": "Asthenia"
+        "name": _("Asthenia")
     },
     {
         "percentage": 0,
         "id": 2702,
-        "name": "Ataxia"
+        "name": _("Ataxia")
     },
     {
         "percentage": 0,
         "id": 2706,
-        "name": "Awareness Of Heartbeat"
+        "name": _("Awareness Of Heartbeat")
     },
     {
         "percentage": 0,
         "id": 2708,
-        "name": "Axillary Temperature"
+        "name": _("Axillary Temperature")
     },
     {
         "percentage": 0,
         "id": 2710,
-        "name": "Azoospermia"
+        "name": _("Azoospermia")
     },
     {
         "percentage": 0,
         "id": 2714,
-        "name": "Backache"
+        "name": _("Backache")
     },
     {
         "percentage": 0,
         "id": 2716,
-        "name": "Bad Belly With Rigidity"
+        "name": _("Bad Belly With Rigidity")
     },
     {
         "percentage": 0,
         "id": 2718,
-        "name": "Bad Breath"
+        "name": _("Bad Breath")
     },
     {
         "percentage": 0,
         "id": 2720,
-        "name": "Bedfast"
+        "name": _("Bedfast")
     },
     {
         "percentage": 0,
         "id": 2722,
-        "name": "Bedridden"
+        "name": _("Bedridden")
     },
     {
         "percentage": 0,
         "id": 2724,
-        "name": "Belching"
+        "name": _("Belching")
     },
     {
         "percentage": 0,
         "id": 2726,
-        "name": "Belly Distention"
+        "name": _("Belly Distention")
     },
     {
         "percentage": 0,
         "id": 2728,
-        "name": "Belly Pain"
+        "name": _("Belly Pain")
     },
     {
         "percentage": 0,
         "id": 2730,
-        "name": "Belly Tenderness"
+        "name": _("Belly Tenderness")
     },
     {
         "percentage": 0,
         "id": 2732,
-        "name": "Black Stool"
+        "name": _("Black Stool")
     },
     {
         "percentage": 0,
         "id": 2734,
-        "name": "Blackout"
+        "name": _("Blackout")
     },
     {
         "percentage": 0,
         "id": 2736,
-        "name": "Bleeding"
+        "name": _("Bleeding")
     },
     {
         "percentage": 0,
         "id": 2740,
-        "name": "Bloating"
+        "name": _("Bloating")
     },
     {
         "percentage": 0,
         "id": 2742,
-        "name": "Blood In Spit"
+        "name": _("Blood In Spit")
     },
     {
         "percentage": 0,
         "id": 2744,
-        "name": "Blood In Stool"
+        "name": _("Blood In Stool")
     },
     {
         "percentage": 0,
         "id": 2746,
-        "name": "Blood Stained Sputum"
+        "name": _("Blood Stained Sputum")
     },
     {
         "percentage": 0,
         "id": 2748,
-        "name": "Blood Stained Vomit"
+        "name": _("Blood Stained Vomit")
     },
     {
         "percentage": 0,
         "id": 2750,
-        "name": "Bloody Urine"
+        "name": _("Bloody Urine")
     },
     {
         "percentage": 0,
         "id": 2752,
-        "name": "Blue Colored Skin"
+        "name": _("Blue Colored Skin")
     },
     {
         "percentage": 0,
         "id": 2760,
-        "name": "Boogers"
+        "name": _("Boogers")
     },
     {
         "percentage": 0,
         "id": 2762,
-        "name": "Bradycardia"
+        "name": _("Bradycardia")
     },
     {
         "percentage": 0,
         "id": 2764,
-        "name": "Breast Abscess"
+        "name": _("Breast Abscess")
     },
     {
         "percentage": 0,
         "id": 2767,
-        "name": "Breast Inflammation"
+        "name": _("Breast Inflammation")
     },
     {
         "percentage": 0,
         "id": 2770,
-        "name": "Breast Pain"
+        "name": _("Breast Pain")
     },
     {
         "percentage": 0,
         "id": 2780,
-        "name": "Burning Stomach"
+        "name": _("Burning Stomach")
     },
     {
         "percentage": 0,
         "id": 2782,
-        "name": "Candidal Vaginitis"
+        "name": _("Candidal Vaginitis")
     },
     {
         "percentage": 0,
         "id": 2784,
-        "name": "Candidal Vulvitis"
+        "name": _("Candidal Vulvitis")
     },
     {
         "percentage": 0,
         "id": 2786,
-        "name": "Candidal Vulvovaginitis"
+        "name": _("Candidal Vulvovaginitis")
     },
     {
         "percentage": 0,
         "id": 2788,
-        "name": "Candidiasis Of Vagina"
+        "name": _("Candidiasis Of Vagina")
     },
     {
         "percentage": 0,
         "id": 2790,
-        "name": "Candidiasis Of Vulva"
+        "name": _("Candidiasis Of Vulva")
     },
     {
         "percentage": 0,
         "id": 2792,
-        "name": "Cannot See Well"
+        "name": _("Cannot See Well")
     },
     {
         "percentage": 0,
         "id": 2796,
-        "name": "Cardiac Murmur"
+        "name": _("Cardiac Murmur")
     },
     {
         "percentage": 0,
         "id": 2799,
-        "name": "Cardiac Sound"
+        "name": _("Cardiac Sound")
     },
     {
         "percentage": 0,
         "id": 2804,
-        "name": "Cervicalgia"
+        "name": _("Cervicalgia")
     },
     {
         "percentage": 0,
         "id": 2806,
-        "name": "Chairbound"
+        "name": _("Chairbound")
     },
     {
         "percentage": 0,
         "id": 2808,
-        "name": "Chairfast"
+        "name": _("Chairfast")
     },
     {
         "percentage": 0,
         "id": 2810,
-        "name": "Change In Bowel Habit"
+        "name": _("Change In Bowel Habit")
     },
     {
         "percentage": 0,
         "id": 2812,
-        "name": "Change In Voice"
+        "name": _("Change In Voice")
     },
     {
         "percentage": 0,
         "id": 2818,
-        "name": "Chest Pain"
+        "name": _("Chest Pain")
     },
     {
         "percentage": 0,
         "id": 2820,
-        "name": "Chest Pain While Breathing"
+        "name": _("Chest Pain While Breathing")
     },
     {
         "percentage": 0,
         "id": 2824,
-        "name": "Choking Sensation"
+        "name": _("Choking Sensation")
     },
     {
         "percentage": 0,
         "id": 2826,
-        "name": "Chronic Inflammation Of Lymph Nodes"
+        "name": _("Chronic Inflammation Of Lymph Nodes")
     },
     {
         "percentage": 0,
         "id": 2833,
-        "name": "Chronic Pain"
+        "name": _("Chronic Pain")
     },
     {
         "percentage": 0,
         "id": 2838,
-        "name": "Clammy Skin"
+        "name": _("Clammy Skin")
     },
     {
         "percentage": 0,
         "id": 2841,
-        "name": "Clicking Hip"
+        "name": _("Clicking Hip")
     },
     {
         "percentage": 0,
         "id": 2847,
-        "name": "Coffee Ground Like Vomit"
+        "name": _("Coffee Ground Like Vomit")
     },
     {
         "percentage": 0,
         "id": 2851,
-        "name": "Colic"
+        "name": _("Colic")
     },
     {
         "percentage": 0,
         "id": 2857,
-        "name": "Constipation"
+        "name": _("Constipation")
     },
     {
         "percentage": 0,
         "id": 2859,
-        "name": "Constriction Of The Orifice Of The Foreskin"
+        "name": _("Constriction Of The Orifice Of The Foreskin")
     },
     {
         "percentage": 0,
         "id": 2861,
-        "name": "Constriction Of The Orifice Of The Prepuce"
+        "name": _("Constriction Of The Orifice Of The Prepuce")
     },
     {
         "percentage": 0,
         "id": 2863,
-        "name": "Convulsions"
+        "name": _("Convulsions")
     },
     {
         "percentage": 0,
         "id": 2871,
-        "name": "Cough With Blood"
+        "name": _("Cough With Blood")
     },
     {
         "percentage": 0,
         "id": 2873,
-        "name": "Cramp And Spasm"
+        "name": _("Cramp And Spasm")
     },
     {
         "percentage": 0,
         "id": 2875,
-        "name": "Cyanosis"
+        "name": _("Cyanosis")
     },
     {
         "percentage": 0,
         "id": 2880,
-        "name": "Decrease in appetite"
+        "name": _("Decrease in appetite")
     },
     {
         "percentage": 0,
         "id": 2882,
-        "name": "Decreased Skin Sensation"
+        "name": _("Decreased Skin Sensation")
     },
     {
         "percentage": 0,
         "id": 2884,
-        "name": "Deficiency Of Sperm In The Semen"
+        "name": _("Deficiency Of Sperm In The Semen")
     },
     {
         "percentage": 0,
         "id": 2888,
-        "name": "Delay or absence of orgasm following a normal sexual excitement phase"
+        "name": _("Delay or absence of orgasm following a normal sexual excitement phase")
     },
     {
         "percentage": 0,
         "id": 2894,
-        "name": "Desquamation Of Skin"
+        "name": _("Desquamation Of Skin")
     },
     {
         "percentage": 0,
         "id": 2902,
-        "name": "Difficulty In Reading"
+        "name": _("Difficulty In Reading")
     },
     {
         "percentage": 0,
         "id": 2904,
-        "name": "Difficulty In Walking"
+        "name": _("Difficulty In Walking")
     },
     {
         "percentage": 0,
         "id": 2906,
-        "name": "Difficulty Initiating Urination"
+        "name": _("Difficulty Initiating Urination")
     },
     {
         "percentage": 0,
         "id": 2908,
-        "name": "Difficulty To Express By Speech"
+        "name": _("Difficulty To Express By Speech")
     },
     {
         "percentage": 0,
         "id": 2910,
-        "name": "Difficulty To Express By Speech And Writing"
+        "name": _("Difficulty To Express By Speech And Writing")
     },
     {
         "percentage": 0,
         "id": 2912,
-        "name": "Difficulty To Express By Writing"
+        "name": _("Difficulty To Express By Writing")
     },
     {
         "percentage": 0,
         "id": 2914,
-        "name": "Difficulty Understanding Spoken And Written Language"
+        "name": _("Difficulty Understanding Spoken And Written Language")
     },
     {
         "percentage": 0,
         "id": 2916,
-        "name": "Difficulty Understanding Spoken Language"
+        "name": _("Difficulty Understanding Spoken Language")
     },
     {
         "percentage": 0,
         "id": 2918,
-        "name": "Difficulty Understanding Written Language"
+        "name": _("Difficulty Understanding Written Language")
     },
     {
         "percentage": 0,
         "id": 2920,
-        "name": "Difficulty understanding sentences"
+        "name": _("Difficulty understanding sentences")
     },
     {
         "percentage": 0,
         "id": 2922,
-        "name": "Difficulty understanding words"
+        "name": _("Difficulty understanding words")
     },
     {
         "percentage": 0,
         "id": 2924,
-        "name": "Diminished Urine Volume"
+        "name": _("Diminished Urine Volume")
     },
     {
         "percentage": 0,
         "id": 2926,
-        "name": "Distension"
+        "name": _("Distension")
     },
     {
         "percentage": 0,
         "id": 2928,
-        "name": "Dorsalgia"
+        "name": _("Dorsalgia")
     },
     {
         "percentage": 0,
         "id": 2930,
-        "name": "Dry Mouth"
+        "name": _("Dry Mouth")
     },
     {
         "percentage": 0,
         "id": 2932,
-        "name": "Dysarthria"
+        "name": _("Dysarthria")
     },
     {
         "percentage": 0,
         "id": 2934,
-        "name": "Dyslexia"
+        "name": _("Dyslexia")
     },
     {
         "percentage": 0,
         "id": 2936,
-        "name": "Dyspareunia"
+        "name": _("Dyspareunia")
     },
     {
         "percentage": 0,
         "id": 2938,
-        "name": "Dyspepsia"
+        "name": _("Dyspepsia")
     },
     {
         "percentage": 0,
         "id": 2940,
-        "name": "Dysphagia"
+        "name": _("Dysphagia")
     },
     {
         "percentage": 0,
         "id": 2942,
-        "name": "Dysphasia"
+        "name": _("Dysphasia")
     },
     {
         "percentage": 0,
         "id": 2944,
-        "name": "Dysphonia"
+        "name": _("Dysphonia")
     },
     {
         "percentage": 0,
         "id": 2946,
-        "name": "Dyspnoea"
+        "name": _("Dyspnoea")
     },
     {
         "percentage": 0,
         "id": 2948,
-        "name": "Dysuria"
+        "name": _("Dysuria")
     },
     {
         "percentage": 0,
         "id": 2950,
-        "name": "Ear Discharge"
+        "name": _("Ear Discharge")
     },
     {
         "percentage": 0,
         "id": 2953,
-        "name": "Earache"
+        "name": _("Earache")
     },
     {
         "percentage": 0,
         "id": 2962,
-        "name": "Edema"
+        "name": _("Edema")
     },
     {
         "percentage": 0,
         "id": 2964,
-        "name": "Elbow Pain"
+        "name": _("Elbow Pain")
     },
     {
         "percentage": 0,
         "id": 2966,
-        "name": "Elbow Stiffness"
+        "name": _("Elbow Stiffness")
     },
     {
         "percentage": 0,
         "id": 2968,
-        "name": "Elevated Blood Pressure"
+        "name": _("Elevated Blood Pressure")
     },
     {
         "percentage": 0,
         "id": 2973,
-        "name": "Enlarged Liver"
+        "name": _("Enlarged Liver")
     },
     {
         "percentage": 0,
         "id": 2975,
-        "name": "Enlarged Liver And Spleen"
+        "name": _("Enlarged Liver And Spleen")
     },
     {
         "percentage": 0,
         "id": 2977,
-        "name": "Enlarged Lymph Nodes"
+        "name": _("Enlarged Lymph Nodes")
     },
     {
         "percentage": 0,
         "id": 2980,
-        "name": "Enlarged Prostate"
+        "name": _("Enlarged Prostate")
     },
     {
         "percentage": 0,
         "id": 2982,
-        "name": "Enlarged Spleen"
+        "name": _("Enlarged Spleen")
     },
     {
         "percentage": 0,
         "id": 2984,
-        "name": "Enuresis"
+        "name": _("Enuresis")
     },
     {
         "percentage": 0,
         "id": 2987,
-        "name": "Epididymitis"
+        "name": _("Epididymitis")
     },
     {
         "percentage": 0,
         "id": 2990,
-        "name": "Epigastric Pain"
+        "name": _("Epigastric Pain")
     },
     {
         "percentage": 0,
         "id": 2992,
-        "name": "Epistaxis"
+        "name": _("Epistaxis")
     },
     {
         "percentage": 0,
         "id": 2998,
-        "name": "Eructation"
+        "name": _("Eructation")
     },
     {
         "percentage": 0,
         "id": 3004,
-        "name": "Excessive Eating"
+        "name": _("Excessive Eating")
     },
     {
         "percentage": 0,
         "id": 3010,
-        "name": "Excessive Sweating"
+        "name": _("Excessive Sweating")
     },
     {
         "percentage": 0,
         "id": 3012,
-        "name": "Excessive Thirst"
+        "name": _("Excessive Thirst")
     },
     {
         "percentage": 0,
         "id": 3036,
-        "name": "Facial Pain"
+        "name": _("Facial Pain")
     },
     {
         "percentage": 0,
         "id": 3040,
-        "name": "Faecal Incontinence"
+        "name": _("Faecal Incontinence")
     },
     {
         "percentage": 0,
         "id": 3044,
-        "name": "Failure To Gain Weight"
+        "name": _("Failure To Gain Weight")
     },
     {
         "percentage": 0,
         "id": 3049,
-        "name": "Failure to eat adequately"
+        "name": _("Failure to eat adequately")
     },
     {
         "percentage": 0,
         "id": 3060,
-        "name": "Fainting"
+        "name": _("Fainting")
     },
     {
         "percentage": 0,
         "id": 3064,
-        "name": "Fatigue"
+        "name": _("Fatigue")
     },
     {
         "percentage": 0,
         "id": 3066,
-        "name": "Febrile Convulsions"
+        "name": _("Febrile Convulsions")
     },
     {
         "percentage": 0,
         "id": 3069,
-        "name": "Febrile Seizures"
+        "name": _("Febrile Seizures")
     },
     {
         "percentage": 0,
         "id": 3074,
-        "name": "Feeding Difficulties"
+        "name": _("Feeding Difficulties")
     },
     {
         "percentage": 0,
         "id": 3076,
-        "name": "Feeding disturbance"
+        "name": _("Feeding disturbance")
     },
     {
         "percentage": 0,
         "id": 3081,
-        "name": "Fever - Axillary Temperature"
+        "name": _("Fever - Axillary Temperature")
     },
     {
         "percentage": 0,
         "id": 3083,
-        "name": "Fever - Oral Temperature"
+        "name": _("Fever - Oral Temperature")
     },
     {
         "percentage": 0,
         "id": 3085,
-        "name": "Fever With Chills"
+        "name": _("Fever With Chills")
     },
     {
         "percentage": 0,
         "id": 3087,
-        "name": "Fever With Rigors"
+        "name": _("Fever With Rigors")
     },
     {
         "percentage": 0,
         "id": 3089,
-        "name": "Fewer Sperm Than Normal"
+        "name": _("Fewer Sperm Than Normal")
     },
     {
         "percentage": 0,
         "id": 3094,
-        "name": "Fit"
+        "name": _("Fit")
     },
     {
         "percentage": 0,
         "id": 3098,
-        "name": "Fluid Filled Sack In The Scrotum"
+        "name": _("Fluid Filled Sack In The Scrotum")
     },
     {
         "percentage": 0,
         "id": 3109,
-        "name": "Fluid Retention"
+        "name": _("Fluid Retention")
     },
     {
         "percentage": 0,
         "id": 3111,
-        "name": "Flushing"
+        "name": _("Flushing")
     },
     {
         "percentage": 0,
         "id": 3113,
-        "name": "Foot Pain"
+        "name": _("Foot Pain")
     },
     {
         "percentage": 0,
         "id": 3115,
-        "name": "Foot Stiffness"
+        "name": _("Foot Stiffness")
     },
     {
         "percentage": 0,
         "id": 3121,
-        "name": "Functional Diarrhea"
+        "name": _("Functional Diarrhea")
     },
     {
         "percentage": 0,
         "id": 3128,
-        "name": "General Physical Deterioration"
+        "name": _("General Physical Deterioration")
     },
     {
         "percentage": 0,
         "id": 3130,
-        "name": "Generalized Edema"
+        "name": _("Generalized Edema")
     },
     {
         "percentage": 0,
         "id": 3132,
-        "name": "Generalized Enlarged Lymph Nodes"
+        "name": _("Generalized Enlarged Lymph Nodes")
     },
     {
         "percentage": 0,
         "id": 3135,
-        "name": "Generalized Excessive Sweating"
+        "name": _("Generalized Excessive Sweating")
     },
     {
         "percentage": 0,
         "id": 3137,
-        "name": "Generalized Fluid Retention"
+        "name": _("Generalized Fluid Retention")
     },
     {
         "percentage": 0,
         "id": 3139,
-        "name": "Generalized Hyperhidrosis"
+        "name": _("Generalized Hyperhidrosis")
     },
     {
         "percentage": 0,
         "id": 3141,
-        "name": "Generalized Lymphadenopathy"
+        "name": _("Generalized Lymphadenopathy")
     },
     {
         "percentage": 0,
         "id": 3146,
-        "name": "Generalized Pain"
+        "name": _("Generalized Pain")
     },
     {
         "percentage": 0,
         "id": 3148,
-        "name": "Genital Candidiasis"
+        "name": _("Genital Candidiasis")
     },
     {
         "percentage": 0,
         "id": 3150,
-        "name": "Genital Herpes"
+        "name": _("Genital Herpes")
     },
     {
         "percentage": 0,
         "id": 3153,
-        "name": "Genital Lesion"
+        "name": _("Genital Lesion")
     },
     {
         "percentage": 0,
         "id": 3155,
-        "name": "Genital Pain"
+        "name": _("Genital Pain")
     },
     {
         "percentage": 0,
         "id": 3157,
-        "name": "Genital Ulceration"
+        "name": _("Genital Ulceration")
     },
     {
         "percentage": 0,
         "id": 3160,
-        "name": "Genital Verruca"
+        "name": _("Genital Verruca")
     },
     {
         "percentage": 0,
         "id": 3162,
-        "name": "Genital Warts"
+        "name": _("Genital Warts")
     },
     {
         "percentage": 0,
         "id": 3164,
-        "name": "Glossodynia"
+        "name": _("Glossodynia")
     },
     {
         "percentage": 0,
         "id": 3170,
-        "name": "Haemoptysis"
+        "name": _("Haemoptysis")
     },
     {
         "percentage": 0,
         "id": 3174,
-        "name": "Halitosis"
+        "name": _("Halitosis")
     },
     {
         "percentage": 0,
         "id": 3176,
-        "name": "Hand Pain"
+        "name": _("Hand Pain")
     },
     {
         "percentage": 0,
         "id": 3178,
-        "name": "Hand Stiffness"
+        "name": _("Hand Stiffness")
     },
     {
         "percentage": 0,
         "id": 3182,
-        "name": "Hearing loss"
+        "name": _("Hearing loss")
     },
     {
         "percentage": 0,
         "id": 3185,
-        "name": "Heartburn"
+        "name": _("Heartburn")
     },
     {
         "percentage": 0,
         "id": 3187,
-        "name": "Hematemesis"
+        "name": _("Hematemesis")
     },
     {
         "percentage": 0,
         "id": 3189,
-        "name": "Hematuria"
+        "name": _("Hematuria")
     },
     {
         "percentage": 0,
         "id": 3191,
-        "name": "Hemorrhage"
+        "name": _("Hemorrhage")
     },
     {
         "percentage": 0,
         "id": 3193,
-        "name": "Hepatomegaly"
+        "name": _("Hepatomegaly")
     },
     {
         "percentage": 0,
         "id": 3195,
-        "name": "Hepatosplenomegaly"
+        "name": _("Hepatosplenomegaly")
     },
     {
         "percentage": 0,
         "id": 3197,
-        "name": "Herpes Surrounding The Anus"
+        "name": _("Herpes Surrounding The Anus")
     },
     {
         "percentage": 0,
         "id": 3200,
-        "name": "Herpesviral Infection Of Genitalia"
+        "name": _("Herpesviral Infection Of Genitalia")
     },
     {
         "percentage": 0,
         "id": 3203,
-        "name": "Herpesviral Infection Of Private Parts"
+        "name": _("Herpesviral Infection Of Private Parts")
     },
     {
         "percentage": 0,
         "id": 3206,
-        "name": "Herpesviral Infection Of Testicles"
+        "name": _("Herpesviral Infection Of Testicles")
     },
     {
         "percentage": 0,
         "id": 3209,
-        "name": "Herpesviral Infection Of Vulva"
+        "name": _("Herpesviral Infection Of Vulva")
     },
     {
         "percentage": 0,
         "id": 3212,
-        "name": "Hesitancy Of Urination"
+        "name": _("Hesitancy Of Urination")
     },
     {
         "percentage": 0,
         "id": 3214,
-        "name": "Hiccough"
+        "name": _("Hiccough")
     },
     {
         "percentage": 0,
         "id": 3216,
-        "name": "Hiccup"
+        "name": _("Hiccup")
     },
     {
         "percentage": 0,
         "id": 3218,
-        "name": "Hip Pain"
+        "name": _("Hip Pain")
     },
     {
         "percentage": 0,
         "id": 3220,
-        "name": "Hip Stiffness"
+        "name": _("Hip Stiffness")
     },
     {
         "percentage": 0,
         "id": 3222,
-        "name": "Hoarseness"
+        "name": _("Hoarseness")
     },
     {
         "percentage": 0,
         "id": 3224,
-        "name": "Hydrocele"
+        "name": _("Hydrocele")
     },
     {
         "percentage": 0,
         "id": 3226,
-        "name": "Hyperactive Belly Sounds"
+        "name": _("Hyperactive Belly Sounds")
     },
     {
         "percentage": 0,
         "id": 3228,
-        "name": "Hyperactive Bowel Sounds"
+        "name": _("Hyperactive Bowel Sounds")
     },
     {
         "percentage": 0,
         "id": 3230,
-        "name": "Hyperactive Tummy Sounds"
+        "name": _("Hyperactive Tummy Sounds")
     },
     {
         "percentage": 0,
         "id": 3236,
-        "name": "Hyperhidrosis"
+        "name": _("Hyperhidrosis")
     },
     {
         "percentage": 0,
         "id": 3242,
-        "name": "Hyperplasia Of Prostate"
+        "name": _("Hyperplasia Of Prostate")
     },
     {
         "percentage": 0,
         "id": 3244,
-        "name": "Hyperpyrexia"
+        "name": _("Hyperpyrexia")
     },
     {
         "percentage": 0,
         "id": 3246,
-        "name": "Hyperventilation"
+        "name": _("Hyperventilation")
     },
     {
         "percentage": 0,
         "id": 3251,
-        "name": "Hypoesthesia Of Skin"
+        "name": _("Hypoesthesia Of Skin")
     },
     {
         "percentage": 0,
         "id": 3255,
-        "name": "Hypothermia"
+        "name": _("Hypothermia")
     },
     {
         "percentage": 0,
         "id": 3259,
-        "name": "I Feel My Heartbeat"
+        "name": _("I Feel My Heartbeat")
     },
     {
         "percentage": 0,
         "id": 3272,
-        "name": "Impotence"
+        "name": _("Impotence")
     },
     {
         "percentage": 0,
         "id": 3274,
-        "name": "Inability to attain or maintain an adequate erection"
+        "name": _("Inability to attain or maintain an adequate erection")
     },
     {
         "percentage": 0,
         "id": 3279,
-        "name": "Increase in appetite"
+        "name": _("Increase in appetite")
     },
     {
         "percentage": 0,
         "id": 3281,
-        "name": "Increased Frequency Of Urination"
+        "name": _("Increased Frequency Of Urination")
     },
     {
         "percentage": 0,
         "id": 3285,
-        "name": "Indigestion"
+        "name": _("Indigestion")
     },
     {
         "percentage": 0,
         "id": 3287,
-        "name": "Induration Of Skin"
+        "name": _("Induration Of Skin")
     },
     {
         "percentage": 0,
         "id": 3289,
-        "name": "Ineffective Urge To Evacuate The Bladder"
+        "name": _("Ineffective Urge To Evacuate The Bladder")
     },
     {
         "percentage": 0,
         "id": 3293,
-        "name": "Inflammation Of A Testis"
+        "name": _("Inflammation Of A Testis")
     },
     {
         "percentage": 0,
         "id": 3296,
-        "name": "Inflammation Of Lymph Nodes"
+        "name": _("Inflammation Of Lymph Nodes")
     },
     {
         "percentage": 0,
         "id": 3299,
-        "name": "Inflammation Of The Testicle"
+        "name": _("Inflammation Of The Testicle")
     },
     {
         "percentage": 0,
         "id": 3302,
-        "name": "Inflammation of Vagina"
+        "name": _("Inflammation of Vagina")
     },
     {
         "percentage": 0,
         "id": 3307,
-        "name": "Insufficient Spermatozoa In The Semen"
+        "name": _("Insufficient Spermatozoa In The Semen")
     },
     {
         "percentage": 0,
         "id": 3312,
-        "name": "Intraabdominal Mass Or Swelling"
+        "name": _("Intraabdominal Mass Or Swelling")
     },
     {
         "percentage": 0,
         "id": 3316,
-        "name": "Itchy Throat"
+        "name": _("Itchy Throat")
     },
     {
         "percentage": 0,
         "id": 3318,
-        "name": "Jaundice"
+        "name": _("Jaundice")
     },
     {
         "percentage": 0,
         "id": 3320,
-        "name": "Joint Pain"
+        "name": _("Joint Pain")
     },
     {
         "percentage": 0,
         "id": 3322,
-        "name": "Knee Pain"
+        "name": _("Knee Pain")
     },
     {
         "percentage": 0,
         "id": 3324,
-        "name": "Knee Stiffness"
+        "name": _("Knee Stiffness")
     },
     {
         "percentage": 0,
         "id": 3326,
-        "name": "Lack Of Coordination"
+        "name": _("Lack Of Coordination")
     },
     {
         "percentage": 0,
         "id": 3330,
-        "name": "Lack of appetite"
+        "name": _("Lack of appetite")
     },
     {
         "percentage": 0,
         "id": 3332,
-        "name": "Lack of energy"
+        "name": _("Lack of energy")
     },
     {
         "percentage": 0,
         "id": 3338,
-        "name": "Leg Pain"
+        "name": _("Leg Pain")
     },
     {
         "percentage": 0,
         "id": 3340,
-        "name": "Lethargy"
+        "name": _("Lethargy")
     },
     {
         "percentage": 0,
         "id": 3344,
-        "name": "Light Headedness"
+        "name": _("Light Headedness")
     },
     {
         "percentage": 0,
         "id": 3346,
-        "name": "Limb Pain"
+        "name": _("Limb Pain")
     },
     {
         "percentage": 0,
         "id": 3350,
-        "name": "Localized Edema"
+        "name": _("Localized Edema")
     },
     {
         "percentage": 0,
         "id": 3352,
-        "name": "Localized Enlarged Lymph Nodes"
+        "name": _("Localized Enlarged Lymph Nodes")
     },
     {
         "percentage": 0,
         "id": 3355,
-        "name": "Localized Excessive Sweating"
+        "name": _("Localized Excessive Sweating")
     },
     {
         "percentage": 0,
         "id": 3359,
-        "name": "Localized Fluid Retention"
+        "name": _("Localized Fluid Retention")
     },
     {
         "percentage": 0,
         "id": 3361,
-        "name": "Localized Hyperhidrosis"
+        "name": _("Localized Hyperhidrosis")
     },
     {
         "percentage": 0,
         "id": 3363,
-        "name": "Localized Lymphadenopathy"
+        "name": _("Localized Lymphadenopathy")
     },
     {
         "percentage": 0,
         "id": 3368,
-        "name": "Loin Pain"
+        "name": _("Loin Pain")
     },
     {
         "percentage": 0,
         "id": 3370,
-        "name": "Loss Of Appetite"
+        "name": _("Loss Of Appetite")
     },
     {
         "percentage": 0,
         "id": 3372,
-        "name": "Loss Of Voice"
+        "name": _("Loss Of Voice")
     },
     {
         "percentage": 0,
         "id": 3377,
-        "name": "Loss of energy"
+        "name": _("Loss of energy")
     },
     {
         "percentage": 0,
         "id": 3381,
-        "name": "Low Back Strain"
+        "name": _("Low Back Strain")
     },
     {
         "percentage": 0,
         "id": 3383,
-        "name": "Low Blood Pressure"
+        "name": _("Low Blood Pressure")
     },
     {
         "percentage": 0,
         "id": 3385,
-        "name": "Low Sexual Responsiveness"
+        "name": _("Low Sexual Responsiveness")
     },
     {
         "percentage": 0,
         "id": 3387,
-        "name": "Low Sperm Count"
+        "name": _("Low Sperm Count")
     },
     {
         "percentage": 0,
         "id": 3389,
-        "name": "Lower Abdominal Pain"
+        "name": _("Lower Abdominal Pain")
     },
     {
         "percentage": 0,
         "id": 3391,
-        "name": "Lower Belly Pain"
+        "name": _("Lower Belly Pain")
     },
     {
         "percentage": 0,
         "id": 3393,
-        "name": "Lower Tummy Ache"
+        "name": _("Lower Tummy Ache")
     },
     {
         "percentage": 0,
         "id": 3395,
-        "name": "Lower Tummy Pain"
+        "name": _("Lower Tummy Pain")
     },
     {
         "percentage": 0,
         "id": 3397,
-        "name": "Lumbago"
+        "name": _("Lumbago")
     },
     {
         "percentage": 0,
         "id": 3401,
-        "name": "Lymphadenitis"
+        "name": _("Lymphadenitis")
     },
     {
         "percentage": 0,
         "id": 3407,
-        "name": "Malaise"
+        "name": _("Malaise")
     },
     {
         "percentage": 0,
         "id": 3409,
-        "name": "Mass Or Swelling Inside My Belly"
+        "name": _("Mass Or Swelling Inside My Belly")
     },
     {
         "percentage": 0,
         "id": 3411,
-        "name": "Mass Or Swelling Inside My Stomach"
+        "name": _("Mass Or Swelling Inside My Stomach")
     },
     {
         "percentage": 0,
         "id": 3413,
-        "name": "Mass Or Swelling Inside My Tummy"
+        "name": _("Mass Or Swelling Inside My Tummy")
     },
     {
         "percentage": 0,
         "id": 3415,
-        "name": "Mastitis"
+        "name": _("Mastitis")
     },
     {
         "percentage": 0,
         "id": 3418,
-        "name": "Mastodynia"
+        "name": _("Mastodynia")
     },
     {
         "percentage": 0,
         "id": 3423,
-        "name": "Melena"
+        "name": _("Melena")
     },
     {
         "percentage": 0,
         "id": 3429,
-        "name": "Monilial Vulvovaginitis"
+        "name": _("Monilial Vulvovaginitis")
     },
     {
         "percentage": 0,
         "id": 3434,
-        "name": "Mouth Breathing"
+        "name": _("Mouth Breathing")
     },
     {
         "percentage": 0,
         "id": 3436,
-        "name": "Mucus Stool"
+        "name": _("Mucus Stool")
     },
     {
         "percentage": 0,
         "id": 3438,
-        "name": "My Belly Moves"
+        "name": _("My Belly Moves")
     },
     {
         "percentage": 0,
         "id": 3440,
-        "name": "My Tummy Moves"
+        "name": _("My Tummy Moves")
     },
     {
         "percentage": 0,
         "id": 3442,
-        "name": "Nasal Congestion"
+        "name": _("Nasal Congestion")
     },
     {
         "percentage": 0,
         "id": 3444,
-        "name": "Nasal Voice"
+        "name": _("Nasal Voice")
     },
     {
         "percentage": 0,
         "id": 3453,
-        "name": "Need To Get Up At Night To Urinate"
+        "name": _("Need To Get Up At Night To Urinate")
     },
     {
         "percentage": 0,
         "id": 3455,
-        "name": "Night Sweats"
+        "name": _("Night Sweats")
     },
     {
         "percentage": 0,
         "id": 3459,
-        "name": "Nocturia"
+        "name": _("Nocturia")
     },
     {
         "percentage": 0,
         "id": 3461,
-        "name": "Nose Haemorrhage"
+        "name": _("Nose Haemorrhage")
     },
     {
         "percentage": 0,
         "id": 3464,
-        "name": "Nosebleed"
+        "name": _("Nosebleed")
     },
     {
         "percentage": 0,
         "id": 3467,
-        "name": "Occult Blood In Stool"
+        "name": _("Occult Blood In Stool")
     },
     {
         "percentage": 0,
         "id": 3469,
-        "name": "Ocular Pain"
+        "name": _("Ocular Pain")
     },
     {
         "percentage": 0,
         "id": 3474,
-        "name": "Oligospermia"
+        "name": _("Oligospermia")
     },
     {
         "percentage": 0,
         "id": 3476,
-        "name": "Oliguria"
+        "name": _("Oliguria")
     },
     {
         "percentage": 0,
         "id": 3478,
-        "name": "Oral Temperature"
+        "name": _("Oral Temperature")
     },
     {
         "percentage": 0,
         "id": 3480,
-        "name": "Oral Temperature Below 95F Or 35C"
+        "name": _("Oral Temperature Below 95F Or 35C")
     },
     {
         "percentage": 0,
         "id": 3482,
-        "name": "Orchitis"
+        "name": _("Orchitis")
     },
     {
         "percentage": 0,
         "id": 3485,
-        "name": "Otalgia"
+        "name": _("Otalgia")
     },
     {
         "percentage": 0,
         "id": 3488,
-        "name": "Otorrhoea"
+        "name": _("Otorrhoea")
     },
     {
         "percentage": 0,
         "id": 3491,
-        "name": "Overeating"
+        "name": _("Overeating")
     },
     {
         "percentage": 0,
         "id": 3493,
-        "name": "PMS"
+        "name": _("PMS")
     },
     {
         "percentage": 0,
         "id": 3495,
-        "name": "Pain"
+        "name": _("Pain")
     },
     {
         "percentage": 0,
         "id": 3497,
-        "name": "Pain In Lumbar Region"
+        "name": _("Pain In Lumbar Region")
     },
     {
         "percentage": 0,
         "id": 3499,
-        "name": "Pain In Throat"
+        "name": _("Pain In Throat")
     },
     {
         "percentage": 0,
         "id": 3503,
-        "name": "Painful Breathing"
+        "name": _("Painful Breathing")
     },
     {
         "percentage": 0,
         "id": 3505,
-        "name": "Painful Erection"
+        "name": _("Painful Erection")
     },
     {
         "percentage": 0,
         "id": 3507,
-        "name": "Painful Infection Of Prostate"
+        "name": _("Painful Infection Of Prostate")
     },
     {
         "percentage": 0,
         "id": 3509,
-        "name": "Painful Respiration"
+        "name": _("Painful Respiration")
     },
     {
         "percentage": 0,
         "id": 3511,
-        "name": "Painful Sexual Intercourse"
+        "name": _("Painful Sexual Intercourse")
     },
     {
         "percentage": 0,
         "id": 3513,
-        "name": "Painful Swelling Of A Teste"
+        "name": _("Painful Swelling Of A Teste")
     },
     {
         "percentage": 0,
         "id": 3516,
-        "name": "Painful Swelling Of A Testi"
+        "name": _("Painful Swelling Of A Testi")
     },
     {
         "percentage": 0,
         "id": 3519,
-        "name": "Painful Tongue"
+        "name": _("Painful Tongue")
     },
     {
         "percentage": 0,
         "id": 3521,
-        "name": "Painful Urination"
+        "name": _("Painful Urination")
     },
     {
         "percentage": 0,
         "id": 3523,
-        "name": "Painless Scrotal Swelling"
+        "name": _("Painless Scrotal Swelling")
     },
     {
         "percentage": 0,
         "id": 3525,
-        "name": "Painless Swollen Testicle"
+        "name": _("Painless Swollen Testicle")
     },
     {
         "percentage": 0,
         "id": 3527,
-        "name": "Pallor"
+        "name": _("Pallor")
     },
     {
         "percentage": 0,
         "id": 3530,
-        "name": "Palpitations"
+        "name": _("Palpitations")
     },
     {
         "percentage": 0,
         "id": 3536,
-        "name": "Paraphimosis"
+        "name": _("Paraphimosis")
     },
     {
         "percentage": 0,
         "id": 3538,
-        "name": "Pelvic And Perineal Pain"
+        "name": _("Pelvic And Perineal Pain")
     },
     {
         "percentage": 0,
         "id": 3540,
-        "name": "Pelvic Mass"
+        "name": _("Pelvic Mass")
     },
     {
         "percentage": 0,
         "id": 3542,
-        "name": "Pelvic Pain"
+        "name": _("Pelvic Pain")
     },
     {
         "percentage": 0,
         "id": 3544,
-        "name": "Pelvic Tumor"
+        "name": _("Pelvic Tumor")
     },
     {
         "percentage": 0,
         "id": 3546,
-        "name": "Penile Discharge"
+        "name": _("Penile Discharge")
     },
     {
         "percentage": 0,
         "id": 3549,
-        "name": "Perianal Herpesviral Infection"
+        "name": _("Perianal Herpesviral Infection")
     },
     {
         "percentage": 0,
         "id": 3556,
-        "name": "Petechiae"
+        "name": _("Petechiae")
     },
     {
         "percentage": 0,
         "id": 3558,
-        "name": "Phimosis"
+        "name": _("Phimosis")
     },
     {
         "percentage": 0,
         "id": 3566,
-        "name": "Polydipsia"
+        "name": _("Polydipsia")
     },
     {
         "percentage": 0,
         "id": 3568,
-        "name": "Polyphagia"
+        "name": _("Polyphagia")
     },
     {
         "percentage": 0,
         "id": 3570,
-        "name": "Polyuria"
+        "name": _("Polyuria")
     },
     {
         "percentage": 0,
         "id": 3572,
-        "name": "Poor Urinary Stream"
+        "name": _("Poor Urinary Stream")
     },
     {
         "percentage": 0,
         "id": 3574,
-        "name": "Poor appetite"
+        "name": _("Poor appetite")
     },
     {
         "percentage": 0,
         "id": 3578,
-        "name": "Precordial Pain"
+        "name": _("Precordial Pain")
     },
     {
         "percentage": 0,
         "id": 3580,
-        "name": "Premenstrual Syndrome"
+        "name": _("Premenstrual Syndrome")
     },
     {
         "percentage": 0,
         "id": 3584,
-        "name": "Priapism"
+        "name": _("Priapism")
     },
     {
         "percentage": 0,
         "id": 3586,
-        "name": "Prostate Enlargement"
+        "name": _("Prostate Enlargement")
     },
     {
         "percentage": 0,
         "id": 3588,
-        "name": "Prostate Inflammation"
+        "name": _("Prostate Inflammation")
     },
     {
         "percentage": 0,
         "id": 3590,
-        "name": "Prostatic Obstruction"
+        "name": _("Prostatic Obstruction")
     },
     {
         "percentage": 0,
         "id": 3592,
-        "name": "Prostatitis"
+        "name": _("Prostatitis")
     },
     {
         "percentage": 0,
         "id": 3596,
-        "name": "Pulmonary Haemorrhage"
+        "name": _("Pulmonary Haemorrhage")
     },
     {
         "percentage": 0,
         "id": 3598,
-        "name": "Pyrexia"
+        "name": _("Pyrexia")
     },
     {
         "percentage": 0,
         "id": 3600,
-        "name": "Pyrexia - Axillary Temperature"
+        "name": _("Pyrexia - Axillary Temperature")
     },
     {
         "percentage": 0,
         "id": 3602,
-        "name": "Pyrexia - Oral Temperature"
+        "name": _("Pyrexia - Oral Temperature")
     },
     {
         "percentage": 0,
         "id": 3604,
-        "name": "Queasy"
+        "name": _("Queasy")
     },
     {
         "percentage": 0,
         "id": 3606,
-        "name": "Rapid Heartbeat"
+        "name": _("Rapid Heartbeat")
     },
     {
         "percentage": 0,
         "id": 3608,
-        "name": "Rash"
+        "name": _("Rash")
     },
     {
         "percentage": 0,
         "id": 3611,
-        "name": "Rectal Temperature"
+        "name": _("Rectal Temperature")
     },
     {
         "percentage": 0,
         "id": 3613,
-        "name": "Red Or Purple Spots Of 1 2 Mm"
+        "name": _("Red Or Purple Spots Of 1 2 Mm")
     },
     {
         "percentage": 0,
         "id": 3615,
-        "name": "Redundant Prepuce"
+        "name": _("Redundant Prepuce")
     },
     {
         "percentage": 0,
         "id": 3617,
-        "name": "Repeated regurgitation and rechewing of food "
+        "name": _("Repeated regurgitation and rechewing of food ")
     },
     {
         "percentage": 0,
         "id": 3621,
-        "name": "Retention Of Urine"
+        "name": _("Retention Of Urine")
     },
     {
         "percentage": 0,
         "id": 3623,
-        "name": "Rhinolalia"
+        "name": _("Rhinolalia")
     },
     {
         "percentage": 0,
         "id": 3625,
-        "name": "Rigid Belly"
+        "name": _("Rigid Belly")
     },
     {
         "percentage": 0,
         "id": 3627,
-        "name": "Rigid Tummy"
+        "name": _("Rigid Tummy")
     },
     {
         "percentage": 0,
         "id": 3631,
-        "name": "Scaling Of Skin"
+        "name": _("Scaling Of Skin")
     },
     {
         "percentage": 0,
         "id": 3633,
-        "name": "Sciatica"
+        "name": _("Sciatica")
     },
     {
         "percentage": 0,
         "id": 3635,
-        "name": "Seizure"
+        "name": _("Seizure")
     },
     {
         "percentage": 0,
         "id": 3637,
-        "name": "Severe Abdominal Pain With Rigidity"
+        "name": _("Severe Abdominal Pain With Rigidity")
     },
     {
         "percentage": 0,
         "id": 3639,
-        "name": "Severe Stomach Ache With Rigidity"
+        "name": _("Severe Stomach Ache With Rigidity")
     },
     {
         "percentage": 0,
         "id": 3641,
-        "name": "Severe Tummy Ache With Rigidity"
+        "name": _("Severe Tummy Ache With Rigidity")
     },
     {
         "percentage": 0,
         "id": 3643,
-        "name": "Severe Tummy Pain With Rigidity"
+        "name": _("Severe Tummy Pain With Rigidity")
     },
     {
         "percentage": 0,
         "id": 3645,
-        "name": "Sexually Transmitted Disease"
+        "name": _("Sexually Transmitted Disease")
     },
     {
         "percentage": 0,
         "id": 3649,
-        "name": "Shortness Of Breath"
+        "name": _("Shortness Of Breath")
     },
     {
         "percentage": 0,
         "id": 3651,
-        "name": "Shoulder Pain"
+        "name": _("Shoulder Pain")
     },
     {
         "percentage": 0,
         "id": 3653,
-        "name": "Shoulder Stiffness"
+        "name": _("Shoulder Stiffness")
     },
     {
         "percentage": 0,
         "id": 3655,
-        "name": "Sighing"
+        "name": _("Sighing")
     },
     {
         "percentage": 0,
         "id": 3657,
-        "name": "Significant loss of weight"
+        "name": _("Significant loss of weight")
     },
     {
         "percentage": 0,
         "id": 3660,
-        "name": "Significant weight gain "
+        "name": _("Significant weight gain ")
     },
     {
         "percentage": 0,
         "id": 3663,
-        "name": "Skin Eruption"
+        "name": _("Skin Eruption")
     },
     {
         "percentage": 0,
         "id": 3666,
-        "name": "Skin Sensation Disturbances"
+        "name": _("Skin Sensation Disturbances")
     },
     {
         "percentage": 0,
         "id": 3668,
-        "name": "Skin Thickening"
+        "name": _("Skin Thickening")
     },
     {
         "percentage": 0,
         "id": 3670,
-        "name": "Slow Heartbeat"
+        "name": _("Slow Heartbeat")
     },
     {
         "percentage": 0,
         "id": 3672,
-        "name": "Slow Speech"
+        "name": _("Slow Speech")
     },
     {
         "percentage": 0,
         "id": 3674,
-        "name": "Slurred Speech"
+        "name": _("Slurred Speech")
     },
     {
         "percentage": 0,
         "id": 3676,
-        "name": "Sneezing"
+        "name": _("Sneezing")
     },
     {
         "percentage": 0,
         "id": 3678,
-        "name": "Snoring"
+        "name": _("Snoring")
     },
     {
         "percentage": 0,
         "id": 3688,
-        "name": "Spasm Of Big Toes"
+        "name": _("Spasm Of Big Toes")
     },
     {
         "percentage": 0,
         "id": 3690,
-        "name": "Spasm Of Foot"
+        "name": _("Spasm Of Foot")
     },
     {
         "percentage": 0,
         "id": 3692,
-        "name": "Spasm Of Hand"
+        "name": _("Spasm Of Hand")
     },
     {
         "percentage": 0,
         "id": 3694,
-        "name": "Spasm Of Thumbs"
+        "name": _("Spasm Of Thumbs")
     },
     {
         "percentage": 0,
         "id": 3696,
-        "name": "Spastic Gait"
+        "name": _("Spastic Gait")
     },
     {
         "percentage": 0,
         "id": 3698,
-        "name": "Speech Disturbances"
+        "name": _("Speech Disturbances")
     },
     {
         "percentage": 0,
         "id": 3700,
-        "name": "Spells"
+        "name": _("Spells")
     },
     {
         "percentage": 0,
         "id": 3702,
-        "name": "Spermatocele"
+        "name": _("Spermatocele")
     },
     {
         "percentage": 0,
         "id": 3708,
-        "name": "Spontaneous Bruise"
+        "name": _("Spontaneous Bruise")
     },
     {
         "percentage": 0,
         "id": 3712,
-        "name": "Staggering Gait"
+        "name": _("Staggering Gait")
     },
     {
         "percentage": 0,
         "id": 3721,
-        "name": "Stomach Hurts And Feels Hard"
+        "name": _("Stomach Hurts And Feels Hard")
     },
     {
         "percentage": 0,
         "id": 3723,
-        "name": "Strangury"
+        "name": _("Strangury")
     },
     {
         "percentage": 0,
         "id": 3725,
-        "name": "Stridor"
+        "name": _("Stridor")
     },
     {
         "percentage": 0,
         "id": 3727,
-        "name": "Sudden Severe Testicular Pain"
+        "name": _("Sudden Severe Testicular Pain")
     },
     {
         "percentage": 0,
         "id": 3729,
-        "name": "Swallowing Difficulty"
+        "name": _("Swallowing Difficulty")
     },
     {
         "percentage": 0,
         "id": 3732,
-        "name": "Swelling Mass or Lump In Multiple Sites"
+        "name": _("Swelling Mass or Lump In Multiple Sites")
     },
     {
         "percentage": 0,
         "id": 3734,
-        "name": "Swelling Mass or Lump In One Site"
+        "name": _("Swelling Mass or Lump In One Site")
     },
     {
         "percentage": 0,
         "id": 3736,
-        "name": "Swelling Mass or Lump In The Head"
+        "name": _("Swelling Mass or Lump In The Head")
     },
     {
         "percentage": 0,
         "id": 3738,
-        "name": "Swelling Mass or Lump In The Lower Limb"
+        "name": _("Swelling Mass or Lump In The Lower Limb")
     },
     {
         "percentage": 0,
         "id": 3740,
-        "name": "Swelling Mass or Lump In The Neck"
+        "name": _("Swelling Mass or Lump In The Neck")
     },
     {
         "percentage": 0,
         "id": 3742,
-        "name": "Swelling Mass or Lump In The Trunk"
+        "name": _("Swelling Mass or Lump In The Trunk")
     },
     {
         "percentage": 0,
         "id": 3744,
-        "name": "Swelling Mass or Lump In The Upper Limb"
+        "name": _("Swelling Mass or Lump In The Upper Limb")
     },
     {
         "percentage": 0,
         "id": 3746,
-        "name": "Swollen Glands"
+        "name": _("Swollen Glands")
     },
     {
         "percentage": 0,
         "id": 3749,
-        "name": "Swollen Liver"
+        "name": _("Swollen Liver")
     },
     {
         "percentage": 0,
         "id": 3751,
-        "name": "Swollen Liver And Spleen"
+        "name": _("Swollen Liver And Spleen")
     },
     {
         "percentage": 0,
         "id": 3753,
-        "name": "Swollen Spleen"
+        "name": _("Swollen Spleen")
     },
     {
         "percentage": 0,
         "id": 3758,
-        "name": "Symptoms Suggesting Meningitis"
+        "name": _("Symptoms Suggesting Meningitis")
     },
     {
         "percentage": 0,
         "id": 3760,
-        "name": "Syncope"
+        "name": _("Syncope")
     },
     {
         "percentage": 0,
         "id": 3762,
-        "name": "Tachycardia"
+        "name": _("Tachycardia")
     },
     {
         "percentage": 0,
         "id": 3764,
-        "name": "Tar Colored Stool"
+        "name": _("Tar Colored Stool")
     },
     {
         "percentage": 0,
         "id": 3766,
-        "name": "Tendency To Fall"
+        "name": _("Tendency To Fall")
     },
     {
         "percentage": 0,
         "id": 3768,
-        "name": "Testicular Torsion"
+        "name": _("Testicular Torsion")
     },
     {
         "percentage": 0,
         "id": 3772,
-        "name": "The Foreskin Is Stuck Behind The Head Of The Penis"
+        "name": _("The Foreskin Is Stuck Behind The Head Of The Penis")
     },
     {
         "percentage": 0,
         "id": 3774,
-        "name": "The Prepuce Is Stuck Behind The Head Of The Penis"
+        "name": _("The Prepuce Is Stuck Behind The Head Of The Penis")
     },
     {
         "percentage": 0,
         "id": 3776,
-        "name": "Thoracic Spine Pain"
+        "name": _("Thoracic Spine Pain")
     },
     {
         "percentage": 0,
         "id": 3778,
-        "name": "Throat Haemorrhage"
+        "name": _("Throat Haemorrhage")
     },
     {
         "percentage": 0,
         "id": 3780,
-        "name": "Throat Itchiness\t"
+        "name": _("Throat Itchiness\t")
     },
     {
         "percentage": 0,
         "id": 3782,
-        "name": "Throat Pain"
+        "name": _("Throat Pain")
     },
     {
         "percentage": 0,
         "id": 3784,
-        "name": "Tight Foreskin"
+        "name": _("Tight Foreskin")
     },
     {
         "percentage": 0,
         "id": 3786,
-        "name": "Tight Prepuce"
+        "name": _("Tight Prepuce")
     },
     {
         "percentage": 0,
         "id": 3788,
-        "name": "Tingling Skin"
+        "name": _("Tingling Skin")
     },
     {
         "percentage": 0,
         "id": 3792,
-        "name": "Tongue Pain"
+        "name": _("Tongue Pain")
     },
     {
         "percentage": 0,
         "id": 3794,
-        "name": "Tooth Pain"
+        "name": _("Tooth Pain")
     },
     {
         "percentage": 0,
         "id": 3796,
-        "name": "Toothache"
+        "name": _("Toothache")
     },
     {
         "percentage": 0,
         "id": 3798,
-        "name": "Torsion Of Testes"
+        "name": _("Torsion Of Testes")
     },
     {
         "percentage": 0,
         "id": 3800,
-        "name": "Torsion Of Testis"
+        "name": _("Torsion Of Testis")
     },
     {
         "percentage": 0,
         "id": 3804,
-        "name": "Tremor"
+        "name": _("Tremor")
     },
     {
         "percentage": 0,
         "id": 3806,
-        "name": "Trigeminal Neuralgia"
+        "name": _("Trigeminal Neuralgia")
     },
     {
         "percentage": 0,
         "id": 3808,
-        "name": "Tummy Ache"
+        "name": _("Tummy Ache")
     },
     {
         "percentage": 0,
         "id": 3810,
-        "name": "Tummy Distention"
+        "name": _("Tummy Distention")
     },
     {
         "percentage": 0,
         "id": 3812,
-        "name": "Tummy Tenderness"
+        "name": _("Tummy Tenderness")
     },
     {
         "percentage": 0,
         "id": 3814,
-        "name": "Twitching"
+        "name": _("Twitching")
     },
     {
         "percentage": 0,
         "id": 3816,
-        "name": "Tympanic Membrane Temperature"
+        "name": _("Tympanic Membrane Temperature")
     },
     {
         "percentage": 0,
         "id": 3818,
-        "name": "Tympanites"
+        "name": _("Tympanites")
     },
     {
         "percentage": 0,
         "id": 3820,
-        "name": "Ulcer Of Penis"
+        "name": _("Ulcer Of Penis")
     },
     {
         "percentage": 0,
         "id": 3822,
-        "name": "Unable To Articulate Words"
+        "name": _("Unable To Articulate Words")
     },
     {
         "percentage": 0,
         "id": 3830,
-        "name": "Unable To Express By Speech"
+        "name": _("Unable To Express By Speech")
     },
     {
         "percentage": 0,
         "id": 3832,
-        "name": "Unable To Express By Speech And Writing"
+        "name": _("Unable To Express By Speech And Writing")
     },
     {
         "percentage": 0,
         "id": 3834,
-        "name": "Unable To Express By Writing"
+        "name": _("Unable To Express By Writing")
     },
     {
         "percentage": 0,
         "id": 3838,
-        "name": "Unable To Identify Persons"
+        "name": _("Unable To Identify Persons")
     },
     {
         "percentage": 0,
         "id": 3844,
-        "name": "Unable To Pull Back The Foreskin Completely"
+        "name": _("Unable To Pull Back The Foreskin Completely")
     },
     {
         "percentage": 0,
         "id": 3846,
-        "name": "Unable To Pull Back The Prepuce Completely"
+        "name": _("Unable To Pull Back The Prepuce Completely")
     },
     {
         "percentage": 0,
         "id": 3848,
-        "name": "Unable To Read"
+        "name": _("Unable To Read")
     },
     {
         "percentage": 0,
         "id": 3850,
-        "name": "Unable To Recognize Objects"
+        "name": _("Unable To Recognize Objects")
     },
     {
         "percentage": 0,
         "id": 3852,
-        "name": "Unable To Understand Spoken And Written Language"
+        "name": _("Unable To Understand Spoken And Written Language")
     },
     {
         "percentage": 0,
         "id": 3854,
-        "name": "Unable To Understand Spoken Language"
+        "name": _("Unable To Understand Spoken Language")
     },
     {
         "percentage": 0,
         "id": 3856,
-        "name": "Unable To Understand Written Language"
+        "name": _("Unable To Understand Written Language")
     },
     {
         "percentage": 0,
         "id": 3858,
-        "name": "Unable To Write"
+        "name": _("Unable To Write")
     },
     {
         "percentage": 0,
         "id": 3860,
-        "name": "Uncoordinated Walk"
+        "name": _("Uncoordinated Walk")
     },
     {
         "percentage": 0,
         "id": 3865,
-        "name": "Unsteadiness On Feet"
+        "name": _("Unsteadiness On Feet")
     },
     {
         "percentage": 0,
         "id": 3867,
-        "name": "Upper Abdominal Pain"
+        "name": _("Upper Abdominal Pain")
     },
     {
         "percentage": 0,
         "id": 3869,
-        "name": "Upper Belly Pain"
+        "name": _("Upper Belly Pain")
     },
     {
         "percentage": 0,
         "id": 3871,
-        "name": "Upper Stomach Pain"
+        "name": _("Upper Stomach Pain")
     },
     {
         "percentage": 0,
         "id": 3873,
-        "name": "Upper Tummy Ache"
+        "name": _("Upper Tummy Ache")
     },
     {
         "percentage": 0,
         "id": 3875,
-        "name": "Upper Tummy Pain"
+        "name": _("Upper Tummy Pain")
     },
     {
         "percentage": 0,
         "id": 3877,
-        "name": "Urethral Discharge"
+        "name": _("Urethral Discharge")
     },
     {
         "percentage": 0,
         "id": 3880,
-        "name": "Urinary Incontinence"
+        "name": _("Urinary Incontinence")
     },
     {
         "percentage": 0,
         "id": 3882,
-        "name": "Vaginal Bleeding"
+        "name": _("Vaginal Bleeding")
     },
     {
         "percentage": 0,
         "id": 3885,
-        "name": "Vaginal Discharge"
+        "name": _("Vaginal Discharge")
     },
     {
         "percentage": 0,
         "id": 3887,
-        "name": "Vaginal Thrush"
+        "name": _("Vaginal Thrush")
     },
     {
         "percentage": 0,
         "id": 3889,
-        "name": "Vaginal Yeast Infection"
+        "name": _("Vaginal Yeast Infection")
     },
     {
         "percentage": 0,
         "id": 3891,
-        "name": "Vaginitis"
+        "name": _("Vaginitis")
     },
     {
         "percentage": 0,
         "id": 3893,
-        "name": "Venereal Disease"
+        "name": _("Venereal Disease")
     },
     {
         "percentage": 0,
         "id": 3895,
-        "name": "Venereal Warts"
+        "name": _("Venereal Warts")
     },
     {
         "percentage": 0,
         "id": 3897,
-        "name": "Vertigo"
+        "name": _("Vertigo")
     },
     {
         "percentage": 0,
         "id": 3909,
-        "name": "Visual Disturbances"
+        "name": _("Visual Disturbances")
     },
     {
         "percentage": 0,
         "id": 3911,
-        "name": "Vomiting"
+        "name": _("Vomiting")
     },
     {
         "percentage": 0,
         "id": 3913,
-        "name": "Weak Pulse"
+        "name": _("Weak Pulse")
     },
     {
         "percentage": 0,
         "id": 3917,
-        "name": "Wheezing"
+        "name": _("Wheezing")
     },
     {
         "percentage": 0,
         "id": 3919,
-        "name": "White Or Gray Patches On The Penis"
+        "name": _("White Or Gray Patches On The Penis")
     },
     {
         "percentage": 0,
         "id": 3927,
-        "name": "Wrist Pain"
+        "name": _("Wrist Pain")
     },
     {
         "percentage": 0,
         "id": 3929,
-        "name": "Wrist Stiffness"
+        "name": _("Wrist Stiffness")
     },
     {
         "percentage": 0,
         "id": 3933,
-        "name": "Yeast Vulvitis"
+        "name": _("Yeast Vulvitis")
     },
     {
         "percentage": 0,
         "id": 3935,
-        "name": "Yellow Skin And Eyes"
+        "name": _("Yellow Skin And Eyes")
     }
 ]

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-11 10:33-0500\n"
+"POT-Creation-Date: 2014-07-15 15:58-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,3514 @@ msgstr "Español"
 #: settings.py:42
 msgid "English"
 msgstr "Inglés"
+
+#: health/complaints.py:7
+msgid "Headache"
+msgstr ""
+
+#: health/complaints.py:12
+msgid "Cough"
+msgstr ""
+
+#: health/complaints.py:17
+msgid "Flu Like Symptoms"
+msgstr ""
+
+#: health/complaints.py:22
+msgid "Diarrhea"
+msgstr ""
+
+#: health/complaints.py:27
+msgid "Neck Pain"
+msgstr ""
+
+#: health/complaints.py:32
+msgid "Tiredness"
+msgstr ""
+
+#: health/complaints.py:37
+msgid "Abdominal Pain"
+msgstr ""
+
+#: health/complaints.py:42
+msgid "Nausea"
+msgstr ""
+
+#: health/complaints.py:47
+msgid "Sore Throat"
+msgstr ""
+
+#: health/complaints.py:52
+msgid "Ankle Pain"
+msgstr ""
+
+#: health/complaints.py:57
+msgid "Ankle Stiffness"
+msgstr ""
+
+#: health/complaints.py:62
+msgid "Fever"
+msgstr ""
+
+#: health/complaints.py:67
+#, fuzzy
+msgid "Back Pain"
+msgstr "Atrás"
+
+#: health/complaints.py:72
+msgid "Lumbago With Sciatica"
+msgstr ""
+
+#: health/complaints.py:77
+msgid "Migraine"
+msgstr ""
+
+#: health/complaints.py:82
+msgid "Nausea And Vomiting"
+msgstr ""
+
+#: health/complaints.py:87
+msgid "Stomach Distention"
+msgstr ""
+
+#: health/complaints.py:92
+msgid "Abdominal Rigidity"
+msgstr ""
+
+#: health/complaints.py:97
+msgid "Abdominal Tenderness"
+msgstr ""
+
+#: health/complaints.py:102
+msgid "Abnormal Belly Sounds"
+msgstr ""
+
+#: health/complaints.py:107
+msgid "Abnormal Breathing"
+msgstr ""
+
+#: health/complaints.py:112
+msgid "Abnormal Head Movements"
+msgstr ""
+
+#: health/complaints.py:117
+msgid "Abnormal Heartbeat"
+msgstr ""
+
+#: health/complaints.py:122
+msgid "Abnormal Involuntary Movements"
+msgstr ""
+
+#: health/complaints.py:127
+msgid "Abnormal Reflex"
+msgstr ""
+
+#: health/complaints.py:132
+msgid "Abnormal Sputum"
+msgstr ""
+
+#: health/complaints.py:137
+msgid "Abnormal Stool Color"
+msgstr ""
+
+#: health/complaints.py:142
+msgid "Abnormal Tummy Sounds"
+msgstr ""
+
+#: health/complaints.py:147
+msgid "Abnormal Weight Gain"
+msgstr ""
+
+#: health/complaints.py:152
+msgid "Abnormal Weight Loss"
+msgstr ""
+
+#: health/complaints.py:157
+msgid "Absence Of Skin Sensation"
+msgstr ""
+
+#: health/complaints.py:162
+msgid "Absence Of Sperm From The Semen"
+msgstr ""
+
+#: health/complaints.py:167
+msgid "Absence Of Urine"
+msgstr ""
+
+#: health/complaints.py:172
+msgid "Absent Belly Sounds"
+msgstr ""
+
+#: health/complaints.py:177
+msgid "Absent Bowel Sounds"
+msgstr ""
+
+#: health/complaints.py:182
+msgid "Absent Tummy Sounds"
+msgstr ""
+
+#: health/complaints.py:187
+msgid "Acute Abdomen"
+msgstr ""
+
+#: health/complaints.py:192
+msgid "Acute Inflammation Of Lymph Nodes"
+msgstr ""
+
+#: health/complaints.py:197
+msgid "Acute Inflammation Of Lymph Nodes In Face"
+msgstr ""
+
+#: health/complaints.py:202
+msgid "Acute Inflammation Of Lymph Nodes Of Axilla"
+msgstr ""
+
+#: health/complaints.py:207
+msgid "Acute Inflammation Of Lymph Nodes Of Genital Area"
+msgstr ""
+
+#: health/complaints.py:212
+msgid "Acute Inflammation Of Lymph Nodes Of Groin"
+msgstr ""
+
+#: health/complaints.py:217
+msgid "Acute Inflammation Of Lymph Nodes Of Head"
+msgstr ""
+
+#: health/complaints.py:222
+msgid "Acute Inflammation Of Lymph Nodes Of Hip"
+msgstr ""
+
+#: health/complaints.py:227
+msgid "Acute Inflammation Of Lymph Nodes Of Lower Limb"
+msgstr ""
+
+#: health/complaints.py:232
+msgid "Acute Inflammation Of Lymph Nodes Of Neck"
+msgstr ""
+
+#: health/complaints.py:237
+msgid "Acute Inflammation Of Lymph Nodes Of Other Sites"
+msgstr ""
+
+#: health/complaints.py:242
+msgid "Acute Inflammation Of Lymph Nodes Of Perineum"
+msgstr ""
+
+#: health/complaints.py:247
+msgid "Acute Inflammation Of Lymph Nodes Of Shoulder"
+msgstr ""
+
+#: health/complaints.py:252
+msgid "Acute Inflammation Of Lymph Nodes Of Trunk"
+msgstr ""
+
+#: health/complaints.py:257
+msgid "Acute Inflammation Of Lymph Nodes Of Upper Limb"
+msgstr ""
+
+#: health/complaints.py:262
+msgid "Acute Inflammation Of Vagina"
+msgstr ""
+
+#: health/complaints.py:267
+msgid "Acute Lymphadenitis"
+msgstr ""
+
+#: health/complaints.py:272
+msgid "Acute Lymphadenitis Of Axilla"
+msgstr ""
+
+#: health/complaints.py:277
+msgid "Acute Lymphadenitis Of Face"
+msgstr ""
+
+#: health/complaints.py:282
+msgid "Acute Lymphadenitis Of Genital Area"
+msgstr ""
+
+#: health/complaints.py:287
+msgid "Acute Lymphadenitis Of Groin"
+msgstr ""
+
+#: health/complaints.py:292
+msgid "Acute Lymphadenitis Of Head"
+msgstr ""
+
+#: health/complaints.py:297
+msgid "Acute Lymphadenitis Of Hip"
+msgstr ""
+
+#: health/complaints.py:302
+msgid "Acute Lymphadenitis Of Lower Limb"
+msgstr ""
+
+#: health/complaints.py:307
+msgid "Acute Lymphadenitis Of Neck"
+msgstr ""
+
+#: health/complaints.py:312
+msgid "Acute Lymphadenitis Of Other Sites"
+msgstr ""
+
+#: health/complaints.py:317
+msgid "Acute Lymphadenitis Of Perineum"
+msgstr ""
+
+#: health/complaints.py:322
+msgid "Acute Lymphadenitis Of Shoulder"
+msgstr ""
+
+#: health/complaints.py:327
+msgid "Acute Lymphadenitis Of Trunk"
+msgstr ""
+
+#: health/complaints.py:332
+msgid "Acute Lymphadenitis Of Upper Limb"
+msgstr ""
+
+#: health/complaints.py:337
+msgid "Acute Pain"
+msgstr ""
+
+#: health/complaints.py:342
+msgid "Acute Vaginitis"
+msgstr ""
+
+#: health/complaints.py:347
+msgid "Acute Vulvovaginitis"
+msgstr ""
+
+#: health/complaints.py:352
+msgid "Adherent Prepuce"
+msgstr ""
+
+#: health/complaints.py:357
+msgid "Anogenital Herpesviral Infection"
+msgstr ""
+
+#: health/complaints.py:362
+msgid "Anogenital Warts"
+msgstr ""
+
+#: health/complaints.py:367
+msgid "Anorexia"
+msgstr ""
+
+#: health/complaints.py:372
+msgid "Anterior Chest  Wall Pain"
+msgstr ""
+
+#: health/complaints.py:377
+msgid "Anuria"
+msgstr ""
+
+#: health/complaints.py:382
+msgid "Aphasia"
+msgstr ""
+
+#: health/complaints.py:387
+msgid "Apraxia"
+msgstr ""
+
+#: health/complaints.py:392
+msgid "Arm Pain"
+msgstr ""
+
+#: health/complaints.py:397
+msgid "Ascites"
+msgstr ""
+
+#: health/complaints.py:402
+msgid "Asthenia"
+msgstr ""
+
+#: health/complaints.py:407
+msgid "Ataxia"
+msgstr ""
+
+#: health/complaints.py:412
+msgid "Awareness Of Heartbeat"
+msgstr ""
+
+#: health/complaints.py:417
+msgid "Axillary Temperature"
+msgstr ""
+
+#: health/complaints.py:422
+msgid "Azoospermia"
+msgstr ""
+
+#: health/complaints.py:427
+#, fuzzy
+msgid "Backache"
+msgstr "Atrás"
+
+#: health/complaints.py:432
+msgid "Bad Belly With Rigidity"
+msgstr ""
+
+#: health/complaints.py:437
+msgid "Bad Breath"
+msgstr ""
+
+#: health/complaints.py:442
+msgid "Bedfast"
+msgstr ""
+
+#: health/complaints.py:447
+msgid "Bedridden"
+msgstr ""
+
+#: health/complaints.py:452
+msgid "Belching"
+msgstr ""
+
+#: health/complaints.py:457
+msgid "Belly Distention"
+msgstr ""
+
+#: health/complaints.py:462
+msgid "Belly Pain"
+msgstr ""
+
+#: health/complaints.py:467
+msgid "Belly Tenderness"
+msgstr ""
+
+#: health/complaints.py:472
+msgid "Black Stool"
+msgstr ""
+
+#: health/complaints.py:477
+msgid "Blackout"
+msgstr ""
+
+#: health/complaints.py:482
+msgid "Bleeding"
+msgstr ""
+
+#: health/complaints.py:487
+msgid "Bloating"
+msgstr ""
+
+#: health/complaints.py:492
+#, fuzzy
+msgid "Blood In Spit"
+msgstr "Grupo Sanguineo"
+
+#: health/complaints.py:497
+msgid "Blood In Stool"
+msgstr ""
+
+#: health/complaints.py:502
+msgid "Blood Stained Sputum"
+msgstr ""
+
+#: health/complaints.py:507
+msgid "Blood Stained Vomit"
+msgstr ""
+
+#: health/complaints.py:512
+#, fuzzy
+msgid "Bloody Urine"
+msgstr "Grupo Sanguineo"
+
+#: health/complaints.py:517
+msgid "Blue Colored Skin"
+msgstr ""
+
+#: health/complaints.py:522
+msgid "Boogers"
+msgstr ""
+
+#: health/complaints.py:527
+msgid "Bradycardia"
+msgstr ""
+
+#: health/complaints.py:532
+msgid "Breast Abscess"
+msgstr ""
+
+#: health/complaints.py:537
+msgid "Breast Inflammation"
+msgstr ""
+
+#: health/complaints.py:542
+msgid "Breast Pain"
+msgstr ""
+
+#: health/complaints.py:547
+msgid "Burning Stomach"
+msgstr ""
+
+#: health/complaints.py:552
+msgid "Candidal Vaginitis"
+msgstr ""
+
+#: health/complaints.py:557
+msgid "Candidal Vulvitis"
+msgstr ""
+
+#: health/complaints.py:562
+msgid "Candidal Vulvovaginitis"
+msgstr ""
+
+#: health/complaints.py:567
+msgid "Candidiasis Of Vagina"
+msgstr ""
+
+#: health/complaints.py:572
+msgid "Candidiasis Of Vulva"
+msgstr ""
+
+#: health/complaints.py:577
+msgid "Cannot See Well"
+msgstr ""
+
+#: health/complaints.py:582
+msgid "Cardiac Murmur"
+msgstr ""
+
+#: health/complaints.py:587
+msgid "Cardiac Sound"
+msgstr ""
+
+#: health/complaints.py:592
+msgid "Cervicalgia"
+msgstr ""
+
+#: health/complaints.py:597
+msgid "Chairbound"
+msgstr ""
+
+#: health/complaints.py:602
+msgid "Chairfast"
+msgstr ""
+
+#: health/complaints.py:607
+msgid "Change In Bowel Habit"
+msgstr ""
+
+#: health/complaints.py:612
+msgid "Change In Voice"
+msgstr ""
+
+#: health/complaints.py:617
+msgid "Chest Pain"
+msgstr ""
+
+#: health/complaints.py:622
+msgid "Chest Pain While Breathing"
+msgstr ""
+
+#: health/complaints.py:627
+#, fuzzy
+msgid "Choking Sensation"
+msgstr "Proximamente"
+
+#: health/complaints.py:632
+msgid "Chronic Inflammation Of Lymph Nodes"
+msgstr ""
+
+#: health/complaints.py:637
+#, fuzzy
+msgid "Chronic Pain"
+msgstr "Condiciones médicas"
+
+#: health/complaints.py:642
+msgid "Clammy Skin"
+msgstr ""
+
+#: health/complaints.py:647
+msgid "Clicking Hip"
+msgstr ""
+
+#: health/complaints.py:652
+msgid "Coffee Ground Like Vomit"
+msgstr ""
+
+#: health/complaints.py:657
+msgid "Colic"
+msgstr ""
+
+#: health/complaints.py:662
+#, fuzzy
+msgid "Constipation"
+msgstr "Condiciones"
+
+#: health/complaints.py:667
+msgid "Constriction Of The Orifice Of The Foreskin"
+msgstr ""
+
+#: health/complaints.py:672
+msgid "Constriction Of The Orifice Of The Prepuce"
+msgstr ""
+
+#: health/complaints.py:677
+#, fuzzy
+msgid "Convulsions"
+msgstr "Condiciones"
+
+#: health/complaints.py:682
+msgid "Cough With Blood"
+msgstr ""
+
+#: health/complaints.py:687
+msgid "Cramp And Spasm"
+msgstr ""
+
+#: health/complaints.py:692
+msgid "Cyanosis"
+msgstr ""
+
+#: health/complaints.py:697
+msgid "Decrease in appetite"
+msgstr ""
+
+#: health/complaints.py:702
+msgid "Decreased Skin Sensation"
+msgstr ""
+
+#: health/complaints.py:707
+msgid "Deficiency Of Sperm In The Semen"
+msgstr ""
+
+#: health/complaints.py:712
+msgid "Delay or absence of orgasm following a normal sexual excitement phase"
+msgstr ""
+
+#: health/complaints.py:717
+msgid "Desquamation Of Skin"
+msgstr ""
+
+#: health/complaints.py:722
+msgid "Difficulty In Reading"
+msgstr ""
+
+#: health/complaints.py:727
+msgid "Difficulty In Walking"
+msgstr ""
+
+#: health/complaints.py:732
+msgid "Difficulty Initiating Urination"
+msgstr ""
+
+#: health/complaints.py:737
+msgid "Difficulty To Express By Speech"
+msgstr ""
+
+#: health/complaints.py:742
+msgid "Difficulty To Express By Speech And Writing"
+msgstr ""
+
+#: health/complaints.py:747
+msgid "Difficulty To Express By Writing"
+msgstr ""
+
+#: health/complaints.py:752
+msgid "Difficulty Understanding Spoken And Written Language"
+msgstr ""
+
+#: health/complaints.py:757
+msgid "Difficulty Understanding Spoken Language"
+msgstr ""
+
+#: health/complaints.py:762
+msgid "Difficulty Understanding Written Language"
+msgstr ""
+
+#: health/complaints.py:767
+msgid "Difficulty understanding sentences"
+msgstr ""
+
+#: health/complaints.py:772
+msgid "Difficulty understanding words"
+msgstr ""
+
+#: health/complaints.py:777
+msgid "Diminished Urine Volume"
+msgstr ""
+
+#: health/complaints.py:782
+#, fuzzy
+msgid "Distension"
+msgstr "Misión"
+
+#: health/complaints.py:787
+msgid "Dorsalgia"
+msgstr ""
+
+#: health/complaints.py:792
+msgid "Dry Mouth"
+msgstr ""
+
+#: health/complaints.py:797
+msgid "Dysarthria"
+msgstr ""
+
+#: health/complaints.py:802
+msgid "Dyslexia"
+msgstr ""
+
+#: health/complaints.py:807
+msgid "Dyspareunia"
+msgstr ""
+
+#: health/complaints.py:812
+msgid "Dyspepsia"
+msgstr ""
+
+#: health/complaints.py:817
+msgid "Dysphagia"
+msgstr ""
+
+#: health/complaints.py:822
+msgid "Dysphasia"
+msgstr ""
+
+#: health/complaints.py:827
+msgid "Dysphonia"
+msgstr ""
+
+#: health/complaints.py:832
+msgid "Dyspnoea"
+msgstr ""
+
+#: health/complaints.py:837
+msgid "Dysuria"
+msgstr ""
+
+#: health/complaints.py:842
+msgid "Ear Discharge"
+msgstr ""
+
+#: health/complaints.py:847
+msgid "Earache"
+msgstr ""
+
+#: health/complaints.py:852
+msgid "Edema"
+msgstr ""
+
+#: health/complaints.py:857
+msgid "Elbow Pain"
+msgstr ""
+
+#: health/complaints.py:862
+msgid "Elbow Stiffness"
+msgstr ""
+
+#: health/complaints.py:867
+msgid "Elevated Blood Pressure"
+msgstr ""
+
+#: health/complaints.py:872
+msgid "Enlarged Liver"
+msgstr ""
+
+#: health/complaints.py:877
+msgid "Enlarged Liver And Spleen"
+msgstr ""
+
+#: health/complaints.py:882
+msgid "Enlarged Lymph Nodes"
+msgstr ""
+
+#: health/complaints.py:887
+msgid "Enlarged Prostate"
+msgstr ""
+
+#: health/complaints.py:892
+msgid "Enlarged Spleen"
+msgstr ""
+
+#: health/complaints.py:897
+msgid "Enuresis"
+msgstr ""
+
+#: health/complaints.py:902
+msgid "Epididymitis"
+msgstr ""
+
+#: health/complaints.py:907
+msgid "Epigastric Pain"
+msgstr ""
+
+#: health/complaints.py:912
+msgid "Epistaxis"
+msgstr ""
+
+#: health/complaints.py:917
+#, fuzzy
+msgid "Eructation"
+msgstr "Ubicación:"
+
+#: health/complaints.py:922
+msgid "Excessive Eating"
+msgstr ""
+
+#: health/complaints.py:927
+msgid "Excessive Sweating"
+msgstr ""
+
+#: health/complaints.py:932
+msgid "Excessive Thirst"
+msgstr ""
+
+#: health/complaints.py:937
+msgid "Facial Pain"
+msgstr ""
+
+#: health/complaints.py:942
+msgid "Faecal Incontinence"
+msgstr ""
+
+#: health/complaints.py:947
+msgid "Failure To Gain Weight"
+msgstr ""
+
+#: health/complaints.py:952
+msgid "Failure to eat adequately"
+msgstr ""
+
+#: health/complaints.py:957
+msgid "Fainting"
+msgstr ""
+
+#: health/complaints.py:962
+msgid "Fatigue"
+msgstr ""
+
+#: health/complaints.py:967
+msgid "Febrile Convulsions"
+msgstr ""
+
+#: health/complaints.py:972
+msgid "Febrile Seizures"
+msgstr ""
+
+#: health/complaints.py:977
+msgid "Feeding Difficulties"
+msgstr ""
+
+#: health/complaints.py:982
+msgid "Feeding disturbance"
+msgstr ""
+
+#: health/complaints.py:987
+msgid "Fever - Axillary Temperature"
+msgstr ""
+
+#: health/complaints.py:992
+msgid "Fever - Oral Temperature"
+msgstr ""
+
+#: health/complaints.py:997
+msgid "Fever With Chills"
+msgstr ""
+
+#: health/complaints.py:1002
+msgid "Fever With Rigors"
+msgstr ""
+
+#: health/complaints.py:1007
+msgid "Fewer Sperm Than Normal"
+msgstr ""
+
+#: health/complaints.py:1012
+msgid "Fit"
+msgstr ""
+
+#: health/complaints.py:1017
+msgid "Fluid Filled Sack In The Scrotum"
+msgstr ""
+
+#: health/complaints.py:1022
+msgid "Fluid Retention"
+msgstr ""
+
+#: health/complaints.py:1027
+msgid "Flushing"
+msgstr ""
+
+#: health/complaints.py:1032
+msgid "Foot Pain"
+msgstr ""
+
+#: health/complaints.py:1037
+msgid "Foot Stiffness"
+msgstr ""
+
+#: health/complaints.py:1042
+msgid "Functional Diarrhea"
+msgstr ""
+
+#: health/complaints.py:1047
+#, fuzzy
+msgid "General Physical Deterioration"
+msgstr "Sección Actividad Física"
+
+#: health/complaints.py:1052
+msgid "Generalized Edema"
+msgstr ""
+
+#: health/complaints.py:1057
+msgid "Generalized Enlarged Lymph Nodes"
+msgstr ""
+
+#: health/complaints.py:1062
+msgid "Generalized Excessive Sweating"
+msgstr ""
+
+#: health/complaints.py:1067
+msgid "Generalized Fluid Retention"
+msgstr ""
+
+#: health/complaints.py:1072
+msgid "Generalized Hyperhidrosis"
+msgstr ""
+
+#: health/complaints.py:1077
+msgid "Generalized Lymphadenopathy"
+msgstr ""
+
+#: health/complaints.py:1082
+msgid "Generalized Pain"
+msgstr ""
+
+#: health/complaints.py:1087
+msgid "Genital Candidiasis"
+msgstr ""
+
+#: health/complaints.py:1092
+msgid "Genital Herpes"
+msgstr ""
+
+#: health/complaints.py:1097
+msgid "Genital Lesion"
+msgstr ""
+
+#: health/complaints.py:1102
+msgid "Genital Pain"
+msgstr ""
+
+#: health/complaints.py:1107
+#, fuzzy
+msgid "Genital Ulceration"
+msgstr "Sección Genómica"
+
+#: health/complaints.py:1112
+msgid "Genital Verruca"
+msgstr ""
+
+#: health/complaints.py:1117
+msgid "Genital Warts"
+msgstr ""
+
+#: health/complaints.py:1122
+msgid "Glossodynia"
+msgstr ""
+
+#: health/complaints.py:1127
+msgid "Haemoptysis"
+msgstr ""
+
+#: health/complaints.py:1132
+msgid "Halitosis"
+msgstr ""
+
+#: health/complaints.py:1137
+msgid "Hand Pain"
+msgstr ""
+
+#: health/complaints.py:1142
+msgid "Hand Stiffness"
+msgstr ""
+
+#: health/complaints.py:1147 health/conditions.py:933
+msgid "Hearing loss"
+msgstr ""
+
+#: health/complaints.py:1152
+msgid "Heartburn"
+msgstr ""
+
+#: health/complaints.py:1157
+msgid "Hematemesis"
+msgstr ""
+
+#: health/complaints.py:1162
+msgid "Hematuria"
+msgstr ""
+
+#: health/complaints.py:1167
+msgid "Hemorrhage"
+msgstr ""
+
+#: health/complaints.py:1172
+msgid "Hepatomegaly"
+msgstr ""
+
+#: health/complaints.py:1177
+msgid "Hepatosplenomegaly"
+msgstr ""
+
+#: health/complaints.py:1182
+msgid "Herpes Surrounding The Anus"
+msgstr ""
+
+#: health/complaints.py:1187
+msgid "Herpesviral Infection Of Genitalia"
+msgstr ""
+
+#: health/complaints.py:1192
+msgid "Herpesviral Infection Of Private Parts"
+msgstr ""
+
+#: health/complaints.py:1197
+msgid "Herpesviral Infection Of Testicles"
+msgstr ""
+
+#: health/complaints.py:1202
+msgid "Herpesviral Infection Of Vulva"
+msgstr ""
+
+#: health/complaints.py:1207
+msgid "Hesitancy Of Urination"
+msgstr ""
+
+#: health/complaints.py:1212
+msgid "Hiccough"
+msgstr ""
+
+#: health/complaints.py:1217
+msgid "Hiccup"
+msgstr ""
+
+#: health/complaints.py:1222
+msgid "Hip Pain"
+msgstr ""
+
+#: health/complaints.py:1227
+msgid "Hip Stiffness"
+msgstr ""
+
+#: health/complaints.py:1232
+msgid "Hoarseness"
+msgstr ""
+
+#: health/complaints.py:1237
+msgid "Hydrocele"
+msgstr ""
+
+#: health/complaints.py:1242
+msgid "Hyperactive Belly Sounds"
+msgstr ""
+
+#: health/complaints.py:1247
+msgid "Hyperactive Bowel Sounds"
+msgstr ""
+
+#: health/complaints.py:1252
+msgid "Hyperactive Tummy Sounds"
+msgstr ""
+
+#: health/complaints.py:1257
+msgid "Hyperhidrosis"
+msgstr ""
+
+#: health/complaints.py:1262
+msgid "Hyperplasia Of Prostate"
+msgstr ""
+
+#: health/complaints.py:1267
+msgid "Hyperpyrexia"
+msgstr ""
+
+#: health/complaints.py:1272
+msgid "Hyperventilation"
+msgstr ""
+
+#: health/complaints.py:1277
+msgid "Hypoesthesia Of Skin"
+msgstr ""
+
+#: health/complaints.py:1282
+msgid "Hypothermia"
+msgstr ""
+
+#: health/complaints.py:1287
+msgid "I Feel My Heartbeat"
+msgstr ""
+
+#: health/complaints.py:1292
+msgid "Impotence"
+msgstr ""
+
+#: health/complaints.py:1297
+msgid "Inability to attain or maintain an adequate erection"
+msgstr ""
+
+#: health/complaints.py:1302
+msgid "Increase in appetite"
+msgstr ""
+
+#: health/complaints.py:1307
+msgid "Increased Frequency Of Urination"
+msgstr ""
+
+#: health/complaints.py:1312
+#, fuzzy
+msgid "Indigestion"
+msgstr "Condiciones"
+
+#: health/complaints.py:1317
+msgid "Induration Of Skin"
+msgstr ""
+
+#: health/complaints.py:1322
+msgid "Ineffective Urge To Evacuate The Bladder"
+msgstr ""
+
+#: health/complaints.py:1327
+msgid "Inflammation Of A Testis"
+msgstr ""
+
+#: health/complaints.py:1332
+msgid "Inflammation Of Lymph Nodes"
+msgstr ""
+
+#: health/complaints.py:1337
+msgid "Inflammation Of The Testicle"
+msgstr ""
+
+#: health/complaints.py:1342
+msgid "Inflammation of Vagina"
+msgstr ""
+
+#: health/complaints.py:1347
+msgid "Insufficient Spermatozoa In The Semen"
+msgstr ""
+
+#: health/complaints.py:1352
+msgid "Intraabdominal Mass Or Swelling"
+msgstr ""
+
+#: health/complaints.py:1357
+msgid "Itchy Throat"
+msgstr ""
+
+#: health/complaints.py:1362
+msgid "Jaundice"
+msgstr ""
+
+#: health/complaints.py:1367
+msgid "Joint Pain"
+msgstr ""
+
+#: health/complaints.py:1372
+msgid "Knee Pain"
+msgstr ""
+
+#: health/complaints.py:1377
+msgid "Knee Stiffness"
+msgstr ""
+
+#: health/complaints.py:1382
+msgid "Lack Of Coordination"
+msgstr ""
+
+#: health/complaints.py:1387
+msgid "Lack of appetite"
+msgstr ""
+
+#: health/complaints.py:1392
+msgid "Lack of energy"
+msgstr ""
+
+#: health/complaints.py:1397
+msgid "Leg Pain"
+msgstr ""
+
+#: health/complaints.py:1402
+msgid "Lethargy"
+msgstr ""
+
+#: health/complaints.py:1407
+msgid "Light Headedness"
+msgstr ""
+
+#: health/complaints.py:1412
+msgid "Limb Pain"
+msgstr ""
+
+#: health/complaints.py:1417
+msgid "Localized Edema"
+msgstr ""
+
+#: health/complaints.py:1422
+msgid "Localized Enlarged Lymph Nodes"
+msgstr ""
+
+#: health/complaints.py:1427
+msgid "Localized Excessive Sweating"
+msgstr ""
+
+#: health/complaints.py:1432
+msgid "Localized Fluid Retention"
+msgstr ""
+
+#: health/complaints.py:1437
+msgid "Localized Hyperhidrosis"
+msgstr ""
+
+#: health/complaints.py:1442
+msgid "Localized Lymphadenopathy"
+msgstr ""
+
+#: health/complaints.py:1447
+msgid "Loin Pain"
+msgstr ""
+
+#: health/complaints.py:1452
+msgid "Loss Of Appetite"
+msgstr ""
+
+#: health/complaints.py:1457
+msgid "Loss Of Voice"
+msgstr ""
+
+#: health/complaints.py:1462
+msgid "Loss of energy"
+msgstr ""
+
+#: health/complaints.py:1467
+msgid "Low Back Strain"
+msgstr ""
+
+#: health/complaints.py:1472
+msgid "Low Blood Pressure"
+msgstr ""
+
+#: health/complaints.py:1477
+msgid "Low Sexual Responsiveness"
+msgstr ""
+
+#: health/complaints.py:1482
+#, fuzzy
+msgid "Low Sperm Count"
+msgstr "Número de seguidores"
+
+#: health/complaints.py:1487
+msgid "Lower Abdominal Pain"
+msgstr ""
+
+#: health/complaints.py:1492
+msgid "Lower Belly Pain"
+msgstr ""
+
+#: health/complaints.py:1497
+msgid "Lower Tummy Ache"
+msgstr ""
+
+#: health/complaints.py:1502
+msgid "Lower Tummy Pain"
+msgstr ""
+
+#: health/complaints.py:1507
+msgid "Lumbago"
+msgstr ""
+
+#: health/complaints.py:1512
+msgid "Lymphadenitis"
+msgstr ""
+
+#: health/complaints.py:1517
+msgid "Malaise"
+msgstr ""
+
+#: health/complaints.py:1522
+msgid "Mass Or Swelling Inside My Belly"
+msgstr ""
+
+#: health/complaints.py:1527
+msgid "Mass Or Swelling Inside My Stomach"
+msgstr ""
+
+#: health/complaints.py:1532
+msgid "Mass Or Swelling Inside My Tummy"
+msgstr ""
+
+#: health/complaints.py:1537
+msgid "Mastitis"
+msgstr ""
+
+#: health/complaints.py:1542
+msgid "Mastodynia"
+msgstr ""
+
+#: health/complaints.py:1547
+msgid "Melena"
+msgstr ""
+
+#: health/complaints.py:1552
+msgid "Monilial Vulvovaginitis"
+msgstr ""
+
+#: health/complaints.py:1557
+msgid "Mouth Breathing"
+msgstr ""
+
+#: health/complaints.py:1562
+msgid "Mucus Stool"
+msgstr ""
+
+#: health/complaints.py:1567
+msgid "My Belly Moves"
+msgstr ""
+
+#: health/complaints.py:1572
+msgid "My Tummy Moves"
+msgstr ""
+
+#: health/complaints.py:1577
+msgid "Nasal Congestion"
+msgstr ""
+
+#: health/complaints.py:1582
+msgid "Nasal Voice"
+msgstr ""
+
+#: health/complaints.py:1587
+msgid "Need To Get Up At Night To Urinate"
+msgstr ""
+
+#: health/complaints.py:1592
+msgid "Night Sweats"
+msgstr ""
+
+#: health/complaints.py:1597
+msgid "Nocturia"
+msgstr ""
+
+#: health/complaints.py:1602
+msgid "Nose Haemorrhage"
+msgstr ""
+
+#: health/complaints.py:1607
+msgid "Nosebleed"
+msgstr ""
+
+#: health/complaints.py:1612
+msgid "Occult Blood In Stool"
+msgstr ""
+
+#: health/complaints.py:1617
+msgid "Ocular Pain"
+msgstr ""
+
+#: health/complaints.py:1622
+msgid "Oligospermia"
+msgstr ""
+
+#: health/complaints.py:1627
+msgid "Oliguria"
+msgstr ""
+
+#: health/complaints.py:1632
+msgid "Oral Temperature"
+msgstr ""
+
+#: health/complaints.py:1637
+msgid "Oral Temperature Below 95F Or 35C"
+msgstr ""
+
+#: health/complaints.py:1642
+msgid "Orchitis"
+msgstr ""
+
+#: health/complaints.py:1647
+msgid "Otalgia"
+msgstr ""
+
+#: health/complaints.py:1652
+msgid "Otorrhoea"
+msgstr ""
+
+#: health/complaints.py:1657
+msgid "Overeating"
+msgstr ""
+
+#: health/complaints.py:1662
+msgid "PMS"
+msgstr ""
+
+#: health/complaints.py:1667
+msgid "Pain"
+msgstr ""
+
+#: health/complaints.py:1672
+msgid "Pain In Lumbar Region"
+msgstr ""
+
+#: health/complaints.py:1677
+msgid "Pain In Throat"
+msgstr ""
+
+#: health/complaints.py:1682
+msgid "Painful Breathing"
+msgstr ""
+
+#: health/complaints.py:1687
+#, fuzzy
+msgid "Painful Erection"
+msgstr "Sección Actividad Física"
+
+#: health/complaints.py:1692
+msgid "Painful Infection Of Prostate"
+msgstr ""
+
+#: health/complaints.py:1697
+msgid "Painful Respiration"
+msgstr ""
+
+#: health/complaints.py:1702
+msgid "Painful Sexual Intercourse"
+msgstr ""
+
+#: health/complaints.py:1707
+msgid "Painful Swelling Of A Teste"
+msgstr ""
+
+#: health/complaints.py:1712
+msgid "Painful Swelling Of A Testi"
+msgstr ""
+
+#: health/complaints.py:1717
+msgid "Painful Tongue"
+msgstr ""
+
+#: health/complaints.py:1722
+msgid "Painful Urination"
+msgstr ""
+
+#: health/complaints.py:1727
+msgid "Painless Scrotal Swelling"
+msgstr ""
+
+#: health/complaints.py:1732
+msgid "Painless Swollen Testicle"
+msgstr ""
+
+#: health/complaints.py:1737
+msgid "Pallor"
+msgstr ""
+
+#: health/complaints.py:1742
+#, fuzzy
+msgid "Palpitations"
+msgstr "Población:"
+
+#: health/complaints.py:1747
+msgid "Paraphimosis"
+msgstr ""
+
+#: health/complaints.py:1752
+msgid "Pelvic And Perineal Pain"
+msgstr ""
+
+#: health/complaints.py:1757
+msgid "Pelvic Mass"
+msgstr ""
+
+#: health/complaints.py:1762
+msgid "Pelvic Pain"
+msgstr ""
+
+#: health/complaints.py:1767
+msgid "Pelvic Tumor"
+msgstr ""
+
+#: health/complaints.py:1772
+msgid "Penile Discharge"
+msgstr ""
+
+#: health/complaints.py:1777
+msgid "Perianal Herpesviral Infection"
+msgstr ""
+
+#: health/complaints.py:1782
+msgid "Petechiae"
+msgstr ""
+
+#: health/complaints.py:1787
+msgid "Phimosis"
+msgstr ""
+
+#: health/complaints.py:1792
+msgid "Polydipsia"
+msgstr ""
+
+#: health/complaints.py:1797
+msgid "Polyphagia"
+msgstr ""
+
+#: health/complaints.py:1802
+msgid "Polyuria"
+msgstr ""
+
+#: health/complaints.py:1807
+msgid "Poor Urinary Stream"
+msgstr ""
+
+#: health/complaints.py:1812
+msgid "Poor appetite"
+msgstr ""
+
+#: health/complaints.py:1817
+msgid "Precordial Pain"
+msgstr ""
+
+#: health/complaints.py:1822
+msgid "Premenstrual Syndrome"
+msgstr ""
+
+#: health/complaints.py:1827
+msgid "Priapism"
+msgstr ""
+
+#: health/complaints.py:1832
+msgid "Prostate Enlargement"
+msgstr ""
+
+#: health/complaints.py:1837
+msgid "Prostate Inflammation"
+msgstr ""
+
+#: health/complaints.py:1842
+msgid "Prostatic Obstruction"
+msgstr ""
+
+#: health/complaints.py:1847
+msgid "Prostatitis"
+msgstr ""
+
+#: health/complaints.py:1852
+msgid "Pulmonary Haemorrhage"
+msgstr ""
+
+#: health/complaints.py:1857
+msgid "Pyrexia"
+msgstr ""
+
+#: health/complaints.py:1862
+msgid "Pyrexia - Axillary Temperature"
+msgstr ""
+
+#: health/complaints.py:1867
+msgid "Pyrexia - Oral Temperature"
+msgstr ""
+
+#: health/complaints.py:1872
+msgid "Queasy"
+msgstr ""
+
+#: health/complaints.py:1877
+msgid "Rapid Heartbeat"
+msgstr ""
+
+#: health/complaints.py:1882
+msgid "Rash"
+msgstr ""
+
+#: health/complaints.py:1887
+msgid "Rectal Temperature"
+msgstr ""
+
+#: health/complaints.py:1892
+msgid "Red Or Purple Spots Of 1 2 Mm"
+msgstr ""
+
+#: health/complaints.py:1897
+msgid "Redundant Prepuce"
+msgstr ""
+
+#: health/complaints.py:1902
+msgid "Repeated regurgitation and rechewing of food "
+msgstr ""
+
+#: health/complaints.py:1907
+msgid "Retention Of Urine"
+msgstr ""
+
+#: health/complaints.py:1912
+msgid "Rhinolalia"
+msgstr ""
+
+#: health/complaints.py:1917
+msgid "Rigid Belly"
+msgstr ""
+
+#: health/complaints.py:1922
+msgid "Rigid Tummy"
+msgstr ""
+
+#: health/complaints.py:1927
+msgid "Scaling Of Skin"
+msgstr ""
+
+#: health/complaints.py:1932
+msgid "Sciatica"
+msgstr ""
+
+#: health/complaints.py:1937
+msgid "Seizure"
+msgstr ""
+
+#: health/complaints.py:1942
+msgid "Severe Abdominal Pain With Rigidity"
+msgstr ""
+
+#: health/complaints.py:1947
+msgid "Severe Stomach Ache With Rigidity"
+msgstr ""
+
+#: health/complaints.py:1952
+msgid "Severe Tummy Ache With Rigidity"
+msgstr ""
+
+#: health/complaints.py:1957
+msgid "Severe Tummy Pain With Rigidity"
+msgstr ""
+
+#: health/complaints.py:1962
+msgid "Sexually Transmitted Disease"
+msgstr ""
+
+#: health/complaints.py:1967
+msgid "Shortness Of Breath"
+msgstr ""
+
+#: health/complaints.py:1972
+msgid "Shoulder Pain"
+msgstr ""
+
+#: health/complaints.py:1977
+msgid "Shoulder Stiffness"
+msgstr ""
+
+#: health/complaints.py:1982
+msgid "Sighing"
+msgstr ""
+
+#: health/complaints.py:1987
+msgid "Significant loss of weight"
+msgstr ""
+
+#: health/complaints.py:1992
+msgid "Significant weight gain "
+msgstr ""
+
+#: health/complaints.py:1997
+msgid "Skin Eruption"
+msgstr ""
+
+#: health/complaints.py:2002
+msgid "Skin Sensation Disturbances"
+msgstr ""
+
+#: health/complaints.py:2007
+msgid "Skin Thickening"
+msgstr ""
+
+#: health/complaints.py:2012
+msgid "Slow Heartbeat"
+msgstr ""
+
+#: health/complaints.py:2017
+msgid "Slow Speech"
+msgstr ""
+
+#: health/complaints.py:2022
+msgid "Slurred Speech"
+msgstr ""
+
+#: health/complaints.py:2027
+msgid "Sneezing"
+msgstr ""
+
+#: health/complaints.py:2032
+msgid "Snoring"
+msgstr ""
+
+#: health/complaints.py:2037
+msgid "Spasm Of Big Toes"
+msgstr ""
+
+#: health/complaints.py:2042
+msgid "Spasm Of Foot"
+msgstr ""
+
+#: health/complaints.py:2047
+msgid "Spasm Of Hand"
+msgstr ""
+
+#: health/complaints.py:2052
+msgid "Spasm Of Thumbs"
+msgstr ""
+
+#: health/complaints.py:2057
+msgid "Spastic Gait"
+msgstr ""
+
+#: health/complaints.py:2062
+#, fuzzy
+msgid "Speech Disturbances"
+msgstr "Distancia"
+
+#: health/complaints.py:2067
+msgid "Spells"
+msgstr ""
+
+#: health/complaints.py:2072
+msgid "Spermatocele"
+msgstr ""
+
+#: health/complaints.py:2077
+msgid "Spontaneous Bruise"
+msgstr ""
+
+#: health/complaints.py:2082
+msgid "Staggering Gait"
+msgstr ""
+
+#: health/complaints.py:2087
+msgid "Stomach Hurts And Feels Hard"
+msgstr ""
+
+#: health/complaints.py:2092
+msgid "Strangury"
+msgstr ""
+
+#: health/complaints.py:2097
+msgid "Stridor"
+msgstr ""
+
+#: health/complaints.py:2102
+msgid "Sudden Severe Testicular Pain"
+msgstr ""
+
+#: health/complaints.py:2107
+msgid "Swallowing Difficulty"
+msgstr ""
+
+#: health/complaints.py:2112
+msgid "Swelling Mass or Lump In Multiple Sites"
+msgstr ""
+
+#: health/complaints.py:2117
+msgid "Swelling Mass or Lump In One Site"
+msgstr ""
+
+#: health/complaints.py:2122
+msgid "Swelling Mass or Lump In The Head"
+msgstr ""
+
+#: health/complaints.py:2127
+msgid "Swelling Mass or Lump In The Lower Limb"
+msgstr ""
+
+#: health/complaints.py:2132
+msgid "Swelling Mass or Lump In The Neck"
+msgstr ""
+
+#: health/complaints.py:2137
+msgid "Swelling Mass or Lump In The Trunk"
+msgstr ""
+
+#: health/complaints.py:2142
+msgid "Swelling Mass or Lump In The Upper Limb"
+msgstr ""
+
+#: health/complaints.py:2147
+msgid "Swollen Glands"
+msgstr ""
+
+#: health/complaints.py:2152
+msgid "Swollen Liver"
+msgstr ""
+
+#: health/complaints.py:2157
+msgid "Swollen Liver And Spleen"
+msgstr ""
+
+#: health/complaints.py:2162
+msgid "Swollen Spleen"
+msgstr ""
+
+#: health/complaints.py:2167
+msgid "Symptoms Suggesting Meningitis"
+msgstr ""
+
+#: health/complaints.py:2172
+msgid "Syncope"
+msgstr ""
+
+#: health/complaints.py:2177
+msgid "Tachycardia"
+msgstr ""
+
+#: health/complaints.py:2182
+msgid "Tar Colored Stool"
+msgstr ""
+
+#: health/complaints.py:2187
+msgid "Tendency To Fall"
+msgstr ""
+
+#: health/complaints.py:2192
+msgid "Testicular Torsion"
+msgstr ""
+
+#: health/complaints.py:2197
+msgid "The Foreskin Is Stuck Behind The Head Of The Penis"
+msgstr ""
+
+#: health/complaints.py:2202
+msgid "The Prepuce Is Stuck Behind The Head Of The Penis"
+msgstr ""
+
+#: health/complaints.py:2207
+msgid "Thoracic Spine Pain"
+msgstr ""
+
+#: health/complaints.py:2212
+msgid "Throat Haemorrhage"
+msgstr ""
+
+#: health/complaints.py:2217
+msgid "Throat Itchiness\t"
+msgstr ""
+
+#: health/complaints.py:2222
+msgid "Throat Pain"
+msgstr ""
+
+#: health/complaints.py:2227
+msgid "Tight Foreskin"
+msgstr ""
+
+#: health/complaints.py:2232
+msgid "Tight Prepuce"
+msgstr ""
+
+#: health/complaints.py:2237
+msgid "Tingling Skin"
+msgstr ""
+
+#: health/complaints.py:2242
+msgid "Tongue Pain"
+msgstr ""
+
+#: health/complaints.py:2247
+msgid "Tooth Pain"
+msgstr ""
+
+#: health/complaints.py:2252
+msgid "Toothache"
+msgstr ""
+
+#: health/complaints.py:2257
+msgid "Torsion Of Testes"
+msgstr ""
+
+#: health/complaints.py:2262
+msgid "Torsion Of Testis"
+msgstr ""
+
+#: health/complaints.py:2267
+msgid "Tremor"
+msgstr ""
+
+#: health/complaints.py:2272
+msgid "Trigeminal Neuralgia"
+msgstr ""
+
+#: health/complaints.py:2277
+msgid "Tummy Ache"
+msgstr ""
+
+#: health/complaints.py:2282
+msgid "Tummy Distention"
+msgstr ""
+
+#: health/complaints.py:2287
+msgid "Tummy Tenderness"
+msgstr ""
+
+#: health/complaints.py:2292
+msgid "Twitching"
+msgstr ""
+
+#: health/complaints.py:2297
+msgid "Tympanic Membrane Temperature"
+msgstr ""
+
+#: health/complaints.py:2302
+msgid "Tympanites"
+msgstr ""
+
+#: health/complaints.py:2307
+msgid "Ulcer Of Penis"
+msgstr ""
+
+#: health/complaints.py:2312
+msgid "Unable To Articulate Words"
+msgstr ""
+
+#: health/complaints.py:2317
+msgid "Unable To Express By Speech"
+msgstr ""
+
+#: health/complaints.py:2322
+msgid "Unable To Express By Speech And Writing"
+msgstr ""
+
+#: health/complaints.py:2327
+msgid "Unable To Express By Writing"
+msgstr ""
+
+#: health/complaints.py:2332
+msgid "Unable To Identify Persons"
+msgstr ""
+
+#: health/complaints.py:2337
+msgid "Unable To Pull Back The Foreskin Completely"
+msgstr ""
+
+#: health/complaints.py:2342
+msgid "Unable To Pull Back The Prepuce Completely"
+msgstr ""
+
+#: health/complaints.py:2347
+msgid "Unable To Read"
+msgstr ""
+
+#: health/complaints.py:2352
+msgid "Unable To Recognize Objects"
+msgstr ""
+
+#: health/complaints.py:2357
+msgid "Unable To Understand Spoken And Written Language"
+msgstr ""
+
+#: health/complaints.py:2362
+msgid "Unable To Understand Spoken Language"
+msgstr ""
+
+#: health/complaints.py:2367
+msgid "Unable To Understand Written Language"
+msgstr ""
+
+#: health/complaints.py:2372
+msgid "Unable To Write"
+msgstr ""
+
+#: health/complaints.py:2377
+msgid "Uncoordinated Walk"
+msgstr ""
+
+#: health/complaints.py:2382
+msgid "Unsteadiness On Feet"
+msgstr ""
+
+#: health/complaints.py:2387
+msgid "Upper Abdominal Pain"
+msgstr ""
+
+#: health/complaints.py:2392
+msgid "Upper Belly Pain"
+msgstr ""
+
+#: health/complaints.py:2397
+msgid "Upper Stomach Pain"
+msgstr ""
+
+#: health/complaints.py:2402
+msgid "Upper Tummy Ache"
+msgstr ""
+
+#: health/complaints.py:2407
+msgid "Upper Tummy Pain"
+msgstr ""
+
+#: health/complaints.py:2412
+msgid "Urethral Discharge"
+msgstr ""
+
+#: health/complaints.py:2417
+msgid "Urinary Incontinence"
+msgstr ""
+
+#: health/complaints.py:2422
+msgid "Vaginal Bleeding"
+msgstr ""
+
+#: health/complaints.py:2427
+msgid "Vaginal Discharge"
+msgstr ""
+
+#: health/complaints.py:2432
+msgid "Vaginal Thrush"
+msgstr ""
+
+#: health/complaints.py:2437
+msgid "Vaginal Yeast Infection"
+msgstr ""
+
+#: health/complaints.py:2442
+msgid "Vaginitis"
+msgstr ""
+
+#: health/complaints.py:2447
+msgid "Venereal Disease"
+msgstr ""
+
+#: health/complaints.py:2452
+msgid "Venereal Warts"
+msgstr ""
+
+#: health/complaints.py:2457
+msgid "Vertigo"
+msgstr ""
+
+#: health/complaints.py:2462
+#, fuzzy
+msgid "Visual Disturbances"
+msgstr "Distancia"
+
+#: health/complaints.py:2467
+msgid "Vomiting"
+msgstr ""
+
+#: health/complaints.py:2472
+msgid "Weak Pulse"
+msgstr ""
+
+#: health/complaints.py:2477
+msgid "Wheezing"
+msgstr ""
+
+#: health/complaints.py:2482
+msgid "White Or Gray Patches On The Penis"
+msgstr ""
+
+#: health/complaints.py:2487
+msgid "Wrist Pain"
+msgstr ""
+
+#: health/complaints.py:2492
+msgid "Wrist Stiffness"
+msgstr ""
+
+#: health/complaints.py:2497
+msgid "Yeast Vulvitis"
+msgstr ""
+
+#: health/complaints.py:2502
+msgid "Yellow Skin And Eyes"
+msgstr ""
+
+#: health/conditions.py:8 health/conditions.py:202
+msgid "Insulin-dependent diabetes mellitus"
+msgstr ""
+
+#: health/conditions.py:16 health/conditions.py:567
+msgid "Anal cancer"
+msgstr ""
+
+#: health/conditions.py:20 health/conditions.py:645
+msgid "Bladder cancer"
+msgstr ""
+
+#: health/conditions.py:24 health/conditions.py:669
+msgid "Brain cancer"
+msgstr ""
+
+#: health/conditions.py:28 health/conditions.py:675
+msgid "Breast cancer"
+msgstr ""
+
+#: health/conditions.py:32 health/conditions.py:687
+msgid "Cardiac cancer"
+msgstr ""
+
+#: health/conditions.py:36 health/conditions.py:699
+msgid "Cervical cancer"
+msgstr ""
+
+#: health/conditions.py:40 health/conditions.py:777
+msgid "Colon cancer"
+msgstr ""
+
+#: health/conditions.py:44 health/conditions.py:849
+msgid "Esophageal cancer"
+msgstr ""
+
+#: health/conditions.py:48 health/conditions.py:879
+msgid "Gallbladder cancer"
+msgstr ""
+
+#: health/conditions.py:52 health/conditions.py:885
+msgid "Gastric cancer"
+msgstr ""
+
+#: health/conditions.py:56 health/conditions.py:927
+msgid "Head and neck cancer"
+msgstr ""
+
+#: health/conditions.py:60 health/conditions.py:999
+msgid "Hodgkin's lymphoma"
+msgstr ""
+
+#: health/conditions.py:64 health/conditions.py:1035
+msgid "Leukemia cutis"
+msgstr ""
+
+#: health/conditions.py:68 health/conditions.py:1041
+msgid "Liposarcoma"
+msgstr ""
+
+#: health/conditions.py:72 health/conditions.py:1047
+msgid "Liver cancer"
+msgstr ""
+
+#: health/conditions.py:76 health/conditions.py:1083
+msgid "Lung cancer"
+msgstr ""
+
+#: health/conditions.py:80 health/conditions.py:1095
+msgid "Lymphoid leukemia"
+msgstr ""
+
+#: health/conditions.py:84 health/conditions.py:1101
+#: templates/dashboard/index.html:4023
+msgid "Melanoma"
+msgstr ""
+
+#: health/conditions.py:88 health/conditions.py:1143
+msgid "Mouth cancer"
+msgstr ""
+
+#: health/conditions.py:92 health/conditions.py:1154
+msgid "Multiple myeloma"
+msgstr ""
+
+#: health/conditions.py:96 health/conditions.py:1166
+msgid "Myeloid leukemia"
+msgstr ""
+
+#: health/conditions.py:100 health/conditions.py:1172
+msgid "Non Hodgkin lymphoma"
+msgstr ""
+
+#: health/conditions.py:104 health/conditions.py:1208
+msgid "Ovarian cancer"
+msgstr ""
+
+#: health/conditions.py:108 health/conditions.py:1220
+msgid "Paget disease of the breast"
+msgstr ""
+
+#: health/conditions.py:112 health/conditions.py:1226
+msgid "Pancreatic cancer"
+msgstr ""
+
+#: health/conditions.py:116 health/conditions.py:1244
+msgid "Peritoneal cancer"
+msgstr ""
+
+#: health/conditions.py:120 health/conditions.py:1268
+msgid "Prostate cancer"
+msgstr ""
+
+#: health/conditions.py:124 health/conditions.py:1316
+msgid "Rectal cancer"
+msgstr ""
+
+#: health/conditions.py:128 health/conditions.py:1322
+msgid "Renal cancer"
+msgstr ""
+
+#: health/conditions.py:132 health/conditions.py:1430
+msgid "Salivary gland cancer"
+msgstr ""
+
+#: health/conditions.py:136 health/conditions.py:1460
+msgid "Testicular cancer"
+msgstr ""
+
+#: health/conditions.py:140 health/conditions.py:1466
+msgid "Thyroid cancer"
+msgstr ""
+
+#: health/conditions.py:144 health/conditions.py:1532
+msgid "Uterine cancer"
+msgstr ""
+
+#: health/conditions.py:148 health/conditions.py:1538
+msgid "Vaginal cancer"
+msgstr ""
+
+#: health/conditions.py:151
+msgid "cancer"
+msgstr ""
+
+#: health/conditions.py:159 health/conditions.py:537
+msgid "Allergic bronchopulmonary aspergillosis"
+msgstr ""
+
+#: health/conditions.py:163 health/conditions.py:609
+msgid "Asthma"
+msgstr ""
+
+#: health/conditions.py:167 health/conditions.py:681
+msgid "Bronchiectasis"
+msgstr ""
+
+#: health/conditions.py:171 health/conditions.py:717
+#, fuzzy
+msgid "Chronic bronchitis"
+msgstr "Condiciones médicas"
+
+#: health/conditions.py:175 health/conditions.py:741
+msgid "Chronic obstructive pulmonary disease"
+msgstr ""
+
+#: health/conditions.py:179 health/conditions.py:795
+msgid "Cor pulmonale"
+msgstr ""
+
+#: health/conditions.py:183 health/conditions.py:837
+msgid "Emphysema"
+msgstr ""
+
+#: health/conditions.py:187 health/conditions.py:305 health/conditions.py:987
+msgid "High blood pressure within the pulmonary arteries"
+msgstr ""
+
+#: health/conditions.py:190
+msgid "Respiratory diseases"
+msgstr ""
+
+#: health/conditions.py:198 health/conditions.py:825
+msgid "Diabetes mellitus"
+msgstr ""
+
+#: health/conditions.py:206 health/conditions.py:1178
+msgid "Non-insulin-dependent diabetes mellitus"
+msgstr ""
+
+#: health/conditions.py:209
+msgid "Diabetes"
+msgstr ""
+
+#: health/conditions.py:217 health/conditions.py:525
+msgid "Alcoholic cardiomyopathy"
+msgstr ""
+
+#: health/conditions.py:221 health/conditions.py:573
+msgid "Angina pectoris"
+msgstr ""
+
+#: health/conditions.py:225 health/conditions.py:579
+msgid "Aortic heart valve disease"
+msgstr ""
+
+#: health/conditions.py:229 health/conditions.py:585
+msgid "Aortic heart valve insufficiency"
+msgstr ""
+
+#: health/conditions.py:233 health/conditions.py:591
+msgid "Aortic heart valve stenosis"
+msgstr ""
+
+#: health/conditions.py:237 health/conditions.py:597
+msgid "Aortic heart valve stenosis with insufficiency"
+msgstr ""
+
+#: health/conditions.py:241 health/conditions.py:603
+msgid "Aortic or mitral valve disease at birth"
+msgstr ""
+
+#: health/conditions.py:245 health/conditions.py:615
+msgid "Atrial fibrillation"
+msgstr ""
+
+#: health/conditions.py:249 health/conditions.py:621
+msgid "Atrial tachycardia"
+msgstr ""
+
+#: health/conditions.py:253 health/conditions.py:633
+msgid "Benign cardiac tumor"
+msgstr ""
+
+#: health/conditions.py:257 health/conditions.py:693
+msgid "Cardiomyopathy"
+msgstr ""
+
+#: health/conditions.py:261 health/conditions.py:729
+msgid "Chronic Chagas disease with heart involvement"
+msgstr ""
+
+#: health/conditions.py:265 health/conditions.py:801
+msgid "Coronary artery atherosclerosis"
+msgstr ""
+
+#: health/conditions.py:269 health/conditions.py:831
+msgid "Dilated cardiomyopathy"
+msgstr ""
+
+#: health/conditions.py:273 health/conditions.py:843
+msgid "Endomyocardial fibrosis"
+msgstr ""
+
+#: health/conditions.py:277 health/conditions.py:861
+msgid "Floppy mitral valve"
+msgstr ""
+
+#: health/conditions.py:281 health/conditions.py:939
+msgid "Heart attack"
+msgstr ""
+
+#: health/conditions.py:285 health/conditions.py:945
+msgid "Heart block"
+msgstr ""
+
+#: health/conditions.py:289 health/conditions.py:951
+msgid "Heart failure"
+msgstr ""
+
+#: health/conditions.py:293 health/conditions.py:957
+msgid "Heart rhythm problems"
+msgstr ""
+
+#: health/conditions.py:297 health/conditions.py:963
+msgid "Heart valve disease"
+msgstr ""
+
+#: health/conditions.py:301 health/conditions.py:981
+msgid "High blood pressure"
+msgstr ""
+
+#: health/conditions.py:309 health/conditions.py:1065
+msgid "Long QT syndrome"
+msgstr ""
+
+#: health/conditions.py:313 health/conditions.py:1113
+msgid "Mitral heart valve disease"
+msgstr ""
+
+#: health/conditions.py:317 health/conditions.py:1119
+msgid "Mitral heart valve insufficiency"
+msgstr ""
+
+#: health/conditions.py:321 health/conditions.py:1125
+msgid "Mitral heart valve stenosis"
+msgstr ""
+
+#: health/conditions.py:325 health/conditions.py:1190
+msgid "Nonobstructive hypertrophic cardiomyopathy"
+msgstr ""
+
+#: health/conditions.py:329 health/conditions.py:1202
+msgid "Obstructive hypertrophic cardiomyopathy"
+msgstr ""
+
+#: health/conditions.py:333 health/conditions.py:1214
+msgid "Pacemaker in place"
+msgstr ""
+
+#: health/conditions.py:337 health/conditions.py:1232
+msgid "Pericardial disease"
+msgstr ""
+
+#: health/conditions.py:341 health/conditions.py:1256
+msgid "Presence of prosthetic heart valve"
+msgstr ""
+
+#: health/conditions.py:345 health/conditions.py:1286
+msgid "Pulmonary heart valve disease"
+msgstr ""
+
+#: health/conditions.py:349 health/conditions.py:1292
+msgid "Pulmonary heart valve disease at birth"
+msgstr ""
+
+#: health/conditions.py:353 health/conditions.py:1298
+msgid "Pulmonary heart valve insufficiency"
+msgstr ""
+
+#: health/conditions.py:357 health/conditions.py:1304
+msgid "Pulmonary heart valve stenosis"
+msgstr ""
+
+#: health/conditions.py:361 health/conditions.py:1310
+msgid "Pulmonary heart valve stenosis with insufficiency"
+msgstr ""
+
+#: health/conditions.py:365 health/conditions.py:1340
+msgid "Restrictive cardiomyopathy"
+msgstr ""
+
+#: health/conditions.py:369 health/conditions.py:1346
+msgid "Rheumatic aortic heart valve disease"
+msgstr ""
+
+#: health/conditions.py:373 health/conditions.py:1352
+msgid "Rheumatic aortic heart valve insufficiency"
+msgstr ""
+
+#: health/conditions.py:377 health/conditions.py:1358
+msgid "Rheumatic aortic heart valve stenosis"
+msgstr ""
+
+#: health/conditions.py:381 health/conditions.py:1364
+msgid "Rheumatic aortic heart valve stenosis with insufficiency"
+msgstr ""
+
+#: health/conditions.py:385 health/conditions.py:1370
+msgid "Rheumatic fever"
+msgstr ""
+
+#: health/conditions.py:389 health/conditions.py:1376
+msgid "Rheumatic mitral heart valve disease"
+msgstr ""
+
+#: health/conditions.py:393 health/conditions.py:1382
+msgid "Rheumatic mitral heart valve insufficiency"
+msgstr ""
+
+#: health/conditions.py:397 health/conditions.py:1388
+msgid "Rheumatic mitral heart valve stenosis"
+msgstr ""
+
+#: health/conditions.py:401 health/conditions.py:1394
+msgid "Rheumatic pulmonary heart valve disease"
+msgstr ""
+
+#: health/conditions.py:405 health/conditions.py:1400
+msgid "Rheumatic tricuspid heart valve disease"
+msgstr ""
+
+#: health/conditions.py:409 health/conditions.py:1406
+msgid "Rheumatic tricuspid heart valve insufficiency"
+msgstr ""
+
+#: health/conditions.py:413 health/conditions.py:1412
+msgid "Rheumatic tricuspid heart valve stenosis"
+msgstr ""
+
+#: health/conditions.py:417 health/conditions.py:1418
+msgid "Rheumatic tricuspid heart valve stenosis with insufficiency"
+msgstr ""
+
+#: health/conditions.py:421 health/conditions.py:1478
+msgid "Transplantation of heart"
+msgstr ""
+
+#: health/conditions.py:425 health/conditions.py:1484
+msgid "Transplantation of heart-lung"
+msgstr ""
+
+#: health/conditions.py:429 health/conditions.py:1490
+msgid "Tricuspid heart valve disease"
+msgstr ""
+
+#: health/conditions.py:433 health/conditions.py:1496
+msgid "Tricuspid heart valve disease at birth"
+msgstr ""
+
+#: health/conditions.py:437 health/conditions.py:1502
+msgid "Tricuspid heart valve insufficiency"
+msgstr ""
+
+#: health/conditions.py:441 health/conditions.py:1508
+msgid "Tricuspid heart valve stenosis"
+msgstr ""
+
+#: health/conditions.py:445 health/conditions.py:1514
+msgid "Tricuspid heart valve stenosis with insufficiency"
+msgstr ""
+
+#: health/conditions.py:449 health/conditions.py:1544
+msgid "Venous insufficiency"
+msgstr ""
+
+#: health/conditions.py:453 health/conditions.py:1586
+msgid "Embolism and thrombosis"
+msgstr ""
+
+#: health/conditions.py:456
+msgid "Heart and cardiovascular"
+msgstr ""
+
+#: health/conditions.py:464 health/conditions.py:507
+msgid "AIDS"
+msgstr ""
+
+#: health/conditions.py:468 health/conditions.py:993
+msgid "HIV positive"
+msgstr ""
+
+#: health/conditions.py:471
+msgid "HIV"
+msgstr ""
+
+#: health/conditions.py:477
+msgid "Acne"
+msgstr ""
+
+#: health/conditions.py:483
+msgid "Acquired angioedema"
+msgstr ""
+
+#: health/conditions.py:489
+msgid "Acromegaly"
+msgstr ""
+
+#: health/conditions.py:495
+msgid "Acute allergic conjunctivitis"
+msgstr ""
+
+#: health/conditions.py:501
+msgid "Addison disease"
+msgstr ""
+
+#: health/conditions.py:513
+msgid "Albinism"
+msgstr ""
+
+#: health/conditions.py:519
+msgid "Alcohol dependence"
+msgstr ""
+
+#: health/conditions.py:531
+msgid "Alcoholic liver disease"
+msgstr ""
+
+#: health/conditions.py:543
+#, fuzzy
+msgid "Allergic reactions"
+msgstr "Sección Genómica"
+
+#: health/conditions.py:549
+msgid "Allergic sinusitis"
+msgstr ""
+
+#: health/conditions.py:555
+msgid "Amyloidosis"
+msgstr ""
+
+#: health/conditions.py:561
+msgid "Amyotrophic lateral sclerosis"
+msgstr ""
+
+#: health/conditions.py:627
+msgid "Autoimmune hepatitis"
+msgstr ""
+
+#: health/conditions.py:639
+msgid "Benign tumor of uterus"
+msgstr ""
+
+#: health/conditions.py:651
+msgid "Blindness of both eyes"
+msgstr ""
+
+#: health/conditions.py:657
+msgid "Blindness of one eye"
+msgstr ""
+
+#: health/conditions.py:663
+msgid "Bowen disease"
+msgstr ""
+
+#: health/conditions.py:705
+msgid "Chronic allergic conjunctivitis"
+msgstr ""
+
+#: health/conditions.py:711
+msgid "Chronic blistering of the skin"
+msgstr ""
+
+#: health/conditions.py:723
+msgid "Chronic Chagas disease with digestive system involvement"
+msgstr ""
+
+#: health/conditions.py:735
+msgid "Chronic mucocutaneous candidiasis"
+msgstr ""
+
+#: health/conditions.py:747
+msgid "Chronic renal failure"
+msgstr ""
+
+#: health/conditions.py:753
+msgid "Chronic viral hepatitis B with delta agent"
+msgstr ""
+
+#: health/conditions.py:759
+msgid "Chronic viral hepatitis B without delta agent"
+msgstr ""
+
+#: health/conditions.py:765
+msgid "Chronic viral hepatitis C"
+msgstr ""
+
+#: health/conditions.py:771
+msgid "Cirrhosis of liver"
+msgstr ""
+
+#: health/conditions.py:783
+msgid "Common variable immunodeficiency"
+msgstr ""
+
+#: health/conditions.py:789
+msgid "Congenital deafness"
+msgstr ""
+
+#: health/conditions.py:807
+msgid "Crohn disease"
+msgstr ""
+
+#: health/conditions.py:813
+msgid "Dental implant in place"
+msgstr ""
+
+#: health/conditions.py:819
+msgid "Dermatomyositis"
+msgstr ""
+
+#: health/conditions.py:855
+msgid "Fatty liver"
+msgstr ""
+
+#: health/conditions.py:867
+msgid "Food allergies"
+msgstr ""
+
+#: health/conditions.py:873
+msgid "Galactokinase deficiency"
+msgstr ""
+
+#: health/conditions.py:891
+msgid "Gastro-esophageal reflux disease"
+msgstr ""
+
+#: health/conditions.py:897
+msgid "Gaucher disease"
+msgstr ""
+
+#: health/conditions.py:903
+msgid "Glycogen-storage disease"
+msgstr ""
+
+#: health/conditions.py:909
+msgid "Graft versus host disease"
+msgstr ""
+
+#: health/conditions.py:915
+msgid "Gum disease"
+msgstr ""
+
+#: health/conditions.py:921
+msgid "Hay fever"
+msgstr ""
+
+#: health/conditions.py:969
+msgid "Hemochromatosis"
+msgstr ""
+
+#: health/conditions.py:975
+msgid "Hereditary hypogammaglobulinemia"
+msgstr ""
+
+#: health/conditions.py:1005
+msgid "Hyperammonemia"
+msgstr ""
+
+#: health/conditions.py:1011
+msgid "Inguinal hernia"
+msgstr ""
+
+#: health/conditions.py:1017
+msgid "Itchy rash made of bumps and blisters"
+msgstr ""
+
+#: health/conditions.py:1023
+msgid "Job syndrome"
+msgstr ""
+
+#: health/conditions.py:1029
+msgid "Lentigo"
+msgstr ""
+
+#: health/conditions.py:1053
+msgid "Liver failure"
+msgstr ""
+
+#: health/conditions.py:1059
+msgid "Liver transplantation"
+msgstr ""
+
+#: health/conditions.py:1071
+msgid "Long-lasting watery blisters on skin and mouth"
+msgstr ""
+
+#: health/conditions.py:1077
+msgid "Loss of skin pigment"
+msgstr ""
+
+#: health/conditions.py:1089
+msgid "Lupus"
+msgstr ""
+
+#: health/conditions.py:1107
+msgid "Melasma"
+msgstr ""
+
+#: health/conditions.py:1131
+msgid "Mixed connective tissue disease"
+msgstr ""
+
+#: health/conditions.py:1137
+msgid "Morphea"
+msgstr ""
+
+#: health/conditions.py:1160
+msgid "Multiple sclerosis"
+msgstr ""
+
+#: health/conditions.py:1184
+msgid "Nonfamilial hypogammaglobulinaemia"
+msgstr ""
+
+#: health/conditions.py:1196
+msgid "Obesity"
+msgstr ""
+
+#: health/conditions.py:1238
+msgid "Periodontal disease"
+msgstr ""
+
+#: health/conditions.py:1250
+msgid "Porphyria cutanea tarda"
+msgstr ""
+
+#: health/conditions.py:1262
+msgid "Primary biliary cirrhosis"
+msgstr ""
+
+#: health/conditions.py:1274
+msgid "Prurigo nodularis"
+msgstr ""
+
+#: health/conditions.py:1280
+msgid "Psoriasis"
+msgstr ""
+
+#: health/conditions.py:1328
+msgid "Renal failure on dyalisis"
+msgstr ""
+
+#: health/conditions.py:1334
+msgid "Renal transplantation"
+msgstr ""
+
+#: health/conditions.py:1424
+msgid "Rosacea"
+msgstr ""
+
+#: health/conditions.py:1436
+msgid "Scleroderma"
+msgstr ""
+
+#: health/conditions.py:1442
+msgid "Sickle-cell disorders"
+msgstr ""
+
+#: health/conditions.py:1448
+msgid "Skin blisters after slight trauma"
+msgstr ""
+
+#: health/conditions.py:1454
+msgid "Temporal arteritis"
+msgstr ""
+
+#: health/conditions.py:1472
+msgid "Toxic liver disease"
+msgstr ""
+
+#: health/conditions.py:1520
+msgid "Ulcerative colitis"
+msgstr ""
+
+#: health/conditions.py:1526
+msgid "Umbilical hernia"
+msgstr ""
+
+#: health/conditions.py:1550
+msgid "Visual impairment"
+msgstr ""
+
+#: health/conditions.py:1556
+msgid "Vitamin A deficiency"
+msgstr ""
+
+#: health/conditions.py:1562
+msgid "Gallstones"
+msgstr ""
+
+#: health/conditions.py:1568
+msgid "Age related macular degeneration"
+msgstr ""
+
+#: health/conditions.py:1574
+msgid "Restless legs syndrome"
+msgstr ""
+
+#: health/conditions.py:1580
+msgid "Gluten-sensitive enteropathy"
+msgstr ""
+
+#: health/conditions.py:1592
+msgid "Rheumatoid arthritis"
+msgstr ""
+
+#: health/conditions.py:1598
+msgid "Bipolar disorder"
+msgstr ""
+
+#: health/conditions.py:1604
+msgid "Glaucoma"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Tired"
+msgstr ""
+
+#: health/emotions.py:2 templates/dashboard/index.html:2963
+msgid "Stressed"
+msgstr ""
+
+#: health/emotions.py:2 templates/dashboard/index.html:3107
+msgid "Angry"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Excited"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Frustrated"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Horny"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Irritated"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Affectional"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Aggressive"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Alarmed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Alert"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Amazed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Ambiguous"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Ambivalent"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Anguished"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Animated"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Annoyed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Anxious"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Apathetic"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Apathy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Ashamed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Astonished"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Bewildered"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Bitchy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Bittersweet"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Blissful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Bored"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Calm"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Certain"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Cheerful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Cold"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Complacent"
+msgstr "Dolencias"
+
+#: health/emotions.py:2
+msgid "Confident"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Confused"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Content"
+msgstr "Contacto"
+
+#: health/emotions.py:2
+msgid "Cozy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Cranky"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Crappy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Crazy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Crushed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Curious"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Cynical"
+msgstr "Act. Física"
+
+#: health/emotions.py:2
+msgid "Dejected"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Delighted"
+msgstr "Peso"
+
+#: health/emotions.py:2
+msgid "Depressed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Desired"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Desperate"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Despised"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Determined"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Devious"
+msgstr ""
+
+#: health/emotions.py:2 templates/dashboard/index.html:2891
+msgid "Disappointed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Discontent"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Disgusted"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Disheartened"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Disillusioned"
+msgstr "Misión"
+
+#: health/emotions.py:2
+msgid "Dissatisfied"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Distressed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Distrustful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Dull"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Eager"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Edgy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Elated"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Embarrassed"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Emotional"
+msgstr "Emociones"
+
+#: health/emotions.py:2
+msgid "Empathic"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Energetic"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Enthusiastic"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Envious"
+msgstr ""
+
+#: health/emotions.py:2 templates/dashboard/index.html:3179
+msgid "Euphoric"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Exhausted"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Fearful"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Fortunate"
+msgstr "Quiero Donar"
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Friendly"
+msgstr "Número de amigos"
+
+#: health/emotions.py:2
+msgid "Fulfilled"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Furious"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Glad"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Gloomy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Good"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Grateful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Gratified"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Groggy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Grumpy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Guilty"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Happy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Hateful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Hilarious"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Homesick"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Hopeful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Hostile"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Humiliated"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Hungry"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Hurt"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Hysterical"
+msgstr "Act. Física"
+
+#: health/emotions.py:2
+msgid "Impatient"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Impressed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "In-love"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Indifferent"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Indignant"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Insecure"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Interested"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Intolerant"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Jealous"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Jolly"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Jovial"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Joyful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Jubilant"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Lazy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Listless"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Lively"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Lonely"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Lustful"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Mad"
+msgstr "Triste"
+
+#: health/emotions.py:2
+msgid "Manic"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Messy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Mischievous"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Miserable"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Moody"
+msgstr "Estado de ánimo"
+
+#: health/emotions.py:2
+msgid "Naughty"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Nervous"
+msgstr ""
+
+#: health/emotions.py:2 templates/dashboard/index.html:3907
+#, fuzzy
+msgid "Normal"
+msgstr "Normal"
+
+#: health/emotions.py:2
+msgid "Nostalgic"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Numb"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Offended"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Offensive"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Optimistic"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Overwhelmed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Panic"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Passionate"
+msgstr "Quiero Donar"
+
+#: health/emotions.py:2
+msgid "Peaceful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Pitiful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Playful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Pleased"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Positive"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Powerful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Proud"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Regretful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Rejected"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Relaxed"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Relieved"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Resentful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Restless"
+msgstr ""
+
+#: health/emotions.py:2 templates/dashboard/index.html:3035
+msgid "Sad"
+msgstr "Triste"
+
+#: health/emotions.py:2
+msgid "Satisfied"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Scared"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Secure"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Selfish"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Shameful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Shocked"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Shy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Silly"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Skeptic"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Sleepy"
+msgstr "Sueño"
+
+#: health/emotions.py:2
+msgid "Smart"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Sorrowful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Spirited"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Sure"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Surprised"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Tense"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Terrified"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Thankful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Thoughtful"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Thrilled"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Touched"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Touchy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Uncertain"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Uncomfortable"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Unhappy"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Unsure"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Upset"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Violent"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Warm"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Wary"
+msgstr ""
+
+#: health/emotions.py:2
+msgid "Weird"
+msgstr ""
+
+#: health/emotions.py:2
+#, fuzzy
+msgid "Wonder"
+msgstr "Género"
+
+#: health/emotions.py:2
+msgid "Worried"
+msgstr ""
 
 #: social_auth/exceptions.py:14
 #, python-format
@@ -571,26 +4079,6 @@ msgstr "Salud emocional"
 msgid "Add the feelings you register most frequently"
 msgstr ""
 
-#: templates/dashboard/index.html:2891
-msgid "Disappointed"
-msgstr ""
-
-#: templates/dashboard/index.html:2963
-msgid "Stressed"
-msgstr ""
-
-#: templates/dashboard/index.html:3035
-msgid "Sad"
-msgstr "Triste"
-
-#: templates/dashboard/index.html:3107
-msgid "Angry"
-msgstr ""
-
-#: templates/dashboard/index.html:3179
-msgid "Euphoric"
-msgstr ""
-
 #: templates/dashboard/index.html:3250
 msgid "Add another<br />emotion"
 msgstr ""
@@ -676,16 +4164,17 @@ msgstr ""
 
 #: templates/dashboard/index.html:3806
 msgid "DRUG RESPONSE"
-msgstr ""
+msgstr "RESPUESTA A DROGAS"
 
 #: templates/dashboard/index.html:3832
 msgid ""
 "Alcohol consumption,<br />smoking and <strong>risk of<br />esophageal cancer:"
 msgstr ""
+"Consumo de alchol,<br />fumar y <strong>riesgo de<br />cancer de esofago:"
 
 #: templates/dashboard/index.html:3844
 msgid "Typical risk"
-msgstr ""
+msgstr "Riesgo Tipico"
 
 #: templates/dashboard/index.html:3855
 msgid "Substantially increased risk"
@@ -700,11 +4189,6 @@ msgid ""
 "Oral contraceptives, <br />hormone replacement<br />therapy and risk of <br /"
 "><strong>venous <br />thromboembolism:"
 msgstr ""
-
-#: templates/dashboard/index.html:3907
-#, fuzzy
-msgid "Normal"
-msgstr "Normal"
 
 #: templates/dashboard/index.html:3918
 msgid "Reduced"
@@ -734,10 +4218,6 @@ msgstr ""
 
 #: templates/dashboard/index.html:4011
 msgid "Venous Thromb."
-msgstr ""
-
-#: templates/dashboard/index.html:4023
-msgid "Melanoma"
 msgstr ""
 
 #: templates/dashboard/index.html:4035
@@ -1597,6 +5077,9 @@ msgid ""
 "passionate about\n"
 "\t\t\traising awareness of global health issues."
 msgstr ""
+"Datadonors esta motorizado por un equipo interdisciplinario de científicos,  "
+"diseñadores, programadores y empresarios que  son apasionados de crear "
+"conciencia sobre temas como la salud mundial."
 
 #: templates/static/team.html:48 templates/static/team.html.py:61
 msgid "Founder and board member"
