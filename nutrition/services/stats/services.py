@@ -4,6 +4,7 @@
 This services are used by the views
 """
 
+from django.utils.translation import gettext as _
 from datetime import date, timedelta
 from nutrition.models import *
 
@@ -17,22 +18,22 @@ class NutritionDistributionService(object):
     def get_nutrients_global_distribution(self):
         nutrients = {
             "protein": {
-                "title": "Protein",
+                "title": _("Protein"),
                 "key": "protein",
                 "percentage": 0
             },
             "fat": {
-                "title": "Fat",
+                "title": _("Fat"),
                 "key": "fat",
                 "percentage": 0
             },
             "carbs": {
-                "title": "Carbs",
+                "title": _("Carbs"),
                 "key": "carbs",
                 "percentage": 0
             },
             "fiber": {
-                "title": "Fiber",
+                "title": _("Fiber"),
                 "key": "fiber",
                 "percentage": 0
             }
@@ -67,22 +68,22 @@ class NutritionDistributionService(object):
     def get_nutrients_user_distribution(self, user):
         nutrients = {
             "protein": {
-                "title": "Protein",
+                "title": _("Protein"),
                 "key": "protein",
                 "percentage": 0
             },
             "fat": {
-                "title": "Fat",
+                "title": _("Fat"),
                 "key": "fat",
                 "percentage": 0
             },
             "carbs": {
-                "title": "Carbs",
+                "title": _("Carbs"),
                 "key": "carbs",
                 "percentage": 0
             },
             "fiber": {
-                "title": "Fiber",
+                "title": _("Fiber"),
                 "key": "fiber",
                 "percentage": 0
             }

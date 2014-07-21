@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-18 09:11-0500\n"
+"POT-Creation-Date: 2014-07-21 14:09-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2117,7 +2117,7 @@ msgid "Lymphoid leukemia"
 msgstr ""
 
 #: health/conditions.py:84 health/conditions.py:1101
-#: templates/dashboard/index.html:4023
+#: templates/dashboard/index.html:4024
 msgid "Melanoma"
 msgstr "Melanoma"
 
@@ -2125,63 +2125,63 @@ msgstr "Melanoma"
 msgid "Mouth cancer"
 msgstr ""
 
-#: health/conditions.py:92 health/conditions.py:1154
+#: health/conditions.py:92 health/conditions.py:1155
 msgid "Multiple myeloma"
 msgstr ""
 
-#: health/conditions.py:96 health/conditions.py:1166
+#: health/conditions.py:96 health/conditions.py:1167
 msgid "Myeloid leukemia"
 msgstr ""
 
-#: health/conditions.py:100 health/conditions.py:1172
+#: health/conditions.py:100 health/conditions.py:1173
 msgid "Non Hodgkin lymphoma"
 msgstr ""
 
-#: health/conditions.py:104 health/conditions.py:1208
+#: health/conditions.py:104 health/conditions.py:1209
 msgid "Ovarian cancer"
 msgstr ""
 
-#: health/conditions.py:108 health/conditions.py:1220
+#: health/conditions.py:108 health/conditions.py:1221
 msgid "Paget disease of the breast"
 msgstr ""
 
-#: health/conditions.py:112 health/conditions.py:1226
+#: health/conditions.py:112 health/conditions.py:1227
 msgid "Pancreatic cancer"
 msgstr ""
 
-#: health/conditions.py:116 health/conditions.py:1244
+#: health/conditions.py:116 health/conditions.py:1245
 msgid "Peritoneal cancer"
 msgstr ""
 
-#: health/conditions.py:120 health/conditions.py:1268
+#: health/conditions.py:120 health/conditions.py:1269
 msgid "Prostate cancer"
 msgstr ""
 
-#: health/conditions.py:124 health/conditions.py:1316
+#: health/conditions.py:124 health/conditions.py:1317
 msgid "Rectal cancer"
 msgstr ""
 
-#: health/conditions.py:128 health/conditions.py:1322
+#: health/conditions.py:128 health/conditions.py:1323
 msgid "Renal cancer"
 msgstr ""
 
-#: health/conditions.py:132 health/conditions.py:1430
+#: health/conditions.py:132 health/conditions.py:1431
 msgid "Salivary gland cancer"
 msgstr ""
 
-#: health/conditions.py:136 health/conditions.py:1460
+#: health/conditions.py:136 health/conditions.py:1461
 msgid "Testicular cancer"
 msgstr ""
 
-#: health/conditions.py:140 health/conditions.py:1466
+#: health/conditions.py:140 health/conditions.py:1467
 msgid "Thyroid cancer"
 msgstr ""
 
-#: health/conditions.py:144 health/conditions.py:1532
+#: health/conditions.py:144 health/conditions.py:1533
 msgid "Uterine cancer"
 msgstr ""
 
-#: health/conditions.py:148 health/conditions.py:1538
+#: health/conditions.py:148 health/conditions.py:1539
 msgid "Vaginal cancer"
 msgstr ""
 
@@ -2230,7 +2230,7 @@ msgstr ""
 msgid "Diabetes mellitus"
 msgstr ""
 
-#: health/conditions.py:206 health/conditions.py:1178
+#: health/conditions.py:206 health/conditions.py:1179
 msgid "Non-insulin-dependent diabetes mellitus"
 msgstr ""
 
@@ -2342,135 +2342,135 @@ msgstr ""
 msgid "Mitral heart valve stenosis"
 msgstr ""
 
-#: health/conditions.py:325 health/conditions.py:1190
+#: health/conditions.py:325 health/conditions.py:1191
 msgid "Nonobstructive hypertrophic cardiomyopathy"
 msgstr ""
 
-#: health/conditions.py:329 health/conditions.py:1202
+#: health/conditions.py:329 health/conditions.py:1203
 msgid "Obstructive hypertrophic cardiomyopathy"
 msgstr ""
 
-#: health/conditions.py:333 health/conditions.py:1214
+#: health/conditions.py:333 health/conditions.py:1215
 msgid "Pacemaker in place"
 msgstr ""
 
-#: health/conditions.py:337 health/conditions.py:1232
+#: health/conditions.py:337 health/conditions.py:1233
 msgid "Pericardial disease"
 msgstr ""
 
-#: health/conditions.py:341 health/conditions.py:1256
+#: health/conditions.py:341 health/conditions.py:1257
 msgid "Presence of prosthetic heart valve"
 msgstr ""
 
-#: health/conditions.py:345 health/conditions.py:1286
+#: health/conditions.py:345 health/conditions.py:1287
 msgid "Pulmonary heart valve disease"
 msgstr ""
 
-#: health/conditions.py:349 health/conditions.py:1292
+#: health/conditions.py:349 health/conditions.py:1293
 msgid "Pulmonary heart valve disease at birth"
 msgstr ""
 
-#: health/conditions.py:353 health/conditions.py:1298
+#: health/conditions.py:353 health/conditions.py:1299
 msgid "Pulmonary heart valve insufficiency"
 msgstr ""
 
-#: health/conditions.py:357 health/conditions.py:1304
+#: health/conditions.py:357 health/conditions.py:1305
 msgid "Pulmonary heart valve stenosis"
 msgstr ""
 
-#: health/conditions.py:361 health/conditions.py:1310
+#: health/conditions.py:361 health/conditions.py:1311
 msgid "Pulmonary heart valve stenosis with insufficiency"
 msgstr ""
 
-#: health/conditions.py:365 health/conditions.py:1340
+#: health/conditions.py:365 health/conditions.py:1341
 msgid "Restrictive cardiomyopathy"
 msgstr ""
 
-#: health/conditions.py:369 health/conditions.py:1346
+#: health/conditions.py:369 health/conditions.py:1347
 msgid "Rheumatic aortic heart valve disease"
 msgstr ""
 
-#: health/conditions.py:373 health/conditions.py:1352
+#: health/conditions.py:373 health/conditions.py:1353
 msgid "Rheumatic aortic heart valve insufficiency"
 msgstr ""
 
-#: health/conditions.py:377 health/conditions.py:1358
+#: health/conditions.py:377 health/conditions.py:1359
 msgid "Rheumatic aortic heart valve stenosis"
 msgstr ""
 
-#: health/conditions.py:381 health/conditions.py:1364
+#: health/conditions.py:381 health/conditions.py:1365
 msgid "Rheumatic aortic heart valve stenosis with insufficiency"
 msgstr ""
 
-#: health/conditions.py:385 health/conditions.py:1370
+#: health/conditions.py:385 health/conditions.py:1371
 msgid "Rheumatic fever"
 msgstr ""
 
-#: health/conditions.py:389 health/conditions.py:1376
+#: health/conditions.py:389 health/conditions.py:1377
 msgid "Rheumatic mitral heart valve disease"
 msgstr ""
 
-#: health/conditions.py:393 health/conditions.py:1382
+#: health/conditions.py:393 health/conditions.py:1383
 msgid "Rheumatic mitral heart valve insufficiency"
 msgstr ""
 
-#: health/conditions.py:397 health/conditions.py:1388
+#: health/conditions.py:397 health/conditions.py:1389
 msgid "Rheumatic mitral heart valve stenosis"
 msgstr ""
 
-#: health/conditions.py:401 health/conditions.py:1394
+#: health/conditions.py:401 health/conditions.py:1395
 msgid "Rheumatic pulmonary heart valve disease"
 msgstr ""
 
-#: health/conditions.py:405 health/conditions.py:1400
+#: health/conditions.py:405 health/conditions.py:1401
 msgid "Rheumatic tricuspid heart valve disease"
 msgstr ""
 
-#: health/conditions.py:409 health/conditions.py:1406
+#: health/conditions.py:409 health/conditions.py:1407
 msgid "Rheumatic tricuspid heart valve insufficiency"
 msgstr ""
 
-#: health/conditions.py:413 health/conditions.py:1412
+#: health/conditions.py:413 health/conditions.py:1413
 msgid "Rheumatic tricuspid heart valve stenosis"
 msgstr ""
 
-#: health/conditions.py:417 health/conditions.py:1418
+#: health/conditions.py:417 health/conditions.py:1419
 msgid "Rheumatic tricuspid heart valve stenosis with insufficiency"
 msgstr ""
 
-#: health/conditions.py:421 health/conditions.py:1478
+#: health/conditions.py:421 health/conditions.py:1479
 msgid "Transplantation of heart"
 msgstr ""
 
-#: health/conditions.py:425 health/conditions.py:1484
+#: health/conditions.py:425 health/conditions.py:1485
 msgid "Transplantation of heart-lung"
 msgstr ""
 
-#: health/conditions.py:429 health/conditions.py:1490
+#: health/conditions.py:429 health/conditions.py:1491
 msgid "Tricuspid heart valve disease"
 msgstr ""
 
-#: health/conditions.py:433 health/conditions.py:1496
+#: health/conditions.py:433 health/conditions.py:1497
 msgid "Tricuspid heart valve disease at birth"
 msgstr ""
 
-#: health/conditions.py:437 health/conditions.py:1502
+#: health/conditions.py:437 health/conditions.py:1503
 msgid "Tricuspid heart valve insufficiency"
 msgstr ""
 
-#: health/conditions.py:441 health/conditions.py:1508
+#: health/conditions.py:441 health/conditions.py:1509
 msgid "Tricuspid heart valve stenosis"
 msgstr ""
 
-#: health/conditions.py:445 health/conditions.py:1514
+#: health/conditions.py:445 health/conditions.py:1515
 msgid "Tricuspid heart valve stenosis with insufficiency"
 msgstr ""
 
-#: health/conditions.py:449 health/conditions.py:1544
+#: health/conditions.py:449 health/conditions.py:1545
 msgid "Venous insufficiency"
 msgstr ""
 
-#: health/conditions.py:453 health/conditions.py:1586
+#: health/conditions.py:453 health/conditions.py:1587
 msgid "Embolism and thrombosis"
 msgstr ""
 
@@ -2711,111 +2711,115 @@ msgstr ""
 msgid "Morphea"
 msgstr ""
 
-#: health/conditions.py:1160
+#: health/conditions.py:1149
+msgid "Mucopolysaccharidosis"
+msgstr ""
+
+#: health/conditions.py:1161
 msgid "Multiple sclerosis"
 msgstr ""
 
-#: health/conditions.py:1184
+#: health/conditions.py:1185
 msgid "Nonfamilial hypogammaglobulinaemia"
 msgstr ""
 
-#: health/conditions.py:1196
+#: health/conditions.py:1197
 msgid "Obesity"
 msgstr ""
 
-#: health/conditions.py:1238
+#: health/conditions.py:1239
 msgid "Periodontal disease"
 msgstr ""
 
-#: health/conditions.py:1250
+#: health/conditions.py:1251
 msgid "Porphyria cutanea tarda"
 msgstr ""
 
-#: health/conditions.py:1262
+#: health/conditions.py:1263
 msgid "Primary biliary cirrhosis"
 msgstr ""
 
-#: health/conditions.py:1274
+#: health/conditions.py:1275
 msgid "Prurigo nodularis"
 msgstr ""
 
-#: health/conditions.py:1280
+#: health/conditions.py:1281
 msgid "Psoriasis"
 msgstr ""
 
-#: health/conditions.py:1328
+#: health/conditions.py:1329
 msgid "Renal failure on dyalisis"
 msgstr ""
 
-#: health/conditions.py:1334
+#: health/conditions.py:1335
 msgid "Renal transplantation"
 msgstr ""
 
-#: health/conditions.py:1424
+#: health/conditions.py:1425
 msgid "Rosacea"
 msgstr ""
 
-#: health/conditions.py:1436
+#: health/conditions.py:1437
 msgid "Scleroderma"
 msgstr ""
 
-#: health/conditions.py:1442
+#: health/conditions.py:1443
 msgid "Sickle-cell disorders"
 msgstr ""
 
-#: health/conditions.py:1448
+#: health/conditions.py:1449
 msgid "Skin blisters after slight trauma"
 msgstr ""
 
-#: health/conditions.py:1454
+#: health/conditions.py:1455
 msgid "Temporal arteritis"
 msgstr ""
 
-#: health/conditions.py:1472
+#: health/conditions.py:1473
 msgid "Toxic liver disease"
 msgstr ""
 
-#: health/conditions.py:1520
+#: health/conditions.py:1521
 msgid "Ulcerative colitis"
 msgstr ""
 
-#: health/conditions.py:1526
+#: health/conditions.py:1527
 msgid "Umbilical hernia"
 msgstr ""
 
-#: health/conditions.py:1550
+#: health/conditions.py:1551
 msgid "Visual impairment"
 msgstr ""
 
-#: health/conditions.py:1556
+#: health/conditions.py:1557
 msgid "Vitamin A deficiency"
 msgstr ""
 
-#: health/conditions.py:1562
+#: health/conditions.py:1563
 msgid "Gallstones"
 msgstr ""
 
-#: health/conditions.py:1568
+#: health/conditions.py:1569
 msgid "Age related macular degeneration"
 msgstr ""
 
-#: health/conditions.py:1574
+#: health/conditions.py:1575
 msgid "Restless legs syndrome"
 msgstr ""
 
-#: health/conditions.py:1580
+#: health/conditions.py:1581
 msgid "Gluten-sensitive enteropathy"
 msgstr ""
 
-#: health/conditions.py:1592
+#: health/conditions.py:1593
 msgid "Rheumatoid arthritis"
 msgstr ""
 
-#: health/conditions.py:1598
+#: health/conditions.py:1599
 msgid "Bipolar disorder"
 msgstr ""
 
-#: health/conditions.py:1604
+#: health/conditions.py:1605
 msgid "Glaucoma"
 msgstr ""
 
@@ -2823,11 +2827,11 @@ msgstr ""
 msgid "Tired"
 msgstr ""
 
-#: health/emotions.py:2 templates/dashboard/index.html:2963
+#: health/emotions.py:2 templates/dashboard/index.html:2964
 msgid "Stressed"
 msgstr "Estresado"
 
-#: health/emotions.py:2 templates/dashboard/index.html:3107
+#: health/emotions.py:2 templates/dashboard/index.html:3108
 msgid "Angry"
 msgstr ""
 
@@ -3023,7 +3027,7 @@ msgstr ""
 msgid "Devious"
 msgstr ""
 
-#: health/emotions.py:2 templates/dashboard/index.html:2891
+#: health/emotions.py:2 templates/dashboard/index.html:2892
 msgid "Disappointed"
 msgstr ""
 
@@ -3097,7 +3101,7 @@ msgstr ""
 msgid "Envious"
 msgstr ""
 
-#: health/emotions.py:2 templates/dashboard/index.html:3179
+#: health/emotions.py:2 templates/dashboard/index.html:3180
 msgid "Euphoric"
 msgstr ""
 
@@ -3306,7 +3310,7 @@ msgstr ""
 msgid "Nervous"
 msgstr ""
 
-#: health/emotions.py:2 templates/dashboard/index.html:3907
+#: health/emotions.py:2 templates/dashboard/index.html:3908
 #, fuzzy
 msgid "Normal"
 msgstr "Normal"
@@ -3396,7 +3400,7 @@ msgstr ""
 msgid "Restless"
 msgstr ""
 
-#: health/emotions.py:2 templates/dashboard/index.html:3035
+#: health/emotions.py:2 templates/dashboard/index.html:3036
 msgid "Sad"
 msgstr "Triste"
 
@@ -3534,6 +3538,54 @@ msgstr "Género"
 msgid "Worried"
 msgstr ""
 
+#: nutrition/services/stats/services.py:21
+#: nutrition/services/stats/services.py:71
+msgid "Protein"
+msgstr "Proteínas"
+
+#: nutrition/services/stats/services.py:26
+#: nutrition/services/stats/services.py:76
+msgid "Fat"
+msgstr "Grasas"
+
+#: nutrition/services/stats/services.py:31
+#: nutrition/services/stats/services.py:81
+msgid "Carbs"
+msgstr "Carbohidratos"
+
+#: nutrition/services/stats/services.py:36
+#: nutrition/services/stats/services.py:86
+msgid "Fiber"
+msgstr "Fibras"
+
+#: social/services/utilities.py:179 templates/dashboard/index.html:594
+msgid "PhD"
+msgstr "PhD"
+
+#: social/services/utilities.py:180 templates/dashboard/index.html:603
+msgid "Master"
+msgstr "Master"
+
+#: social/services/utilities.py:181 templates/dashboard/index.html:612
+msgid "University"
+msgstr "Universitario"
+
+#: social/services/utilities.py:182
+msgid "Technical Institute"
+msgstr "Instituto Técnico"
+
+#: social/services/utilities.py:183 templates/dashboard/index.html:630
+msgid "High School"
+msgstr "Secundario"
+
+#: social/services/utilities.py:184 templates/dashboard/index.html:639
+msgid "Junior College"
+msgstr "Primario"
+
+#: social/services/utilities.py:185 templates/dashboard/index.html:648
+msgid "Elementary School"
+msgstr "Elemental"
+
 #: social_auth/exceptions.py:14
 #, python-format
 msgid "Incorrect authentication service \"%s\""
@@ -3578,7 +3630,7 @@ msgstr ""
 msgid "User revoke access to the token"
 msgstr ""
 
-#: templates/footer.include.html:11 templates/header.include.html:79
+#: templates/footer.include.html:11 templates/header.include.html:78
 #: templates/static/learn_more.html:7
 #: templates/wizard_inc/header.include.html:26
 msgid "Learn More"
@@ -3604,41 +3656,41 @@ msgstr "Términos y Condiciones"
 msgid "The Wikilife Foundation"
 msgstr "La Fundación"
 
-#: templates/header.include.html:56 templates/landing_inc/videos.html:53
+#: templates/header.include.html:55 templates/landing_inc/videos.html:53
 msgid "by The Wikilife Foundation"
 msgstr "Creado por The WikiLife Foundation"
 
-#: templates/header.include.html:77
+#: templates/header.include.html:76
 #: templates/wizard_inc/header.include.html:24
 msgid "Data"
 msgstr "Datos"
 
-#: templates/header.include.html:78 templates/static/mission.html:7
+#: templates/header.include.html:77 templates/static/mission.html:7
 #: templates/wizard_inc/header.include.html:25
 msgid "Mission"
 msgstr "Misión"
 
-#: templates/header.include.html:80 templates/static/support.html:7
+#: templates/header.include.html:79 templates/static/support.html:7
 #: templates/wizard_inc/header.include.html:27
 msgid "Support Us"
 msgstr "Cómo ayudar"
 
-#: templates/header.include.html:82
+#: templates/header.include.html:81
 #: templates/wizard_inc/header.include.html:29
 msgid "About Us"
 msgstr "Nosotros"
 
-#: templates/header.include.html:83
+#: templates/header.include.html:82
 #: templates/wizard_inc/header.include.html:30
 msgid "logout"
 msgstr "Salir"
 
-#: templates/header.include.html:85
+#: templates/header.include.html:84
 #: templates/wizard_inc/header.include.html:32
 msgid "login"
 msgstr "Entrar"
 
-#: templates/header.include.html:91
+#: templates/header.include.html:90
 #: templates/wizard_inc/header.include.html:38
 msgid "Start Sharing"
 msgstr "Quiero a donar"
@@ -3685,8 +3737,8 @@ msgid "Keep"
 msgstr "Quedarse"
 
 #: templates/dashboard/index.html:156 templates/dashboard/index.html.py:800
-#: templates/dashboard/index.html:1231 templates/dashboard/index.html:1955
-#: templates/dashboard/index.html:3435
+#: templates/dashboard/index.html:1231 templates/dashboard/index.html:1956
+#: templates/dashboard/index.html:3436
 msgid "What data are you donating?"
 msgstr "Qué datos estas donando?"
 
@@ -3716,8 +3768,8 @@ msgstr "Referencias:"
 #: templates/dashboard/index.html:1492 templates/dashboard/index.html:1525
 #: templates/dashboard/index.html:1531 templates/dashboard/index.html:1570
 #: templates/dashboard/index.html:1576 templates/dashboard/index.html:1609
-#: templates/dashboard/index.html:1615 templates/dashboard/index.html:3506
-#: templates/dashboard/index.html:3535
+#: templates/dashboard/index.html:1615 templates/dashboard/index.html:3507
+#: templates/dashboard/index.html:3536
 msgid "All"
 msgstr "Todos"
 
@@ -3732,7 +3784,7 @@ msgstr "Todos"
 #: templates/dashboard/index.html:1396 templates/dashboard/index.html:1435
 #: templates/dashboard/index.html:1480 templates/dashboard/index.html:1519
 #: templates/dashboard/index.html:1564 templates/dashboard/index.html:1603
-#: templates/dashboard/index.html:3505 templates/dashboard/index.html:3534
+#: templates/dashboard/index.html:3506 templates/dashboard/index.html:3535
 msgid "You"
 msgstr "Tú"
 
@@ -3742,7 +3794,7 @@ msgstr "Estadîsticas en redes social "
 
 #: templates/dashboard/index.html:397
 msgid "Let's see how much you post, tweet and retweet per week."
-msgstr ""
+msgstr "Veamos cuanto públicas, tuiteas y retuiteas por semana."
 
 #: templates/dashboard/index.html:409
 msgid "Avg posts per week"
@@ -3750,20 +3802,15 @@ msgstr "Promedio de publicaciones por semana"
 
 #: templates/dashboard/index.html:487
 msgid "Avg likes and retweets per week"
-msgstr ""
+msgstr "Promedio de 'me gusta' y retweets por semana"
 
 #: templates/dashboard/index.html:573
-#, fuzzy
 msgid "Share your level<br />of education"
-msgstr "Nivel de Educación"
+msgstr "Comparta su <br/> nivel de Educación"
 
 #: templates/dashboard/index.html:574
 msgid "Tap or select the highest level of education"
-msgstr ""
-
-#: templates/dashboard/index.html:594
-msgid "PhD"
-msgstr "PhD"
+msgstr "Toca o selecciona tu más alto nivel de educación"
 
 #: templates/dashboard/index.html:596 templates/dashboard/index.html.py:605
 #: templates/dashboard/index.html:614 templates/dashboard/index.html.py:623
@@ -3772,29 +3819,9 @@ msgstr "PhD"
 msgid "This is your level"
 msgstr "Este es tu nivel"
 
-#: templates/dashboard/index.html:603
-msgid "Master"
-msgstr "Master"
-
-#: templates/dashboard/index.html:612
-msgid "University"
-msgstr "Universitario"
-
 #: templates/dashboard/index.html:621
 msgid "Technical Insitute"
 msgstr "Instituto Técnico"
-
-#: templates/dashboard/index.html:630
-msgid "High School"
-msgstr "Secundario"
-
-#: templates/dashboard/index.html:639
-msgid "Junior College"
-msgstr "Primario"
-
-#: templates/dashboard/index.html:648
-msgid "Elementary School"
-msgstr "Elemental"
 
 #: templates/dashboard/index.html:680
 msgid "Share your work<br />experience"
@@ -3814,12 +3841,13 @@ msgstr "Edad"
 
 #: templates/dashboard/index.html:743 templates/dashboard/index.html:1026
 #: templates/dashboard/index.html:1100 templates/dashboard/index.html:1169
+#: templates/dashboard/index.html:1766 templates/dashboard/index.html:1831
+#: templates/dashboard/index.html:1906
 #: templates/landing_inc/how_to_share.html:171
 msgid "Overall avg"
 msgstr "Promedio general"
 
 #: templates/dashboard/index.html:752 templates/dashboard/index.html.py:773
-#, fuzzy
 msgid "years of<br />experience"
 msgstr "Años de <br/>experiencia"
 
@@ -3831,7 +3859,8 @@ msgstr "Los ejercicios <br/>tambien valen compatir"
 msgid ""
 "Keep track of what you've been doing and compare with others.<br />(Times "
 "per week)"
-msgstr "Registrá que has estado haciendo y comparalo con otrs.<br/>(Veces por semana)"
+msgstr ""
+"Registrá que has estado haciendo y comparalo con otrs.<br/>(Veces por semana)"
 
 #: templates/dashboard/index.html:928
 msgid "Running"
@@ -3845,10 +3874,10 @@ msgstr "Caminar"
 msgid "Elliptical"
 msgstr "Elíptico"
 
-#: templates/dashboard/index.html:989 templates/dashboard/index.html:2541
-#: templates/dashboard/index.html:2613 templates/dashboard/index.html:3332
+#: templates/dashboard/index.html:989 templates/dashboard/index.html:2542
+#: templates/dashboard/index.html:2614 templates/dashboard/index.html:3333
 msgid "you"
-msgstr "yü"
+msgstr "tú"
 
 #: templates/dashboard/index.html:990
 msgid "Bike riding"
@@ -3887,7 +3916,7 @@ msgid "Steps you walked<br />last week"
 msgstr "Pasos hecho <br> la semana pasada"
 
 #: templates/dashboard/index.html:1010 templates/dashboard/index.html:1084
-#: templates/dashboard/index.html:1153 templates/dashboard/index.html:3807
+#: templates/dashboard/index.html:1153 templates/dashboard/index.html:3808
 msgid "Compared to all users in our database"
 msgstr "Comprado con los usuarios en nuestra base de datos"
 
@@ -3923,7 +3952,7 @@ msgstr "Ingresta por grupo de comida"
 
 #: templates/dashboard/index.html:1285
 msgid "How many times of each<br />food group you consumed per week?"
-msgstr ""
+msgstr "Cuantas veces de cada <br/> grupo de comida consumes por semana?"
 
 #: templates/dashboard/index.html:1330
 msgid "Sweet"
@@ -3965,260 +3994,306 @@ msgstr "Porcentaje de nutrientest<br /> semanal"
 msgid "How much you consumed per week"
 msgstr "Cuanto consumes por semana"
 
-#: templates/dashboard/index.html:2028
+#: templates/dashboard/index.html:1742 templates/static/learn_more.html:103
+#: templates/static/learn_more.html:169 templates/static/learn_more.html:232
+#: templates/static/learn_more.html:256
+msgid "Weight"
+msgstr "Peso"
+
+#: templates/dashboard/index.html:1743
+msgid "Compare your weight<br />to all users in our database"
+msgstr "Compara tu peso <br/> con los usuarios en nuestra base de datos"
+
+#: templates/dashboard/index.html:1791
+msgid "Indicate your weight"
+msgstr "Indica tu peso"
+
+#: templates/dashboard/index.html:1807 templates/static/learn_more.html:104
+#: templates/static/learn_more.html:117 templates/static/learn_more.html:132
+#: templates/static/learn_more.html:170 templates/static/learn_more.html:190
+#: templates/static/learn_more.html:233 templates/static/learn_more.html:257
+msgid "Height"
+msgstr "Altura"
+
+#: templates/dashboard/index.html:1808
+msgid "Compare your height<br />to all users in our database"
+msgstr "Compara tu altura <br/> con los usuarios en nuestra base de datos"
+
+#: templates/dashboard/index.html:1856
+msgid "Indicate your height"
+msgstr "Indica tu altura"
+
+#: templates/dashboard/index.html:1881 templates/dashboard/index.html:1894
+#: templates/dashboard/index.html:1897 templates/dashboard/index.html:1919
+msgid "BMI"
+msgstr "BMI"
+
+#: templates/dashboard/index.html:1882
+msgid "Compare your BMI<br />to all users in our database"
+msgstr "Compara tu BMI <br/> con los usuarios en nuestra base de datos"
+
+#: templates/dashboard/index.html:1925
+msgid "Your BMI"
+msgstr "Tu BMI"
+
+#: templates/dashboard/index.html:2029
 msgid "HEALTH &amp; BODY CONDITIONS"
 msgstr "SALUD &amp; CONDICIONES HUMANAS"
 
-#: templates/dashboard/index.html:2029
+#: templates/dashboard/index.html:2030
 msgid "Select your chronic conditions or add more"
-msgstr "Selecciona tu condición condición y agrega mås"
+msgstr "Selecciona tu condición y agrega mås"
 
-#: templates/dashboard/index.html:2073 templates/dashboard/index.html:2153
-#: templates/dashboard/index.html:2231 templates/dashboard/index.html:2309
-#: templates/dashboard/index.html:2387 templates/dashboard/index.html:2463
-#: templates/dashboard/index.html:2490 templates/dashboard/index.html:2908
-#: templates/dashboard/index.html:2980 templates/dashboard/index.html:3052
-#: templates/dashboard/index.html:3124 templates/dashboard/index.html:3196
-#: templates/dashboard/index.html:3266 templates/dashboard/index.html:3287
+#: templates/dashboard/index.html:2074 templates/dashboard/index.html:2154
+#: templates/dashboard/index.html:2232 templates/dashboard/index.html:2310
+#: templates/dashboard/index.html:2388 templates/dashboard/index.html:2464
+#: templates/dashboard/index.html:2491 templates/dashboard/index.html:2909
+#: templates/dashboard/index.html:2981 templates/dashboard/index.html:3053
+#: templates/dashboard/index.html:3125 templates/dashboard/index.html:3197
+#: templates/dashboard/index.html:3267 templates/dashboard/index.html:3288
 msgid "Choose according to <br /> your condition"
 msgstr "Seleccion conforme tu <br/> condición"
 
-#: templates/dashboard/index.html:2083 templates/dashboard/index.html:2162
+#: templates/dashboard/index.html:2084 templates/dashboard/index.html:2163
 msgid "Type"
 msgstr "Tipo:"
 
-#: templates/dashboard/index.html:2105 templates/dashboard/index.html:2183
-#: templates/dashboard/index.html:2339 templates/dashboard/index.html:2417
-#: templates/dashboard/index.html:2649 templates/dashboard/index.html:2932
-#: templates/dashboard/index.html:3004 templates/dashboard/index.html:3076
-#: templates/dashboard/index.html:3148 templates/dashboard/index.html:3220
+#: templates/dashboard/index.html:2106 templates/dashboard/index.html:2184
+#: templates/dashboard/index.html:2340 templates/dashboard/index.html:2418
+#: templates/dashboard/index.html:2650 templates/dashboard/index.html:2933
+#: templates/dashboard/index.html:3005 templates/dashboard/index.html:3077
+#: templates/dashboard/index.html:3149 templates/dashboard/index.html:3221
 #: templates/wizard_inc/slide8.html:24
 msgid "Done!"
 msgstr "Listo!"
 
-#: templates/dashboard/index.html:2447
+#: templates/dashboard/index.html:2448
 msgid "Add another<br />chronic condition"
-msgstr "Agrega otra<br/>condición condición"
+msgstr "Agrega otra<br/>condición crónica"
 
-#: templates/dashboard/index.html:2520 templates/dashboard/index.html:3311
+#: templates/dashboard/index.html:2521 templates/dashboard/index.html:3312
 msgid "Next!"
 msgstr "Más!"
 
-#: templates/dashboard/index.html:2561
+#: templates/dashboard/index.html:2562
 msgid "Recurring Complaints"
 msgstr "Dolencias recurrentes"
 
-#: templates/dashboard/index.html:2562
+#: templates/dashboard/index.html:2563
 msgid ""
 "Click or add complaints you habitually experience (at least more than 6 "
 "times a year)"
-msgstr "Cliquea o agrega tus dolencias habituales (por lo menos más de 6 veces al año)"
+msgstr ""
+"Cliquea o agrega tus dolencias habituales (por lo menos más de 6 veces al "
+"año)"
 
-#: templates/dashboard/index.html:2675
+#: templates/dashboard/index.html:2676
 msgid "Add your<br />complaints"
 msgstr "Agrega tu <br/>dolencia"
 
-#: templates/dashboard/index.html:2693
+#: templates/dashboard/index.html:2694
 msgid "Done"
 msgstr "Listo!"
 
-#: templates/dashboard/index.html:2694
+#: templates/dashboard/index.html:2695
 msgid "Delete"
 msgstr "Borrar"
 
-#: templates/dashboard/index.html:2724 templates/data/download.html:152
+#: templates/dashboard/index.html:2725 templates/data/download.html:152
 #: templates/static/learn_more.html:264
 msgid "Blood Type"
 msgstr "Grupo Sanguineo"
 
-#: templates/dashboard/index.html:2725
+#: templates/dashboard/index.html:2726
 msgid "Click or tap to select yours"
 msgstr "Cliquea o tapea para seleccionar la tuya"
 
-#: templates/dashboard/index.html:2758
+#: templates/dashboard/index.html:2759
 msgid "Your type"
 msgstr "Tu tipo"
 
-#: templates/dashboard/index.html:2790
+#: templates/dashboard/index.html:2791
 msgid "Sleep Patterns"
 msgstr "Patrones de sueño"
 
-#: templates/dashboard/index.html:2791
+#: templates/dashboard/index.html:2792
 msgid "Track your hours of sleep per week"
 msgstr "Registra tus horas de sueño por semana"
 
-#: templates/dashboard/index.html:2807
+#: templates/dashboard/index.html:2808
 msgid "Overall average"
 msgstr "Promedio general"
 
-#: templates/dashboard/index.html:2816 templates/dashboard/index.html:2837
+#: templates/dashboard/index.html:2817 templates/dashboard/index.html:2838
 msgid "h/day"
 msgstr "hrs/día"
 
-#: templates/dashboard/index.html:2828
+#: templates/dashboard/index.html:2829
 msgid "Your average"
 msgstr "Tu promedio"
 
-#: templates/dashboard/index.html:2863
+#: templates/dashboard/index.html:2864
 msgid "Emotional Health"
 msgstr "Salud emocional"
 
-#: templates/dashboard/index.html:2864
+#: templates/dashboard/index.html:2865
 msgid "Add the feelings you register most frequently"
 msgstr "Agrega los sentimientos que registras más frecuentemente"
 
-#: templates/dashboard/index.html:3250
+#: templates/dashboard/index.html:3251
 msgid "Add another<br />emotion"
 msgstr "Agrega otra <br/> emoción"
 
-#: templates/dashboard/index.html:3354
+#: templates/dashboard/index.html:3355
 msgid "Typical Mood"
 msgstr "Humor típico"
 
-#: templates/dashboard/index.html:3355
+#: templates/dashboard/index.html:3356
 msgid "How you feel in general over a one month period"
 msgstr "Como te sientes en general en un período de un mes"
 
-#: templates/dashboard/index.html:3475
+#: templates/dashboard/index.html:3476
 msgid "GENOMICS TRAITS"
 msgstr "RASGOS GENÉTICOS"
 
-#: templates/dashboard/index.html:3476
+#: templates/dashboard/index.html:3477
 msgid ""
 "Your DNA shows these traits. We only show data with four stars of confidence."
-msgstr "Tu ADN muestra estos rasgos. Nosotros solo mostrados datos con 4 estrellas de confianza"
+msgstr ""
+"Tu ADN muestra estos rasgos. Nosotros solo mostrados datos con 4 estrellas "
+"de confianza"
 
-#: templates/dashboard/index.html:3556
+#: templates/dashboard/index.html:3557
 msgid "Likely intolerant"
 msgstr "Probablemente intolerante"
 
-#: templates/dashboard/index.html:3557
+#: templates/dashboard/index.html:3558
 msgid "Likely tolerant"
 msgstr "Probablemente tolerante"
 
-#: templates/dashboard/index.html:3578
+#: templates/dashboard/index.html:3579
 msgid "Likely to smoke more"
 msgstr "Propenso a fumar más "
 
-#: templates/dashboard/index.html:3579
+#: templates/dashboard/index.html:3580
 msgid "typical"
 msgstr "Típico"
 
-#: templates/dashboard/index.html:3610
+#: templates/dashboard/index.html:3611
 msgid "Can taste"
 msgstr "Puede probar"
 
-#: templates/dashboard/index.html:3611
+#: templates/dashboard/index.html:3612
 msgid "Unlikely to taste"
 msgstr "Improbable a saborear"
 
-#: templates/dashboard/index.html:3632
+#: templates/dashboard/index.html:3633
 msgid "Dry"
 msgstr "Seco"
 
-#: templates/dashboard/index.html:3633
+#: templates/dashboard/index.html:3634
 msgid "Wet"
 msgstr "Mojado"
 
-#: templates/dashboard/index.html:3654
+#: templates/dashboard/index.html:3655
 msgid "Likely sprinter"
 msgstr "Probablemente velocista"
 
-#: templates/dashboard/index.html:3655
+#: templates/dashboard/index.html:3656
 msgid "Unlikely sprinter"
 msgstr "Improbable velocista"
 
-#: templates/dashboard/index.html:3686 templates/dashboard/index.html:3758
+#: templates/dashboard/index.html:3687 templates/dashboard/index.html:3759
 msgid "Likely blue"
 msgstr "Probablemente azul"
 
-#: templates/dashboard/index.html:3687 templates/dashboard/index.html:3759
+#: templates/dashboard/index.html:3688 templates/dashboard/index.html:3760
 msgid "Likely brown"
 msgstr "Probablemente marrón"
 
-#: templates/dashboard/index.html:3708 templates/dashboard/index.html:3780
+#: templates/dashboard/index.html:3709 templates/dashboard/index.html:3781
 msgid "Sligthy curlier hair"
 msgstr ""
 
-#: templates/dashboard/index.html:3709 templates/dashboard/index.html:3781
+#: templates/dashboard/index.html:3710 templates/dashboard/index.html:3782
 msgid "Straigher curlier hair"
 msgstr ""
 
-#: templates/dashboard/index.html:3730 templates/dashboard/index.html:3731
+#: templates/dashboard/index.html:3731 templates/dashboard/index.html:3732
 msgid "Possibly resistant"
 msgstr ""
 
-#: templates/dashboard/index.html:3806
+#: templates/dashboard/index.html:3807
 msgid "DRUG RESPONSE"
 msgstr "RESPUESTA A DROGAS"
 
-#: templates/dashboard/index.html:3832
+#: templates/dashboard/index.html:3833
 msgid ""
 "Alcohol consumption,<br />smoking and <strong>risk of<br />esophageal cancer:"
 msgstr ""
 "Consumo de alchol,<br />fumar y <strong>riesgo de<br />cancer de esofago:"
 
-#: templates/dashboard/index.html:3844
+#: templates/dashboard/index.html:3845
 msgid "Typical risk"
 msgstr "Riesgo Tipico"
 
-#: templates/dashboard/index.html:3855
+#: templates/dashboard/index.html:3856
 msgid "Substantially increased risk"
 msgstr ""
 
-#: templates/dashboard/index.html:3866
+#: templates/dashboard/index.html:3867
 msgid "Greatly increased risk"
 msgstr ""
 
-#: templates/dashboard/index.html:3895
+#: templates/dashboard/index.html:3896
 msgid ""
 "Oral contraceptives, <br />hormone replacement<br />therapy and risk of <br /"
 "><strong>venous <br />thromboembolism:"
 msgstr ""
 
-#: templates/dashboard/index.html:3918
+#: templates/dashboard/index.html:3919
 msgid "Reduced"
 msgstr ""
 
-#: templates/dashboard/index.html:3929
+#: templates/dashboard/index.html:3930
 msgid "Unable"
 msgstr ""
 
-#: templates/dashboard/index.html:3959
-msgid "HEALTH RISKS"
-msgstr ""
-
 #: templates/dashboard/index.html:3960
+msgid "HEALTH RISKS"
+msgstr "RIESGOS DE SALUD"
+
+#: templates/dashboard/index.html:3961
 msgid "Compare your <strong>risk</strong> with 23andme average population"
 msgstr ""
 "Comparará tu <strong>riesgo</strong> con el promedio de la población de "
 "23andme"
 
-#: templates/dashboard/index.html:3987
+#: templates/dashboard/index.html:3988
 msgid "Breast Cancer"
 msgstr ""
 
-#: templates/dashboard/index.html:3999
+#: templates/dashboard/index.html:4000
 msgid "Celiac Disease"
 msgstr ""
 
-#: templates/dashboard/index.html:4011
+#: templates/dashboard/index.html:4012
 msgid "Venous Thromb."
 msgstr ""
 
-#: templates/dashboard/index.html:4035
+#: templates/dashboard/index.html:4036
 msgid "Coronary Heart Dis."
 msgstr ""
 
-#: templates/dashboard/index.html:4047
+#: templates/dashboard/index.html:4048
 msgid "Lung Cancer"
 msgstr ""
 
-#: templates/dashboard/index.html:4065
+#: templates/dashboard/index.html:4066
 msgid "The group where you belong according 23andme information"
 msgstr ""
 
-#: templates/dashboard/index.html:4066
+#: templates/dashboard/index.html:4067
 msgid "Other people  in the 23andme population"
 msgstr ""
 
@@ -4746,18 +4821,6 @@ msgstr "Número de contactos"
 #: templates/static/learn_more.html:97
 msgid "Physical Section"
 msgstr "Sección Actividad Física"
-
-#: templates/static/learn_more.html:103 templates/static/learn_more.html:169
-#: templates/static/learn_more.html:232 templates/static/learn_more.html:256
-msgid "Weight"
-msgstr "Peso"
-
-#: templates/static/learn_more.html:104 templates/static/learn_more.html:117
-#: templates/static/learn_more.html:132 templates/static/learn_more.html:170
-#: templates/static/learn_more.html:190 templates/static/learn_more.html:233
-#: templates/static/learn_more.html:257
-msgid "Height"
-msgstr "Altura"
 
 #: templates/static/learn_more.html:105 templates/static/learn_more.html:171
 msgid "Exercise name"
@@ -5668,7 +5731,7 @@ msgstr ""
 
 #: templates/static/team.html:164
 msgid "Genomic & Health Data Integrity Manager- Senior Research Scientist"
-msgstr ""
+msgstr "Gerente de investigación de Datos Genómicos y de Salud"
 
 #: templates/static/team.html:168
 msgid ""
@@ -5869,8 +5932,22 @@ msgid ""
 "and shares the best live music from TEDx events around the world.\t\t</"
 "span>\n"
 "        "
-msgstr "\n"
-"Me apasiona explorar la salud a través de los datos. Estoy convencida que Wikilife, a través de la colección inteligente de datos, nos va a ayudar a conocernos mejor. Yo me sume a Wikilife para promocionar e incentivar el uso de nuestra plataforma, como así también para expandir la vision de como los números pueden revolucionar la forma de pensar en la salud. Como miembro de Wikilife, yo inicie el Proyecto de Infografias, una iniciativa que invita a los estudiantes de diseño de todo el mundo a visualizar la salud como parte de la curricula de nivel académico. También me focalizo  en coordinar los hackatons y trabajar con los líderes del Quantified Self para organizar el Quantified Self Boston, uno de los grupos mas grandes de QS. Vivo en Cambridge, MA y soy una de las fundadoras del proyecto EyeWire del MIT, un juego para mapear la mente humana. Yo funde y actúo como curadora del proyecto TEDx Global Music, una iniciativa que colecciona, remasteriza y comparte la mejor música de los eventos TEDx de todo el mundo."
+msgstr ""
+"\n"
+"Me apasiona explorar la salud a través de los datos. Estoy convencida que "
+"Wikilife, a través de la colección inteligente de datos, nos va a ayudar a "
+"conocernos mejor. Yo me sume a Wikilife para promocionar e incentivar el uso "
+"de nuestra plataforma, como así también para expandir la vision de como los "
+"números pueden revolucionar la forma de pensar en la salud. Como miembro de "
+"Wikilife, yo inicie el Proyecto de Infografias, una iniciativa que invita a "
+"los estudiantes de diseño de todo el mundo a visualizar la salud como parte "
+"de la curricula de nivel académico. También me focalizo  en coordinar los "
+"hackatons y trabajar con los líderes del Quantified Self para organizar el "
+"Quantified Self Boston, uno de los grupos mas grandes de QS. Vivo en "
+"Cambridge, MA y soy una de las fundadoras del proyecto EyeWire del MIT, un "
+"juego para mapear la mente humana. Yo funde y actúo como curadora del "
+"proyecto TEDx Global Music, una iniciativa que colecciona, remasteriza y "
+"comparte la mejor música de los eventos TEDx de todo el mundo."
 
 #: templates/static/tos.html:54
 msgid ""

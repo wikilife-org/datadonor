@@ -1,4 +1,4 @@
-
+from django.utils.translation import gettext as _
 import math
 from utils.commons import percentage
 from social_auth.models import *
@@ -176,13 +176,13 @@ def global_education():
             
     total = elementary_total + junior_college_total + high_school_total + tech_total + university_total + master_total + phd_total
         
-    return {6:{"percentage":percentage(phd_total, total), "key":"phd", "title": "PhD", "index":6},
-            5:{"percentage":percentage(master_total, total), "key":"master", "title": "Master", "index":5},
-            4:{"percentage":percentage(university_total, total), "key":"university", "title": "University", "index":4}, 
-            3:{"percentage":percentage(tech_total, total), "key":"tech_institute", "title": "Technical Institute", "index":3},
-            2:{"percentage":percentage(high_school_total, total), "key":"high_school", "title": "High School", "index":2},
-            1:{"percentage":percentage(junior_college_total, total), "key":"junior_college", "title": "Junior College", "index":1},
-            0:{"percentage":percentage(elementary_total, total), "key":"elementary_school", "title": "Elementary School", "index":0}}
+    return {6:{"percentage":percentage(phd_total, total), "key":"phd", "title": _("PhD"), "index":6},
+            5:{"percentage":percentage(master_total, total), "key":"master", "title": _("Master"), "index":5},
+            4:{"percentage":percentage(university_total, total), "key":"university", "title": _("University"), "index":4}, 
+            3:{"percentage":percentage(tech_total, total), "key":"tech_institute", "title": _("Technical Institute"), "index":3},
+            2:{"percentage":percentage(high_school_total, total), "key":"high_school", "title": _("High School"), "index":2},
+            1:{"percentage":percentage(junior_college_total, total), "key":"junior_college", "title": _("Junior College"), "index":1},
+            0:{"percentage":percentage(elementary_total, total), "key":"elementary_school", "title": _("Elementary School"), "index":0}}
 
 
 def global_work():
