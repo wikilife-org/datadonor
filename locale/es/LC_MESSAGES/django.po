@@ -172,17 +172,17 @@ msgstr "Los anticonceptivos orales, terapia de reemplazo hormonal y el riesgo de
 #: genomics/utilities.py:409 genomics/utilities.py:417
 #: templates/dashboard/index.html:3988
 msgid "Breast Cancer"
-msgstr "Cáncer de mama"
+msgstr "Cáncer de Mama"
 
 #: genomics/utilities.py:410 genomics/utilities.py:418
 #: templates/dashboard/index.html:4000
 msgid "Celiac Disease"
-msgstr "Enfermedad Celíaca"
+msgstr "Enfer. Celíaca"
 
 #: genomics/utilities.py:411 genomics/utilities.py:419
 #: templates/dashboard/index.html:4012
 msgid "Venous Thromb."
-msgstr "Trombo. venoso"
+msgstr "Trombo. Venoso"
 
 #: genomics/utilities.py:412 genomics/utilities.py:420 health/conditions.py:84
 #: health/conditions.py:1101 templates/dashboard/index.html:4024
@@ -192,12 +192,12 @@ msgstr "Melanoma"
 #: genomics/utilities.py:413 genomics/utilities.py:421
 #: templates/dashboard/index.html:4036
 msgid "Coronary Heart Dis."
-msgstr "Enfermedad coronaria"
+msgstr "Enfer. Coronaria"
 
 #: genomics/utilities.py:414 genomics/utilities.py:422
 #: templates/dashboard/index.html:4048
 msgid "Lung Cancer"
-msgstr "Cáncer de pulmón"
+msgstr "Cáncer de Pulmón"
 
 #: health/complaints.py:7
 msgid "Headache"
