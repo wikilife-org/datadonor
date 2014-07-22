@@ -747,7 +747,6 @@ function setupAddCronicals(data) {
             $('.graph_container') .removeClass('second_active');
             $(this) .find('span') .hide() .html('Next') .fadeIn(300);
         } else {
-            console.log('ENTRA EN EL ELSE');
             //Nunca entra aca...
             $('#graphs_conditions .condition') .removeClass('active');
             $(this) .find('span') .hide() .html('Next') .fadeIn(300);
@@ -951,7 +950,6 @@ function addNewComplain(id, name, data) {
         for (var i in addedComplains) {
             if (addedComplains[i].id == id) {
                 repeated = true;
-                console.log('repeated!');
             }
         }
         if (!repeated) {
@@ -1098,7 +1096,6 @@ function drawSleepGraph(data, data_user) {
     $('#step_fourteen .bloq.right .number_stat h2') .html(pad(data_user.avg_hours, 2));
 }
 function drawGenomicsTraits(data, user_data) {
-    console.log("drawing genomics")
     $('#genomic_traits_container') .html('');
     var c = 0;
     itemsHtml = '';
@@ -1267,7 +1264,7 @@ function drawGenomicsDrugs(data, user_data) {
         $('div[data-name="' + user_data[z].value + '"]') .addClass('active');
     }
 }
-function drawGenomicsRisks(user_data, data) {
+function drawGenomicsRisks(data, user_data) {
 
   if (data.length > 0){
     $('#step_nineteen .pages_container') .html('');
@@ -1321,7 +1318,6 @@ window.onload = function () {
         drawShareGraphs(data);
     });
     $.getJSON(_api_urls[_api_env].education, function (data) {
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
         drawEducationGraph(data);
     });
     $.getJSON(_api_urls[_api_env].work, function (data) {
