@@ -1272,6 +1272,7 @@ function drawGenomicsRisks(user_data, data) {
   if (data.length > 0){
     $('#step_nineteen .pages_container') .html('');
       for (var i in data) {
+    	  console.log(data[i]);
           itemHtml = $('#genomic_risks_item_template') .html();
           itemHtml = itemHtml.replace(/\[\[name\]\]/g, data[i].name);
           itemHtml = itemHtml.replace(/\[\[global_percent\]\]/g, data[i].percentage);

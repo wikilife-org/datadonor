@@ -4424,11 +4424,11 @@ msgstr ""
 
 #: templates/dashboard/index.html:4066
 msgid "The group where you belong according 23andme information"
-msgstr ""
+msgstr "El grupo al que pertenes de acuerdo a la información de 23andme"
 
 #: templates/dashboard/index.html:4067
-msgid "Other people  in the 23andme population"
-msgstr ""
+msgid "Other people in the 23andme population"
+msgstr "Otras personas en la población de 23andme"
 
 #: templates/data/download.html:39
 msgid "Datadonors Stats"
