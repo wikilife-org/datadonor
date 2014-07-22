@@ -1,4 +1,5 @@
 
+from django.utils.translation import gettext as _
 import math
 from utils.commons import percentage
 from social_auth.models import *
@@ -17,7 +18,7 @@ def order_list(l,v):
 
 def get_traits_alcohol_distribution(order=None):
     report_id= "alcoholflush"
-    description = "Alcohol Flush Reaction"
+    description = _("Alcohol Flush Reaction")
     total = 0
     
     flushes_traits = UserTrait.objects.filter(report_id=report_id, value="Flushes")
@@ -28,8 +29,8 @@ def get_traits_alcohol_distribution(order=None):
     flushes_p = percentage(flushes_traits.count(), total)
     no_flushes_p = percentage(no_flushes_traits.count(), total)
     
-    values = [{"name":"Flushes", "percentage":flushes_p},
-              {"name":"Does Not Flush", "percentage":no_flushes_p}]
+    values = [{"name":_("Flushes"), "percentage":flushes_p},
+              {"name": _("Does Not Flush"), "percentage":no_flushes_p}]
     if order:
         order_list(values, order)
     
@@ -40,7 +41,7 @@ def get_traits_alcohol_distribution(order=None):
 
 def get_traits_lactose_distribution(order=None):
     report_id= "lactose"
-    description = "Lactose Intolerance"
+    description = _("Lactose Intolerance")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Likely Intolerant")
@@ -51,8 +52,8 @@ def get_traits_lactose_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Likely Intolerant", "percentage":a_p},
-                        {"name":"Likely Tolerant", "percentage":b_p}]
+    values = [{"name":_("Likely Intolerant"), "percentage":a_p},
+                        {"name":_("Likely Tolerant"), "percentage":b_p}]
     
     if order:
         order_list(values, order)
@@ -74,7 +75,7 @@ def get_traits_lactose_distribution(order=None):
 """
 def get_traits_smoking_distribution(order=None):
     report_id= "smokingbehavior"
-    description = "Smoking Behavior"
+    description = _("Smoking Behavior")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="If a Smoker, Likely to Smoke More")
@@ -85,8 +86,8 @@ def get_traits_smoking_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Typical", "percentage":b_p},
-                      {"name":"If a Smoker, Likely to Smoke More", "percentage":a_p},
+    values = [{"name":_("Typical"), "percentage":b_p},
+                      {"name":_("If a Smoker, Likely to Smoke More"), "percentage":a_p},
                         ]
     if order:
         order_list(values, order)
@@ -107,7 +108,7 @@ def get_traits_smoking_distribution(order=None):
 """
 def get_traits_bitter_distribution(order=None):
     report_id= "bittertaste"
-    description = "Bitter Taste Perception"
+    description = _("Bitter Taste Perception")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Can Taste")
@@ -118,8 +119,8 @@ def get_traits_bitter_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Can Taste", "percentage":a_p},
-                        {"name":"Unlikely to Taste", "percentage":b_p}]
+    values = [{"name":_("Can Taste"), "percentage":a_p},
+                        {"name":_("Unlikely to Taste"), "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":3, 
@@ -138,7 +139,7 @@ def get_traits_bitter_distribution(order=None):
 """
 def get_traits_earwax_distribution(order=None):
     report_id= "earwax"
-    description = "Earwax Type"
+    description = _("Earwax Type")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Dry")
@@ -149,8 +150,8 @@ def get_traits_earwax_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Dry", "percentage":a_p},
-                        {"name":"Wet", "percentage":b_p}]
+    values = [{"name":_("Dry"), "percentage":a_p},
+                        {"name":_("Wet"), "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":4, 
@@ -170,7 +171,7 @@ def get_traits_earwax_distribution(order=None):
 """
 def get_traits_muscleperformance_distribution(order=None):
     report_id= "muscleperformance"
-    description = "Muscle Performance"
+    description = _("Muscle Performance")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Likely Sprinter")
@@ -180,8 +181,8 @@ def get_traits_muscleperformance_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Likely Sprinter", "percentage":a_p},
-                        {"name":"Unlikely Sprinter", "percentage":b_p}]
+    values = [{"name":_("Likely Sprinter"), "percentage":a_p},
+                        {"name":_("Unlikely Sprinter"), "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":5, 
@@ -201,7 +202,7 @@ def get_traits_muscleperformance_distribution(order=None):
 """
 def get_traits_eyecolor_distribution(order=None):
     report_id= "eyecolor"
-    description = "Eye Color"
+    description = _("Eye Color")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Likely Blue")
@@ -210,8 +211,8 @@ def get_traits_eyecolor_distribution(order=None):
     total = a.count() + b.count()
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
-    values = [{"name":"Likely Blue", "percentage":a_p},
-                        {"name":"Likely Brown", "percentage":b_p}]
+    values = [{"name":_("Likely Blue"), "percentage":a_p},
+                        {"name":_("Likely Brown"), "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":6, 
@@ -232,7 +233,7 @@ def get_traits_eyecolor_distribution(order=None):
 """
 def get_traits_haircurl_distribution(order=None):
     report_id= "haircurl"
-    description = "Hair Curl"
+    description = _("Hair Curl")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Slightly Curlier Hair on Average")
@@ -242,8 +243,8 @@ def get_traits_haircurl_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Slightly Curlier Hair", "percentage":a_p},
-                        {"name":"Straighter Hair", "percentage":b_p}]
+    values = [{"name":_("Slightly Curlier Hair"), "percentage":a_p},
+                        {"name":_("Straighter Hair"), "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":7, 
@@ -263,7 +264,7 @@ def get_traits_haircurl_distribution(order=None):
 """
 def get_traits_malariaduffy_distribution(order=None):
     report_id= "malariaduffy"
-    description = "Malaria Resistance"
+    description = _("Malaria Resistance")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Not Resistant")
@@ -273,8 +274,8 @@ def get_traits_malariaduffy_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Not Resistant", "percentage":a_p},
-                        {"name":"Resistant", "percentage":b_p}]
+    values = [{"name":_("Not Resistant"), "percentage":a_p},
+                        {"name":_("Resistant"), "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":8, 
@@ -294,7 +295,7 @@ def get_traits_malariaduffy_distribution(order=None):
 """
 def get_traits_norwalkvirus_distribution(order=None):
     report_id= "norwalkvirus"
-    description = "Norovirus Resistance"
+    description = _("Norovirus Resistance")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Not Resistant")
@@ -304,8 +305,8 @@ def get_traits_norwalkvirus_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Not Resistant", "percentage":a_p},
-                        {"name":"Resistant", "percentage":b_p}]
+    values = [{"name":_("Not Resistant"), "percentage":a_p},
+                        {"name":_("Resistant"), "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":9, 
@@ -325,7 +326,7 @@ def get_traits_norwalkvirus_distribution(order=None):
 """
 def get_traits_hiv_distribution(order=None):
     report_id= "hiv"
-    description = "Resistance to HIV/AIDS"
+    description = _("Resistance to HIV/AIDS")
     total = 0
     
     a = UserTrait.objects.filter(report_id=report_id, value="Not Resistant")
@@ -335,22 +336,22 @@ def get_traits_hiv_distribution(order=None):
     a_p = percentage(a.count(), total)
     b_p = percentage(b.count(), total)
     
-    values = [{"name":"Not Resistant", "percentage":a_p},
-                        {"name":"Resistant", "percentage":b_p}]
+    values = [{"name":_("Not Resistant"), "percentage":a_p},
+                        {"name":_("Resistant"), "percentage":b_p}]
     if order:
         order_list(values, order)
     return {"name": description, "id":10, 
             "values": values} 
     
 """
-{"name":"Alcohol consumption, smoking and risk of esophageal cancer", "id":0, "values":[
-                        {"name":"Typical risk", "percentage":70},
-                        {"name":"Substantially increased risk",  "percentage":25},
-                        {"name":"Greatly increased risk", "percentage":5},]},
+{"name":_("Alcohol consumption, smoking and risk of esophageal cancer", "id":0, "values":[
+                        {"name":_("Typical risk", "percentage":70},
+                        {"name":_("Substantially increased risk",  "percentage":25},
+                        {"name":_("Greatly increased risk", "percentage":5},]},
 """
 def get_drug_alcohol_distribution():
     report_id = "alcohol_esophageal_pgx"
-    description = "Alcohol consumption, smoking and risk of esophageal cancer"
+    description = _("Alcohol consumption, smoking and risk of esophageal cancer")
     total = 0
     
     a = UserDrugResponse.objects.filter(report_id=report_id, value="typical")
@@ -363,21 +364,21 @@ def get_drug_alcohol_distribution():
     c_p = percentage(c.count(), total)
     
     return {"name":description, "id":0, "values":[
-                        {"name":"Typical risk", "percentage":a_p},
-                        {"name":"Substantially increased risk",  "percentage":b_p},
-                        {"name":"Reduced risk", "percentage":c_p},]}
+                        {"name":_("Typical risk"), "percentage":a_p},
+                        {"name":_("Substantially increased risk"),  "percentage":b_p},
+                        {"name":_("Reduced risk"), "percentage":c_p},]}
     
 
 """
-{"name":"Oral contraceptives, hormone replacement therapy and risk of venous thromboembolism", "id":1, "values":[
-                        {"name":"Normal",  "percentage":85},
-                        {"name":"Reduced",  "percentage":11},
-                        {"name":"Unable", "percentage":4}
+{"name":_("Oral contraceptives, hormone replacement therapy and risk of venous thromboembolism", "id":1, "values":[
+                        {"name":_("Normal",  "percentage":85},
+                        {"name":_("Reduced",  "percentage":11},
+                        {"name":_("Unable", "percentage":4}
                         
 """
 def get_drug_conceptives_distribution():
     report_id = "contraceptives_vte"
-    description = "Oral contraceptives, hormone replacement therapy and risk of venous thromboembolism"
+    description = _("Oral contraceptives, hormone replacement therapy and risk of venous thromboembolism")
     total = 0
     
     a = UserDrugResponse.objects.filter(report_id=report_id, value="typical")
@@ -390,9 +391,9 @@ def get_drug_conceptives_distribution():
     c_p = percentage(c.count(), total)
     
     return {"name":description, "id":1, "values":[
-                        {"name":"Typical risk", "percentage":a_p},
-                        {"name":"Substantially increased risk",  "percentage":b_p},
-                        {"name":"Reduced risk", "percentage":c_p},]}
+                        {"name":_("Typical risk"), "percentage":a_p},
+                        {"name":_("Substantially increased risk"),  "percentage":b_p},
+                        {"name":_("Reduced risk"), "percentage":c_p},]}
     
 
 def get_global_risks():
@@ -405,20 +406,20 @@ def get_global_risks():
         lungcancer = UserRisk.objects.filter(report_id="lungcancer")[0]
         
         risks =  [
-            {"name":"Breast Cancer", "id":0, "percentage":round(breastcancer.population_risk*100,1)},
-            {"name":"Celiac Disease","id":1, "percentage":round(celiac.population_risk*100,1)},
-            {"name":"Venous Thromb.", "id":2, "percentage":round(venousthromboembolism.population_risk*100,1)},
-            {"name":"Melanoma", "id":3, "percentage":round(melanoma.population_risk*100,1)},
-            {"name":"Coronary Heart Dis.", "id":4, "percentage":round(coronaryheartdisease.population_risk*100,1)},
-            {"name":"Lung Cancer", "id":5, "percentage":round(lungcancer.population_risk*100,1)}]
+            {"name":_("Breast Cancer"), "id":0, "percentage":round(breastcancer.population_risk*100,1)},
+            {"name":_("Celiac Disease"),"id":1, "percentage":round(celiac.population_risk*100,1)},
+            {"name":_("Venous Thromb."), "id":2, "percentage":round(venousthromboembolism.population_risk*100,1)},
+            {"name":_("Melanoma"), "id":3, "percentage":round(melanoma.population_risk*100,1)},
+            {"name":_("Coronary Heart Dis."), "id":4, "percentage":round(coronaryheartdisease.population_risk*100,1)},
+            {"name":_("Lung Cancer"), "id":5, "percentage":round(lungcancer.population_risk*100,1)}]
     except:
         risks =  [
-            {"name":"Breast Cancer", "id":0, "percentage":13},
-            {"name":"Celiac Disease","id":1, "percentage":0.2},
-            {"name":"Venous Thromb.", "id":2, "percentage":1},
-            {"name":"Melanoma", "id":3, "percentage":2},
-            {"name":"Coronary Heart Dis.", "id":4, "percentage":24},
-            {"name":"Lung Cancer", "id":5, "percentage":6}]
+            {"name":_("Breast Cancer"), "id":0, "percentage":13},
+            {"name":_("Celiac Disease"),"id":1, "percentage":0.2},
+            {"name":_("Venous Thromb."), "id":2, "percentage":1},
+            {"name":_("Melanoma"), "id":3, "percentage":2},
+            {"name":_("Coronary Heart Dis."), "id":4, "percentage":24},
+            {"name":_("Lung Cancer"), "id":5, "percentage":6}]
     
     return risks
     

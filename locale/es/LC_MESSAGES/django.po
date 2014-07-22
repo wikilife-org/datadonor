@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-21 14:09-0500\n"
+"POT-Creation-Date: 2014-07-22 13:46-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,13 +26,186 @@ msgstr "Español"
 msgid "English"
 msgstr "Inglés"
 
+#: genomics/utilities.py:21
+msgid "Alcohol Flush Reaction"
+msgstr "Reacción robúrica al alcohol"
+
+#: genomics/utilities.py:32
+msgid "Flushes"
+msgstr "Ruborea"
+
+#: genomics/utilities.py:33
+msgid "Does Not Flush"
+msgstr "No se ruborea"
+
+#: genomics/utilities.py:44
+msgid "Lactose Intolerance"
+msgstr "Probablemente intolerante"
+
+#: genomics/utilities.py:55
+msgid "Likely Intolerant"
+msgstr "Probablemente intolerante"
+
+#: genomics/utilities.py:56
+msgid "Likely Tolerant"
+msgstr "Probablemente tolerante"
+
+#: genomics/utilities.py:78
+msgid "Smoking Behavior"
+msgstr "Conducta al fumar"
+
+#: genomics/utilities.py:89
+msgid "Typical"
+msgstr "Típico"
+
+#: genomics/utilities.py:90
+msgid "If a Smoker, Likely to Smoke More"
+msgstr "Propenso a fumar más "
+
+#: genomics/utilities.py:111
+msgid "Bitter Taste Perception"
+msgstr "Percepción del sabor amargo"
+
+#: genomics/utilities.py:122
+msgid "Can Taste"
+msgstr "Puede probar"
+
+#: genomics/utilities.py:123
+msgid "Unlikely to Taste"
+msgstr "Improbable a saborear"
+
+#: genomics/utilities.py:142
+msgid "Earwax Type"
+msgstr "Tipo de cerumen"
+
+#: genomics/utilities.py:153 templates/dashboard/index.html:3633
+msgid "Dry"
+msgstr "Seco"
+
+#: genomics/utilities.py:154 templates/dashboard/index.html:3634
+msgid "Wet"
+msgstr "Mojado"
+
+#: genomics/utilities.py:174
+msgid "Muscle Performance"
+msgstr "Rendimiento muscular"
+
+#: genomics/utilities.py:184
+msgid "Likely Sprinter"
+msgstr "Probablemente velocista"
+
+#: genomics/utilities.py:185
+msgid "Unlikely Sprinter"
+msgstr "Improbable velocista"
+
+#: genomics/utilities.py:205
+msgid "Eye Color"
+msgstr "Color de ojos"
+
+#: genomics/utilities.py:214
+msgid "Likely Blue"
+msgstr "Probablemente azul"
+
+#: genomics/utilities.py:215
+msgid "Likely Brown"
+msgstr "Probablemente marrón"
+
+#: genomics/utilities.py:236
+msgid "Hair Curl"
+msgstr "Pelo rizado"
+
+#: genomics/utilities.py:246
+msgid "Slightly Curlier Hair"
+msgstr "Pelo ligeramente rizado"
+
+#: genomics/utilities.py:247
+msgid "Straighter Hair"
+msgstr "Pelo lacio"
+
+#: genomics/utilities.py:267
+msgid "Malaria Resistance"
+msgstr "Resistencia a la Malaria"
+
+#: genomics/utilities.py:277 genomics/utilities.py:308
+#: genomics/utilities.py:339
+msgid "Not Resistant"
+msgstr "No resistente"
+
+#: genomics/utilities.py:278 genomics/utilities.py:309
+#: genomics/utilities.py:340
+msgid "Resistant"
+msgstr "Resistente"
+
+#: genomics/utilities.py:298
+msgid "Norovirus Resistance"
+msgstr "Resistencia a Norovirus"
+
+#: genomics/utilities.py:329
+msgid "Resistance to HIV/AIDS"
+msgstr "Resistencia a HIV/AIDS"
+
+#: genomics/utilities.py:354
+msgid "Alcohol consumption, smoking and risk of esophageal cancer"
+msgstr ""
+"Consumo de alchol, fumar y riesgo de cáncer de esófago"
+
+#: genomics/utilities.py:367 genomics/utilities.py:394
+#: templates/dashboard/index.html:3845
+msgid "Typical risk"
+msgstr "Riesgo Tipico"
+
+#: genomics/utilities.py:368 genomics/utilities.py:395
+#: templates/dashboard/index.html:3856
+msgid "Substantially increased risk"
+msgstr "Importante aumento del riesgo"
+
+#: genomics/utilities.py:369 genomics/utilities.py:396
+msgid "Reduced risk"
+msgstr "Riesgo reducido"
+
+#: genomics/utilities.py:381
+msgid ""
+"Oral contraceptives, hormone replacement therapy and risk of venous "
+"thromboembolism"
+msgstr "Los anticonceptivos orales, terapia de reemplazo hormonal y el riesgo de tromboembolismo venoso"
+
+#: genomics/utilities.py:409 genomics/utilities.py:417
+#: templates/dashboard/index.html:3988
+msgid "Breast Cancer"
+msgstr "Cáncer de mama"
+
+#: genomics/utilities.py:410 genomics/utilities.py:418
+#: templates/dashboard/index.html:4000
+msgid "Celiac Disease"
+msgstr "Enfermedad Celíaca"
+
+#: genomics/utilities.py:411 genomics/utilities.py:419
+#: templates/dashboard/index.html:4012
+msgid "Venous Thromb."
+msgstr "Trombo. venoso"
+
+#: genomics/utilities.py:412 genomics/utilities.py:420 health/conditions.py:84
+#: health/conditions.py:1101 templates/dashboard/index.html:4024
+msgid "Melanoma"
+msgstr "Melanoma"
+
+#: genomics/utilities.py:413 genomics/utilities.py:421
+#: templates/dashboard/index.html:4036
+msgid "Coronary Heart Dis."
+msgstr "Enfermedad coronaria"
+
+#: genomics/utilities.py:414 genomics/utilities.py:422
+#: templates/dashboard/index.html:4048
+msgid "Lung Cancer"
+msgstr "Cáncer de pulmón"
+
 #: health/complaints.py:7
 msgid "Headache"
-msgstr ""
+msgstr "Dolor de cabeza"
 
 #: health/complaints.py:12
 msgid "Cough"
-msgstr ""
+msgstr "Tos"
 
 #: health/complaints.py:17
 msgid "Flu Like Symptoms"
@@ -2116,11 +2289,6 @@ msgstr ""
 msgid "Lymphoid leukemia"
 msgstr ""
 
-#: health/conditions.py:84 health/conditions.py:1101
-#: templates/dashboard/index.html:4024
-msgid "Melanoma"
-msgstr "Melanoma"
-
 #: health/conditions.py:88 health/conditions.py:1143
 msgid "Mouth cancer"
 msgstr ""
@@ -3551,7 +3719,7 @@ msgstr "Grasas"
 #: nutrition/services/stats/services.py:31
 #: nutrition/services/stats/services.py:81
 msgid "Carbs"
-msgstr "Carbohidratos"
+msgstr "Carbohi."
 
 #: nutrition/services/stats/services.py:36
 #: nutrition/services/stats/services.py:86
@@ -3810,7 +3978,7 @@ msgstr "Comparta su <br/> nivel de Educación"
 
 #: templates/dashboard/index.html:574
 msgid "Tap or select the highest level of education"
-msgstr "Toca o selecciona tu más alto nivel de educación"
+msgstr "Tocá o Seleccioná tu más alto nivel de educación"
 
 #: templates/dashboard/index.html:596 templates/dashboard/index.html.py:605
 #: templates/dashboard/index.html:614 templates/dashboard/index.html.py:623
@@ -3913,7 +4081,7 @@ msgstr "4 por año"
 
 #: templates/dashboard/index.html:1009
 msgid "Steps you walked<br />last week"
-msgstr "Pasos hecho <br> la semana pasada"
+msgstr "Pasos realizados <br> la semana pasada"
 
 #: templates/dashboard/index.html:1010 templates/dashboard/index.html:1084
 #: templates/dashboard/index.html:1153 templates/dashboard/index.html:3808
@@ -3936,7 +4104,7 @@ msgstr "Millas viajadas<br/> la semana pasada"
 
 #: templates/dashboard/index.html:1109 templates/dashboard/index.html:1130
 msgid "Mi/week"
-msgstr "Millas/semana"
+msgstr "millas/sem."
 
 #: templates/dashboard/index.html:1152
 msgid "Hours of exercise<br />last week"
@@ -3944,7 +4112,7 @@ msgstr "Horas de ejercicio<br/>la semana pasada"
 
 #: templates/dashboard/index.html:1178 templates/dashboard/index.html:1199
 msgid "h/week"
-msgstr "hrs/semana"
+msgstr "hrs/sem."
 
 #: templates/dashboard/index.html:1284
 msgid "Food group consumption"
@@ -4002,7 +4170,7 @@ msgstr "Peso"
 
 #: templates/dashboard/index.html:1743
 msgid "Compare your weight<br />to all users in our database"
-msgstr "Compara tu peso <br/> con los usuarios en nuestra base de datos"
+msgstr "Compará tu peso <br/> con los usuarios en nuestra base de datos"
 
 #: templates/dashboard/index.html:1791
 msgid "Indicate your weight"
@@ -4017,7 +4185,7 @@ msgstr "Altura"
 
 #: templates/dashboard/index.html:1808
 msgid "Compare your height<br />to all users in our database"
-msgstr "Compara tu altura <br/> con los usuarios en nuestra base de datos"
+msgstr "Compará tu altura <br/> con los usuarios en nuestra base de datos"
 
 #: templates/dashboard/index.html:1856
 msgid "Indicate your height"
@@ -4030,7 +4198,7 @@ msgstr "BMI"
 
 #: templates/dashboard/index.html:1882
 msgid "Compare your BMI<br />to all users in our database"
-msgstr "Compara tu BMI <br/> con los usuarios en nuestra base de datos"
+msgstr "Compará tu BMI <br/> con los usuarios en nuestra base de datos"
 
 #: templates/dashboard/index.html:1925
 msgid "Your BMI"
@@ -4042,7 +4210,7 @@ msgstr "SALUD &amp; CONDICIONES HUMANAS"
 
 #: templates/dashboard/index.html:2030
 msgid "Select your chronic conditions or add more"
-msgstr "Selecciona tu condición y agrega mås"
+msgstr "Seleccioná tu condición y agrega mås"
 
 #: templates/dashboard/index.html:2074 templates/dashboard/index.html:2154
 #: templates/dashboard/index.html:2232 templates/dashboard/index.html:2310
@@ -4084,7 +4252,7 @@ msgid ""
 "Click or add complaints you habitually experience (at least more than 6 "
 "times a year)"
 msgstr ""
-"Cliquea o agrega tus dolencias habituales (por lo menos más de 6 veces al "
+"Cliqueá o agrega tus dolencias habituales (por lo menos más de 6 veces al "
 "año)"
 
 #: templates/dashboard/index.html:2676
@@ -4106,7 +4274,7 @@ msgstr "Grupo Sanguineo"
 
 #: templates/dashboard/index.html:2726
 msgid "Click or tap to select yours"
-msgstr "Cliquea o tapea para seleccionar la tuya"
+msgstr "Cliqueá o tapeá para seleccionar la tuya"
 
 #: templates/dashboard/index.html:2759
 msgid "Your type"
@@ -4118,7 +4286,7 @@ msgstr "Patrones de sueño"
 
 #: templates/dashboard/index.html:2792
 msgid "Track your hours of sleep per week"
-msgstr "Registra tus horas de sueño por semana"
+msgstr "Registrå tus horas de sueño por semana"
 
 #: templates/dashboard/index.html:2808
 msgid "Overall average"
@@ -4160,7 +4328,7 @@ msgstr "RASGOS GENÉTICOS"
 msgid ""
 "Your DNA shows these traits. We only show data with four stars of confidence."
 msgstr ""
-"Tu ADN muestra estos rasgos. Nosotros solo mostrados datos con 4 estrellas "
+"Tu ADN muestra estos rasgos. Nosotros sólo mostramos datos con 4 estrellas "
 "de confianza"
 
 #: templates/dashboard/index.html:3557
@@ -4186,14 +4354,6 @@ msgstr "Puede probar"
 #: templates/dashboard/index.html:3612
 msgid "Unlikely to taste"
 msgstr "Improbable a saborear"
-
-#: templates/dashboard/index.html:3633
-msgid "Dry"
-msgstr "Seco"
-
-#: templates/dashboard/index.html:3634
-msgid "Wet"
-msgstr "Mojado"
 
 #: templates/dashboard/index.html:3655
 msgid "Likely sprinter"
@@ -4233,14 +4393,6 @@ msgid ""
 msgstr ""
 "Consumo de alchol,<br />fumar y <strong>riesgo de<br />cancer de esofago:"
 
-#: templates/dashboard/index.html:3845
-msgid "Typical risk"
-msgstr "Riesgo Tipico"
-
-#: templates/dashboard/index.html:3856
-msgid "Substantially increased risk"
-msgstr ""
-
 #: templates/dashboard/index.html:3867
 msgid "Greatly increased risk"
 msgstr ""
@@ -4249,7 +4401,8 @@ msgstr ""
 msgid ""
 "Oral contraceptives, <br />hormone replacement<br />therapy and risk of <br /"
 "><strong>venous <br />thromboembolism:"
-msgstr ""
+msgstr "Los anticonceptivos orales,  <br />terapia de reemplazo <br /> hormonal y el riesgo de <strong>tromboembolismo  <br />venoso"
+
 
 #: templates/dashboard/index.html:3919
 msgid "Reduced"
@@ -4268,26 +4421,6 @@ msgid "Compare your <strong>risk</strong> with 23andme average population"
 msgstr ""
 "Comparará tu <strong>riesgo</strong> con el promedio de la población de "
 "23andme"
-
-#: templates/dashboard/index.html:3988
-msgid "Breast Cancer"
-msgstr ""
-
-#: templates/dashboard/index.html:4000
-msgid "Celiac Disease"
-msgstr ""
-
-#: templates/dashboard/index.html:4012
-msgid "Venous Thromb."
-msgstr ""
-
-#: templates/dashboard/index.html:4036
-msgid "Coronary Heart Dis."
-msgstr ""
-
-#: templates/dashboard/index.html:4048
-msgid "Lung Cancer"
-msgstr ""
 
 #: templates/dashboard/index.html:4066
 msgid "The group where you belong according 23andme information"
@@ -7745,7 +7878,7 @@ msgstr ""
 "información sobre Usted e información sobre las personas que se encuentran "
 "conectadas con esos servicios. Algunas Redes Sociales pueden proporcionarnos "
 "con información sobre sus cuentas para personalizar su uso del Servicio "
-"Wikilife. ContraseñaCuando Usted se registra para convertirse en un Data "
+"Wikilife. </p><h3>Contraseña</h3><p>Cuando Usted se registra para convertirse en un Data "
 "Donor o Investigador con el Servicio Wikilife, se le pedirá que proporcione "
 "una contraseña y/o PIN personal (su “Contraseña”). Como Usted es responsable "
 "de la actividad que ocurre bajo su Contraseña, Usted deberá mantener a la "
