@@ -13,33 +13,33 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 @font-face {
     font-family: "Gotham-Ultra";
-    src: url('fonts/gotham_ultra.eot');
-    src: url('fonts/gotham_ultra.eot?#iefix') format('embedded-opentype'),
-    	 url('fonts/gotham_ultra.svg#Gotham-Ultra') format('svg'),
-    	 url('fonts/gotham_ultra.woff') format('woff'),
-    	 url('fonts/gotham_ultra.ttf') format('truetype');
+    src: url('http://datadonors.org/static/css/fonts/gotham_ultra.eot');
+    src: url('http://datadonors.org/static/css/fonts/gotham_ultra.eot?#iefix') format('embedded-opentype'),
+    	 url('http://datadonors.org/static/css/fonts/gotham_ultra.svg#Gotham-Ultra') format('svg'),
+    	 url('http://datadonors.org/static/css/fonts/gotham_ultra.woff') format('woff'),
+    	 url('http://datadonors.org/static/css/fonts/gotham_ultra.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'gotham-bold';
-    src: url('fonts/gotham-bold.eot');
-    src: url('fonts/gotham-bold.eot?#iefix') format('embedded-opentype'),
-         url('fonts/gotham-bold.woff') format('woff'),
-         url('fonts/gotham-bold.ttf') format('truetype'),
-         url('fonts/gotham-bold.svg#gotham-bold') format('svg');
+    src: url('http://datadonors.org/static/css/fonts/gotham-bold.eot');
+    src: url('http://datadonors.org/static/css/fonts/gotham-bold.eot?#iefix') format('embedded-opentype'),
+         url('http://datadonors.org/static/css/fonts/gotham-bold.woff') format('woff'),
+         url('http://datadonors.org/static/css/fonts/gotham-bold.ttf') format('truetype'),
+         url('http://datadonors.org/static/css/fonts/gotham-bold.svg#gotham-bold') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'Omnes-Semibold';
-    src: url('fonts/Omnes-Semibold.eot');
-    src: url('fonts/Omnes-Semibold.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Omnes-Semibold.woff') format('woff'),
-         url('fonts/Omnes-Semibold.ttf') format('truetype'),
-         url('fonts/Omnes-Semibold.svg#Omnes-Semibold') format('svg');
+    src: url('http://datadonors.org/static/css/fonts/Omnes-Semibold.eot');
+    src: url('http://datadonors.org/static/css/fonts/Omnes-Semibold.eot?#iefix') format('embedded-opentype'),
+         url('http://datadonors.org/static/css/fonts/Omnes-Semibold.woff') format('woff'),
+         url('http://datadonors.org/static/css/fonts/Omnes-Semibold.ttf') format('truetype'),
+         url('http://datadonors.org/static/css/fonts/Omnes-Semibold.svg#Omnes-Semibold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -47,8 +47,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 @font-face {
 	font-family: 'Omnes-bold';
-	src: url('fonts/omnes_bold.eot');
-	src: local('☺'), url('fonts/omnes_bold.woff') format('woff'), url('fonts/omnes_bold.ttf') format('truetype'), url('fonts/omnes_bold.svg') format('svg');
+	src: url('http://datadonors.org/static/css/fonts/omnes_bold.eot');
+	src: local('☺'), url('http://datadonors.org/static/css/fonts/omnes_bold.woff') format('woff'), url('http://datadonors.org/static/css/fonts/omnes_bold.ttf') format('truetype'), url('http://datadonors.org/static/css/fonts/omnes_bold.svg') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
