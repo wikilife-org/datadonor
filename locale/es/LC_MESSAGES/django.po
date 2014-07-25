@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 12:56-0500\n"
+"POT-Creation-Date: 2014-07-25 15:10-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3813,15 +3813,19 @@ msgstr "Equipo"
 msgid "Contact"
 msgstr "Contacto"
 
-#: templates/footer.include.html:17 templates/static/privacy.html:7
+#: templates/footer.include.html:18
+msgid "Developers"
+msgstr "Desarrolladores"
+
+#: templates/footer.include.html:20 templates/static/privacy.html:7
 msgid "Privacy"
 msgstr "Privacidad"
 
-#: templates/footer.include.html:19 templates/static/tos.html:7
+#: templates/footer.include.html:22 templates/static/tos.html:7
 msgid "Terms of Service"
 msgstr "Términos y Condiciones"
 
-#: templates/footer.include.html:21
+#: templates/footer.include.html:24
 msgid "The Wikilife Foundation"
 msgstr "La Fundación"
 
