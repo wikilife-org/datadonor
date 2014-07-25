@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:46-0500\n"
+"POT-Creation-Date: 2014-07-25 12:56-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3729,11 +3729,11 @@ msgstr "Fibras"
 
 #: social/services/utilities.py:179 templates/dashboard/index.html:594
 msgid "PhD"
-msgstr "PhD"
+msgstr "Doctorado"
 
 #: social/services/utilities.py:180 templates/dashboard/index.html:603
 msgid "Master"
-msgstr "Master"
+msgstr "Maestría"
 
 #: social/services/utilities.py:181 templates/dashboard/index.html:612
 msgid "University"
@@ -3870,7 +3870,7 @@ msgstr "Panel de control"
 
 #: templates/dashboard/index.html:56
 msgid "Share with your friends"
-msgstr "Comparte con tus amigos"
+msgstr "Comparta con tus amigos"
 
 #: templates/dashboard/index.html:58 templates/dashboard/index.html.py:124
 #: templates/popups/login.include.html:23
@@ -3917,7 +3917,7 @@ msgstr "Influencia social<br/> y alcance"
 
 #: templates/dashboard/index.html:249
 msgid "Number of people you reach on social networks"
-msgstr "Número de personas que alcanza"
+msgstr "Número de personas que alcanza en la redes sociales"
 
 #: templates/dashboard/index.html:261
 msgid "References:"
@@ -3959,7 +3959,7 @@ msgstr "Tú"
 
 #: templates/dashboard/index.html:396
 msgid "Social sharing numbers"
-msgstr "Estadîsticas en redes social "
+msgstr "Estadísticas en redes social "
 
 #: templates/dashboard/index.html:397
 msgid "Let's see how much you post, tweet and retweet per week."
@@ -3994,7 +3994,7 @@ msgstr "Instituto Técnico"
 
 #: templates/dashboard/index.html:680
 msgid "Share your work<br />experience"
-msgstr "Comparte tu expericiena <br />laboral"
+msgstr "Comparta su expericiena <br />laboral"
 
 #: templates/dashboard/index.html:681
 msgid "How long have you been working for?"
@@ -4021,8 +4021,8 @@ msgid "years of<br />experience"
 msgstr "Años de <br/>experiencia"
 
 #: templates/dashboard/index.html:909
-msgid "Exercise is worth<br />sharing too"
-msgstr "Los ejercicios <br/>tambien valen compatir"
+msgid "Share your exercise"
+msgstr "Comparta su actividad física"
 
 #: templates/dashboard/index.html:910
 msgid ""
@@ -4087,7 +4087,7 @@ msgstr "Pasos realizados <br> la semana pasada"
 #: templates/dashboard/index.html:1010 templates/dashboard/index.html:1084
 #: templates/dashboard/index.html:1153 templates/dashboard/index.html:3808
 msgid "Compared to all users in our database"
-msgstr "Comprado con los usuarios en nuestra base de datos"
+msgstr "Comparado con los usuarios en nuestra base de datos"
 
 #: templates/dashboard/index.html:1035 templates/dashboard/index.html:1056
 msgid "steps/day"
@@ -4157,7 +4157,7 @@ msgstr "Granos"
 
 #: templates/dashboard/index.html:1672
 msgid "Weekly nutrient<br />proportion"
-msgstr "Porcentaje de nutrientest<br /> semanal"
+msgstr "Porcentaje de nutrientes<br /> semanal"
 
 #: templates/dashboard/index.html:1673
 msgid "How much you consumed per week"
@@ -4211,7 +4211,7 @@ msgstr "SALUD &amp; CONDICIONES HUMANAS"
 
 #: templates/dashboard/index.html:2030
 msgid "Select your chronic conditions or add more"
-msgstr "Seleccioná tu condición y agrega mås"
+msgstr "Seleccioná tu condición y agrega más"
 
 #: templates/dashboard/index.html:2074 templates/dashboard/index.html:2154
 #: templates/dashboard/index.html:2232 templates/dashboard/index.html:2310
@@ -4253,7 +4253,7 @@ msgid ""
 "Click or add complaints you habitually experience (at least more than 6 "
 "times a year)"
 msgstr ""
-"Cliqueá o agrega tus dolencias habituales (por lo menos más de 6 veces al "
+"Cliqueá o agregá tus dolencias habituales (por lo menos más de 6 veces al "
 "año)"
 
 #: templates/dashboard/index.html:2676
@@ -4287,7 +4287,7 @@ msgstr "Patrones de sueño"
 
 #: templates/dashboard/index.html:2792
 msgid "Track your hours of sleep per week"
-msgstr "Registrå tus horas de sueño por semana"
+msgstr "Registrá tus horas de sueño por semana"
 
 #: templates/dashboard/index.html:2808
 msgid "Overall average"
@@ -4307,7 +4307,7 @@ msgstr "Salud emocional"
 
 #: templates/dashboard/index.html:2865
 msgid "Add the feelings you register most frequently"
-msgstr "Agrega los sentimientos que registras más frecuentemente"
+msgstr "Agregá los sentimientos que registras más frecuentemente"
 
 #: templates/dashboard/index.html:3251
 msgid "Add another<br />emotion"
@@ -4319,7 +4319,7 @@ msgstr "Humor típico"
 
 #: templates/dashboard/index.html:3356
 msgid "How you feel in general over a one month period"
-msgstr "Como te sientes en general en un período de un mes"
+msgstr "Cómo te sientes en general en un período de un mes"
 
 #: templates/dashboard/index.html:3476
 msgid "GENOMICS TRAITS"
@@ -8175,3 +8175,6 @@ msgstr "AGREGA TUS DISPOSITIVOS DE SALUD"
 #: templates/wizard_inc/slide8.html:5
 msgid "LINK YOUR GENETIC REPORT"
 msgstr "AGREGA TU REPORTE DE GENÉTICA"
+
+#~ msgid "Exercise is worth<br />sharing too"
+#~ msgstr "Los ejercicios <br/>tambien valen compatir"

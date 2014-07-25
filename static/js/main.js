@@ -1266,7 +1266,7 @@ function drawGenomicsDrugs(data, user_data) {
 }
 function drawGenomicsRisks(data, user_data) {
 
-  if (data.length > 0){
+  if (user_data.length > 0){
     $('#step_nineteen .pages_container') .html('');
       for (var i in data) {
     	  console.log(data[i]);
