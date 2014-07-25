@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:04-0500\n"
+"POT-Creation-Date: 2014-07-25 10:46-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4163,9 +4163,9 @@ msgstr "Porcentaje de nutrientest<br /> semanal"
 msgid "How much you consumed per week"
 msgstr "Cuanto consumes por semana"
 
-#: templates/dashboard/index.html:1742 templates/static/learn_more.html:103
-#: templates/static/learn_more.html:169 templates/static/learn_more.html:232
-#: templates/static/learn_more.html:256
+#: templates/dashboard/index.html:1742 templates/static/learn_more.html:102
+#: templates/static/learn_more.html:168 templates/static/learn_more.html:231
+#: templates/static/learn_more.html:255
 msgid "Weight"
 msgstr "Peso"
 
@@ -4177,10 +4177,10 @@ msgstr "Compará tu peso <br/> con los usuarios en nuestra base de datos"
 msgid "Indicate your weight"
 msgstr "Indica tu peso"
 
-#: templates/dashboard/index.html:1807 templates/static/learn_more.html:104
-#: templates/static/learn_more.html:117 templates/static/learn_more.html:132
-#: templates/static/learn_more.html:170 templates/static/learn_more.html:190
-#: templates/static/learn_more.html:233 templates/static/learn_more.html:257
+#: templates/dashboard/index.html:1807 templates/static/learn_more.html:103
+#: templates/static/learn_more.html:116 templates/static/learn_more.html:131
+#: templates/static/learn_more.html:169 templates/static/learn_more.html:189
+#: templates/static/learn_more.html:232 templates/static/learn_more.html:256
 msgid "Height"
 msgstr "Altura"
 
@@ -4269,7 +4269,7 @@ msgid "Delete"
 msgstr "Borrar"
 
 #: templates/dashboard/index.html:2725 templates/data/download.html:152
-#: templates/static/learn_more.html:264
+#: templates/static/learn_more.html:263
 msgid "Blood Type"
 msgstr "Grupo Sanguineo"
 
@@ -4562,8 +4562,8 @@ msgstr "Actividad en la vida virtual"
 msgid " average"
 msgstr " promedio"
 
-#: templates/data/download.html:86 templates/static/learn_more.html:122
-#: templates/static/learn_more.html:135 templates/static/learn_more.html:183
+#: templates/data/download.html:86 templates/static/learn_more.html:121
+#: templates/static/learn_more.html:134 templates/static/learn_more.html:182
 msgid "Steps"
 msgstr "Pasos"
 
@@ -4589,8 +4589,8 @@ msgstr " usuarios Wikilife registrados (Datos leidos de Twitter)"
 msgid "Distance"
 msgstr "Distancia"
 
-#: templates/data/download.html:119 templates/static/learn_more.html:205
-#: templates/static/learn_more.html:213
+#: templates/data/download.html:119 templates/static/learn_more.html:204
+#: templates/static/learn_more.html:212
 msgid "Nutrients"
 msgstr "Nutrientes"
 
@@ -4603,16 +4603,16 @@ msgstr "Condiciones"
 msgid " manual input"
 msgstr " ingreso manual"
 
-#: templates/data/download.html:141 templates/static/learn_more.html:263
+#: templates/data/download.html:141 templates/static/learn_more.html:262
 msgid "Complaints"
 msgstr "Dolencias"
 
-#: templates/data/download.html:163 templates/static/learn_more.html:267
+#: templates/data/download.html:163 templates/static/learn_more.html:266
 msgid "Emotions"
 msgstr "Emociones"
 
-#: templates/data/download.html:174 templates/static/learn_more.html:152
-#: templates/static/learn_more.html:266
+#: templates/data/download.html:174 templates/static/learn_more.html:151
+#: templates/static/learn_more.html:265
 msgid "Sleep"
 msgstr "Sueño"
 
@@ -4624,7 +4624,7 @@ msgstr "Riesgos de Salud"
 msgid "Drugs Response"
 msgstr "Respuesta a Drogas"
 
-#: templates/data/download.html:207 templates/static/learn_more.html:279
+#: templates/data/download.html:207 templates/static/learn_more.html:278
 msgid "Traits"
 msgstr "Rasgos"
 
@@ -4840,15 +4840,15 @@ msgstr ""
 msgid "use any of these services to login"
 msgstr "Use alguno de estos servicios para entrar"
 
-#: templates/static/contact.html:38
+#: templates/static/contact.html:37
 msgid "CONTACT"
 msgstr "CONTACTO"
 
-#: templates/static/contact.html:40
+#: templates/static/contact.html:39
 msgid "A HEALTHY OUTSIDE STARTS FROM THE INSIDE"
 msgstr ""
 
-#: templates/static/contact.html:42
+#: templates/static/contact.html:41
 msgid ""
 "Please contact us directly with any questions regarding DataDonors, our app "
 "or about working with\n"
@@ -4857,25 +4857,25 @@ msgstr ""
 "Ante cualquier consulta de DataDonors, por favor comunicarse con nosotros "
 "directamente."
 
-#: templates/static/contact.html:46
+#: templates/static/contact.html:45
 msgid ""
 "Sincerely,<br/>\n"
 "\t\tThe DataDonors Team"
 msgstr "Desde ya muchas gracias,<br/> El equipo de DataDonors"
 
-#: templates/static/contact.html:51
+#: templates/static/contact.html:50
 msgid "ADDRESS: "
 msgstr "Dirección: "
 
-#: templates/static/contact.html:53
+#: templates/static/contact.html:52
 msgid "PHONE: "
 msgstr "Número telefónico: "
 
-#: templates/static/learn_more.html:38
+#: templates/static/learn_more.html:37
 msgid "WHAT DATA ARE YOU DONATING?"
 msgstr "QUE DATOS ESTÁS DONANDO?"
 
-#: templates/static/learn_more.html:40
+#: templates/static/learn_more.html:39
 msgid ""
 "When you choose among any of the linkable services in our app set-up wizard "
 "we have access to certain kind of information through the apps and devices "
@@ -4892,180 +4892,180 @@ msgstr ""
 "pero en un futuro cercano si será posible.<br> La información a donar es la "
 "siguiente:"
 
-#: templates/static/learn_more.html:44
+#: templates/static/learn_more.html:43
 msgid "Social Section"
 msgstr "Sección Social"
 
-#: templates/static/learn_more.html:49
+#: templates/static/learn_more.html:48
 msgid "Friend count"
 msgstr "Número de amigos"
 
-#: templates/static/learn_more.html:50
+#: templates/static/learn_more.html:49
 msgid "Total likes"
 msgstr "Total de 'Me Gusta'"
 
-#: templates/static/learn_more.html:51
+#: templates/static/learn_more.html:50
 msgid "Total posts"
 msgstr "Total de 'Posts'"
 
-#: templates/static/learn_more.html:52 templates/static/learn_more.html:69
-#: templates/static/learn_more.html:80 templates/static/learn_more.html:90
+#: templates/static/learn_more.html:51 templates/static/learn_more.html:68
+#: templates/static/learn_more.html:79 templates/static/learn_more.html:89
 msgid "Email"
 msgstr ""
 
-#: templates/static/learn_more.html:53 templates/static/learn_more.html:70
-#: templates/static/learn_more.html:82 templates/static/learn_more.html:91
-#: templates/static/learn_more.html:113 templates/static/learn_more.html:128
-#: templates/static/learn_more.html:178 templates/static/learn_more.html:229
-#: templates/static/learn_more.html:254
+#: templates/static/learn_more.html:52 templates/static/learn_more.html:69
+#: templates/static/learn_more.html:81 templates/static/learn_more.html:90
+#: templates/static/learn_more.html:112 templates/static/learn_more.html:127
+#: templates/static/learn_more.html:177 templates/static/learn_more.html:228
+#: templates/static/learn_more.html:253
 msgid "Gender"
 msgstr "Género"
 
-#: templates/static/learn_more.html:54 templates/static/learn_more.html:63
-#: templates/static/learn_more.html:83 templates/static/learn_more.html:92
-#: templates/static/learn_more.html:102 templates/static/learn_more.html:114
-#: templates/static/learn_more.html:129 templates/static/learn_more.html:230
-#: templates/static/learn_more.html:255
+#: templates/static/learn_more.html:53 templates/static/learn_more.html:62
+#: templates/static/learn_more.html:82 templates/static/learn_more.html:91
+#: templates/static/learn_more.html:101 templates/static/learn_more.html:113
+#: templates/static/learn_more.html:128 templates/static/learn_more.html:229
+#: templates/static/learn_more.html:254
 msgid "Age"
 msgstr "Edad"
 
-#: templates/static/learn_more.html:60 templates/static/learn_more.html:81
+#: templates/static/learn_more.html:59 templates/static/learn_more.html:80
 msgid "Followers count"
 msgstr "Número de seguidores"
 
-#: templates/static/learn_more.html:61
+#: templates/static/learn_more.html:60
 msgid "Total retweets"
 msgstr "Número de retweets"
 
-#: templates/static/learn_more.html:62
+#: templates/static/learn_more.html:61
 msgid "Total tweets"
 msgstr "Número de tweets"
 
-#: templates/static/learn_more.html:71
+#: templates/static/learn_more.html:70
 msgid "Years of experience"
 msgstr "Años de experiencia laboral"
 
-#: templates/static/learn_more.html:72
+#: templates/static/learn_more.html:71
 msgid "Level of education"
 msgstr "Nivel de Educación"
 
-#: templates/static/learn_more.html:89
+#: templates/static/learn_more.html:88
 msgid "Contacts count"
 msgstr "Número de contactos"
 
-#: templates/static/learn_more.html:97
+#: templates/static/learn_more.html:96
 msgid "Physical Section"
 msgstr "Sección Actividad Física"
 
-#: templates/static/learn_more.html:105 templates/static/learn_more.html:171
+#: templates/static/learn_more.html:104 templates/static/learn_more.html:170
 msgid "Exercise name"
 msgstr "Tipo de ejercicio"
 
-#: templates/static/learn_more.html:106 templates/static/learn_more.html:172
+#: templates/static/learn_more.html:105 templates/static/learn_more.html:171
 msgid "Exercise duration"
 msgstr "Duración del ejercicio"
 
-#: templates/static/learn_more.html:107
+#: templates/static/learn_more.html:106
 msgid "Exercise calories burnt"
 msgstr "Cantidad de calorías quemadas"
 
-#: templates/static/learn_more.html:115 templates/static/learn_more.html:130
-#: templates/static/learn_more.html:143 templates/static/learn_more.html:231
+#: templates/static/learn_more.html:114 templates/static/learn_more.html:129
+#: templates/static/learn_more.html:142 templates/static/learn_more.html:230
 msgid "Location"
 msgstr "Ubicación:"
 
-#: templates/static/learn_more.html:116 templates/static/learn_more.html:131
-#: templates/static/learn_more.html:189
+#: templates/static/learn_more.html:115 templates/static/learn_more.html:130
+#: templates/static/learn_more.html:188
 msgid "Weight "
 msgstr "Peso"
 
-#: templates/static/learn_more.html:118 templates/static/learn_more.html:179
-#: templates/static/learn_more.html:191
+#: templates/static/learn_more.html:117 templates/static/learn_more.html:178
+#: templates/static/learn_more.html:190
 msgid "Exercise Name "
 msgstr "Tipo de ejercicio"
 
-#: templates/static/learn_more.html:119 templates/static/learn_more.html:133
-#: templates/static/learn_more.html:145 templates/static/learn_more.html:180
-#: templates/static/learn_more.html:192
+#: templates/static/learn_more.html:118 templates/static/learn_more.html:132
+#: templates/static/learn_more.html:144 templates/static/learn_more.html:179
+#: templates/static/learn_more.html:191
 msgid "Exercise Duration"
 msgstr "Duración del ejercicio"
 
-#: templates/static/learn_more.html:120 templates/static/learn_more.html:134
-#: templates/static/learn_more.html:181 templates/static/learn_more.html:193
+#: templates/static/learn_more.html:119 templates/static/learn_more.html:133
+#: templates/static/learn_more.html:180 templates/static/learn_more.html:192
 msgid "Exercise Calories Burned"
 msgstr "Cantidad de calorías quemadas"
 
-#: templates/static/learn_more.html:121 templates/static/learn_more.html:182
+#: templates/static/learn_more.html:120 templates/static/learn_more.html:181
 msgid "Exercise Distance"
 msgstr "Distancia"
 
-#: templates/static/learn_more.html:144
+#: templates/static/learn_more.html:143
 msgid "Exercise Name"
 msgstr "Tipo de ejercicio"
 
-#: templates/static/learn_more.html:146
+#: templates/static/learn_more.html:145
 msgid "Exercise Calories Burnt"
 msgstr "Cantidad de calorías quemadas"
 
-#: templates/static/learn_more.html:153
+#: templates/static/learn_more.html:152
 msgid "Fitness Activities"
 msgstr "Actividades físicas"
 
-#: templates/static/learn_more.html:154 templates/static/learn_more.html:223
-#: templates/static/learn_more.html:268
+#: templates/static/learn_more.html:153 templates/static/learn_more.html:222
+#: templates/static/learn_more.html:267
 msgid "Mood"
 msgstr "Estado de ánimo"
 
-#: templates/static/learn_more.html:155
+#: templates/static/learn_more.html:154
 msgid "Food"
 msgstr "Comidas"
 
-#: templates/static/learn_more.html:161 templates/static/learn_more.html:240
-#: templates/static/learn_more.html:248
+#: templates/static/learn_more.html:160 templates/static/learn_more.html:239
+#: templates/static/learn_more.html:247
 msgid "Coming soon"
 msgstr "Proximamente"
 
-#: templates/static/learn_more.html:198
+#: templates/static/learn_more.html:197
 msgid "Nutritional Section"
 msgstr "Sección Nutrición"
 
-#: templates/static/learn_more.html:203 templates/static/learn_more.html:211
+#: templates/static/learn_more.html:202 templates/static/learn_more.html:210
 msgid "Foods"
 msgstr "Comidas"
 
-#: templates/static/learn_more.html:204
+#: templates/static/learn_more.html:203
 msgid "Meal Type (lunch, etc.)"
 msgstr "Tipo de comida"
 
-#: templates/static/learn_more.html:212
+#: templates/static/learn_more.html:211
 msgid "Food Category"
 msgstr "Categoría de comida"
 
-#: templates/static/learn_more.html:218
+#: templates/static/learn_more.html:217
 msgid "Health Section"
 msgstr "Sección Salud"
 
-#: templates/static/learn_more.html:265
+#: templates/static/learn_more.html:264
 msgid "Chronic Conditions"
 msgstr "Condiciones médicas"
 
-#: templates/static/learn_more.html:273
+#: templates/static/learn_more.html:272
 msgid "Genomic Section"
 msgstr "Sección Genómica"
 
-#: templates/static/learn_more.html:278
+#: templates/static/learn_more.html:277
 msgid "Drug Response"
 msgstr "Respuesta a Drogas"
 
-#: templates/static/learn_more.html:280
+#: templates/static/learn_more.html:279
 msgid "Risks"
 msgstr "Riesgo a enfermedades"
 
-#: templates/static/mission.html:38
+#: templates/static/mission.html:37
 msgid "OUR MISSION"
 msgstr "NUESTRA MISIÓN"
 
-#: templates/static/mission.html:41
+#: templates/static/mission.html:40
 msgid ""
 "Wikilife through DataDonors provides a platform that collects and "
 "distributes health data over entire lifetimes, providing \n"
@@ -5087,11 +5087,11 @@ msgstr ""
 "tratamientos médicos, análisis clínicos, hasta inclusive información "
 "genética."
 
-#: templates/static/mission.html:48
+#: templates/static/mission.html:47
 msgid "Our Vision"
 msgstr "Nuestra Visión"
 
-#: templates/static/mission.html:50
+#: templates/static/mission.html:49
 msgid ""
 "We are only beginning to understand how lifestyle choices affect individual "
 "health and well-being. DataDonors provides the global \n"
@@ -5115,11 +5115,11 @@ msgstr ""
 "investigación de la salud y a largo plazo contribuir a que la población "
 "mundial tenga una vida más sana."
 
-#: templates/static/mission.html:59
+#: templates/static/mission.html:58
 msgid "Reference Database"
 msgstr "Base de Datos"
 
-#: templates/static/mission.html:61
+#: templates/static/mission.html:60
 msgid ""
 "DataDonors provides the most extensive and comprehensive database of real-"
 "time health and lifestyle information\n"
@@ -5144,11 +5144,11 @@ msgstr ""
 "de la salud. Las posibilidades de avanzar en la investigación en ciencias de "
 "la salud y estilo de vida son prácticamente ilimitadas."
 
-#: templates/static/mission.html:71
+#: templates/static/mission.html:70
 msgid "Platform For Research"
 msgstr "Plataforma Científica"
 
-#: templates/static/mission.html:73
+#: templates/static/mission.html:72
 msgid ""
 "The DataDonors database is an indispensable research platform for the global "
 "medical science community, giving project teams,\n"
@@ -5164,11 +5164,11 @@ msgstr ""
 "científicos y académicos acceso abierto y gratuito a una base de datos con "
 "información invaluable sobre salud y estilo de vida que crece constantemente."
 
-#: templates/static/mission.html:80
+#: templates/static/mission.html:79
 msgid "Open Data"
 msgstr "Datos Abiertos"
 
-#: templates/static/mission.html:82
+#: templates/static/mission.html:81
 msgid ""
 "DataDonors is committed to providing open and FREE access to its resources. "
 "Any individual can export aggregate data,\n"
@@ -5186,7 +5186,7 @@ msgstr ""
 "información está disponible para todos y su objetivo principal es entender y "
 "promoveer la salud mundial."
 
-#: templates/static/privacy.html:40
+#: templates/static/privacy.html:39
 msgid ""
 "\n"
 "<h2>Privacy and Sharing Statement</h2>\n"
@@ -5524,11 +5524,11 @@ msgstr ""
 "por favor mándenos un correo electrónico a support@datadonors.org.</"
 "p><p>Fecha: 12 de Enero del 2014</p>\n"
 
-#: templates/static/support.html:38
+#: templates/static/support.html:37
 msgid "HELP KEEP DATADONORS FREE AND OPEN"
 msgstr "AYUDANOS A MANTENER DATADONORS ABIERTA Y GRATUITA"
 
-#: templates/static/support.html:41
+#: templates/static/support.html:40
 msgid ""
 "We aren't in the business of making millions of dollars in revenue- we're in "
 "the business of helping people live healthier, \n"
@@ -5544,7 +5544,7 @@ msgstr ""
 "comprometido a sus principios: ser una plataforma abierta y gratuita que "
 "ayude a mejorar la vida de las personas."
 
-#: templates/static/support.html:46
+#: templates/static/support.html:45
 msgid ""
 "After more than a year and a half of development, the DataDonors platform is "
 "making it's public debut providing individuals a revolutionary \n"
@@ -5560,7 +5560,7 @@ msgstr ""
 "vida y su genoma afectan su salud. Por otro lado, esta tecnología permite "
 "promover una vida más sana."
 
-#: templates/static/support.html:52
+#: templates/static/support.html:51
 msgid ""
 "We promise to never sell your lifestyle information or to bombard our users "
 "with advertising. But unfortunately, \n"
@@ -5570,7 +5570,7 @@ msgstr ""
 "publicitarios. Sin embargo, todas las fundaciones requieren fondos para su "
 "sustento."
 
-#: templates/static/support.html:56
+#: templates/static/support.html:55
 msgid ""
 "The DataDonors platform is supported by donations from medical research "
 "companies, pharmaceutical labs, universities, non-profits and generous "
@@ -5583,15 +5583,15 @@ msgstr ""
 "de lucro e individuos particulares. Los fondos nos permiten financiar el "
 "desarrollo y mantenimiento de DataDonors."
 
-#: templates/static/support.html:60
+#: templates/static/support.html:59
 msgid "From all of us at DataDonors, thank you."
 msgstr "Desde ya muchas gracias, DataDonors."
 
-#: templates/static/team.html:38
+#: templates/static/team.html:37
 msgid "THE TEAM "
 msgstr "EL EQUIPO"
 
-#: templates/static/team.html:40
+#: templates/static/team.html:39
 msgid ""
 "DataDonors is powered by our interdisciplinary team of talented innovators "
 "that\n"
@@ -5603,11 +5603,11 @@ msgstr ""
 "diseñadores, programadores y empresarios que  son apasionados de crear "
 "conciencia sobre temas como la salud mundial."
 
-#: templates/static/team.html:48 templates/static/team.html.py:61
+#: templates/static/team.html:47 templates/static/team.html.py:60
 msgid "Founder and board member"
 msgstr "Fundador y miembro del directorio"
 
-#: templates/static/team.html:51
+#: templates/static/team.html:50
 msgid ""
 "After years of thinking about it, and a few weeks after returning from <a "
 "href=\"http://www.ted.com\" target=\"blank\">TED</a>, I decided to finally "
@@ -5633,7 +5633,7 @@ msgstr ""
 "comprometido a este proyecto ya que es posible, urgente y considero "
 "espectacular la exploración de la condición humana."
 
-#: templates/static/team.html:64
+#: templates/static/team.html:63
 msgid ""
 "As co-founder, I began working at Wikilife in March, 2010. I'm a molecular "
 "biologist by profession, with a\n"
@@ -5690,11 +5690,11 @@ msgstr ""
 "Institución Otorgante: UBACYT. Ha obtenido recientemente el subsidio del "
 "Prostate Cancer Foundation y de AGENCIA (PICT Jovenes 2012-2446)."
 
-#: templates/static/team.html:80
+#: templates/static/team.html:79
 msgid "Board member"
 msgstr "Miembro del directorio"
 
-#: templates/static/team.html:85
+#: templates/static/team.html:84
 msgid ""
 "Fred Vierra served as Chief Executive Officer of Tele-Communications "
 "International, Inc., a NASDAQ listed company and the international arm of "
@@ -5747,11 +5747,11 @@ msgstr ""
 "College of Business Administration  en 1997 y recibio tambien el premio de "
 "Alumno Distinguido en el 2000."
 
-#: templates/static/team.html:100
+#: templates/static/team.html:99
 msgid "Senior Research Scientist and board member"
 msgstr "Investigadora cientifica senior y miembro del directorio"
 
-#: templates/static/team.html:105
+#: templates/static/team.html:104
 msgid ""
 "I joined the Wikilife Team in March 2010. I am a molecular biologist who has "
 "been involved in cancer progression-related research for the past 8 years. I "
@@ -5782,11 +5782,11 @@ msgstr ""
 "WikiLife Foundation y soy docente de la materia Biotecnología en la "
 "Universidad de Belgrano."
 
-#: templates/static/team.html:115
+#: templates/static/team.html:114
 msgid "CTO & Executive Director"
 msgstr "CTO & Director Ejecutivo "
 
-#: templates/static/team.html:118
+#: templates/static/team.html:117
 msgid ""
 "I was immediately attracted by this project because it combines my two "
 "passions: health and\n"
@@ -5805,11 +5805,11 @@ msgstr ""
 "últimos años mi foco estuvo en buscar soluciones innovadoras para mejorar la "
 "calidad de vida de las personas."
 
-#: templates/static/team.html:128
+#: templates/static/team.html:127
 msgid "Project Manager & Executive Assistant"
 msgstr "Gerente de Proyecto & Asistente Ejecutivo"
 
-#: templates/static/team.html:131
+#: templates/static/team.html:130
 msgid ""
 "As an industrial engineer, I've been interested in discovering how our "
 "lifestyle affects our health.\n"
@@ -5829,11 +5829,11 @@ msgstr ""
 "el sector privado como ingeniera industrial en empresas del calibre de "
 "Techint,  Nestle y Coty&Lancaster group."
 
-#: templates/static/team.html:143
+#: templates/static/team.html:142
 msgid "Head of Science Programs & Content Manager"
 msgstr " Directora de contenido y Programas Cientificos"
 
-#: templates/static/team.html:146
+#: templates/static/team.html:145
 msgid ""
 "I joined the Wikilife team in March 2010. I am a molecular biologist "
 "specializing in plant viruses and biotechnology and wrote my Ph.D thesis at "
@@ -5863,11 +5863,11 @@ msgstr ""
 "Universidad de Belgrano. También soy científica colaboradora en Laboratorio "
 "de Cáncer y Apoptosis – IQUIBICEN - FCEyN - UBA - CONICET."
 
-#: templates/static/team.html:164
+#: templates/static/team.html:163
 msgid "Genomic & Health Data Integrity Manager- Senior Research Scientist"
 msgstr "Gerente de investigación de Datos Genómicos y de Salud"
 
-#: templates/static/team.html:168
+#: templates/static/team.html:167
 msgid ""
 "After attending the first public presentation of Wikilife, I knew "
 "immediately that I had to be part of this amazing project. It only took one "
@@ -5916,11 +5916,11 @@ msgstr ""
 "docencia e investigación de la biología molecular, la terapia génica, la "
 "biología sintética, la genómica y la bioinformática."
 
-#: templates/static/team.html:178
+#: templates/static/team.html:177
 msgid "Bioinformartics Research Director"
 msgstr "Director de investigaciones de Bioinformatica"
 
-#: templates/static/team.html:182
+#: templates/static/team.html:181
 msgid ""
 "I am a Molecular Biologist, with PhD in Theoretical Biophysics. Currently as "
 "Joint Professor of the Biological Chemistry Department of the Faculty of "
@@ -5954,11 +5954,11 @@ msgstr ""
 "Químicas. Participa activamente en reuniones cientificas Nacionales (A2B2C, "
 "SAIC, SABiofisica) e internacionales."
 
-#: templates/static/team.html:193
+#: templates/static/team.html:192
 msgid "Lead Software Developer"
 msgstr "Líder de Desarrollo"
 
-#: templates/static/team.html:197
+#: templates/static/team.html:196
 msgid ""
 "\n"
 "\t\tI joined Wikilife in October 2010. The project fascinated me from the "
@@ -5977,11 +5977,11 @@ msgstr ""
 "UML, Java, JUnits, Hibertante y Struts. Me fascina la idea de formar parte "
 "de Wikilife."
 
-#: templates/static/team.html:208
+#: templates/static/team.html:207
 msgid "Content Manager"
 msgstr "Administrador de contenidos"
 
-#: templates/static/team.html:212
+#: templates/static/team.html:211
 msgid ""
 "\n"
 "I'm a lawyer by training, graduated from the Yale Law School, but my love of "
@@ -6003,13 +6003,14 @@ msgstr ""
 "y publicidad online es similar a lo que me gusta de Wikilife:  el potencial "
 "de cambiar el comportamiento humano y de proveer mas información al publico."
 
-#: templates/static/team.html:220 templates/static/team.html.py:242
-#: templates/static/team.html:254
+#: templates/static/team.html:219 templates/static/team.html.py:241
+#: templates/static/team.html:253
 msgid "Advisor"
 msgstr "Consultor"
 
-#: templates/static/team.html:224
+#: templates/static/team.html:223
 msgid ""
+"\n"
 "Cardiologist Graduate Degree at the University of Salvador (Buenos Aires - "
 "Argentina). Specialist in Cardiovascular Disease Prevention. I've always "
 "been comfortable with computer systems and technology in general. I kept "
@@ -6022,8 +6023,9 @@ msgid ""
 "require urgent current healthcare solutions, I can't think of other options "
 "that leverage big ideas, solidarity, and global deployment together. I've "
 "been involved in several projects focused on guiding, motivating and "
-"accompanying people to an active and healthy life."
+"accompanying people to an active and healthy life.\t\t\n"
 msgstr ""
+"\n"
 "Cardiólogo Universitario en la Universidad del Salvador (Buenos Aires-"
 "Argentina). Especialista en Prevención de Enfermedades Cardiovasculares. "
 "Desde siempre me he sentido cómodo con los sistemas informáticos y con la "
@@ -6037,10 +6039,11 @@ msgstr ""
 "solidarias, globales y de implementación entre todos. Además estoy "
 "involucrado en varios proyectos dedicados al bienestar y calidad de vida, "
 "orientando, motivando y acompañando a las personas hacia vidas activas y "
-"saludables."
+"saludables.\n"
 
-#: templates/static/team.html:246
+#: templates/static/team.html:245
 msgid ""
+"\n"
 "My passion for creating, building and sharing, began during my childhood "
 "with Legos and has continued throughout my adult life in my involvement with "
 "the electricity, telecommunications, nutrition, and health industries. It is "
@@ -6060,6 +6063,7 @@ msgid ""
 "\"If you know something, you have to share it.\".\t\n"
 "\t\t"
 msgstr ""
+"\n"
 "Mi pasión por crear, construir y compartir, comenzó en mi infancia con Legos "
 "y ha continuado a lo largo de mi vida adulta en mi relación con los sectores "
 "de la electricidad, las telecomunicaciones, la nutrición y la salud. Es "
@@ -6067,7 +6071,7 @@ msgstr ""
 "se trate de una estructura, una relación personal, la medicina o de un nuevo "
 "paradigma. Pero para lograr todo esto, se requiere un elemento crucial: la "
 "información, los datos, un manual, algo que cataloga las experiencias y "
-"conocimientos que hemo?s acumulado y se copia en el interior de nuestros "
+"conocimientos que hemos acumulado y se copia en el interior de nuestros "
 "cerebros.Sí, he dicho copiado-estamos copiando máquinas y aprendemos de esta "
 "manera; copiando y reorganizar la información para darle significado "
 "relativo y contexto. Estoy muy agradecido por todas las personas que nos han "
@@ -6079,7 +6083,7 @@ msgstr ""
 "Wikilife, y estoy honrado de contribuir a un proyecto tan grandioso. Como "
 "alguien me dijo hace poco: 'Si sabes algo, tienes que compartirlo'."
 
-#: templates/static/team.html:258
+#: templates/static/team.html:257
 msgid ""
 "\n"
 "I am passionate about exploring health through data. I think Wikilife will "
@@ -6113,7 +6117,7 @@ msgstr ""
 "proyecto TEDx Global Music, una iniciativa que colecciona, remasteriza y "
 "comparte la mejor música de los eventos TEDx de todo el mundo."
 
-#: templates/static/tos.html:54
+#: templates/static/tos.html:53
 msgid ""
 "\n"
 "<h2>TERMS OF SERVICE</h2>\n"
