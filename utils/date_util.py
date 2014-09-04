@@ -9,6 +9,11 @@ def get_last_sunday():
     last_sunday = today - timedelta(days=offset)
     return (last_sunday, last_sunday.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 
+def get_last_year():
+    today = date.today()
+    last_year = today - timedelta(days=365)
+    return (last_year, last_year.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
+
 def get_last_sunday_list_days():
     today = date.today()
     offset = (today.weekday() - 6) % 7

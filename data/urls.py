@@ -9,5 +9,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
     
     url(r'^', download, name='download'),
+    url(r'^history/steps/json/', history_steps, name='history_steps'),
+    url(r'^history/distance/json/', history_distance, name='history_distance'),
+    url(r'^history/steps/csv/', history_steps_cvs, name='history_steps_cvs'),
+    url(r'^history/distance/csv/', history_distance_cvs, name='history_distance_cvs'),
 
 )

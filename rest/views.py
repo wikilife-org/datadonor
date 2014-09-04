@@ -31,40 +31,55 @@ DietaryCarbohydrates = "carbohydrates"
 """
 from django.contrib.auth.models import User
 
+
+def validate(request):
+    pass
+
+def create_user(request):
+    pass
+
 def profile(request):
     if request.method == 'POST':
+        request.POST["user_id"]
+        user = Users.objects.get(id=user_id)
+        #Get profile from user
         request.POST["height"]
         request.POST["gender"]
         request.POST["date_of_birth"]
+        request.POST["date"]
 
     else:
         pass
 
 def physical(request):
     if request.method == 'POST':
-
+        request.POST["user_id"]
         request.POST["heart_rate"]
         request.POST["step_count"]
         request.POST["distance"]
         request.POST["activity_count"]
         request.POST["active_energy"]
         request.POST["nike_fuel"]
+        request.POST["date"]
     else:
         pass
 
 
 def health(request):
     if request.method == 'POST':
+        request.POST["user_id"]
         request.POST["oxygen_saturation"]
         request.POST["blood_glucose"]
         request.POST["blood_alcohol_Content"]
         request.POST["blood_type"]
         request.POST["body_temperature"]
+        request.POST["date"]
     else:
         pass
 
 def nutrition(request):
     if request.method == 'POST':
+        request.POST["user_id"]
         request.POST["bmi"]
         request.POST["fat_total"]
         request.POST["fiber"]
@@ -72,5 +87,6 @@ def nutrition(request):
         request.POST["calories"]
         request.POST["protein"]
         request.POST["carbohydrates"]
+        request.POST["date"]
     else:
         pass
