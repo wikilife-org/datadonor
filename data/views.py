@@ -29,23 +29,27 @@ def history_distance(request):
 def history_steps_csv(request):
     client = Stats({"HOST":"http://api.wikilife.org"})
     steps_days = client.get_global_steps_one_year()["data"]
-    tmp_file = json_csv(steps_days)
-    return HttpResponse(simplejson.dumps(tmp_file), mimetype="text/csv")
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="steps.csv"'
+    writer = csv.writer(response)
+    writer.writerow(steps_days[0].keys())
+    
+    for row in steps_days:
+        writer.writerow(row.values())
+    return response
 
 def history_distance_csv(request):
     client = Stats({"HOST":"http://api.wikilife.org"})
     distance_days = client.get_global_distance_one_year()["data"]
-    tmp_file = json_csv(distance_days)
-    return HttpResponse(simplejson.dumps(tmp_file), mimetype="text/csv")
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="distance.csv"'
+    writer = csv.writer(response)
+    writer.writerow(distance_days[0].keys())
+    
+    for row in distance_days:
+        writer.writerow(row.values())
+    return response
 
 
-def json_csv(json_file):
-    output = csv.writer(open("test.csv", "wb+"))
-    output.writerow(json_file[0].keys())
-    
-    for row in json_file:
-        output.writerow(row.values())
-    
-    return output
     
     
