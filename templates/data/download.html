@@ -106,7 +106,7 @@
 		</li>
 
 		<li class="variables_card">
-			<h3>{% trans "Distance" %}</h3>
+			<h3>{% trans "Distance" %} (Km)</h3>
 			<div class="detail">
 			<span>{% trans "Source:" %}</span>  Runkepper, Nike+, Fitbit<br/>
 			<span>{% trans "Type:" %}</span> {% trans " count, sum and average"%}<br/>
@@ -116,7 +116,17 @@
 			<a target="_blank" href="http://datadonors.org/static/tmp/distance.csv">CSV</a><br/>
 			</div>
 		</li>
-
+        <li class="variables_card">
+            <h3>{% trans "Calories Burned" %}</h3>
+            <div class="detail">
+            <span>{% trans "Source:" %}</span>  Runkepper, Nike+, Fitbit<br/>
+            <span>{% trans "Type:" %}</span> {% trans " count, sum and average"%}<br/>
+            <span>{% trans "Time:" %}</span>  {% trans " since"%} {{last_year}}<br/>
+            <span>{% trans "Population:" %}</span>  {% trans "  registered Wikilife users (Twitter Crawler)"%}<br/>
+            <span>{% trans "Format:" %}</span>  <a target="_blank" href="http://datadonors.org/static/tmp/calories.json">JSON</a>,
+            <a target="_blank" href="http://datadonors.org/static/tmp/calories.csv">CSV</a><br/>
+            </div>
+        </li>
 		<li class="variables_card">
 			<h3>{% trans "Nutrients" %}</h3>
 			<div class="detail">

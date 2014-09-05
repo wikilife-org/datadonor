@@ -21,6 +21,11 @@ def history_steps(request):
     steps_days = client.get_global_steps_one_year()["data"]
     return HttpResponse(simplejson.dumps(steps_days), mimetype="application/json")
 
+def history_calories(request):
+    client = Stats({"HOST":"http://api.wikilife.org"})
+    calories_days = client.get_global_calories_burned_one_year()["data"]
+    return HttpResponse(simplejson.dumps(calories_days), mimetype="application/json")
+
 def history_distance(request):
     client = Stats({"HOST":"http://api.wikilife.org"})
     distance_days = client.get_global_distance_one_year()["data"]
@@ -50,6 +55,16 @@ def history_distance_csv(request):
         writer.writerow(row.values())
     return response
 
-
+def history_calories_csv(request):
+    client = Stats({"HOST":"http://api.wikilife.org"})
+    calories_days = client.get_global_calories_burned_one_year()["data"]
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="calories.csv"'
+    writer = csv.writer(response)
+    writer.writerow(calories_days[0].keys())
+    
+    for row in calories_days:
+        writer.writerow(row.values())
+    return response
     
     

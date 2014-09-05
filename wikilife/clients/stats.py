@@ -80,3 +80,12 @@ class Stats(BaseWikilifeClient):
         params = {"metric_id": metric_id, "from": from_date, "to":to_date}
         response_dto = self.rest_get("/4/stats/global/aggregation_by_day/", params)[2]
         return response_dto
+    
+    def get_global_calories_burned_one_year(self):
+        date_info = get_last_year()
+        from_date = date_info[1]
+        to_date = date_info[2]
+        metric_id = 394
+        params = {"metric_id": metric_id, "from": from_date, "to":to_date}
+        response_dto = self.rest_get("/4/stats/global/aggregation_by_day/", params)[2]
+        return response_dto
