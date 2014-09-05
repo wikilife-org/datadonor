@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     
-    url(r'^/', download, name='download'),
+    url(r'$', download, name='download'),
     url(r'^history/steps/json/', history_steps, name='history_steps'),
     url(r'^history/distance/json/', history_distance, name='history_distance'),
     url(r'^history/steps/csv/', history_steps_csv, name='history_steps_csv'),
