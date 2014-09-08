@@ -89,3 +89,6 @@ class Stats(BaseWikilifeClient):
         params = {"metric_id": metric_id, "from": from_date, "to":to_date}
         response_dto = self.rest_get("/4/stats/global/aggregation_by_day/", params)[2]
         return response_dto
+    
+    
+    

@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     url(r'^history/steps/csv/', history_steps_csv, name='history_steps_csv'),
     url(r'^history/distance/csv/', history_distance_csv, name='history_distance_csv'),
     url(r'^history/calories/csv/', history_calories_csv, name='history_calories_csv'),
+    url(r'^export/(?P<user_id>.+)/(?P<format>.+)/', export, name='export'),
 
 )

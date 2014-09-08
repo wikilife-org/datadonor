@@ -101,14 +101,6 @@ def last_week_user_actions(user):
     else:
         ctx["show_physical"] = False
         
-
-    act_logs = UserActivityLog.objects.filter(execute_time__range=(last_sunday, today), \
-                                           type__in=["walking", "running", "cycling"], user=user)
-    
-    if len(act_logs) > 0:
-        ctx["show_physical"] = True
-    else:
-        ctx["show_physical"] = False
     
     if len(user.conditions.all()) > 0 or len(user.complaints.all()) or len(user.emotions.all()) > 0 :
         ctx["show_health"] = True
