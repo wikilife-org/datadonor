@@ -161,7 +161,7 @@ def _generate_export(user):
             export[food.execute_time.strftime("%Y-%m-%d")][NUTRITION_TYPE]["nutrients"] = []
         
         export[food.execute_time.strftime("%Y-%m-%d")][NUTRITION_TYPE]["nutrients"].append({"time": food.execute_time.strftime("%HH:%MM:%SS"), \
-                                                                                           "protein":food.protein, "fats":food.fats, "carbs":food.carbs,
+                                                                                           "protein":food.protein, "fat":food.fat, "carbs":food.carbs,
                                                                                            "fiber":food.fiber, "source":food.provider})
     
      
