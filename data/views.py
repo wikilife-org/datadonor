@@ -69,7 +69,7 @@ def history_calories_csv(request):
     
     
 def export(request, user_id, format):
-    user = User.object.get(user_id=user_id)
+    user = User.objects.get(id=user_id)
     report_json = _generate_export(user)
     if format == "csv":
         response = HttpResponse(content_type='text/csv')
@@ -97,7 +97,8 @@ def _generate_export(user):
     HEALTH_TYPE = "health"
     SOCIAL_TYPE = "social"
     NUTRITION_TYPE = "nutrition"
-    GENETIC_TYPE = "genetics"
+    GENOMICS_TYPE = "genomics"
+    PROFILE_TYPE = "profile"
     
     export = {}    
     act_logs = UserActivityLog.objects.filter(user=user)
@@ -154,9 +155,60 @@ def _generate_export(user):
                                                                                            "fiber":food.fiber, "source":food.provider})
     
      
-    traits = user.traits.all()
-    drug_respone = user.drug_reponse.all()
-    risks = user.risks.all()
+    social = user.social_aggregated_data.filter()
+    for s in social:
+        if SOCIAL_TYPE not in export[s.update_time.strftime("%Y-%m-%d")]:
+            export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE] = {}
+        
+        if s.facebook_friend_count:
+            export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["facebook"] = {"time": s.update_time.strftime("%HH:%MM:%SS"), \
+                                                                                "facebook_friend_count":s.facebook_friend_count, \
+                                                                                "facebook_post_weekly_avg":s.facebook_post_weekly_avg,\
+                                                                                "facebook_likes_weekly_avg":s.facebook_likes_weekly_avg,
+                                                                                "source":"facebook"}
+        if s.twitter_followers_count:
+            export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["twitter"] = {"time": s.update_time.strftime("%HH:%MM:%SS"), \
+                                                                                "twitter_followers_count":s.twitter_followers_count, \
+                                                                                "twitter_tweets_count_last_seven_days":s.twitter_tweets_count_last_seven_days,\
+                                                                                "twitter_retweets_count_last_seven_days":s.twitter_retweets_count_last_seven_days,
+                                                                                "source":"twitter"}
+        if s.gplus_contacts_count:
+            export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["google_plus"] = {"time": s.update_time.strftime("%HH:%MM:%SS"), \
+                                                                                      "gplus_contacts_count":s.gplus_contacts_count, \
+                                                                                      "source":"google_plus"} 
+        
+        if s.linkedin_connections_count:
+            export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["linkedin"] = {"time": s.update_time.strftime("%HH:%MM:%SS"), \
+                                                                                   "linkedin_connections_count":s.linkedin_connections_count, \
+                                                                                   "source":"linkedin"}  
+        if s.foursquare_friends_count:
+            export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["foursquare"] = {"time": s.update_time.strftime("%HH:%MM:%SS"), \
+                                                                                     "foursquare_friends_count":s.foursquare_friends_count, \
+                                                                                     "source":"foursquare"}         
     
+    profile = user.profile.filter()
+    for p in profile:
+        if PROFILE_TYPE not in export[p.update_time.strftime("%Y-%m-%d")]:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE] = {}
+        
+        if p.first_name:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE]["first_name"] = {"value":p.first_name , "source":p.first_name_source}
+        if p.last_name:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE]["last_name"] = {"value":p.last_name, "source":p.last_name_source}
+        if p.email:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE]["email"] = {"value":p.email, "source":p.email_source}
+        if p.age:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE]["age"] = {"value": p.age, "source":p.age_source}
+        if p.date_of_birth:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE]["date_of_birth"] ={"value": p.date_of_birth.strftime("%Y-%m-%d"), "source":p.date_of_birth_source} 
+        if p.gender:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE]["gender"] = {"value": p.gender, "source":p.gender_source}
+        if p.height:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE]["height"] = {"value": p.height, "source":p.height_source}
+        if p.weight:
+            export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE]["weight"] = {"value": p.weight, "source":p.weight_source}
+    
+    return export
+       
 
     
