@@ -110,7 +110,7 @@ def _generate_export(user):
         export[activity.execute_time.strftime("%Y-%m-%d")][PHYSICAL_TYPE].append( {"activity_type": activity.type, \
                                                                               "miles":activity.miles, "hours":activity.hours,\
                                                                                "steps": activity.steps, "source":activity.provider,\
-                                                                                "time": activity.execute_time.strftime("%H:%M:%S")})
+                                                                                })
     
     conditions = user.conditions.all()
     for condition in conditions:
@@ -160,7 +160,7 @@ def _generate_export(user):
         if "nutrients" not in export[food.execute_time.strftime("%Y-%m-%d")][NUTRITION_TYPE]:
             export[food.execute_time.strftime("%Y-%m-%d")][NUTRITION_TYPE]["nutrients"] = []
         
-        export[food.execute_time.strftime("%Y-%m-%d")][NUTRITION_TYPE]["nutrients"].append({"time": food.execute_time.strftime("%H:%M:%S"), \
+        export[food.execute_time.strftime("%Y-%m-%d")][NUTRITION_TYPE]["nutrients"].append({
                                                                                            "protein":food.protein, "fat":food.fat, "carbs":food.carbs,
                                                                                            "fiber":food.fiber, "source":food.provider})
     
@@ -173,28 +173,28 @@ def _generate_export(user):
         export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE] = {}
     
     if s.facebook_friend_count:
-        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["facebook"] = {"time": s.update_time.strftime("%H:%M:%S"), \
+        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["facebook"] = {
                                                                             "facebook_friend_count":s.facebook_friend_count, \
                                                                             "facebook_post_weekly_avg":s.facebook_post_weekly_avg,\
                                                                             "facebook_likes_weekly_avg":s.facebook_likes_weekly_avg,
                                                                             "source":"facebook"}
     if s.twitter_followers_count:
-        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["twitter"] = {"time": s.update_time.strftime("%H:%M:%S"), \
+        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["twitter"] = {
                                                                             "twitter_followers_count":s.twitter_followers_count, \
                                                                             "twitter_tweets_count_last_seven_days":s.twitter_tweets_count_last_seven_days,\
                                                                             "twitter_retweets_count_last_seven_days":s.twitter_retweets_count_last_seven_days,
                                                                             "source":"twitter"}
     if s.gplus_contacts_count:
-        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["google_plus"] = {"time": s.update_time.strftime("%H:%M:%S"), \
+        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["google_plus"] = {
                                                                                   "gplus_contacts_count":s.gplus_contacts_count, \
                                                                                   "source":"google_plus"} 
     
     if s.linkedin_connections_count:
-        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["linkedin"] = {"time": s.update_time.strftime("%H:%M:%S"), \
+        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["linkedin"] = {
                                                                                "linkedin_connections_count":s.linkedin_connections_count, \
                                                                                "source":"linkedin"}  
     if s.foursquare_friends_count:
-        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["foursquare"] = {"time": s.update_time.strftime("%H:%M:%S"), \
+        export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE]["foursquare"] = {
                                                                                  "foursquare_friends_count":s.foursquare_friends_count, \
                                                                                       "source":"foursquare"}         
     
