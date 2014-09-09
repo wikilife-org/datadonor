@@ -103,6 +103,8 @@ def _generate_export(user):
     export = {}    
     act_logs = UserActivityLog.objects.filter(user=user)
     for activity in act_logs:
+        if activity.execute_time.strftime("%Y-%m-%d") not in export:
+            export[activity.execute_time.strftime("%Y-%m-%d")] = {}
         if PHYSICAL_TYPE not in export[activity.execute_time.strftime("%Y-%m-%d")]:
             export[activity.execute_time.strftime("%Y-%m-%d")][PHYSICAL_TYPE] = []
         export[activity.execute_time.strftime("%Y-%m-%d")][PHYSICAL_TYPE].append( {"activity_type": activity.type, \
@@ -112,6 +114,8 @@ def _generate_export(user):
     
     conditions = user.conditions.all()
     for condition in conditions:
+        if condition.update_time.strftime("%Y-%m-%d") not in export:
+            export[condition.update_time.strftime("%Y-%m-%d")] = {}
         if HEALTH_TYPE not in export[condition.update_time.strftime("%Y-%m-%d")]:
             export[condition.update_time.strftime("%Y-%m-%d")][HEALTH_TYPE] = {}
         if "conditions" not in export[condition.update_time.strftime("%Y-%m-%d")][HEALTH_TYPE]:
@@ -124,6 +128,8 @@ def _generate_export(user):
     complaints = user.complaints.all()
 
     for complaint in complaints:
+        if complaint.update_time.strftime("%Y-%m-%d") not in export:
+            export[complaint.update_time.strftime("%Y-%m-%d")] = {}
         if HEALTH_TYPE not in export[complaint.update_time.strftime("%Y-%m-%d")]:
             export[complaint.update_time.strftime("%Y-%m-%d")][HEALTH_TYPE] = {}
         if "complaints" not in export[complaint.update_time.strftime("%Y-%m-%d")][HEALTH_TYPE]:
@@ -135,6 +141,8 @@ def _generate_export(user):
     emotions = user.emotions.all()
 
     for emotion in emotions:
+        if emotion.update_time.strftime("%Y-%m-%d") not in export:
+            export[emotion.update_time.strftime("%Y-%m-%d")] = {}
         if HEALTH_TYPE not in export[emotion.update_time.strftime("%Y-%m-%d")]:
             export[emotion.update_time.strftime("%Y-%m-%d")][HEALTH_TYPE] = {}
         if "emotions" not in export[emotion.update_time.strftime("%Y-%m-%d")][HEALTH_TYPE]:
@@ -145,6 +153,8 @@ def _generate_export(user):
 
     foods = user.foods.filter()
     for food in foods:
+        if food.execute_time.strftime("%Y-%m-%d") not in export:
+            export[food.execute_time.strftime("%Y-%m-%d")] = {}
         if NUTRITION_TYPE not in export[food.execute_time.strftime("%Y-%m-%d")]:
             export[food.execute_time.strftime("%Y-%m-%d")][NUTRITION_TYPE] = {}
         if "nutrients" not in export[food.execute_time.strftime("%Y-%m-%d")][NUTRITION_TYPE]:
@@ -157,6 +167,8 @@ def _generate_export(user):
      
     social = user.social_aggregated_data.filter()
     for s in social:
+        if s.update_time.strftime("%Y-%m-%d") not in export:
+            export[p.update_time.strftime("%Y-%m-%d")] = {}
         if SOCIAL_TYPE not in export[s.update_time.strftime("%Y-%m-%d")]:
             export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE] = {}
         
@@ -188,6 +200,8 @@ def _generate_export(user):
     
     profile = user.profile.filter()
     for p in profile:
+        if p.update_time.strftime("%Y-%m-%d") not in export:
+            export[p.update_time.strftime("%Y-%m-%d")] = {}
         if PROFILE_TYPE not in export[p.update_time.strftime("%Y-%m-%d")]:
             export[p.update_time.strftime("%Y-%m-%d")][PROFILE_TYPE] = {}
         
