@@ -8,7 +8,7 @@ from social.services.utilities import *
 from utils.date_util import get_last_sunday, get_last_year
 from wikilife.clients.stats import Stats
 import csv
-from data.utils import _generate_export_json, _generate_export_xls
+from data.reports import _generate_export_json, _generate_export_xls
 
 
 def download(request):
