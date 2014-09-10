@@ -165,7 +165,7 @@ def _generate_export_xls(user):
     ws.write(0, 4, _('Date of Birth'), style0)
     ws.write(0, 5, _('Gender'), style0)
     ws.write(0, 6, _('Height'), style0)
-    ws.write(0, 6, _('Weight'), style0)
+    ws.write(0, 7, _('Weight'), style0)
 
     ws.write(1, 0, p.first_name, style0)
     ws.write(1, 1, p.last_name, style0)
@@ -174,7 +174,7 @@ def _generate_export_xls(user):
     ws.write(1, 4, p.date_of_birth, style1)
     ws.write(1, 5, p.gender, style0)
     ws.write(1, 6, p.height, style0)
-    ws.write(1, 6, p.weight, style0)
+    ws.write(1, 7, p.weight, style0)
     
     wb.save('my_data.xls')
     return wb
