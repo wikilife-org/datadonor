@@ -139,9 +139,11 @@ def _generate_export_json(user):
 
 import xlwt
 from django.utils.translation import gettext as _
+from django.http.response import HttpResponse
 
 def _generate_export_xls(user):
-
+    response = HttpResponse(mimetype="application/ms-excel")
+    response['Content-Disposition'] = 'attachment; filename=my_data.xls'
     p = user.profile
     
     font0 = xlwt.Font()
@@ -176,5 +178,5 @@ def _generate_export_xls(user):
     ws.write(1, 6, p.height, style0)
     ws.write(1, 7, p.weight, style0)
     
-    #wb.save('my_data.xls')
-    return wb
+    wb.save(response)
+    return response

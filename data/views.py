@@ -85,9 +85,7 @@ def export(request, user_id, format):
         return response
     elif format == "xls":
         report_xls = _generate_export_xls(user)
-        response = HttpResponse(report_xls,mimetype='application/ms-excel')
-        response['Content-Disposition'] = 'attachment; filename=my_data.xls'
-        return response
+        return report_xls
     
 
 
