@@ -176,5 +176,5 @@ def _generate_export_xls(user):
     ws.write(1, 6, p.height, style0)
     ws.write(1, 7, p.weight, style0)
     
-    wb.save('my_data.xls')
+    #wb.save('my_data.xls')
     return wb

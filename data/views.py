@@ -71,22 +71,24 @@ def history_calories_csv(request):
     
 def export(request, user_id, format):
     user = User.objects.get(id=user_id)
-    report_json = _generate_export_json(user)
+    if format == "json":
+        report_json = _generate_export_json(user)
+        return HttpResponse(simplejson.dumps(report_json), mimetype="application/json")
     if format == "csv":
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="my_datadonors_data.csv"'
-        writer = csv.writer(response)
+        """ writer = csv.writer(response)
         writer.writerow(report_json[0].keys())
         
         for row in report_json:
-            writer.writerow(row.values())
+            writer.writerow(row.values())"""
         return response
     elif format == "xls":
         report_xls = _generate_export_xls(user)
         response = HttpResponse(report_xls,mimetype='application/ms-excel')
         response['Content-Disposition'] = 'attachment; filename=my_data.xls'
         return response
-    return HttpResponse(simplejson.dumps(report_json), mimetype="application/json")
+    
 
 
 
