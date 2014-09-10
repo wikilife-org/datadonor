@@ -148,35 +148,64 @@ def _generate_export_xls(user):
     
     font0 = xlwt.Font()
     font0.name = 'Arial'
-    font0.colour_index = 2
+    font0.colour_index = 0
     font0.bold = True
+
+    font1 = xlwt.Font()
+    font1.name = 'Arial'
+    font1.colour_index = 0
+    font1.bold = False
     
     style0 = xlwt.XFStyle()
     style0.font = font0
-    
+
     style1 = xlwt.XFStyle()
     style1.num_format_str = 'YYYY-MM-DD'
-    
+
+    style2 = xlwt.XFStyle()
+    style2.font = font1
+        
     wb = xlwt.Workbook()
     ws = wb.add_sheet('Profile')
     
-    ws.write(0, 0, _('First Name'), style0)
-    ws.write(0, 1, _('Last Name'), style0)
-    ws.write(0, 2, _('Email'), style0)
-    ws.write(0, 3, _('Age'), style0)
-    ws.write(0, 4, _('Date of Birth'), style0)
-    ws.write(0, 5, _('Gender'), style0)
-    ws.write(0, 6, _('Height'), style0)
-    ws.write(0, 7, _('Weight'), style0)
+    ws.write(0, 0, _('first name'), style0)
+    ws.write(0, 1, _('first name source'), style0)
+    ws.write(0, 2, _('last name'), style0)
+    ws.write(0, 3, _('last name source'), style0)
+    ws.write(0, 4, _('email'), style0)
+    ws.write(0, 5, _('email source'), style0)
+    ws.write(0, 6, _('age'), style0)
+    ws.write(0, 7, _('age source'), style0)
+    ws.write(0, 8, _('date of birth'), style0)
+    ws.write(0, 9, _('date of birth source'), style0)
+    ws.write(0, 10, _('gender'), style0)
+    ws.write(0, 11, _('gender source'), style0)
+    ws.write(0, 12, _('height'), style0)
+    ws.write(0, 13, _('height Unit'), style0)
+    ws.write(0, 14, _('height source'), style0)
+    ws.write(0, 15, _('weight'), style0)
+    ws.write(0, 16, _('weight unit'), style0)
+    ws.write(0, 16, _('weight source'), style0)
 
-    ws.write(1, 0, p.first_name, style0)
-    ws.write(1, 1, p.last_name, style0)
-    ws.write(1, 2, p.email, style0)
-    ws.write(1, 3, p.age, style0)
+    ws.write(1, 0, p.first_name, style2)
+    ws.write(1, 0, p.first_name_source, style2)
+    ws.write(1, 1, p.last_name, style2)
+    ws.write(1, 1, p.last_name_source, style2)
+    ws.write(1, 2, p.email, style2)
+    ws.write(1, 2, p.email_source, style2)
+    ws.write(1, 3, p.age, style2)
+    ws.write(1, 3, p.age_source, style2)
     ws.write(1, 4, p.date_of_birth, style1)
-    ws.write(1, 5, p.gender, style0)
-    ws.write(1, 6, p.height, style0)
-    ws.write(1, 7, p.weight, style0)
+    ws.write(1, 4, p.date_of_birth_source, style2)
+    ws.write(1, 5, p.gender, style2)
+    ws.write(1, 5, p.gender_source, style2)
+    ws.write(1, 6, p.height, style2)
+    ws.write(1, 6, "feets", style2)
+    ws.write(1, 6, p.height_source, style2)
+    ws.write(1, 7, p.weight, style2)
+    ws.write(1, 7, "libs", style2)
+    ws.write(1, 7, p.weight_source, style2)
+    
     
     wb.save(response)
     return response
