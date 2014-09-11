@@ -205,10 +205,10 @@ def _generate_export_xls(user):
     ws.write(1, 11, p.gender_source, style2)
     ws.write(1, 12, p.height, style2)
     ws.write(1, 13, "feets", style2)
-    ws.write(1, 14, p.height_source, style2)
+    ws.write(1, 14, p.height_source or "manual_input", style2)
     ws.write(1, 15, p.weight, style2)
-    ws.write(1, 16, "libs", style2)
-    ws.write(1, 17, p.weight_source, style2)
+    ws.write(1, 16, "lbs.", style2)
+    ws.write(1, 17, p.weight_source or "manual_input", style2)
     
     ws_social = wb.add_sheet('social')
     ws_social.write(0, 0, _('facebook friends count'), style0)
