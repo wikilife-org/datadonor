@@ -160,8 +160,8 @@ def _generate_export_xls(user):
     style0 = xlwt.XFStyle()
     style0.font = font0
 
-    style1 = xlwt.XFStyle()
-    style1.num_format_str = 'YYYY-MM-DD'
+    style0 = xlwt.XFStyle()
+    style0.num_format_str = 'YYYY-MM-DD'
 
     style2 = xlwt.XFStyle()
     style2.font = font1
@@ -196,7 +196,7 @@ def _generate_export_xls(user):
     ws.write(1, 5, p.email_source, style2)
     ws.write(1, 6, p.age, style2)
     ws.write(1, 7, p.age_source, style2)
-    ws.write(1, 8, p.date_of_birth, style1)
+    ws.write(1, 8, p.date_of_birth.strftime("%Y-%m-%d"), style0)
     ws.write(1, 9, p.date_of_birth_source, style2)
     ws.write(1, 10, p.gender, style2)
     ws.write(1, 11, p.gender_source, style2)
@@ -239,7 +239,7 @@ def _generate_export_xls(user):
     foods = user.foods.all()
     food_index = 1
     for food in foods:
-        ws_nutrition.write(food_index, 0,food.execute_time, style1)
+        ws_nutrition.write(food_index, 0,food.execute_time.strftime("%Y-%m-%d"), style0)
         ws_nutrition.write(food_index, 1,food.protein, style0)
         ws_nutrition.write(food_index, 2, food.fat, style0)
         ws_nutrition.write(food_index, 3, food.carbs, style0)
@@ -256,7 +256,7 @@ def _generate_export_xls(user):
     emotions = user.emotions.all()
     emotions_index = 1
     for emotion in emotions:
-        ws_emotions.write(emotions_index, 0, emotion.update_time, style1)
+        ws_emotions.write(emotions_index, 0, emotion.update_time.strftime("%Y-%m-%d"), style0)
         ws_emotions.write(emotions_index, 1, get_emotions_name(emotion.emotion_id), style0)
         ws_emotions.write(emotions_index, 2, "manual_input", style0)
 
@@ -270,7 +270,7 @@ def _generate_export_xls(user):
     complaints = user.complaints.all()
     complaints_index = 1
     for complaint in complaints:
-        ws_complaints.write(complaints_index, 0, complaint.update_time, style1)
+        ws_complaints.write(complaints_index, 0, complaint.update_time.strftime("%Y-%m-%d"), style0)
         ws_complaints.write(complaints_index, 1, get_complaints_name(complaint.complaint_id), style0)
         ws_complaints.write(complaints_index, 2, "manual_input", style0)
 
@@ -284,7 +284,7 @@ def _generate_export_xls(user):
     conditions = user.conditions.all()
     conditions_index = 1
     for condition in conditions:
-        ws_conditions.write(conditions_index, 0, condition.update_time, style1)
+        ws_conditions.write(conditions_index, 0, condition.update_time.strftime("%Y-%m-%d"), style0)
         ws_conditions.write(conditions_index, 1, get_conditions_name(condition.condition_id), style0)
         ws_conditions.write(conditions_index, 2, "manual_input", style0)
 
@@ -302,7 +302,7 @@ def _generate_export_xls(user):
     act_logs = UserActivityLog.objects.filter(user=user)
     act_index = 1
     for log in act_logs:
-        ws_physical.write(act_index, 0,log.execute_time, style1)
+        ws_physical.write(act_index, 0,log.execute_time.strftime("%Y-%m-%d"), style0)
         ws_physical.write(act_index, 1,log.type, style0)
         ws_physical.write(act_index, 2, log.miles, style0)
         ws_physical.write(act_index, 3, log.hours * 60, style0)
