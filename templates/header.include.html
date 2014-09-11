@@ -21,10 +21,7 @@ $(function () {
     	    {
 
     	            e.preventDefault();
-    	            $.fileDownload($(this).prop("/data/export/{{user.id}}/xls/"), {
-    	                preparingMessageHtml: "We are preparing your report, please wait...",
-    	                failMessageHtml: "There was a problem generating your report, please try again."
-    	            });
+    	            window.location="/data/export/{{user.id}}/xls/"
     	            //var content = $.get("/data/export/{{user.id}}/xls/");
 
     	        });
