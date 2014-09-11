@@ -2,6 +2,7 @@
 {% load i18n %}
 <link rel="stylesheet" href="http://datadonors.org/static/css/header-landing.css" />
 <link rel="stylesheet" href="http://datadonors.org/static/css/reveal.css">
+<script type="text/javascript" src="http://datadonors.org/static/js/download.js"></script>
 <style>
 .mydata{
 
@@ -20,7 +21,11 @@ $(function () {
     	    {
 
     	            e.preventDefault();
-    	            var content = $.get("/data/export/{{user.id}}/xls/");
+    	            $.fileDownload($(this).prop("/data/export/{{user.id}}/xls/"), {
+    	                preparingMessageHtml: "We are preparing your report, please wait...",
+    	                failMessageHtml: "There was a problem generating your report, please try again."
+    	            });
+    	            //var content = $.get("/data/export/{{user.id}}/xls/");
 
     	        });
     $('.lan_es') .click(function (e)
