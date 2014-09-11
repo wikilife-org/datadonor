@@ -160,8 +160,6 @@ def _generate_export_xls(user):
     style0 = xlwt.XFStyle()
     style0.font = font0
 
-    style0 = xlwt.XFStyle()
-    style0.num_format_str = 'YYYY-MM-DD'
 
     style2 = xlwt.XFStyle()
     style2.font = font1
@@ -185,8 +183,8 @@ def _generate_export_xls(user):
     ws.write(0, 13, _('height Unit'), style0)
     ws.write(0, 14, _('height source'), style0)
     ws.write(0, 15, _('weight'), style0)
-    ws.write(0, 17, _('weight unit'), style0)
-    ws.write(0, 18, _('weight source'), style0)
+    ws.write(0, 16, _('weight unit'), style0)
+    ws.write(0, 17, _('weight source'), style0)
 
     ws.write(1, 0, p.first_name, style2)
     ws.write(1, 1, p.first_name_source, style2)
@@ -208,9 +206,9 @@ def _generate_export_xls(user):
     ws.write(1, 12, p.height, style2)
     ws.write(1, 13, "feets", style2)
     ws.write(1, 14, p.height_source, style2)
-    ws.write(1, 16, p.weight, style2)
-    ws.write(1, 17, "libs", style2)
-    ws.write(1, 18, p.weight_source, style2)
+    ws.write(1, 15, p.weight, style2)
+    ws.write(1, 16, "libs", style2)
+    ws.write(1, 17, p.weight_source, style2)
     
     ws_social = wb.add_sheet('social')
     ws_social.write(0, 0, _('facebook friends count'), style0)
@@ -244,12 +242,12 @@ def _generate_export_xls(user):
     foods = user.foods.all()
     food_index = 1
     for food in foods:
-        ws_nutrition.write(food_index, 0,food.execute_time.strftime("%Y-%m-%d"), style0)
-        ws_nutrition.write(food_index, 1,food.protein, style0)
-        ws_nutrition.write(food_index, 2, food.fat, style0)
-        ws_nutrition.write(food_index, 3, food.carbs, style0)
-        ws_nutrition.write(food_index, 4, food.fiber, style0)
-        ws_nutrition.write(food_index, 5, food.provider, style0)
+        ws_nutrition.write(food_index, 0,food.execute_time.strftime("%Y-%m-%d"), style2)
+        ws_nutrition.write(food_index, 1,food.protein, style2)
+        ws_nutrition.write(food_index, 2, food.fat, style2)
+        ws_nutrition.write(food_index, 3, food.carbs, style2)
+        ws_nutrition.write(food_index, 4, food.fiber, style2)
+        ws_nutrition.write(food_index, 5, food.provider, style2)
         food_index = food_index + 1
 
 
@@ -261,9 +259,9 @@ def _generate_export_xls(user):
     emotions = user.emotions.all()
     emotions_index = 1
     for emotion in emotions:
-        ws_emotions.write(emotions_index, 0, emotion.update_time.strftime("%Y-%m-%d"), style0)
-        ws_emotions.write(emotions_index, 1, get_emotions_name(emotion.emotion_id), style0)
-        ws_emotions.write(emotions_index, 2, "manual_input", style0)
+        ws_emotions.write(emotions_index, 0, emotion.update_time.strftime("%Y-%m-%d"), style2)
+        ws_emotions.write(emotions_index, 1, get_emotions_name(emotion.emotion_id), style2)
+        ws_emotions.write(emotions_index, 2, "manual_input", style2)
 
         emotions_index = emotions_index + 1
 
@@ -275,9 +273,9 @@ def _generate_export_xls(user):
     complaints = user.complaints.all()
     complaints_index = 1
     for complaint in complaints:
-        ws_complaints.write(complaints_index, 0, complaint.update_time.strftime("%Y-%m-%d"), style0)
-        ws_complaints.write(complaints_index, 1, get_complaints_name(complaint.complaint_id), style0)
-        ws_complaints.write(complaints_index, 2, "manual_input", style0)
+        ws_complaints.write(complaints_index, 0, complaint.update_time.strftime("%Y-%m-%d"), style2)
+        ws_complaints.write(complaints_index, 1, get_complaints_name(complaint.complaint_id), style2)
+        ws_complaints.write(complaints_index, 2, "manual_input", style2)
 
         complaints_index = complaints_index + 1
 
@@ -289,9 +287,9 @@ def _generate_export_xls(user):
     conditions = user.conditions.all()
     conditions_index = 1
     for condition in conditions:
-        ws_conditions.write(conditions_index, 0, condition.update_time.strftime("%Y-%m-%d"), style0)
-        ws_conditions.write(conditions_index, 1, get_conditions_name(condition.condition_id), style0)
-        ws_conditions.write(conditions_index, 2, "manual_input", style0)
+        ws_conditions.write(conditions_index, 0, condition.update_time.strftime("%Y-%m-%d"), style2)
+        ws_conditions.write(conditions_index, 1, get_conditions_name(condition.condition_id), style2)
+        ws_conditions.write(conditions_index, 2, "manual_input", style2)
 
         conditions_index = conditions_index + 1
         
@@ -307,12 +305,12 @@ def _generate_export_xls(user):
     act_logs = UserActivityLog.objects.filter(user=user)
     act_index = 1
     for log in act_logs:
-        ws_physical.write(act_index, 0,log.execute_time.strftime("%Y-%m-%d"), style0)
-        ws_physical.write(act_index, 1,log.type, style0)
-        ws_physical.write(act_index, 2, log.miles, style0)
-        ws_physical.write(act_index, 3, log.hours * 60, style0)
-        ws_physical.write(act_index, 4, log.steps, style0)
-        ws_physical.write(act_index, 5, log.provider, style0)
+        ws_physical.write(act_index, 0,log.execute_time.strftime("%Y-%m-%d"), style2)
+        ws_physical.write(act_index, 1,log.type, style2)
+        ws_physical.write(act_index, 2, log.miles, style2)
+        ws_physical.write(act_index, 3, log.hours * 60, style2)
+        ws_physical.write(act_index, 4, log.steps, style2)
+        ws_physical.write(act_index, 5, log.provider, style2)
         act_index = act_index + 1
     
 
