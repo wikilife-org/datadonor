@@ -10,5 +10,6 @@ import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()
 
 sys.path.append('/home/datadonor')
+sys.path.append('/home/wikilife_utils')
 
 print >> sys.stderr, sys.path 

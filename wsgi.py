@@ -14,6 +14,7 @@ framework.
 
 """
 import os
+import sys
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
@@ -22,6 +23,8 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 # setting points here.
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
+sys.path.append('/home/datadonor')
+sys.path.append('/home/wikilife_utils')
 
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
