@@ -145,38 +145,171 @@ def _generate_export_xls(user):
     response = HttpResponse(mimetype="application/ms-excel")
     response['Content-Disposition'] = 'attachment; filename=my_data.xls'
     p = user.profile
+    s = user.social_aggregated_data
     
     font0 = xlwt.Font()
     font0.name = 'Arial'
-    font0.colour_index = 2
+    font0.colour_index = 0
     font0.bold = True
+
+    font1 = xlwt.Font()
+    font1.name = 'Arial'
+    font1.colour_index = 0
+    font1.bold = False
     
     style0 = xlwt.XFStyle()
     style0.font = font0
-    
+
     style1 = xlwt.XFStyle()
     style1.num_format_str = 'YYYY-MM-DD'
-    
-    wb = xlwt.Workbook()
-    ws = wb.add_sheet('Profile')
-    
-    ws.write(0, 0, _('First Name'), style0)
-    ws.write(0, 1, _('Last Name'), style0)
-    ws.write(0, 2, _('Email'), style0)
-    ws.write(0, 3, _('Age'), style0)
-    ws.write(0, 4, _('Date of Birth'), style0)
-    ws.write(0, 5, _('Gender'), style0)
-    ws.write(0, 6, _('Height'), style0)
-    ws.write(0, 7, _('Weight'), style0)
 
-    ws.write(1, 0, p.first_name, style0)
-    ws.write(1, 1, p.last_name, style0)
-    ws.write(1, 2, p.email, style0)
-    ws.write(1, 3, p.age, style0)
-    ws.write(1, 4, p.date_of_birth, style1)
-    ws.write(1, 5, p.gender, style0)
-    ws.write(1, 6, p.height, style0)
-    ws.write(1, 7, p.weight, style0)
+    style2 = xlwt.XFStyle()
+    style2.font = font1
+        
+    wb = xlwt.Workbook()
+    ws = wb.add_sheet('profile')
     
+    ws.write(0, 0, _('first name'), style0)
+    ws.write(0, 1, _('first name source'), style0)
+    ws.write(0, 2, _('last name'), style0)
+    ws.write(0, 3, _('last name source'), style0)
+    ws.write(0, 4, _('email'), style0)
+    ws.write(0, 5, _('email source'), style0)
+    ws.write(0, 6, _('age'), style0)
+    ws.write(0, 7, _('age source'), style0)
+    ws.write(0, 8, _('date of birth'), style0)
+    ws.write(0, 9, _('date of birth source'), style0)
+    ws.write(0, 10, _('gender'), style0)
+    ws.write(0, 11, _('gender source'), style0)
+    ws.write(0, 12, _('height'), style0)
+    ws.write(0, 13, _('height Unit'), style0)
+    ws.write(0, 14, _('height source'), style0)
+    ws.write(0, 15, _('weight'), style0)
+    ws.write(0, 17, _('weight unit'), style0)
+    ws.write(0, 18, _('weight source'), style0)
+
+    ws.write(1, 0, p.first_name, style2)
+    ws.write(1, 1, p.first_name_source, style2)
+    ws.write(1, 2, p.last_name, style2)
+    ws.write(1, 3, p.last_name_source, style2)
+    ws.write(1, 4, p.email, style2)
+    ws.write(1, 5, p.email_source, style2)
+    ws.write(1, 6, p.age, style2)
+    ws.write(1, 7, p.age_source, style2)
+    ws.write(1, 8, p.date_of_birth, style1)
+    ws.write(1, 9, p.date_of_birth_source, style2)
+    ws.write(1, 10, p.gender, style2)
+    ws.write(1, 11, p.gender_source, style2)
+    ws.write(1, 12, p.height, style2)
+    ws.write(1, 13, "feets", style2)
+    ws.write(1, 14, p.height_source, style2)
+    ws.write(1, 16, p.weight, style2)
+    ws.write(1, 17, "libs", style2)
+    ws.write(1, 18, p.weight_source, style2)
+    
+    ws_social = wb.add_sheet('social')
+    ws_social.write(0, 0, _('facebook friends count'), style0)
+    ws_social.write(0, 1, _('facebook post weekly avg'), style0)
+    ws_social.write(0, 2, _('facebook likes weekly avg'), style0)
+    ws_social.write(0, 3, _('twitter followers count'), style0)
+    ws_social.write(0, 4, _('tweets count last seven days'), style0)
+    ws_social.write(0, 5, _('retweets count last seven days'), style0)
+    ws_social.write(0, 6, _('gplus contacts count'), style0)
+    ws_social.write(0, 7, _('linkedin connections count'), style0)
+    ws_social.write(0, 8, _('foursquare friends count'), style0)
+
+    ws_social.write(1, 0, s.facebook_friend_count, style2)
+    ws_social.write(1, 1, s.facebook_post_weekly_avg, style2)
+    ws_social.write(1, 2, s.facebook_likes_weekly_avg, style2)
+    ws_social.write(1, 3, s.twitter_followers_count, style2)
+    ws_social.write(1, 4, s.twitter_tweets_count_last_seven_days, style2)
+    ws_social.write(1, 5, s.twitter_retweets_count_last_seven_days, style2)
+    ws_social.write(1, 6, s.gplus_contacts_count, style2)
+    ws_social.write(1, 7, s.linkedin_connections_count, style2)
+    ws_social.write(1, 8, s.foursquare_friends_count, style2)
+    
+    ws_nutrition = wb.add_sheet('nutrition')
+    ws_nutrition.write(0, 0, _('date'), style0)
+    ws_nutrition.write(0, 1, _('protein'), style0)
+    ws_nutrition.write(0, 2, _('fat'), style0)
+    ws_nutrition.write(0, 3, _('carbs'), style0)
+    ws_nutrition.write(0, 4, _('fiber'), style0)
+    ws_nutrition.write(0, 5, _('source'), style0)
+
+    foods = user.foods.all()
+    food_index = 0
+    for food in foods:
+        ws_nutrition.write(food_index, 0,food.execute_time, style1)
+        ws_nutrition.write(food_index, 1,food.protein, style0)
+        ws_nutrition.write(food_index, 2, food.fat, style0)
+        ws_nutrition.write(food_index, 3, food.carbs, style0)
+        ws_nutrition.write(food_index, 4, food.fiber, style0)
+        ws_nutrition.write(food_index, 5, food.provider, style0)
+        food_index = food_index + 1
+
+
+    ws_emotions = wb.add_sheet('emotions')
+    ws_emotions.write(0, 0, _('date'), style0)
+    ws_emotions.write(0, 1, _('name'), style0)
+    ws_emotions.write(0, 2, _('source'), style0)
+
+    emotions = user.emotions.all()
+    emotions_index = 0
+    for emotion in emotions:
+        ws_emotions.write(emotions_index, 0, emotion.update_time, style1)
+        ws_emotions.write(emotions_index, 1, get_emotions_name(emotion.emotion_id), style0)
+        ws_emotions.write(emotions_index, 2, "manual_input", style0)
+
+        emotions_index = emotions_index + 1
+
+    ws_complaints = wb.add_sheet('complaints')
+    ws_complaints.write(0, 0, _('date'), style0)
+    ws_complaints.write(0, 1, _('name'), style0)
+    ws_complaints.write(0, 2, _('source'), style0)
+
+    complaints = user.complaints.all()
+    complaints_index = 0
+    for complaint in complaints:
+        ws_complaints.write(complaints_index, 0, complaint.update_time, style1)
+        ws_complaints.write(complaints_index, 1, get_complaints_name(complaint.complaint_id), style0)
+        ws_complaints.write(complaints_index, 2, "manual_input", style0)
+
+        complaints_index = complaints_index + 1
+
+    ws_conditions = wb.add_sheet('conditions')
+    ws_conditions.write(0, 0, _('date'), style0)
+    ws_conditions.write(0, 1, _('name'), style0)
+    ws_conditions.write(0, 2, _('source'), style0)
+
+    conditions = user.conditions.all()
+    conditions_index = 0
+    for condition in conditions:
+        ws_conditions.write(conditions_index, 0, condition.update_time, style1)
+        ws_conditions.write(conditions_index, 1, get_conditions_name(condition.condition_id), style0)
+        ws_conditions.write(conditions_index, 2, "manual_input", style0)
+
+        conditions_index = conditions_index + 1
+        
+
+    ws_physical = wb.add_sheet('physical')
+    ws_physical.write(0, 0, _('date'), style0)
+    ws_physical.write(0, 1, _('activity name'), style0)
+    ws_physical.write(0, 2, _('miles'), style0)
+    ws_physical.write(0, 3, _('minutes'), style0)
+    ws_physical.write(0, 4, _('steps'), style0)
+    ws_physical.write(0, 5, _('source'), style0)
+
+    act_logs = UserActivityLog.objects.filter(user=user)
+    act_index = 0
+    for log in act_logs:
+        ws_physical.write(act_index, 0,log.execute_time, style1)
+        ws_physical.write(act_index, 1,log.type, style0)
+        ws_physical.write(act_index, 2, log.miles, style0)
+        ws_physical.write(act_index, 3, log.hours * 60, style0)
+        ws_physical.write(act_index, 4, log.steps, style0)
+        ws_physical.write(act_index, 5, log.provider, style0)
+        act_index = act_index + 1
+    
+
     wb.save(response)
     return response
