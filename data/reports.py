@@ -196,7 +196,12 @@ def _generate_export_xls(user):
     ws.write(1, 5, p.email_source, style2)
     ws.write(1, 6, p.age, style2)
     ws.write(1, 7, p.age_source, style2)
-    ws.write(1, 8, p.date_of_birth.strftime("%Y-%m-%d"), style0)
+    
+    if p.date_of_birth:
+        ws.write(1, 8, p.date_of_birth.strftime("%Y-%m-%d"), style0)
+    else:
+        ws.write(1, 8, None, style0)
+        
     ws.write(1, 9, p.date_of_birth_source, style2)
     ws.write(1, 10, p.gender, style2)
     ws.write(1, 11, p.gender_source, style2)
