@@ -143,7 +143,8 @@ from django.http.response import HttpResponse
 
 def _generate_export_xls(user):
     response = HttpResponse(mimetype="application/ms-excel")
-    response['Content-Disposition'] = 'attachment; filename=my_data.xls'
+    filename = "datadonors_" + datetime.now().strftime("%Y-%m-%d") +"_"+ datetime.now().strftime("%H-%M") + ".xls"
+    response['Content-Disposition'] = 'attachment; filename=%s'%filename
     p = user.profile
     s = user.social_aggregated_data
     
@@ -180,7 +181,7 @@ def _generate_export_xls(user):
     ws.write(0, 10, _('gender'), style0)
     ws.write(0, 11, _('gender source'), style0)
     ws.write(0, 12, _('height'), style0)
-    ws.write(0, 13, _('height Unit'), style0)
+    ws.write(0, 13, _('height unit'), style0)
     ws.write(0, 14, _('height source'), style0)
     ws.write(0, 15, _('weight'), style0)
     ws.write(0, 16, _('weight unit'), style0)
