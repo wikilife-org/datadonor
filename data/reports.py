@@ -237,7 +237,7 @@ def _generate_export_xls(user):
     ws_nutrition.write(0, 5, _('source'), style0)
 
     foods = user.foods.all()
-    food_index = 0
+    food_index = 1
     for food in foods:
         ws_nutrition.write(food_index, 0,food.execute_time, style1)
         ws_nutrition.write(food_index, 1,food.protein, style0)
@@ -254,7 +254,7 @@ def _generate_export_xls(user):
     ws_emotions.write(0, 2, _('source'), style0)
 
     emotions = user.emotions.all()
-    emotions_index = 0
+    emotions_index = 1
     for emotion in emotions:
         ws_emotions.write(emotions_index, 0, emotion.update_time, style1)
         ws_emotions.write(emotions_index, 1, get_emotions_name(emotion.emotion_id), style0)
@@ -268,7 +268,7 @@ def _generate_export_xls(user):
     ws_complaints.write(0, 2, _('source'), style0)
 
     complaints = user.complaints.all()
-    complaints_index = 0
+    complaints_index = 1
     for complaint in complaints:
         ws_complaints.write(complaints_index, 0, complaint.update_time, style1)
         ws_complaints.write(complaints_index, 1, get_complaints_name(complaint.complaint_id), style0)
@@ -282,7 +282,7 @@ def _generate_export_xls(user):
     ws_conditions.write(0, 2, _('source'), style0)
 
     conditions = user.conditions.all()
-    conditions_index = 0
+    conditions_index = 1
     for condition in conditions:
         ws_conditions.write(conditions_index, 0, condition.update_time, style1)
         ws_conditions.write(conditions_index, 1, get_conditions_name(condition.condition_id), style0)
@@ -300,7 +300,7 @@ def _generate_export_xls(user):
     ws_physical.write(0, 5, _('source'), style0)
 
     act_logs = UserActivityLog.objects.filter(user=user)
-    act_index = 0
+    act_index = 1
     for log in act_logs:
         ws_physical.write(act_index, 0,log.execute_time, style1)
         ws_physical.write(act_index, 1,log.type, style0)
