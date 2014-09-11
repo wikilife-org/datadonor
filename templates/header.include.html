@@ -5,12 +5,24 @@
 <style>
 .mydata{
 
+    color: #8e929c;
+    font-size: 13px;
+    margin-right: 56px;
 }
+
+
 </style>
 <script type="text/javascript" >
 
 $(function () {
 
+    $('.mydata') .click(function (e)
+    	    {
+
+    	            e.preventDefault();
+    	            var content = $.get("/data/export/{{user.id}}/xls/");
+
+    	        });
     $('.lan_es') .click(function (e)
     {
 
