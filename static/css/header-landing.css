@@ -118,20 +118,20 @@ header #center-nav {
 }
 
 header #wiki-nav {
-  	color: #8E929C !important;
+    color: #8e929c !important;
     font-size: 13px;
-    margin-top: 63px;
+    margin-top: 75px;
     position: absolute;
-    right: 31px;
+    right: 23px;
     width: 210px;
     z-index: 66;
 }
 header #wiki-nav-d {
-    color: #8E929C !important;
+    color: #8e929c !important;
     font-size: 13px;
     margin-top: 63px;
     position: absolute;
-    right: 51px;
+    right: -153px;
     width: 210px;
     z-index: 66;
 }
