@@ -126,7 +126,15 @@ header #wiki-nav {
     width: 210px;
     z-index: 66;
 }
-
+header #wiki-nav-d {
+    color: #8E929C !important;
+    font-size: 13px;
+    margin-top: 63px;
+    position: absolute;
+    right: 51px;
+    width: 210px;
+    z-index: 66;
+}
 header .wiki-nav {
 	margin-bottom: -14px;
 	font-family: Arial;
