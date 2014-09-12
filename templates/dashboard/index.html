@@ -39,6 +39,18 @@
   <script type="text/javascript" src="/static/js/url_vars.js"></script>
   <script type="text/javascript" src="/static/js/funciones.js"></script>
   <script type="text/javascript" src="/static/js/main.js"></script>
+  
+  <script>
+    $().ready(function() {
+        var $scrollingDiv = $("#scrollingDiv");
+ 
+        $(window).scroll(function(){            
+            $scrollingDiv
+                .stop()
+                .animate({"marginTop": ($(window).scrollTop() + 30) + "px"}, "slow" );          
+        });
+    });
+</script>
 </head>
 
 <body ng-app="app">
@@ -240,8 +252,28 @@
         <!--trigger_share-->
 
       </div>
-      <!--/fixed nav-->
+      <!--/fixed nav scrollingDiv-->
+      <div class="nav_steps" id="scrollingDiv" style="left: 1533px; !important">
+        <ul class="nav">
+          <li><a href="#social" class="nav_one social">social</a></li>
+          <li><a href="#physical" class="nav_two physical">physical</a></li>
+          <li><a href="#nutrition" class="nav_three nutrition">nutrition</a></li>
+          <li><a href="#health" class="nav_four health">health</a></li>
+          <li><a href="#genomics" class="nav_five genomics">genomics</a></li>
+        </ul>
 
+        <!--trigger_share-->
+        <div class="trigger_social" id="trigger_social">
+          <ul>
+            <li><a href="#">social share</a></li>
+            <li><a href="https://www.facebook.com/datadonors" target="_blank" class="facebook">facebook</a></li>
+            <li><a href="https://twitter.com/DataDonors" target="_blank" class="twitter">twitter</a></li>
+            <li class="last"><a href="#" class="email" id="email_trigger">mail</a></li>
+          </ul>
+        </div>
+        <!--trigger_share-->
+
+      </div>
       <!--top-->
       <div class="top">
         <img src="/static/img/step_1/number_1.png" alt="1" />
