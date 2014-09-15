@@ -1462,6 +1462,7 @@ $(document) .ready(function () {
     $('#age_select_form') .submit(function () {
         //console.log('form submitted!');
         var age = $('#age_select_value') .val();
+        console.log(age);
         $('#canvas_4_1') .html('');
         $.ajax({
             dataType: 'json',
