@@ -204,11 +204,15 @@ def global_work():
                     profile = Profile.objects.get(user = user_data.user)
                 except:
                     continue
+                    
                 db = profile.date_of_birth
                 total_user_count += 1
                 total_years_count += years
                 
-                age_range = get_age_range(db)
+                if profile.age_range:
+                    age_range = profile.age_range
+                else:
+                    age_range = get_age_range(db)
                 age_range_dict[age_range]["sum"] += years
                 age_range_dict[age_range]["count"] += 1
     

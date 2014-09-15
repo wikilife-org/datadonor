@@ -14,6 +14,7 @@ class Profile(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=1, choices=(
         ('m', 'Male'), ('f', 'Female')), blank=True, null=True)
+    age_range= models.CharField(max_length=255, blank=True, null=True)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
     height = models.FloatField(null=True)

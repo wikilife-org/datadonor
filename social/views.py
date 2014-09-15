@@ -78,18 +78,27 @@ def social_education_global(request):
 def social_work(request):
     if request.method == 'POST':
         working_experience = request.POST["working_experience"]
+        age_range = request.POST["age_range"]
         #Validate value
         if is_valid_working_experience(working_experience):
         #save Value
             request.user.social_aggregated_data.work_experience_years_manual = int(working_experience)
             request.user.social_aggregated_data.save()
+            
+            request.user.profile.age_range = age_range
+            requests.user.profile.save()
     
     years = request.user.social_aggregated_data.work_experience_years_manual or \
                         request.user.social_aggregated_data.work_experience_years or 0
     db = None
     if request.user.profile:
-        db = request.user.profile.date_of_birth
-    age_range = get_age_range(db)
+        if request.user.profile.age_range:
+            age_range = request.user.profile.age_range
+        else:
+            db = request.user.profile.date_of_birth
+            age_range = get_age_range(db)
+    else:
+        age_range = "26-35"
     user_data = {"user_experience": {"key": age_range, "value":years}}
     
     """
