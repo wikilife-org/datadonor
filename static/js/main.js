@@ -1459,17 +1459,36 @@ $(document) .ready(function () {
             }
         });
     });
+    
+    $('#age_1').on('click', function(e){
+        $('#age_range_selected').attr('value', '15-25');
+    });
+    $('#age_2').on('click', function(e){
+        $('#age_range_selected').attr('value', '26-35');
+    });
+    $('#age_3').on('click', function(e){
+        $('#age_range_selected').attr('value', '36-45');
+    });
+    $('#age_4').on('click', function(e){
+        $('#age_range_selected').attr('value', '46-55');
+    });
+    $('#age_5').on('click', function(e){
+        $('#age_range_selected').attr('value', '56-65');
+    });
     $('#age_select_form') .submit(function () {
         //console.log('form submitted!');
         var age = $('#age_select_value') .val();
+        var age_range = $('#age_range_selected') .val();
         console.log(age);
+        console.log(age_range);
         $('#canvas_4_1') .html('');
         $.ajax({
             dataType: 'json',
             type: 'POST',
             url: _api_urls[_api_env].work_post,
             data: {
-                working_experience: age
+                working_experience: age,
+                age_range: age_range
             },
             success: function (data) {
                 drawWorkGraph(data);
