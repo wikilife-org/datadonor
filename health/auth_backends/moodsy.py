@@ -32,7 +32,7 @@ class MoodsyBackend(OAuthBackend, HealthBackend):
         return {}
 
 
-class MoodsyAuth(BaseOAuth2, GenomicsBackend):
+class MoodsyAuth(BaseOAuth2, HealthBackend):
     """Moodsy OAuth2 support"""
     AUTHORIZATION_URL = MOODSY_AUTHORIZATION_URL
     ACCESS_TOKEN_URL = MOODSY_ACCESS_TOKEN_URL
