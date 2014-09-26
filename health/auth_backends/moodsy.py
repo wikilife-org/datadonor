@@ -6,12 +6,12 @@ https://developers.moodsy/documentatio/
 from social_auth.backends import OAuthBackend, BaseOAuth2, HealthBackend
 
 
-MOODSY_AUTHORIZATION_URL = "https://developers.moodsy.me/authorize"
+MOODSY_AUTHORIZATION_URL = "http://developers.moodsy.me/authorize"
 """
 This is the URL to which your application should redirect the user in order to authorize access to his or her Moodsy account.
 """
 
-MOODSY_ACCESS_TOKEN_URL = "https://developers.moodsy.me/token"
+MOODSY_ACCESS_TOKEN_URL = "http://developers.moodsy.me/token"
 """
 This is the URL at which your application can convert an authorization code to an access token.
 """
