@@ -49,6 +49,7 @@ def profile(request):
         request.POST["date"]
 
     else:
+        #validate
         pass
 
 def physical(request):
@@ -62,6 +63,7 @@ def physical(request):
         request.POST["nike_fuel"]
         request.POST["date"]
     else:
+        #validate
         pass
 
 

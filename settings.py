@@ -177,6 +177,7 @@ AUTHENTICATION_BACKENDS = (
     'physical.auth_backends.fitbit.FitbitBackend',
     'health.auth_backends.withings.WithingsBackend',    
     'health.auth_backends.ihealth.IhealthBackend',
+    'health.auth_backends.moodsy.MoodsyBackend',
 
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -226,7 +227,8 @@ SOCIAL_AUTH_PIPELINE = (
     'pipeline.bodymedia.bodymedia_info',
     'pipeline.twentythreeandme.twentythreeandme_info',
     'pipeline.withings.withings_info',
-    'pipeline.meta_association.association_info'
+    'pipeline.meta_association.association_info',
+    'pipeline.moodsy.moodsy_info'
 )
 
 SOCIAL_AUTH_PIPELINE_old = (

@@ -2,6 +2,10 @@ WIKILIFE = {
    "HOST": "http://api.wikilife.org"
 }
 
+
+MOODSY_CONSUMER_KEY = "l12gs2qdf0ranipbzx9kynvo8r762rku"
+MOODSY_CONSUMER_SECRET = "dcidec6l5dsk1nm7fsb88sxmgsbmvj17"
+
 # ========= SOCIAL =======
 TWITTER_CONSUMER_KEY ='ZWhTDeIIydZSTtpLDaKLg'     
 TWITTER_CONSUMER_SECRET ='geDuzAlLPWX1ywir9jqZQniGg0WAwo76hwlHk'

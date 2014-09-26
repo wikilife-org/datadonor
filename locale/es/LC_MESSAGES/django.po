@@ -3866,7 +3866,7 @@ msgstr "Entrar"
 #: templates/header.include.html:90
 #: templates/wizard_inc/header.include.html:38
 msgid "Start Sharing"
-msgstr "Quiero a donar"
+msgstr "Quiero donar"
 
 #: templates/dashboard/index.html:6
 msgid "Dashboard "
