@@ -3,8 +3,8 @@ WIKILIFE = {
 }
 
 
-MOODSY_CONSUMER_KEY = "l12gs2qdf0ranipbzx9kynvo8r762rku"
-MOODSY_CONSUMER_SECRET = "dcidec6l5dsk1nm7fsb88sxmgsbmvj17"
+MOODSY_CONSUMER_KEY = "fv27au6xt8feio94v3by9bb66nkr3nyn"
+MOODSY_CONSUMER_SECRET = "p9odh8jfpd0i9bgtper7mknhv0f3j56k"
 
 # ========= SOCIAL =======
 TWITTER_CONSUMER_KEY ='ZWhTDeIIydZSTtpLDaKLg'     
