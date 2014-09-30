@@ -10,5 +10,5 @@ def moodsy_info(request, *args, **kwargs):
     if backend.name == "moodsy":
         data = kwargs.get('response')
         dd_user_id = social_user.user.id
-        moodsy_service = HealthServiceLocator.get_instane().build_service_by_name("moodsy")
+        moodsy_service = HealthServiceLocator.get_instane().get_service_by_name("moodsy")
         moodsy_service.pull_user_info(dd_user_id, {"access_token": data["access_token"]})

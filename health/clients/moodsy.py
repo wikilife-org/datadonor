@@ -1,28 +1,30 @@
+# coding=utf-8
 import requests
-from health.clients.base_device_client import BaseDeviceClient
 
 
-class MoodsyClient(BaseDeviceClient):
+MOODSY_API = 'http://api.moodsy.me/'
+
+class MoodsyOAuthClient(object):
+    pass
+
+class MoodsyClient(object):
     PAGE_SIZE = 25
 
-    _api_host = None
+    _api_host = MOODSY_API
     _access_token = None
     _user_info = None
     _profile_id = None
 
-    def __init__(self, api_host, access_token):
-        self._api_host = api_host
+    def __init__(self, access_token):
         self._access_token = access_token
         
     def _get_resource(self, resource):
         if self._access_token is None:
             raise Exception("access_token cannot be None")
 
-        headers = {'Authorization': 'Bearer %s' % self._access_token}
-        url = "%s%s" % (self._api_host, resource)
+        url = "%s%s?token=%s" % (self._api_host, resource, self._access_token)
         response = requests.get(
             url,
-            headers=headers,
             verify=False,
         )
 
@@ -31,5 +33,30 @@ class MoodsyClient(BaseDeviceClient):
         else:
             response.raise_for_status()
 
-    def get_emotins(self):
-        return self._get_resource("user/")
+    def get_emotions(self):
+        params = {"to": None }
+        return self._get_resource("timeline/me/")
+
+    def get_profile(self):
+        params = {"to": None }
+        return self._get_resource("timeline/me/")
+    
+    def get_mood_stats(self):
+        params = {"to": None }
+        return self._get_resource("timeline/me/")
+    
+    def get_people_stats(self):
+        params = {"to": None }
+        return self._get_resource("timeline/me/")
+
+    def get_place_stats(self):
+        params = {"to": None }
+        return self._get_resource("timeline/me/")
+    
+
+if __name__ == "__main__":
+    token = "27tn8sjbvahflf1ktp"
+    api = MoodsyClient(token)
+    emotions =  api.get_emotions()
+    print emotions
+    
