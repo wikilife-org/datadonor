@@ -25,6 +25,7 @@ class MoodsyClient(object):
             raise Exception("access_token cannot be None")
 
         url = "%s%s?token=%s" % (self._api_host, resource, self._access_token)
+        print url
         response = requests.get(
             url,
             verify=False,
@@ -37,7 +38,7 @@ class MoodsyClient(object):
 
     def get_emotions(self):
         params = {"to": None }
-        return self._get_resource("timeline/me/")
+        return self._get_resource("1/timeline/me/")
 
     def get_profile(self):
         params = {"to": None }
@@ -57,7 +58,7 @@ class MoodsyClient(object):
     
 
 if __name__ == "__main__":
-    token = "27tn8sjbvahflf1ktp"
+    token = "34rdhav3sv4z3w8v977ld2ze3hmc62fr"
     api = MoodsyClient(token)
     emotions =  api.get_emotions()
     print emotions
