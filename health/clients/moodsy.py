@@ -2,7 +2,9 @@
 import requests
 
 
-MOODSY_API = 'http://api.moodsy.me/'
+#MOODSY_API = 'http://api.moodsy.me/'
+MOODSY_API = 'http://live.moodsy.me:7080/'
+
 
 class MoodsyOAuthClient(object):
     pass
