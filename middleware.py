@@ -63,3 +63,4 @@ class XsSharing(object):
         response['Access-Control-Allow-Credentials'] = XS_SHARING_ALLOWED_CREDENTIALS
  
         return response
+
