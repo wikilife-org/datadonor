@@ -108,7 +108,7 @@ from mobi.decorators import detect_mobile
 
 @detect_mobile
 def home(request):
-    if request.mobile:
+    if request.mobile and not request.tablet:
         return HttpResponseRedirect('http://m.datadonors.org/')
     """Home view, displays login mechanism"""
     videos = request.GET.get('videos', None)
