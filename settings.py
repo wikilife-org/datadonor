@@ -133,7 +133,8 @@ INSTALLED_APPS = (
     'users',
     'nutrition',
     'reports',
-    'data'
+    'data',
+    'rest'
 
 
 )
