@@ -25,6 +25,7 @@ def report_global_physical_steps(request):
                      "saturday":  dto["sat"]
                      },
             "avg": dto["avg"],
+            "total_users": dto["total_users"]
 
     }
     return render_to_response('dashboard/global_report_pysical_steps.html',{"data":simplejson.dumps(data), "avg":data["avg"]},

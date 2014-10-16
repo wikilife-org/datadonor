@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 #from social.facebook import facebook_view
 from views import *
-
+from reports.views import *
 
 admin.autodiscover()
 
@@ -47,6 +47,7 @@ urlpatterns = patterns('',
     url(r'^test/',  test_report, name='test_report'),
     url(r'^email/validate/(?P<user_encode>.+)/',  validate, name='test_report'),
     (r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^stats/physical-activity-steps-this-week-dristribution/', report_global_physical_steps, name='report_global_physical_steps'),
 
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
