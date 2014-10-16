@@ -2,8 +2,7 @@
 function drawStepsGraph(data) {
     var maxValue = 0;
     for (var i in data.days) {
-        if (data.days[i].global_steps > maxValue) maxValue = data.days[i].global_steps;
-        if (data.days[i].user_steps > maxValue) maxValue = data.days[i].user_steps;
+        if (data.days[i] > maxValue) maxValue = data.days[i];
     }
     var adapter = new StepsAdapter();
     var result = adapter.getParameters(data, 380, maxValue);
@@ -44,6 +43,5 @@ function drawStepsGraph(data) {
     }
     doubleAxisBars2 = new EdBarChart(r_6_1, doubleAxisParams2);
     doubleAxisBars2.draw();
-    $('#data_6_1 .bloq.right .number_stat h2') .html(data.user_avg_steps);
-    $('#data_6_1 .bloq.left .number_stat h2') .html(data.global_avg_steps);
+    $('#data_6_1 .bloq.left .number_stat h2') .html(data.avg);
 }
