@@ -34,7 +34,7 @@
 
 <script>
 window.onload = function () {
-    $.getJSON({{ url }}, function (data) {
+    $.getJSON("{{ url }}", function (data) {
         drawStepsGraph(data);
     });
 }
