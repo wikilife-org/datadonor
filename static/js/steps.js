@@ -6,7 +6,7 @@ function drawStepsGraph(data) {
     }
     var adapter = new StepsAdapter();
     var result = adapter.getParameters(data, 380, maxValue);
-
+    console.log(result);
     elements = result.elements;
     $(elements).each(function (index, elem) {
         elem.value = Math.max(0.02 * 423, elem.value);

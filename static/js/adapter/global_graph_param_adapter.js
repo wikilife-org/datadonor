@@ -107,7 +107,6 @@ StepsAdapter = function(){
   }
 
   this.getXLabels = function(json){
-	  console.log(json);
     xLabels = [];
     currentPos = 132;
     for(var i in json){
