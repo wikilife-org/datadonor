@@ -13,7 +13,7 @@ from utils.commons import last_week_user_actions
 
 def report_global_physical_steps(request):
     
-    data = physical_steps_distribution_global(request)
+    data = simplejson.dumps(physical_steps_distribution_global(request))
     return render_to_response('dashboard/global_report_pysical_steps.html',{"data":data},
                                   RequestContext(request)) 
 
