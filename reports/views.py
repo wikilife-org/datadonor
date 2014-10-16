@@ -10,7 +10,7 @@ from django.contrib.auth import login
 from utils.commons import last_week_user_actions
 
 
-def report_for_global_physical_steps(request):
+def report_global_physical_steps(request):
     
     url = "/physical/exercise/steps/distribution/global/"
     return render_to_response('dashboard/global_report_pysical_steps.html',{"url":url},
