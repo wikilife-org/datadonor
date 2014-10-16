@@ -48,9 +48,9 @@ StepsAdapter = function(){
         pos: currentPos,
         color: globalColor,
         width: 62,
-        label: json[i],
-        vlabel: json[i],
-        value: this.getValueHeight(json[i], totalHeight, maxValue),
+        label: json[i][1],
+        vlabel: json[i][0],
+        value: this.getValueHeight(json[i][0], totalHeight, maxValue),
       }
 
 
