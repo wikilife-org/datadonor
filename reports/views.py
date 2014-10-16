@@ -7,13 +7,14 @@ from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+from physical.views import physical_steps_distribution_global
 from utils.commons import last_week_user_actions
 
 
 def report_global_physical_steps(request):
     
-    url = "/physical/exercise/steps/distribution/global/"
-    return render_to_response('dashboard/global_report_pysical_steps.html',{"url":url},
+    data = physical_steps_distribution_global(request)
+    return render_to_response('dashboard/global_report_pysical_steps.html',{"data":data},
                                   RequestContext(request)) 
 
 def report_for_user_full(request, user_id):
