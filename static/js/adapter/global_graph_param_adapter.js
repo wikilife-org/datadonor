@@ -72,7 +72,7 @@ StepsAdapter = function(){
     var gloabalAvgLabel = {
       pos: this.getValueHeight(orig_json.avg, totalHeight, maxValue),
       //text: orig_json.global_avg_steps.toString()+'\navg',
-      text: orig_json.global_avg_steps.toString(),
+      text: orig_json.avg.toString(),
       width: 1090,
       type: 'dotted',
       "stroke-width": 3,
@@ -107,6 +107,7 @@ StepsAdapter = function(){
   }
 
   this.getXLabels = function(json){
+	  console.log(json);
     xLabels = [];
     currentPos = 132;
     for(var i in json){
