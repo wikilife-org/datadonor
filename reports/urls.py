@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     url(r'^user/health/(?P<user_id>.+)/', report_for_user_health, name='report_for_user_health'),
     url(r'^user/nutrition/(?P<user_id>.+)/', report_for_user_nutrition, name='report_for_user_nutrition'),
     url(r'^user/genomics/(?P<user_id>.+)/', report_for_user_genomics, name='report_for_user_genomics'),
+    url(r'^global/physical/', report_for_global_physical, name='report_for_global_physical'),
  
 )

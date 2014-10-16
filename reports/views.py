@@ -10,6 +10,10 @@ from django.contrib.auth import login
 from utils.commons import last_week_user_actions
 
 
+def report_for_global_physical(request):
+   return render_to_response('dashboard/physical.html',{"show_physical":True},
+                                  RequestContext(request)) 
+
 def report_for_user_full(request, user_id):
     user = User.objects.get(id=user_id)
     user.backend = 'django.contrib.auth.backends.ModelBackend'
