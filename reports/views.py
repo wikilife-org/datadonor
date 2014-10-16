@@ -27,7 +27,7 @@ def report_global_physical_steps(request):
             "avg": dto["avg"],
 
     }
-    return render_to_response('dashboard/global_report_pysical_steps.html',{"data":data},
+    return render_to_response('dashboard/global_report_pysical_steps.html',{"data":simplejson.dumps(data), "avg":data["avg"]},
                                   RequestContext(request)) 
 
 def report_for_user_full(request, user_id):
