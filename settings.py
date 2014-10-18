@@ -114,7 +114,7 @@ TEMPLATE_DIRS = (
     join(ROOT_PATH, 'templates'),
 )
 
-MOBI_USER_AGENT_IGNORE_LIST = list('ipad')
+#MOBI_USER_AGENT_IGNORE_LIST = list('ipad')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
