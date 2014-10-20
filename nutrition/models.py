@@ -10,6 +10,8 @@ class UserFoodLog(models.Model):
     fiber = models.FloatField(null=True)
     carbs = models.FloatField(null=True)
     group = models.CharField(null=True, max_length=256)
+    calories = models.FloatField(null=True)
+    sugar = models.FloatField(null=True)
     device_log_id = models.CharField(null=True, max_length=256)
     provider = models.CharField(null=True, max_length=256)
     update_time = models.DateTimeField("last updated on", auto_now=True)

@@ -139,16 +139,18 @@ class PhysicalActivityDistributionService(object):
         total = 0
         count = 0
         avg = 0
+        entries = 0
         
         for day in steps_days:
             d_index = datetime.datetime.strptime(day["date"], '%Y-%m-%d').strftime("%a").lower()
             result[d_index] = int(round(day["avg"]))
-            
+            entries +=int(day["entries"])
             total +=day["avg"]
             count = count + 1
         if count:
             avg = total/ count
         result["avg"] = int(round(avg))
+        result["total_users"] = entries
         return result
     
     def _get_global_distribution_hours(self, user):

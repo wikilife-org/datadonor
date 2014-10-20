@@ -52,7 +52,46 @@ class UserComplaints(models.Model):
     log_id = models.IntegerField(null=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
 
+class UserOxygenSaturation(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='oxygen_saturation')
+    execute_time = models.DateField(null=True)
+    value = models.FloatField(null=True)
+    device_log_id = models.CharField(null=True, max_length=256)
+    provider = models.CharField(null=True, max_length=256)
+    update_time = models.DateTimeField("last updated on", auto_now=True)
 
+class UserBloodAlcoholContent(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='blood_alcohol_content')
+    execute_time = models.DateField(null=True)
+    value = models.FloatField(null=True)
+    device_log_id = models.CharField(null=True, max_length=256)
+    provider = models.CharField(null=True, max_length=256)
+    update_time = models.DateTimeField("last updated on", auto_now=True)
+
+class UserBloodGlucose(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='blood_glucose')
+    execute_time = models.DateField(null=True)
+    value = models.FloatField(null=True)
+    device_log_id = models.CharField(null=True, max_length=256)
+    provider = models.CharField(null=True, max_length=256)
+    update_time = models.DateTimeField("last updated on", auto_now=True) 
+
+class UserBodyTemperature(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='body_temperature')
+    execute_time = models.DateField(null=True)
+    value = models.FloatField(null=True)
+    device_log_id = models.CharField(null=True, max_length=256)
+    provider = models.CharField(null=True, max_length=256)
+    update_time = models.DateTimeField("last updated on", auto_now=True) 
+
+class UserHeartRate(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='heart_rate')
+    execute_time = models.DateField(null=True)
+    value = models.FloatField(null=True)
+    device_log_id = models.CharField(null=True, max_length=256)
+    provider = models.CharField(null=True, max_length=256)
+    update_time = models.DateTimeField("last updated on", auto_now=True)    
+  
 class UserBloodType(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='blood_type')
     blood_type_id = models.IntegerField()

@@ -33,7 +33,37 @@ from django.contrib.auth.models import User
 from django.http.response import HttpResponse
 from django.utils import simplejson
 from users.models import Profile
+from health.models import UserBloodType, UserOxygenSaturation, UserBloodAlcoholContent, UserBloodGlucose, UserBodyTemperature, UserHeartRate
+from physical.models import UserActivityLog
+from nutrition.models import UserFoodLog
 import re, random, string
+from datetime import datetime
+ 
+TYPE_DICT = {}
+TYPE_DICT["gender"] = {"model":Profile, "field":"gender", "key":'user'}
+TYPE_DICT["bmi"] = {"model":Profile, "field":"bmi", "key":'user'}
+TYPE_DICT["height"] = {"model":Profile, "field":"height", "key":'user'}
+TYPE_DICT["date_of_birth"] = {"model":Profile, "field":"date_of_birth", "key":'user'}
+
+TYPE_DICT["blood_type"] = {"model":UserBloodType, "field":"value", "key":'user'}
+TYPE_DICT["oxygen_saturation"] = {"model":UserOxygenSaturation, "field":"value", "key":'user'}
+TYPE_DICT["blood_glucose"] = {"model":UserBloodGlucose, "field":"value", "key":'user'}
+TYPE_DICT["blood_alcohol_content"] = {"model":UserBloodAlcoholContent, "field":"value", "key":'user'}
+TYPE_DICT["body_temperature"] = {"model":UserBodyTemperature, "field":"value", "key":'user'}
+TYPE_DICT["heart_rate"] = {"model":UserHeartRate, "field":"value", "key":'user'}
+
+TYPE_DICT["step_count"] = {"model":UserActivityLog, "field":"steps", "key":'execute_datetime', "add":True}
+TYPE_DICT["distance"] = {"model":UserActivityLog,"field":"miles", "key":'execute_datetime', "add":True}
+TYPE_DICT["activity_count"] = {"model":UserActivityLog, "field":"activity_count", "key":'execute_datetime', "add":True}
+TYPE_DICT["nike_fuel"] = {"model":UserActivityLog, "field":"nike_fuel", "key":'execute_datetime', "add":True}
+TYPE_DICT["active_energy"] = {"model":UserActivityLog, "field":"active_energy", "key":'execute_datetime', "add":True}
+
+TYPE_DICT["fat_total"] = {"model":UserFoodLog, "field":"fat", "key":'execute_datetime', "add":True}
+TYPE_DICT["fiber"] = {"model":UserFoodLog, "field":"fiber", "key":'execute_datetime', "add":True}
+TYPE_DICT["sugar"] = {"model":UserFoodLog, "field":"sugar", "key":'execute_datetime', "add":True}
+TYPE_DICT["calories"] = {"model":UserFoodLog, "field":"calories", "key":'execute_datetime', "add":True}
+TYPE_DICT["protein"] = {"model":UserFoodLog,"field":"protein", "key":'execute_datetime', "add":True}
+TYPE_DICT["carbohydrates"] = {"model":UserFoodLog, "field":"carbs", "key":'execute_datetime', "add":True}
 
 
 def authorize(request):
@@ -45,238 +75,54 @@ def authorize(request):
     result["data"] = data
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
-def oxygen_saturation(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
 
+
+def process(user, opr, value, date_):
+    if opr["key"] == "user":
+        obj = getattr(opr["model"], 'get_or_create')(user=user)
+    elif opr["key"] == "execute_datetime":
+        obj = getattr(opr["model"], 'get_or_create')(user=user, execute_datetime=date_)
+    if "add" in opr:
+        value = getattr(opr["model"], opr["field"]) + value
+    setattr(obj, opr["field"], value)
+    obj.save()
+
+def log(request):
+    """
+    {"userId": USER_ID,
+     "type": TYPE,
+     "nodeId": NODE_ID,
+     "metricId": METRIC_ID,
+     "value":VALUE,
+     "executeDateTime": DATE_TIME
+     
+     }
+    """
+    if request.method == 'POST':
+        #valid_user
+        user_id = request.POST["userId"]
+        try:
+            user = Profile.objects.get(account_id=user_id).user
+        except:
+            return HttpResponse(simplejson.dumps({"message": "Invalid User: %s"%user_id, "status": "error", "data":{}}), mimetype="application/json")
+        
+        #valid_type
+        try:
+            type = request.POST["type"]
+            opr = TYPE_DICT[type]
+        except:
+            return HttpResponse(simplejson.dumps({"message": "Invalid Type: %s"%type, "status": "error", "data":{}}), mimetype="application/json")
+        
+        try:
+            value = float(request.POST["value"])
+        except:
+            pass
+        
+        date_ = datetime.strptime(request.POST["executeDateTime"], '%Y-%m-%d %H:%M:%S')
+        process(user, opr, value, date_)
+        
     else:
         return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+    return HttpResponse(simplejson.dumps({}), mimetype="application/json")  
+  
 
-def blood_glucose(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def blood_alcohol_content(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def blood_type(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def body_temperature(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def heart_rate(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def step_count(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def distance(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-    
-def activity_count(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def active_energy(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def nike_fuel(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def bmi(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def fat_total(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def fiber(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def sugar(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def calories(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def protein(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def carbohydrates(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def height(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        user = Profile.objects.get(account_id=user_id).user
-        value = request.POST["value"]
-        date_ = request.POST["executeDateTime"]
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-
-def gender(request):
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        value = request.POST["value"]
-        profile = Profile.objects.get(account_id=user_id)
-        profile.gender = value
-        profile.save()
-        data = {"message": "Gender", "status": "success", "data":{}}
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
-
-def date_of_birth(request):
-    
-    if request.method == 'POST':
-        user_id = request.POST["userId"]
-        value = request.POST["value"]
-        profile = Profile.objects.get(account_id=user_id)
-        profile.date_of_birth = value
-        profile.save()
-        data = {"message": "DateOdBirth", "status": "success", "data":{}}
-
-    else:
-        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
