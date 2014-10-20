@@ -75,8 +75,6 @@ def authorize(request):
     result["data"] = data
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
-
-
 def process(user, opr, value, date_):
     if opr["key"] == "user":
         obj = getattr(opr["model"], 'get_or_create')(user=user)
