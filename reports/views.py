@@ -28,7 +28,7 @@ def report_global_physical_steps(request):
             "total_users": dto["total_users"]
 
     }
-    return render_to_response('dashboard/global_report_pysical_steps.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
+    return render_to_response('dashboard/global_report_physical_steps.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
                                   RequestContext(request)) 
 
 
@@ -50,7 +50,7 @@ def report_global_physical_miles(request):
             "total_users": dto["total_users"]
 
     }
-    return render_to_response('dashboard/global_report_pysical_miles.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
+    return render_to_response('dashboard/global_report_physical_miles.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
                                   RequestContext(request)) 
 
 def report_for_user_full(request, user_id):
