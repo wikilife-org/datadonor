@@ -3,7 +3,7 @@
 <html>
 <head>
 
-  <title>{{total_users}} #datadonors took an average of {{avg}} #steps this week  #activity #physical</title>
+  <title>{{total_users}} #datadonors took an average of {{avg}} #miles this week  #activity #physical</title>
 
   <!-- Metatags -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -46,7 +46,7 @@
 <script>
 window.onload = function () {
 
-        drawStepsGraph({{data|safe}});
+        drawStepsGraph({{data|safe}}, "Miles");
 
 }
 </script>

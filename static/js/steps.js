@@ -1,5 +1,5 @@
 
-function drawStepsGraph(data) {
+function drawStepsGraph(data, yName) {
     var maxValue = 0;
     for (var i in data.days) {
         if (data.days[i] > maxValue) maxValue = data.days[i];
@@ -31,7 +31,7 @@ function drawStepsGraph(data) {
         yAxis: {
             length: 423,
             'stroke-width': 0,
-            name: 'Steps',
+            name: yName,
             labels: result.yLabels
         },
         centerx: 30,
