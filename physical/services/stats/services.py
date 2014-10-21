@@ -194,6 +194,7 @@ class PhysicalActivityDistributionService(object):
         total = 0 
         count = 0
         avg = 0
+        total_users = 0
         
         h_id = "hours__sum"
         day_list = get_last_sunday_list_days()
@@ -207,12 +208,14 @@ class PhysicalActivityDistributionService(object):
             avg_ = 0
             if count:
                 avg_ = round(value / count)
+                total_users +=count
             total +=avg_
             result[d_index] = avg_
         
         if len(day_list):
             avg = total/ len(day_list)
         result["avg"] = int(round(avg))
+        result["total_users"] = total_users
         
         return result
 

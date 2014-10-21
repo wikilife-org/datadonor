@@ -53,6 +53,26 @@ def report_global_physical_miles(request):
     return render_to_response('dashboard/global_report_physical_miles.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
                                   RequestContext(request)) 
 
+def report_global_physical_duration(request):
+    
+    dto = PhysicalActivityDistributionService().get_hours_distribution_global()
+    data = {
+            "days": {
+                     "sunday":     dto["sun"], 
+                     "monday":    dto["mon"],
+                     "tuesday":    dto["tue"], 
+                     "wednesday": dto["wed"],
+                     "thursday":  dto["thu"], 
+                     "friday":    dto["fri"],
+                     "saturday":  dto["sat"]
+                     },
+            "avg": dto["avg"],
+            "total_users": dto["total_users"]
+
+    }
+    return render_to_response('dashboard/global_report_physical_duration.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
+                                  RequestContext(request))
+    
 def report_for_user_full(request, user_id):
     user = User.objects.get(id=user_id)
     user.backend = 'django.contrib.auth.backends.ModelBackend'
