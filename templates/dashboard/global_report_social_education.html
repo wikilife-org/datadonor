@@ -127,8 +127,7 @@ EdQuarterAnimatedPie = function(r, elements, options){
 function drawEducationGraph(data) {
     var adapter = new EducationAdapter();
     var elements = adapter.getParameters(data);
-    //console.log('QUARTER PIE ADAPTER');
-    //console.log(elements);
+
     var r_3_1 = Raphael('canvas_3_1', 435, 428);
     animatedQuarterPie = new EdQuarterAnimatedPie(r_3_1, elements, {
         animationTime: 900,
@@ -187,7 +186,7 @@ window.onload = function () {
 
         <!--text-->
         <div class="block right">
-          <ul id="your_lvl_c">
+          <ul id="your_lvl_c_">
             <li ref="0">
               <h2 class="color_one"><span class="perc_number">8</span><span>%</span></h2>
               <a href="#" ref="0">

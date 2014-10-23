@@ -77,7 +77,7 @@ def report_global_social_education(request):
     
     dto = global_education()
     
-    return render_to_response('dashboard/global_report_social_education.html',{"data":simplejson.dumps(dto)},
+    return render_to_response('dashboard/global_report_social_education.html',{"data":simplejson.dumps({"global_data":dto})},
                                   RequestContext(request))
 
   
