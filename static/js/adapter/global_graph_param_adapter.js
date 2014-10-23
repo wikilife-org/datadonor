@@ -117,3 +117,36 @@ StepsAdapter = function(){
     return xLabels;
   }
 }
+
+
+EducationAdapter = function(){
+
+	  this.getParameters = function(json){
+
+	    var elements = [];
+	    var globalColor = '#7737c7';
+	    var userColor = '#E56666';
+
+	    for(var prop in json.global_data){
+	      var item = {
+	        percentage: json.global_data[prop]["percentage"],
+	        color: globalColor,
+	        text: json.global_data[prop]["title"],
+	        selected: false,
+	        server_key: json.global_data[prop]["key"],
+	        index: json.global_data[prop]["index"]
+	      }
+
+	      elements.push(item);
+	    }
+
+	    elements.sort(function(a,b){
+	      if(a.index < b.index) return 1;
+	      if(a.index > b.index) return -1;
+	      return 0;
+	    });
+
+	    return elements;
+	  }
+
+	}

@@ -59,6 +59,10 @@ urlpatterns = patterns('',
     url(r'^statistics/physical-activity-hours-this-week-distribution/', report_global_physical_duration, name='report_global_physical_hours'),
     url(r'^statistics/physical-activity-hours-distribution/', report_global_physical_duration, name='report_global_physical_hours'),
     url(r'^statistics/physical-activity-hours/', report_global_physical_duration, name='report_global_physical_hours'),
+
+    url(r'^statistics/social-education-level-distribution/', report_global_social_education, name='report_global_social_education'),
+    url(r'^statistics/social-education-level/', report_global_social_education, name='report_global_social_education'),
+    url(r'^statistics/social-education/', report_global_social_education, name='report_global_social_education'),
     
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
