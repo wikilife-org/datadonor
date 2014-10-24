@@ -1,0 +1,284 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>#datadonors #working experience</title>
+
+  <!-- Metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <meta name="description" content="#" />
+  <meta name="keywords" content="DataDonors,Non-profit,The Wikilife Foundation,Share,Wikilife,Data,Big Data,Data Donation,Scientific Community,Research,Global project,Sharing for good,Personal data,App,Devices,Medical Records,Health Data,Health,Lifestyle Data,Lifestyle,Global Health,Health Information,Lifestyle Information,Metadata,Open API" />
+  <meta name="viewport" content="width=1024, initial-scale=1.0"/>
+
+  <!-- Iconos -->
+  <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"/>
+<!-- Styles -->
+<link rel="stylesheet" href="/static/css/reset.css" />
+<link href="/static/css/jquery-ui-1.10.3.custom.css" rel="stylesheet"
+    type="text/css" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/dashboard.css" rel="stylesheet" type="text/css" />
+
+<!-- Javascript -->
+<script type="text/javascript"
+    src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+<script type="text/javascript"
+    src="/static/js/thirdparty/jquery-ui.min-1.10.4.js"></script>
+
+<script type="text/javascript" src="/static/js/jquery.ui.combobox.js"></script>
+<script type="text/javascript" src="/static/js/jstepper.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/raphael-min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/static/js/ed.eventListeners.js"></script>
+<script type="text/javascript" src="/static/js/ed.stickyHeader.js"></script>
+<script type="text/javascript"
+    src="/static/js/adapter/global_graph_param_adapter.js"></script>
+<script type="text/javascript" src="/static/js/funciones.js"></script>
+
+<script>
+
+EdQuarterAnimatedPie = function(r, elements, options){
+	  var _this = this;
+	  this.r = r;
+	  this.options = options;
+	  this.percentages = new Array();
+	  this.colors = new Array();
+	  this.lines = new Array();
+	  this.elements = elements;
+
+	  this.init = function(){
+//	    this.elements.sort(function(a,b){
+//	      if(a.percentage < b.percentage) return 1;
+//	      if(a.percentage > b.percentage) return -1;
+//	      return 0;
+//	    });
+
+	    this.R = this.options.radius;
+
+	    for(var i in elements){
+	      this.percentages.push(elements[i]['percentage']);
+	      this.colors.push(elements[i]['color'])
+	    }
+	    this.setCustomAttributes();
+	  }
+
+	  this.setCustomAttributes = function(){
+	    this.r.customAttributes.arc = function (value, total, R) {
+	      //console.log('color: '+color);
+	      total = 100;
+	      color = '#6C47A7';
+	      var alpha = 22.5 / (total/4) * (value/4),
+	          a = (22.5 - alpha) * Math.PI / 45,
+	          x = _this.options.centerx + R * Math.cos(a),
+	          y = _this.options.centery - R * Math.sin(a),
+	          //color = "hsb(".concat(Math.round(R) / 200, ",", value / total, ", .75)"),
+	          path;
+	      if (total == value) {
+	          path = [["M", _this.options.centerx, _this.options.centery - R], ["A", R, R, 0, 1, 1, (_this.options.centerx-0.01), _this.options.centery - R]];
+	      } else {
+	          path = [["M", _this.options.centerx, _this.options.centery - R], ["A", R, R, 0, +(alpha > 45), 1, x, y]];
+	      }
+	      return {path: path};
+	    };
+	  }
+
+	  this.draw = function(){
+	    this.drawLines();
+	    if(this.options.drawReferences) this.drawReferences();
+	  }
+
+	  this.drawLines = function(){
+	    //console.log('Drawing lines!');
+	    for(var i in elements){
+	      //console.log(elements[i]);
+	      var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
+	      var line = this.r.path().attr(param).attr({arc: [0, 100, this.R], stroke: elements[i]['color']}).toBack();
+	      var emptyline = this.r.path().attr(param).attr({arc: [100, 100, this.R], stroke: '#F0EAE6'}).toBack();
+	      var whiteline = this.r.path().attr(param).attr({arc: [100, 100, this.R+2], stroke: '#ffffff'}).toBack();
+	      if(this.options.useAnimationDelay){
+	        var delay = this.options.animationTime;
+	      }else{
+	        delay = 0;
+	      }
+	      line.transform('s,-1,1, T,0,0').animate(Raphael.animation({arc: [elements[i]['percentage'], 100, this.R]}, this.options.animationTime, this.options.easing).delay(delay));
+	      this.R = this.R - (this.options.lineWidth + 2);
+	      this.lines.push(line);
+	    }
+	  }
+
+	  this.drawReferences = function(){
+	    //console.log('drawing references!');
+	    for(var i in this.elements){
+	      this.r.text(elements[i]['x'], elements[i]['y'], elements[i]['text']).attr({
+	        fill: elements[i]['color'],
+	        "font-size": this.options.fontSize}
+	      ).toFront();
+	    }
+	  }
+
+	  this.init();
+	}
+	
+function drawEducationGraph(data) {
+    var adapter = new EducationAdapter();
+    var elements = adapter.getParameters(data);
+
+    var r_3_1 = Raphael('canvas_3_1', 435, 428);
+    animatedQuarterPie = new EdQuarterAnimatedPie(r_3_1, elements, {
+        animationTime: 900,
+        easing: '<',
+        useAnimationDelay: false,
+        lineWidth: 45,
+        fontSize: 20,
+        centerx: 435,
+        centery: 430,
+        radius: 400,
+        drawReferences: false
+    });
+    animatedQuarterPie.draw();
+    for (var i in elements) {
+        $('li[ref=' + i + '] span.perc_number') .html(Math.round(elements[i].percentage));
+        $('li[ref=' + i + '] a span') .html(elements[i].text);
+        if (elements[i].selected) {
+            $('li[ref=' + i + ']') .addClass('active');
+            $('.hat_bottom') .addClass('red');
+        }
+    }
+}
+
+window.onload = function () {
+
+	drawEducationGraph({{data|safe}});
+
+}
+</script>
+
+<script src="//load.sumome.com/" data-sumo-site-id="6a5f0c33d0e814e99d90aa73ddcfa4f6a05d690ccc1532fa53abc3cc59b22b6d" async></script>
+</head>
+
+<body ng-app="app">
+    {% include "header.include.html" %}
+  <!--step_four-->
+  <div class="full_container step_four" id="step_four">
+    <div class="centered_container">
+
+      <!--top-->
+      <div class="top">
+        <h2>{% blocktrans%}Datadonors work<br />experience{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Donate to compare yourself{% endblocktrans%}</p>
+      </div>
+      <!--/top-->
+
+      <!--bottom-->
+      <div class="bottom">
+        <div id="canvas_4_1"></div>
+      </div>
+      <!--/bottom-->
+
+      <!--datos_bottom-->
+      <div class="datos_graph">
+
+        <!--lista_edades-->
+        <ul id="age_input">
+          <li class="first">
+            <a href="#"  id="age_1" data-key="15-25">15-25</a>
+          </li>
+          <li>
+            <a href="#"  id="age_2" data-key="26-35">26-35</a>
+          </li>
+          <li>
+            <a href="#"  id="age_3" data-key="36-45">36-45</a>
+          </li>
+          <li>
+            <a href="#" id="age_4" data-key="46-55">46-55</a>
+          </li>
+          <li class="last">
+            <a href="#" id="age_5" data-key="56-65">56-65</a>
+          </li>
+        </ul>
+        <!--lista_edades-->
+
+        <!--input-->
+        <div class="age_input" id="age_select">
+
+          <div class="age_centered">
+            <h2>{% blocktrans%}total years working:{% endblocktrans%}</h2>
+                  <form id="age_select_form" action="#">
+                    <input type="text" id="age_select_value" name="age"/>
+                    <input type="hidden" id="age_range_selected" name="age_range"/>
+                  </form>
+          </div>
+
+          <div class="arrow_bottom_age"></div>
+
+        </div>
+        <!--/input-->
+
+        <div class="age_bottom">
+          <h2>{% blocktrans%}age{% endblocktrans%}</h2>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+      <!--datos_bottom-->
+
+      <!--stats_bottom-->
+      <div class="stats_bottom" id="data_1_4">
+
+        <!--bloque-->
+        <div class="bloq left">
+
+          <h2>{% blocktrans%}Overall avg{% endblocktrans%}</h2>
+
+          <!--stat-->
+          <div class="number_stat">
+
+            <h2>10</h2>
+
+            <!--ico_right-->
+            <div class="ico_right">
+              <p>{% blocktrans%}years of<br />experience{% endblocktrans%}</p>
+            </div>
+            <!--/ico_right-->
+          </div>
+          <!--/stat-->
+
+        </div>
+        <!--/bloque-->
+
+        <!--bloque-->
+        <div class="bloq right">
+
+          <h2>{% blocktrans%}You{% endblocktrans%}</h2>
+
+          <!--stat-->
+          <div class="number_stat">
+
+            <h2>24</h2>
+
+            <!--ico_right-->
+            <div class="ico_right">
+              <p>{% blocktrans%}years of<br />experience{% endblocktrans%}</p>
+            </div>
+            <!--/ico_right-->
+          </div>
+          <!--/stat-->
+
+        </div>
+        <!--/bloque-->
+
+        <div class="clear"></div>
+
+      </div>
+      <!--/stats_bottom-->
+
+    </div>
+  </div>
+  <!--/step_four-->
+</body>
+</html>

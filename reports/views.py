@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from physical.services.stats.services import PhysicalActivityDistributionService
 from utils.commons import last_week_user_actions
-from social.services.utilities import global_education
+from social.services.utilities import global_education, global_work
 
 def report_global_physical_steps(request):
     
@@ -80,7 +80,15 @@ def report_global_social_education(request):
     return render_to_response('dashboard/global_report_social_education.html',{"data":simplejson.dumps({"global_data":dto})},
                                   RequestContext(request))
 
-  
+
+def report_global_social_education(request):
+    
+    global_data, avg = global_work()
+    data = {"global_data":global_data, "avg":avg}
+    
+    return render_to_response('dashboard/global_report_social_education.html',{"data":simplejson.dumps(data)},
+                                  RequestContext(request))
+    
 def report_for_user_full(request, user_id):
     user = User.objects.get(id=user_id)
     user.backend = 'django.contrib.auth.backends.ModelBackend'
