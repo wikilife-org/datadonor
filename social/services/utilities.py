@@ -256,7 +256,7 @@ def global_work():
     else:
         age_range_dict["56-65"]["value"] = 0
         
-    return age_range_dict, total_avg
+    return age_range_dict, total_avg, total_user_count
 
 EDUCATION_LEVELS = {"phd":6,
             "master":5,

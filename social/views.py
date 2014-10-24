@@ -111,7 +111,7 @@ def social_work(request):
                     "56-65":{"key": "56-65", "value": last_distribution.range_56_65}}
     """
     
-    global_data, avg = global_work()
+    global_data, avg, total_users = global_work()
     data = {"user_data":user_data, "global_data":global_data, "avg":avg}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 

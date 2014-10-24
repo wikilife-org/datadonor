@@ -3,7 +3,7 @@
 <html>
 <head>
 
-  <title>#datadonors #working experience</title>
+  <title>#datadonors #working experience #avg {{avg}} years</title>
 
   <!-- Metatags -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -31,6 +31,7 @@
 <script type="text/javascript" src="/static/js/jstepper.min.js"></script>
 <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/js/raphael/raphael-min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
 <script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
 <script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
@@ -42,118 +43,176 @@
 
 <script>
 
-EdQuarterAnimatedPie = function(r, elements, options){
-	  var _this = this;
-	  this.r = r;
-	  this.options = options;
-	  this.percentages = new Array();
-	  this.colors = new Array();
-	  this.lines = new Array();
-	  this.elements = elements;
+WorkAdapter = function(){
 
-	  this.init = function(){
-//	    this.elements.sort(function(a,b){
-//	      if(a.percentage < b.percentage) return 1;
-//	      if(a.percentage > b.percentage) return -1;
-//	      return 0;
-//	    });
+	  this.getParameters = function(json, totalHeight, maxValue, barsCallback){
 
-	    this.R = this.options.radius;
+	    var elements = [];
+	    var xLabels = [];
+	    var yLabels = [];
+	    result = {};
+	    this.barsCallback = barsCallback;
 
-	    for(var i in elements){
-	      this.percentages.push(elements[i]['percentage']);
-	      this.colors.push(elements[i]['color'])
-	    }
-	    this.setCustomAttributes();
+	    elements = this.addElements(json, totalHeight, maxValue);
+	    yLabels = this.getYLabels(json, totalHeight, maxValue);
+
+	    result.elements = elements;
+	    result.yLabels = yLabels;
+
+	    return result;
 	  }
 
-	  this.setCustomAttributes = function(){
-	    this.r.customAttributes.arc = function (value, total, R) {
-	      //console.log('color: '+color);
-	      total = 100;
-	      color = '#6C47A7';
-	      var alpha = 22.5 / (total/4) * (value/4),
-	          a = (22.5 - alpha) * Math.PI / 45,
-	          x = _this.options.centerx + R * Math.cos(a),
-	          y = _this.options.centery - R * Math.sin(a),
-	          //color = "hsb(".concat(Math.round(R) / 200, ",", value / total, ", .75)"),
-	          path;
-	      if (total == value) {
-	          path = [["M", _this.options.centerx, _this.options.centery - R], ["A", R, R, 0, 1, 1, (_this.options.centerx-0.01), _this.options.centery - R]];
-	      } else {
-	          path = [["M", _this.options.centerx, _this.options.centery - R], ["A", R, R, 0, +(alpha > 45), 1, x, y]];
+	  this.getValueHeight = function(value, totalHeight, maxValue){
+	    var valuePercentage = (value*100)/maxValue;
+	    var valueHeight = (valuePercentage*totalHeight)/100;
+	    return valueHeight;
+	  }
+
+	  this.addElements = function(json, totalHeight, maxValue){
+	    var currentPos = 70;
+	    var userItem = false;
+	    var globalColor = '#7737c7';
+	    var userColor = '#E56666';
+	    var elements = [];
+	    var userXp = '';
+
+
+	    for(var prop in json.global_data){
+	      var item = {
+	        pos: currentPos,
+	        color: globalColor,
+	        label: json.global_data[prop]["value"],
+	        value: this.getValueHeight(json.global_data[prop]["value"], totalHeight, maxValue),
+	        key: json.global_data[prop]["key"],
+	        callback: this.barsCallback,
+	        callback_args: [prop]
 	      }
-	      return {path: path};
-	    };
+
+	       item.width = 180;
+	      
+
+	      elements.push(item);
+	      if(userItem) elements.push(item2);
+	      userItem = false;
+	      currentPos = currentPos + 190;
+	    }
+
+	    return elements;
 	  }
 
-	  this.draw = function(){
-	    this.drawLines();
-	    if(this.options.drawReferences) this.drawReferences();
-	  }
+	  this.getYLabels = function(json, totalHeight, maxValue){
+	    var labels = [];
+	    var currentY = 10;
 
-	  this.drawLines = function(){
-	    //console.log('Drawing lines!');
-	    for(var i in elements){
-	      //console.log(elements[i]);
-	      var param = {stroke: elements[i]['color'], "stroke-width": this.options.lineWidth};
-	      var line = this.r.path().attr(param).attr({arc: [0, 100, this.R], stroke: elements[i]['color']}).toBack();
-	      var emptyline = this.r.path().attr(param).attr({arc: [100, 100, this.R], stroke: '#F0EAE6'}).toBack();
-	      var whiteline = this.r.path().attr(param).attr({arc: [100, 100, this.R+2], stroke: '#ffffff'}).toBack();
-	      if(this.options.useAnimationDelay){
-	        var delay = this.options.animationTime;
-	      }else{
-	        delay = 0;
+	    var avgLabel = {
+	      pos: this.getValueHeight(json.avg, totalHeight, maxValue),
+	      text: '',
+	      width: 1090,
+	      type: 'dotted',
+	      "stroke-width": 3,
+	      color: '#7737c7',
+	      "text-color": "#7737c7",
+	      "font-size": 15,
+	      is_avg: true
+	    }
+	    labels.push(avgLabel);
+
+	    //for(var i = 0; i < 6; i++){
+	    while (currentY < totalHeight){
+	      var label = {
+	        pos: this.getValueHeight(currentY, totalHeight, maxValue),
+	        //text: currentY.toString(),
+	        text: '',
+	        width: 1090,
+	        type: 'dotted',
+	        "stroke-width": 3,
+	        color: '#F1F2F2',
+	        "text-color": "#ADB6BF"
 	      }
-	      line.transform('s,-1,1, T,0,0').animate(Raphael.animation({arc: [elements[i]['percentage'], 100, this.R]}, this.options.animationTime, this.options.easing).delay(delay));
-	      this.R = this.R - (this.options.lineWidth + 2);
-	      this.lines.push(line);
+	      labels.push(label);
+	      currentY = currentY + 10;
 	    }
+
+	    return labels;
 	  }
 
-	  this.drawReferences = function(){
-	    //console.log('drawing references!');
-	    for(var i in this.elements){
-	      this.r.text(elements[i]['x'], elements[i]['y'], elements[i]['text']).attr({
-	        fill: elements[i]['color'],
-	        "font-size": this.options.fontSize}
-	      ).toFront();
-	    }
-	  }
+	}
 
-	  this.init();
+	function workCallback(args) {
+	    //$('#age_input li a[data-key=15-25]');
+	    //console.log(args);
+	    $('#age_input li a[data-key=' + args[0] + ']') .click();
 	}
 	
-function drawEducationGraph(data) {
-    var adapter = new EducationAdapter();
-    var elements = adapter.getParameters(data);
+	function pad(num, size) {
+	    var s = num + '';
+	    while (s.length < size) s = '0' + s;
+	    return s;
+	}
+var sortObjectByKey = function (obj) {
+	    var keys = [
+	    ];
+	    var sorted_obj = {
+	    };
+	    for (var key in obj) {
+	        if (obj.hasOwnProperty(key)) {
+	            keys.push(key);
+	        }
+	    }
+	    // sort keys
 
-    var r_3_1 = Raphael('canvas_3_1', 435, 428);
-    animatedQuarterPie = new EdQuarterAnimatedPie(r_3_1, elements, {
-        animationTime: 900,
-        easing: '<',
-        useAnimationDelay: false,
-        lineWidth: 45,
-        fontSize: 20,
-        centerx: 435,
-        centery: 430,
-        radius: 400,
-        drawReferences: false
-    });
-    animatedQuarterPie.draw();
-    for (var i in elements) {
-        $('li[ref=' + i + '] span.perc_number') .html(Math.round(elements[i].percentage));
-        $('li[ref=' + i + '] a span') .html(elements[i].text);
-        if (elements[i].selected) {
-            $('li[ref=' + i + ']') .addClass('active');
-            $('.hat_bottom') .addClass('red');
-        }
+	    keys.sort();
+	    // create new array based on Sorted Keys
+	    jQuery.each(keys, function (i, key) {
+	        sorted_obj[key] = obj[key];
+	    });
+	    return sorted_obj;
+	};	  
+function drawWorkGraph(data) {
+    data.global_data = sortObjectByKey(data.global_data);
+    var maxValue = 0;
+    for (var i in data.global_data) {
+        if (data.global_data[i].value > maxValue) maxValue = data.global_data[i].value;
     }
+
+    var adapter = new WorkAdapter();
+    var result = adapter.getParameters(data, 423, maxValue + 10, workCallback);
+    //console.log('POST PARAMS WORK');
+    var r_4_1 = Raphael('canvas_4_1', 1093, 423);
+    doubleAxisParams = {
+        axis: 'both',
+        barsAxis: 'x',
+        drawAxis: true,
+        drawLabels: true,
+        elements: result.elements,
+        xAxis: {
+            length: 1093,
+            'stroke-width': 2,
+            color: '#F1F2F2',
+            labels: [
+            ]
+        },
+        yAxis: {
+            length: 423,
+            'stroke-width': 0,
+            name: 'years',
+            labels: result.yLabels
+        },
+        centerx: 30,
+        centery: 400,
+        canvasSize: [
+            1093,
+            425
+        ]
+    }
+    $('#data_1_4 .left .number_stat h2') .html(pad(data.avg, 2));
+    doubleAxisBars = new EdBarChart(r_4_1, doubleAxisParams);
+    doubleAxisBars.draw();
 }
 
 window.onload = function () {
 
-	drawEducationGraph({{data|safe}});
+	drawWorkGraph({{data|safe}});
 
 }
 </script>
@@ -254,16 +313,16 @@ window.onload = function () {
         <!--bloque-->
         <div class="bloq right">
 
-          <h2>{% blocktrans%}You{% endblocktrans%}</h2>
+          <h2>{% blocktrans%}Based on:{% endblocktrans%}</h2>
 
           <!--stat-->
           <div class="number_stat">
 
-            <h2>24</h2>
+            <h2>{{total_users}}</h2>
 
             <!--ico_right-->
             <div class="ico_right">
-              <p>{% blocktrans%}years of<br />experience{% endblocktrans%}</p>
+              <p>{% blocktrans%}Users{% endblocktrans%}</p>
             </div>
             <!--/ico_right-->
           </div>

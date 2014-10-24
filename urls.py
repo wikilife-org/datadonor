@@ -63,6 +63,11 @@ urlpatterns = patterns('',
     url(r'^statistics/social-education-level-distribution/', report_global_social_education, name='report_global_social_education'),
     url(r'^statistics/social-education-level/', report_global_social_education, name='report_global_social_education'),
     url(r'^statistics/social-education/', report_global_social_education, name='report_global_social_education'),
+
+    url(r'^statistics/social-work-experience-years/', report_global_social_work, name='report_global_social_work'),
+    url(r'^statistics/social-work-years/', report_global_social_work, name='report_global_social_work'),
+    url(r'^statistics/social-work/', report_global_social_work, name='report_global_social_work'),
+    
     
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),

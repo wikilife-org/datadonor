@@ -81,12 +81,12 @@ def report_global_social_education(request):
                                   RequestContext(request))
 
 
-def report_global_social_education(request):
+def report_global_social_work(request):
     
-    global_data, avg = global_work()
+    global_data, avg, total_users  = global_work()
     data = {"global_data":global_data, "avg":avg}
     
-    return render_to_response('dashboard/global_report_social_education.html',{"data":simplejson.dumps(data)},
+    return render_to_response('dashboard/global_report_social_work.html',{"data":simplejson.dumps(data), "total_users": total_users},
                                   RequestContext(request))
     
 def report_for_user_full(request, user_id):
