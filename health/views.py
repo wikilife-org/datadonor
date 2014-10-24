@@ -69,8 +69,8 @@ def cronical_conditions_list_mock(request):
 
 
 def cronical_conditions_ranking_global(request):
-    data = get_conditions_rank()[:5]
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+    data, total = get_conditions_rank()
+    return HttpResponse(simplejson.dumps(data[:5]), mimetype="application/json")
 
 def cronical_conditions_ranking_global_all(request):
     data = get_conditions_rank()

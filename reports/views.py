@@ -10,6 +10,7 @@ from django.contrib.auth import login
 from physical.services.stats.services import PhysicalActivityDistributionService
 from utils.commons import last_week_user_actions
 from social.services.utilities import global_education, global_work
+from health.utilities import get_conditions_rank
 
 def report_global_physical_steps(request):
     
@@ -88,7 +89,13 @@ def report_global_social_work(request):
     
     return render_to_response('dashboard/global_report_social_work.html',{"data":simplejson.dumps(data), "total_users": total_users},
                                   RequestContext(request))
-    
+
+
+def report_global_health_condition(request):
+    data, total = get_conditions_rank()
+    return render_to_response('dashboard/global_report_health_conditions.html',{"data":simplejson.dumps(data), "total_users": total},
+                                  RequestContext(request))
+      
 def report_for_user_full(request, user_id):
     user = User.objects.get(id=user_id)
     user.backend = 'django.contrib.auth.backends.ModelBackend'

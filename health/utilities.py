@@ -185,7 +185,7 @@ def get_conditions_rank():
     newlist = sorted(result, key=lambda k: k['percentage'])
     newlist.reverse() 
     
-    return newlist
+    return newlist, total_conditions
 
 
 def get_emotions_name(id_emotions):

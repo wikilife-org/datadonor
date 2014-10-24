@@ -1,0 +1,584 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>#datadonors #top #conditions based on {{total_users}} users</title>
+
+  <!-- Metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <meta name="description" content="#" />
+  <meta name="keywords" content="DataDonors,Non-profit,The Wikilife Foundation,Share,Wikilife,Data,Big Data,Data Donation,Scientific Community,Research,Global project,Sharing for good,Personal data,App,Devices,Medical Records,Health Data,Health,Lifestyle Data,Lifestyle,Global Health,Health Information,Lifestyle Information,Metadata,Open API" />
+  <meta name="viewport" content="width=1024, initial-scale=1.0"/>
+
+  <!-- Iconos -->
+  <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"/>
+<!-- Styles -->
+<link rel="stylesheet" href="/static/css/reset.css" />
+<link href="/static/css/jquery-ui-1.10.3.custom.css" rel="stylesheet"
+    type="text/css" />
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/dashboard.css" rel="stylesheet" type="text/css" />
+
+<!-- Javascript -->
+<script type="text/javascript"
+    src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+<script type="text/javascript"
+    src="/static/js/thirdparty/jquery-ui.min-1.10.4.js"></script>
+
+<script type="text/javascript" src="/static/js/jquery.ui.combobox.js"></script>
+<script type="text/javascript" src="/static/js/jstepper.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/raphael-min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/ed.raphael.js"></script>
+<script type="text/javascript" src="/static/js/raphael/g.raphael-min.js"></script>
+<script type="text/javascript" src="/static/js/raphael/g.pie-min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/static/js/ed.eventListeners.js"></script>
+<script type="text/javascript" src="/static/js/ed.stickyHeader.js"></script>
+<script type="text/javascript"
+    src="/static/js/adapter/global_graph_param_adapter.js"></script>
+<script type="text/javascript" src="/static/js/funciones.js"></script>
+
+<script>
+var cronicalGraphs = {
+};
+CronicalConditionsAdapter = function(){
+
+	  this.getParameters = function(json, color){
+
+	    var elements = [];
+
+	    var item = {
+	      percentage: json.percentage,
+	      color: color,
+	      text: json.percentage
+	    };
+	    elements.push(item);
+
+	    return elements;
+	  }
+	}
+function drawCronicalConditionsGraph(data, num) {
+    var adapter = new CronicalConditionsAdapter();
+    var params = adapter.getParameters(data, '#7737c7');
+    var np = num - 1;
+    var preffix = 'canvas_11_';
+    animatedPie = drawVariableCircle(params, num, preffix);
+    cronicalGraphs[data.id] = animatedPie;
+    var selectedGraphs = [
+    ];
+
+    setTimeout(function () {
+        for (var i in selectedGraphs) {
+            var graph = selectedGraphs[i][0];
+            var data = selectedGraphs[i][1];
+            //console.log('COLORING USER EMOTION!');
+            //console.log(user_data);
+            graph.lines[0].animate({
+                'stroke': '#E56666'
+            }, 500);
+            graph.texts[0].animate({
+                'fill': '#E56666'
+            }, 500);
+            graph.texts[1].animate({
+                'fill': '#E56666'
+            }, 500);
+            //$(this).addClass('sent');
+        }
+    }, 1000);
+    //Setup info
+    $($('.cronical_container') [np]) .find('.face.front .bubble_msj h2') .html(data.name);
+    $($('.cronical_container') [np]) .find('.face.back .container_data h2') .html(data.name);
+    var cronicalTypes = '';
+    if (data.types.length) {
+        for (var i in data.types) {
+            cronicalTypes += '<option value="' + data.types[i].id + '">' + data.types[i].name + '</option>';
+        }
+
+
+    }
+    $($('.cronical_container') [np]) .find('.face.back .select_stats') .html(cronicalTypes);
+    $($('.cronical_container') [np]) .find('.face.back .select_stats') .combobox();
+}
+function drawVariableCircle(params, num, preffix) {
+    var container = preffix + num;
+    $("#" + container).empty();
+    var r = Raphael(container, 310, 310);
+    var animatedPie = new EdAnimatedPie(r, params, {
+        animationTime: 900,
+        easing: '<',
+        useAnimationDelay: false,
+        lineWidth: 55,
+        fontSize: 20,
+        centerx: 155,
+        centery: 155,
+        radius: 122,
+        borderColor: '#F7F2ED',
+        borderMargin: 0,
+        drawReferences: false,
+        drawCenterImage: false,
+        drawCenterText: true,
+        bubbleColor: '#3F4B5B',
+        centerText: {
+            color: '#7737c7',
+            size: '60',
+            font: 'Omnes-Semibold',
+            text: Math.round(params[0].percentage),
+            xOffset: [
+                0,
+                0
+            ],
+            unit: '%',
+            unitFont: 'Omnes-Semibold',
+            unitSize: 30,
+            unitOffset: [
+                45,
+                30
+            ],
+            unitOffsetTop: 5
+        }
+    });
+    animatedPie.draw();
+    return animatedPie;
+}
+window.onload = function () {
+    
+	var data = {{data|safe}}
+	for (var i in data) {
+        var num = parseInt(i) + 1;
+        drawCronicalConditionsGraph(data[i], num);
+    }
+}
+</script>
+
+<script src="//load.sumome.com/" data-sumo-site-id="6a5f0c33d0e814e99d90aa73ddcfa4f6a05d690ccc1532fa53abc3cc59b22b6d" async></script>
+</head>
+
+<body ng-app="app">
+    {% include "header.include.html" %}
+    <div class="full_container step_eleven" id="step_eleven">
+    <div class="centered_container">
+
+      <!--top-->
+      <div class="top">
+        <img src="/static/img/step_11/number_4.png" alt="4" />
+        <h2>{% blocktrans%}HEALTH &amp; BODY CONDITIONS{% endblocktrans%}</h2>
+        <p>{% blocktrans%}Select your chronic conditions or add more{% endblocktrans%}</p>
+      </div>
+      <!--/top-->
+
+      <!--top-->
+      <div class="bottom">
+
+        <!--graphs-->
+        <div class="graphs" id="graphs_conditions">
+
+          <!--conditions-->
+          <div class="condition cronical_container">
+
+            <div class="card">
+
+              <!--front-->
+                <div class="face front">
+
+                   <!--graf-->
+                   <div class="graph_container">
+                     <div id="canvas_11_1"></div>
+                      <!--<img src="/static/img/step_11/graf_1.png" alt="grafico" />-->
+                   </div>
+                   <!--/graf-->
+
+                   <!--message-->
+                   <div class="bubble_msj">
+                       <h2></h2>
+                       <div class="arrow"></div>
+                   </div>
+                   <!--/message-->
+
+                </div>
+                <!--/front-->
+
+                <!--back-->
+                <div class="face back">
+
+                    <!--info-->
+                    <div class="graph_container">
+
+                      <!--chose_subcategory-->
+                      <div class="container_data">
+
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
+                        <h2></h2>
+
+                        <!--select-->
+                        <div class="select_space">
+
+                          <!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
+                          <div class="container_select">
+
+                            <select class="select_stats">
+                              <option value="Type">{% blocktrans%}Type{% endblocktrans%}</option>
+                              <option value="ActionScript">ActionScript</option>
+                              <option value="AppleScript">AppleScript</option>
+                              <option value="Asp">Asp</option>
+                              <option value="C++">probando un texto extremadamente largo</option>
+                            </select>
+
+                            <div class="clear"></div>
+
+                          </div>
+
+                        </div>
+                        <!--/select-->
+
+                      </div>
+                      <!--chose_subcategory-->
+
+                    </div>
+                    <!--/info-->
+
+                    <!--message-->
+                    <div class="bubble_msj">
+                      <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
+                      <div class="arrow"></div>
+                    </div>
+                    <!--/message-->
+
+                </div>
+                <!--/back-->
+
+            </div>
+
+
+          </div>
+          <!--/conditions-->
+
+          <!--conditions-->
+          <div class="condition cronical_container">
+
+            <div class="card">
+
+              <!--front-->
+                <div class="face front">
+
+                   <!--graf-->
+                   <div class="graph_container">
+                      <div id="canvas_11_2"></div>
+                       <!--<img src="/static/img/step_11/graf_2.png" alt="grafico" />-->
+                   </div>
+                   <!--/graf-->
+
+                   <!--message-->
+                   <div class="bubble_msj">
+                       <h2></h2>
+                       <div class="arrow"></div>
+                   </div>
+                   <!--/message-->
+
+                </div>
+                <!--/front-->
+
+                <!--back-->
+                <div class="face back">
+
+                    <!--info-->
+                    <div class="graph_container">
+
+                      <!--chose_subcategory-->
+                      <div class="container_data">
+
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
+                        <h2>Cancer</h2>
+
+                        <!--select-->
+                        <div class="select_space">
+                          <!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
+                          <div class="container_select">
+
+                            <select class="select_stats">
+                              <option value="Type">{% blocktrans%}Type{% endblocktrans%}</option>
+                              <option value="ActionScript">ActionScript</option>
+                              <option value="AppleScript">AppleScript</option>
+                              <option value="Asp">Asp</option>
+                              <option value="C++">probando un texto extremadamente largo</option>
+                            </select>
+
+                            <div class="clear"></div>
+
+                          </div>
+                        </div>
+                        <!--/select-->
+
+                      </div>
+                      <!--chose_subcategory-->
+
+                    </div>
+                    <!--/info-->
+
+                    <!--message-->
+                    <div class="bubble_msj">
+                      <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
+                      <div class="arrow"></div>
+                    </div>
+                    <!--/message-->
+
+                </div>
+                <!--/back-->
+
+            </div>
+
+
+          </div>
+          <!--/conditions-->
+
+          <!--conditions-->
+          <div class="condition cronical_container">
+
+            <div class="card">
+
+              <!--front-->
+                <div class="face front">
+
+                   <!--graf-->
+                   <div class="graph_container">
+                      <div id="canvas_11_3"></div>
+                       <!--<img src="/static/img/step_11/graf_3.png" alt="grafico" />-->
+                   </div>
+                   <!--/graf-->
+
+                   <!--message-->
+                   <div class="bubble_msj">
+                       <h2></h2>
+                       <div class="arrow"></div>
+                   </div>
+                   <!--/message-->
+
+                </div>
+                <!--/front-->
+
+                <!--back-->
+                <div class="face back">
+
+                    <!--info-->
+                    <div class="graph_container">
+
+                      <!--chose_subcategory-->
+                      <div class="container_data">
+
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
+                        <h2>Cancer</h2>
+
+                        <!--select-->
+                        <div class="select_space">
+                          <!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
+                          <div class="container_select">
+
+                            <select class="select_stats">
+                              <option value="Type">Type</option>
+                              <option value="ActionScript">ActionScript</option>
+                              <option value="AppleScript">AppleScript</option>
+                              <option value="Asp">Asp</option>
+                              <option value="C++">probando un texto extremadamente largo</option>
+                            </select>
+
+                            <div class="clear"></div>
+
+                          </div>
+                        </div>
+                        <!--/select-->
+
+                      </div>
+                      <!--chose_subcategory-->
+
+                    </div>
+                    <!--/info-->
+
+                    <!--message-->
+                    <div class="bubble_msj">
+                      <h2 class="done_condition">Done!</h2>
+                      <div class="arrow"></div>
+                    </div>
+                    <!--/message-->
+
+                </div>
+                <!--/back-->
+
+            </div>
+
+
+          </div>
+          <!--/conditions-->
+
+          <!--conditions-->
+          <div class="condition cronical_container">
+
+            <div class="card">
+
+              <!--front-->
+                <div class="face front">
+
+                   <!--graf-->
+                   <div class="graph_container">
+                      <div id="canvas_11_4"></div>
+                       <!--<img src="/static/img/step_11/graf_2.png" alt="grafico" />-->
+                   </div>
+                   <!--/graf-->
+
+                   <!--message-->
+                   <div class="bubble_msj">
+                       <h2></h2>
+                       <div class="arrow"></div>
+                   </div>
+                   <!--/message-->
+
+                </div>
+                <!--/front-->
+
+                <!--back-->
+                <div class="face back">
+
+                    <!--info-->
+                    <div class="graph_container">
+
+                      <!--chose_subcategory-->
+                      <div class="container_data">
+
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
+                        <h2>Cancer</h2>
+
+                        <!--select-->
+                        <div class="select_space">
+                          <!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
+                          <div class="container_select">
+
+                            <select class="select_stats">
+                              <option value="Type">Type</option>
+                              <option value="ActionScript">ActionScript</option>
+                              <option value="AppleScript">AppleScript</option>
+                              <option value="Asp">Asp</option>
+                              <option value="C++">probando un texto extremadamente largo</option>
+                            </select>
+
+                            <div class="clear"></div>
+
+                          </div>
+                        </div>
+                        <!--/select-->
+
+                      </div>
+                      <!--chose_subcategory-->
+
+                    </div>
+                    <!--/info-->
+
+                    <!--message-->
+                    <div class="bubble_msj">
+                      <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
+                      <div class="arrow"></div>
+                    </div>
+                    <!--/message-->
+
+                </div>
+                <!--/back-->
+
+            </div>
+
+
+          </div>
+          <!--/conditions-->
+
+          <!--conditions-->
+          <div class="condition cronical_container">
+
+            <div class="card">
+
+              <!--front-->
+                <div class="face front">
+
+                   <!--graf-->
+                   <div class="graph_container">
+                      <div id="canvas_11_5"></div>
+                       <!--<img src="/static/img/step_11/graf_3.png" alt="grafico" />-->
+                   </div>
+                   <!--/graf-->
+
+                   <!--message-->
+                   <div class="bubble_msj">
+                       <h2></h2>
+                       <div class="arrow"></div>
+                   </div>
+                   <!--/message-->
+
+                </div>
+                <!--/front-->
+
+                <!--back-->
+                <div class="face back">
+
+                    <!--info-->
+                    <div class="graph_container">
+
+                      <!--chose_subcategory-->
+                      <div class="container_data">
+
+                        <p>{% blocktrans%}Choose according to <br /> your condition{% endblocktrans%}</p>
+                        <h2>Cancer</h2>
+
+                        <!--select-->
+                        <div class="select_space">
+                          <!-- CUANDO SE SELECCION EL SELECT SE AGREGA LA CLAS .active a .container_select -->
+                          <div class="container_select">
+
+                            <select class="select_stats">
+                              <option value="Type">Type</option>
+                              <option value="ActionScript">ActionScript</option>
+                              <option value="AppleScript">AppleScript</option>
+                              <option value="Asp">Asp</option>
+                              <option value="C++">probando un texto extremadamente largo</option>
+                            </select>
+
+                            <div class="clear"></div>
+
+                          </div>
+                        </div>
+                        <!--/select-->
+
+                      </div>
+                      <!--chose_subcategory-->
+
+                    </div>
+                    <!--/info-->
+
+                    <!--message-->
+                    <div class="bubble_msj">
+                      <h2 class="done_condition">{% blocktrans%}Done!{% endblocktrans%}</h2>
+                      <div class="arrow"></div>
+                    </div>
+                    <!--/message-->
+
+                </div>
+                <!--/back-->
+
+            </div>
+
+
+          </div>
+          <!--/conditions-->
+
+
+          <!--/conditions-->
+
+        </div>
+        <!--/graphs-->
+
+
+      </div>
+      <!--/top-->
+
+    </div>
+  </div>
+  <!--/step_eleven-->
+</body>
+</html>
