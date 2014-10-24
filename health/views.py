@@ -73,7 +73,7 @@ def cronical_conditions_ranking_global(request):
     return HttpResponse(simplejson.dumps(data[:5]), mimetype="application/json")
 
 def cronical_conditions_ranking_global_all(request):
-    data = get_conditions_rank()
+    data, total = get_conditions_rank()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt
@@ -156,11 +156,11 @@ def complaints_by_user_mock(request):
 
 
 def complaints_ranking_global(request):
-    data = get_complaints_rank()[:5]
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")
+    data, total = get_complaints_rank()
+    return HttpResponse(simplejson.dumps(data[:5]), mimetype="application/json")
 
 def complaints_ranking_global_all(request):
-    data = get_complaints_rank()
+    data, total = get_complaints_rank()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def complaints_list(request):

@@ -70,6 +70,9 @@ urlpatterns = patterns('',
     
     url(r'^statistics/social-health-conditions-distribution/', report_global_health_condition, name='report_global_health_condition'),
     url(r'^statistics/social-health-conditions/', report_global_health_condition, name='report_global_health_condition'),
+
+    url(r'^statistics/social-health-complaints-distribution/', report_global_health_complaints, name='report_global_health_condition'),
+    url(r'^statistics/social-health-complaints/', report_global_health_complaints, name='report_global_health_condition'),
     
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),

@@ -158,7 +158,7 @@ def get_complaints_rank():
     newlist = sorted(result, key=lambda k: k['percentage'])
     newlist.reverse() 
     
-    return newlist
+    return newlist, total_complaints
 
 
 def get_conditions():
