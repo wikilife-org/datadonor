@@ -321,11 +321,11 @@ def emotions_list_mock(request):
 
 
 def emotions_ranking_global(request):
-    data = get_emotions_rank()[:5]
+    data, t = get_emotions_rank()[:5]
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 def emotions_ranking_global_all(request):
-    data = get_emotions_rank()
+    data, t = get_emotions_rank()
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")
 
 @csrf_exempt

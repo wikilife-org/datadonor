@@ -10,7 +10,7 @@ from django.contrib.auth import login
 from physical.services.stats.services import PhysicalActivityDistributionService
 from utils.commons import last_week_user_actions
 from social.services.utilities import global_education, global_work
-from health.utilities import get_conditions_rank, get_complaints_rank
+from health.utilities import get_conditions_rank, get_complaints_rank, get_emotions_rank
 
 def report_global_physical_steps(request):
     
@@ -100,7 +100,13 @@ def report_global_health_complaints(request):
     data, total = get_complaints_rank()
     return render_to_response('dashboard/global_report_health_complaints.html',{"data":simplejson.dumps(data[:5]), "total_users": total},
                                   RequestContext(request))
+
+def report_global_health_emotions(request):
+    data, total = get_emotions_rank()
+    return render_to_response('dashboard/global_report_health_emotions.html',{"data":simplejson.dumps(data[:5]), "total_users": total},
+                                  RequestContext(request))
     
+      
 def report_for_user_full(request, user_id):
     user = User.objects.get(id=user_id)
     user.backend = 'django.contrib.auth.backends.ModelBackend'
