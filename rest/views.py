@@ -40,6 +40,7 @@ import re, random, string
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
+from bson import json_util
 
  
 TYPE_DICT = {}
@@ -127,6 +128,6 @@ def log(request):
         data = model_to_dict(obj)
     else:
         return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data), mimetype="application/json")  
+    return HttpResponse(simplejson.dumps(data, default=json_util.default), mimetype="application/json")  
   
 
