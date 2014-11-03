@@ -38,6 +38,7 @@ from physical.models import UserActivityLog
 from nutrition.models import UserFoodLog
 import re, random, string
 from datetime import datetime
+from django.views.decorators.csrf import csrf_exempt
  
 TYPE_DICT = {}
 TYPE_DICT["gender"] = {"model":Profile, "field":"gender", "key":'user'}
@@ -85,6 +86,7 @@ def process(user, opr, value, date_):
     setattr(obj, opr["field"], value)
     obj.save()
 
+@csrf_exempt
 def log(request):
     """
     {"userId": USER_ID,
