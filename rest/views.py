@@ -78,9 +78,9 @@ def authorize(request):
 
 def process(user, opr, value, date_):
     if opr["key"] == "user":
-        obj = getattr(opr["model"], 'get_or_create')(user=user)
+        obj = opr["model"].objects.get_or_create(user=user)
     elif opr["key"] == "execute_datetime":
-        obj = getattr(opr["model"], 'get_or_create')(user=user, execute_datetime=date_)
+        obj = opr["model"].objects.get_or_create(user=user, execute_datetime=date_)
     if "add" in opr:
         value = getattr(opr["model"], opr["field"]) + value
     setattr(obj, opr["field"], value)
