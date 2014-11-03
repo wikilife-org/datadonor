@@ -125,9 +125,9 @@ def log(request):
         
         date_ = datetime.strptime(request.POST["executeDateTime"], '%Y-%m-%d %H:%M:%S')
         obj = process(user, opr, value, date_)
-        data = model_to_dict(obj)
+
     else:
         return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps(data, default=json_util.default), mimetype="application/json")  
+    return HttpResponse(simplejson.dumps({"message": "Datadonated!", "status": "success", "data":{}}), mimetype="application/json")  
   
 
