@@ -80,7 +80,7 @@ def process(user, opr, value, date_):
     if opr["key"] == "user":
         obj = opr["model"].objects.get_or_create(user=user)
     elif opr["key"] == "execute_datetime":
-        obj = opr["model"].objects.get_or_create(user=user, execute_datetime=date_)
+        obj = opr["model"].objects.get_or_create(user=user, execute_time=date_)
     if "add" in opr:
         value = getattr(opr["model"], opr["field"]) + value
     setattr(obj, opr["field"], value)
