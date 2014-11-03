@@ -39,6 +39,7 @@ from nutrition.models import UserFoodLog
 import re, random, string
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
  
 TYPE_DICT = {}
 TYPE_DICT["gender"] = {"model":Profile, "field":"gender", "key":'user'}
@@ -86,6 +87,7 @@ def process(user, opr, value, date_):
         value = v + value
     setattr(obj, opr["field"], value)
     obj.save()
+    return obj
 
 @csrf_exempt
 def log(request):
@@ -120,10 +122,10 @@ def log(request):
             pass
         
         date_ = datetime.strptime(request.POST["executeDateTime"], '%Y-%m-%d %H:%M:%S')
-        process(user, opr, value, date_)
-        
+        obj = process(user, opr, value, date_)
+        data = serializers.serialize('json', obj)
     else:
         return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
-    return HttpResponse(simplejson.dumps({}), mimetype="application/json")  
+    return HttpResponse(simplejson.dumps(data), mimetype="application/json")  
   
 
