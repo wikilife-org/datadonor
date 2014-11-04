@@ -105,7 +105,7 @@ def log(request):
     """
     if request.method == 'POST':
         #valid_user
-        user_id = request.POST["userId"]
+        user_id = request.body["userId"]
         try:
             user = Profile.objects.get(account_id=user_id).user
         except:
@@ -113,17 +113,17 @@ def log(request):
         
         #valid_type
         try:
-            type = request.POST["type"]
+            type = request.body["type"]
             opr = TYPE_DICT[type]
         except:
             return HttpResponse(simplejson.dumps({"message": "Invalid Type: %s"%type, "status": "error", "data":{}}), mimetype="application/json")
         
         try:
-            value = float(request.POST["value"])
+            value = float(request.body["value"])
         except:
             pass
         
-        date_ = datetime.strptime(request.POST["executeDateTime"], '%Y-%m-%d %H:%M:%S')
+        date_ = datetime.strptime(request.body["executeDateTime"], '%Y-%m-%d %H:%M:%S')
         obj = process(user, opr, value, date_)
 
     else:
