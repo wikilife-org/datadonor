@@ -96,6 +96,8 @@ header {
 	height: 100px;
 	width: 100%;
 	z-index: 600;
+	position: fixed;
+    top: 0;
 }
 
 header.fixed {

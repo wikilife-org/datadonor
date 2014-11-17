@@ -31,7 +31,6 @@
 {% block content %}
 <body>
 <script type="text/javascript" src="http://datadonors.org/static/js/thirdparty/jquery-2.1.0.min.js"></script>
-{% include "landing_inc/videos.html" %}
 
 {% include "landing_inc/menu.html" %}
 
@@ -52,7 +51,6 @@
 <script type="text/javascript" src="http://datadonors.org/static/js/thirdparty/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="http://datadonors.org/static/js/jquery-migrate-1.2.0.min.js"></script>
 <script type="text/javascript" src="http://datadonors.org/static/js/plugins.js"></script>
-<script type="text/javascript" src="http://datadonors.org/static/js/jquery.scrollSections.js"></script>
 <script type="text/javascript" src="http://datadonors.org/static/js/flexslider.js" ></script>
 <script type="text/javascript" src="http://datadonors.org/static/js/script.js" ></script>
 
@@ -178,6 +176,10 @@ function move_slider() {
     }
 }
 $(function () {
+
+	$('#home').hide();
+
+	
     var firsttime = false;
     var first_sec = 'home';
     var interval = 0;
@@ -185,7 +187,7 @@ $(function () {
         //$('.goto').scrollSections();
         //var interval = setInterval ( "move_slider()" , 8000 );
         $('section.scrollsections') .scrollSections({
-            createNavigation: false,
+            createNavigation: true,
             touch: false,
             navigation: true,
             before: function ($currentSection, $nextSection) {
