@@ -46,6 +46,7 @@ from bson import json_util
 TYPE_DICT = {}
 TYPE_DICT["gender"] = {"model":Profile, "field":"gender", "key":'user'}
 TYPE_DICT["bmi"] = {"model":Profile, "field":"bmi", "key":'user'}
+TYPE_DICT["weight"] = {"model":Profile, "field":"weight", "key":'user'}
 TYPE_DICT["height"] = {"model":Profile, "field":"height", "key":'user'}
 TYPE_DICT["date_of_birth"] = {"model":Profile, "field":"date_of_birth", "key":'user'}
 
@@ -105,27 +106,29 @@ def log(request):
     """
     if request.method == 'POST':
         #valid_user
-        info = simplejson.loads(request.body)
-        user_id = info["userId"]
-        try:
-            user = Profile.objects.get(account_id=user_id).user
-        except:
-            return HttpResponse(simplejson.dumps({"message": "Invalid User: %s"%user_id, "status": "error", "data":{}}), mimetype="application/json")
-        
-        #valid_type
-        try:
-            type = info["type"]
-            opr = TYPE_DICT[type]
-        except:
-            return HttpResponse(simplejson.dumps({"message": "Invalid Type: %s"%type, "status": "error", "data":{}}), mimetype="application/json")
-        
-        try:
-            value = float(info["value"])
-        except:
-            pass
-        
-        date_ = datetime.strptime(info["executeDateTime"], '%Y-%m-%d %H:%M:%S')
-        obj = process(user, opr, value, date_)
+        data = simplejson.loads(request.body)
+        #info es un array
+        for info in data:
+            user_id = info["userId"]
+            try:
+                user = Profile.objects.get(account_id=user_id).user
+            except:
+                return HttpResponse(simplejson.dumps({"message": "Invalid User: %s"%user_id, "status": "error", "data":{}}), mimetype="application/json")
+            
+            #valid_type
+            try:
+                type = info["type"]
+                opr = TYPE_DICT[type]
+            except:
+                return HttpResponse(simplejson.dumps({"message": "Invalid Type: %s"%type, "status": "error", "data":{}}), mimetype="application/json")
+            
+            try:
+                value = float(info["value"])
+            except:
+                pass
+            
+            date_ = datetime.strptime(info["executeDateTime"], '%Y-%m-%d %H:%M:%S')
+            obj = process(user, opr, value, date_)
 
     else:
         return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
