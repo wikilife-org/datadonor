@@ -1,10 +1,48 @@
 {% load i18n %}
+
+
 <section id="about" class="scrollsections">
 	<section id="second" class="row section-about full-screen seccion">
+        <div class="wrapper section-top" id="header-top">
+            <a href="#" class="close-video" onClick="close_video(); return false;"></a>
+            <div class="video-1">
+
+                <!-- a href="#" id="video-02" onClick="play2Pause(); return false;" class="watch-video" >{% trans "Watch overview" %}</a-->
+            </div>
+
+            <a href="#" class="pause" onClick="pause(); return false;"></a>
+            <div class="flexslider1" >
+
+                <ul class="slides">
+
+                    <li>
+                        <div class="capa"></div>
+
+                        <video width="640" id="video-top" class="vid-0" preload="auto" style="display: none;" >
+                            <source src="http://static.wikilife.org/DataDonors.m4v" type='video/mp4;'>
+                            <source src="http://static.wikilife.org/DataDonors.webmhd.webm" type='video/webm; codecs="vp8.0, vorbis"'>
+                            <source src="http://static.wikilife.org/DataDonors.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                        </video>
+                        
+                        <video width="640" id="video-how" class="vid-0" preload="auto" style="display: none;" >
+                            <source src="http://static.wikilife.org/datadonors_final_low.mp4.mp4" type='video/mp4;'>
+                            <source src="http://static.wikilife.org/datadonors_final_low.webmhd.webm" type='video/webm; codecs="vp8.0, vorbis"'>
+                            <source src="http://static.wikilife.org/datadonors_final_low.oggtheora.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                        </video>
+
+                   </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+        <div id="about_">
     <img src="http://datadonors.org/static/img/landing/goto1.png" class="goto">
 
 		<h3>
-			{% trans "WHAT IS" %} <br /> DATADONORS? <br/><span style="font-size:20px"><a href="#">Watch campaign video</a></span>
+			{% trans "WHAT IS" %} <br /> DATADONORS? <br/><span style="font-size:20px"><a href="#" onClick="playPause(); return false;" style="color:#fff!important">Watch campaign video</a></span>
 		</h3>
 
 
@@ -20,7 +58,6 @@
 
 			<div class="middle right">
 
-				<!--  img src="http://datadonors.org/static/img/texto-row-right.jpg" width="750" /-->
 				<p>
 					{% trans "We're used to sharing everything online. It's what we do everyday. Using Facebook, Twitter, Runkeeper, Fitbit or whatever platform, we share all the time. But does that really help anyone?" %}<br />
 					<br />
@@ -41,6 +78,7 @@
 			<img src="http://datadonors.org/static/img/apps/todos.png" title="Apps" alt="Apps" />
 
 			<!-- #slider-logos -->
+		</div>
 		</div>
 
 	</section>

@@ -9,7 +9,7 @@ from physical.models import UserActivityLog
 from physical.services.base_device_service import BaseDeviceService
 from string import lower
 from users.models import Profile
-from wikilife_utils.date_utils import DateUtils
+from utils.date_util import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
 from wikilife_utils.logs.log_creator import LogCreator
 from wikilife_utils.parsers.date_parser import DateParser

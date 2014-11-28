@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from tests.wikilife.base_test import BaseTest
-from wikilife_utils.date_utils import DateUtils
+from utils.date_util import DateUtils
 from wikilife_utils.formatters.date_formatter import DateFormatter
 
 

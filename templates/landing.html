@@ -11,7 +11,7 @@
 {% block styles %}
 <link rel="stylesheet" href="http://datadonors.org/static/css/reset.css"/>
 <link rel="stylesheet" href="http://datadonors.org/static/css/common.css" />
-<link rel="stylesheet" href="http://datadonors.org/static/css/style.css?6548321"/>
+<link rel="stylesheet" href="/static/css/style.css?6548321"/>
 <link rel="stylesheet" href="http://datadonors.org/static/css/flexslider.css"/>
 <link rel="stylesheet" media="screen and (max-height: 730px)" href="http://datadonors.org/static/css/min.css" />
 <link rel="stylesheet" media="screen and (min-height: 800px)" href="http://datadonors.org/static/css/max.css" />
@@ -20,6 +20,7 @@
 <link rel="stylesheet" media="screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)" href="http://datadonors.org/static/css/ipad-v.css" />
 <link rel="stylesheet" href="http://datadonors.org/static/css/style2.css">
 <link rel="stylesheet" href="http://datadonors.org/static/css/jquery.scrollSections.css">
+
 <link rel="stylesheet" href="http://datadonors.org/static/css/footer.css" />
 {% endblock %}
 
@@ -31,6 +32,7 @@
 {% block content %}
 <body>
 <script type="text/javascript" src="http://datadonors.org/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+
 
 {% include "landing_inc/menu.html" %}
 
@@ -53,7 +55,7 @@
 <script type="text/javascript" src="http://datadonors.org/static/js/plugins.js"></script>
 <script type="text/javascript" src="http://datadonors.org/static/js/flexslider.js" ></script>
 <script type="text/javascript" src="http://datadonors.org/static/js/script.js" ></script>
-
+<script type="text/javascript"  src="http://datadonors.org/static/js/jquery.scrollSections.js"></script>
 <!-- <script src="../build/js/jquery.scrollSections-0.4.1.min.js"></script> -->
 
 <script>
@@ -76,7 +78,7 @@ function sgVideo() {
 var video_slide = 0;
 function playPause() {
     if (fgVideo() .paused) {
-        $('.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa') .hide();
+        $('.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa, #about_, .container-header') .hide();
         $('.pause') .show();
         $('video') .hide();
         $('#video-top') .show();
@@ -130,7 +132,7 @@ function close_video() {
     $('.pause') .hide();
     $('.videoback, #header-top img') .show();
     $('.close-video') .hide();
-    $('.video-1,.box-scroll, #header-top .capa') .show();
+    $('.video-1,.box-scroll, #header-top .capa, #about_, .container-header') .show();
     $('#video-top, #video-how') .hide();
     fgVideo() .currentTime = 0;
     sgVideo().currentTime = 0;
@@ -186,7 +188,8 @@ $(function () {
     $(function () {
         //$('.goto').scrollSections();
         //var interval = setInterval ( "move_slider()" , 8000 );
-        $('section.scrollsections') .scrollSections({
+        
+        $('section.scrollsections').scrollSections({
             createNavigation: true,
             touch: false,
             navigation: true,

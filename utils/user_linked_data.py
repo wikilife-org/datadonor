@@ -29,11 +29,11 @@ def refresh_user_data(user):
                 service.pull_user_info(user.id, item.extra_data)
                 
             if issubclass(backend, GenomicsBackend):
-                service = GenomicsServiceLocator.get_instane().get_service_by_name(item.provider)
+                service = GenomicsServiceLocator.get_instane().build_service_by_name(item.provider)
                 service.pull_user_info(user.id, item.extra_data)
     
             if issubclass(backend, NutritionBackend):
-                service = NutritionServiceLocator.get_instane().get_service_by_name(item.provider)
+                service = NutritionServiceLocator.get_instane().build_service_by_name(item.provider)
                 service.pull_user_info(user.id, item.extra_data)
                 
             if issubclass(backend, HealthBackend):

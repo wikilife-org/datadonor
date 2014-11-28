@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from social.clients.google import GoogleClient
 from social.models import SocialUserAggregatedData
 from social.services.base_device_service import BaseDeviceService
-from wikilife_utils.date_utils import DateUtils
+from utils.date_util import DateUtils
 from wikilife_utils.logs.log_creator import LogCreator
 
 GOOGLE_API = "https://www.googleapis.com/plus/v1/"

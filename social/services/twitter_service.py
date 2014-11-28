@@ -5,7 +5,7 @@ from social.clients.twitter import TwitterClient
 from social.models import SocialUserAggregatedData
 from social.services.base_device_service import BaseDeviceService
 from users.models import Profile
-from wikilife_utils.date_utils import DateUtils
+from utils.date_util import DateUtils
 from wikilife_utils.logs.log_creator import LogCreator
 
 
