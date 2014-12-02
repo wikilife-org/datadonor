@@ -17,7 +17,7 @@ except ImportError:
 
 from oauth2 import Token
 
-from social_auth.backends import BaseOAuth2, ConsumerBasedOAuth, OAuthBackend, HealthBackend
+from social_auth.backends import BaseOAuth2, ConsumerBasedOAuth, OAuthBackend, PhysicalBackend
 
 from urllib import urlencode
 from django.utils import simplejson
