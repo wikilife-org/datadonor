@@ -83,7 +83,9 @@ class LinkedinClient(BaseDeviceClient):
         return education_level, degree
 
     def get_connections_count(self):
-        return int(self.get_connections()["_total"])
+        if "_total" in self.get_connections():
+            return int(self.get_connections()["_total"])
+        return 0
 
     def make_request(self, method, url, data=None, params=None, headers=None, timeout=60):
         if headers is None:

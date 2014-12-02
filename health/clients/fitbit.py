@@ -7,7 +7,7 @@ https://wiki.fitbit.com/display/API/Fitbit+Resource+Access+API
 
 from health.clients.base_device_client import BaseDeviceClient
 from utils.date_util import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
+#from wikilife_utils.formatters.date_formatter import DateFormatter
 from utils.client import oauth_req, dsa_urlopen, build_consumer_oauth_request
 from utils.date_util import get_days_list
 import requests

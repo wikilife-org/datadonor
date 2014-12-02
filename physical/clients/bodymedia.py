@@ -3,7 +3,6 @@
 
 from physical.clients.base_device_client import BaseDeviceClient
 from utils.date_util import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
 from social_auth.utils import setting
 from oauth2 import Consumer as OAuthConsumer, Token, Request as OAuthRequest, \
                  Client, SignatureMethod_PLAINTEXT

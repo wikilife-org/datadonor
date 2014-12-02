@@ -12,7 +12,7 @@ from utils.date_util import DateUtils
 #from wikilife_utils.formatters.date_formatter import DateFormatter
 #from wikilife_utils.logs.log_creator import LogCreator
 #from wikilife_utils.parsers.date_parser import DateParser
-from wikilife_utils.tests.date_utils_tests import DateUtilsTests
+#from wikilife_utils.tests.date_utils_tests import DateUtilsTests
 
 FITBIT_API = "https://api.fitbit.com"
 ACTIVITY_TYPE_NODE_ID_MAP = {

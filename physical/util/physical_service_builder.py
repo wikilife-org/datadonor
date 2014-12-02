@@ -29,7 +29,7 @@ class PhysicalServiceBuilder(object):
         stats_client = self._wl_srv_bldr.build_stats_client()
 
         if not service_name in SERVICES:
-            raise PhysicalServiceBuilderException("Unknow service name '%s'" %service_name)
+            raise PhysicalServiceBuilderException("Unknow physical service name '%s'" %service_name)
 
         class_fullname = SERVICES[service_name] 
         clazz = self._get_class(class_fullname)

@@ -64,8 +64,8 @@ class RunkeeperClient(BaseDeviceClient):
         params = {}
         params["page"] = 0 
         params["pageSize"] = self.PAGE_SIZE 
-        params["noEarlierThan"] = DateFormatter.to_date(date_from)
-        params["noLaterThan"] = DateFormatter.to_date(date_to)
+        params["noEarlierThan"] = date_from.strftime("%Y-%m-%d")
+        params["noLaterThan"] = date_to.strftime("%Y-%m-%d")
 
         response = self._get(uri, params=params)
         result["items"] = response["items"]

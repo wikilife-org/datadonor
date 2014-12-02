@@ -8,7 +8,7 @@ http://www.moodpanda.com/api/
 
 from health.clients.base_device_client import BaseDeviceClient
 from utils.date_util import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
+#from wikilife_utils.formatters.date_formatter import DateFormatter
 from xml.etree import ElementTree
 import requests
 

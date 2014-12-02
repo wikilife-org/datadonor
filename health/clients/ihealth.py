@@ -9,7 +9,7 @@ from nutrition.clients.base_device_client import BaseDeviceClient
 import requests
 from social_auth.utils import dsa_urlopen, setting
 from utils.date_util import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
+#from wikilife_utils.formatters.date_formatter import DateFormatter
 from utils.date_util import get_days_list_int_tuple
 
 """

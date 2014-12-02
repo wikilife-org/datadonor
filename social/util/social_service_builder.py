@@ -40,7 +40,7 @@ class SocialServiceBuilder(object):
         stats_client = self._build_wl_stats_client()
 
         if not service_name in SERVICES:
-            raise SocialServiceBuilderException("Unknow service name '%s'" %service_name)
+            raise SocialServiceBuilderException("Unknow social service name '%s'" %service_name)
 
         class_fullname = SERVICES[service_name] 
         clazz = self._get_class(class_fullname)
