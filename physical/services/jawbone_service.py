@@ -50,7 +50,7 @@ class JawboneService(BaseDeviceService):
         user = User.objects.get(id=user_id)
         
         foods = client.get_user_meals()
-        if foods["data"]["size"]>0:
+        if "size" in foods["data"] and foods["data"]["size"]>0:
             for food in foods["data"]["items"]:
                 food_entry_id = food["xid"]
                 fdate = "%s"%food["date"]
@@ -70,7 +70,7 @@ class JawboneService(BaseDeviceService):
                 food_log.save()
                 
         sleeps = client.get_user_sleep_list()
-        if sleeps["data"]["size"]>0:
+        if "size" in sleeps["data"] and sleeps["data"]["size"]>0:
             for sleep in sleeps["data"]["items"]:
                 activity, created = UserSleepLog.objects.get_or_create(user=user, device_log_id=sleep["xid"])
                 activity.execute_time = datetime.strptime("%s"%sleep["date"], '%Y%m%d')
@@ -79,7 +79,7 @@ class JawboneService(BaseDeviceService):
                 activity.save()
                  
         activities = client.get_user_moves()
-        if activities["data"]["size"]>0:
+        if "size" in activities["data"] and activities["data"]["size"]>0:
             for activity in activities["data"]["items"]:
                 activity_obj, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=activity["xid"])
                 activity_obj.type = activity["type"].lower()
