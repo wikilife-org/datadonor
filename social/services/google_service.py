@@ -5,7 +5,7 @@ from social.clients.google import GoogleClient
 from social.models import SocialUserAggregatedData
 from social.services.base_device_service import BaseDeviceService
 from utils.date_util import DateUtils
-from wikilife_utils.logs.log_creator import LogCreator
+#from wikilife_utils.logs.log_creator import LogCreator
 
 GOOGLE_API = "https://www.googleapis.com/plus/v1/"
 
@@ -51,7 +51,7 @@ class GoogleService(BaseDeviceService):
         aggregated.gplus_contacts_count = contacts_count
         aggregated.save()  
 
-        if created:
+        """if created:
             start = DateUtils.get_datetime_utc()
             end = start
             text = "Foursquare"
@@ -64,7 +64,7 @@ class GoogleService(BaseDeviceService):
             nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
 
             wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
-            self._send_logs_to_wl(dd_user_profile, [wl_log])
+            self._send_logs_to_wl(dd_user_profile, [wl_log])"""
 
     def pull_user_activity(self, user_id, user_auth):
         pass

@@ -9,9 +9,9 @@ from physical.models import UserActivityLog
 from physical.services.base_device_service import BaseDeviceService
 from string import lower
 from utils.date_util import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
-from wikilife_utils.logs.log_creator import LogCreator
-from wikilife_utils.parsers.date_parser import DateParser
+#from wikilife_utils.formatters.date_formatter import DateFormatter
+#from wikilife_utils.logs.log_creator import LogCreator
+#from wikilife_utils.parsers.date_parser import DateParser
 from wikilife_utils.tests.date_utils_tests import DateUtilsTests
 
 FITBIT_API = "https://api.fitbit.com"
@@ -112,9 +112,9 @@ class FitbitService(BaseDeviceService):
                 activity.minutes = round(float(sleep["duration"]/ 60000),2)  
                 activity.save()
 
-                if created:
+                """if created:
                     wl_log = self._create_sleep_log(sleep)
-                    wl_logs.append(wl_log)
+                    wl_logs.append(wl_log)"""
 
         activities = client.get_user_fitness_activities()
         for item in activities:
@@ -148,18 +148,18 @@ class FitbitService(BaseDeviceService):
 
                 activity_obj.save()
 
-                if created:
+                """if created:
                     wl_log = self._create_activity_log(activity, distanceUnit)
-                    wl_logs.append(wl_log)
+                    wl_logs.append(wl_log)"""
 
-        if len(wl_logs) > 0:
-            self._send_logs_to_wl(dd_user_profile, wl_logs)
+        """if len(wl_logs) > 0:
+            self._send_logs_to_wl(dd_user_profile, wl_logs)"""
 
-    def _create_food_log(self, food):
-        """
+    """def _create_food_log(self, food):
+        
         wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
         return wl_log 
-        """
+        
         pass
 
     def _create_sleep_log(self, sleep):
@@ -212,7 +212,7 @@ class FitbitService(BaseDeviceService):
             text = "%s, %s" %(text, ("%s cal" %value))
 
         wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
-        return wl_log 
+        return wl_log """
 
     def pull_user_activity(self, user_id, user_auth):
         pass

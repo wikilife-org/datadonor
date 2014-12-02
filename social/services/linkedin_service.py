@@ -5,7 +5,7 @@ from social.clients.linkedin import LinkedinClient
 from social.models import SocialUserAggregatedData
 from social.services.base_device_service import BaseDeviceService
 from utils.date_util import DateUtils
-from wikilife_utils.logs.log_creator import LogCreator
+#from wikilife_utils.logs.log_creator import LogCreator
 
 LINKEDIN_API = "https://api.linkedin.com/v1/"
 
@@ -47,7 +47,7 @@ class LinkedinService(BaseDeviceService):
         aggregated.education_degree = degree
         aggregated.save()
         
-        if created:
+        """if created:
             wl_logs = []
             start = DateUtils.get_datetime_utc()
             end = start
@@ -78,7 +78,7 @@ class LinkedinService(BaseDeviceService):
             wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
             wl_logs.append(wl_log)
 
-            self._send_logs_to_wl(dd_user_profile, wl_logs)
+            self._send_logs_to_wl(dd_user_profile, wl_logs)"""
 
     def pull_user_activity(self, user_id, user_auth):
         pass

@@ -3,9 +3,9 @@
 from physical.clients.dailymile import DailymileClient
 from physical.services.base_device_service import BaseDeviceService
 from utils.date_util import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
-from wikilife_utils.logs.log_creator import LogCreator
-from wikilife_utils.parsers.date_parser import DateParser
+#from wikilife_utils.formatters.date_formatter import DateFormatter
+#from wikilife_utils.logs.log_creator import LogCreator
+#from wikilife_utils.parsers.date_parser import DateParser
 from string import lower
 from physical.models import UserActivityLog
 from health.models import UserSleepLog
@@ -66,14 +66,14 @@ class DailymileService(BaseDeviceService):
 
                 activity.save()
 
-                if created:
+                """if created:
                     wl_log = self._create_workout_log(item)
-                    wl_logs.append(wl_log)
+                    wl_logs.append(wl_log)"""
 
-        if len(wl_logs) > 0:
-            self._send_logs_to_wl(dd_user_profile, wl_logs)
+        """if len(wl_logs) > 0:
+            self._send_logs_to_wl(dd_user_profile, wl_logs)"""
 
-    def _create_workout_log(self, item):
+    """def _create_workout_log(self, item):
         act_type = item["workout"]["activity_type"].lower()
         text = "%s" %item["workout"]["activity_type"]
         source = "datadonor.dailymile"
@@ -104,7 +104,7 @@ class DailymileService(BaseDeviceService):
             text = "%s, %s" %(text, ("%s steps" %value))
 
         wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
-        return wl_log 
+        return wl_log""" 
 
 
     ''' 
@@ -154,13 +154,16 @@ class DailymileService(BaseDeviceService):
             activity.minutes = round(float(item["total_sleep"]),2)  
             activity.save()
     ''' 
-
+    
     def pull_user_activity(self, user_id, user_auth):
+        pass
+    
+    """def pull_user_activity(self, user_id, user_auth):
         #wikilife_token = self._get_wikilife_token(user_id)
         client = RunkeeperClient(RUNKEEPER_API, user_auth["access_token"])
         fitness_activities = client.get_user_fitness_activities()
         #self._log_fitness_activities(wikilife_token, fitness_activities["items"])
-        return fitness_activities
+        return fitness_activities"""
     
     """
     def pull_user_activity_(self, user_id, user_auth):

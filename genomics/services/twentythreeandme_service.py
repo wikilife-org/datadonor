@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 from genomics.clients.twentythreeandme import TwentyThreeAndMeClient
 from genomics.services.base_device_service import BaseDeviceService
 from utils.date_util import DateUtils
-from wikilife_utils.formatters.date_formatter import DateFormatter
-from wikilife_utils.logs.log_creator import LogCreator
-from wikilife_utils.parsers.date_parser import DateParser
+#from wikilife_utils.formatters.date_formatter import DateFormatter
+#from wikilife_utils.logs.log_creator import LogCreator
+#from wikilife_utils.parsers.date_parser import DateParser
 
 from genomics.models import UserTrait, UserDrugResponse, UserRisk
 from social_auth.db.django_models import UserSocialAuth
@@ -94,6 +94,9 @@ class TwentythreeandmeService(BaseDeviceService):
             UserDrugResponse.objects.get_or_create(user=user, report_id=drug_response["report_id"], value=drug_response["status"])
 
     def pull_user_activity(self, user_id, user_auth):
+        pass
+    """   
+     def pull_user_activity(self, user_id, user_auth):
         wikilife_token = self._get_wikilife_token(user_id)
         client = TwentyThreeAndMeClient(TWENTY_THREE_AND_ME_API, user_auth["access_token"])
 
@@ -161,5 +164,5 @@ class TwentythreeandmeService(BaseDeviceService):
             nodes.append(LogCreator.create_log_node(self, node_id, 0, status))
 
             log = LogCreator.create_log(self, 0, start, end, text, source, nodes)
-            self._log_client.add_log(wikilife_token, log)
+            self._log_client.add_log(wikilife_token, log)"""
             

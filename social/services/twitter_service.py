@@ -6,7 +6,7 @@ from social.models import SocialUserAggregatedData
 from social.services.base_device_service import BaseDeviceService
 from users.models import Profile
 from utils.date_util import DateUtils
-from wikilife_utils.logs.log_creator import LogCreator
+#from wikilife_utils.logs.log_creator import LogCreator
 
 
 TWITTER_API = "https://api.twitter.com/1.1/"
@@ -31,7 +31,7 @@ class TwitterService(BaseDeviceService):
         aggregated.twitter_retweets_count_last_seven_days = retweets_last_week
         aggregated.save()
 
-        if created:
+        """if created:
             start = DateUtils.get_datetime_utc()
             end = start
             text = "Twitter"
@@ -52,7 +52,7 @@ class TwitterService(BaseDeviceService):
             nodes.append(LogCreator.create_log_node(node_id, metric_id, value))
 
             wl_log = LogCreator.create_log(0, start, end, text, source, nodes)        
-            self._send_logs_to_wl(dd_user_profile, [wl_log])
+            self._send_logs_to_wl(dd_user_profile, [wl_log])"""
 
     def pull_user_activity(self, user_id, user_auth, twitter_id):
         pass
