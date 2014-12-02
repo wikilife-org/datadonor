@@ -17,7 +17,7 @@ except ImportError:
 
 from oauth2 import Token
 
-from social_auth.backends import BaseOAuth2, ConsumerBasedOAuth, OAuthBackend, PhysicalBackend
+from social_auth.backends import BaseOAuth2, ConsumerBasedOAuth, OAuthBackend, HealthBackend
 
 from urllib import urlencode
 from django.utils import simplejson
@@ -46,7 +46,7 @@ class IhealthBackend(OAuthBackend):
         return {'username': response['UserID']}
 
 
-class IhealthAuth(BaseOAuth2, PhysicalBackend):
+class IhealthAuth(BaseOAuth2, HealthBackend):
     AUTHORIZATION_URL = IHEALTH_AUTHORIZATION_URL
     REQUEST_TOKEN_URL = IHEALTH_REQUEST_TOKEN_URL
     ACCESS_TOKEN_URL = IHEALTH_ACCESS_TOKEN_URL
