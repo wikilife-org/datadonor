@@ -30,7 +30,7 @@ class IhealthService(BaseDeviceService):
         user = User.objects.get(id=user_id)
         client = IhealthClient(IHEALTH_API, user_auth["access_token"])
         activities = client.get_user_activity()
-        distanceUnit = activities["DistanceUnit"]
+        distanceUnit = activities.get("DistanceUnit", 0)
         """
         
         Unit    Value
