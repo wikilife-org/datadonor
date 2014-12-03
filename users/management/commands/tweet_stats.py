@@ -9,48 +9,58 @@ from health.utilities import get_conditions_rank, get_complaints_rank, get_emoti
 
 
 class Command(BaseCommand):
-    def handle(self, *args, **options):
-        print ("Tweet: Steps report")
-        tw = TwitterService()
-        dto = PhysicalActivityDistributionService().get_steps_distribution_global()
-        text = "%s #datadonors took an average of %s #steps this week  #activity #physical" %(dto["total_users"], dto["avg"])
-        url = "http://datadonors.org/statistics/physical-activity-steps/"
-        tw.share_stat(text, url)
         
-        print ("Tweet: Miles report")
-        dto = PhysicalActivityDistributionService().get_miles_distribution_global()
-        text = "%s #datadonors took an average of %s #miles this week  #activity #physical" %(dto["total_users"], dto["avg"])
-        url = "http://datadonors.org/statistics/physical-activity-miles/"
-        tw.share_stat(text, url)
+    def handle(self, *args, **options):
+        
+        tw = TwitterService()
+        
+        if "steps" in args:
+            print ("Tweet: Steps report")    
+            dto = PhysicalActivityDistributionService().get_steps_distribution_global()
+            text = "%s #datadonors took an average of %s #steps this week  #activity #physical" %(dto["total_users"], dto["avg"])
+            url = "http://datadonors.org/statistics/physical-activity-steps/"
+            tw.share_stat(text, url)
+        
+        if "miles" in args:
+            print ("Tweet: Miles report")
+            dto = PhysicalActivityDistributionService().get_miles_distribution_global()
+            text = "%s #datadonors took an average of %s #miles this week  #activity #physical" %(dto["total_users"], dto["avg"])
+            url = "http://datadonors.org/statistics/physical-activity-miles/"
+            tw.share_stat(text, url)
+        
+        if "education" in args:
+            print ("Tweet: Education report")
+            text = "#datadonors #education level reached"
+            url = "http://datadonors.org/statistics/social-education-level/"
+            tw.share_stat(text, url)
+        
+        if "work" in args:
+            print ("Tweet: Work report")
+            global_data, avg, total_users  = global_work()
+            text = "#datadonors #working experience #avg %s years based on %s users"%(avg, total_users)
+            url = "http://datadonors.org/statistics/social-work-years/"
+            tw.share_stat(text, url)
     
-        print ("Tweet: Education report")
-        text = "#datadonors #education level reached"
-        url = "http://datadonors.org/statistics/social-education-level/"
-        tw.share_stat(text, url)
-
-        print ("Tweet: Work report")
-        global_data, avg, total_users  = global_work()
-        text = "#datadonors #working experience #avg %s years based on %s users"%(avg, total_users)
-        url = "http://datadonors.org/statistics/social-work-years/"
-        tw.share_stat(text, url)
-
-        print ("Tweet: Complaints report")
-        data, total = get_complaints_rank()
-        text = "#datadonors #top #complaints based on %s users"%(total)
-        url = "http://datadonors.org/statistics/social-health-complaints/"
-        tw.share_stat(text, url)
-
-        print ("Tweet: Conditions report")
-        data, total = get_conditions_rank()
-        text = "#datadonors #top #conditions based on %s users"%(total)
-        url = "http://datadonors.org/statistics/social-health-conditions/"
-        tw.share_stat(text, url)
-
-        print ("Tweet: Emotions report")
-        data, total = get_emotions_rank()
-        text = "#datadonors #top #emotions based on %s users"%(total)
-        url = "http://datadonors.org/statistics/social-health-emotions/"
-        tw.share_stat(text, url)
+        if "complaints" in args:
+            print ("Tweet: Complaints report")
+            data, total = get_complaints_rank()
+            text = "#datadonors #top #complaints based on %s users"%(total)
+            url = "http://datadonors.org/statistics/social-health-complaints/"
+            tw.share_stat(text, url)
+        
+        if "conditions" in args:
+            print ("Tweet: Conditions report")
+            data, total = get_conditions_rank()
+            text = "#datadonors #top #conditions based on %s users"%(total)
+            url = "http://datadonors.org/statistics/social-health-conditions/"
+            tw.share_stat(text, url)
+        
+        if "emotions" in args:
+            print ("Tweet: Emotions report")
+            data, total = get_emotions_rank()
+            text = "#datadonors #top #emotions based on %s users"%(total)
+            url = "http://datadonors.org/statistics/social-health-emotions/"
+            tw.share_stat(text, url)
                     
              
 class TwitterService():
