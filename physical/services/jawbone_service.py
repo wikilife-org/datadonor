@@ -45,7 +45,7 @@ class JawboneService(BaseDeviceService):
                     u'image': u'', u'height': 1.66, 
                     u'last': u'Macgibbon', u'first': u'Romina'}}
         """
-        profile = client.get_user_information()
+        #profile = client.get_user_information()
 
         user = User.objects.get(id=user_id)
         

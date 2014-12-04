@@ -67,7 +67,7 @@ IHEALTH_WEIGHT_SV = '9cfcc8ec1e0a4fd7a859753803b0a643'
 
 
 JAWBONE_CONSUMER_KEY = 'CU3cmqTl6S0'
-JAWBONE_CONSUMER_SECRET = 'fc1bf30245a0bbd30986a79874f8167aab5015b8'
+JAWBONE_CONSUMER_SECRET = 'cb270f6d7ea9c5c709a7b48afbc02376'
 JAWBONE_EXTENDED_PERMISSIONS = ['basic_read', 'extended_read', 'friends_read', 'mood_read', 'sleep_read', 
                                 'meal_read', 'weight_read', 'cardiac_read', 'generic_event_read', 'move_read']
 
