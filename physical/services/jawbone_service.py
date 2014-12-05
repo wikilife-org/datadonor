@@ -54,10 +54,10 @@ class JawboneService(BaseDeviceService):
             for food in foods["data"]["items"]:
                 food_entry_id = food["xid"]
                 fdate = "%s"%food["date"]
-                carbs = food["details"]["carbohydrate"]
-                protein = food["details"]["protein"]
-                fat = food["details"]["fat"]
-                fiber = food["details"]["fiber"]
+                carbs = food["details"].get("carbohydrate",0)
+                protein = food["details"].get("protein",0)
+                fat = food["details"].get("fat",0)
+                fiber = food["details"].get("fiber",0)
                 
                 food_log, created = UserFoodLog.objects.get_or_create(user=user, device_log_id=food_entry_id, provider=self._profile_source)
                 food_log.provider = self._profile_source
