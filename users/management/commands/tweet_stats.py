@@ -24,7 +24,7 @@ class Command(BaseCommand):
         if "miles" in args:
             print ("Tweet: Miles report")
             dto = PhysicalActivityDistributionService().get_miles_distribution_global()
-            text = "%s #datadonors took an average of %s #miles this week  #activity #physical" %(dto["total_users"], dto["avg"])
+            text = "%s #datadonors moved an average of %s #miles this week  #activity #physical" %(dto["total_users"], dto["avg"])
             url = "http://datadonors.org/statistics/physical-activity-miles/"
             tw.share_stat(text, url)
         
