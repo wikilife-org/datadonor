@@ -18,7 +18,7 @@ class HealthServiceLocator(object):
     @classmethod
     def get_instane(cls):
         if cls.__instance == None:
-            cls.__instance = HealthServiceLocator()
+            cls.__instance = HealthServiceBuilder()
 
         return cls.__instance
 
