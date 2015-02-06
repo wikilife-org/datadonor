@@ -9,6 +9,7 @@ from health.utilities import get_conditions_rank, get_complaints_rank, get_emoti
 
 
 class Command(BaseCommand):
+    
     def url_screengrab(url, name, **kwargs):
         cmd = "export DISPLAY=:0;/usr/local/bin/CutyCapt  --auto-load-images=on --delay=15000 --max-wait=60000  --url={u} --out=/home/datadonor/static/tmp/{name}.png".format(u = url, name=name)
         os.system(cmd)
@@ -23,7 +24,7 @@ class Command(BaseCommand):
             dto = PhysicalActivityDistributionService().get_steps_distribution_global()
             text = "%s #datadonors took an average of %s #steps this week  #activity #physical" %(dto["total_users"], dto["avg"])
             url = "http://datadonors.org/statistics/physical-activity-steps/"
-            url_screengrab(url+"?pic=true", "physical-activity-steps")
+            self.url_screengrab(url+"?pic=true", "physical-activity-steps")
             tw.share_stat(text, url, "physical-activity-steps.png")
         
         if "miles" in args:
@@ -31,14 +32,14 @@ class Command(BaseCommand):
             dto = PhysicalActivityDistributionService().get_miles_distribution_global()
             text = "%s #datadonors moved an average of %s #miles this week  #activity #physical" %(dto["total_users"], dto["avg"])
             url = "http://datadonors.org/statistics/physical-activity-miles/"
-            url_screengrab(url+"?pic=true", "physical-activity-miles")
+            self.url_screengrab(url+"?pic=true", "physical-activity-miles")
             tw.share_stat(text, url, "physical-activity-miles.png")
         
         if "education" in args:
             print ("Tweet: Education report")
             text = "#datadonors #education level reached"
             url = "http://datadonors.org/statistics/social-education-level/"
-            url_screengrab(url+"?pic=true", "social-education-level")
+            self.url_screengrab(url+"?pic=true", "social-education-level")
             tw.share_stat(text, url, "social-education-level.png")
         
         if "work" in args:
@@ -46,7 +47,7 @@ class Command(BaseCommand):
             global_data, avg, total_users  = global_work()
             text = "#datadonors #working experience #avg %s years based on %s users"%(avg, total_users)
             url = "http://datadonors.org/statistics/social-work-years/"
-            url_screengrab(url+"?pic=true", "social-work-years")
+            self.url_screengrab(url+"?pic=true", "social-work-years")
             tw.share_stat(text, url, "social-work-years.png")
     
         if "complaints" in args:
@@ -54,7 +55,7 @@ class Command(BaseCommand):
             data, total = get_complaints_rank()
             text = "#datadonors #top #complaints based on %s users"%(total)
             url = "http://datadonors.org/statistics/social-health-complaints/"
-            url_screengrab(url+"?pic=true", "social-health-complaints")
+            self.url_screengrab(url+"?pic=true", "social-health-complaints")
             tw.share_stat(text, url, "social-health-complaints.png")
         
         if "conditions" in args:
@@ -62,7 +63,7 @@ class Command(BaseCommand):
             data, total = get_conditions_rank()
             text = "#datadonors #top #conditions based on %s users"%(total)
             url = "http://datadonors.org/statistics/social-health-conditions/"
-            url_screengrab(url+"?pic=true", "social-health-conditions")
+            self.url_screengrab(url+"?pic=true", "social-health-conditions")
             tw.share_stat(text, url, "social-health-conditions.png")
         
         if "emotions" in args:
@@ -70,7 +71,7 @@ class Command(BaseCommand):
             data, total = get_emotions_rank()
             text = "#datadonors #top #emotions based on %s users"%(total)
             url = "http://datadonors.org/statistics/social-health-emotions/"
-            url_screengrab(url+"?pic=true", "social-health-emotions")
+            self.url_screengrab(url+"?pic=true", "social-health-emotions")
             tw.share_stat(text, url, "social-health-emotions.png")
                     
              
