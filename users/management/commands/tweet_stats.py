@@ -59,7 +59,7 @@ class Command(BaseCommand):
             text = "#datadonors #top #complaints based on %s users"%(total)
             url = "http://datadonors.org/statistics/social-health-complaints/"
             self.url_screengrab(url+"?pic=true", "social-health-complaints")
-            tw.share_stat(text, url, "social-health-complaints.png")
+            tw.share_stat(text, url, None)
         
         if "conditions" in args:
             print ("Tweet: Conditions report")
@@ -67,7 +67,7 @@ class Command(BaseCommand):
             text = "#datadonors #top #conditions based on %s users"%(total)
             url = "http://datadonors.org/statistics/social-health-conditions/"
             self.url_screengrab(url+"?pic=true", "social-health-conditions")
-            tw.share_stat(text, url, "social-health-conditions.png")
+            tw.share_stat(text, url, None)
         
         if "emotions" in args:
             print ("Tweet: Emotions report")
@@ -75,7 +75,7 @@ class Command(BaseCommand):
             text = "#datadonors #top #emotions based on %s users"%(total)
             url = "http://datadonors.org/statistics/social-health-emotions/"
             self.url_screengrab(url+"?pic=true", "social-health-emotions")
-            tw.share_stat(text, url, "social-health-emotions.png")
+            tw.share_stat(text, url, None)
                     
              
 class TwitterService():
@@ -100,7 +100,7 @@ class TwitterService():
         # from help/configuration#short_url_length_https
         url_length = len(url)
         # from help/configuration#characters_reserved_per_media
-        image_file = "/home/datadonor/static/tmp/{name}".format(name=img_name)
+        
         
         if len(text) + url_length  > 140:
             trim_to = 140 - url_length  \
@@ -109,13 +109,21 @@ class TwitterService():
         else:
             text = text + self.url_separator + url
         
-        imagefile= open(image_file, "rb")
-        data = imagefile.read()
+        if img_name:
+            image_file = "/home/datadonor/static/tmp/{name}".format(name=img_name)
+            imagefile= open(image_file, "rb")
+            data = imagefile.read()
+                
+            params = {
+                "media[]": data,
+                "status": text,
+            }
             
-        params = {
-            "media[]": data,
-            "status": text,
-        }
-        
-        twitter.statuses.update_with_media(**params)
+            twitter.statuses.update_with_media(**params)
+        else:
+            params = {
+                "status": text,
+            }
+            
+            twitter.statuses.update(**params)
         
