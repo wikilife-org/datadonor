@@ -1,5 +1,7 @@
 # coding=utf-8
 
+import os
+
 import requests
 from django.core.management.base import BaseCommand, CommandError
 from twitter import Twitter, OAuth
@@ -10,7 +12,7 @@ from health.utilities import get_conditions_rank, get_complaints_rank, get_emoti
 
 class Command(BaseCommand):
     
-    def url_screengrab(url, name, **kwargs):
+    def url_screengrab(self, url, name):
         cmd = "export DISPLAY=:0;/usr/local/bin/CutyCapt  --auto-load-images=on --delay=15000 --max-wait=60000  --url={u} --out=/home/datadonor/static/tmp/{name}.png".format(u = url, name=name)
         os.system(cmd)
     
