@@ -59,7 +59,9 @@ window.onload = function () {
 </head>
 
 <body ng-app="app">
+        {% if not pic %}
     {% include "header.include.html" %}
+    {% endif %}
         <!--step_six-->
         <div class="full_container step_six" id="step_six">
             <div class="centered_container">

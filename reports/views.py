@@ -13,7 +13,7 @@ from social.services.utilities import global_education, global_work
 from health.utilities import get_conditions_rank, get_complaints_rank, get_emotions_rank
 
 def report_global_physical_steps(request):
-    
+    pic = request.GET.get('pic', False)
     dto = PhysicalActivityDistributionService().get_steps_distribution_global()
     data = {
             "days": {
@@ -29,13 +29,13 @@ def report_global_physical_steps(request):
             "total_users": dto["total_users"]
 
     }
-    return render_to_response('dashboard/global_report_physical_steps.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
+    return render_to_response('dashboard/global_report_physical_steps.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "pic":pic, "avg":data["avg"]},
                                   RequestContext(request)) 
 
 
 
 def report_global_physical_miles(request):
-    
+    pic = request.GET.get('pic', False)
     dto = PhysicalActivityDistributionService().get_miles_distribution_global()
     data = {
             "days": {
@@ -51,11 +51,11 @@ def report_global_physical_miles(request):
             "total_users": dto["total_users"]
 
     }
-    return render_to_response('dashboard/global_report_physical_miles.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
+    return render_to_response('dashboard/global_report_physical_miles.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "pic":pic, "avg":data["avg"]},
                                   RequestContext(request)) 
 
 def report_global_physical_duration(request):
-    
+    pic = request.GET.get('pic', False)
     dto = PhysicalActivityDistributionService().get_hours_distribution_global()
     data = {
             "days": {
@@ -71,39 +71,42 @@ def report_global_physical_duration(request):
             "total_users": dto["total_users"]
 
     }
-    return render_to_response('dashboard/global_report_physical_duration.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "avg":data["avg"]},
+    return render_to_response('dashboard/global_report_physical_duration.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "pic":pic, "avg":data["avg"]},
                                   RequestContext(request))
 
 def report_global_social_education(request):
-    
+    pic = request.GET.get('pic', False)
     dto = global_education()
     
-    return render_to_response('dashboard/global_report_social_education.html',{"data":simplejson.dumps({"global_data":dto})},
+    return render_to_response('dashboard/global_report_social_education.html',{"data":simplejson.dumps({"global_data":dto}),"pic":pic,},
                                   RequestContext(request))
 
 
 def report_global_social_work(request):
-    
+    pic = request.GET.get('pic', False)
     global_data, avg, total_users  = global_work()
     data = {"global_data":global_data, "avg":avg}
     
-    return render_to_response('dashboard/global_report_social_work.html',{"data":simplejson.dumps(data), "total_users": total_users},
+    return render_to_response('dashboard/global_report_social_work.html',{"data":simplejson.dumps(data), "total_users": total_users, "pic":pic,},
                                   RequestContext(request))
 
 
 def report_global_health_condition(request):
+    pic = request.GET.get('pic', False)
     data, total = get_conditions_rank()
-    return render_to_response('dashboard/global_report_health_conditions.html',{"data":simplejson.dumps(data[:5]), "total_users": total},
+    return render_to_response('dashboard/global_report_health_conditions.html',{"data":simplejson.dumps(data[:5]), "total_users": total, "pic":pic,},
                                   RequestContext(request))
 
 def report_global_health_complaints(request):
+    pic = request.GET.get('pic', False)
     data, total = get_complaints_rank()
-    return render_to_response('dashboard/global_report_health_complaints.html',{"data":simplejson.dumps(data[:5]), "total_users": total},
+    return render_to_response('dashboard/global_report_health_complaints.html',{"data":simplejson.dumps(data[:5]), "total_users": total, "pic":pic,},
                                   RequestContext(request))
 
 def report_global_health_emotions(request):
+    pic = request.GET.get('pic', False)
     data, total = get_emotions_rank()
-    return render_to_response('dashboard/global_report_health_emotions.html',{"data":simplejson.dumps(data[:5]), "total_users": total},
+    return render_to_response('dashboard/global_report_health_emotions.html',{"data":simplejson.dumps(data[:5]), "total_users": total, "pic":pic,},
                                   RequestContext(request))
     
       
