@@ -14,7 +14,7 @@ class Command(BaseCommand):
     
     def url_screengrab(self, url, name):
         #cmd = "export DISPLAY=:0;/usr/local/bin/CutyCapt  --auto-load-images=on --delay=15000 --max-wait=60000  --url={u} --out=/home/datadonor/static/tmp/{name}.png".format(u = url, name=name)
-        cmd = 'xvfb-run --server-args="-screen 0, 1280x1200x24" CutyCapt --auto-load-images=on --delay=15000 --max-wait=60000 --url={u} --out=/home/datadonor/static/tmp/{name}.png'.format(u = url, name=name)
+        cmd = 'xvfb-run --server-args="-screen 0, 1280x1200x24" CutyCapt --auto-load-images=on --delay=30000 --max-wait=120000 --url={u} --out=/home/datadonor/static/tmp/{name}.png'.format(u = url, name=name)
         os.system(cmd)
     
         
