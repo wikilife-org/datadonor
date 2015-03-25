@@ -69,13 +69,21 @@ window.onload = function () {
                         Weekly miles distribution
                     </h2>
                     <p>Donate to compare yourself.</p>
+                    <p>{{from}} to {{to}}</p>
                 </div>
                 <!--/top-->
 
                 <!--big_graph-->
+                
                 <div class="big_graph">
+                <p style="float:left; widht:200px; margin-bottom: 20px"><a href="/statistics/physical-activity-miles/?from={{prev.from}}&to={{prev.to}}">&#60; Prev. Week </a></p>
+                {% if next %}
+                <p style="float:right; widht:200px"><a href="/statistics/physical-activity-miles/?from={{next.from}}&to={{next.to}}">Next. Week &#62;</a></p>
+                {% endif %}
                     <div id="canvas_6_1"></div>
+                    
                 </div>
+                
                 <!--/big_graph-->
 
                 <!--stats_bottom-->

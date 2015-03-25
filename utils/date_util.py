@@ -1,5 +1,22 @@
+
 from datetime import date, datetime, time, timedelta
 
+def get_next_sunday_from_date(from_date):
+    today = datetime.strptime(from_date, "%Y-%m-%d").date()
+    offset = (today.weekday() - 6) % 7
+    if offset ==0:
+        offset = 7
+    next_sunday = today + timedelta(days=offset)
+    return (next_sunday, today.strftime("%Y-%m-%d"), next_sunday.strftime("%Y-%m-%d"))
+
+
+def get_last_sunday_from_date(from_date):
+    today = datetime.strptime(from_date, "%Y-%m-%d").date()
+    offset = (today.weekday() - 6) % 7
+    if offset ==0:
+        offset = 7
+    last_sunday = today - timedelta(days=offset)
+    return (last_sunday, last_sunday.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 
 def get_last_sunday():
     today = date.today()
@@ -70,7 +87,6 @@ def get_days_twitter(days_count):
 
 
 from dateutil.relativedelta import relativedelta
-import datetime
 import time
 import pytz
 import math
@@ -114,28 +130,28 @@ class DateUtils(object):
 
     @staticmethod
     def create_datetime(year, month, day, hour=0, minutes=0, sec=0):
-        return datetime.datetime(year, month, day, hour, minutes, sec)
+        return datetime(year, month, day, hour, minutes, sec)
 
     @staticmethod
     def get_zero_datetime():
-        return datetime.datetime(1, 1, 1)
+        return datetime(1, 1, 1)
 
     @staticmethod
     def get_date_utc():
         d = DateUtils.get_datetime_utc()
-        return datetime.datetime(d.year, d.month, d.day)
+        return datetime(d.year, d.month, d.day)
 
     @staticmethod
     def get_datetime_utc():
-        return datetime.datetime.utcnow()
+        return datetime.utcnow()
 
     @staticmethod
     def get_datetime_local(tz_name):
-        return datetime.datetime.now(pytz.timezone(tz_name))
+        return datetime.now(pytz.timezone(tz_name))
 
     @staticmethod
     def get_utc_offset_str(tz_name):
-        return datetime.datetime.now(pytz.timezone(tz_name)).strftime('%z')
+        return datetime.now(pytz.timezone(tz_name)).strftime('%z')
 
     @staticmethod
     def to_datetime_utc(local_datetime):
@@ -143,7 +159,7 @@ class DateUtils(object):
         local_date_value: Date with TZ. Naive dates will crash.
         """
         utc_datetime = local_datetime.astimezone(pytz.utc)
-        return datetime.datetime(utc_datetime.year, utc_datetime.month, utc_datetime.day, utc_datetime.hour, utc_datetime.minute, utc_datetime.second, utc_datetime.microsecond)
+        return datetime(utc_datetime.year, utc_datetime.month, utc_datetime.day, utc_datetime.hour, utc_datetime.minute, utc_datetime.second, utc_datetime.microsecond)
 
     @staticmethod
     def add_seconds(date_value, seconds_offset):

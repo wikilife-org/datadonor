@@ -33,10 +33,25 @@ def report_global_physical_steps(request):
                                   RequestContext(request)) 
 
 
+from utils.date_util import get_last_sunday,get_last_sunday_from_date, get_next_sunday_from_date
+from datetime import date
 
 def report_global_physical_miles(request):
     pic = request.GET.get('pic', False)
-    dto = PhysicalActivityDistributionService().get_miles_distribution_global()
+    date_info = get_last_sunday()
+    from_date = request.GET.get('from', date_info[1])
+    to_date = request.GET.get('to', date_info[2])
+    
+    prev_date = get_last_sunday_from_date(from_date)
+    prev = {"from":prev_date[1], "to":prev_date[2]}
+    
+    
+    if to_date <= date.today().strftime("%Y-%m-%d"):
+        next_date = get_next_sunday_from_date(to_date)
+        next = {"from":next_date[1], "to":next_date[2]}
+    else:
+        next = None
+    dto = PhysicalActivityDistributionService().get_miles_distribution_global_by_date(from_date, to_date)
     data = {
             "days": {
                      "sunday":     dto["sun"], 
@@ -51,7 +66,12 @@ def report_global_physical_miles(request):
             "total_users": dto["total_users"]
 
     }
-    return render_to_response('dashboard/global_report_physical_miles.html',{"data":simplejson.dumps(data),"total_users":data["total_users"], "pic":pic, "avg":data["avg"]},
+    return render_to_response('dashboard/global_report_physical_miles.html',{"data": simplejson.dumps(data),
+                                                                             "total_users": data["total_users"], 
+                                                                             "pic": pic, 
+                                                                             "avg": data["avg"],
+                                                                             "prev": prev,
+                                                                             "next": next, "from": from_date, "to":to_date},
                                   RequestContext(request)) 
 
 def report_global_physical_duration(request):

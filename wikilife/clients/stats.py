@@ -62,7 +62,7 @@ class Stats(BaseWikilifeClient):
         params = {"metric_id": metric_id, "from": from_date, "to":to_date}
         response_dto = self.rest_get("/4/stats/global/aggregation_by_day/", params)[2]
         return response_dto
-    
+
     def get_global_distance_from_sunday(self):
         date_info = get_last_sunday()
         from_date = date_info[1]
@@ -71,7 +71,13 @@ class Stats(BaseWikilifeClient):
         params = {"metric_id": metric_id, "from": from_date, "to":to_date}
         response_dto = self.rest_get("/4/stats/global/aggregation_by_day/", params)[2]
         return response_dto
-
+    
+    def get_global_distance_by_date(self, from_date, to_date):
+        metric_id = 2344
+        params = {"metric_id": metric_id, "from": from_date, "to":to_date}
+        response_dto = self.rest_get("/4/stats/global/aggregation_by_day/", params)[2]
+        return response_dto
+    
     def get_global_distance_one_year(self):
         date_info = get_last_year()
         from_date = date_info[1]
