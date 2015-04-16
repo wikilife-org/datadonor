@@ -180,12 +180,17 @@ def exercise_history(request):
     data = []
     #open csv
     f = open(path)
-    data = csv.reader(f)[100]
+    data_csv = csv.reader(f)
+    
+    count = 0
+    for row in data_csv:
+        print row
+        count = count + 1
+        
+        if count == 100:
+            break
+        data.append(row)
 
-    for row in data:
-      print row
-    #Iterate data
-    #Encode user
     return render_to_response('data/table.html',{"data":data},
                                   RequestContext(request))
     
