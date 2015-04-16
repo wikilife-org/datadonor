@@ -1,0 +1,90 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Datadonors | Data</title>
+
+<!-- Metatags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=1024, initial-scale=1.0">
+
+<!-- Iconos -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="/static/img/favicon.ico" />
+
+<!-- Styles -->
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/footer.css" rel="stylesheet" />
+<link href="/static/css/data.css" rel="stylesheet" />
+
+<!-- Javascript -->
+<script type="text/javascript"
+	src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="/static/js/funciones.js"></script>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css"
+	href="//cdn.datatables.net/1.10.6/css/jquery.dataTables.css">
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8"
+	src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8"
+	src="//cdn.datatables.net/1.10.6/js/jquery.dataTables.js"></script>
+</head>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#table_id').DataTable();
+	});
+</script>
+
+<body>
+
+	<div id="container">
+
+		<!--header-->
+		{% include "header.include.html" %}
+		<!--/header-->
+
+		<div class="full_container plain_text learn-more">
+
+			<div class="centered_container">
+
+				<h2>{% trans "Datadonors Data - Exercise" %}</h2>
+
+				<p>{% trans "Datadonors aggregates and shares all collected data
+					by making it available to the general public." %}</p>
+
+
+				<table id="table_id" class="display">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>UserId</th>
+							<th>Steps</th>
+							<th>Distance(KM)</th>
+							<th>Calories</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for d in data %}
+						<tr>
+							<td>{{d.0}}</td>
+							<td>{{d.1}}</td>
+							<td>{{d.2}}</td>
+							<td>{{d.3}}</td>
+							<td>{{d.4}}</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+		{% include "footer.include.html" %}
+	</div>
+</body>
+</html>
