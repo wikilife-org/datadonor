@@ -186,7 +186,9 @@ def exercise_history(request):
     for row in data_csv:
         print row
         count = count + 1
-
+        
+        if count == 1000:
+            break
         data.append(row)
 
     return render_to_response('data/table.html',{"data":data},
