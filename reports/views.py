@@ -176,7 +176,7 @@ import csv
 
 
 def exercise_history(request):
-    path = "../static/datadonors.csv"
+    path = "/home/datadonor/static/datadonors.csv"
     data = []
     #open csv
     f = open(path)
