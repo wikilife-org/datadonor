@@ -196,7 +196,7 @@ def exercise_history(request):
         if count != 1:
             encrypted_user = caesar(row[1].lower(), 2).upper()
             data.append([row[0], encrypted_user , row[2], row[3], row[4]])
-        if count == 1000:
+        if count == 1001:
             break
         
         
