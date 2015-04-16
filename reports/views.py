@@ -190,6 +190,8 @@ def exercise_history(request):
     
     count = 0
     for row in data_csv:
+        if count == 0:
+            continue
         print row
         count = count + 1
         
