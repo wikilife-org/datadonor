@@ -48,6 +48,7 @@ urlpatterns = patterns('',
     url(r'^email/validate/(?P<user_encode>.+)/',  validate, name='test_report'),
     (r'^i18n/', include('django.conf.urls.i18n')),
     
+    url(r'^statistics/exercise/', exercise_history, name='exercise_history'),
     url(r'^statistics/physical-activity-steps-this-week-distribution/', report_global_physical_steps, name='report_global_physical_steps'),
     url(r'^statistics/physical-activity-steps-distribution/', report_global_physical_steps, name='report_global_physical_steps'),
     url(r'^statistics/physical-activity-steps/', report_global_physical_steps, name='report_global_physical_steps'),
