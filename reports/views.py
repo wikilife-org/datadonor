@@ -196,8 +196,8 @@ def exercise_history(request):
         if count == 1000:
             break
         
-        #caesar(row[1], 2).upper()
-        data.append([row[0], "hola" , row[2], row[3], row[4]])
+        encrypted_user = caesar(row[1], 2).upper()
+        data.append([row[0], encrypted_user , row[2], row[3], row[4]])
 
     return render_to_response('data/table.html',{"data":data},
                                   RequestContext(request))
