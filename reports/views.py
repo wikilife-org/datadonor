@@ -173,7 +173,13 @@ def report_for_user_health(request, user_id):
                                   RequestContext(request))
   
 import csv
+import string
 
+def caesar(plaintext, shift):
+    alphabet = string.ascii_lowercase
+    shifted_alphabet = alphabet[shift:] + alphabet[:shift]
+    table = string.maketrans(alphabet, shifted_alphabet)
+    return plaintext.translate(table)
 
 def exercise_history(request):
     path = "/home/datadonor/static/datadonors.csv"
@@ -189,6 +195,7 @@ def exercise_history(request):
         
         if count == 1000:
             break
+        row[0] = caesar(row[0], 5)
         data.append(row)
 
     return render_to_response('data/table.html',{"data":data},
