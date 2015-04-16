@@ -23,6 +23,13 @@
 <script type="text/javascript"
 	src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
 
+
+<link rel="stylesheet" type="text/css"
+    href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+    href="//cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.css">
+
+
 <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css"
 	href="http://cdn.datatables.net/1.10.6/css/jquery.dataTables.css">
@@ -36,6 +43,18 @@
 	<script type="text/javascript">
     $(document).ready(function() {
         $('#table_id').DataTable();
+        $('#table_id tbody')
+        .on( 'mouseover', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+ 
+            if ( colIdx !== lastIdx ) {
+                $( table.cells().nodes() ).removeClass( 'highlight' );
+                $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+            }
+        } )
+        .on( 'mouseleave', function () {
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+        } );
     });
 </script>
 </head>
