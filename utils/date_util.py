@@ -53,6 +53,26 @@ def get_days_list_completed(days_count):
     
     return result
 
+import datetime
+
+def unix_time(dt):
+    epoch = datetime.datetime.utcfromtimestamp(0)
+    delta = dt - epoch
+    return delta.total_seconds()
+
+def unix_time_millis(dt):
+    return unix_time(dt) * 1000.0
+
+def get_days_list_mili(days_count):
+    result = []
+    today = datetime.datetime.today()
+    for i in range(days_count):
+        td = timedelta(days=i)
+        e_day = today - td
+        result.append((e_day, unix_time_millis(e_day)))
+    
+    return result
+
 def get_days_list(days_count):
     result = []
     today = date.today()

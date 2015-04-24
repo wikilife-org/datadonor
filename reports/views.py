@@ -205,3 +205,15 @@ def exercise_history(request):
                                   RequestContext(request))
     
     
+def miles_history(request):
+    
+    dto = PhysicalActivityDistributionService().get_global_history_miles()
+    year = dto["from_date"].year
+    month = dto["from_date"].month -1
+    day = dto["from_date"].day
+    print dto["data_stock"]
+    return render_to_response('data/line_chart.html',{"data":dto["data"], "data_stock":dto["data_stock"], "y":year, "m":month, "d":day,"to_date":date.today().strftime("%Y-%m-%d")},
+                                  RequestContext(request))
+    
+    
+    

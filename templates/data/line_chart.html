@@ -1,0 +1,176 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Datadonors | Data</title>
+
+<!-- Metatags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=1024, initial-scale=1.0">
+
+<!-- Iconos -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/static/img/favicon.ico" />
+
+<!-- Styles -->
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/footer.css" rel="stylesheet" />
+<link href="/static/css/data.css" rel="stylesheet" />
+
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <style type="text/css">
+${demo.css}
+        </style>
+        <script type="text/javascript">
+$(function () {
+	
+	
+    // Create the chart
+    $('#container_stock_chart').highcharts('StockChart', {
+
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: 'Miles AVG.'
+        },
+
+        scrollbar: {
+            barBackgroundColor: 'gray',
+            barBorderRadius: 7,
+            barBorderWidth: 0,
+            buttonBackgroundColor: 'gray',
+            buttonBorderWidth: 0,
+            buttonBorderRadius: 7,
+            trackBackgroundColor: 'none',
+            trackBorderWidth: 1,
+            trackBorderRadius: 8,
+            trackBorderColor: '#CCC'
+        },
+
+        series: [{
+            name: 'Miles Avg.',
+            data: {{data_stock}},
+            tooltip: {
+                valueDecimals: 2
+            }
+        }]
+    });
+	
+    $('#container_chart').highcharts({
+        chart: {
+            zoomType: 'x'
+        },
+        title: {
+            text: 'Miles'
+        },
+        subtitle: {
+            text: document.ontouchstart === undefined ?
+                    'Click and drag in the plot area to zoom in' :
+                    'Pinch the chart to zoom in'
+        },
+        xAxis: {
+            type: 'datetime',
+            minRange: 14 * 24 * 3600000 // fourteen days
+        },
+        yAxis: {
+            title: {
+                text: 'Miles avg.'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                marker: {
+                    radius: 2
+                },
+                lineWidth: 1,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                threshold: null
+            }
+        },
+
+        series: [{
+            type: 'area',
+            name: 'Miles avg.',
+            pointInterval: 24 * 3600 * 1000,
+            pointStart: Date.UTC({{y}}, {{m}}, {{d}}), //YYYY-MM-DD
+            data: {{ data }}
+        }]
+    });
+});
+        </script>
+        
+        <style>
+
+.plain_text .centered_container {
+    padding: 100px 0;
+    margin-right: 10%;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.learn-more {
+    background-color: #b9bdc7;
+    position: relative;
+}
+.plain_text .centered_container p {
+    color: #fff;
+    font-family: "Omnes-Semibold";
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+}
+</style>
+    </head>
+    <body>
+<script src="/static/js/highcharts/highstock.js"></script>
+<script src="/static/js/highcharts/modules/exporting.js"></script>
+
+
+
+    <div id="container">
+
+        <!--header-->
+        {% include "header.include.html" %}
+        <!--/header-->
+
+        <div class="full_container plain_text learn-more">
+
+            <div class="centered_container">
+
+                <h2>{% trans "Miles Avg. Per Day" %}</h2>
+
+                <p>{% trans "Datadonors aggregates and shares all collected data by making it available to the general public." %}</p>
+                
+                
+                <div id="container_chart" style="min-width: 80%; height: 700px; margin: 0 auto;margin-bottom: 50px"></div>
+                <div id="container_stock_chart" style="min-width: 610px; height: 700px; margin: 0 auto"></div>
+                
+                
+            </div>
+            
+            
+        </div>
+
+        {% include "footer.include.html" %}
+    </div>
+</body>
+</html>

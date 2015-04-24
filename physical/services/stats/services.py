@@ -12,7 +12,7 @@ from physical.models import RUNNING_WL_ACT_ID, WALKING_WL_ACT_ID,\
 
 from wikilife.clients.stats import Stats
 from physical.models import UserActivityLog
-from utils.date_util import get_last_sunday_list_days
+from utils.date_util import get_last_sunday_list_days, get_days_list, get_days_list_mili
 from django.db.models.aggregates import Sum, Avg
 
 class PhysicalActivityDistributionService(object):
@@ -156,6 +156,13 @@ class PhysicalActivityDistributionService(object):
         result["total_users"] = entries
         return result
 
+    def get_global_distribution_miles_history_by_date(self, from_date, to_date):
+
+        
+        client = Stats({"HOST":"http://api.wikilife.org"})
+        return client.get_global_distance_by_date(from_date, to_date)["data"]
+        
+    
     def _get_global_distribution_miles_report_by_date(self, from_date, to_date):
 
         
@@ -212,7 +219,36 @@ class PhysicalActivityDistributionService(object):
         result = self._get_user_distribution_info(user, "hours",result)
         
         return result
-    
+
+    def get_global_history_miles(self):
+        #steps_days = client.get_global_steps_from_sunday()["data"]
+        #aggregation in DD
+        count = 0
+        wrp_result = {}
+        result = []
+        res = []
+        h_id = "miles__sum"
+        day_list = get_days_list_mili(365)
+        day_list.reverse()
+        wrp_result["to_date"] = day_list[len(day_list)-1][0]
+        wrp_result["from_date"] = day_list[0][0]
+        types = ["walking", "running", "cycling", "move", "run", "skateboarding", "bicycling"]
+        for day in day_list:
+
+            values = UserActivityLog.objects.filter(execute_time=day[0], type__in=types).aggregate(Sum("miles"))
+            count = UserActivityLog.objects.filter(execute_time=day[0], type__in=types).values_list('user', flat=True).distinct().count()
+            value = values[h_id] or 0
+
+            avg_ = 0
+            if count:
+                avg_ = value / count
+            result.append(avg_)
+            res.append([int(day[1]), avg_])
+
+        wrp_result["data"] = result
+        wrp_result["data_stock"] = res
+        return wrp_result
+
     def _get_global_distribution_hours_report(self):
 
 

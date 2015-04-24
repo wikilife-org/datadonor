@@ -6,6 +6,7 @@ from django.conf.urls import patterns, include, url
 #from social.facebook import facebook_view
 from views import *
 from reports.views import *
+from reports.views import miles_history
 
 admin.autodiscover()
 
@@ -49,6 +50,7 @@ urlpatterns = patterns('',
     (r'^i18n/', include('django.conf.urls.i18n')),
     
     url(r'^statistics/exercise/', exercise_history, name='exercise_history'),
+    url(r'^statistics/miles/', miles_history, name='miles_history'),
     url(r'^statistics/physical-activity-steps-this-week-distribution/', report_global_physical_steps, name='report_global_physical_steps'),
     url(r'^statistics/physical-activity-steps-distribution/', report_global_physical_steps, name='report_global_physical_steps'),
     url(r'^statistics/physical-activity-steps/', report_global_physical_steps, name='report_global_physical_steps'),
