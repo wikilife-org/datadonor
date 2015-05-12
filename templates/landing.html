@@ -178,7 +178,11 @@ function move_slider() {
     }
 }
 $(function () {
-
+    
+	$('html, body') .animate({
+        scrollTop: $('#about' ) .offset() .top - 50
+        //scrollTop: $('#'+ele.attr('data-loc')).offset().top - (ab.main.vars.device != 'mobile' ? 55 : '')
+    }, 500);
 	$('#home').hide();
 
 	
