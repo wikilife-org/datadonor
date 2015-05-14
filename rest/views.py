@@ -41,6 +41,17 @@ from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
 from bson import json_util
+import logging
+
+
+logger = logging.getLogger('datadonors')
+
+file_log_handler = logging.FileHandler('rest.log')
+logger.addHandler(file_log_handler)
+
+# nice output format
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_log_handler.setFormatter(formatter)
 
  
 TYPE_DICT = {}
@@ -131,10 +142,10 @@ def log(request):
             obj = process(user, opr, value, date_)
 
     else:
-        print>>simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}})
+        logger.info(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}))
         return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
     
-    print>>simplejson.dumps({"message": "Datadonated!", "status": "success", "data":{}})
+    logger.info(simplejson.dumps({"message": "Datadonated!", "status": "success", "data":{}}))
     return HttpResponse(simplejson.dumps({"message": "Datadonated!", "status": "success", "data":{}}), mimetype="application/json")  
   
 
