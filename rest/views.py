@@ -42,11 +42,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
 from bson import json_util
 import logging
-
+from os import path
 
 logger = logging.getLogger('datadonors')
 
-file_log_handler = logging.FileHandler('rest.log')
+file_log_handler = logging.FileHandler(path.join(path.dirname(__file__),'rest.log'))
 logger.addHandler(file_log_handler)
 
 # nice output format
