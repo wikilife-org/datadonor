@@ -131,7 +131,10 @@ def log(request):
             obj = process(user, opr, value, date_)
 
     else:
+        print>>simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}})
         return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
+    
+    print>>simplejson.dumps({"message": "Datadonated!", "status": "success", "data":{}})
     return HttpResponse(simplejson.dumps({"message": "Datadonated!", "status": "success", "data":{}}), mimetype="application/json")  
   
 
