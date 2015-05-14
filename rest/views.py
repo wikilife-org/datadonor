@@ -46,7 +46,7 @@ from os import path
 
 logger = logging.getLogger('datadonors')
 
-file_log_handler = logging.FileHandler(path.join(path.dirname(__file__),'rest.log'))
+file_log_handler = logging.FileHandler(path.join(path.dirname(__file__),'../logs/rest.log'))
 logger.addHandler(file_log_handler)
 
 # nice output format
