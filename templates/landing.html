@@ -177,8 +177,21 @@ function move_slider() {
         $('.nav-slider #thumb-' + (slide_actual)) .addClass('active');
     }
 }
+
+$().ready(function() {
+    var $scrollingDiv = $("#news_content");
+
+    $(window).scroll(function(){            
+        $scrollingDiv
+            .stop()
+            .animate({"marginTop": ($(window).scrollTop() )}, "slow" );         
+    });
+});
+
 $(function () {
     
+	 
+	  
 	$('html, body') .animate({
         scrollTop: $('#about' ) .offset() .top - 50
         //scrollTop: $('#'+ele.attr('data-loc')).offset().top - (ab.main.vars.device != 'mobile' ? 55 : '')
