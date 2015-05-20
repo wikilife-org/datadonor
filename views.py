@@ -38,6 +38,9 @@ def send_test_email(request):
     return render_to_response('static/mission.html',{},
                                   RequestContext(request))
 
+def app(request):
+    return render_to_response('app/app.html',{},
+                                  RequestContext(request))
 def support_us(request):
     return render_to_response('static/support.html',{},
                                   RequestContext(request))
@@ -81,7 +84,7 @@ def terms(request):
     show_wizard =  request.user.is_authenticated() or request.session.get("user_agree", False)
     if show_wizard:
         return HttpResponseRedirect('/wizard/')
-    return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard, 'agent':agent},
+    return render_to_response('wizard.html', {'version': version, 'show_wizard':show_wizard,},
                                   RequestContext(request))
 
 def privacy(request):

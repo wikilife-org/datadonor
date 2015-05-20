@@ -33,6 +33,7 @@ urlpatterns = patterns('',
     url(r'^privacy/', privacy, name='privacy'),
     url(r'^terms-of-service/', tos, name='tos'),
     url(r'^learn-more/', learn_more, name='learn-more'),
+    url(r'^app/', app, name='app'),
 
     url(r'', include('social_auth.urls')),
     url(r'^genomics/', include('genomics.urls')),
