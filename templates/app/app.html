@@ -73,18 +73,7 @@
             var jssor_slider2 = new $JssorSlider$("slider2_container", options);
             //responsive code begin
             //you can remove responsive code if you don't want the slider scales while window resizes
-            function ScaleSlider() {
-                var parentWidth = jssor_slider2.$Elmt.parentNode.clientWidth;
-                if (parentWidth)
-                    jssor_slider2.$ScaleWidth(Math.min(parentWidth, 800));
-                else
-                    window.setTimeout(ScaleSlider, 30);
-            }
-            ScaleSlider();
-
-            $(window).bind("load", ScaleSlider);
-            $(window).bind("resize", ScaleSlider);
-            $(window).bind("orientationchange", ScaleSlider);
+            
             //responsive code end
         });
     </script>
@@ -105,8 +94,8 @@
         <p>{% trans "Datadonors iPhone app is now available in the appStore" %}</p>
         <p>{% trans "Share your HealthKit data using the app" %}</p>
 
-    <div id="slider2_container" style="position: relative; width: 800px;
-        height: 860px; overflow: hidden;">
+    <div id="slider2_container" style="position: relative; width: 500px;
+        height: 660px; overflow: hidden; margin-left:120px">
 
         <!-- Loading Screen -->
         <div u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -114,46 +103,46 @@
                 background-color: #000; top: 0px; left: 0px;width: 100%;height:100%;">
             </div>
             <div style="position: absolute; display: block; background: url(/static/img/loading2.gif) no-repeat center center;
-                top: 0px; left: 0px;width: 100%;height:100%;">
+                top: 0px; left: 150px;width: 100%;height:100%;">
             </div>
         </div>
 
         <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 100px; top: 50px; width: 340px; height: 560px;
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 50px; width: 340px; height: 560px;
             overflow: hidden;">
             <div>
-                <img u=image src="/static/img/app/1.png" />
+                <img u=image src="/static/img/app/1.png" width="240" height="560px" />
                 
             </div>
             <div>
-                <img u=image src="/static/img/app/2.png" />
+                <img u=image src="/static/img/app/2.png" width="240" height="360px"/>
 
             </div>
             <div>
-                <img u=image src="/static/img/app/3.png" />
+                <img u=image src="/static/img/app/3.png" width="240" height="360px"/>
 
             </div>
             <div>
-                <img u=image src="/static/img/app/4.png" />
+                <img u=image src="/static/img/app/4.png" width="240" height="360px"/>
 
             </div>
             <div>
-                <img u=image src="/static/img/app/5.png" />
+                <img u=image src="/static/img/app/5.png" width="240" height="360px"/>
             </div>
             <div>
-                <img u=image src="/static/img/app/6.png" />
+                <img u=image src="/static/img/app/6.png" width="240" height="360px"/>
                 
             </div>
             <div>
-                <img u=image src="/static/img/app/7.png" />
+                <img u=image src="/static/img/app/7.png" width="240" height="360px"/>
                 
             </div>
             <div>
-                <img u=image src="/static/img/app/8.png" />
+                <img u=image src="/static/img/app/8.png" width="240" height="360px"/>
                 
             </div>
             <div>
-                <img u=image src="/static/img/app/9.png" />
+                <img u=image src="/static/img/app/9.png" width="240" height="360px"/>
                 
             </div>
             
@@ -161,44 +150,13 @@
 
        
         <!--#region Bullet Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
-        <style>
-            /* jssor slider bullet navigator skin 01 css */
-            /*
-            .jssorb01 div           (normal)
-            .jssorb01 div:hover     (normal mouseover)
-            .jssorb01 .av           (active)
-            .jssorb01 .av:hover     (active mouseover)
-            .jssorb01 .dn           (mousedown)
-            */
-            .jssorb01 {
-                position: absolute;
-            }
-            .jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
-                position: absolute;
-                /* size of bullet elment */
-                width: 12px;
-                height: 12px;
-                filter: alpha(opacity=70);
-                opacity: .7;
-                overflow: hidden;
-                cursor: pointer;
-                border: #000 1px solid;
-            }
-            .jssorb01 div { background-color: gray; }
-            .jssorb01 div:hover, .jssorb01 .av:hover { background-color: #d3d3d3; }
-            .jssorb01 .av { background-color: #fff; }
-            .jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
-        </style>
-        <!-- bullet navigator container -->
-        <div u="navigator" class="jssorb01" style="bottom: 16px; right: 10px;">
-            <!-- bullet navigator item prototype -->
-            <div u="prototype"></div>
-        </div>
-        <!--#endregion Bullet Navigator Skin End -->
-        
+
         <!--#region Arrow Navigator Skin Begin -->
         <style>
+        .learn-more {
+    background-color: #8A45E5;
+    position: relative;
+}
             /* jssor slider arrow navigator skin 05 css */
             /*
             .jssora05l                  (normal)
@@ -226,10 +184,10 @@
             .jssora05r.jssora05rdn { background-position: -310px -40px; }
         </style>
         <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora05l" style="bottom: 60px; left: 330px;">
+        <span u="arrowleft" class="jssora05l" style="bottom: 0px; left: 90px;">
         </span>
         <!-- Arrow Right -->
-        <span u="arrowright" class="jssora05r" style="bottom: 60px; right: 330px">
+        <span u="arrowright" class="jssora05r" style="bottom: 0px; right: 250px">
         </span>
         <!--#endregion Arrow Navigator Skin End -->
         <!-- Trigger -->
