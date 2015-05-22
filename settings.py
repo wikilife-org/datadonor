@@ -8,7 +8,7 @@ except ImportError:
     sys.path.insert(0, '..')
 
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ROOT_PATH = abspath(dirname(__file__))
