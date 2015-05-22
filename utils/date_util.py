@@ -11,7 +11,7 @@ def get_next_sunday_from_date(from_date):
 
 
 def get_last_sunday_from_date(from_date):
-    today = datetime.strptime(from_date, "%Y-%m-%d").date()
+    today = datetime.datetime.strptime(from_date, "%Y-%m-%d").date()
     offset = (today.weekday() - 6) % 7
     if offset ==0:
         offset = 7
