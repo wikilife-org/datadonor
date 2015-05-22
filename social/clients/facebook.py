@@ -33,12 +33,14 @@ class FacebookClient(BaseDeviceClient):
     def get_avg_weekly_like(self):
         today = date.today()
         total_likes_query = "SELECT object_id FROM like WHERE user_id=me() limit 5000"
-        total_likes = self._graph.fql(total_likes_query)
+        #total_likes = self._graph.fql(total_likes_query)
+        total_likes = 0
         count_likes = len(total_likes)
         index = count_likes - 1
         avg_likes = 0
         f_object = None
         
+        """
         while f_object is None and index >= 0:
             try:
                 f_object = self._graph.get_object(total_likes[index]["object_id"])
@@ -53,6 +55,7 @@ class FacebookClient(BaseDeviceClient):
             weeks = ((today - update_date).days or 7) / 7
             if weeks>0:
                 avg_likes = int(math.ceil((index + 1) / weeks))
+        """
         
         return avg_likes
     
