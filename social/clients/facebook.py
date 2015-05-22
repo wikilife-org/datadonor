@@ -21,10 +21,13 @@ class FacebookClient(BaseDeviceClient):
     def get_avg_weekly_post(self):
         today = date.today()
         posts = self._graph.request("me/posts", {"limit":1000})
-        index = len(posts["data"]) - 1
-        initial_date = datetime.strptime(posts["data"][index]["created_time"][:10], "%Y-%m-%d").date()
-        weeks = (today - initial_date).days / 7
-        avg_posts = int(math.ceil((index + 1) / weeks))
+        if posts["data"]:
+            index = len(posts["data"]) - 1
+            initial_date = datetime.strptime(posts["data"][index]["created_time"][:10], "%Y-%m-%d").date()
+            weeks = (today - initial_date).days / 7
+            avg_posts = int(math.ceil((index + 1) / weeks))
+        else:
+            avg_posts = 0
         return avg_posts
     
     def get_avg_weekly_like(self):
