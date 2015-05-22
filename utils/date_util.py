@@ -2,7 +2,7 @@
 from datetime import date, datetime, time, timedelta
 
 def get_next_sunday_from_date(from_date):
-    today = datetime.strptime(from_date, "%Y-%m-%d").date()
+    today = datetime.datetime.strptime(from_date, "%Y-%m-%d").date()
     offset = (today.weekday() - 6) % 7
     if offset ==0:
         offset = 7
@@ -19,7 +19,7 @@ def get_last_sunday_from_date(from_date):
     return (last_sunday, last_sunday.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 
 def get_last_sunday():
-    today = date.today()
+    today = datetime.date.today()
     offset = (today.weekday() - 6) % 7
     if offset ==0:
         offset = 7
@@ -27,12 +27,12 @@ def get_last_sunday():
     return (last_sunday, last_sunday.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 
 def get_last_year():
-    today = date.today()
+    today = datetime.date.today()
     last_year = today - timedelta(days=365)
     return (last_year, last_year.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 
 def get_last_sunday_list_days():
-    today = date.today()
+    today = datetime.date.today()
     offset = (today.weekday() - 6) % 7
     if offset ==0:
         offset = 7
@@ -44,7 +44,7 @@ def get_last_sunday_list_days():
 
 def get_days_list_completed(days_count):
     result = []
-    today = date.today()
+    today = datetime.date.today()
     for i in range(days_count):
         td = timedelta(days=i)
         e_day = today - td
@@ -75,7 +75,7 @@ def get_days_list_mili(days_count):
 
 def get_days_list(days_count):
     result = []
-    today = date.today()
+    today = datetime.date.today()
     for i in range(days_count):
         td = timedelta(days=i)
         e_day = today - td
@@ -163,15 +163,15 @@ class DateUtils(object):
 
     @staticmethod
     def get_datetime_utc():
-        return datetime.utcnow()
+        return datetime.datetime.utcnow()
 
     @staticmethod
     def get_datetime_local(tz_name):
-        return datetime.now(pytz.timezone(tz_name))
+        return datetime.datetime.now(pytz.timezone(tz_name))
 
     @staticmethod
     def get_utc_offset_str(tz_name):
-        return datetime.now(pytz.timezone(tz_name)).strftime('%z')
+        return datetime.datetime.now(pytz.timezone(tz_name)).strftime('%z')
 
     @staticmethod
     def to_datetime_utc(local_datetime):
