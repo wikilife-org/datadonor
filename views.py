@@ -15,14 +15,18 @@ import base64
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from users.models import ResarchKitBackendUser
-
+from validate_email import validate_email
 
 def datadonors_researchkit_backend(request):
     context = {"show_thanks": False}
     if request.POST:
         email = request.POST.get("email","")
-        ResarchKitBackendUser.objects.create(email=email)
-        context["show_thanks"] = True
+        is_valid= validate_email(email)
+        if is_valid:
+            ResarchKitBackendUser.objects.create(email=email)
+            context["show_thanks"] = True
+        else:
+            context["error"] = True
         
     return render_to_response('backend/backend.html',context,RequestContext(request))
 
@@ -30,6 +34,7 @@ def datadonors_researchkit_backend_email(request):
     context = {"show_thanks": False}
     if request.POST:
         email = request.POST.get("email","")
+        
         ResarchKitBackendUser.objects.create(email=email)
         context["show_thanks"] = True
         
