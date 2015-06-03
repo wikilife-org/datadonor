@@ -75,7 +75,7 @@ class FitbitService(BaseDeviceService):
 
         user = User.objects.get(id=user_id)
         dd_user_profile = self._update_profile(user, **profile_items)
-        distanceUnit = profile.get("distanceUnit", "METRIC")
+        distanceUnit = profile.get("distanceUnit", "en_US")
         foods = client.get_user_foods()
         for item in foods:
             for food in item["foods"]:
@@ -138,6 +138,7 @@ class FitbitService(BaseDeviceService):
                 
                 if "duration" in activity:
                     activity_obj.hours = round(float(activity["duration"]) / MILISECONDS_TO_HOURS,2)
+                    
                 if "distance" in activity:
                     if distanceUnit == "en_GB":
                         activity_obj.miles =  round(float(activity["distance"] * KILOMETROS_TO_MILES),2) 
@@ -147,6 +148,10 @@ class FitbitService(BaseDeviceService):
                     activity_obj.steps =  round(float(activity["steps"])) 
 
                 activity_obj.save()
+                
+            """for summary in item["summary"]:
+                activity_obj, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=activity["logId"])"""
+                
 
                 """if created:
                     wl_log = self._create_activity_log(activity, distanceUnit)

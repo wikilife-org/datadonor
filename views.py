@@ -14,7 +14,27 @@ from utils.commons import send_email_report
 import base64
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+from users.models import ResarchKitBackendUser
 
+
+def datadonors_researchkit_backend(request):
+    context = {"show_thanks": False}
+    if request.POST:
+        email = request.POST.get("email","")
+        ResarchKitBackendUser.objects.create(email=email)
+        context["show_thanks"] = True
+        
+    return render_to_response('backend/backend.html',context,RequestContext(request))
+
+def datadonors_researchkit_backend_email(request):
+    context = {"show_thanks": False}
+    if request.POST:
+        email = request.POST.get("email","")
+        ResarchKitBackendUser.objects.create(email=email)
+        context["show_thanks"] = True
+        
+    return render_to_response('backend/backend.html',context,RequestContext(request))
+ 
 def new_users_report(request):
     total, result = get_new_users_distribution()
     total_user, result_devices = get_device_by_users_distribution()

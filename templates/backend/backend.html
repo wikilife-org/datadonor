@@ -1,0 +1,185 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Datadonors | {% blocktrans%}DataDonors ResearchKit Backend{% endblocktrans%}</title>
+
+  <!-- Metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=1024, initial-scale=1.0">
+
+  <!-- Iconos -->
+  <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"/>
+
+  <!-- Styles -->
+  <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+  <link href="/static/css/footer.css" rel="stylesheet" />
+  <link href="/static/css/team.css" rel="stylesheet" />
+
+  <!-- Javascript -->
+<script type="text/javascript" src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+<style type="text/css">
+.form-style-1 {
+    
+    margin-bottom: 0px !important;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style-1 li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+div.learn-more ul li::before {
+    content: "·";
+    font-size: 20px;
+    margin-right: 0px !important;
+}
+
+.form-style-1 label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+.form-style-1 input[type=text], 
+.form-style-1 input[type=date],
+.form-style-1 input[type=datetime],
+.form-style-1 input[type=number],
+.form-style-1 input[type=search],
+.form-style-1 input[type=time],
+.form-style-1 input[type=url],
+.form-style-1 input[type=email],
+textarea, 
+select{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 9px;
+    margin:0px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none; 
+    width: 200px; 
+}
+.form-style-1 input[type=text]:focus, 
+.form-style-1 input[type=date]:focus,
+.form-style-1 input[type=datetime]:focus,
+.form-style-1 input[type=number]:focus,
+.form-style-1 input[type=search]:focus,
+.form-style-1 input[type=time]:focus,
+.form-style-1 input[type=url]:focus,
+.form-style-1 input[type=email]:focus,
+.form-style-1 textarea:focus, 
+.form-style-1 select:focus{
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+
+
+.form-style-1 .field-long{
+    width: 100%;
+}
+.form-style-1 .field-select{
+    width: 100%;
+}
+.form-style-1 .field-textarea{
+    height: 100px;
+}
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+    background: #4691A4;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
+.form-style-1 .required{
+    color:red;
+}
+
+div.learn-more h3.info_color {
+    color: #E53759 !important;
+    font-family: "Gotham-Ultra" !important;
+    line-height: 22px;
+    font-size: 17px;
+}
+
+.plain_text .centered_container {
+    min-height: 700px;
+    padding: 100px 0;
+    width: 800px;
+}
+.group span {
+    color: #5b6c7e;
+    font-family: "Omnes-Semibold";
+    font-size: 17px !important;
+    line-height: 24px;
+}
+div.learn-more img {
+    border-radius: 225px;
+    float: left;
+    height: 303px;
+    margin-right: 15px;
+    margin-bottom: 35px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+  <!--header-->
+  {% include "header.include.html" %}
+  <!--/header-->
+
+  <div class="full_container plain_text learn-more">
+    <div class="centered_container">
+
+      <h2>{% blocktrans%}DATADONORS <br/> RESEARCHKIT BACKEND{% endblocktrans%}</h2>
+
+      <p>{% blocktrans%}DataDonors is about to release its ResearchKit Backend service.{% endblocktrans%}</p>
+        <p>{% blocktrans%}This service is specifically designed for researchers developing apps with Apple’s ResearchKit. 
+            It provides a simple API so apps using ResearchKit can easily upload study’s data,
+             and a back-office web interface for managing and accessing the study’s data.{% endblocktrans%}</p>
+
+    
+      <div class="section group">
+        <span>{% blocktrans%}By using this service, researchers don’t need to worry about developing and maintaining a backend for their studies. 
+        Shortly, the ResearchKit Backend service will also provide an iOS SDK to make it even easier implementing a ResearchKit app.{% endblocktrans%}
+        </span>
+        </div>
+    
+    <img src="/static/img/researchkit.png"/>
+    <h3 class="info">{% blocktrans%}Enter your email to be notified when DataDonors ResearchKit Backend is available{% endblocktrans%}</h3>
+    {% if show_thanks %}
+    <h3 class="info_color">{% blocktrans%}Thank you! We will keep you updated.{% endblocktrans%}</h3>
+    {% endif %}
+    <form method="post" action={% url 'datadonors_researchkit_backend' %}>
+    {% csrf_token %}
+<ul class="form-style-1">
+    <li><input type="text" name="email" class="field-divided" placeholder="Email" />&nbsp;<input type="submit" value="Submit" /></li>
+    
+</ul>
+</form>
+            
+    </div>
+  </div>
+
+  {% include "footer.include.html" %}
+</div>
+
+</body>
+</html>

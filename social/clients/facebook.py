@@ -29,7 +29,7 @@ class FacebookClient(BaseDeviceClient):
         else:
             avg_posts = 0
         return avg_posts
-    
+
     def get_avg_weekly_like(self):
         today = date.today()
         total_likes_query = "SELECT object_id FROM like WHERE user_id=me() limit 5000"

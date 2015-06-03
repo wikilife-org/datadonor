@@ -5,7 +5,6 @@ import json
 import datetime
 import urllib
 from physical.clients.base_device_client import BaseDeviceClient
-from social_auth.utils import dsa_urlopen, setting
 from utils.date_util import get_days_list
 
 from requests_oauthlib import OAuth1Session
@@ -228,9 +227,12 @@ class FitbitClient(BaseDeviceClient):
     ]
 
     def __init__(self, host, user_token, system=US, **kwargs):
+        
+        FITBIT_CONSUMER_KEY="c69facdf87e44956bc273e3f07435f3b"
+        FITBIT_CONSUMER_SECRET="0fefbf7bb5ca4957b84677f7de82d155"
 
-        self.consumer_key = setting("FITBIT_CONSUMER_KEY")
-        self.consumer_secret = setting("FITBIT_CONSUMER_SECRET")
+        self.consumer_key = FITBIT_CONSUMER_KEY
+        self.consumer_secret = FITBIT_CONSUMER_SECRET
         self.token = user_token
         self.host = host
         self.client = FitbitOauthClient(self.host, self.consumer_key, self.consumer_secret, self.token,**kwargs)
@@ -1037,4 +1039,38 @@ class FitbitClient(BaseDeviceClient):
         client = FitbitOauthClient(consumer_key, consumer_secret, user_key,
                                    user_secret, user_id)
         return self(client, system)
+    
+    
+if __name__ == "__main__":
+    user_auth = {"access_token": "oauth_token_secret=b4661d063e839942a84cd335523985e9&oauth_token=06c67d048ae28f3225c189fb6dd66533", 
+            "username": None, "expires": None, "id": "2GD57L"}
+    FITBIT_API = "https://api.fitbit.com"
+    
+    client = FitbitClient(FITBIT_API,user_auth["access_token"])
+    #profile = client.get_user_profile()["user"]
+    #print profile
+    """
+    distanceUnit = profile.get("distanceUnit", "en_US")
+    foods = client.get_user_foods()
+    for item in foods:
+        for food in item["foods"]:
+            print food
+
+    sleeps = client.get_user_sleep()
+    for item in sleeps:
+        for sleep in item["sleep"]:
+            print sleep"""
+            
+    activities = client.get_user_fitness_activities()
+    #print activities
+    for item in activities:
+        print item
+        #for activity in item["activities"]:
+        #   print activity
+        
+        #print item["goals"]
+
+        
+    
+    
     

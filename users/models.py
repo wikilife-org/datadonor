@@ -3,6 +3,9 @@
 from django.conf import settings
 from django.db import models
 
+class ResarchKitBackendUser(models.Model):
+    email = models.CharField(max_length=255, blank=False, null=False)
+
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
