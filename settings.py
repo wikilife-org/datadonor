@@ -135,7 +135,8 @@ INSTALLED_APPS = (
     'nutrition',
     'reports',
     'data',
-    'rest'
+    'rest',
+    'markdown_deux'
 
 
 )
