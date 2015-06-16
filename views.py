@@ -39,7 +39,11 @@ def datadonors_researchkit_backend_email(request):
         context["show_thanks"] = True
         
     return render_to_response('backend/backend.html',context,RequestContext(request))
- 
+
+def datadonors_researchkit_backend_doc(request):
+        
+    return render_to_response('researchkit/documentation.html',{},RequestContext(request))
+
 def new_users_report(request):
     total, result = get_new_users_distribution()
     total_user, result_devices = get_device_by_users_distribution()
