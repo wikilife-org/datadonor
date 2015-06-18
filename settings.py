@@ -136,7 +136,6 @@ INSTALLED_APPS = (
     'reports',
     'data',
     'rest',
-    'markdown_deux'
 
 
 )
