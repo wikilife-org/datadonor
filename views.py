@@ -17,6 +17,9 @@ from django.contrib.auth import login
 from users.models import ResarchKitBackendUser
 from validate_email import validate_email
 
+def news(request):
+    return render_to_response('news.html',{},RequestContext(request))
+
 def datadonors_researchkit_backend(request):
     context = {"show_thanks": False}
     if request.POST:
