@@ -1,0 +1,58 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Datadonors | Data</title>
+
+  <!-- Metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=1024, initial-scale=1.0">
+
+  <!-- Iconos -->
+  <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"/>
+
+  <!-- Styles -->
+  <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+  <link href="/static/css/footer.css" rel="stylesheet" />
+  <link href="/static/css/data.css" rel="stylesheet" />
+
+  <!-- Javascript -->
+<script type="text/javascript" src="/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript" src="/static/js/funciones.js"></script>
+
+<style>
+
+.learn-more {
+    background-color: #000000;
+    position: relative;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="container">
+
+  <!--header-->
+  {% include "header.include.html" %}
+  <!--/header-->
+
+  <div class="full_container plain_text learn-more">
+
+    <div class="centered_container">
+
+      <h2>{% trans "Datadonors News" %}</h2>
+
+        <p>{% trans "Geraldine Gueron, our co-founder was talking in TEDx Rosario." %}</p>
+        
+    </div>
+    <iframe width="100%"  style="margin-bottom:200px"height="720" src="https://www.youtube-nocookie.com/embed/T4hzlSn09n8?controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  {% include "footer.include.html" %}
+</div>
+</body>
+</html>
