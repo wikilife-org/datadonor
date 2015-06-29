@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ResearchKit Backend API</title>
+  
+
+  <link rel="shortcut icon" href="./img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> ResearchKit Backend API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">Home</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#researckkit-api">ResearckKit API</a></li>
+                
+                    <li><a class="toctree-l4" href="#documentation">Documentation</a></li>
+                
+                    <li><a class="toctree-l4" href="#consent-api">Consent API</a></li>
+                
+                    <li><a class="toctree-l4" href="#consentsignature">ConsentSignature</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-all-tasks">Get all tasks</a></li>
+                
+                    <li><a class="toctree-l4" href="#update-tasks">Update Tasks</a></li>
+                
+                    <li><a class="toctree-l4" href="#list-published-versions-of-all-surveys">List published versions of all surveys</a></li>
+                
+                    <li><a class="toctree-l4" href="#survey-responses">Survey Responses</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-a-survey">Get a survey</a></li>
+                
+                    <li><a class="toctree-l4" href="#get-the-most-recently-published-version-of-a-survey">Get the most recently published version of a survey</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#survey">Survey</a></li>
+                
+                    <li><a class="toctree-l4" href="#survey-object">Survey Object</a></li>
+                
+                    <li><a class="toctree-l4" href="#submit-answers-in-response-to-a-survey">Submit answers in response to a survey</a></li>
+                
+                    <li><a class="toctree-l4" href="#surveyanswer-object">SurveyAnswer Object</a></li>
+                
+                    <li><a class="toctree-l4" href="#sample-json">Sample JSON</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="about/">About</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="example/">Examples</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">ResearchKit Backend API</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="researckkit-api">ResearckKit API</h1>
+<h2 id="documentation">Documentation</h2>
+<p>Apple’s researchKit backend must have the following endpoints:</p>
+<p>Authentication
+Sign Up
+Does not require authentication. User will be sent an email with a link to verify his or her email; this will need to happen via the web application.</p>
+<table>
+<thead>
+<tr>
+<th>POST</th>
+<th>/api/v1/auth/signUp</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>all users</td>
+</tr>
+<tr>
+<td>request body</td>
+<td></td>
+<td>SignUp</td>
+</tr>
+<tr>
+<td>response</td>
+<td>473</td>
+<td>{"message": "The study '<studyName>' has reached the limit of allowed participants."}</td>
+</tr>
+<tr>
+<td>response</td>
+<td>201</td>
+<td>{"message": "Signed up." }</td>
+</tr>
+</tbody>
+</table>
+<p>Sign In </p>
+<table>
+<thead>
+<tr>
+<th>POST</th>
+<th>/api/v1/auth/signIn</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>all users</td>
+</tr>
+<tr>
+<td>request body</td>
+<td></td>
+<td>SignIn</td>
+</tr>
+<tr>
+<td>response</td>
+<td>200</td>
+<td>UserSessionInfo</td>
+</tr>
+<tr>
+<td>response</td>
+<td>404</td>
+<td>Credentials incorrect or missing</td>
+</tr>
+<tr>
+<td>response</td>
+<td>412</td>
+<td>User has not consented to research</td>
+</tr>
+</tbody>
+</table>
+<h2 id="consent-api">Consent API</h2>
+<p>Many API calls will not be functional until the user establishes consent. 
+Consent to research (v2)</p>
+<table>
+<thead>
+<tr>
+<th>POST</th>
+<th>/api/v2/consent</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>all users</td>
+</tr>
+<tr>
+<td>request body</td>
+<td></td>
+<td>ConsentSignature</td>
+</tr>
+<tr>
+<td>response</td>
+<td>473</td>
+<td>{"message": "The study '<studyName>' has reached the limit of allowed participants."}</td>
+</tr>
+<tr>
+<td>response</td>
+<td>400</td>
+<td>Will return an error if the ConsentSignature JSON does not include a "scope" property; this property must be set to a valid value declaring the scope of data sharing allowed by this participant.</td>
+</tr>
+<tr>
+<td>response</td>
+<td>201</td>
+<td>{ "message": "Consent to research has been recorded." }</td>
+</tr>
+</tbody>
+</table>
+<h2 id="consentsignature">ConsentSignature</h2>
+<p>As part of the consent process, participants submit a decision on how widely they will share their medical information with researchers.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The user's "signature", recorded exactly as entered</td>
+</tr>
+<tr>
+<td>birthdate</td>
+<td>String</td>
+<td>The user's birthday in the format "YYYY-MM-DD".</td>
+</tr>
+<tr>
+<td>imageData</td>
+<td>String</td>
+<td>Image file of the user's signature, as a Base64 encoded string. Should be less than 10kb. Optional.</td>
+</tr>
+<tr>
+<td>imageMimeType</td>
+<td>String</td>
+<td>MIME type of the image data (ex: "image/png"). Optional</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>String</td>
+<td><strong>Required.</strong> This property must have one of three values:   "no_sharing": don't share data generated by this participant (option #1, above);"sponsors_and_partners": share data in data sets that are available to the study researchers and their researcher partners only (option #2, above);"all_qualified_researchers": share data with researchers who qualify under the specific governance qualifications to access the study's data set. These researchers may do research on new questions after the lifetime of the initial research (option #3, above)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>"ConsentSignature"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-all-tasks">Get all tasks</h2>
+<p>Gets all available, started, or scheduled tasks for a user. </p>
+<p>The "until" parameter allows you to retrieve tasks that are scheduled in the future up to the timestamp supplied (to a maximum of four days, at this time). </p>
+<p>The timestamp is a valid ISO 8601 date and time string (any timezone). Once a task is finished, or expires (the time has passed for it to be started), it will be removed from the list of tasks returned to the user.</p>
+<table>
+<thead>
+<tr>
+<th>GET</th>
+<th>/api/v1/tasks?until={timestamp}</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>consented users</td>
+</tr>
+<tr>
+<td>response</td>
+<td>200</td>
+<td>{ "items": Task[], "total": <items.length>, "type": "ResourceList" }</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update-tasks">Update Tasks</h2>
+<p>Update the startedOn or finishedOn timestamps of a task (these are the only values that are writable by the client).<strong> To delete a task, add a finishedOn timestamp to the task and update it, without a startedOn value.</strong> (Users should be given the option to delete tasks from their interface.) This will remove the task from the list of tasks returned by the server. The only other field needed in tasks that are submitted for updates is the GUID of the task, for example:</p>
+<p>[{"guid":"abc-def-ghi", "startedOn": "2015-04-28T08:10:42.000Z"}, {"guid":"abc-def-ghi", "finishedOn": "2015-04-28T15:36:36.112Z"}]</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>POST</th>
+<th>/api/v1/tasks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>consented users</td>
+</tr>
+<tr>
+<td>request</td>
+<td></td>
+<td>Task[]</td>
+</tr>
+<tr>
+<td>response</td>
+<td>200</td>
+<td>{ "message":"Tasks updated." }</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list-published-versions-of-all-surveys">List published versions of all surveys</h2>
+<p>Return the published version of each survey (not necessarily the most recent version of that survey). </p>
+<p>If a survey has not been published, it will not be returned in this array of surveys.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>GET</th>
+<th>/researchers/v1/surveys/published</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>administrators, researchers</td>
+</tr>
+<tr>
+<td>response</td>
+<td></td>
+<td>{ "items": Survey[], "total": <items.length>, "type": "ResourceList" }</td>
+</tr>
+</tbody>
+</table>
+<h2 id="survey-responses">Survey Responses</h2>
+<p>Surveys are issued to users through the activity system. </p>
+<p>This embeds an instance of a Survey with its questions, which can be used to render the UI, as well as any answers that have already been saved in response to this run of the survey.</p>
+<p>Further answers can be submitted for this response object through the API below.
+For systems that do not use the activity system, there is a method for saving answers based on the guid and createdOn properties of a survey. This call returns a SurveyResponse object with a auto-generated identifier, in order to save further answers in future calls, but the whole survey can be answered and the response closed out by sending all answers back in one call. </p>
+<p>Finally, if the client wishes, it can call another variant of this API that allows the client to specify an identifier for a particular run of a survey (that is, an instance of taking a survey, as a participant may take the same survey more than once over the course of a study). This client-supplied identifier must be unique for a given study participant.
+The survey response is only considered completed when an answer has been sent back for every question in the survey (answers can be sent back as "declined" if the user does not want to answer a question).</p>
+<h2 id="get-a-survey">Get a survey</h2>
+<p>These URLs will be referenced by schedules and activities prompting a user to take a survey. </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>GET</th>
+<th>/api/v2/surveys/{surveyGuid}/revisions/{createdOn}</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>consented users</td>
+</tr>
+<tr>
+<td>response</td>
+<td>200</td>
+<td>Survey</td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-the-most-recently-published-version-of-a-survey">Get the most recently published version of a survey</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>GET</th>
+<th>/api/v2/surveys/{surveyGuid}/revisions/published</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>consented users</td>
+</tr>
+<tr>
+<td>response</td>
+<td>200</td>
+<td>Survey</td>
+</tr>
+</tbody>
+</table>
+<h1 id="survey">Survey</h1>
+<h2 id="survey-object">Survey Object</h2>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of this survey (required). The name can be changed in later versions.</td>
+</tr>
+<tr>
+<td>guid</td>
+<td>String</td>
+<td>A unique identifier for this survey, regardless of version.</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>String</td>
+<td>A private name for the survey, only visible to researchers, used to identify the survey on export. It is recommended (but not required) that this identifier be unique for this survey type within this study.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Number</td>
+<td>The version of this survey as used to implement optimistic locking. This must be passed back to the server on an update, unmodified, in order for the update to succeed. If the survey has been concurrently modified, the update will throw an error.</td>
+</tr>
+<tr>
+<td>createdOn</td>
+<td>String</td>
+<td>The ISO 8601 date on which this version of this survey was created.</td>
+</tr>
+<tr>
+<td>modifiedOn</td>
+<td>Number</td>
+<td>The date and time when this version of the survey was last modified.</td>
+</tr>
+<tr>
+<td>published</td>
+<td>boolean</td>
+<td>Is this survey version published? Once published, a survey version may not be modified, but can be scheduled for presentation to users.</td>
+</tr>
+<tr>
+<td>elements</td>
+<td>Array</td>
+<td>An ordered array of SurveyElement objects (either SurveyQuestion or SurveyInfoScreen; see below)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>"Survey"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="submit-answers-in-response-to-a-survey">Submit answers in response to a survey</h2>
+<p>Using this API call, no survey response object is needed to submit answers to a survey. </p>
+<p>However, unless the auto-generated identifier of the response is preserved by the client, these answers cannot be associated later to further answers from the same run through a survey. </p>
+<p>The client can create and close a survey instance by submitting all the answers at once to this API. </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>POST</th>
+<th>/api/v2/surveys/{surveyGuid}/revisions/{createdOn}</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td></td>
+<td>consented users</td>
+</tr>
+<tr>
+<td>request</td>
+<td></td>
+<td>SurveyAnswer[]</td>
+</tr>
+<tr>
+<td>response</td>
+<td>201</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="surveyanswer-object">SurveyAnswer Object</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>questionGuid</td>
+<td>String</td>
+<td>required</td>
+<td>The GUID of the question being answered (will be specific to a survey version).</td>
+</tr>
+<tr>
+<td>declined</td>
+<td>boolean</td>
+<td>required</td>
+<td>If present and set to true, this question was declined by the user. It will be recorded as a completed question for the purpose of determining if the study has been completed.</td>
+</tr>
+<tr>
+<td>answers</td>
+<td>String[]</td>
+<td></td>
+<td>If the question allows multiple answers, then all the answers as strings in an array. Each value in the array must be convertible to the type specified in the constraints for the question. The system preserves the values as they are entered for later display to the user, if necessary.</td>
+</tr>
+<tr>
+<td>client</td>
+<td>String</td>
+<td>required</td>
+<td></td>
+</tr>
+<tr>
+<td>answeredOn</td>
+<td>Number</td>
+<td>required</td>
+<td>Date and time of answer (ISO 8601 date and time value)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td></td>
+<td>"SurveyAnswer"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sample-json">Sample JSON</h2>
+<pre><code>      {   
+         &quot;questionGuid&quot;:&quot;020173a4-7771-4ec2-8da1-9039b05afa0b&quot;,
+         &quot;answers&quot;:[&quot;true&quot;],
+         &quot;answeredOn&quot;:&quot;2014-10-10T17:10:03.553Z&quot;,
+         &quot;client&quot;:&quot;test&quot;,
+         &quot;declined&quot;:false,
+         &quot;type&quot;:&quot;SurveyAnswer&quot;
+      }
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about/" class="btn btn-neutral float-right" title="About"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.14.0
+Build Date UTC : 2015-06-29 19:38:31.692551
+-->
