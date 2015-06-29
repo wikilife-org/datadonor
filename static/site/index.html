@@ -59,21 +59,22 @@
                 
                     <li><a class="toctree-l4" href="#documentation">Documentation</a></li>
                 
+            
+                <li class="toctree-l3"><a href="#authentication">Authentication</a></li>
+                
+                    <li><a class="toctree-l4" href="#sign-up">Sign Up</a></li>
+                
+                    <li><a class="toctree-l4" href="#sign-in">Sign In</a></li>
+                
                     <li><a class="toctree-l4" href="#consent-api">Consent API</a></li>
                 
-                    <li><a class="toctree-l4" href="#consentsignature">ConsentSignature</a></li>
-                
                     <li><a class="toctree-l4" href="#get-all-tasks">Get all tasks</a></li>
-                
-                    <li><a class="toctree-l4" href="#update-tasks">Update Tasks</a></li>
                 
                     <li><a class="toctree-l4" href="#list-published-versions-of-all-surveys">List published versions of all surveys</a></li>
                 
                     <li><a class="toctree-l4" href="#survey-responses">Survey Responses</a></li>
                 
                     <li><a class="toctree-l4" href="#get-a-survey">Get a survey</a></li>
-                
-                    <li><a class="toctree-l4" href="#get-the-most-recently-published-version-of-a-survey">Get the most recently published version of a survey</a></li>
                 
             
                 <li class="toctree-l3"><a href="#survey">Survey</a></li>
@@ -141,9 +142,9 @@
                 <h1 id="researckkit-api">ResearckKit API</h1>
 <h2 id="documentation">Documentation</h2>
 <p>Apple’s researchKit backend must have the following endpoints:</p>
-<p>Authentication
-Sign Up
-Does not require authentication. User will be sent an email with a link to verify his or her email; this will need to happen via the web application.</p>
+<h1 id="authentication">Authentication</h1>
+<h2 id="sign-up">Sign Up</h2>
+<p>Does not require authentication. User will be sent an email with a link to verify his or her email; this will need to happen via the web application.</p>
 <table>
 <thead>
 <tr>
@@ -175,7 +176,44 @@ Does not require authentication. User will be sent an email with a link to verif
 </tr>
 </tbody>
 </table>
-<p>Sign In </p>
+<h3 id="signup-object">SignUp Object</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>study</td>
+<td>String</td>
+<td>The study identifier under which the user is creating an account</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Cannot be change once created</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Constrains for an acceptable password can be set per study.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>"SignUp"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sign-in">Sign In</h2>
 <table>
 <thead>
 <tr>
@@ -212,14 +250,46 @@ Does not require authentication. User will be sent an email with a link to verif
 </tr>
 </tbody>
 </table>
+<h3 id="signin-object">SignIn Object</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>study</td>
+<td>String</td>
+<td>The identifier for the study under which the user is signing in</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>"SignIn"</td>
+</tr>
+</tbody>
+</table>
 <h2 id="consent-api">Consent API</h2>
 <p>Many API calls will not be functional until the user establishes consent. 
-Consent to research (v2)</p>
+Consent to research</p>
 <table>
 <thead>
 <tr>
 <th>POST</th>
-<th>/api/v2/consent</th>
+<th>/api/v1/consent</th>
 <th></th>
 </tr>
 </thead>
@@ -251,7 +321,7 @@ Consent to research (v2)</p>
 </tr>
 </tbody>
 </table>
-<h2 id="consentsignature">ConsentSignature</h2>
+<h3 id="consentsignature">ConsentSignature</h3>
 <p>As part of the consent process, participants submit a decision on how widely they will share their medical information with researchers.</p>
 <table>
 <thead>
@@ -296,7 +366,7 @@ Consent to research (v2)</p>
 </table>
 <h2 id="get-all-tasks">Get all tasks</h2>
 <p>Gets all available, started, or scheduled tasks for a user. </p>
-<p>The "until" parameter allows you to retrieve tasks that are scheduled in the future up to the timestamp supplied (to a maximum of four days, at this time). </p>
+<p>The "until" parameter allows you to retrieve tasks that are scheduled in the future up to the timestamp supplied. </p>
 <p>The timestamp is a valid ISO 8601 date and time string (any timezone). Once a task is finished, or expires (the time has passed for it to be started), it will be removed from the list of tasks returned to the user.</p>
 <table>
 <thead>
@@ -319,38 +389,8 @@ Consent to research (v2)</p>
 </tr>
 </tbody>
 </table>
-<h2 id="update-tasks">Update Tasks</h2>
-<p>Update the startedOn or finishedOn timestamps of a task (these are the only values that are writable by the client).<strong> To delete a task, add a finishedOn timestamp to the task and update it, without a startedOn value.</strong> (Users should be given the option to delete tasks from their interface.) This will remove the task from the list of tasks returned by the server. The only other field needed in tasks that are submitted for updates is the GUID of the task, for example:</p>
-<p>[{"guid":"abc-def-ghi", "startedOn": "2015-04-28T08:10:42.000Z"}, {"guid":"abc-def-ghi", "finishedOn": "2015-04-28T15:36:36.112Z"}]</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>POST</th>
-<th>/api/v1/tasks</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>auth</td>
-<td></td>
-<td>consented users</td>
-</tr>
-<tr>
-<td>request</td>
-<td></td>
-<td>Task[]</td>
-</tr>
-<tr>
-<td>response</td>
-<td>200</td>
-<td>{ "message":"Tasks updated." }</td>
-</tr>
-</tbody>
-</table>
 <h2 id="list-published-versions-of-all-surveys">List published versions of all surveys</h2>
-<p>Return the published version of each survey (not necessarily the most recent version of that survey). </p>
-<p>If a survey has not been published, it will not be returned in this array of surveys.</p>
+<p>Return the published version of each survey. </p>
 <table>
 <thead>
 <tr>
@@ -374,11 +414,7 @@ Consent to research (v2)</p>
 </table>
 <h2 id="survey-responses">Survey Responses</h2>
 <p>Surveys are issued to users through the activity system. </p>
-<p>This embeds an instance of a Survey with its questions, which can be used to render the UI, as well as any answers that have already been saved in response to this run of the survey.</p>
-<p>Further answers can be submitted for this response object through the API below.
-For systems that do not use the activity system, there is a method for saving answers based on the guid and createdOn properties of a survey. This call returns a SurveyResponse object with a auto-generated identifier, in order to save further answers in future calls, but the whole survey can be answered and the response closed out by sending all answers back in one call. </p>
-<p>Finally, if the client wishes, it can call another variant of this API that allows the client to specify an identifier for a particular run of a survey (that is, an instance of taking a survey, as a participant may take the same survey more than once over the course of a study). This client-supplied identifier must be unique for a given study participant.
-The survey response is only considered completed when an answer has been sent back for every question in the survey (answers can be sent back as "declined" if the user does not want to answer a question).</p>
+<p>This embeds an instance of a Survey with its questions, which can be used to render the UI.</p>
 <h2 id="get-a-survey">Get a survey</h2>
 <p>These URLs will be referenced by schedules and activities prompting a user to take a survey. </p>
 <table>
@@ -386,29 +422,7 @@ The survey response is only considered completed when an answer has been sent ba
 <tr>
 <th></th>
 <th>GET</th>
-<th>/api/v2/surveys/{surveyGuid}/revisions/{createdOn}</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>auth</td>
-<td></td>
-<td>consented users</td>
-</tr>
-<tr>
-<td>response</td>
-<td>200</td>
-<td>Survey</td>
-</tr>
-</tbody>
-</table>
-<h2 id="get-the-most-recently-published-version-of-a-survey">Get the most recently published version of a survey</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>GET</th>
-<th>/api/v2/surveys/{surveyGuid}/revisions/published</th>
+<th>/api/v1/surveys/{surveyGuid}</th>
 </tr>
 </thead>
 <tbody>
@@ -473,7 +487,7 @@ The survey response is only considered completed when an answer has been sent ba
 <tr>
 <td>elements</td>
 <td>Array</td>
-<td>An ordered array of SurveyElement objects (either SurveyQuestion or SurveyInfoScreen; see below)</td>
+<td>An ordered array of SurveyElement objects</td>
 </tr>
 <tr>
 <td>type</td>
@@ -491,7 +505,7 @@ The survey response is only considered completed when an answer has been sent ba
 <tr>
 <th></th>
 <th>POST</th>
-<th>/api/v2/surveys/{surveyGuid}/revisions/{createdOn}</th>
+<th>/api/v1/surveys/{surveyGuid}</th>
 </tr>
 </thead>
 <tbody>
@@ -617,5 +631,5 @@ The survey response is only considered completed when an answer has been sent ba
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2015-06-29 19:38:31.692551
+Build Date UTC : 2015-06-29 20:10:24.686656
 -->
