@@ -14,18 +14,22 @@ class Command(BaseCommand):
     
     def url_screengrab(self, url, name):
         #cmd = "export DISPLAY=:0;/usr/local/bin/CutyCapt  --auto-load-images=on --delay=15000 --max-wait=60000  --url={u} --out=/home/datadonor/static/tmp/{name}.png".format(u = url, name=name)
-        cmd = 'xvfb-run --server-args="-screen 0, 1280x1200x24" CutyCapt --auto-load-images=on --plugins=on  --javascript=on --js-can-access-clipboard=on --java=on --delay=60000 --max-wait=120000 --url={u} --out=/home/datadonor/static/tmp/{name}.png'.format(u = url, name=name)
+        
+        cmd = 'xvfb-run --server-args="-screen 0, 1280x1200x24" CutyCapt --auto-load-images=on --plugins=on  --javascript=on --js-can-access-clipboard=on --java=on --delay=60000 --max-wait=120000 --url={u} --out=/home/datadonor/static/tmp/general/{name}.png'.format(u = url, name=name)
         os.system(cmd)
     
         
     def handle(self, *args, **options):
+        
+        cmd = 'rm -rf /home/datadonor/static/tmp/general/*'
+        os.system(cmd)
         
         tw = TwitterService()
         
         if "steps" in args:
             print ("Tweet: Steps report")    
             dto = PhysicalActivityDistributionService().get_steps_distribution_global()
-            text = "%s #datadonors took an average of %s #steps this week  #activity #physical" %(dto["total_users"], dto["avg"])
+            text = "%s #datadonors took an average of %s daily #steps this week  #activity #physical" %(dto["total_users"], dto["avg"])
             url = "http://datadonors.org/statistics/physical-activity-steps/"
             self.url_screengrab(url+"?pic=true", "physical-activity-steps")
             tw.share_stat(text, url, "physical-activity-steps.png")
@@ -33,7 +37,7 @@ class Command(BaseCommand):
         if "miles" in args:
             print ("Tweet: Miles report")
             dto = PhysicalActivityDistributionService().get_miles_distribution_global()
-            text = "%s #datadonors moved an average of %s #miles this week  #activity #physical" %(dto["total_users"], dto["avg"])
+            text = "%s #datadonors moved an average of %s #miles daily this week  #activity #physical" %(dto["total_users"], dto["avg"])
             url = "http://datadonors.org/statistics/physical-activity-miles/"
             self.url_screengrab(url+"?pic=true", "physical-activity-miles")
             tw.share_stat(text, url, "physical-activity-miles.png")
@@ -110,7 +114,7 @@ class TwitterService():
             text = text + self.url_separator + url
         
         if img_name:
-            image_file = "/home/datadonor/static/tmp/{name}".format(name=img_name)
+            image_file = "/home/datadonor/static/tmp/general/{name}".format(name=img_name)
             imagefile= open(image_file, "rb")
             data = imagefile.read()
                 
