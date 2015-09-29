@@ -268,7 +268,8 @@ PROFILE_SOURCES_PRIORITY = {
 
 #FACEBOOK CONFIG
 
-FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes', "read_stream"]
+#FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes', "read_stream"]
+FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_about_me', 'user_likes']
 GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email',
                        'https://www.googleapis.com/auth/userinfo.profile',
                        'https://www.google.com/calendar/feeds',

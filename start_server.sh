@@ -1,6 +1,6 @@
 #!/bin/sh
 export PYTHONPATH=$PYTHONPATH:$PWD;
-export PYTHONPATH=$PYTHONPATH:$PWD/../wikilife_utils;
+export PYTHONPATH=$PYTHONPATH:$PWD/../wikilife_v4/wikilife_utils;
 
 echo "Datadonors server starting ...";
 
