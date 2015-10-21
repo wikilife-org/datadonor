@@ -1,0 +1,1205 @@
+{% load i18n %}
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta content="app-id=975656268" name="apple-itunes-app">
+<title>DataDonors</title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="Wikilife Foundation">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+{% if login_error %}
+<script>
+  console.log("accocioation failed.")
+  $(function () {
+      $('#login_container').reveal({
+           animation: 'fadeAndPop',
+           animationspeed: 300,
+           closeonbackgroundclick: true,
+           dismissmodalclass: 'close_login'
+      });
+  });
+</script>
+{% endif %}
+
+
+<link rel="stylesheet" href="http://datadonors.org/static/css/stylebf63.css?6548321"/>
+<link rel="stylesheet" href="http://datadonors.org/static/css/flexslider.css"/>
+<link rel="stylesheet" href="http://datadonors.org/static/css/style.css">
+<link rel="stylesheet" href="http://datadonors.org/static/css/jquery.scrollSections.css">
+<link rel="stylesheet" href="http://datadonors.org/static/css/header-landing.css" />
+</head>
+
+<body>
+<div id="login_container" class="reveal-modal">
+
+	<h1>{% blocktrans%}Login{% endblocktrans%}</h1>
+    <h2>{% blocktrans%}Welcome back{% endblocktrans%}</h2>
+
+	 
+
+
+  <p>use any of these services to login</p>
+
+
+	<div class="login-bubbles">
+		<ul>
+			
+			<li><a href="http://datadonors.org{% url "socialauth_begin" "twitter" %}?from_login=true" class="twitter">twitter</a></li>
+            <li><a href="http://datadonors.org{% url "socialauth_begin" "facebook" %}?from_login=true" class="facebook">facebook</a></li>
+            <li><a href="http://datadonors.org{% url "socialauth_begin" "google" %}?from_login=true" class="gmail">gmail</a></li>
+
+		</ul>
+
+		<div style="clear: both;"></div>
+	</div>
+	<!-- End: login-bubbles-->
+
+	<div style="clear: both;"></div>
+</div>
+<link rel="stylesheet" href="http://datadonors.org/static/css/reveal.css">
+<script type="text/javascript" src="http://datadonors.org/static/js/download.js"></script>
+ 
+<div class="container-header">
+
+
+  <header id="header" class="fixed">
+    <div id="top">
+      <div class="col-3 left"></div>
+      <div class="col-3 center"></div>
+      <div class="col-3 right"></div>
+      <h1> <a href="/"> 
+      <img src="http://datadonors.org/static/img/logo_landing.png" width="186" height="65" alt="" title="" /> </a> </h1>
+      <h2> <a href="#" target="_blank"> <img src="http://datadonors.org/static/img/hdc.png" width="187" height="55" alt=""title="" /> </a> </h2>
+      <div id="wiki-nav">
+        <nav class="wiki-nav" id=""> {% trans "by The Wikilife Foundation" %}</nav>
+      </div>
+      <div id="center-nav"> 
+          <span id="lan">
+              <img src="http://datadonors.org/static/img/flags/spain.png" width="20" height="20" style="margin-right:10px" class="lan_es"> 
+              <img src="http://datadonors.org/static/img/flags/usa.png"  width="20" height="20"  class="lan_en"> 
+          </span>
+          <nav class="nav" id=""> 
+            <a href="http://datadonors.org/data" title="{% trans "Data" %}">{% trans "Data" %}</a>
+                    <a href="http://datadonors.org/mission" title="{% trans "Mission" %}">{% trans "Mission" %}</a>
+                    <a href="http://datadonors.org/learn-more" title="{% trans "Learn More" %}">{% trans "Learn More" %}</a>
+                    <a href="http://datadonors.org/support-us" title="{% trans "Support Us" %}">{% trans "Support Us" %}</a>
+                    {% if request.user.is_authenticated %}
+                    <a href="http://datadonors.org/team" title="{% trans "About Us" %}">{% trans "About Us" %}</a>
+                    <a href="http://datadonors.org/logout" title="{% trans "logout" %}">{% trans "logout" %}</a>
+                    {% else %}
+                    <a href="#" title="{% trans "login" %}" data-reveal-id="login_container">{% trans "login" %}</a>
+                    {% endif %}
+   
+          </nav>
+      </div>
+
+      {% if can_share %}
+            <a href="http://datadonors.org/wizard" title="{% trans "Start Sharing" %}" id="start-sharing">{% trans "Start Sharing" %}</a>
+            {% endif %}
+    </div>
+    <div class="bottom-h"></div>
+    	<!-- responsive site menu -->
+    <div class="responsivenav-outer">
+        <div class="responsivenav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="clear"></div>
+        <div class="responsive-nav">
+            <ul>
+                <li><a href="http://datadonors.org/data" title="{% trans "Data" %}">{% trans "Data" %}</a></li>
+                <li><a href="http://datadonors.org/mission" title="{% trans "Mission" %}">{% trans "Mission" %}</a></li>
+                <li><a href="http://datadonors.org/learn-more" title="{% trans "Learn More" %}">{% trans "Learn More" %}</a></li>
+                <li><a href="http://datadonors.org/support-us" title="{% trans "Support Us" %}">{% trans "Support Us" %}</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="http://datadonors.org/team" title="{% trans "About Us" %}">{% trans "About Us" %}</a></li>
+                    <li><a href="http://datadonors.org/logout" title="{% trans "logout" %}">{% trans "logout" %}</a></li>
+                    {% else %}
+                    <li><a href="#" title="{% trans "login" %}" data-reveal-id="login_container">{% trans "login" %}</a></li>
+                    {% endif %}
+            </ul>
+        </div>
+	</div>
+  </header>
+  
+ </div>
+ 
+ <section id="about" class="scrollsections active-scrollsection">
+  <section id="second" class="row section-about full-screen seccion">
+  	<div class="wrapper section-top" id="header-top">
+            <a href="#" class="close-video" onClick="close_video(); return false;"></a>
+            <div class="video-1">
+
+                <!-- a href="#" id="video-02" onClick="play2Pause(); return false;" class="watch-video" >Watch overview</a-->
+            </div>
+
+            <a href="#" class="pause" onClick="pause(); return false;"></a>
+            <div class="flexslider1" >
+
+                <ul class="slides">
+
+                    <li>
+                        <div class="capa"></div>
+
+                        <video width="640" id="video-top" class="vid-0" preload="auto" style="display: none;" >
+                            <source src="http://static.wikilife.org/DataDonors.m4v" type='video/mp4;'>
+                            <source src="http://static.wikilife.org/DataDonors.webmhd.webm" type='video/webm; codecs="vp8.0, vorbis"'>
+                            <source src="http://static.wikilife.org/DataDonors.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                        </video>
+                        
+                        <video width="640" id="video-how" class="vid-0" preload="auto" style="display: none;" >
+                            <source src="http://static.wikilife.org/datadonors_final_low.mp4.mp4" type='video/mp4;'>
+                            <source src="http://static.wikilife.org/datadonors_final_low.webmhd.webm" type='video/webm; codecs="vp8.0, vorbis"'>
+                            <source src="http://static.wikilife.org/datadonors_final_low.oggtheora.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                        </video>
+
+                   </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+     <div id="about_"> <img src="http://datadonors.org/static/img/landing/goto1.png" class="goto">
+     <div class="aboutdetail-inner">
+          <h3> {% trans "WHAT IS" %} <br />
+            DATADONORS? <br/>
+            <span style="font-size:20px"><a href="#" onClick="playPause(); return false;" style="color:#fff!important">Watch campaign video</a></span> </h3>
+          <div class="center-v">
+            <div class="middle"> <img src="http://datadonors.org/static/img/logo-row-2.jpg" title="Logo Datadonor" alt="Logo Datadonor" /> </div>
+            <!-- .middle -->
+            
+            <div class="middle right">
+              <p> {% trans "We're used to sharing everything online. It's what we do everyday. Using Facebook, Twitter, Runkeeper, Fitbit or whatever platform, we share all the time. But does that really help anyone?" %}<br />
+                <br />
+                {% trans "In most cases, it doesn't. And that's ok. But what if we could save lives with that same sharing? By connecting any of these devices and apps and sharing your information, you can help us to create an extensive database that can be used by researchers to improve health and eradicate illness."%} </p>
+              <p> {% trans "A campaign by" %} The Wikilife Foundation {% trans "a non-profit §501(c)(3) organization"%}. </p>
+              <div class="clear"></div>
+            </div>
+            <!-- .middle --> 
+            <div class="clear"></div>
+            <!-- #logos --> 
+          </div>
+          <div id="logos"> <img src="http://datadonors.org/static/img/apps/todos.png" title="Apps" alt="Apps" /> 
+            
+            <!-- #slider-logos --> 
+          </div>
+      </div>    
+      <div id="news_content"  onclick="window.location.href='http://datadonors.org/news/'">News! <br/>
+        <!-- img  width="180"  onclick="window.location.href='http://datadonors.org/news/'" src="/img/tedx.png"--> 
+        <span id="news_content_c" >Geraldine Gueron, our co-founder, gave a talk in TEDx Rosario.</span> </div>
+      <div id="news_content_2"  onclick="window.open('https://itunes.apple.com/ar/app/datadonors/id975656268?l=en&amp;mt=8','new_window');">The App! <img  width="180"  src="http://datadonors.org/static/img/apple.png"> </div>
+    </div>
+  </section>
+  <div class="clear"></div>
+ </section>
+<section id="whatfor" class="scrollsections">
+  <section id="four" class="row section-for-what seccion full-screen">
+    <h2>{% trans "WHY SHOULD YOU SHARE?" %}/h2>
+     <div class="center-v" >
+      <ul>
+        <li class="one">
+          <div class="contenido">
+            <div class="icon-sombra"></div>
+             <h3>{% blocktrans %}For the Research<br /> Community{% endblocktrans %}</h3>
+            <p>{% trans "Help them discover and create new hypotheses to understand and improve our health." %}</p>
+          </div>
+        </li>
+        <li class="four">
+          <div class="contenido">
+            <div class="icon-sombra"></div>
+             <h3>{% blocktrans %}For the <br />World{% endblocktrans %}</h3>
+            <p>{% trans "Your health data is a piece of the puzzle that helps us to see the picture of global health." %}</p>
+          </div>
+        </li>
+        <li class="three">
+          <div class="contenido">
+            <div class="icon-sombra"></div>
+             <h3>{% blocktrans %}For <br />Yourself{% endblocktrans %}</h3>
+            <p>{% trans "Get all your health and lifestyle information in one simple and secure place and compare with others." %}</p>
+          </div>
+        </li>
+        <div class="clear"></div>
+      </ul>
+    </div>
+  </section>
+  <div class="clear"></div>
+</section>
+<section id="howtoshare" class="scrollsections">
+  <section id="five" class="row section-for-what seccion full-screen"> <img src="http://datadonors.org/static/img/landing/goto2.png" class="goto"> <a href="#howtoshare" class="goto" data-scroll="howtoshare"></a>
+    <div class="flexslider seccion">
+      <ul class="slides">
+        <li class="slide-1 slide seccion"> 
+           <h3> {% blocktrans %}DONATE YOUR DATA, <br>IT WON&#146;T TAKE LONG<br/>
+               {% endblocktrans %}<br/>
+           </h3>
+          <div class="inner container-bubbles">
+            <div class="circle"></div>
+             <div class="clear"></div>
+            <div class="footer-slide"> 
+               <ul class="container-circulos">
+                <li class="social">
+                  <div class="circulo"></div>
+                  <span>{% trans "Social" %}</span></li>
+                <li class="physical">
+                  <div class="circulo"></div>
+                  <span>{% trans "Physical" %}</span></li>
+                <li class="nutrition">
+                  <div class="circulo"></div>
+                  <span>{% trans "Nutrition" %}</span></li>
+                <li class="health">
+                  <div class="circulo"></div>
+                  <span>{% trans "Health" %}</span></li>
+                <li class="genomics">
+                  <div class="circulo"></div>
+                  <span>{% trans "Genomics" %}</span></li>
+                  <div class="clear"></div>
+              </ul>
+               <div class="clear"></div>
+             </div>
+            <div class="clear"></div>
+          </div>
+        </li>
+        <li class="slide-2 slide seccion"> 
+           <h3>{% trans "PERSONAL STATISTICS" %}</h3>
+          <div class="inner">
+            <h4> {% blocktrans %}GET NEW <br>INSIGHT INTO <br>YOUR HEALTH{% endblocktrans %}</h4>
+            <div class="bubles-cont">
+              <div class="bubble-box bubble-3">
+                <div class="circle">
+                  <div class="cont-stadis">
+                    <ul class="statistics">
+                      <li class="first"><span></span> </li>
+                      <li class="second"><span></span> </li>
+                      <li class="third"><span></span> </li>
+                      <li class="fourth"><span></span> </li>
+                      <li class="percent"></li>
+                      <li class="clear"></li>
+                    </ul>
+                     <div class="clear"></div>
+                  </div>
+                 </div>
+                 <div class="clear"></div>
+               </div>
+               <div class="bubble-box ">
+                <div id="circle-stadistic" class="circle">
+                  <div id="c-1">
+                    <div id="c-2">
+                      <div id="c-3"></div>
+                    </div>
+                    <div id="c-4">
+                      <div id="c-5"></div>
+                    </div>
+                    <div id="c-6">
+                      <div id="c-7"></div>
+                    </div>
+                    <div id="c-8">
+                      <div id="c-9"></div>
+                    </div>
+                    <div id="c-10">
+                      <div id="c-11"></div>
+                    </div>
+                  </div>
+                  <div class="middle-circle">
+                    <div class="percent"></div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+             </div>
+            <h5> {% blocktrans %}FIND NEW <br> CORRELATIONS <br>IN YOUR DATA{% endblocktrans %}</h5>
+          </div>
+        </li>
+        <li class="slide-3 slide-4 slide seccion"> 
+           <h3>{% blocktrans %}COMPARE YOUR DATA WITH <br> OTHER DONORS{% endblocktrans %}</h3>
+          <div class="inner">
+            <h4 class="title-left">{% blocktrans %}WE AGGREGATE <br />DONORS DATA{% endblocktrans %}</h4>
+            <div class="cont-circles">
+              <div class="circle">
+                <h5>{% trans "Overall avg" %}</h5>
+              </div>
+              <div class="circle right">
+                <h5>{% trans "Your avg" %}</h5>
+              </div>
+              <div class="clear"></div>
+            </div>
+             <h4 class="titleright">{% blocktrans %}SO YOU CAN SEE<br /> HOW TO COMPARE{% endblocktrans %}</h4>
+            <div class="clear"></div>
+          </div>
+        </li>
+      </ul>
+      <div id="timeline">
+        <div id="controles">
+          <ul>
+            <li id="thumb-0"><a href="#" data-link="0"></a> <span
+						class="icon"></span></li>
+            <li id="thumb-1"><a href="#" data-link="1"></a> <span
+						class="icon"></span></li>
+            <li id="thumb-2"><a href="#" data-link="2"></a> <span
+						class="icon"></span></li>
+           </ul>
+        </div>
+        <div class="cont-progress">
+          <div id="progress"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clear"></div>
+</section>
+<section id="donors" class="scrollsections">
+  <section id="section-counter" class="row full-screen seccion"> <img src="http://datadonors.org/static/img/landing/goto2.png" class="goto">
+    <div class="heading-row section-contador">
+      <h2> <em>{% blocktrans %}DONATIONS SO FAR{% endblocktrans %}</em> </h2>
+    </div>
+     <div class="center-v">
+      <div class="marcas-container ">
+        <h3> 459.<span>120</span> </h3>
+        <h4> {% blocktrans %}Are donating data<br> right now, and
+                    you  <br> can join them!{% endblocktrans %} </h4>
+          <div class="clear"></div>
+        <div class="clear"></div>
+      </div>
+       <div class="marcas-container data-shared">
+        <div class="left">
+          <h3> 2.<span>726.683</span> </h3>
+          <h4>{% blocktrans %}Data items have been donated so far.{% endblocktrans %}</h4>
+          <div class="clear"></div>
+        </div>
+         <div class="clear"></div>
+      </div>
+     </div>
+  </section>
+  <div class="clear"></div>
+ </section>
+<section id="donatedd" class="scrollsections">
+  <section id="third" class="row full-screen section-start seccion"> <img src="http://datadonors.org/static/img/landing/goto2.png" class="goto">
+    <div class="contenedor seccion section-contado">
+      <div class="contenedor-to">
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/1.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/2.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/3.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/4.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/5.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/6.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/7.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/8.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/9.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/10.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/11.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/12.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/13.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/14.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/15.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/16.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/17.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/18.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/19.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/20.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/21.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/22.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/23.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/24.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/25.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/26.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/27.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/28.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/29.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/30.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/31.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/32.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/33.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/34.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/35.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/36.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/37.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/38.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/39.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/40.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/41.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/42.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/43.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/44.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/45.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/46.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/47.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/48.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/49.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/50.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/51.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/52.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/53.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/54.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/55.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/56.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/57.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/58.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/59.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/60.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/61.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/62.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/63.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/64.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/65.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/66.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/67.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/68.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/69.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/70.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/71.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/72.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/73.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/74.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/75.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/76.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/77.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+        <div class="cuadro">
+          <div class="img"> <img src="http://datadonors.org/static/img/caras/78.jpg" alt="photo"
+							title="photo" /> </div>
+        </div>
+      </div>
+      <div class="bottom-donate">
+        <div class="top"></div>
+        <div class="half left">
+          <div class="box">
+            <p class="left">{% blocktrans %}You will find different aspects of your life
+                            represented in numbers and charts.{% endblocktrans %}</p>
+
+                        <p class="right">{% blocktrans %}With every bit of data you share you &#146;ll
+                            be helping others and perhaps even one day, yourself.{% endblocktrans %}</p>
+              <div class="clear"></div>
+          </div>
+        </div>
+        <!-- .half -->
+        
+        <div class="half"> <a href="http://datadonors.org/wizard" title="donate" id="donate">{% blocktrans %}Donate{% endblocktrans %}</a> </div>
+        <!-- .half --> 
+        <div class="clear"></div>
+        
+      </div>
+      <!-- .bottom-donate --> 
+      
+    </div>
+    <!-- .contenedor --> 
+  </section>
+  <div class="clear"></div>
+</section>
+<section id="last" class="scrollsections">
+  <div class="footer-path">
+    <div class="center">
+      <div class="inner">
+        <ul id="share-for-good">
+          <li><img src="http://datadonors.org/static/img/share-for-good-1.jpg"
+						alt="share for good" title="share for good" height="117"
+						width="108" /></li>
+          <li>
+            <div class="mascara-container" id="mascara-container"> <img src="http://datadonors.org/static/img/mascara.png" width="108" height="117"
+								alt="Share for good" title="Share for good" /> </div>
+            <div class="img-container" id="logo-img-container-1">
+              <div class="img-fondo"> <img src="http://datadonors.org/static/img/img-1.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-2.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-3.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-4.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-5.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-6.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+            </div>
+          </li>
+          <li>
+            <div class="mascara-container" id="mascara-container-2"> <img src="http://datadonors.org/static/img/mascara.png" width="108" height="117"
+								alt="Share for good" title="Share for good" /> </div>
+            <div class="img-container" id="logo-img-container-2">
+              <div class="img-fondo"> <img src="http://datadonors.org/static/img/img-7.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-2.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-3.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-4.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-5.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-7.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+            </div>
+          </li>
+          <li> 
+            <div class="mascara-container" id="mascara-container-4"> <img src="http://datadonors.org/static/img/mascara.png" width="108" height="117"
+								alt="Share for good" title="Share for good" /> </div>
+            <div class="img-container" id="logo-img-container-4">
+              <div class="img-fondo"> <img src="http://datadonors.org/static/img/d-twitter.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-facebook.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-linkedin.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-gmail.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-foursquare.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-up.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-fitbit.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-myfitness.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-runkeeper.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-nike.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-dailymile.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-ihealth.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-bodymedia.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-wikilife.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-withings.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-fatsecret.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-moodpanda.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/d-23andme.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+            </div>
+          </li>
+          <li><img src="http://datadonors.org/static/img/share-for-good-5.jpg"
+						alt="share for good" title="share for good" height="117"
+						width="108" /></li>
+          <li class="last">
+            <div class="mascara-container" id="mascara-container-3"> <img src="http://datadonors.org/static/img/mascara.png" width="108" height="117"
+								alt="Share for good" title="Share for good" /> </div>
+            <div class="img-container" id="logo-img-container-3">
+              <div class="img-fondo"> <img src="http://datadonors.org/static/img/img-8.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-2.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-3.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-4.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-5.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+              <div class="img-fondo-loop img-loop"> <img src="http://datadonors.org/static/img/img-8.jpg" width="108" height="117"
+									alt="Share for good" title="Share for good" /> </div>
+            </div>
+          </li>
+          <div class="clear"></div>
+        </ul>
+        <h4> {% blocktrans %}Today we share everything.<br />What if that same sharing could
+                    save lives?{% endblocktrans %} </h4>
+      </div>
+      <!-- .inner --> 
+      
+    </div>
+    <!-- center --> 
+    <!-- <div class="bottom"></div>--> 
+  </div>
+</section>
+<link rel="stylesheet" href="http://datadonors.org/static/css/footer.css" />
+ <div class="full_container" id="footer">
+  <div class="centered_container"> 
+     <div class="navegacion_footer">
+      <ul>
+              <li><a href="http://datadonors.org/learn-more">{% trans "Learn More" %}</a></li>
+              <li>/</li>
+              <li><a href="http://datadonors.org/team">{% trans "Team" %}</a></li>
+              <li>/</li>
+              <li><a href="http://datadonors.org/contact">{% trans "Contact" %}</a></li>
+              <li>/</li>
+              <li><a href="http://datadonors.org/privacy">{% trans "Privacy" %}</a></li>
+              <li>/</li>
+              <li><a href="http://datadonors.org/terms-of-service">{% trans "Terms of Service" %}</a></li>
+      </ul>
+    </div>
+     <div class="footer_social">
+      <ul>
+        <li><a href="https://www.facebook.com/datadonors" target="_blank" class="facebook">facebook</a></li>
+        <li><a href="https://twitter.com/DataDonors" target="_blank" class="twitter">twitter</a></li>
+         <li><a href="mailto:support@wikilife.org" class="e_mail">email</a></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+     <div class="clear"></div>
+  </div>
+</div>
+<!--/footer--> 
+<script type="text/javascript" src="http://datadonors.org/static/js/thirdparty/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="http://datadonors.org/static/js/jquery-migrate-1.2.0.min.js"></script> 
+<script type="text/javascript" src="http://datadonors.org/static/js/plugins.js"></script> 
+<script type="text/javascript" src="http://datadonors.org/static/js/flexslider.js" ></script> 
+<script type="text/javascript" src="http://datadonors.org/static/js/script.js" ></script> 
+<script type="text/javascript"  src="http://datadonors.org/static/js/jquery.scrollSections.js"></script> 
+<script>
+
+ 
+function fgVideo() {
+    return $('#video-top').get(0);
+}
+function bgVideo() {
+    return $('#video-back-0').get(0);
+}
+
+function sgVideo() {
+    return $('#video-how').get(0);
+}
+
+var video_slide = 0;
+function playPause() {
+    if (fgVideo() .paused) {
+        $('.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa, #about_, .container-header') .hide();
+        $('.pause') .show();
+        $('video') .hide();
+        $('#video-top') .show();
+        fgVideo() .play();
+        fgVideo() .addEventListener('ended', function () {
+            $('.pause') .hide();
+            $('.videoback, #header-top img') .show();
+            $('.close-video') .hide();
+            $('.video-1,.box-scroll') .show();
+            $('#video-top, #video-how') .hide();
+        }, false);
+    } else {
+        fgVideo() .pause();
+        sgVideo() .pause();
+        $('.close-video') .show();
+    }
+}
+
+function pause(){
+	fgVideo() .pause();
+    sgVideo() .pause();
+    $('.close-video') .show();
+}
+
+function play2Pause() {
+    if (sgVideo() .paused) {
+        $('.video-1,.box-scroll, #header-top .flex-active-slide img, .close-video, #header-top img,  #header-top .capa') .hide();
+        $('.pause') .show();
+        $('video') .hide();
+        $('#video-top') .hide();
+        $('#video-how') .show();
+        sgVideo() .play();
+        sgVideo() .addEventListener('ended', function () {
+            $('.pause') .hide();
+            $('.videoback, #header-top img') .show();
+            $('.close-video') .hide();
+            $('.video-1,.box-scroll') .show();
+            $('#video-top, #video-how') .hide();
+        }, false);
+    } else {
+    	sgVideo() .pause();
+        $('.close-video') .show();
+    }
+}
+
+function close_video() {
+    if (video_slide == 1)
+    {
+        $('.vidback-1') .show();
+    }
+    $('.pause') .hide();
+    $('.videoback, #header-top img') .show();
+    $('.close-video') .hide();
+    $('.video-1,.box-scroll, #header-top .capa, #about_, .container-header') .show();
+    $('#video-top, #video-how') .hide();
+    fgVideo() .currentTime = 0;
+    sgVideo().currentTime = 0;
+}
+</script> 
+<script type="text/javascript" >
+var slide_actual = 0;
+var press_enabled = true;
+function moves_slider() {
+    var exampleSlider = $('#howtoshare .flexslider') .data('flexslider');
+    // now you can access all the methods for example flexAnimate
+    exampleSlider.flexAnimate(slide_actual);
+    $('.nav-slider .active') .removeClass('active');
+    $('.nav-slider .thumb-' + (slide_actual + 1)) .addClass('active');
+    if (slide_actual == 1) {
+        $('#thumb-2, #thumb-3') .removeClass('active')
+    } else if (slide_actual == 2) {
+        $('#thumb-3') .removeClass('active');
+        $('#thumb-1, #thumb-2') .addClass('active')
+    } else if (slide_actual == 3) {
+        $('#thumb-1, #thumb-2 ,  #thumb-3') .addClass('active')
+    }
+}
+function move_slider() {
+    slide_actual++;
+    var exampleSlider = $('#howtoshare .flexslider') .data('flexslider');
+    if (slide_actual == 3) {
+        slide_actual = 0;
+        exampleSlider.flexAnimate(slide_actual);
+        $('.nav-slider .active') .removeClass('active');
+        $('.nav-slider #thumb-' + (slide_actual)) .addClass('active');
+    } else if (slide_actual == 1) {
+        exampleSlider.flexAnimate(slide_actual);
+        $('.nav-slider #thumb-2, .nav-slider #thumb-3') .removeClass('active');
+        $('.nav-slider #thumb-' + (slide_actual)) .addClass('active');
+    } else if (slide_actual == 2) {
+        exampleSlider.flexAnimate(slide_actual);
+        $('.nav-slider #thumb-4') .removeClass('active');
+        $('.nav-slider #thumb-' + (slide_actual)) .addClass('active');
+    }
+}
+
+$().ready(function() {
+    var $scrollingDiv = $("#news_content");
+
+    $(window).scroll(function(){            
+        $scrollingDiv
+            .stop()
+            .animate({"marginTop": ($(window).scrollTop() )}, "slow" );         
+    });
+});
+
+$(function () {
+    
+	 
+	  
+	$('html, body') .animate({
+        scrollTop: $('#about' ) .offset() .top - 50
+        //scrollTop: $('#'+ele.attr('data-loc')).offset().top - (ab.main.vars.device != 'mobile' ? 55 : '')
+    }, 500);
+	$('#home').hide();
+
+	
+    var firsttime = false;
+    var first_sec = 'home';
+    var interval = 0;
+    $(function () {
+        //$('.goto').scrollSections();
+        //var interval = setInterval ( "move_slider()" , 8000 );
+        
+        $('section.scrollsections').scrollSections({
+            createNavigation: true,
+            touch: false,
+            navigation: true,
+            before: function ($currentSection, $nextSection) {
+                //alert( $($currentSection).attr('id') )
+            },
+            after: function ($currentSection, $previousSection)
+            {
+                if ($($currentSection) .attr('id') == 'howtoshare')
+                {
+                    clearInterval(interval);
+                    interval = setInterval('move_slider()', 8000);
+                    //alert( "si" )
+                    $('#progress') .css({
+                        'width': 0
+                    });
+                    $('#progress') .animate({
+                        'width': 500
+                    }, 24000, 'linear');
+                    $('#controles #thumb-' + slide_actual) .addClass('active');
+                    firsttime = true;
+                }
+                else
+                {
+                    if ($($currentSection) .attr('id') == 'donatedd' || $($currentSection) .attr('id') == 'last')
+                    {
+                        slide_actual = 0;
+                        clearInterval(interval);
+                        var exampleSlider = $('#howtoshare .flexslider') .data('flexslider');
+                        $('#progress') .stop(true, true) .css({
+                            'width': 0
+                        });
+                        // now you can access all the methods for example flexAnimate
+                        exampleSlider.flexAnimate(slide_actual);
+                        $('.link-counter') .addClass('active-scrollsection');
+                    } else {
+                        slide_actual = 0;
+                        clearInterval(interval);
+                        var exampleSlider = $('#howtoshare .flexslider') .data('flexslider');
+                        $('#progress') .stop(true, true) .css({
+                            'width': 0
+                        });
+                        // now you can access all the methods for example flexAnimate
+                        exampleSlider.flexAnimate(slide_actual);
+                    }
+                }
+             }
+        });
+        img_footer();
+    });
+     $('.goto') .click(function (e)
+    {
+        e.preventDefault();
+        var este = $(this) .attr('data-scroll');
+        topthis = $('#' + este)
+        var scrollTop = $(window) .scrollTop(),
+        elementOffset = topthis.offset() .top,
+        distance1 = (elementOffset - scrollTop);
+        distance = (distance1 - 100);
+        $('html, body') .animate({
+            scrollTop: $(window) .scrollTop() + distance
+        }, {
+            duration: 500,
+            queue: false
+        });
+    }
+    );
+
+    $('#howtoshare .flexslider') .flexslider({
+        animation: 'slide',
+        multipleKeyboard: false,
+        useCSS: false,
+        slideshow: false,
+        touch: false,
+        slideshowSpeed: 8000,
+        directionNav: false,
+        // manualControls: "#controles li",
+        start: function (slider) {
+            //    slider.flexAnimate(slider.getTarget("next"));
+            $('.total-slides') .text(slider.count);
+        },
+        before: function (slider) {
+            slide_actual = slider.animatingTo;
+            $('#controles #thumb-' + slide_actual) .addClass('active');
+            if (slider.animatingTo == 0)
+            {
+                $('#progress') .stop(true, true) .animate({
+                    'width': slide_actual * 166.6
+                }, 0);
+                $('#controles li') .removeClass('active');
+                $('#controles #thumb-' + slide_actual) .addClass('active');
+            }
+            if (slider.animatingTo == 2)
+            {
+                $('#controles #thumb-1') .addClass('active');
+            }
+            $('#progress') .stop(true, true) .animate({
+                'width': slide_actual * 166.6
+            }, 0, function ()
+            {
+                $('#progress') .animate({
+                    'width': 500
+                }, 24000 - slide_actual * 8000, 'linear');
+            });
+        },
+        end: function () {
+            //alert ( 'finishs' )
+        }
+    });
+});
+
+	// responsive nav code
+	$(document).ready(function(){ 
+			
+		  $(".responsivenav-icon").click(function() { 
+			$(".responsive-nav").slideToggle("slow");
+			$(".mobile-nav .mobilenav-inner .mobilenav-detail").slideDown('slow');
+		  });
+		 
+		});
+
+
+</script> 
+<script type="text/javascript" src="js/vendor/modernizr-2.5.3.min.js"></script> 
+<script type="text/javascript" src="js/jquery.reveal.js"></script>
+
+<script>
+
+$(function () {
+
+    $('.mydata') .click(function (e)
+            {
+
+                    e.preventDefault();
+                    window.location="/data/export/{{user.id}}/xls/"
+                    //var content = $.get("/data/export/{{user.id}}/xls/");
+
+                });
+    $('.lan_es') .click(function (e)
+    {
+
+            e.preventDefault();
+            var content = $.post("{% url 'set_language' %}", {
+                "language" : "es",
+                "next" : "{{ redirect_to }}",
+                "csrfmiddlewaretoken" : '{{ csrf_token }}'
+            }, function(text) {
+                location.reload();
+            }).responseText;
+
+        });
+
+        $('.lan_en').click(function(e)     {
+
+            e.preventDefault();
+            var content = $.post("{% url 'set_language' %}", {
+                "language" : "en",
+                "next" : "{{ redirect_to }}",
+                "csrfmiddlewaretoken" : '{{ csrf_token }}'
+            }, function(text) {
+                location.reload();
+            }).responseText;
+
+        });
+
+    });
+  $(function() {
+    $('a#close_login').on('click', function(event) {
+      event.preventDefault();
+      $('#login_container').fadeOut();
+    });
+  });
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-43212000-4', 'datadonors.org');
+  ga('send', 'pageview');
+</script>
+</body>
+ </html>
