@@ -1,0 +1,43 @@
+.inner-redes .circle, .social-network-bubble {
+	opacity: 0.2;
+	background-color: #a9a9a9;
+	float: left;
+	height: 120px;
+	margin-right: 20px;
+	width: 120px;
+	-webkit-border-radius: 225px;
+	-moz-border-radius: 225px;
+	border-radius: 225px;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	background-repeat: no-repeat;
+	background-position: center 35px;
+}
+
+#slide-4 .inner-redes .circle.twitter, .social-network-bubble.twitter {
+	background-image: url(../img/network-twitter.png);
+}
+
+#slide-4 .inner-redes .circle.facebook, .social-network-bubble.facebook {
+	background-image: url(../img/network-facebook.png);
+}
+
+#slide-4 .inner-redes .circle.gmail, .social-network-bubble.gmail {
+	background-image: url(../img/logo_g+.png);
+}
+
+.full_container {
+	width: 100%;
+	min-width: 1190px;
+}
+.full_container .centered_container {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+.error {
+	color: #f06664 !important;
+}

@@ -1,0 +1,27 @@
+#home {
+  background: #000000;
+}
+#about {
+  background: #3E4959;
+}
+#whatfor {
+  background: #ff826e;
+}
+#donors {
+  background: #ffffff;
+}
+#howtoshare {
+  background: #f6f1ec;
+}
+
+div.full-screen.seccion {
+    position: relative;
+}
+
+img.goto {
+  position: absolute;
+  bottom: -33.5px;
+  left: 50%;
+  margin-left: -33.5px;
+  z-index: 200;
+}

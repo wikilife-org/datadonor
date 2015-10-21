@@ -135,15 +135,17 @@ def about(request):
     if  not request.user.is_authenticated():
         return HttpResponseRedirect('/')
     videos = request.GET.get('videos', None)
-    return render_to_response('index.html', {'can_share': True, 'version': version, 'videos':videos, "loop_times":range(1,79)},
+    return render_to_response('landing.html', {'can_share': True, 'version': version, 'videos':videos, "loop_times":range(1,79)},
                              RequestContext(request))
 
 
-#from mobi.decorators import detect_mobile
+from mobi.decorators import detect_mobile
 
-#@detect_mobile
+@detect_mobile
 def home(request):
-
+    if request.mobile:
+        return HttpResponseRedirect('http://m.datadonors.org/')
+    
     """Home view, displays login mechanism"""
     videos = request.GET.get('videos', None)
     ctx =  {'version': version}
@@ -165,7 +167,7 @@ def home(request):
         del request.session["login_error"]
         request.session.modified = True
 
-    return render_to_response('index.html', context,
+    return render_to_response('landing.html', context,
                                   RequestContext(request))
 
 def greg(request):

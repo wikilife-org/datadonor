@@ -1,31 +1,31 @@
 @font-face {
     font-family: 'gotham-med';
-    src: url('../fonts/Gotham-Medium.html');
-    src: local('☺'), url('fonts/Gotham-Medium.woff') format('woff'),
-        url('fonts/Gotham-Medium.html') format('truetype'),
-        url('fonts/Gotham-Medium.svg') format('svg');
+    src: url('/static/fonts/Gotham-Medium.eot');
+    src: local('☺'), url('/static/css/fonts/Gotham-Medium.woff') format('woff'),
+        url('/static/css/fonts/Gotham-Medium.ttf') format('truetype'),
+        url('/static/css/fonts/Gotham-Medium.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'gotham-bold';
-    src: url('fonts/gotham-bold.eot');
-    src: url('fonts/gotham-boldd41d.eot?#iefix') format('embedded-opentype'),
-        url('fonts/gotham-bold.woff') format('woff'),
-        url('fonts/gotham-bold.html') format('truetype'),
-        url('fonts/gotham-bold.svg#gotham-bold') format('svg');
+    src: url('/static/css/fonts/gotham-bold.eot');
+    src: url('/static/css/fonts/gotham-bold.eot?#iefix') format('embedded-opentype'),
+        url('/static/css/fonts/gotham-bold.woff') format('woff'),
+        url('/static/css/fonts/gotham-bold.ttf') format('truetype'),
+        url('/static/css/fonts/gotham-bold.svg#gotham-bold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'gothamultra';
-    src: url('fonts/GothamUltra.eot');
-    src: url('fonts/GothamUltrad41d.eot?#iefix') format('embedded-opentype'),
-        url('fonts/GothamUltra.woff') format('woff'),
-        url('fonts/GothamUltra.html') format('truetype'),
-        url('fonts/GothamUltra.svg#GothamUltra') format('svg');
+    src: url('/static/css/fonts/GothamUltra.eot');
+    src: url('/static/css/fonts/GothamUltra.eot?#iefix') format('embedded-opentype'),
+        url('/static/css/fonts/GothamUltra.woff') format('woff'),
+        url('/static/css/fonts/GothamUltra.ttf') format('truetype'),
+        url('/static/css/fonts/GothamUltra.svg#GothamUltra') format('svg');
     font-weight: normal;
     font-style: normal;
 }
