@@ -262,7 +262,9 @@ class PhysicalActivityDistributionService(object):
         
         for value in values:
             result.append({"x": value.execute_time.strftime("%Y-%m-%d"), "y": value.miles})
-
+        
+        wrp_result["to_date"] = wrp_result["to_date"].strftime("%Y-%m-%d")
+        wrp_result["from_date"] = wrp_result["from_date"].strftime("%Y-%m-%d")
         wrp_result["data"] = result
         return wrp_result
     
