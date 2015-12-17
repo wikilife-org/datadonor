@@ -258,7 +258,7 @@ class PhysicalActivityDistributionService(object):
         wrp_result["from_date"] = day_list[0][0]
         types = ["walking", "running", "cycling", "move", "run", "skateboarding", "bicycling"]
 
-        values = UserActivityLog.objects.filter(execute_time_lte=wrp_result["to_date"], execute_time_gte=wrp_result["from_date"], type__in=types)
+        values = UserActivityLog.objects.filter(execute_time__lte=wrp_result["to_date"], execute_time__gte=wrp_result["from_date"], type__in=types)
         
         for value in values:
             result.append({"x": value.execute_time.strftime("%Y-%m-%d"), "y": value.miles})
