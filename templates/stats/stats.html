@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>Datadonors | Stats</title>
+
+  <style type="text/css">
+    body, html {
+      font-family: sans-serif;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/static/js/vis/dist/vis.js"></script>
+  <link href="/static/js/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+<body>
+<h2>Datadonors | Stats</h2>
+<div style="width:700px; font-size:14px; text-align: justify;">
+  Miles per day
+</div>
+<br />
+<div id="visualization"></div>
+
+<script type="text/javascript">
+
+  var container = document.getElementById('visualization');
+  $.ajax({type: "GET", url: "/stats/miles/"}).
+  done(function(data){
+	  var items = data.data
+
+      var dataset = new vis.DataSet(items);
+      var options = {
+        start: data.from_date,
+        end: data.to_date,
+
+      };
+      var graph2d = new vis.Graph2d(container, dataset, options);  
+  })
+  
+</script>
+</body>
+</html>

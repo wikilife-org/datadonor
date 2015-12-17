@@ -249,6 +249,24 @@ class PhysicalActivityDistributionService(object):
         wrp_result["data_stock"] = res
         return wrp_result
 
+    def get_records_miles(self):
+        wrp_result = {}
+        result = []
+        day_list = get_days_list_mili(365)
+        day_list.reverse()
+        wrp_result["to_date"] = day_list[len(day_list)-1][0]
+        wrp_result["from_date"] = day_list[0][0]
+        types = ["walking", "running", "cycling", "move", "run", "skateboarding", "bicycling"]
+
+        values = UserActivityLog.objects.filter(execute_time_lte=wrp_result["to_date"], execute_time_gte=wrp_result["from_date"], type__in=types)
+        
+        for value in values:
+            result.append({"x": value.execute_time.strftime("%Y-%m-%d"), "y": value.miles})
+
+        wrp_result["data"] = result
+        return wrp_result
+    
+
     def _get_global_distribution_hours_report(self):
 
 

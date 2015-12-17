@@ -81,7 +81,7 @@ def _generate_export_json(user):
     s = user.social_aggregated_data
 
     if s.update_time.strftime("%Y-%m-%d") not in export:
-        export[p.update_time.strftime("%Y-%m-%d")] = {}
+        export[s.update_time.strftime("%Y-%m-%d")] = {}
     if SOCIAL_TYPE not in export[s.update_time.strftime("%Y-%m-%d")]:
         export[s.update_time.strftime("%Y-%m-%d")][SOCIAL_TYPE] = {}
     
