@@ -31,6 +31,13 @@
 
       var dataset = new vis.DataSet(items);
       var options = {
+ 		  style:'bar',
+ 	        barChart: {width:50, align:'center'}, // align: left, center, right
+ 	        drawPoints: false,
+ 	        dataAxis: {
+ 	            icons:true
+ 	        },
+ 	        orientation:'top',
         start: data.from_date,
         end: data.to_date,
 
