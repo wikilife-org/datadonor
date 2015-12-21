@@ -87,7 +87,7 @@ urlpatterns = patterns('',
     url(r'^researchkit_backend/',  datadonors_researchkit_backend, name='datadonors_researchkit_backend'),
     url(r'^researchkit_backend/doc/',  datadonors_researchkit_backend_doc, name='datadonors_researchkit_backend_doc'),
     
-    url(r'^stats/', go_stats, name='go_stats'),
+    url(r'^stats/$', go_stats, name='go_stats'),
     url(r'^stats/miles/', get_miles, name='get_miles'),
     
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
