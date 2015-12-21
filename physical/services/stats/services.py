@@ -252,7 +252,7 @@ class PhysicalActivityDistributionService(object):
     def get_records_miles(self):
         wrp_result = {}
         result = []
-        day_list = get_days_list_mili(180)
+        day_list = get_days_list_mili(365)
         day_list.reverse()
         wrp_result["to_date"] = day_list[len(day_list)-1][0]
         wrp_result["from_date"] = day_list[0][0]
