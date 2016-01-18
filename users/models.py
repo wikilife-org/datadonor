@@ -45,4 +45,8 @@ class Profile(models.Model):
     wikilife_token = models.CharField(max_length=255, null=True)
     wikilife_ready = models.BooleanField(default=False)
     sent_welcome_email = models.BooleanField(default=False)
+    send_weekly_email  = models.BooleanField(default=False)
+    
+    def __unicode__(self):
+        return u"{0}".format(self.email)
     

@@ -22,7 +22,7 @@ def user_weekly_report():
     emails = []
     users = User.objects.all()
     for user in users:
-        if user.profile.email and user.profile.email not in emails:
+        if user.profile.email and user.profile.email not in emails and user.profile.send_weekly_email == True:
             emails.append(user.profile.email)
             url_screengrab(user.id)
             image = "report_{u}.png".format(u = user.id)
