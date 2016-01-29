@@ -7,7 +7,6 @@ from django.conf.urls import patterns, include, url
 from views import *
 from reports.views import *
 from reports.views import miles_history
-from stats.views import get_miles, go_stats
 
 admin.autodiscover()
 
@@ -87,9 +86,8 @@ urlpatterns = patterns('',
     url(r'^researchkit_backend/',  datadonors_researchkit_backend, name='datadonors_researchkit_backend'),
     url(r'^researchkit_backend/doc/',  datadonors_researchkit_backend_doc, name='datadonors_researchkit_backend_doc'),
     
-    url(r'^stats/$', go_stats, name='go_stats'),
-    url(r'^stats/miles/', get_miles, name='get_miles'),
-    
+    url(r'^visualization/', include('stats.urls')),
+
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )

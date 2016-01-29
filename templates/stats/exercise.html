@@ -1,0 +1,246 @@
+{% extends "stats/base.html"%}
+{%block content%}
+            <div class="wraper container-fluid">
+                <div class="page-title"> 
+                    <h3 class="title">Welcome to Datadonors Visualization!</h3> 
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-pink">
+                            <i class="ion-ios7-football-outline"></i> 
+                            <h2 class="m-0 counter">{{total_exercise_log}}</h2>
+                            <div>Exercise Logs</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-purple">
+                            <i class="ion-pizza"></i> 
+                            <h2 class="m-0 counter">{{total_food_log}}</h2>
+                            <div>Nutrition Logs</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-info">
+                            <i class="ion-eye"></i> 
+                            <h2 class="m-0 counter">{{total_sleep_log}}</h2>
+                            <div>Sleep Logs</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-success">
+                            <i class="ion-android-contacts"></i> 
+                            <h2 class="m-0 counter">{{total_dd_users}}</h2>
+                            <div>Total Donors</div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+
+
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark text-uppercase">
+                                    Miles - from {{miles.from_date}} to {{miles.to_date}}
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet1"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet1" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                    <div id="morris-bar-example"  style="height: 320px;"></div>
+
+                                    <div class="row text-center m-t-30 m-b-30">
+                                        <div class="col-sm-3 col-xs-6">
+                                            <h4>{{miles.avg}}</h4>
+                                            <small class="text-muted"> Avg</small>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-6">
+                                            <h4>{{miles.total_users}} users</h4>
+                                            <small class="text-muted">Based on</small>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                        
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark text-uppercase">
+                                    Hours - from {{miles.from_date}} to {{miles.to_date}}
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet1"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet1" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                    <div id="morris-bar-example-hours"  style="height: 320px;"></div>
+
+                                    <div class="row text-center m-t-30 m-b-30">
+                                        <div class="col-sm-3 col-xs-6">
+                                            <h4>{{hours.avg}}</h4>
+                                            <small class="text-muted"> Avg</small>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-6">
+                                            <h4>{{hours.total_users}} users</h4>
+                                            <small class="text-muted">Based on</small>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+
+                    </div> <!-- end col -->
+
+                    <div class="col-lg-4">
+                        <!-- div class="portlet">
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark text-uppercase">
+                                    Steps - Last Week
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet2"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet2" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                    <div id="morris-line-example" style="height: 200px;"></div>
+                                    <div class="row text-center m-t-30">
+                                <div class="col-sm-4">
+                                    <h4>{{steps.avg}}</h4>
+                                    <small class="text-muted"> Avg</small>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h4>{{steps.total_users}} users</h4>
+                                    <small class="text-muted"> Based on </small>
+                                </div>
+                                
+
+                            </div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                        <div class="tile-stats white-bg"> 
+                            <div class="col-sm-8">
+                                <div class="status">
+                                <h3 class="m-t-15">{{gender.male}}%</h3> 
+                                <p>Gender: Male</p>
+                            </div> 
+                            </div>
+                            <div class="col-sm-4 m-t-20">
+                                <span class="sparkpie-big"><canvas width="98" height="50" style="display: inline-block; width: 98px; height: 50px; vertical-align: top;"></canvas></span> 
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End row -->
+
+
+
+
+
+               
+
+            </div>
+{% endblock %}
+
+{% block scripts %}
+        <script type="text/javascript">
+        /* ==============================================
+             Counter Up
+             =============================================== */
+            jQuery(document).ready(function($) {
+                $('.counter').counterUp({
+                    delay: 100,
+                    time: 1200
+                });
+            });
+        
+            !function($) {
+                "use strict";
+
+                var Dashboard = function() {
+                    this.$body = $("body")
+                };
+                
+                var months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+                
+                //initializing various charts and components
+                Dashboard.prototype.init = function() {
+                    /**
+                    * Morris charts
+                    */
+
+                    //Line chart
+                    
+
+                  //Bar chart Miles
+                    Morris.Bar({
+                        element: 'morris-bar-example',
+                        data: 
+                                {{miles.data|safe}}
+                       ,
+                        xkey: 'x',
+                        ykeys: ['y'],
+                        labels: ['Miles'],
+                        barColors: ['#3bc0c3', '#1a2942', '#dcdcdc']
+                    });
+                  
+                  //Bar chart Hours
+                    Morris.Bar({
+                        element: 'morris-bar-example-hours',
+                        data: 
+                                {{hours.data|safe}}
+                       ,
+                        xkey: 'x',
+                        ykeys: ['y'],
+                        labels: ['Hours'],
+                        barColors: ['#3bc0c3', '#1a2942', '#dcdcdc']
+                    });
+
+
+                    //Chat application -> You can initialize/add chat application in any page.
+                    $.ChatApp.init();
+                },
+                //init dashboard
+                $.Dashboard = new Dashboard, $.Dashboard.Constructor = Dashboard
+                
+                // Pie charts
+                $('.sparkpie-big').sparkline([{{gender.male}},{{gender.female}}], {
+                    type: 'pie',
+                    width: '100%',
+                    height: '50',
+                    sliceColors: ['#3bc0c3', '#f13c6e', '#3bc0c3', '#dcdcdc'],
+                    offset: 0,
+                    borderWidth: 0,
+                    borderColor: '#00007f'
+                });
+            }(window.jQuery),
+
+            //initializing dashboad
+            function($) {
+                "use strict";
+                $.Dashboard.init()
+            }(window.jQuery);
+        </script>
+{% endblock %}

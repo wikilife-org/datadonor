@@ -1,0 +1,43 @@
+<!-- Aside Start-->
+        <aside class="left-panel">
+
+            <!-- brand -->
+            <div class="logo">
+                <a href="/" class="logo-expanded">
+                    <img src="/static/img/-logo.png" alt="logo">
+                </a>
+            </div>
+            <!-- / brand -->
+        
+            <!-- Navbar Start -->
+            <nav class="navigation">
+                <ul class="list-unstyled">
+                    <li class="has-submenu active"><a href="#"><i class="ion-ios7-football"></i> <span class="nav-label">Exercise</span></a>
+                        <ul class="list-unstyled">
+                            <li class='{% if page == "exercise_stats" %}active{% endif%}'><a href='{% url "go_exercise_stats" %}'>Stats</a></li>
+                            <li class='{% if page == "exercise_data" %}active{% endif%}'><a href='{% url "go_exercise_data" %}'>Row Data</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a href="#"><i class="ion-medkit"></i> <span class="nav-label">Health</span></a>
+                        <ul class="list-unstyled">
+                            <li class='{% if page == "exercise_stats" %}active{% endif%}'><a href='{% url "go_exercise_stats" %}'>Stats</a></li>
+                            <li class='{% if page == "exercise_data" %}active{% endif%}'><a href='{% url "go_exercise_data" %}'>Row Data</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a href="#"><i class="ion-pizza"></i> <span class="nav-label">Nutrition</span></a>
+                        <ul class="list-unstyled">
+                            <li class='{% if page == "exercise_stats" %}active{% endif%}'><a href='{% url "go_exercise_stats" %}'>Stats</a></li>
+                            <li class='{% if page == "exercise_data" %}active{% endif%}'><a href='{% url "go_exercise_data" %}'>Row Data</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a href="#"><i class="ion-ios7-people"></i> <span class="nav-label">Social</span></a>
+                        <ul class="list-unstyled">
+                            <li class='{% if page == "exercise_stats" %}active{% endif%}'><a href='{% url "go_exercise_stats" %}'>Stats</a></li>
+                            <li class='{% if page == "exercise_data" %}active{% endif%}'><a href='{% url "go_exercise_data" %}'>Row Data</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </nav>
+                
+        </aside>

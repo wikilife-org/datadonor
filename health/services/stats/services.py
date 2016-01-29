@@ -70,6 +70,31 @@ class HealthActivityDistributionService(object):
         result["avg_hours"] = round(avg_user, 1)
         return result 
     
+    def get_global_distribution_sleep_month(self, year=2015, months=[(1,"Jan"),(2,"Feb"),(3,"Mar"),(4,"Apr"),(5,"May")\
+                                                                     ,(6,"Jun"),(7,"Jul"),(8,"Aug"),(9,"Sep"),(10,"Oct"),(11,"Nov"), (12, "Dec")]):
+        result = {}
+        data = []
+        total_avg = 0 
+        count_user = 0
+        global_avg = 0
+        
+        sum_id = "minutes__sum"
+        for month in months:
+            values = UserSleepLog.objects.filter(execute_time__month=month[0], execute_time__year=year).aggregate(Sum("minutes"))   
+            value = values[sum_id] or 0
+            
+            count_user = UserSleepLog.objects.filter(execute_time__month=month[0], execute_time__year=year).values_list('user', flat=True).count()
+            global_avg = 0
+            if count_user:
+                global_avg =  round(value/60/count_user, 1)
+            data.append({"x": month[1], "y": global_avg}) 
+            total_avg +=global_avg
+        
+        
+        result["data"] = data
+        result["avg_sleep"] = round(total_avg/12, 1)
+        return result 
+    
     def get_mood_from_moodpanda(self, user):
         
         user_email = user.profile.email

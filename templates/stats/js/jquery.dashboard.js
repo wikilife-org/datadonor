@@ -37,13 +37,13 @@
         Morris.Bar({
             element: 'morris-bar-example',
             data: [
-                    { y: 'Sunday', a: 75,  b: 65 , c: 20 },
-                    { y: 'Monday', a: 50,  b: 40 , c: 50 },
-                    { y: 'Tuesday', a: 75,  b: 65 , c: 95 },
-                    { y: 'Wednesday', a: 50,  b: 40 , c: 22 },
-                    { y: 'Thursday', a: 75,  b: 65 , c: 56 },
-                    { y: 'Friday', a: 100, b: 90 , c: 60 },
-                    { y: 'Saturday', a: 100, b: 90 , c: 60 }
+                    { y: 'Sunday', a: 75},
+                    { y: 'Monday', a: 50},
+                    { y: 'Tuesday', a: 75},
+                    { y: 'Wednesday', a: 50},
+                    { y: 'Thursday', a: 75 },
+                    { y: 'Friday', a: 100 },
+                    { y: 'Saturday', a: 100 }
             ],
             xkey: 'y',
             ykeys: ['a', 'b', 'c'],

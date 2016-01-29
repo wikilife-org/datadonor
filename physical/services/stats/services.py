@@ -58,6 +58,29 @@ class PhysicalActivityDistributionService(object):
             avg_user = total_user/ count_user
         result["avg"]["user"] = int(round(avg_user))
         return result 
+    
+    
+    def _get_global_distribution_info(self, q, result):
+        total_user = 0 
+        count_user = 0
+        avg_user = 0
+        
+        sum_id = "%s__sum"%q
+        day_list = get_last_sunday_list_days()
+        for day in day_list:
+            
+            values = UserActivityLog.objects.filter(type__in=["walking", "running", "cycling"], execute_time=day).aggregate(Sum(q))
+            value = values[sum_id] or 0
+            total_user +=value
+            count_user = count_user + 1
+            d_index = day.strftime("%a").lower()
+            result[d_index]["user"] = value
+        
+        if count_user:
+            avg_user = total_user/ count_user
+        result["avg"]["user"] = int(round(avg_user))
+        return result 
+    
 
     def _get_global_distribution_steps_report(self):
 
@@ -249,10 +272,10 @@ class PhysicalActivityDistributionService(object):
         wrp_result["data_stock"] = res
         return wrp_result
 
-    def get_records_miles(self):
+    def get_records_miles(self, days_offset=365):
         wrp_result = {}
         result = []
-        day_list = get_days_list_mili(365)
+        day_list = get_days_list_mili(days_offset)
         day_list.reverse()
         wrp_result["to_date"] = day_list[len(day_list)-1][0]
         wrp_result["from_date"] = day_list[0][0]
@@ -261,13 +284,114 @@ class PhysicalActivityDistributionService(object):
         values = UserActivityLog.objects.filter(execute_time__lte=wrp_result["to_date"], execute_time__gte=wrp_result["from_date"], type__in=types)
         
         for value in values:
-            result.append({"x": value.execute_time.strftime("%Y-%m-%d"), "y": value.miles})
+            if value.miles is not None and value.miles != 0:
+                result.append({"x": value.execute_time.strftime("%Y-%m-%d"), "y": value.miles})
         
         wrp_result["to_date"] = wrp_result["to_date"].strftime("%Y-%m-%d")
         wrp_result["from_date"] = wrp_result["from_date"].strftime("%Y-%m-%d")
         wrp_result["data"] = result
         return wrp_result
     
+    def get_records_miles_limit(self, days_offset=365, limit=100):
+        wrp_result = {}
+        result = []
+        day_list = get_days_list_mili(days_offset)
+        day_list.reverse()
+        wrp_result["to_date"] = day_list[len(day_list)-1][0]
+        wrp_result["from_date"] = day_list[0][0]
+        types = ["walking", "running", "cycling", "move", "run", "skateboarding", "bicycling"]
+
+        values = UserActivityLog.objects.filter(execute_time__lte=wrp_result["to_date"], execute_time__gte=wrp_result["from_date"], type__in=types)[:limit]
+        
+        total = 0
+        for value in values:
+            if value.miles is not None and value.miles != 0:
+                total = total + value.miles
+                result.append({"x": value.execute_time.strftime("%d %b %y"), "y": value.miles})
+                
+        avg_ = round(total / len(result),1)
+        wrp_result["total_users"] = len(result)
+        wrp_result["avg"] = avg_
+        wrp_result["to_date"] = wrp_result["to_date"].strftime("%d %b %y")
+        wrp_result["from_date"] = wrp_result["from_date"].strftime("%d %b %y")
+        wrp_result["data"] = result
+        return wrp_result
+    
+    
+    def get_records_hour_limit(self, days_offset=365, limit=100):
+        wrp_result = {}
+        result = []
+        day_list = get_days_list_mili(days_offset)
+        day_list.reverse()
+        wrp_result["to_date"] = day_list[len(day_list)-1][0]
+        wrp_result["from_date"] = day_list[0][0]
+        types = ["walking", "running", "cycling", "move", "run", "skateboarding", "bicycling"]
+
+        values = UserActivityLog.objects.filter(execute_time__lte=wrp_result["to_date"], execute_time__gte=wrp_result["from_date"], type__in=types)[:limit]
+        
+        total = 0
+        for value in values:
+            if value.miles is not None and value.miles != 0:
+                total = total + value.hours
+                result.append({"x": value.execute_time.strftime("%d %b %y"), "y": value.hours})
+                
+        avg_ = round(total / len(result),1)
+        wrp_result["total_users"] = len(result)
+        wrp_result["avg"] = avg_
+        wrp_result["to_date"] = wrp_result["to_date"].strftime("%d %b %y")
+        wrp_result["from_date"] = wrp_result["from_date"].strftime("%d %b %y")
+        wrp_result["data"] = result
+        return wrp_result
+
+
+    def avg_global_miles(self, days_offset=365):
+        result = []
+        day_list = get_days_list(days_offset)
+        types = ["walking", "running", "cycling", "move", "run", "skateboarding", "bicycling"]
+        count = 0
+        h_id = "miles__sum"
+        for day in day_list:
+            values = UserActivityLog.objects.filter(execute_time=day, type__in=types).aggregate(Sum("miles"))
+            count = UserActivityLog.objects.filter(execute_time=day, type__in=types).values_list('user', flat=True).distinct().count()
+            value = values[h_id] or 0
+
+            avg_ = 0
+            if count:
+                avg_ = round(value / count)
+            result.append({"x": day.strftime("%Y-%m-%d"), "y": avg_})
+        
+        return result
+            
+    def get_records_hours(self, days_offset=365):
+        #steps_days = client.get_global_steps_from_sunday()["data"]
+        #aggregation in DD
+        
+        result = {"sun":{"user":0, "global":0},"mon":{"user":0, "global":0},"tue":{"user":0, "global":0},"wed":{"user":0, "global":0},
+                  "thu":{"user":0, "global":0},"fri":{"user":0, "global":0},"sat":{"user":0, "global":0}, "avg":{"user":0, "global":0}}
+        total = 0 
+        count = 0
+        avg = 0
+        
+        h_id = "hours__sum"
+        day_list = get_days_list_mili(days_offset)
+        for day in day_list:
+            
+            values = UserActivityLog.objects.filter(execute_time=day, type__in=["walking", "running", "cycling"]).aggregate(Sum("hours"))
+            count = UserActivityLog.objects.filter(execute_time=day, type__in=["walking", "running", "cycling"]).values_list('user', flat=True).distinct().count()
+            value = values[h_id] or 0
+            
+            d_index = day.strftime("%a").lower()
+            avg_ = 0
+            if count:
+                avg_ = round(value / count)
+            total +=avg_
+            result[d_index]["global"] = avg_
+        
+        if len(day_list):
+            avg = total/ len(day_list)
+        result["avg"]["global"] = int(round(avg))
+        
+        return result
 
     def _get_global_distribution_hours_report(self):
 
@@ -284,6 +408,39 @@ class PhysicalActivityDistributionService(object):
         for day in day_list:
             
             values = UserActivityLog.objects.filter(execute_time=day, type__in=["walking", "running", "cycling"]).aggregate(Sum("hours"))
+            count = UserActivityLog.objects.filter(execute_time=day, type__in=["walking", "running", "cycling"]).values_list('user', flat=True).distinct().count()
+            value = values[h_id] or 0
+            
+            d_index = day.strftime("%a").lower()
+            avg_ = 0
+            if count:
+                avg_ = round(value / count)
+                total_users +=count
+            total +=avg_
+            result[d_index] = avg_
+        
+        if len(day_list):
+            avg = total/ len(day_list)
+        result["avg"] = int(round(avg))
+        result["total_users"] = total_users
+        
+        return result
+
+    def _get_global_distribution_steps_report_week(self):
+
+
+        result = {"sun":None,"mon":None,"tue":None,"wed":None,
+                  "thu":None,"fri":None,"sat":None, "avg":None}
+        total = 0 
+        count = 0
+        avg = 0
+        total_users = 0
+        
+        h_id = "steps__sum"
+        day_list = get_last_sunday_list_days()
+        for day in day_list:
+            
+            values = UserActivityLog.objects.filter(execute_time=day, type__in=["walking", "running", "cycling"]).aggregate(Sum("steps"))
             count = UserActivityLog.objects.filter(execute_time=day, type__in=["walking", "running", "cycling"]).values_list('user', flat=True).distinct().count()
             value = values[h_id] or 0
             
