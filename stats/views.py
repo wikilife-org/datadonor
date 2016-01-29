@@ -53,7 +53,7 @@ def go_exercise_stats(request):
     
 
 def go_exercise_data(request):
-    total_exercise_log = UserActivityLog.objects.all()[:100]
+    total_exercise_log = UserActivityLog.objects.all().order_by("-execute_time")[:100]
     
     return render_to_response('stats/exercise_row.html',{"logs": total_exercise_log, "page": "exercise_data",
                                                   },RequestContext(request))
