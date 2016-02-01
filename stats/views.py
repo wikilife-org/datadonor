@@ -49,6 +49,7 @@ def go_exercise_stats(request):
                                                   #"steps": {},
                                                   "page": "exercise_stats",
                                                   "gender": gender,
+                                                  "section": "exercise",
                                                   "total_sleep_log": total_sleep_log},RequestContext(request))
     
 
@@ -56,4 +57,28 @@ def go_exercise_data(request):
     total_exercise_log = UserActivityLog.objects.all().order_by("-execute_time")[:100]
     
     return render_to_response('stats/exercise_row.html',{"logs": total_exercise_log, "page": "exercise_data",
+                                                  },RequestContext(request))
+    
+from health.utilities import get_conditions_rank, get_complaints_rank, get_emotions_rank
+from health.models import UserConditions, UserBloodType, UserComplaints, UserEmotions
+
+
+def go_health_stats(request):
+    condition_rank = get_conditions_rank()[:5]
+    complaints_rank = get_complaints_rank()[:5]
+    emotions_rank = get_emotions_rank()[:5]
+    total_conditions_logs = UserConditions.objects.all().count()
+    total_complaints_logs = UserComplaints.objects.all().count()
+    total_blood_type_logs = UserBloodType.objects.all().count()
+    total_emotions_logs = UserEmotions.objects.all().count()
+    
+    return render_to_response('stats/health.html',{"condition_rank": condition_rank,
+                                                  "complaints_rank": complaints_rank,
+                                                  "emotions_rank": emotions_rank,
+                                                  "total_conditions_logs": total_conditions_logs,
+                                                  "total_complaints_logs": total_complaints_logs,
+                                                  "total_blood_type_logs": total_blood_type_logs,
+                                                  "total_emotions_logs": total_emotions_logs,
+                                                  "page": "health_stats",
+                                                  "section": "health",
                                                   },RequestContext(request))
