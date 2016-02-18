@@ -111,4 +111,5 @@ def go_health_data(request):
                                                        "complaints": complaints_report,
                                                        "emotions": emotion_report,
                                                         "page": "health_data",
+                                                        "section": "health",
                                                   },RequestContext(request))
