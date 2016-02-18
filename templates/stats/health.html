@@ -44,7 +44,7 @@
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
                                 <h3 class="portlet-title text-dark">
-                                    Medical Conditions
+                                    Top Complaints %
                                 </h3>
                                 <div class="portlet-widgets">
                                     <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
@@ -57,38 +57,94 @@
                             </div>
                             <div id="portlet3" class="panel-collapse collapse in">
                                 <div class="portlet-body">
-                                    <canvas id="pie" data-type="Pie" height="250" width="800" ></canvas> 
+                                    <div id="morris-donut-example" style="height: 300px;"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> <!-- /Portlet -->
                     </div>
                     
                     <div class="col-lg-6">
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
                                 <h3 class="portlet-title text-dark">
-                                    Complaints
+                                    Top Conditions %
                                 </h3>
                                 <div class="portlet-widgets">
                                     <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
                                     <span class="divider"></span>
-                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet4"><i class="ion-minus-round"></i></a>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet3"><i class="ion-minus-round"></i></a>
                                     <span class="divider"></span>
                                     <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                            <div id="portlet4" class="panel-collapse collapse in">
+                            <div id="portlet3" class="panel-collapse collapse in">
                                 <div class="portlet-body">
-                                    <canvas id="doughnut" data-type="Doughnut" height="250" width="800" ></canvas>
+                                    <div id="morris-donut-example-1" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                    </div>
+                
+                </div>
+
+<div class="row">
+                
+                    <div class="col-lg-6">
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark">
+                                    Top Emotions %
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet3"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet3" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                    <div id="morris-donut-example-2" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Blood Type Distribution</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Blood Type</th>
+                                                    <th>Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {%  for blood in blood_types%}
+                                                <tr class="active">
+                                                    <td>{{blood.id}}</td>
+                                                    <td>{{blood.name}}</td>
+                                                    <td>{{blood.percentage}} %</td>
+                                                </tr>
+                                                {% endfor%}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 
                 </div>
-
-
 
 
 
@@ -99,9 +155,12 @@
 
 {% block scripts %}
 
-        <!-- Chart JS -->
-        <script src="/static/stats/assets/chartjs/chart.min.js"></script>
-        <script src="/static/stats/assets/chartjs/chartjs.init.js"></script>
+
+        
+        <!--Morris Chart-->
+        <script src="/static/stats/assets/morris/morris.min.js"></script>
+        <script src="/static/stats/assets/morris/raphael.min.js"></script>
+        
                 <script type="text/javascript">
         /* ==============================================
              Counter Up
@@ -113,6 +172,63 @@
                 });
             });
         
+        
+            !function($) {
+                "use strict";
+
+                var MorrisCharts = function() {};
+
+
+
+                //creates Donut chart
+                MorrisCharts.prototype.createDonutChart = function(element, data, colors) {
+                    Morris.Donut({
+                        element: element,
+                        data: data,
+                        colors: colors
+                    });
+                },
+                MorrisCharts.prototype.init = function() {
+
+
+
+
+                    //creating donut chart
+                    var $donutData = [
+                                      {% for complaint in complaints_rank%}
+                                      {label: "{{complaint.name}}", value: ({{complaint.percentage}}).toFixed(1) },
+                                      {% endfor%}
+                            
+         
+                        ];
+                    this.createDonutChart('morris-donut-example', $donutData, ['#45B6E1', '#58C386', '#1a2942', '#F06088', '#7D7AB6']);
+                    
+                  //creating donut chart
+                    var $donutData1 = [
+                            {% for condition in condition_rank%}
+                                {label: "{{condition.name}}", value: ({{condition.percentage}}).toFixed(1) },
+                            {% endfor%}
+                        ];
+                    this.createDonutChart('morris-donut-example-1', $donutData1, ['#7D7AB6',  '#1a2942', '#58C386', '#45B6E1', '#F06088', ]);
+                    
+                    
+                  //creating donut chart
+                    var $donutData2 = [
+                            {% for emotion in emotions_rank%}
+                                {label: "{{emotion.name}}", value: ({{emotion.percentage}}).toFixed(1) },
+                            {% endfor%}
+                        ];
+                    this.createDonutChart('morris-donut-example-2', $donutData2, ['#F06088', '#45B6E1', '#58C386', '#1a2942', '#7D7AB6']);
+                },
+                //init
+                $.MorrisCharts = new MorrisCharts, $.MorrisCharts.Constructor = MorrisCharts
+            }(window.jQuery),
+
+            //initializing 
+            function($) {
+                "use strict";
+                $.MorrisCharts.init();
+            }(window.jQuery);
           
         </script>
 {% endblock %}

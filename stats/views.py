@@ -59,26 +59,56 @@ def go_exercise_data(request):
     return render_to_response('stats/exercise_row.html',{"logs": total_exercise_log, "page": "exercise_data",
                                                   },RequestContext(request))
     
-from health.utilities import get_conditions_rank, get_complaints_rank, get_emotions_rank
+from health.utilities import get_conditions_rank, get_complaints_rank, get_emotions_rank, global_blood_type
 from health.models import UserConditions, UserBloodType, UserComplaints, UserEmotions
 
 
 def go_health_stats(request):
-    condition_rank = get_conditions_rank()[:5]
-    complaints_rank = get_complaints_rank()[:5]
-    emotions_rank = get_emotions_rank()[:5]
+    condition_rank, total_conditions = get_conditions_rank()
+    complaints_rank, total_complaints = get_complaints_rank()
+    emotions_rank, total_emotions = get_emotions_rank()
     total_conditions_logs = UserConditions.objects.all().count()
     total_complaints_logs = UserComplaints.objects.all().count()
     total_blood_type_logs = UserBloodType.objects.all().count()
     total_emotions_logs = UserEmotions.objects.all().count()
+    blood_types = global_blood_type()
     
-    return render_to_response('stats/health.html',{"condition_rank": condition_rank,
-                                                  "complaints_rank": complaints_rank,
-                                                  "emotions_rank": emotions_rank,
+    for blood in blood_types:
+        blood["percentage"] = "%s"%round(blood["percentage"], 2)
+
+    
+    return render_to_response('stats/health.html',{"condition_rank": condition_rank[:5],
+                                                  "complaints_rank": complaints_rank[:5],
+                                                  "emotions_rank": emotions_rank[:5],
+                                                  "blood_types": blood_types,
                                                   "total_conditions_logs": total_conditions_logs,
                                                   "total_complaints_logs": total_complaints_logs,
                                                   "total_blood_type_logs": total_blood_type_logs,
                                                   "total_emotions_logs": total_emotions_logs,
                                                   "page": "health_stats",
                                                   "section": "health",
+                                                  },RequestContext(request))
+    
+    
+def go_health_data(request):
+    condition_rank, total_conditions = get_conditions_rank()
+    complaints_rank, total_complaints = get_complaints_rank()
+    emotions_rank, total_emotions = get_emotions_rank()
+    
+    condition_report = condition_rank[:30]
+    for condition in condition_report:
+        condition["percentage"] = "%s"%round(condition["percentage"], 2)
+    
+    complaints_report = complaints_rank[:30]
+    for complaints in complaints_report:
+        complaints["percentage"] = "%s"%round(complaints["percentage"], 2)
+    
+    emotion_report = emotions_rank[:30]
+    for  emotion in emotion_report:
+        emotion["percentage"] = "%s"%round(emotion["percentage"], 2)
+    
+    return render_to_response('stats/health_row.html',{"conditions": condition_report,
+                                                       "complaints": complaints_report,
+                                                       "emotions": emotion_report,
+                                                        "page": "health_data",
                                                   },RequestContext(request))
