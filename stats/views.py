@@ -113,3 +113,38 @@ def go_health_data(request):
                                                         "page": "health_data",
                                                         "section": "health",
                                                   },RequestContext(request))
+    
+    
+
+from nutrition.services.utilities import get_global_bmi, global_weight, global_height
+from nutrition.models import UserFoodLog
+from nutrition.services.stats.services import NutritionDistributionService
+from users.models import Profile
+
+def go_nutrition_stats(request):
+    # nutrients distribution
+    # BMI gender distribution
+    # Cant logs
+    total_logs = UserFoodLog.objects.count()
+    bmi = get_global_bmi()
+    bmi_users_cant = Profile.objects.filter(weight__isnull =  False).count()
+    bmi_dto = [{"x":'Men', "y": bmi["men"]["value"] },  {"x":'Women', "y": bmi["women"]["value"] }]
+    data = NutritionDistributionService().get_nutrients_global_distribution(delta=100)
+    print data
+    return render_to_response('stats/nutrition.html',{
+                                                    'bmi_based': bmi_users_cant,
+                                                  "total_nutrition_logs": total_logs,
+                                                  'data': data,
+                                                  "bmi": bmi_dto,
+                                                  "page": "nutrition_stats",
+                                                  "section": "nutrition",
+                                                  },RequestContext(request))
+
+
+def go_nutrition_data(request):
+    logs = UserFoodLog.objects.all()
+    return render_to_response('stats/nutrition_row.html',{
+                                                        "page": "nutrition_data",
+                                                        "section": "nutrition",
+                                                        "logs": logs,
+                                                  },RequestContext(request))

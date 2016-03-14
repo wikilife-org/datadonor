@@ -14,6 +14,9 @@ urlpatterns = patterns('',
     
     url(r'^health/$', go_health_stats, name='go_health_stats'),
     url(r'^health/data', go_health_data, name='go_health_data'),
+    
+    url(r'^nutrition/$', go_nutrition_stats, name='go_nutrition_stats'),
+    url(r'^nutrition/data', go_nutrition_data, name='go_nutrition_data'),
 
     
 )

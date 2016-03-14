@@ -15,7 +15,7 @@ from utils.commons import percentage
 
 class NutritionDistributionService(object):
 
-    def get_nutrients_global_distribution(self):
+    def get_nutrients_global_distribution(self, delta=7):
         nutrients = {
             "protein": {
                 "title": _("Protein"),
@@ -40,7 +40,7 @@ class NutritionDistributionService(object):
         }
         total = 0 
 
-        from_date = date.today() - timedelta(7)            
+        from_date = date.today() - timedelta(delta)            
         
         carbs_values = UserFoodLog.objects.filter(execute_time__gt=from_date).aggregate(Sum("carbs"))
         fat_values = UserFoodLog.objects.filter(execute_time__gt=from_date).aggregate(Sum("fat"))
