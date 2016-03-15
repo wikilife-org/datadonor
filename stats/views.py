@@ -148,3 +148,48 @@ def go_nutrition_data(request):
                                                         "section": "nutrition",
                                                         "logs": logs,
                                                   },RequestContext(request))
+
+from social.services.utilities import *
+from social.models import SocialUserAggregatedData, DegreeLevel
+    
+def go_social_stats(request):
+    count_logs = SocialUserAggregatedData.objects.all().count()
+    education_logs = SocialUserAggregatedData.objects.filter(education_level_manual__isnull = False).count()
+    work_logs = SocialUserAggregatedData.objects.filter(work_experience_years_manual__isnull = False).count()
+    global_reach = global_social_reach()
+    global_reach_dto = [{"x":'Facebook', "y": global_reach["facebook"]["count"] },
+                        {"x":'Twitter', "y": global_reach["twitter"]["count"] },
+                         {"x":'Google Plus', "y": global_reach["gmail"]["count"] },
+                          {"x":'Foursquare', "y": global_reach["foursquare"]["count"] },
+                           {"x":'Linkedin', "y": global_reach["linkedin"]["count"] },
+                        ]
+    global_sharing = global_social_sharing()
+    print global_sharing
+    education  = global_education()
+    work = global_work()
+    return render_to_response('stats/social.html',{
+                                                        "page": "social_stats",
+                                                        "section": "social",
+                                                        "global_reach": global_reach_dto,
+                                                        "global_sharing": global_sharing,
+                                                        "global_education": education,
+                                                        "count_logs": count_logs,
+                                                        "education_logs": education_logs,
+                                                        "work_logs": work_logs,
+                                                        "global_work": work
+                                                  },RequestContext(request))
+
+def go_social_data(request):
+    logs = SocialUserAggregatedData.objects.all()
+    return render_to_response('stats/social_row.html',{
+                                                        "page": "social_data",
+                                                        "section": "social",
+                                                        "logs": logs,
+                                                  },RequestContext(request))
+    
+
+def go_contact(request):
+    return render_to_response('stats/contact.html',{
+                                                        
+                                                        "section": "contact",
+                                                  },RequestContext(request))

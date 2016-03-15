@@ -17,6 +17,9 @@ urlpatterns = patterns('',
     
     url(r'^nutrition/$', go_nutrition_stats, name='go_nutrition_stats'),
     url(r'^nutrition/data', go_nutrition_data, name='go_nutrition_data'),
-
     
+    url(r'^social/$', go_social_stats, name='go_social_stats'),
+    url(r'^social/data', go_social_data, name='go_social_data'),
+
+    url(r'^contact/$', go_contact, name='go_contact'),
 )

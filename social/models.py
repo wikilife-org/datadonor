@@ -210,3 +210,6 @@ def send_welcome_email(sender, instance, **kwargs):
         instance.save()
     
 #post_save.connect(send_welcome_email, sender=Profile, dispatch_uid="create_user_social")
+
+
+    

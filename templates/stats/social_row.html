@@ -1,0 +1,85 @@
+{% extends "stats/base.html"%}
+{% block styles %}
+<link href="/static/stats/assets/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+{% endblock%}
+{% block content%}
+            <div class="wraper container-fluid">
+                <div class="page-title"> 
+                    <h3 class="title">Social Row Data</h3> 
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Data</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <table id="datatable" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Facebook - Friends Count</th>
+                                                    <th>Facebook - Post Weekly Avg</th>
+                                                    <th>Facebook - Likes Weekly Avg</th>
+                                                    <th>Twitter - Followers Count</th>
+                                                    <th>Twitter - Tweets Count Last Seven Days</th>
+                                                    <th>Google Plus - Contacts Count </th>
+                                                    <th>Linkedin - Connections Count </th>
+                                                    <th>Foursquare -  Friends Count </th>
+                                                    <th>Education Level</th>
+                                                    <th>Work Experience (Years)</th>
+                                                </tr>
+                                            </thead>
+
+                                     
+                                            <tbody>
+                                            {% for log in logs %}
+                                                <tr>
+                                                    <td>{{log.update_time}}</td>
+                                                    <td>{{log.facebook_friend_count|default:"--"}}</td>
+                                                    <td>{{log.facebook_post_weekly_avg|default:"--"}}</td>
+                                                    <td>{{log.facebook_likes_weekly_avg|default:"--"}}</td>
+                                                    <td>{{log.twitter_followers_count|default:"--"}}</td>
+                                                    <td>{{log.twitter_tweets_count_last_seven_days|default:"--"}}</td>
+                                                    <td>{{log.gplus_contacts_count|default:"--"}}</td>
+                                                    <td>{{log.linkedin_connections_count|default:"--"}}</td>
+                                                    <td>{{log.foursquare_friends_count|default:"--"}}</td>
+                                                    <td>{{log.education_level_manual|default:"--"}}</td>
+                                                    <td>{{log.work_experience_years_manual|default:"--"}}</td>
+                                                </tr>
+                                              {% endfor%}
+                                                
+                                                
+                                                
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> <!-- End Row -->
+
+                
+
+            </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/stats/assets/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/stats/assets/datatables/dataTables.bootstrap.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#datatable').dataTable();
+    } );
+</script>
+{% endblock %}

@@ -49,4 +49,13 @@ class Profile(models.Model):
     
     def __unicode__(self):
         return u"{0}".format(self.email)
+
+
+class Contact(models.Model):
+    from_email = models.EmailField()
+    subject = models.CharField(max_length=300)
+    content = models.TextField()
+    
+    def __unicode__(self):
+        return u"{0}".format(self.from_email)
     
