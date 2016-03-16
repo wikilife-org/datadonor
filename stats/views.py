@@ -56,7 +56,7 @@ def go_exercise_stats(request):
 def go_exercise_data(request):
     total_exercise_log = UserActivityLog.objects.all().order_by("-execute_time")[:100]
     
-    return render_to_response('stats/exercise_row.html',{"logs": total_exercise_log, "page": "exercise_data",
+    return render_to_response('stats/exercise_row.html',{"logs": total_exercise_log,"section": "exercise", "page": "exercise_data",
                                                   },RequestContext(request))
     
 from health.utilities import get_conditions_rank, get_complaints_rank, get_emotions_rank, global_blood_type
@@ -164,8 +164,8 @@ def go_social_stats(request):
                            {"x":'Linkedin', "y": global_reach["linkedin"]["count"] },
                         ]
     global_sharing = global_social_sharing()
-    print global_sharing
     education  = global_education()
+    print education
     work = global_work()
     return render_to_response('stats/social.html',{
                                                         "page": "social_stats",

@@ -68,7 +68,7 @@
                         <div class="portlet"><!-- /primary heading -->
                             <div class="portlet-heading">
                                 <h3 class="portlet-title text-dark">
-                                    Social sharing 
+                                    Social sharing - Twitter Activity Avg. Weekly
                                 </h3>
                                 <div class="portlet-widgets">
                                     <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
@@ -93,7 +93,56 @@
 
 
 
-               
+          
+ <div class="row">
+                
+
+                    <div class="col-lg-6">
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark">
+                                    Social sharing - Facebook Activity Avg. Weekly
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet3"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet3" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                    <div id="morris-donut-example-1" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                    </div>
+
+                <div class="col-lg-6">
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark">
+                                    Education Degree - Distribution
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet3"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet3" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                    <div id="morris-donut-example-2" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                    </div>
+                </div>     
 
             </div>
 {% endblock %}
@@ -174,7 +223,67 @@
                 "use strict";
 
               
+                var MorrisCharts = function() {};
+                MorrisCharts.prototype.createBarChart  = function(element, data, xkey, ykeys, labels, lineColors) {
+                    Morris.Bar({
+                        element: element,
+                        data: data,
+                        xkey: xkey,
+                        ykeys: ykeys,
+                        labels: labels,
+                        barColors: lineColors
+                    });
+                },
+                //creates Donut chart
+                MorrisCharts.prototype.createDonutChart = function(element, data, colors) {
+                    Morris.Donut({
+                        element: element,
+                        data: data,
+                        colors: colors
+                    });
+                },
+                MorrisCharts.prototype.init = function() {
+
+            
+             
+                    //creating bar chart
+                    var $barData  = [
+                        { y: 'Twitter', a: {{global_sharing.twitter.tweets}}, b: {{global_sharing.twitter.retweets}} },
+                        
+
+                    ];
+                    this.createBarChart('morris-donut-example', $barData, 'y', ['a', 'b', ], ['Tweet', 'Retweet'], ['#45B6E1', '#F06088']);
+                    
+                    //creating bar chart
+                    var $barData  = [
+                        { y: 'Facebook', a: {{global_sharing.facebook.posts}}, b: {{global_sharing.facebook.likes}} },
+                        
+
+                    ];
+                    this.createBarChart('morris-donut-example-1', $barData, 'y', ['a', 'b', ], ['Post', 'Likes'], ['#58C386', '#7D7AB6']);
+
+                    //creating donut chart
+                    var $donutData1 = [ {label: "Elementary School", value: ({{ global_education.0.percentage }} ).toFixed(1)},
+                                       {label: "Junior College", value: ({{ global_education.1.percentage }}).toFixed(1) },
+                                       {label: "High School", value:( {{ global_education.2.percentage }} ).toFixed(1)},
+                                       {label: "Technical Institute", value:( {{ global_education.3.percentage }}).toFixed(1) },
+                                       {label: "University", value: ({{ global_education.4.percentage }} ).toFixed(1)},
+                                       {label: "Master", value: ({{ global_education.5.percentage }} ).toFixed(1) },
+                                       {label: "PhD", value: ( {{ global_education.6.percentage }} ).toFixed(1) },
+
+                            
+         
+                        ];
+                    this.createDonutChart('morris-donut-example-2', $donutData1, ['#45B6E1', '#58C386', '#1a2942', '#F06088','#45B6E1', '#58C386', '#1a2942',]);
+                },
+
+
+
+
+      
+  
                 $.MorrisCharts = new MorrisCharts, $.MorrisCharts.Constructor = MorrisCharts
+                
             }(window.jQuery),
 
             //initializing 
