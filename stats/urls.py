@@ -9,7 +9,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     
-    url(r'^exercise/$', go_exercise_stats, name='go_exercise_stats'),
+    url(r'^/$', go_exercise_stats, name='go_exercise_stats'),
     url(r'^exercise/data', go_exercise_data, name='go_exercise_data'),
     
     url(r'^health/$', go_health_stats, name='go_health_stats'),
