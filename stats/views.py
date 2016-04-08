@@ -193,3 +193,11 @@ def go_contact(request):
                                                         
                                                         "section": "contact",
                                                   },RequestContext(request))
+    
+
+def go_meta(request):
+    return render_to_response('stats/meta.html',{
+                                                        "page": "meta_search",
+                                                        "section": "meta",
+                                                  },RequestContext(request))
+    

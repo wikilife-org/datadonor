@@ -22,4 +22,5 @@ urlpatterns = patterns('',
     url(r'^social/data', go_social_data, name='go_social_data'),
 
     url(r'^contact/$', go_contact, name='go_contact'),
+    url(r'^meta/$', go_meta, name='go_meta'),
 )
