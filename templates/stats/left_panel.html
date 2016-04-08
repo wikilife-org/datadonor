@@ -36,9 +36,9 @@
                             <li class='{% if page == "social_data" %}active{% endif%}'><a href='{% url "go_social_data" %}'>Raw Data</a></li>
                         </ul>
                     </li>
-                     <li class='has-submenu  {% if section == "meta" %}active{% endif%}'><a href="#"><i class="ion-ios7-people"></i> <span class="nav-label">Meta</span></a>
+                     <li class='has-submenu  {% if section == "meta" %}active{% endif%}'><a href="#"><i class="ion-search"></i> <span class="nav-label">Meta</span></a>
                         <ul class="list-unstyled">
-                            <li class='{% if page == "meta_search" %}active{% endif%}'><a href='{% url "go_social_stats" %}'>Search</a></li>
+                            <li class='{% if page == "meta_search" %}active{% endif%}'><a href='{% url "go_meta" %}'>Search</a></li>
                         </ul>
                     </li>
                     {% comment %}
