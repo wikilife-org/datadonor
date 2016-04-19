@@ -201,3 +201,61 @@ def go_meta(request):
                                                         "section": "meta",
                                                   },RequestContext(request))
     
+import requests
+import random
+
+def go_meta_detail(request, meta_id, slug):
+    colores = ["info", "primary", "purple", "warning", "success", "danger"]
+    url = "http://api.wikilife.org/4/meta/withmetrics/%s"%meta_id
+    response = requests.get(url).json()
+    metrics = []
+    for metric in response["metrics"]:
+        metric["name"] = metric["name"].split("-")[0]
+        metric["color"] = random.choice(colores)
+        if metric["type"] == "NumericMetricNode":
+            metric["type"] = "Numeric"
+        else:
+            metric["type"] = "Text"
+        
+        metrics.append(metric)
+            
+    name = response["name"]
+    other_names = response["otherNames"].split(",")
+    
+    names = []
+    
+    for n in other_names:
+        names.append((n, random.choice(colores)))
+        
+    has = response["has"]
+    has_ = []
+    for h in has:
+        has_.append((h["name"], random.choice(colores)))
+        
+    try:
+        is_ = response["is"][0]["name"]
+        if is_ == "Food":
+            css_class = "fa fa-cutlery"
+        elif is_ == "Mood":
+            css_class = "fa ion-happy"
+        elif is_ == "Drug":
+            css_class = "fa fa-circle-thin"
+        elif is_ == "Exercise":
+            css_class = "fa fa-child"
+        elif is_ == "Complaints":
+            css_class = "fa fa-stethoscope"
+        elif is_ == "Conditions":
+            css_class = "fa ion-heart-broken"
+    except:
+        pass
+
+    return render_to_response('stats/meta_detail.html',{ "name": name,
+                                                        "css_class": css_class,
+                                                        "category": is_,
+                                                        "names": names,
+                                                        "has": has_,
+                                                        "metrics": metrics,
+                                                        "page": "meta_search",
+                                                        "section": "meta",
+                                                  },RequestContext(request))
+    

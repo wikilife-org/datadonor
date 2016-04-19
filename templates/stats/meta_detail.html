@@ -1,0 +1,108 @@
+{% extends "stats/base.html"%}
+
+{%block content%}
+<div class="wraper container-fluid">
+<!-- Input groups -->
+   <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-pink">
+                            <i class="{{css_class}}"></i> 
+                            <h2 class="m-0 counter">{{name}}</h2>
+                            <div>{{category}}</div>
+                        </div>
+                    </div>
+   </div> <!-- End row -->
+<div class="row">
+        {% if names %}
+          <div class="col-lg-6">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Other Names</h3>
+                  </div>
+                  <div class="panel-body">
+                      {% for n,c in names %}  
+                        <button type="button" class="btn btn-{{c}} w-md m-b-5">{{n}}</button>
+                      {% endfor %}
+                      
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          {% if has %}
+          <div class="col-lg-6">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Has</h3>
+                  </div>
+                  <div class="panel-body">
+                      {% for h,c in has %}  
+                        <button type="button" class="btn btn-{{c}} w-md m-b-5">{{h}}</button>
+                      {% endfor %}
+                      
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+                    
+</div>
+{% if metrics %}
+<div class="row">
+    <div class="page-title"> 
+        <h3 class="title">Metrics</h3> 
+    </div>
+{% for metric in metrics %}
+    <div class="col-lg-4">
+        <div class="portlet">
+           <div class="portlet-heading bg-{{metric.color}}">
+               <h3 class="portlet-title">
+                   {{metric.name}}
+               </h3>
+               <div class="portlet-widgets">
+                   <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                   <span class="divider"></span>
+                   <a data-toggle="collapse" data-parent="#accordion1" href="#bg-danger"><i class="ion-minus-round"></i></a>
+                   <span class="divider"></span>
+                   <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+               </div>
+               <div class="clearfix"></div>
+           </div>
+           <div id="bg-danger" class="panel-collapse collapse in">
+               <div class="portlet-body">
+               <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Type</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" value="{{metric.type}}" placeholder="{{metric.type}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                                        <div class="col-sm-9">
+                                          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword4" class="col-sm-3 control-label">Re Password</label>
+                                        <div class="col-sm-9">
+                                          <input type="password" class="form-control" id="inputPassword4" placeholder="Retype Password">
+                                        </div>
+                                    </div>
+                                    
+               
+                                </form>
+               </div>
+           </div>
+       </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>            
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+
+</script>
+{% endblock %}
