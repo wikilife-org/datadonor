@@ -212,12 +212,23 @@ def go_meta_detail(request, meta_id, slug):
     for metric in response["metrics"]:
         metric["name"] = metric["name"].split("-")[0]
         metric["color"] = random.choice(colores)
+        if metric["type"] != "NumericMetricNode":
+
+            metric["type"] = "Text"
+            options = metric["options"].split(",")
+            default = int(metric["default"])
+            metric["default"] = options[default]
+            #metric["options"] = options
+        
+            metrics.append(metric)
+    
+    for metric in response["metrics"]:
+        metric["name"] = metric["name"].split("-")[0]
+        metric["color"] = random.choice(colores)
         if metric["type"] == "NumericMetricNode":
             metric["type"] = "Numeric"
-        else:
-            metric["type"] = "Text"
-        
-        metrics.append(metric)
+            metrics.append(metric)
+            
             
     name = response["name"]
     other_names = response["otherNames"].split(",")
@@ -233,6 +244,7 @@ def go_meta_detail(request, meta_id, slug):
         has_.append((h["name"], random.choice(colores)))
         
     try:
+        css_class = ""
         is_ = response["is"][0]["name"]
         if is_ == "Food":
             css_class = "fa fa-cutlery"
@@ -244,7 +256,7 @@ def go_meta_detail(request, meta_id, slug):
             css_class = "fa fa-child"
         elif is_ == "Complaints":
             css_class = "fa fa-stethoscope"
-        elif is_ == "Conditions":
+        elif is_ == "Conditions" or is_ == "Medical Conditions" :
             css_class = "fa ion-heart-broken"
     except:
         pass

@@ -50,7 +50,7 @@
     <div class="page-title"> 
         <h3 class="title">Metrics</h3> 
     </div>
-{% for metric in metrics %}
+{% for metric in metrics|slice:"0:3" %}
     <div class="col-lg-4">
         <div class="portlet">
            <div class="portlet-heading bg-{{metric.color}}">
@@ -72,21 +72,45 @@
                                     <div class="form-group">
                                         <label  class="col-sm-3 control-label">Type</label>
                                         <div class="col-sm-9">
-                                          <input type="text" class="form-control" value="{{metric.type}}" placeholder="{{metric.type}}">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.type}}" placeholder="{{metric.type}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                                        <label  class="col-sm-3 control-label">Default</label>
                                         <div class="col-sm-9">
-                                          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.default}}" placeholder="{{metric.default}}">
+                                        </div>
+                                    </div>
+                                    {% if metric.type == "Text" %}
+                                    
+                                    <div class="form-group">
+                                    <label class="col-sm-3 control-label">Options</label>
+                                        <div class="col-sm-9">
+                                            <input name="tags" class="tags1" class="form-control" value="{{metric.options}}" />
+                                        </div>
+                                     </div>
+                                    {% else %}
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Min</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.min}}" placeholder="{{metric.min}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputPassword4" class="col-sm-3 control-label">Re Password</label>
+                                        <label  class="col-sm-3 control-label">Max</label>
                                         <div class="col-sm-9">
-                                          <input type="password" class="form-control" id="inputPassword4" placeholder="Retype Password">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.max}}" placeholder="{{metric.max}}">
                                         </div>
                                     </div>
+	                                    {% if metric.unit  %}
+	                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Unit</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.unit}}" placeholder="{{metric.unit}}">
+                                        </div>
+                                    </div>
+	                                    {% endif %}
+                                    {% endif %}
                                     
                
                                 </form>
@@ -96,13 +120,170 @@
     </div>
     {% endfor %}
 </div>
+<div class="row">
+{% for metric in metrics|slice:"3:6" %}
+    <div class="col-lg-4">
+        <div class="portlet">
+           <div class="portlet-heading bg-{{metric.color}}">
+               <h3 class="portlet-title">
+                   {{metric.name}}
+               </h3>
+               <div class="portlet-widgets">
+                   <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                   <span class="divider"></span>
+                   <a data-toggle="collapse" data-parent="#accordion1" href="#bg-danger"><i class="ion-minus-round"></i></a>
+                   <span class="divider"></span>
+                   <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+               </div>
+               <div class="clearfix"></div>
+           </div>
+           <div id="bg-danger" class="panel-collapse collapse in">
+               <div class="portlet-body">
+               <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Type</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.type}}" placeholder="{{metric.type}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Default</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.default}}" placeholder="{{metric.default}}">
+                                        </div>
+                                    </div>
+                                    {% if metric.type == "Text" %}
+                                    
+                                    <div class="form-group">
+                                    <label class="col-sm-3 control-label">Options</label>
+                                        <div class="col-sm-9">
+                                            <input name="tags" class="tags1" class="form-control" value="{{metric.options}}" />
+                                        </div>
+                                     </div>
+                                    {% else %}
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Min</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.min}}" placeholder="{{metric.min}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Max</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.max}}" placeholder="{{metric.max}}">
+                                        </div>
+                                    </div>
+                                        {% if metric.unit  %}
+                                        <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Unit</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.unit}}" placeholder="{{metric.unit}}">
+                                        </div>
+                                    </div>
+                                        {% endif %}
+                                    {% endif %}
+                                    
+               
+                                </form>
+               </div>
+           </div>
+       </div>
+    </div>
+    {% endfor %}
+</div> 
+<div class="row">
+{% for metric in metrics|slice:"6:9" %}
+    <div class="col-lg-4">
+        <div class="portlet">
+           <div class="portlet-heading bg-{{metric.color}}">
+               <h3 class="portlet-title">
+                   {{metric.name}}
+               </h3>
+               <div class="portlet-widgets">
+                   <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                   <span class="divider"></span>
+                   <a data-toggle="collapse" data-parent="#accordion1" href="#bg-danger"><i class="ion-minus-round"></i></a>
+                   <span class="divider"></span>
+                   <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+               </div>
+               <div class="clearfix"></div>
+           </div>
+           <div id="bg-danger" class="panel-collapse collapse in">
+               <div class="portlet-body">
+               <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Type</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.type}}" placeholder="{{metric.type}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Default</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.default}}" placeholder="{{metric.default}}">
+                                        </div>
+                                    </div>
+                                    {% if metric.type == "Text" %}
+                                    
+                                    <div class="form-group">
+                                    <label class="col-sm-3 control-label">Options</label>
+                                        <div class="col-sm-9">
+                                            <input name="tags" class="tags1" class="form-control" value="{{metric.options}}" />
+                                        </div>
+                                     </div>
+                                    {% else %}
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Min</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.min}}" placeholder="{{metric.min}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Max</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.max}}" placeholder="{{metric.max}}">
+                                        </div>
+                                    </div>
+                                        {% if metric.unit  %}
+                                        <div class="form-group">
+                                        <label  class="col-sm-3 control-label">Unit</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" readonly="" value="{{metric.unit}}" placeholder="{{metric.unit}}">
+                                        </div>
+                                    </div>
+                                        {% endif %}
+                                    {% endif %}
+                                    
+               
+                                </form>
+               </div>
+           </div>
+       </div>
+    </div>
+    {% endfor %}
+</div> 
 {% endif %}
 </div>            
 {% endblock %}
 
 {% block scripts %}
 
+<link href="/static/stats/assets/tagsinput/jquery.tagsinput.css" rel="stylesheet" />
+
+<style>
+
+.tag a { display: none !important; } 
+#tags_addTag { display: none !important; }
+.tagsinput div { display: none !important; }
+</style>
+
+<script src="/static/stats/assets/tagsinput/jquery.tagsinput.min.js"></script>
 <script type="text/javascript">
+jQuery(document).ready(function() {
+    
+    // Tags Input
+    jQuery('.tags1').tagsInput({width:'auto', height:'auto',});
+});
 
 </script>
 {% endblock %}

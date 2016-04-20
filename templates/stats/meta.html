@@ -260,6 +260,7 @@ jQuery(document).ready(function($) {
                     selector = "Item-"+i;
                     $("#" + selector+ " h2").html(item.name);
                     cate_name = item.is[0].name;
+                    console.log(cate_name);
                     if (cate_name ==  "Drug"){
                     	$("#" + selector+ " i").addClass("fa fa-circle-thin");
                     }else{
@@ -275,7 +276,7 @@ jQuery(document).ready(function($) {
                                     if (cate_name ==  "Complaints"){
                                         $("#" + selector+ " i").addClass("fa fa-stethoscope");
                                     }else{
-                                        if (cate_name ==  "Conditions"){
+                                        if (cate_name ==  "Conditions" || cate_name == "Medical Conditions"){
                                             $("#" + selector+ " i").addClass("fa ion-heart-broken");
                                         }
                                     }
