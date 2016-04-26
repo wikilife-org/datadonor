@@ -4,10 +4,15 @@
 <link rel="stylesheet" href="/static/css/reveal.css">
 <script type="text/javascript" src="/static/js/download.js"></script>
 <style>
+.nav a sub {
+    color: #ef6c6c;
+    font-size: 10px;
+    text-transform: initial !important;
+}
 .mydata{
 
     color: #8e929c;
-    font-size: 13px;
+    //font-size: 13px;
     margin-right: 56px;
 }
 
@@ -71,12 +76,7 @@ $(function () {
 	                    title="DataDonors" />
 	            </a>
             </h1>
-            <h2>
-                <a href="http://www.healthdataconsortium.org/" target="_blank">
-                   <img src="/static/img/hdc.png" width="187" height="55" alt="HDC Logo"
-                        title="HDC" />
-                </a>
-            </h2>
+            
               {% if request.user.is_authenticated %}
                            <div id="wiki-nav-d">
                 <nav class="wiki-nav" id="">
@@ -97,7 +97,7 @@ $(function () {
                 <nav class="nav" id="">	
                 	
                 	
-                	<a href="http://datadonors.org/data" title="{% trans "Data" %}">{% trans "Data" %}</a>
+                	<a href="http://datadonors.org/visualization" title="{% trans "Visualization" %}">{% trans "Visualization" %}<sub>beta</sub></a>
                     <a href="http://datadonors.org/mission" title="{% trans "Mission" %}">{% trans "Mission" %}</a>
                     <a href="http://datadonors.org/learn-more" title="{% trans "Learn More" %}">{% trans "Learn More" %}</a>
                     <a href="http://datadonors.org/support-us" title="{% trans "Support Us" %}">{% trans "Support Us" %}</a>
