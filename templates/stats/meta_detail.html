@@ -2,15 +2,40 @@
 
 {%block content%}
 <div class="wraper container-fluid">
+ <!-- Row start -->
+ {% if ancestors %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Categories</h3>
+                            </div>
+                            <div class="panel-body">
+                                {% for ancestor in ancestors %}
+                                <a href='{% url "go_meta_graph" ancestor.id %}'><button type="button" class="btn btn-success m-b-5">{{ancestor.name}}</button></a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+  {% endif %}
+                <!-- End Row -->
 <!-- Input groups -->
+
    <div class="row">
                     <div class="col-lg-6 col-sm-6">
                         <div class="widget-panel widget-style-2 bg-pink">
                             <i class="{{css_class}}"></i> 
                             <h2 class="m-0 counter">{{name}}</h2>
-                            <div>{{category}}</div>
+                            <div>{%if category %}{{category}} {% endif %}</div>
                         </div>
                     </div>
+                    {% if image_thumb_url%}
+                    <div class="col-lg-6 col-sm-6">
+                            <img src={{image_thumb_url}}>
+                    </div>
+                    {% endif%}
+                    
    </div> <!-- End row -->
 <div class="row">
         {% if names %}
@@ -21,7 +46,9 @@
                   </div>
                   <div class="panel-body">
                       {% for n,c in names %}  
-                        <button type="button" class="btn btn-{{c}} w-md m-b-5">{{n}}</button>
+                        {% if n != "" %}
+                        <a href='{% url "go_meta" %}?to_search={{n}}'><button type="button" class="btn btn-{{c}} w-md m-b-5">{{n}}</button></a>
+                        {% endif %}
                       {% endfor %}
                       
                   </div>
@@ -36,7 +63,7 @@
                   </div>
                   <div class="panel-body">
                       {% for h,c in has %}  
-                        <button type="button" class="btn btn-{{c}} w-md m-b-5">{{h}}</button>
+                        <a href='{% url "go_meta" %}?to_search={{h}}'><button type="button" class="btn btn-{{c}} w-md m-b-5">{{h}}</button></a>
                       {% endfor %}
                       
                   </div>
@@ -69,12 +96,7 @@
            <div id="bg-danger" class="panel-collapse collapse in">
                <div class="portlet-body">
                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label  class="col-sm-3 control-label">Type</label>
-                                        <div class="col-sm-9">
-                                          <input type="text" class="form-control" readonly="" value="{{metric.type}}" placeholder="{{metric.type}}">
-                                        </div>
-                                    </div>
+         
                                     <div class="form-group">
                                         <label  class="col-sm-3 control-label">Default</label>
                                         <div class="col-sm-9">
@@ -140,12 +162,7 @@
            <div id="bg-danger" class="panel-collapse collapse in">
                <div class="portlet-body">
                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label  class="col-sm-3 control-label">Type</label>
-                                        <div class="col-sm-9">
-                                          <input type="text" class="form-control" readonly="" value="{{metric.type}}" placeholder="{{metric.type}}">
-                                        </div>
-                                    </div>
+
                                     <div class="form-group">
                                         <label  class="col-sm-3 control-label">Default</label>
                                         <div class="col-sm-9">
@@ -211,12 +228,7 @@
            <div id="bg-danger" class="panel-collapse collapse in">
                <div class="portlet-body">
                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label  class="col-sm-3 control-label">Type</label>
-                                        <div class="col-sm-9">
-                                          <input type="text" class="form-control" readonly="" value="{{metric.type}}" placeholder="{{metric.type}}">
-                                        </div>
-                                    </div>
+
                                     <div class="form-group">
                                         <label  class="col-sm-3 control-label">Default</label>
                                         <div class="col-sm-9">
@@ -263,6 +275,40 @@
     {% endfor %}
 </div> 
 {% endif %}
+{% if childs.itemsTotal > 0 %}
+<div class="row">
+<div class="page-title"> 
+        <h3 class="title">Childs</h3> 
+    </div>
+<div class="col-md-3 col-sm-6">
+                        <div class="widget-panel widget-style-1 bg-purple">
+                            
+                            <h2 class="m-0 counter">{{childs.itemsTotal}}</h2>
+                            <div>Items</div>
+                        </div>
+                    </div>
+                    
+
+    {% for child in childs.items %}
+    <div class="col-md-3">
+                        <div class="mini-stat clearfix">
+                            <div class="mini-stat-info text-right">
+                                <a href="{% url 'go_meta_graph' child.id %}"><span class="counter">{{child.name}}</span></a>
+                            </div>
+                        </div>
+                    </div>
+    {% endfor %}
+</div>
+
+{% if childs.pageCount > 1 %}
+<div class="btn-group btn-group-justified m-b-10">
+                                    {% if childs.pageIndex != 0 %}
+                                    <a class="btn btn-primary" role="button" href="{% url 'go_meta_graph' id %}?page={{childs.prev_page}}">Prev</a>
+                                    {%endif %}
+                                    <a class="btn btn-warning" role="button" href="{% url 'go_meta_graph' id %}?page={{childs.next_page}}">Next</a>
+                                </div>
+    {% endif%}                           
+{% endif%}
 </div>            
 {% endblock %}
 

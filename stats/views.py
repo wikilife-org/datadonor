@@ -196,7 +196,8 @@ def go_contact(request):
     
 
 def go_meta(request):
-    return render_to_response('stats/meta.html',{
+    to_search = request.GET.get("to_search", None)
+    return render_to_response('stats/meta.html',{"to_search":to_search,
                                                         "page": "meta_search",
                                                         "section": "meta",
                                                   },RequestContext(request))
@@ -204,10 +205,56 @@ def go_meta(request):
 import requests
 import random
 
-def go_meta_detail(request, meta_id, slug):
+def go_meta_graph(request, meta_id=1):
+    page = request.GET.get("page", 0)
+        
+    if meta_id == None:
+        meta_id = 1
+    url_childs = "http://api.wikilife.org/4/meta/children/%s?page=%s"%(meta_id, page)
+    response_childs = requests.get(url_childs).json()
+    response_childs["next_page"] = response_childs["pageIndex"] + 1
+    response_childs["prev_page"] = response_childs["pageIndex"] - 1
+    
     colores = ["info", "primary", "purple", "warning", "success", "danger"]
     url = "http://api.wikilife.org/4/meta/withmetrics/%s"%meta_id
     response = requests.get(url).json()
+
+            
+            
+    name = response["name"]
+    other_names = response["otherNames"].split(",")
+    
+    names = []
+    
+    for n in other_names:
+        if n == " " or n == [] or n == "[]":
+            continue
+        names.append((n, random.choice(colores)))
+        
+    has = response["has"]
+    has_ = []
+    for h in has:
+        has_.append((h["name"], random.choice(colores)))
+    
+    is_ = None
+    try:
+        css_class = ""
+        is_ = response["is"][0]["name"]
+        if is_ == "Food":
+            css_class = "fa fa-cutlery"
+        elif is_ == "Mood":
+            css_class = "fa ion-happy"
+        elif is_ == "Drug":
+            css_class = "fa fa-circle-thin"
+        elif is_ == "Exercise":
+            css_class = "fa fa-child"
+        elif is_ == "Complaints":
+            css_class = "fa fa-stethoscope"
+        elif is_ == "Conditions" or is_ == "Medical Conditions" :
+            css_class = "fa ion-heart-broken"
+    except:
+        pass
+    
     metrics = []
     for metric in response["metrics"]:
         metric["name"] = metric["name"].split("-")[0]
@@ -215,10 +262,16 @@ def go_meta_detail(request, meta_id, slug):
         if metric["type"] != "NumericMetricNode":
 
             metric["type"] = "Text"
-            options = metric["options"].split(",")
-            default = int(metric["default"])
-            metric["default"] = options[default]
-            #metric["options"] = options
+            if is_ != "Drug":
+                options = metric["options"].split(",")
+                default = int(metric["default"])
+                metric["default"] = options[default]
+            else:
+                options = metric["options"].split(";")
+                print options
+                metric["default"] = options[0]
+                metric["options"] = ", ".join(options)
+                print metric["options"]
         
             metrics.append(metric)
     
@@ -229,6 +282,39 @@ def go_meta_detail(request, meta_id, slug):
             metric["type"] = "Numeric"
             metrics.append(metric)
             
+    ancestors_url = "http://api.wikilife.org/4/meta/ancestors/%s"%meta_id
+    response_ancestors = requests.get(ancestors_url).json()
+    response_ancestors.reverse()
+    
+    image_url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&titles=%s&prop=pageimages&format=json&pithumbsize=400'%name
+    response_image = requests.get(image_url).json()
+    image_thumb_url = None
+    try:
+        image_thumb_url = response_image["query"]["pages"][response_image["query"]["pages"].keys()[0]]["thumbnail"]["source"]
+    except:
+        pass
+    print metrics
+    return render_to_response('stats/meta_detail.html',{"id": response['id'],
+                                                        "childs":response_childs,
+                                                        "image_thumb_url":image_thumb_url,
+                                                        "ancestors": response_ancestors, 
+                                                        "name": name,
+                                                        "css_class": css_class,
+                                                        "category": is_,
+                                                        "names": names,
+                                                        "has": has_,
+                                                        "metrics": metrics,
+                                                        "page": "meta_search",
+                                                        "section": "meta",
+                                                  },RequestContext(request))
+
+    
+def go_meta_detail(request, meta_id, slug=None):
+    colores = ["info", "primary", "purple", "warning", "success", "danger"]
+    url = "http://api.wikilife.org/4/meta/withmetrics/%s"%meta_id
+    response = requests.get(url).json()
+
+            
             
     name = response["name"]
     other_names = response["otherNames"].split(",")
@@ -236,6 +322,8 @@ def go_meta_detail(request, meta_id, slug):
     names = []
     
     for n in other_names:
+        if n == " " or n == [] or n == "[]":
+            continue
         names.append((n, random.choice(colores)))
         
     has = response["has"]
@@ -260,8 +348,49 @@ def go_meta_detail(request, meta_id, slug):
             css_class = "fa ion-heart-broken"
     except:
         pass
+    
+    metrics = []
+    for metric in response["metrics"]:
+        metric["name"] = metric["name"].split("-")[0]
+        metric["color"] = random.choice(colores)
+        if metric["type"] != "NumericMetricNode":
 
-    return render_to_response('stats/meta_detail.html',{ "name": name,
+            metric["type"] = "Text"
+            if is_ != "Drug":
+                options = metric["options"].split(",")
+                default = int(metric["default"])
+                metric["default"] = options[default]
+            else:
+                options = metric["options"].split(";")
+                print options
+                metric["default"] = options[0]
+                metric["options"] = ", ".join(options)
+                print metric["options"]
+        
+            metrics.append(metric)
+    
+    for metric in response["metrics"]:
+        metric["name"] = metric["name"].split("-")[0]
+        metric["color"] = random.choice(colores)
+        if metric["type"] == "NumericMetricNode":
+            metric["type"] = "Numeric"
+            metrics.append(metric)
+            
+    ancestors_url = "http://api.wikilife.org/4/meta/ancestors/%s"%meta_id
+    response_ancestors = requests.get(ancestors_url).json()
+    response_ancestors.reverse()
+    
+    image_url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&titles=%s&prop=pageimages&format=json&pithumbsize=400'%name
+    response_image = requests.get(image_url).json()
+    image_thumb_url = None
+    try:
+        image_thumb_url = response_image["query"]["pages"][response_image["query"]["pages"].keys()[0]]["thumbnail"]["source"]
+    except:
+        pass
+    print metrics
+    return render_to_response('stats/meta_detail.html',{"image_thumb_url":image_thumb_url,
+                                                        "ancestors": response_ancestors, 
+                                                        "name": name,
                                                         "css_class": css_class,
                                                         "category": is_,
                                                         "names": names,

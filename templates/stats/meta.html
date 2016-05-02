@@ -181,6 +181,8 @@ a:hover, a:focus {
 </style>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
+	
+	
 	$("#Item-0").hide();
 	$("#Item-1").hide();
 	$("#Item-2").hide();
@@ -303,6 +305,11 @@ jQuery(document).ready(function($) {
     	});
     	
     });
+    
+    {% if to_search %}
+    $('#example-input2-group2').val("{{to_search}}");
+    $("#search_meta").trigger("click"); 
+{% endif %}
 });
 </script>
 {% endblock %}

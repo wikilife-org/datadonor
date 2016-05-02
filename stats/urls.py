@@ -23,6 +23,9 @@ urlpatterns = patterns('',
 
     url(r'^contact/$', go_contact, name='go_contact'),
     url(r'^meta/$', go_meta, name='go_meta'),
+    url(r'^meta/graph/(?P<meta_id>.+)/$', go_meta_graph, name='go_meta_graph'),
+    
     
     url(r'^meta/(?P<meta_id>.+)/(?P<slug>.+)/$', go_meta_detail, name='go_meta_detail'),
+    url(r'^meta/(?P<meta_id>.+)/$', go_meta_detail, name='go_meta_detail'),
 )

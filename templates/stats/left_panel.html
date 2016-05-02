@@ -39,6 +39,7 @@
                      <li class='has-submenu  {% if section == "meta" %}active{% endif%}'><a href="#"><i class="ion-search"></i> <span class="nav-label">Meta</span></a>
                         <ul class="list-unstyled">
                             <li class='{% if page == "meta_search" %}active{% endif%}'><a href='{% url "go_meta" %}'>Search</a></li>
+                            <li class='{% if page == "meta_graph" %}active{% endif%}'><a href='{% url "go_meta_graph" 1 %}'>Graph</a></li>
                         </ul>
                     </li>
                     {% comment %}
