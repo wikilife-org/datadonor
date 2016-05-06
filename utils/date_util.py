@@ -24,7 +24,7 @@ def get_last_sunday_from_date(from_date):
     return (last_sunday, last_sunday.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 
 def get_last_sunday():
-    today = datetime.date.today()
+    today = date.today()
     offset = (today.weekday() - 6) % 7
     if offset ==0:
         offset = 7
@@ -32,12 +32,12 @@ def get_last_sunday():
     return (last_sunday, last_sunday.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 
 def get_last_year():
-    today = datetime.date.today()
+    today = date.today()
     last_year = today - timedelta(days=365)
     return (last_year, last_year.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d"))
 
 def get_last_sunday_list_days():
-    today = datetime.date.today()
+    today = date.today()
     offset = (today.weekday() - 6) % 7
     if offset ==0:
         offset = 7
@@ -49,7 +49,7 @@ def get_last_sunday_list_days():
 
 def get_days_list_completed(days_count):
     result = []
-    today = datetime.date.today()
+    today = date.today()
     for i in range(days_count):
         td = timedelta(days=i)
         e_day = today - td
@@ -79,7 +79,7 @@ def get_days_list_mili(days_count):
 
 def get_days_list(days_count):
     result = []
-    today = datetime.date.today()
+    today = date.today()
     for i in range(days_count):
         td = timedelta(days=i)
         e_day = today - td
