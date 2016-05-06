@@ -1,8 +1,13 @@
 
 from datetime import date, datetime, time, timedelta
+from dateutil.relativedelta import relativedelta
+import time
+import pytz
+import math
+
 
 def get_next_sunday_from_date(from_date):
-    today = datetime.datetime.strptime(from_date, "%Y-%m-%d").date()
+    today = datetime.strptime(from_date, "%Y-%m-%d").date()
     offset = (today.weekday() - 6) % 7
     if offset ==0:
         offset = 7
@@ -11,7 +16,7 @@ def get_next_sunday_from_date(from_date):
 
 
 def get_last_sunday_from_date(from_date):
-    today = datetime.datetime.strptime(from_date, "%Y-%m-%d").date()
+    today = datetime.strptime(from_date, "%Y-%m-%d").date()
     offset = (today.weekday() - 6) % 7
     if offset ==0:
         offset = 7
@@ -53,10 +58,9 @@ def get_days_list_completed(days_count):
     
     return result
 
-import datetime
 
 def unix_time(dt):
-    epoch = datetime.datetime.utcfromtimestamp(0)
+    epoch = datetime.utcfromtimestamp(0)
     delta = dt - epoch
     return delta.total_seconds()
 
@@ -65,7 +69,7 @@ def unix_time_millis(dt):
 
 def get_days_list_mili(days_count):
     result = []
-    today = datetime.datetime.today()
+    today = datetime.today()
     for i in range(days_count):
         td = timedelta(days=i)
         e_day = today - td
@@ -105,12 +109,6 @@ def get_days_twitter(days_count):
     return result
 
 
-
-from dateutil.relativedelta import relativedelta
-import time
-import pytz
-import math
-from datetime import date, datetime, time, timedelta
 
 
 class DateUtils(object):
@@ -164,15 +162,15 @@ class DateUtils(object):
 
     @staticmethod
     def get_datetime_utc():
-        return datetime.datetime.utcnow()
+        return datetime.utcnow()
 
     @staticmethod
     def get_datetime_local(tz_name):
-        return datetime.datetime.now(pytz.timezone(tz_name))
+        return datetime.now(pytz.timezone(tz_name))
 
     @staticmethod
     def get_utc_offset_str(tz_name):
-        return datetime.datetime.now(pytz.timezone(tz_name)).strftime('%z')
+        return datetime.now(pytz.timezone(tz_name)).strftime('%z')
 
     @staticmethod
     def to_datetime_utc(local_datetime):
