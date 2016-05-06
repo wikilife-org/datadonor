@@ -368,7 +368,7 @@ def mood_avg_by_user_mock(request):
 def mood_panda_activate_mock(request):
     if request.method == 'POST':
         panda_email = request.POST["email_mood_panda"]
-        data = {"mood_avg":mood_avg}
+        data = {"mood_avg":6}
     else:
         data = {"status": "ok", "mood_avg":5}
     return HttpResponse(simplejson.dumps(data), mimetype="application/json")

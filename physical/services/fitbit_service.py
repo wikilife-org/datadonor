@@ -153,7 +153,7 @@ class FitbitService(BaseDeviceService):
                 activity_obj, created = UserActivityLog.objects.get_or_create(user=user, device_log_id=activity["logId"])"""
                 
 
-                """if created:
+            """if created:
                     wl_log = self._create_activity_log(activity, distanceUnit)
                     wl_logs.append(wl_log)"""
 
