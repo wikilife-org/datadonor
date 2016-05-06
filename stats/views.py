@@ -26,8 +26,8 @@ def go_exercise_stats(request):
     total_sleep_log = UserSleepLog.objects.count()
     
     #Last_7_days miles
-    dto_miles = PhysicalActivityDistributionService().get_records_miles_limit(days_offset=30)
-    dto_hours = PhysicalActivityDistributionService().get_records_hour_limit(days_offset=30)
+    dto_miles = PhysicalActivityDistributionService().get_records_miles_limit(days_offset=300)
+    dto_hours = PhysicalActivityDistributionService().get_records_hour_limit(days_offset=300)
     #dto_steps = PhysicalActivityDistributionService()._get_global_distribution_steps_report_week()
     gender_m = Profile.objects.filter(gender="m").count()
     gender_f = Profile.objects.filter(gender="f").count()
