@@ -11,6 +11,7 @@ from physical.models import UserActivityLog
 from nutrition.models import UserFoodLog
 from health.models import UserSleepLog
 from django.db.models.aggregates import Sum, Avg
+from wikilife.clients.stats import Stats
 
 
 def get_miles(request):
@@ -26,8 +27,10 @@ def go_exercise_stats(request):
     total_sleep_log = UserSleepLog.objects.count()
     
     #Last_7_days miles
-    dto_miles = PhysicalActivityDistributionService().get_records_miles_limit(days_offset=300)
-    dto_hours = PhysicalActivityDistributionService().get_records_hour_limit(days_offset=300)
+    client = Stats({"HOST":"http://api.wikilife.org"})
+    total_wl_users = client.get_total_wl_users()["data"]["users"]["total"]
+    dto_miles = PhysicalActivityDistributionService().get_records_miles_limit(days_offset=100)
+    dto_hours = PhysicalActivityDistributionService().get_records_hour_limit(days_offset=100)
     #dto_steps = PhysicalActivityDistributionService()._get_global_distribution_steps_report_week()
     gender_m = Profile.objects.filter(gender="m").count()
     gender_f = Profile.objects.filter(gender="f").count()
@@ -41,7 +44,8 @@ def go_exercise_stats(request):
     
     #Gender distribution
     
-    return render_to_response('stats/exercise.html',{"total_dd_users": total_dd_user,
+    return render_to_response('stats/exercise.html',{"total_wl_users": total_wl_users,
+                                                     "total_dd_users": total_dd_user,
                                                   "total_exercise_log": total_exercise_log,
                                                   "total_food_log": total_food_log,
                                                   "miles": dto_miles,

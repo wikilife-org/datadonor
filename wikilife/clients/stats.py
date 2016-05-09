@@ -4,7 +4,11 @@ from wikilife.clients.base_wikilife_client import BaseWikilifeClient
 from utils.date_util import get_last_sunday, get_last_year
 
 class Stats(BaseWikilifeClient):
-
+    
+    def get_total_wl_users(self):
+        response_dto = self.rest_get("/4/user/internal")[2]
+        return response_dto
+    
     def get_global_education_stats(self):
         response_dto = self.rest_get("/4/stats/global/education/level/")[2]
         return response_dto
