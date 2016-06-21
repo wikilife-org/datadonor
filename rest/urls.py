@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     #REST
     url(r'^authorize/', authorize, name='authorize'),
     #Health
-    url(r'^log/', log, name='log')
+    url(r'^log/', log, name='log'),
+    
+    
 
 )

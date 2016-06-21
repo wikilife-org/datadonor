@@ -1,34 +1,4 @@
-"""
-//Miscellaneous
-BiologicalSex = "gender"
-BloodType = "blood_type"
-DateOfBirth = "date_of_birth"
-BodyTemperature = "body_temperature"
 
-//Fitness
-BodyMassIndex = "bmi"
-Height = "height"
-HeartRate = "heart_rate"
-StepCount = "step_count"
-Distance = "distance"
-ActiveEnergy = "active_energy"
-ActivityCount = "activity_count"
-NikeFuel = "nike_fuel"
-
-//Blood
-OxygenSaturation = oxygen_saturation""
-BloodGlucose = "blood_glucose"
-BloodAlcoholContent = "blood_alcohol_Content"
-
-//Nutrition
-DietaryFatTotal = "fat_total"
-DietaryFiber = "fiber"
-DietarySugar = "sugar"
-DietaryCalories = "calories"
-DietaryProtein = "protein"
-DietaryCarbohydrates = "carbohydrates"
-
-"""
 from django.contrib.auth.models import User
 from django.http.response import HttpResponse
 from django.utils import simplejson
@@ -86,15 +56,91 @@ from social_auth.models import UserSocialAuth
 from social_auth.backends import get_backend
 
 from social.util.social_service_locator import SocialServiceLocator
+from rest.services import user_registration, upload_image, process_text, process_location, process_data, process_log
+from rest.models import Log, Data, TextData
 
-def authorize(request):
-    result = {"message": "Authorize", "status": "success", "data":{}}
-    username = "HK_%s"%''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
-    user = User.objects.create(username=username, password="", email="")
-    user.profile.account_id
-    data = {"userId":  user.profile.account_id}
-    result["data"] = data
+@csrf_exempt
+def register(request):
+    if request.method == 'POST':
+        #valid_user
+        post_content = simplejson.loads(request.body)
+        #info es un array
+        if "facebook" not in post_content.keys() or "twitter" not in post_content.keys() or "linkedin" not in post_content.keys():
+            return HttpResponse(simplejson.dumps({"message": "Missing social auth token ", "status": "error", "data":{}}), mimetype="application/json")
+        
+        
+        user_id = user_registration(post_content)
+        data = {"user_id": user_id}     
+        
+    else:
+        logger.info(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}))
+        return HttpResponse(simplejson.dumps({"message": "Not implemented method", "status": "error", "data":{}}), mimetype="application/json")
+    
+    logger.info(simplejson.dumps({"message": "Registration done!", "status": "success", "data":{}}))
+    return HttpResponse(simplejson.dumps({"message": "Registration done!", "status": "success", "data":data}), mimetype="application/json")  
+
+@csrf_exempt
+def add_device(request):
+    result = {}
+    #append device access_token to user
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
+
+@csrf_exempt
+def delete_device(request):
+    result = {}
+    #remove device access_token to user
+    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
+
+@csrf_exempt
+def add_log(request):
+    post_content = simplejson.loads(request.body)
+    user_id = post_content["user_id"]
+    try:
+        user = User.objects.get(id=int(user_id))
+    except:
+        return HttpResponse(simplejson.dumps({"status":"error", "message":"Invalid user"}), mimetype="application/json")
+    
+
+    log_id = process_log(post_content, user)
+    result = {"log_id":log_id}
+    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
+
+@csrf_exempt
+def add_image(request):
+    post_content = simplejson.loads(request.body)
+    try:
+        url = upload_image(post_content["image"])
+        #Get the log_id
+        #add the url to object
+        #save obj
+    except:
+        return HttpResponse(simplejson.dumps({"status":"error"}), mimetype="application/json")
+    
+    return HttpResponse(simplejson.dumps({"status":"ok"}), mimetype="application/json")
+    
+@csrf_exempt
+def edit_log(request):
+    result = {}
+    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
+
+@csrf_exempt
+def delete_log(request):
+    result = {}
+    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
+
+@csrf_exempt
+def get_timeline(request):
+    result = {}
+    #get from_date and to_date
+    #read from Logs table
+    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
+
+@csrf_exempt
+def get_profile(request):
+    result = {}
+    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
+
+
 
 def process(user, opr, value, date_):
     if opr["key"] == "user":
