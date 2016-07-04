@@ -16,7 +16,7 @@ slugify = module_member(setting('SOCIAL_AUTH_SLUGIFY_FUNCTION',
 
 
 from social.util.social_service_locator import SocialServiceLocator
-from rest.models import Log, Data, TextData
+from api.models import Log, Data, TextData
 
 
 def user_registration(data):
