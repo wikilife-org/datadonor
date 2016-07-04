@@ -62,7 +62,7 @@ def do_facebook_registration(data):
     
     else:
         user = UserSocialAuth.create_user(username=get_username(), email="")
-        Profile.objects.create(user=user)
+        Profile.objects.get_or_create(user=user)
         social_user = UserSocialAuth.objects.create(user=user, provider="facebook", uid=uid, extra_data=data["facebook"])
         
     dd_user_id = social_user.user.id
@@ -98,7 +98,8 @@ def get_username(
         final_username = UserSocialAuth.clean_username(username)
         if do_slugify:
             final_username = slugify(final_username)
-    return username
+    print final_username
+    return final_username
 
 
 def process_log(post_content, user):
