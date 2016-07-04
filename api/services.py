@@ -5,7 +5,10 @@ from users.models import Profile
 from django.contrib.auth.models import User
 from uuid import uuid4
 import boto
+import requests
+
 from social_auth.utils import setting, module_member
+
 
 
 slugify = module_member(setting('SOCIAL_AUTH_SLUGIFY_FUNCTION',
@@ -150,7 +153,13 @@ def process_data(data):
     prop2_value = data.get("prop2_value", None)
     
     result = []
+    return result
     
 
 def process_location(data):
-    return None
+    lat = data.get("lat", None)
+    lon = data.get("lon", None)
+    if lat and lon:
+        url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
+        result = requests.get(url).json()
+    return None, None
