@@ -56,8 +56,8 @@ from social_auth.models import UserSocialAuth
 from social_auth.backends import get_backend
 
 from social.util.social_service_locator import SocialServiceLocator
-from rest.services import user_registration, upload_image, process_text, process_location, process_data, process_log
-from rest.models import Log, Data, TextData
+from api.services import user_registration, upload_image, process_text, process_location, process_data, process_log
+from api.models import Log, Data, TextData
 
 @csrf_exempt
 def register(request):
