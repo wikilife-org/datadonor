@@ -63,9 +63,13 @@ from api.models import Log, Data, TextData
 def register(request):
     if request.method == 'POST':
         #valid_user
+        #print request.POST
+        #print request.POST.get("facebook")
+        
+        #post_content = request.POST
         post_content = simplejson.loads(request.body)
         #info es un array
-        if "facebook" not in post_content.keys() or "twitter" not in post_content.keys() or "linkedin" not in post_content.keys():
+        if not ("facebook" not in post_content.keys() or "twitter" not in post_content.keys() or "linkedin" not in post_content.keys()):
             return HttpResponse(simplejson.dumps({"message": "Missing social auth token ", "status": "error", "data":{}}), mimetype="application/json")
         
         

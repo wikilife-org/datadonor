@@ -51,6 +51,7 @@ def do_twitter_registration(data):
     return dd_user_id 
    
 def do_facebook_registration(data):
+    print data
     uid = data["facebook"]["id"]
     backend = get_backend("facebook")
     social_user = UserSocialAuth.get_social_auth(backend.name, uid)
