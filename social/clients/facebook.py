@@ -34,7 +34,7 @@ class FacebookClient(BaseDeviceClient):
         today = date.today()
         total_likes_query = "SELECT object_id FROM like WHERE user_id=me() limit 5000"
         #total_likes = self._graph.fql(total_likes_query)
-        total_likes = 0
+        total_likes = []
         count_likes = len(total_likes)
         index = count_likes - 1
         avg_likes = 0
@@ -60,7 +60,8 @@ class FacebookClient(BaseDeviceClient):
         return avg_likes
     
     def get_friend_count(self):
-        total_friend = self._graph.fql("SELECT friend_count FROM user WHERE uid = me()")[0]["friend_count"]
+        total_friend = 0
+        #total_friend = self._graph.fql("SELECT friend_count FROM user WHERE uid = me()")[0]["friend_count"]
         return total_friend
 
  

@@ -5,7 +5,10 @@ from users.models import Profile
 from django.contrib.auth.models import User
 from uuid import uuid4
 import boto
+import requests
+
 from social_auth.utils import setting, module_member
+
 
 
 slugify = module_member(setting('SOCIAL_AUTH_SLUGIFY_FUNCTION',
@@ -13,7 +16,7 @@ slugify = module_member(setting('SOCIAL_AUTH_SLUGIFY_FUNCTION',
 
 
 from social.util.social_service_locator import SocialServiceLocator
-from rest.models import Log, Data, TextData
+from api.models import Log, Data, TextData
 
 
 def user_registration(data):
@@ -48,9 +51,10 @@ def do_twitter_registration(data):
     return dd_user_id 
    
 def do_facebook_registration(data):
+    print data
     uid = data["facebook"]["id"]
-    backend = get_backend("facebook")
-    social_user = UserSocialAuth.get_social_auth(backend.name, uid)
+    #backend = get_backend("facebook")
+    social_user = UserSocialAuth.get_social_auth("facebook", uid)
     
     if social_user:
         social_user.extra_data = data["facebook"]
@@ -58,7 +62,7 @@ def do_facebook_registration(data):
     
     else:
         user = UserSocialAuth.create_user(username=get_username(), email="")
-        Profile.objects.create(user=user)
+        Profile.objects.get_or_create(user=user)
         social_user = UserSocialAuth.objects.create(user=user, provider="facebook", uid=uid, extra_data=data["facebook"])
         
     dd_user_id = social_user.user.id
@@ -94,7 +98,8 @@ def get_username(
         final_username = UserSocialAuth.clean_username(username)
         if do_slugify:
             final_username = slugify(final_username)
-    return username
+    print final_username
+    return final_username
 
 
 def process_log(post_content, user):
@@ -154,4 +159,9 @@ def process_data(data):
     
 
 def process_location(data):
+    lat = data.get("lat", None)
+    lon = data.get("lon", None)
+    if lat and lon:
+        url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
+        result = requests.get(url).json()
     return None, None
