@@ -102,17 +102,17 @@ def process_log(post_content, user):
 
     text = post_content["text"]
     
-    process_text = process_text(text)
-    category = process_data["category"]
-    wiki_node_id = process_data["wiki_node_id"]
-    wiki_node_name = process_data["wiki_node_name"]
+    processed_text = process_text(text)
+    category = processed_text["category"]
+    wiki_node_id = processed_text["wiki_node_id"]
+    wiki_node_name = processed_text["wiki_node_name"]
     
-    time = process_data["time"] #Format?
+    time = post_content["time"] #Format?
     
     
     log = Log.objects.create(user=user, location=location, weather=weather, category=category, text=text, wiki_node_name=wiki_node_name, wiki_node_id=wiki_node_id )
 
-    for d in process_text["data"]:
+    for d in processed_text["data"]:
         unit = d["unit"]
         value = int(d["value"])
         slug_unit = d["slug_unit"]
@@ -150,7 +150,8 @@ def process_data(data):
     prop2_value = data.get("prop2_value", None)
     
     result = []
+    return result
     
 
 def process_location(data):
-    return None
+    return None, None

@@ -30,6 +30,7 @@ class Log(models.Model):
     wiki_node_id= models.CharField(max_length=300, blank=True, null=True)
     image_url= models.CharField(max_length=300, blank=True, null=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)
+    create_time = models.DateTimeField("created on", auto_now_add=True)
     
 
 class Data(models.Model):
