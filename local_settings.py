@@ -1,5 +1,5 @@
 # Django settings for website project.
-from settings import *  # @UnusedWildImport
+#from settings import *  # @UnusedWildImport
 
 DEBUG = True
 
@@ -8,7 +8,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'datadonor',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '',
     }

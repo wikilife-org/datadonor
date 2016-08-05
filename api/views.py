@@ -13,6 +13,7 @@ from django.forms.models import model_to_dict
 from bson import json_util
 import logging
 from os import path
+from api.models import *
 
 logger = logging.getLogger('datadonors')
 
@@ -104,6 +105,17 @@ def add_log(request):
     except:
         return HttpResponse(simplejson.dumps({"status":"error", "message":"Invalid user"}), mimetype="application/json")
     
+    try:
+        time_str = post_content["time"] #YYYY-MM-DD HH:MM:SS
+    except:
+       return HttpResponse(simplejson.dumps({"status":"error", "message":"Missing Time value"}), mimetype="application/json")
+    
+    try:
+       date_object = datetime.strptime(time_str, '%Y-%m-%d %H:%M:%S')
+       post_content["time_obj"] = date_object
+    except:
+       return HttpResponse(simplejson.dumps({"status":"error", "message":"Invalid time format, use YYYY-MM-DD HH:MM:SS" }), mimetype="application/json")
+    
 
     log_id = process_log(post_content, user)
     result = {"log_id":log_id}
@@ -113,14 +125,24 @@ def add_log(request):
 def add_image(request):
     post_content = simplejson.loads(request.body)
     try:
-        url = upload_image(post_content["image"])
-        #Get the log_id
-        #add the url to object
-        #save obj
+        log_id = int(post_content["log_id"])
+        log = Log.objects.get(id=log_id)
+        
+    except:
+        return HttpResponse(simplejson.dumps({"status":"error", "message": "Invalid LogId"}), mimetype="application/json")
+    
+    
+    try:
+        url = upload_image(post_content["image"], log_id)
+
     except:
         return HttpResponse(simplejson.dumps({"status":"error"}), mimetype="application/json")
     
-    return HttpResponse(simplejson.dumps({"status":"ok"}), mimetype="application/json")
+
+    log.image_url = url
+    log.save()
+    
+    return HttpResponse(simplejson.dumps({"status":"ok", "image_url":url}), mimetype="application/json")
     
 @csrf_exempt
 def edit_log(request):

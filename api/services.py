@@ -103,7 +103,7 @@ def get_username(
 
 
 def process_log(post_content, user):
-    location, weather = process_location(post_content["location"])
+    location, weather = process_location(post_content.get("lat", None), post_content.get("lon", None))
 
     text = post_content["text"]
     
@@ -112,10 +112,15 @@ def process_log(post_content, user):
     wiki_node_id = processed_text["wiki_node_id"]
     wiki_node_name = processed_text["wiki_node_name"]
     
-    time = post_content["time"] #Format?
+    time_obj = post_content["time_obj"] #Format?
     
     
-    log = Log.objects.create(user=user, location=location, weather=weather, category=category, text=text, wiki_node_name=wiki_node_name, wiki_node_id=wiki_node_id )
+    log = Log.objects.create(user=user, location=location, 
+                             weather=weather, 
+                             category=category, text=text, 
+                             wiki_node_name=wiki_node_name, 
+                             wiki_node_id=wiki_node_id,
+                             execute_time = time_obj )
 
     for d in processed_text["data"]:
         unit = d["unit"]
@@ -135,32 +140,69 @@ def process_log(post_content, user):
         wiki_node_name_data = d["wiki_node_name"]
         Data.objects.create(log=log, unit=unit_data, value=value_data, slug_unit=slug_unit_data, wiki_node_id= wiki_node_id_data, wiki_node_name=wiki_node_name_data)
 
+    return log.id
+
+from boto.s3.key import Key
+import base64
+
 def upload_image(data, log_id):
-    conn = boto.connect_s3("AWS_ACCESS_KEYXXX", "AWS_SECRET_KEYXXX")
-    bucket = conn.get_bucket("datadonors_user_images")
-    k = boto.Key(bucket)
-    k.key = "%s"%(log_id)
+    key = "AKIA___I42N5MA___H34RI____JERA".replace("_", "")
+    secret = "766i___UxRQZoq5h___iVTHQLGUYVzxM____rr6H82___5k4khJga".replace("_", "")
+    conn = boto.connect_s3(key, secret)
+    bucket = conn.get_bucket("datadonors-app")
+    k = Key(bucket)
+    k.key = "%s.jpg"%(log_id)
     k.set_metadata('Content-Type', 'image/jpeg')
-    k.set_contents_from_file(data)
+    k.set_contents_from_string(base64.b64decode(data))
+    k.set_acl('public-read')
+    url = k.generate_url(expires_in=0, query_auth=False, force_http=True)
+    return url
 
 def process_text(text):
     #NL or regex funcionts
     #Go to Wikilife, check if node exists, get metrics
-    return None
+    result = {}
+    result["category"] = None 
+    result["wiki_node_id"] = None
+    result["wiki_node_name"] = None
+    
+    #Metrics from wikiNode
+    result["data"] = []
+    return result
+
+from api.models import Data
 
 def process_data(data):
     prop1_name = data.get("prop1_name", None)
     prop1_value = data.get("prop1_value", None)
     prop2_name = data.get("prop2_name", None)
     prop2_value = data.get("prop2_value", None)
-    
     result = []
+    
+    if prop1_name and prop1_value:
+        slug_unit = slugify(prop1_name)
+        d = {}
+        d["unit"] = prop1_name
+        d["value"] = int(prop1_value)
+        d["slug_unit"] = slug_unit
+        d["wiki_node_id"] = None
+        d["wiki_node_name"] = None
+        result.append(d)
+    
+    if prop2_name and prop2_value:
+        slug_unit = slugify(prop2_name)
+        d = {}
+        d["unit"] = prop2_name
+        d["value"] = int(prop2_value)
+        d["slug_unit"] = slug_unit
+        d["wiki_node_id"] = None
+        d["wiki_node_name"] = None
+        result.append(d)
+    
     return result
     
 
-def process_location(data):
-    lat = data.get("lat", None)
-    lon = data.get("lon", None)
+def process_location(lat=None, long=None):
     if lat and lon:
         url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
         result = requests.get(url).json()

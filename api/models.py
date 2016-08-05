@@ -24,11 +24,12 @@ class Log(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='logs')
     text = models.CharField(max_length=300, blank=True, null=True)
     location = models.ForeignKey(Location, related_name="location_logs", blank=True, null=True)
-    weather = models.ForeignKey(WeatherByDay, related_name="weather_logs")
+    weather = models.ForeignKey(WeatherByDay, related_name="weather_logs", blank=True, null=True)
     category= models.CharField(max_length=300, blank=True, null=True)
     wiki_node_name= models.CharField(max_length=300, blank=True, null=True)
     wiki_node_id= models.CharField(max_length=300, blank=True, null=True)
     image_url= models.CharField(max_length=300, blank=True, null=True)
+    execute_time = models.DateTimeField("execute on")
     update_time = models.DateTimeField("last updated on", auto_now=True)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     

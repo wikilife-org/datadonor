@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'reports',
     'data',
     'rest',
+    'api',
 
 
 )
@@ -287,6 +288,10 @@ try:
 except:
     pass
 
+try:
+    from local_settings import *
+except:
+    pass
 
 CACHES = {
     'default': {
