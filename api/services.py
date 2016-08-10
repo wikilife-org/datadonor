@@ -204,7 +204,7 @@ def process_data(data):
     return result
     
 
-def process_location(lat=None, long=None):
+def process_location(lat=None, lon=None):
     if lat and lon:
         url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
         result = requests.get(url).json()
