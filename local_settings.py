@@ -1,5 +1,5 @@
 # Django settings for website project.
-#from settings import *  # @UnusedWildImport
+from settings import *  # @UnusedWildImport
 
 DEBUG = True
 

@@ -5,8 +5,8 @@ from django.db import models
 from django.db.models.signals import post_save
 
 class Location(models.Model):
-    lat = models.IntegerField( blank=True, null=True)
-    long = models.IntegerField( blank=True, null=True)
+    lat = models.CharField(max_length=100, blank=True, null=True)
+    long = models.CharField(max_length=100, blank=True, null=True)
     city= models.CharField(max_length=300, blank=True, null=True)
     region= models.CharField(max_length=300, blank=True, null=True)
     country= models.CharField(max_length=300, blank=True, null=True)

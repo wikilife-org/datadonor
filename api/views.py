@@ -58,7 +58,7 @@ from social_auth.backends import get_backend
 
 from social.util.social_service_locator import SocialServiceLocator
 from api.services import user_registration, upload_image, process_text, process_location, process_data, process_log,\
-    get_user_timeline
+    get_user_timeline, delete_user_log
 from api.models import Log, Data, TextData
 
 @csrf_exempt
@@ -91,16 +91,10 @@ def add_device(request):
     #append device access_token to user
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
+
 @csrf_exempt
 def delete_device(request):
-    post_content = simplejson.loads(request.body)
-    user_id = post_content["user_id"]
-    log_id = post_content["log_id"]
-    try:
-        user = User.objects.get(id=int(user_id))
-    except:
-        return HttpResponse(simplejson.dumps({"status":"error", "message":"Invalid user"}), mimetype="application/json")
-    
+    result = {}
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
 @csrf_exempt
@@ -130,10 +124,13 @@ def add_log(request):
 
 @csrf_exempt
 def add_image(request):
+    logger.error(request.body)
     post_content = simplejson.loads(request.body)
+    logger.error("After JsonDecode")
     try:
         log_id = int(post_content["log_id"])
         log = Log.objects.get(id=log_id)
+        logger.error("After get Log")
         
     except:
         return HttpResponse(simplejson.dumps({"status":"error", "message": "Invalid LogId"}), mimetype="application/json")
@@ -158,8 +155,17 @@ def edit_log(request):
 
 @csrf_exempt
 def delete_log(request):
-    result = {}
-    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
+    post_content = simplejson.loads(request.body)
+    user_id = post_content["user_id"]
+    log_id = post_content["log_id"]
+    try:
+        user = User.objects.get(id=int(user_id))
+    except:
+        return HttpResponse(simplejson.dumps({"status":"error", "message":"Invalid user"}), mimetype="application/json")
+    
+    delete_user_log(user, log_id)
+    
+    return HttpResponse(simplejson.dumps({"status":"ok", "message": "log %s deleted"%log_id}), mimetype="application/json")
 
 @csrf_exempt
 def get_timeline(request):

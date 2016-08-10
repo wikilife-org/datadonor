@@ -11,6 +11,18 @@ import requests
 
 from social_auth.utils import setting, module_member
 
+import logging
+from os import path
+from api.models import *
+
+logger = logging.getLogger('datadonors')
+
+file_log_handler = logging.FileHandler(path.join(path.dirname(__file__),'../logs/rest.log'))
+logger.addHandler(file_log_handler)
+
+# nice output format
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_log_handler.setFormatter(formatter)
 
 
 slugify = module_member(setting('SOCIAL_AUTH_SLUGIFY_FUNCTION',
@@ -148,16 +160,26 @@ from boto.s3.key import Key
 import base64
 
 def upload_image(data, log_id):
+    logger.error("Pre S3 upload")
     key = "AKIA___I42N5MA___H34RI____JERA".replace("_", "")
     secret = "766i___UxRQZoq5h___iVTHQLGUYVzxM____rr6H82___5k4khJga".replace("_", "")
     conn = boto.connect_s3(key, secret)
+    logger.error("1")
     bucket = conn.get_bucket("datadonors-app")
+    logger.error("2")
     k = Key(bucket)
+    logger.error("3")
     k.key = "%s.jpg"%(log_id)
+    logger.error("4")
     k.set_metadata('Content-Type', 'image/jpeg')
+    logger.error("5")
     k.set_contents_from_string(base64.b64decode(data))
+    logger.error("6")
     k.set_acl('public-read')
+    logger.error("7")
     url = k.generate_url(expires_in=0, query_auth=False, force_http=True)
+    logger.error("After s3 Upload")
+    logger.error(url)
     return url
 
 def process_text(text):
@@ -208,6 +230,7 @@ def process_location(lat=None, lon=None):
     if lat and lon:
         url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
         result = requests.get(url).json()
+        print result
     return None, None
 
 
@@ -223,6 +246,7 @@ def get_user_timeline(user_id, from_id=None, limit=10):
         pass
     return result
 
-def delete_log(user_id, log_id):
+
+def delete_user_log(user, log_id):
     log = Log.objects.get(id=int(log_id))
     log.delete()
