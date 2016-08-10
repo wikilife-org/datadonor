@@ -57,7 +57,8 @@ from social_auth.models import UserSocialAuth
 from social_auth.backends import get_backend
 
 from social.util.social_service_locator import SocialServiceLocator
-from api.services import user_registration, upload_image, process_text, process_location, process_data, process_log
+from api.services import user_registration, upload_image, process_text, process_location, process_data, process_log,\
+    get_user_timeline
 from api.models import Log, Data, TextData
 
 @csrf_exempt
@@ -156,9 +157,13 @@ def delete_log(request):
 
 @csrf_exempt
 def get_timeline(request):
-    result = {}
-    #get from_date and to_date
-    #read from Logs table
+    from_id = request.GET.get("from_id", None)
+    user_id = request.GET.get("user_id", None)
+    if not user_id:
+        return HttpResponse(simplejson.dumps({"status":"error", "message": "Missing user_id parameter"}), mimetype="application/json")
+    limit = request.GET.get("limit", 10)
+    result = get_user_timeline(user_id, from_id, limit)
+
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
 @csrf_exempt

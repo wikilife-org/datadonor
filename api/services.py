@@ -3,6 +3,8 @@ from social_auth.models import UserSocialAuth
 from social_auth.backends import get_backend
 from users.models import Profile
 from django.contrib.auth.models import User
+from datetime import datetime
+
 from uuid import uuid4
 import boto
 import requests
@@ -207,3 +209,20 @@ def process_location(lat=None, long=None):
         url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
         result = requests.get(url).json()
     return None, None
+
+
+def get_user_timeline(user_id, from_id=None, limit=10):
+    result = []
+    print from_id
+    try:
+        qs = Log.objects.filter(user__id=int(user_id))
+        if from_id:
+            qs = qs.filter(id__lte=int(from_id))
+        result = [a.to_dict() for a in qs[:limit]]
+    except:
+        pass
+    return result
+
+def delete_log(user_id, log_id):
+    log = Log.objects.get(id=int(log_id))
+    log.delete()

@@ -33,7 +33,21 @@ class Log(models.Model):
     update_time = models.DateTimeField("last updated on", auto_now=True)
     create_time = models.DateTimeField("created on", auto_now_add=True)
     
-
+    class Meta:
+        ordering = ["-execute_time",]
+        
+    def to_dict(self):
+        result = {}
+        result["log_id"] = self.id
+        result["user_id"] = self.user.id
+        result["text"] = self.text
+        result["category"] = self.category
+        result["wiki_node_name"] = self.wiki_node_name
+        result["wiki_node_id"] = self.wiki_node_id
+        result["image_url"] = self.image_url
+        result["execute_time"] = self.execute_time.strftime("%Y-%m-%d %H:%M:%S")
+        return result
+        
 class Data(models.Model):
     log = models.ForeignKey(Log, related_name='data')
     unit = models.CharField(max_length=300, blank=True, null=True)
