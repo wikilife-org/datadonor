@@ -288,10 +288,6 @@ try:
 except:
     pass
 
-try:
-    from local_settings import *
-except:
-    pass
 
 CACHES = {
     'default': {

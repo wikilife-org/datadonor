@@ -93,8 +93,14 @@ def add_device(request):
 
 @csrf_exempt
 def delete_device(request):
-    result = {}
-    #remove device access_token to user
+    post_content = simplejson.loads(request.body)
+    user_id = post_content["user_id"]
+    log_id = post_content["log_id"]
+    try:
+        user = User.objects.get(id=int(user_id))
+    except:
+        return HttpResponse(simplejson.dumps({"status":"error", "message":"Invalid user"}), mimetype="application/json")
+    
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
 @csrf_exempt
