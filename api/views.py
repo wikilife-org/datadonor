@@ -60,6 +60,8 @@ from social.util.social_service_locator import SocialServiceLocator
 from api.services import user_registration, upload_image, process_text, process_location, process_data, process_log,\
     get_user_timeline, delete_user_log
 from api.models import Log, Data, TextData
+import iso8601
+
 
 @csrf_exempt
 def register(request):
@@ -103,16 +105,17 @@ def add_log(request):
     user_id = post_content["user_id"]
     try:
         user = User.objects.get(id=int(user_id))
-    except:
+    except User.DoesNotExist:
         return HttpResponse(simplejson.dumps({"status":"error", "message":"Invalid user"}), mimetype="application/json")
     
     try:
-        time_str = post_content["time"] #YYYY-MM-DD HH:MM:SS
+        time_str = post_content["time"] #YYYY-MM-DD HH:MM:SS #Change timestamp to datetime in MySQL
     except:
        return HttpResponse(simplejson.dumps({"status":"error", "message":"Missing Time value"}), mimetype="application/json")
     
     try:
-       date_object = datetime.strptime(time_str, '%Y-%m-%d %H:%M:%S')
+       date_object = iso8601.parse_date(time_str) #'%Y-%m-%dT%H:%M:%S'
+       print date_object
        post_content["time_obj"] = date_object
     except:
        return HttpResponse(simplejson.dumps({"status":"error", "message":"Invalid time format, use YYYY-MM-DD HH:MM:SS" }), mimetype="application/json")
@@ -134,6 +137,7 @@ def add_image(request):
         
     except:
         return HttpResponse(simplejson.dumps({"status":"error", "message": "Invalid LogId"}), mimetype="application/json")
+    
     
     
     try:
@@ -166,6 +170,20 @@ def delete_log(request):
     delete_user_log(user, log_id)
     
     return HttpResponse(simplejson.dumps({"status":"ok", "message": "log %s deleted"%log_id}), mimetype="application/json")
+
+@csrf_exempt
+def get_log(request):
+    log_id = request.GET.get("log_id", None)
+    user_id = request.GET.get("user_id", None)
+    if not user_id:
+        return HttpResponse(simplejson.dumps({"status":"error", "message": "Missing user_id parameter"}), mimetype="application/json")
+    if not log_id:
+        return HttpResponse(simplejson.dumps({"status":"error", "message": "Missing log_id parameter"}), mimetype="application/json")
+
+    log = Log.objects.get(id=int(log_id))
+    result = {"log_id": log.id, "execute_time":log.execute_time.strftime("%Y-%m-%dT%H:%M:%S%z")}
+
+    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
 @csrf_exempt
 def get_timeline(request):
