@@ -3,7 +3,7 @@ from social_auth.models import UserSocialAuth
 from social_auth.backends import get_backend
 from users.models import Profile
 from django.contrib.auth.models import User
-from datetime import datetime
+from datetime import datetime, date
 
 from uuid import uuid4
 import boto
@@ -185,13 +185,37 @@ def upload_image(data, log_id):
 def process_text(text):
     #NL or regex funcionts
     #Go to Wikilife, check if node exists, get metrics
+    search_exact_url = "http://api.wikilife.org/4/meta/exact/search/?name=%s"%text
+    search_url = "http://api.wikilife.org/4/meta/search/?name=%s"%text
     result = {}
-    result["category"] = None 
-    result["wiki_node_id"] = None
-    result["wiki_node_name"] = None
+    items =  requests.get(search_exact_url).json()["items"]
+    category = None
+    wiki_node_id = None
+    wiki_node_name = None
+    
+    for item in items:
+        if "is" in item:
+            if len(item["is"]) >0 :
+                category = item["is"][0]["name"]
+                wiki_node_id = item["id"]
+                wiki_node_name = item["name"]
+                break
+            
+    if category == None:
+        items =  requests.get(search_url).json()["items"]
+        for item in items:
+            if "is" in item:
+                if len(item["is"]) >0 :
+                    category = item["is"][0]["name"]
+                    break
+        
+    result["category"] = category 
+    result["wiki_node_id"] = wiki_node_id
+    result["wiki_node_name"] = wiki_node_name
     
     #Metrics from wikiNode
     result["data"] = []
+    
     return result
 
 from api.models import Data
@@ -227,18 +251,49 @@ def process_data(data):
     
 
 def process_location(lat=None, lon=None):
+    location = None
+    weather = None
+    
     if lat and lon:
-        url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
-        result = requests.get(url).json()
-        print result
-    return None, None
+        lat = "%s"%round(float(lat),2)
+        lon = "%s"%round(float(lon),2)
+        location, created = Location.objects.get_or_create(lat=lat, lon=lon)
+        weather, created = WeatherByDay.objects.get_or_create(location=location, date=date.today())
+        if created:
+            url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
+            print url
+            result = requests.get(url).json()
+            print result
+            name = result.get("name", None)
+            if "coord" in result:
+                lat = result["coord"]["lat"]
+                lon = result["coord"]["lon"]
+                
+            
+            country = None
+            if "sys" in result:
+                country = result["sys"].get("country", None)
+                location.country = country
+            location.region = name
+            location.save()
+            weather.temp_f= result["weather"][0]
+            weather.temp_c = result["main"]["temp"]
+            weather.weather= result["weather"][0]["main"]
+            weather.icon = result["weather"][0]["icon"]
+            weather.save()
+            
+    return location, weather
 
 
-def get_user_timeline(user_id, from_id=None, limit=10):
+def get_user_timeline(user_id, from_id=None, limit=10, sort="desc"):
     result = []
     print from_id
+    if sort == "desc":
+        q_sort = "-execute_time"
+    else:
+        q_sort = "execute_time"
     try:
-        qs = Log.objects.filter(user__id=int(user_id))
+        qs = Log.objects.filter(user__id=int(user_id)).order_by(q_sort)
         if from_id:
             qs = qs.filter(id__lte=int(from_id))
         result = [a.to_dict() for a in qs[:limit]]

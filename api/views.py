@@ -171,6 +171,15 @@ def delete_log(request):
     
     return HttpResponse(simplejson.dumps({"status":"ok", "message": "log %s deleted"%log_id}), mimetype="application/json")
 
+
+def delete_all_log(request):
+    
+    user_id = request.GET.get("user_id", None)
+    total = Log.objects.filter(user__id=int(user_id)).count()
+    Log.objects.filter(user__id=int(user_id)).delete()
+    
+    return HttpResponse(simplejson.dumps({"message": "%s Logs deleted"%total}), mimetype="application/json")
+
 @csrf_exempt
 def get_log(request):
     log_id = request.GET.get("log_id", None)
@@ -189,10 +198,11 @@ def get_log(request):
 def get_timeline(request):
     from_id = request.GET.get("from_id", None)
     user_id = request.GET.get("user_id", None)
+    sort = request.GET.get("sort", "desc")
     if not user_id:
         return HttpResponse(simplejson.dumps({"status":"error", "message": "Missing user_id parameter"}), mimetype="application/json")
     limit = request.GET.get("limit", 10)
-    result = get_user_timeline(user_id, from_id, limit)
+    result = get_user_timeline(user_id, from_id, limit, sort)
 
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 

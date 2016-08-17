@@ -7,12 +7,15 @@ from test_data import image_base64
 
 
 def run_test():
+    user_id = 1
+    requests.get("http://localhost:8080/api/delete/all/",  params={"user_id":user_id})
+    
     now_str = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-03:00")
     url = "http://localhost:8080/api/log/add/"
-    user_id = 1
+    
     
     log = {"user_id":user_id, "lat":None, "lon":None, 
-           "text": "Advil", "prop1_name":"cantidad", "prop1_value":2,
+           "text": "Running", "prop1_name":"cantidad", "prop1_value":2,
            "prop2_name":"intensidad", "prop2_value":3, "time": now_str}
     
     response = requests.post(url, data=json.dumps(log))
@@ -26,10 +29,7 @@ def run_test():
     print response.text"""
     
     
-    template_url = "http://localhost:8080/api/timeline/"
-    data = {"user_id":user_id}
-    response = requests.get(template_url, params=data)
-    print response.json()
+    
     
     print "Get LOG"
     get_log_url = "http://localhost:8080/api/log/get/"
@@ -39,10 +39,10 @@ def run_test():
     
     print "Get filter Timeline:"
 
-    from_id = response.json()[len(response.json())-1]["log_id"]
+    """from_id = response.json()[len(response.json())-1]["log_id"]
     data = {"user_id":user_id, "from_id":from_id}
     response = requests.get(template_url, params=data)
-    print response.text
+    print response.text"""
     
     
     delete_log_url = "http://localhost:8080/api/log/delete/"
@@ -70,6 +70,13 @@ def run_test():
     data = {"log_id":log_id, "image":image_base64}
     response = requests.post(image_url, data=json.dumps(data))
     print response.text"""
+    
+    template_url = "http://localhost:8080/api/timeline/"
+    data = {"user_id":user_id}
+    response = requests.get(template_url, params=data)
+    print response.text
+    print response.json()
+    
     
 if __name__ == "__main__":
     run_test()

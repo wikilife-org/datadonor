@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     
-    
+    url(r'^delete/all/', delete_all_log, name='delete_all_log'), 
     #New API
     url(r'^register/', register, name='register'),
     url(r'^device/add/', add_device, name='add_device'),
@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^log/edit/', edit_log, name='edit_log'),
     url(r'^log/delete/', delete_log, name='delete_log'),
     url(r'^log/image/add/', add_image, name='add_image'),
+   
     
     url(r'^timeline/', get_timeline, name='get_timeline'),
     url(r'^profile/', get_profile, name='get_profile'),
