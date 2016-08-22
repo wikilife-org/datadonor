@@ -29,6 +29,7 @@ class Log(models.Model):
     category= models.CharField(max_length=300, blank=True, null=True)
     wiki_node_name= models.CharField(max_length=300, blank=True, null=True)
     wiki_node_id= models.CharField(max_length=300, blank=True, null=True)
+    source = models.CharField(max_length=300, blank=True, null=True, default="manual")
     image_url= models.CharField(max_length=300, blank=True, null=True)
     execute_time = models.DateTimeField("execute on", db_index=True)
     update_time = models.DateTimeField("last updated on", auto_now=True)

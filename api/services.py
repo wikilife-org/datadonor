@@ -262,25 +262,30 @@ def process_location(lat=None, lon=None):
         if created:
             url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
             print url
-            result = requests.get(url).json()
-            print result
-            name = result.get("name", None)
-            if "coord" in result:
-                lat = result["coord"]["lat"]
-                lon = result["coord"]["lon"]
+            try:
+                result = requests.get(url).json()
+                print result
+                name = result.get("name", None)
+                if "coord" in result:
+                    lat = result["coord"]["lat"]
+                    lon = result["coord"]["lon"]
+                    
                 
-            
-            country = None
-            if "sys" in result:
-                country = result["sys"].get("country", None)
-                location.country = country
-            location.region = name
-            location.save()
-            weather.temp_f= result["weather"][0]
-            weather.temp_c = result["main"]["temp"]
-            weather.weather= result["weather"][0]["main"]
-            weather.icon = result["weather"][0]["icon"]
-            weather.save()
+                country = None
+                if "sys" in result:
+                    country = result["sys"].get("country", None)
+                    location.country = country
+                location.region = name
+                location.save()
+                weather.temp_f= result["weather"][0]
+                weather.temp_c = result["main"]["temp"]
+                weather.weather= result["weather"][0]["main"]
+                weather.icon = result["weather"][0]["icon"]
+                weather.save()
+            except:
+                weather.delete()
+                location = None
+                weather = None
             
     return location, weather
 
