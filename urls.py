@@ -4,7 +4,7 @@ admin.autodiscover()
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 #from social.facebook import facebook_view
-from views import *, advisory
+from views import *
 from reports.views import *
 from reports.views import miles_history
 
