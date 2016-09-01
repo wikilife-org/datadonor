@@ -141,7 +141,7 @@ def process_log(post_content, user):
     wiki_node_id = processed_text["wiki_node_id"]
     wiki_node_name = processed_text["wiki_node_name"]
     source = post_content.get("source", None)
-    
+    image_url = post_content.get("image_url", None)
     time_obj = post_content["time_obj"] #Format?
     
     
@@ -151,6 +151,7 @@ def process_log(post_content, user):
                              wiki_node_name=wiki_node_name, 
                              wiki_node_id=wiki_node_id,
                              source=source,
+                             image_url=image_url,
                              execute_time = time_obj )
 
     for d in processed_text["data"]:
