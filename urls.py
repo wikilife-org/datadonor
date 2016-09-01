@@ -4,7 +4,7 @@ admin.autodiscover()
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 #from social.facebook import facebook_view
-from views import *
+from views import *, advisory
 from reports.views import *
 from reports.views import miles_history
 
@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^comming/', comming, name='comming'),
     url(r'^mission/', mission, name='mission'),
     url(r'^team/', team, name='team'),
+    url(r'^advisory/', advisory, name='advisory'),
     url(r'^contact/', contact, name='contact'),
     url(r'^privacy/', privacy, name='privacy'),
     url(r'^terms-of-service/', tos, name='tos'),
