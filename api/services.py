@@ -33,6 +33,21 @@ from social.util.social_service_locator import SocialServiceLocator
 from api.models import Log, Data, TextData
 
 
+
+def process_stats(user_id, from_date, to_date):
+    result = {}
+    #process the logs and data tables using the user_id and date.
+    #agreggate according to the user logs and data.
+    logs = Log.objects.filter(user__id=user_id, execute_time__gte=from_date, execute_time__lte=to_date)
+    
+    #agrupar los logs por el nombre, luego agregar los values agrupados por unidad.
+    for log in logs:
+        print log
+    #usar python?
+    
+    #define the same format for all cases
+    
+
 def user_registration(data):
     
     if "facebook" in data.keys():
@@ -125,6 +140,7 @@ def process_log(post_content, user):
     category = processed_text["category"]
     wiki_node_id = processed_text["wiki_node_id"]
     wiki_node_name = processed_text["wiki_node_name"]
+    source = post_content.get("source", None)
     
     time_obj = post_content["time_obj"] #Format?
     
@@ -134,6 +150,7 @@ def process_log(post_content, user):
                              category=category, text=text, 
                              wiki_node_name=wiki_node_name, 
                              wiki_node_id=wiki_node_id,
+                             source=source,
                              execute_time = time_obj )
 
     for d in processed_text["data"]:

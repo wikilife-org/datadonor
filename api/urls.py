@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^log/delete/', delete_log, name='delete_log'),
     url(r'^log/image/add/', add_image, name='add_image'),
    
-    
+    url(r'^stats/', get_stats, name='stats'),
     url(r'^timeline/', get_timeline, name='get_timeline'),
     url(r'^profile/', get_profile, name='get_profile'),
     

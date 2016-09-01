@@ -81,6 +81,10 @@ def mission(request):
     return render_to_response('static/mission.html',{},
                                   RequestContext(request))
 
+def advisory(request):
+    return render_to_response('static/advisory.html',{},
+                                  RequestContext(request))
+
 def team(request):
     return render_to_response('static/team.html',{},
                                   RequestContext(request))

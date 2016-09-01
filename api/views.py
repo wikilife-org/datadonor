@@ -154,6 +154,7 @@ def add_image(request):
     
 @csrf_exempt
 def edit_log(request):
+    #Agosto 22: Juan dijo que no se puede editar. En instagram o Twitter no editas, borras.
     result = {}
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
@@ -212,6 +213,22 @@ def get_profile(request):
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
 
+@csrf_exempt
+def get_stats(request):
+    user_id = request.GET.get("user_id", None)
+    to_date = request.GET.get("to", None)
+    from_date = request.GET.get("from", None)
+    if not user_id:
+        return HttpResponse(simplejson.dumps({"status":"error", "message": "Missing user_id parameter"}), mimetype="application/json")
+    if not to_date:
+        return HttpResponse(simplejson.dumps({"status":"error", "message":"Missing To Date value"}), mimetype="application/json")
+    if not from_date:
+        return HttpResponse(simplejson.dumps({"status":"error", "message":"Missing From Date value"}), mimetype="application/json")
+
+    
+    result  = process_stats(user_id, from_date, to_date)
+    
+    return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 
 def process(user, opr, value, date_):
     if opr["key"] == "user":
