@@ -58,7 +58,7 @@ from social_auth.backends import get_backend
 
 from social.util.social_service_locator import SocialServiceLocator
 from api.services import user_registration, upload_image, process_text, process_location, process_data, process_log,\
-    get_user_timeline, delete_user_log
+    get_user_timeline, delete_user_log, process_stats
 from api.models import Log, Data, TextData
 import iso8601
 
