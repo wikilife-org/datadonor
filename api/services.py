@@ -52,9 +52,9 @@ def process_stats(user_id, from_date, to_date):
         for d in log.data.all():
             count = count+1
             name = "prop%s_name"%count
-            data[name] = data.unit
+            data[name] = d.unit
             name_value = "prop%s_value"%count
-            data[name_value] = data.value
+            data[name_value] = d.value
             
         if text_slug != text_slug_aux:
             result.append(logs_p)
