@@ -35,17 +35,34 @@ from api.models import Log, Data, TextData
 
 
 def process_stats(user_id, from_date, to_date):
-    result = {}
+    result = []
     #process the logs and data tables using the user_id and date.
     #agreggate according to the user logs and data.
-    logs = Log.objects.filter(user__id=user_id, execute_time__gte=from_date, execute_time__lte=to_date)
+    logs = Log.objects.filter(user__id=user_id, execute_time__gte=from_date, execute_time__lte=to_date).order_by('text')
     
     #agrupar los logs por el nombre, luego agregar los values agrupados por unidad.
+    text_slug_aux = ""
+    logs_p = []
     for log in logs:
-        print log
-    #usar python?
-    
-    #define the same format for all cases
+        text_slug = slugify(log.text)
+        data = {"name": log.text, 
+                "category": log.category, 
+                "execute_time": log.execute_time.strftime("%Y-%m-%d %H:%M:%S")}
+        count = 0
+        for d in log.data.all():
+            count = count+1
+            name = "prop%s_name"%count
+            data[name] = data.unit
+            name_value = "prop%s_value"%count
+            data[name_value] = data.value
+            
+        if text_slug != text_slug_aux:
+            result.append(logs_p)
+            text_slug_aux = text_slug
+            logs_p = []
+        logs_p.append(data)
+        
+    return result
     
 
 def user_registration(data):

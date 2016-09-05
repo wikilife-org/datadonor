@@ -62,6 +62,8 @@ class Log(models.Model):
         
 class Data(models.Model):
     log = models.ForeignKey(Log, related_name='data')
+    #log_text_slug = models.CharField(max_length=300, blank=True, null=True)
+    #log_category = models.CharField(max_length=300, blank=True, null=True)
     unit = models.CharField(max_length=300, blank=True, null=True)
     slug_unit = models.CharField(max_length=350, blank=True, null=True)
     value = models.IntegerField( blank=True, null=True)
