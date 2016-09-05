@@ -56,11 +56,12 @@ def process_stats(user_id, from_date, to_date):
             name_value = "prop%s_value"%count
             data[name_value] = d.value
             
+        logs_p.append(data)
         if text_slug != text_slug_aux:
             result.append(logs_p)
             text_slug_aux = text_slug
             logs_p = []
-        logs_p.append(data)
+        
         
     return result
     
