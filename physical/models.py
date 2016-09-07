@@ -3,6 +3,7 @@ from django.conf import settings
 from django.db import models
 
 from api.models import Log, Data
+from django.template.defaultfilters import slugify
 
 RUNNING_WL_ACT_ID = 814
 WALKING_WL_ACT_ID = 1011
@@ -71,6 +72,7 @@ class UserActivityLog(models.Model):
         if self.id is None:
             category = "Exercise"
             text = self.type.title() if self.type else category
+            log_text = slugify(text)
             image_url = "https://s3.amazonaws.com/datadonors-app/default-exercise.jpg"
             log = Log.objects.create(user=self.user, 
                                execute_time=self.execute_time, 
@@ -79,11 +81,22 @@ class UserActivityLog(models.Model):
                                category=category,
                                image_url=image_url)
             if self.miles:
-                Data.objects.create(log=log, unit="miles", value=self.miles, slug_unit="miles")
+                Data.objects.create(log=log, unit="miles", value=self.miles, 
+                            slug_unit="miles", 
+                            execute_time=self.execute_time,
+                            log_text_slug=log_text,
+                            log_category=category 
+                            )
             if self.hours:
-                Data.objects.create(log=log, unit="hours", value=self.hours, slug_unit="hours")
+                Data.objects.create(log=log, unit="hours", value=self.hours, slug_unit="hours",
+                            execute_time=self.execute_time,
+                            log_text_slug=log_text,
+                            log_category=category )
             if self.steps:
-                Data.objects.create(log=log, unit="steps", value=self.steps, slug_unit="steps")
+                Data.objects.create(log=log, unit="steps", value=self.steps, slug_unit="steps",
+                                        execute_time=self.execute_time,
+                                        log_text_slug=log_text,
+                                        log_category=category )
                 
         super(UserActivityLog, self).save(*args, **kwargs)
         
