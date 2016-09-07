@@ -1,4 +1,6 @@
 
+from datetime import date, timedelta as td
+
 from social_auth.models import UserSocialAuth
 from social_auth.backends import get_backend
 from users.models import Profile
@@ -32,39 +34,91 @@ slugify = module_member(setting('SOCIAL_AUTH_SLUGIFY_FUNCTION',
 from social.util.social_service_locator import SocialServiceLocator
 from api.models import Log, Data, TextData
 
+def get_days_list(from_date, to_date):
 
+    delta = to_date - from_date
+    result = {}
+    for i in range(delta.days + 1):
+        result[(from_date + td(days=i)).strftime("%Y-%m-%d") ] = []
+    
+    return result
 
 def process_stats(user_id, from_date, to_date):
     result = []
-    #process the logs and data tables using the user_id and date.
-    #agreggate according to the user logs and data.
-    logs = Log.objects.filter(user__id=user_id, execute_time__gte=from_date, execute_time__lte=to_date).order_by('text')
+    """
+    TODO: Agrupar las stats por unidad, agregarlas.
+        Porque no se crearon los logs del crawler.?
     
-    #agrupar los logs por el nombre, luego agregar los values agrupados por unidad.
-    text_slug_aux = ""
-    logs_p = []
-    for log in logs:
-        text_slug = slugify(log.text)
-        data = {"name": log.text, 
-                "category": log.category, 
-                "execute_time": log.execute_time.strftime("%Y-%m-%d %H:%M:%S")}
-        count = 0
-        for d in log.data.all():
-            count = count+1
-            name = "prop%s_name"%count
-            data[name] = d.unit
-            name_value = "prop%s_value"%count
-            data[name_value] = d.value
-            
-        logs_p.append(data)
-        if text_slug != text_slug_aux:
-            result.append(logs_p)
-            text_slug_aux = text_slug
-            logs_p = []
+    [
+        {"name": "NAME", "category": "CATEGORY", 
+           "data": [ 
+                   { " prop_name":"UNIT1", "dataset":[ (execute_time, value), 
+                                                       (execute_time, value),
+                                                       (execute_time, value),
+                                                       (execute_time, value),]},
+                    { " prop_name":"UNIT2", "dataset":[ (execute_time, value),
+                                                        (execute_time, value),
+                                                        (execute_time, value),
+                                                        (execute_time, value),]},
+                     { " prop_name":"UNIT3", "dataset":[ (execute_time, value),]},
+                 ]
+             }
+        ,
         
+    ]
+    """
+    from django.db.models import Avg
+    import copy
+    days_list = get_days_list(from_date, to_date)
+    
+    logs = Data.objects.filter(log__user__id=user_id, execute_time__gte=from_date, execute_time__lte=to_date)
+    items = logs.extra({"day": "date(api_data.execute_time)"}).values("log_text_slug", "slug_unit", "day", "log_category", "value")\
+                    .order_by("log_text_slug", "slug_unit")
+                    
+    
+    
+    stat = {}
+    category_map = {}
+    for item in items:
+        name = item["log_text_slug"]
+        category_map[name] = item["log_category"]
+        
+        if name in stat:
+            if item["slug_unit"] not in stat[name]:
+                stat[name][item["slug_unit"]] = copy.deepcopy(days_list)
+
+        else:
+            stat[name] = {}
+            stat[name][item["slug_unit"]] = copy.deepcopy(days_list)
+        
+        stat[name][item["slug_unit"]][item["day"].strftime("%Y-%m-%d")].append(item["value"])
+        
+   
+    print stat
+    
+    for k in stat.keys():
+        s = {}
+        s["name"] = k.replace("-", " ").title()
+        s["category"] = category_map.get(k, "")
+        s["data"]  = []
+        for i in stat[k].keys():
+            s["data"].append({"prop_name": i.replace("-", " ").title(), "dataset":to_list(stat[k][i]) })
+        result.append(s)
         
     return result
-    
+
+def to_list(dict_days):
+    result = []
+    for k in dict_days.keys():
+        sum = 0
+        for j in dict_days[k]:
+            sum = sum + j
+        if len(dict_days[k]) > 0:
+            avg = round(sum / len(dict_days[k]), 2)
+        else:
+            avg = 0.0
+        result.append((k, avg))
+    return result
 
 def user_registration(data):
     
@@ -162,7 +216,7 @@ def process_log(post_content, user):
     image_url = post_content.get("image_url", None)
     time_obj = post_content["time_obj"] #Format?
     
-    
+    slug_text = slugify(text)
     log = Log.objects.create(user=user, location=location, 
                              weather=weather, 
                              category=category, text=text, 
@@ -178,7 +232,13 @@ def process_log(post_content, user):
         slug_unit = d["slug_unit"]
         wiki_node_id_text = d["wiki_node_id"]
         wiki_node_name_text = d["wiki_node_name"]
-        TextData.objects.create(log=log,unit=unit, slug_unit=slug_unit ,value=value, wiki_node_id=wiki_node_id_text, wiki_node_name=wiki_node_name_text  )
+        TextData.objects.create(log=log,unit=unit, 
+                        log_category=category,
+                        slug_unit=slug_unit, 
+                        log_text_slug=slug_text, 
+                        value=value, wiki_node_id=wiki_node_id_text, 
+                        wiki_node_name=wiki_node_name_text,
+                         execute_time = time_obj  )
         
       
     data = process_data(post_content)
@@ -188,7 +248,14 @@ def process_log(post_content, user):
         slug_unit_data = d["slug_unit"]
         wiki_node_id_data = d["wiki_node_id"]
         wiki_node_name_data = d["wiki_node_name"]
-        Data.objects.create(log=log, unit=unit_data, value=value_data, slug_unit=slug_unit_data, wiki_node_id= wiki_node_id_data, wiki_node_name=wiki_node_name_data)
+        Data.objects.create(log=log, unit=unit_data, 
+                        value=value_data, 
+                        log_category=category,
+                        slug_unit=slug_unit_data, 
+                        wiki_node_id= wiki_node_id_data, 
+                        wiki_node_name=wiki_node_name_data,
+                        log_text_slug=slug_text, 
+                        execute_time = time_obj)
 
     return log.id
 

@@ -216,17 +216,20 @@ def get_profile(request):
 @csrf_exempt
 def get_stats(request):
     user_id = request.GET.get("user_id", None)
-    to_date = request.GET.get("to", None)
-    from_date = request.GET.get("from", None)
+    to_date = request.GET.get("to_date", None)
+    from_date = request.GET.get("from_date", None)
     if not user_id:
         return HttpResponse(simplejson.dumps({"status":"error", "message": "Missing user_id parameter"}), mimetype="application/json")
     if not to_date:
-        return HttpResponse(simplejson.dumps({"status":"error", "message":"Missing To Date value"}), mimetype="application/json")
+        return HttpResponse(simplejson.dumps({"status":"error", "message":"Missing to_date value"}), mimetype="application/json")
     if not from_date:
-        return HttpResponse(simplejson.dumps({"status":"error", "message":"Missing From Date value"}), mimetype="application/json")
+        return HttpResponse(simplejson.dumps({"status":"error", "message":"Missing from_date value"}), mimetype="application/json")
 
-    
-    result  = process_stats(user_id, from_date, to_date)
+    from_date_obj = datetime.strptime(from_date, "%Y-%m-%d").date()
+    to_date_obj = datetime.strptime(to_date, "%Y-%m-%d").date()
+    print from_date_obj
+    print to_date_obj
+    result  = process_stats(user_id, from_date_obj, to_date_obj)
     
     return HttpResponse(simplejson.dumps(result), mimetype="application/json")
 

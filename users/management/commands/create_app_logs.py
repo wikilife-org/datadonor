@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.contrib.auth.models import User
 from physical.models import UserActivityLog
 from api.models import Log, Data
-
+from django.template.defaultfilters import slugify
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -20,11 +20,27 @@ class Command(BaseCommand):
                                source=activity.provider,
                                category=category,
                                image_url=image_url)
+            slug_text = slugify(text)
             if activity.miles:
-                Data.objects.create(log=log, unit="miles", value=activity.miles, slug_unit="miles")
+                Data.objects.create(log=log, 
+                                        execute_time=activity.execute_time, 
+                                        log_text_slug=slug_text, 
+                                        unit="miles", 
+                                        value=activity.miles, 
+                                        slug_unit="miles",
+                                        log_category=category)
             if activity.hours:
-                Data.objects.create(log=log, unit="hours", value=activity.hours, slug_unit="hours")
+                Data.objects.create(log=log, unit="hours", 
+                                    execute_time=activity.execute_time, 
+                                    log_text_slug=slug_text,
+                                    value=activity.hours, slug_unit="hours",
+                                    log_category=category)
             if activity.steps:
-                Data.objects.create(log=log, unit="steps", value=activity.steps, slug_unit="steps")
+                Data.objects.create(log=log, unit="steps", 
+                                    log_category=category,
+                                    execute_time=activity.execute_time, 
+                                    log_text_slug=slug_text,
+                                    value=activity.steps, 
+                                    slug_unit="steps")
         
         print "Done :)"
