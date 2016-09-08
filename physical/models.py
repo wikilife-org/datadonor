@@ -70,34 +70,39 @@ class UserActivityLog(models.Model):
     
     def save(self, *args, **kwargs):
         created = kwargs.pop('created', None)
-        if created == True:
-            category = "Exercise"
-            text = self.type.title() if self.type else category
-            log_text = slugify(text)
-            image_url = "https://s3.amazonaws.com/datadonors-app/default-exercise.jpg"
-            log = Log.objects.create(user=self.user, 
-                               execute_time=self.execute_time, 
-                               text=text,
-                               source=self.provider,
-                               category=category,
-                               image_url=image_url)
-            if self.miles:
-                Data.objects.create(log=log, unit="miles", value=self.miles, 
-                            slug_unit="miles", 
-                            execute_time=self.execute_time,
-                            log_text_slug=log_text,
-                            log_category=category 
-                            )
-            if self.hours:
-                Data.objects.create(log=log, unit="hours", value=self.hours, slug_unit="hours",
-                            execute_time=self.execute_time,
-                            log_text_slug=log_text,
-                            log_category=category )
-            if self.steps:
-                Data.objects.create(log=log, unit="steps", value=self.steps, slug_unit="steps",
-                                        execute_time=self.execute_time,
-                                        log_text_slug=log_text,
-                                        log_category=category )
+        try:
+            if created == True:
+                print "Going to save Worked!"
+                category = "Exercise"
+                text = self.type.title() if self.type else category
+                log_text = slugify(text)
+                image_url = "https://s3.amazonaws.com/datadonors-app/default-exercise.jpg"
+                log = Log.objects.create(user=self.user, 
+                                   execute_time=self.execute_time, 
+                                   text=text,
+                                   source=self.provider,
+                                   category=category,
+                                   image_url=image_url)
+                if self.miles:
+                    Data.objects.create(log=log, unit="miles", value=self.miles, 
+                                slug_unit="miles", 
+                                execute_time=self.execute_time,
+                                log_text_slug=log_text,
+                                log_category=category 
+                                )
+                if self.hours:
+                    Data.objects.create(log=log, unit="hours", value=self.hours, slug_unit="hours",
+                                execute_time=self.execute_time,
+                                log_text_slug=log_text,
+                                log_category=category )
+                if self.steps:
+                    Data.objects.create(log=log, unit="steps", value=self.steps, slug_unit="steps",
+                                            execute_time=self.execute_time,
+                                            log_text_slug=log_text,
+                                            log_category=category )
+        except Exception, e:
+            print "Algo paso mal en el save de log"
+            print e
  
         super(UserActivityLog, self).save(*args, **kwargs)
         
