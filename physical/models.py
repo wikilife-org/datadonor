@@ -69,8 +69,8 @@ class UserActivityLog(models.Model):
     update_time = models.DateTimeField("last updated on", auto_now=True)
     
     def save(self, *args, **kwargs):
-        """
-        if self.id is None:
+        created = kwargs.pop('created', None)
+        if created == True:
             category = "Exercise"
             text = self.type.title() if self.type else category
             log_text = slugify(text)
@@ -98,6 +98,6 @@ class UserActivityLog(models.Model):
                                         execute_time=self.execute_time,
                                         log_text_slug=log_text,
                                         log_category=category )
-        """  
+ 
         super(UserActivityLog, self).save(*args, **kwargs)
         

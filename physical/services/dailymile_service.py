@@ -64,7 +64,7 @@ class DailymileService(BaseDeviceService):
                 if activity.type in ["walking", "running"]:
                     activity.steps = round(float(activity.miles * MILES_TO_STEPS))   
 
-                activity.save()
+                activity.save(created=created)
 
                 """if created:
                     wl_log = self._create_workout_log(item)
