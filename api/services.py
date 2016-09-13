@@ -387,6 +387,7 @@ def process_location(lat=None, lon=None):
                 weather.save()
             except:
                 weather.delete()
+                location.delete()
                 location = None
                 weather = None
             
