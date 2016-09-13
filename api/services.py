@@ -386,8 +386,7 @@ def process_location(lat=None, lon=None):
                 weather.icon = result["weather"][0]["icon"]
                 weather.save()
             except:
-                location.delete()
-                weather.delete()
+
                 location = None
                 weather = None
             
