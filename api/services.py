@@ -118,6 +118,7 @@ def to_list(dict_days):
         else:
             avg = 0.0
         result.append((k, avg))
+    result = sorted(result, key=lambda x: x[0])
     return result
 
 def user_registration(data):
