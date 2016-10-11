@@ -363,7 +363,11 @@ def process_location(lat=None, lon=None):
         lon = "%s"%round(float(lon),2)
         location, created = Location.objects.get_or_create(lat=lat, lon=lon)
         weather, created = WeatherByDay.objects.get_or_create(location=location, date=date.today())
-        if created:
+        try:
+            weather = WeatherByDay.objects.get(location=location, date=date.today())
+        except WeatherByDay.DoesNotExist:
+            weather = WeatherByDay(location=location, date=date.today())
+        
             url = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&APPID=7341d32aee1f6e63e10ce24f3f5ecbcc&units=metric".format(lat, lon)
             print url
             try:
