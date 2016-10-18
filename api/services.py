@@ -362,7 +362,7 @@ def process_location(lat=None, lon=None):
         lat = "%s"%round(float(lat),2)
         lon = "%s"%round(float(lon),2)
         location, created = Location.objects.get_or_create(lat=lat, lon=lon)
-        weather, created = WeatherByDay.objects.get_or_create(location=location, date=date.today())
+        #weather, created = WeatherByDay.objects.get_or_create(location=location, date=date.today())
         try:
             weather = WeatherByDay.objects.get(location=location, date=date.today())
         except WeatherByDay.DoesNotExist:
