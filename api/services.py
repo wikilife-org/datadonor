@@ -287,13 +287,29 @@ def upload_image(data, log_id):
     return url
 
 def process_text(text):
+    result = {}
+    if text == "Walking":
+        result["category"] = "Exercise" 
+        result["wiki_node_id"] = 1011
+        result["wiki_node_name"] = "Walking"
+        
+        #Metrics from wikiNode
+        result["data"] = []
+        return result
+    if text == "Working":
+        result["category"] = "Life Variable" 
+        result["wiki_node_id"] = 366
+        result["wiki_node_name"] = "Work"
+        
+        #Metrics from wikiNode
+        result["data"] = []
+        return result
     logger.error("Text to process: ")
     logger.error(text)
     #NL or regex funcionts
     #Go to Wikilife, check if node exists, get metrics
     search_exact_url = "http://api.wikilife.org/4/meta/exact/search/?name=%s"%text
     search_url = "http://api.wikilife.org/4/meta/search/?name=%s"%text
-    result = {}
     items =  requests.get(search_exact_url).json()["items"]
     category = None
     wiki_node_id = None
@@ -376,11 +392,12 @@ def process_data(data):
     return result
     
 UNIT_MAP = {}
-UNIT_MAP["hours"] = "hrs"
-UNIT_MAP["horas"] = "hrs"
-UNIT_MAP["hs"] = "hrs"
-UNIT_MAP["hora"] = "h"
-UNIT_MAP["hour"] = "h"
+UNIT_MAP["hrs"] = "hours"
+UNIT_MAP["horas"] = "hours"
+UNIT_MAP["hs"] = "hours"
+UNIT_MAP["hora"] = "hour"
+UNIT_MAP["hr"] = "hour"
+UNIT_MAP["h"] = "hour"
 UNIT_MAP["minutes"] = "min"
 UNIT_MAP["minutos"] = "min"
 UNIT_MAP["mins"] = "min"
