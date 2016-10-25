@@ -103,6 +103,9 @@ def delete_device(request):
 def add_log(request):
     post_content = simplejson.loads(request.body)
     user_id = post_content["user_id"]
+    logger.error("UserID [ADD LOG]")
+    logger.error(user_id)
+    logger.error(post_content)
     try:
         user = User.objects.get(id=int(user_id))
     except User.DoesNotExist:
@@ -127,7 +130,6 @@ def add_log(request):
 
 @csrf_exempt
 def add_image(request):
-    logger.error(request.body)
     post_content = simplejson.loads(request.body)
     logger.error("After JsonDecode")
     try:

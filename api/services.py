@@ -287,6 +287,8 @@ def upload_image(data, log_id):
     return url
 
 def process_text(text):
+    logger.error("Text to process: ")
+    logger.error(text)
     #NL or regex funcionts
     #Go to Wikilife, check if node exists, get metrics
     search_exact_url = "http://api.wikilife.org/4/meta/exact/search/?name=%s"%text
@@ -306,12 +308,28 @@ def process_text(text):
                 break
             
     if category == None:
-        items =  requests.get(search_url).json()["items"]
-        for item in items:
-            if "is" in item:
-                if len(item["is"]) >0 :
-                    category = item["is"][0]["name"]
-                    break
+        if "ing" in text:
+            aux_text = text.replace("ing","")
+            search_exact_url = "http://api.wikilife.org/4/meta/exact/search/?name=%s"%aux_text
+            items =  requests.get(search_exact_url).json()["items"]
+            category = None
+            wiki_node_id = None
+            wiki_node_name = None
+            
+            for item in items:
+                if "is" in item:
+                    if len(item["is"]) >0 :
+                        category = item["is"][0]["name"]
+                        wiki_node_id = item["id"]
+                        wiki_node_name = item["name"]
+                        break
+        if category == None:
+            items =  requests.get(search_url).json()["items"]
+            for item in items:
+                if "is" in item:
+                    if len(item["is"]) >0 :
+                        category = item["is"][0]["name"]
+                        break
         
     result["category"] = category 
     result["wiki_node_id"] = wiki_node_id
@@ -331,6 +349,8 @@ def process_data(data):
     prop2_value = data.get("prop2_value", None)
     result = []
     
+    prop1_name = process_prop_name(prop1_name)
+        
     if prop1_name and prop1_value:
         slug_unit = slugify(prop1_name)
         d = {}
@@ -340,6 +360,8 @@ def process_data(data):
         d["wiki_node_id"] = None
         d["wiki_node_name"] = None
         result.append(d)
+    
+    prop2_name = process_prop_name(prop2_name)
     
     if prop2_name and prop2_value:
         slug_unit = slugify(prop2_name)
@@ -353,6 +375,22 @@ def process_data(data):
     
     return result
     
+UNIT_MAP = {}
+UNIT_MAP["hours"] = "hrs"
+UNIT_MAP["horas"] = "hrs"
+UNIT_MAP["hs"] = "hrs"
+UNIT_MAP["hora"] = "h"
+UNIT_MAP["hour"] = "h"
+UNIT_MAP["minutes"] = "min"
+UNIT_MAP["minutos"] = "min"
+UNIT_MAP["mins"] = "min"
+
+def process_prop_name(prop_name):
+    final_name = None
+    if prop_name:
+        final_name = prop_name.lower()
+        final_name = UNIT_MAP.get(final_name, final_name)
+    return final_name
 
 def process_location(lat=None, lon=None):
     location = None
