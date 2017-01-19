@@ -8,5 +8,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         users = User.objects.all()
         for user in users:
-            refresh_user_data(user)
+            pass
+            #refresh_user_data(user)
             
