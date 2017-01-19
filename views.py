@@ -176,7 +176,7 @@ def home(request):
 
 
 def home_bye(request):
-    return render_to_response('bye.html', {},
+    return render_to_response('static/bye.html', {},
                                   RequestContext(request))
 def greg(request):
     return render_to_response('google7d1bd3580ebd5b1b.html', {},
