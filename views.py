@@ -174,6 +174,10 @@ def home(request):
     return render_to_response('landing.html', context,
                                   RequestContext(request))
 
+
+def home_bye(request):
+    return render_to_response('bye.html', {},
+                                  RequestContext(request))
 def greg(request):
     return render_to_response('google7d1bd3580ebd5b1b.html', {},
                                   RequestContext(request))
